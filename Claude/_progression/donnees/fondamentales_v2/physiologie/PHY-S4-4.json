@@ -1,0 +1,124 @@
+{
+ "id": "PHY-S4-4",
+ "module": "physiologie",
+ "sous_onglet": "Sciences fondamentales > Physiologie",
+ "systeme": "S4",
+ "volet": "P",
+ "fonction": "Transport de l'O2 et courbe de dissociation",
+ "niveau": "m",
+ "date": "14.11.2026",
+ "statut": "rédigé, à auditer",
+ "definition": "Le sang transporte l'oxygène surtout lié à l'hémoglobine ; la courbe de dissociation sigmoïde relie la saturation à la PaO2 et règle la libération d'oxygène aux tissus.",
+ "boucle": {
+  "capteur": "Les tissus produisent CO2, H+ et chaleur ; le globule rouge produit le 2,3-DPG.",
+  "integrateur": "L'hémoglobine change d'affinité selon ces signaux (coopérativité).",
+  "effecteur": "L'hémoglobine charge l'O2 au poumon et le libère aux tissus actifs."
+ },
+ "mecanisme": [
+  "Presque tout l'oxygène voyage lié à l'hémoglobine ; la part dissoute reste minime.",
+  "La fixation d'une molécule facilite la suivante (coopérativité) ; la courbe prend donc une forme sigmoïde avec un plateau.",
+  "Sur le plateau, une baisse de PaO2 change peu la saturation ; sur la pente, une petite baisse la fait chuter.",
+  "Le CO2, l'acidose, la chaleur et le 2,3-DPG déplacent la courbe à droite ; l'hémoglobine libère alors plus d'O2 aux tissus actifs (effet Bohr).",
+  "Le monoxyde de carbone occupe l'hémoglobine et déplace la courbe à gauche ; il bloque donc à la fois le transport et la libération."
+ ],
+ "valeurs_normales": [
+  {
+   "parametre": "PaO2 artérielle",
+   "valeur": "> 10.6 avant 80 ans",
+   "unite": "kPa (USB 2023)"
+  },
+  {
+   "parametre": "oxyhémoglobine artérielle",
+   "valeur": "90–95",
+   "unite": "% (USB 2023)"
+  },
+  {
+   "parametre": "carboxyhémoglobine ; méthémoglobine",
+   "valeur": "< 1.5 ; < 1.5",
+   "unite": "% (USB 2023)"
+  },
+  {
+   "parametre": "hémoglobine",
+   "valeur": "H 135–168 ; F 121–154",
+   "unite": "g/L (Insel, > 12 ans)"
+  }
+ ],
+ "regulation": "L'hypoxie chronique stimule l'érythropoïétine rénale et le 2,3-DPG ; ainsi l'organisme augmente la masse d'hémoglobine et la libération d'oxygène (altitude, BPCO).",
+ "formule": {
+  "expression": "CaO2 (mL/dL) = 1,34 × Hb (g/dL) × SaO2 + 0,003 × PaO2 (mmHg).",
+  "usage": "On l'utilise pour comprendre que l'anémie diminue le contenu en oxygène malgré une saturation normale.",
+  "exemple": "Hb 15 g/dL, SaO2 0,97, PaO2 95 mmHg : 1,34 × 15 × 0,97 = 19,5 ; 0,003 × 95 = 0,3 ; CaO2 = 19,8 mL/dL. Avec Hb 7 g/dL et la même saturation : 1,34 × 7 × 0,97 = 9,1 ; CaO2 = 9,4 mL/dL, soit moitié moins, alors que l'oxymètre affiche la même SpO2."
+ },
+ "lien_clinique": "L'oxymètre de pouls ne voit ni l'anémie ni le CO : il affiche une SpO2 rassurante dans l'intoxication au CO ; on mesure alors la COHb par co-oxymétrie.",
+ "dereglements": [
+  {
+   "affection": "Syndrome anémique",
+   "mecanisme": "L'hémoglobine basse réduit le contenu en O2.",
+   "pp": null,
+   "semiologie": [
+    "SY-63"
+   ]
+  },
+  {
+   "affection": "Pneumonie communautaire, EP",
+   "mecanisme": "La PaO2 baisse et la saturation glisse sur la pente de la courbe.",
+   "pp": "PP-S4-I",
+   "semiologie": [
+    "SY-26",
+    "SY-30"
+   ]
+  },
+  {
+   "affection": "Hypoventilation de l'obèse",
+   "mecanisme": "L'hypoventilation baisse la PaO2 et élève la PaCO2.",
+   "pp": "PP-S4-F",
+   "semiologie": [
+    "SY-31"
+   ]
+  }
+ ],
+ "cibles_pharmacologiques": [
+  {
+   "classe": "oxygène",
+   "pourquoi": "Il élève la PaO2 et la saturation, et accélère l'élimination du CO."
+  },
+  {
+   "classe": "transfusion de concentrés érythrocytaires",
+   "pourquoi": "Elle restaure l'hémoglobine quand l'anémie menace l'apport d'O2."
+  },
+  {
+   "classe": "antidote de la méthémoglobinémie (bleu de méthylène)",
+   "pourquoi": "Il réduit le fer ferrique et rend l'hémoglobine fonctionnelle."
+  }
+ ],
+ "mnemotechnique": "« À droite, l'hémoglobine délivre : CO2, acide, chaleur, DPG. »",
+ "sources": [
+  "Hôpital universitaire de Bâle (USB), Labormedizin Update 03/2023 : valeurs de référence de la gazométrie (source suisse) — lu via la fiche Examens EX-1-S4-gaz-sang-arteriels (rédigée et sourcée le 13.11.2026), relue le 14.11.2026",
+  "Insel Gruppe, valeurs de référence de l'hémogramme (source suisse) — lu via la fiche Examens EX-1-S10-hemogramme-lignee-rouge (rédigée et sourcée le 13.11.2026), relue le 14.11.2026",
+  "Fiches Physiopathologie v2 PP-S4-I, PP-S4-F et fiches Sémiologie (SY, S) citées : lues le 14.11.2026 (renvois et cibles)",
+  "Physiologie médicale classique (manuels de référence) : chiffres marqués « (non vérifié CH) », non relus ce jour sur une source suisse — non lu"
+ ],
+ "passerelles": [
+  {
+   "vers": "physiopathologie",
+   "id": "PP-S4-I"
+  },
+  {
+   "vers": "physiopathologie",
+   "id": "PP-S4-F"
+  },
+  {
+   "vers": "examens",
+   "id": "EX-1-S4-gaz-sang-arteriels"
+  },
+  {
+   "vers": "examens",
+   "id": "EX-1-S10-hemogramme-lignee-rouge"
+  },
+  {
+   "vers": "semiologie",
+   "id": "SY-63"
+  }
+ ],
+ "honnetete": "Les chiffres sourcés en Suisse viennent des fiches Examens déjà vérifiées ; les chiffres de physiologie classique restent marqués « (non vérifié CH) » ; aucune dose n'y figure ; la fiche résume l'essentiel d'examen et n'épuise pas la physiologie."
+}

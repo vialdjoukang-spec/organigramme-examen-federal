@@ -1,0 +1,151 @@
+{
+ "id": "PHY-S1-6",
+ "module": "physiologie",
+ "sous_onglet": "Sciences fondamentales > Physiologie",
+ "systeme": "S1",
+ "volet": "P",
+ "fonction": "Débit sanguin cérébral, autorégulation et pression intracrânienne",
+ "niveau": "m",
+ "date": "14.11.2026",
+ "statut": "rédigé, à auditer",
+ "definition": "Le débit sanguin cérébral apporte au cerveau l'oxygène et le glucose qu'il ne stocke pas ; l'autorégulation le maintient constant malgré les variations de pression artérielle.",
+ "boucle": {
+  "capteur": "Le muscle lisse artériolaire détecte l'étirement ; les chémorécepteurs locaux détectent le CO2 et le H+.",
+  "integrateur": "La régulation reste locale (myogène et métabolique).",
+  "effecteur": "Les artérioles cérébrales se contractent ou se dilatent."
+ },
+ "mecanisme": [
+  "Quand la pression monte, les artérioles se contractent ; quand elle baisse, elles se dilatent ; ainsi le débit reste stable sur un plateau de pression.",
+  "Le CO2 dilate les artérioles ; donc l'hypercapnie augmente le volume sanguin cérébral et la pression intracrânienne, tandis que l'hypocapnie les réduit.",
+  "Le crâne est inextensible (doctrine de Monro-Kellie) ; donc une masse ajoutée chasse d'abord le LCR et le sang veineux, puis la PIC monte brutalement.",
+  "La pression de perfusion cérébrale (PPC) baisse alors ; si l'autorégulation est abolie (AVC, traumatisme), le débit suit passivement la pression artérielle.",
+  "Enfin, l'hypertension intracrânienne sévère déclenche la réaction de Cushing : hypertension, bradycardie, respiration irrégulière."
+ ],
+ "valeurs_normales": [
+  {
+   "parametre": "pression intracrânienne (adulte couché)",
+   "valeur": "≈ 5–15",
+   "unite": "mmHg (non vérifié CH)"
+  },
+  {
+   "parametre": "débit sanguin cérébral",
+   "valeur": "≈ 50",
+   "unite": "mL/100 g/min (non vérifié CH)"
+  },
+  {
+   "parametre": "pCO2 artérielle",
+   "valeur": "H 4.66–6.38 ; F 4.26–5.99",
+   "unite": "kPa (USB 2023)"
+  }
+ ],
+ "regulation": "L'autorégulation myogène tient le débit sur un plateau de pression ; l'hypertension chronique déplace ce plateau vers la droite, de sorte qu'une baisse tensionnelle « normale » peut déjà ischémier un hypertendu.",
+ "formule": {
+  "expression": "PPC = PAM − PIC ; PAM ≈ PAD + (PAS − PAD) ÷ 3.",
+  "usage": "On calcule la PPC pour décider jusqu'où baisser la pression artérielle chez un patient avec AVC ou hypertension intracrânienne.",
+  "exemple": "PA 150/90 mmHg : 150 − 90 = 60 ; 60 ÷ 3 = 20 ; PAM = 90 + 20 = 110 mmHg ; avec une PIC de 30 mmHg, PPC = 110 − 30 = 80 mmHg. Si l'on baisse la PA à 110/70 : PAM = 70 + 13 = 83 mmHg ; PPC = 83 − 30 = 53 mmHg ; donc la perfusion chute et l'ischémie s'étend."
+ },
+ "lien_clinique": "Une baisse brutale de la pression artérielle aggrave un AVC ischémique ou une HTIC, parce que la PPC chute. L'hyperventilation baisse la PIC en urgence, mais seulement brièvement, car elle ischémie aussi par vasoconstriction.",
+ "dereglements": [
+  {
+   "affection": "AVC ischémique",
+   "mecanisme": "L'occlusion supprime le débit en aval ; la pénombre dépend de la pression de perfusion.",
+   "pp": "PP-S1-V",
+   "semiologie": [
+    "SY-12"
+   ]
+  },
+  {
+   "affection": "Hémorragie sous-arachnoïdienne",
+   "mecanisme": "Le sang élève la PIC puis provoque un vasospasme.",
+   "pp": "PP-S1-V",
+   "semiologie": [
+    "SY-5",
+    "S-28"
+   ]
+  },
+  {
+   "affection": "Hématome extradural, TCC",
+   "mecanisme": "La masse épuise la réserve de volume, puis la PIC monte et le cerveau s'engage.",
+   "pp": "PP-S1-Tr",
+   "semiologie": [
+    "SY-6",
+    "S-29"
+   ]
+  },
+  {
+   "affection": "Hydrocéphalie",
+   "mecanisme": "Le LCR s'accumule et élève la PIC.",
+   "pp": "PP-S1-C",
+   "semiologie": [
+    "SY-6"
+   ]
+  },
+  {
+   "affection": "Gliome, métastases",
+   "mecanisme": "La tumeur et son œdème vasogénique occupent l'espace.",
+   "pp": "PP-S1-T",
+   "semiologie": [
+    "SY-6"
+   ]
+  }
+ ],
+ "cibles_pharmacologiques": [
+  {
+   "classe": "osmothérapie (mannitol, sérum salé hypertonique)",
+   "pourquoi": "Elle attire l'eau hors du parenchyme et baisse ainsi la PIC."
+  },
+  {
+   "classe": "corticoïdes",
+   "pourquoi": "Ils réduisent l'œdème vasogénique péritumoral, mais pas l'œdème traumatique."
+  },
+  {
+   "classe": "inhibiteur calcique (nimodipine)",
+   "pourquoi": "Il prévient le vasospasme ischémique après HSA."
+  },
+  {
+   "classe": "thrombolytiques",
+   "pourquoi": "Ils lysent le thrombus et rétablissent le débit dans la fenêtre thérapeutique."
+  }
+ ],
+ "mnemotechnique": "« Pas de PPC sans PAM : PPC = PAM − PIC. »",
+ "sources": [
+  "Hôpital universitaire de Bâle (USB), Labormedizin Update 03/2023 : valeurs de référence de la gazométrie (source suisse) — lu via la fiche Examens EX-1-S4-gaz-sang-arteriels (rédigée et sourcée le 13.11.2026), relue le 14.11.2026",
+  "Fiches Physiopathologie v2 PP-S1-V, PP-S1-Tr, PP-S1-C, PP-S1-T et fiches Sémiologie (SY, S) citées : lues le 14.11.2026 (renvois et cibles)",
+  "Physiologie médicale classique (manuels de référence) : chiffres marqués « (non vérifié CH) », non relus ce jour sur une source suisse — non lu"
+ ],
+ "passerelles": [
+  {
+   "vers": "physiopathologie",
+   "id": "PP-S1-V"
+  },
+  {
+   "vers": "physiopathologie",
+   "id": "PP-S1-Tr"
+  },
+  {
+   "vers": "physiopathologie",
+   "id": "PP-S1-C"
+  },
+  {
+   "vers": "physiopathologie",
+   "id": "PP-S1-T"
+  },
+  {
+   "vers": "semiologie",
+   "id": "SY-6"
+  },
+  {
+   "vers": "examens",
+   "id": "EX-2-S1-radiographie-tdm-systeme-nerveux-central"
+  },
+  {
+   "vers": "examens",
+   "id": "EX-1-S4-gaz-sang-arteriels"
+  },
+  {
+   "vers": "pharmaco",
+   "id": "PH-S1-chaine"
+  }
+ ],
+ "honnetete": "Les chiffres sourcés en Suisse viennent des fiches Examens déjà vérifiées ; les chiffres de physiologie classique restent marqués « (non vérifié CH) » ; aucune dose n'y figure ; la fiche résume l'essentiel d'examen et n'épuise pas la physiologie."
+}

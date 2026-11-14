@@ -1,0 +1,111 @@
+{
+ "id": "PHY-S3-10",
+ "module": "physiologie",
+ "sous_onglet": "Sciences fondamentales > Physiologie",
+ "systeme": "S3",
+ "volet": "B",
+ "fonction": "Lipoprotéines et cholestérol",
+ "niveau": "m",
+ "date": "14.11.2026",
+ "statut": "rédigé, à auditer",
+ "definition": "Les lipoprotéines transportent dans le plasma les triglycérides et le cholestérol, insolubles dans l'eau ; leur équilibre détermine le dépôt de cholestérol dans la paroi artérielle.",
+ "boucle": {
+  "capteur": "La cellule hépatique mesure son cholestérol intracellulaire (voie SREBP).",
+  "integrateur": "Le foie règle la synthèse (HMG-CoA réductase) et le nombre de récepteurs au LDL.",
+  "effecteur": "Les récepteurs au LDL captent les particules circulantes ; PCSK9 les dégrade."
+ },
+ "mecanisme": [
+  "L'intestin exporte les graisses alimentaires dans les chylomicrons ; la lipoprotéine lipase en libère les acides gras pour les muscles et le tissu adipeux.",
+  "Le foie exporte les triglycérides endogènes dans les VLDL, qui deviennent IDL puis LDL, riches en cholestérol.",
+  "Le foie capte les LDL par ses récepteurs ; si son cholestérol baisse, il synthétise davantage de récepteurs et abaisse ainsi le LDL plasmatique.",
+  "Les HDL ramènent le cholestérol des tissus vers le foie (transport inverse).",
+  "En excès, le LDL pénètre l'intima, s'oxyde et se fait capter par les macrophages ; ces cellules spumeuses forment la plaque d'athérome."
+ ],
+ "valeurs_normales": [
+  {
+   "parametre": "LDL-cholestérol cible (risque très élevé)",
+   "valeur": "< 1,4 et baisse ≥ 50 %",
+   "unite": "mmol/L (source européenne : ESC/EAS 2019, suivie par l'AGLA)"
+  },
+  {
+   "parametre": "LDL-cholestérol cible (risque faible)",
+   "valeur": "< 3,0",
+   "unite": "mmol/L (source européenne : ESC/EAS 2019)"
+  },
+  {
+   "parametre": "triglycérides permettant le calcul du LDL",
+   "valeur": "< 3,5",
+   "unite": "mmol/L (HUG)"
+  }
+ ],
+ "regulation": "La boucle SREBP–récepteur au LDL règle le cholestérol hépatique ; PCSK9 freine ce recyclage, et les mutations du récepteur, de l'apoB ou de PCSK9 donnent l'hypercholestérolémie familiale.",
+ "formule": {
+  "expression": "Formule de Friedewald : LDL (mmol/L) = CT − HDL − TG ÷ 2,2, valable si TG < 3,5 mmol/L.",
+  "usage": "On calcule le LDL pour le comparer à la cible fixée par le risque cardiovasculaire.",
+  "exemple": "CT 6,0, HDL 1,2, TG 2,2 mmol/L : 2,2 ÷ 2,2 = 1,0 ; 6,0 − 1,2 − 1,0 = 3,8 mmol/L ; ce LDL dépasse 3,0 mmol/L, même la cible du risque faible."
+ },
+ "lien_clinique": "La statine inhibe l'HMG-CoA réductase ; le foie, privé de cholestérol, augmente ses récepteurs au LDL et abaisse le LDL plasmatique, ce qui réduit les événements cardiovasculaires.",
+ "dereglements": [
+  {
+   "affection": "Syndrome coronarien aigu",
+   "mecanisme": "La plaque riche en lipides se rompt et thrombose l'artère.",
+   "pp": "PP-S3-V",
+   "semiologie": [
+    "SY-19",
+    "S-10"
+   ]
+  },
+  {
+   "affection": "AOMI",
+   "mecanisme": "L'athérome rétrécit les artères des membres.",
+   "pp": "PP-S3-V",
+   "semiologie": [
+    "SY-22",
+    "S-23"
+   ]
+  }
+ ],
+ "cibles_pharmacologiques": [
+  {
+   "classe": "statines",
+   "pourquoi": "Elles inhibent l'HMG-CoA réductase et augmentent les récepteurs au LDL."
+  },
+  {
+   "classe": "ézétimibe",
+   "pourquoi": "Il bloque l'absorption intestinale du cholestérol (NPC1L1)."
+  },
+  {
+   "classe": "inhibiteurs de PCSK9",
+   "pourquoi": "Ils préservent les récepteurs au LDL de la dégradation."
+  },
+  {
+   "classe": "fibrates",
+   "pourquoi": "Ils activent PPAR-α et abaissent surtout les triglycérides."
+  }
+ ],
+ "mnemotechnique": "« LDL Livre le cholestérol à l'artère, HDL le Hale vers le foie. »",
+ "sources": [
+  "HUG, Répertoire des prestations d'analyses, fiches 9031 et 3849 « Bilan lipidique » (03.09.2025, source suisse) ; Mach F et al., ESC/EAS 2019 (source européenne) — lu via la fiche Examens EX-1-S3-bilan-lipidique (rédigée et sourcée le 13.11.2026), relue le 14.11.2026",
+  "Fiches Physiopathologie v2 PP-S3-V et fiches Sémiologie (SY, S) citées : lues le 14.11.2026 (renvois et cibles)",
+  "Physiologie médicale classique (manuels de référence) : chiffres marqués « (non vérifié CH) », non relus ce jour sur une source suisse — non lu"
+ ],
+ "passerelles": [
+  {
+   "vers": "physiopathologie",
+   "id": "PP-S3-V"
+  },
+  {
+   "vers": "examens",
+   "id": "EX-1-S3-bilan-lipidique"
+  },
+  {
+   "vers": "pharmaco",
+   "id": "PH-S3-chaine"
+  },
+  {
+   "vers": "semiologie",
+   "id": "SY-19"
+  }
+ ],
+ "honnetete": "Les chiffres sourcés en Suisse viennent des fiches Examens déjà vérifiées ; les chiffres de physiologie classique restent marqués « (non vérifié CH) » ; aucune dose n'y figure ; la fiche résume l'essentiel d'examen et n'épuise pas la physiologie."
+}

@@ -1,0 +1,133 @@
+{
+ "id": "PHY-S4-3",
+ "module": "physiologie",
+ "sous_onglet": "Sciences fondamentales > Physiologie",
+ "systeme": "S4",
+ "volet": "P",
+ "fonction": "Rapport ventilation/perfusion, shunt et espace mort",
+ "niveau": "m",
+ "date": "14.11.2026",
+ "statut": "rédigé, à auditer",
+ "definition": "L'échange gazeux exige que ventilation (V) et perfusion (Q) se rencontrent dans les mêmes alvéoles ; le shunt est du sang sans air, l'espace mort de l'air sans sang.",
+ "boucle": {
+  "capteur": "Les cellules musculaires lisses des artérioles pulmonaires détectent l'hypoxie alvéolaire.",
+  "integrateur": "La régulation reste locale.",
+  "effecteur": "Les artérioles se contractent (vasoconstriction hypoxique) et détournent le sang vers les zones ventilées."
+ },
+ "mecanisme": [
+  "Au sommet, la ventilation dépasse la perfusion ; à la base, la perfusion domine ; le rapport global reste proche de 0,8.",
+  "La vasoconstriction hypoxique détourne le sang des alvéoles mal ventilées ; elle limite ainsi l'hypoxémie.",
+  "Dans le shunt (pneumonie, atélectasie, œdème), le sang traverse des alvéoles pleines ; l'oxygène supplémentaire ne l'atteint pas, donc l'hypoxémie résiste.",
+  "Dans les zones à V/Q bas (BPCO), l'oxygène corrige bien l'hypoxémie.",
+  "Dans l'espace mort (EP), l'air ventile des alvéoles non perfusées ; la ventilation devient inefficace, tandis que le sang détourné crée ailleurs des zones à V/Q bas."
+ ],
+ "valeurs_normales": [
+  {
+   "parametre": "PaO2 artérielle",
+   "valeur": "> 10.6 (≈ 80 mmHg) avant 80 ans ; > 8.0 dès 80 ans",
+   "unite": "kPa (USB 2023)"
+  },
+  {
+   "parametre": "espace mort anatomique",
+   "valeur": "≈ 150",
+   "unite": "mL (non vérifié CH)"
+  }
+ ],
+ "regulation": "La vasoconstriction hypoxique adapte localement la perfusion ; des vasodilatateurs ou une hypoxie globale la perturbent, ce qui peut aggraver l'hypoxémie.",
+ "formule": {
+  "expression": "Gradient alvéolo-artériel = PAO2 − PaO2 ; PAO2 = FiO2 × (Pb − PH2O) − PaCO2 ÷ QR (Pb ≈ 101,3 kPa, PH2O ≈ 6,3 kPa, QR ≈ 0,8, (non vérifié CH)).",
+  "usage": "On le calcule pour savoir si l'hypoxémie vient du poumon (gradient élevé) ou d'une simple hypoventilation (gradient normal).",
+  "exemple": "À l'air, PaCO2 4,2 kPa et PaO2 7,0 kPa : 0,21 × (101,3 − 6,3) = 19,95 ; 4,2 ÷ 0,8 = 5,25 ; PAO2 = 14,7 kPa ; gradient = 14,7 − 7,0 = 7,7 kPa : ce gradient élevé oriente vers un trouble V/Q ou un shunt."
+ },
+ "lien_clinique": "Le shunt résiste à l'oxygène, le trouble V/Q non ; la pneumonie crée surtout un shunt, l'EP un espace mort et une redistribution. Une hypoxémie avec gradient normal et PaCO2 haute signe une hypoventilation pure.",
+ "dereglements": [
+  {
+   "affection": "EP",
+   "mecanisme": "L'obstruction artérielle crée un espace mort et redistribue le débit.",
+   "pp": "PP-S4-V",
+   "semiologie": [
+    "SY-30",
+    "SY-23",
+    "S-09"
+   ]
+  },
+  {
+   "affection": "Pneumonie communautaire",
+   "mecanisme": "L'exsudat remplit les alvéoles et crée un shunt.",
+   "pp": "PP-S4-I",
+   "semiologie": [
+    "SY-26",
+    "S-09"
+   ]
+  },
+  {
+   "affection": "Œdème pulmonaire cardiogénique",
+   "mecanisme": "Le liquide alvéolaire crée un shunt.",
+   "pp": "PP-S4-V",
+   "semiologie": [
+    "SY-17",
+    "SY-30"
+   ]
+  },
+  {
+   "affection": "BPCO",
+   "mecanisme": "Les zones à V/Q bas dominent et répondent à l'oxygène.",
+   "pp": "PP-S4-D",
+   "semiologie": [
+    "SY-29",
+    "SY-31"
+   ]
+  }
+ ],
+ "cibles_pharmacologiques": [
+  {
+   "classe": "oxygène",
+   "pourquoi": "Il corrige les zones à V/Q bas, mais peu le shunt vrai ; on le titre selon la saturation."
+  },
+  {
+   "classe": "anticoagulants et thrombolytiques",
+   "pourquoi": "Ils traitent l'EP qui crée l'espace mort."
+  },
+  {
+   "classe": "vasodilatateurs pulmonaires",
+   "pourquoi": "Ils peuvent lever la vasoconstriction hypoxique et aggraver le V/Q."
+  }
+ ],
+ "mnemotechnique": "« Shunt = sang sans air ; espace mort = air sans sang. »",
+ "sources": [
+  "Hôpital universitaire de Bâle (USB), Labormedizin Update 03/2023 : valeurs de référence de la gazométrie (source suisse) ; Revue Médicale Suisse 2020, n° 705 (équation simplifiée de la PAO2) — lu via la fiche Examens EX-1-S4-gaz-sang-arteriels (rédigée et sourcée le 13.11.2026), relue le 14.11.2026",
+  "Fiches Physiopathologie v2 PP-S4-V, PP-S4-I, PP-S4-D et fiches Sémiologie (SY, S) citées : lues le 14.11.2026 (renvois et cibles)",
+  "Physiologie médicale classique (manuels de référence) : chiffres marqués « (non vérifié CH) », non relus ce jour sur une source suisse — non lu"
+ ],
+ "passerelles": [
+  {
+   "vers": "physiopathologie",
+   "id": "PP-S4-V"
+  },
+  {
+   "vers": "physiopathologie",
+   "id": "PP-S4-I"
+  },
+  {
+   "vers": "physiopathologie",
+   "id": "PP-S4-D"
+  },
+  {
+   "vers": "examens",
+   "id": "EX-1-S4-gaz-sang-arteriels"
+  },
+  {
+   "vers": "examens",
+   "id": "EX-2-S4-scintigraphie-ventilation-perfusion"
+  },
+  {
+   "vers": "examens",
+   "id": "EX-2-S4-angio-tdm-thoracique"
+  },
+  {
+   "vers": "semiologie",
+   "id": "SY-30"
+  }
+ ],
+ "honnetete": "Les chiffres sourcés en Suisse viennent des fiches Examens déjà vérifiées ; les chiffres de physiologie classique restent marqués « (non vérifié CH) » ; aucune dose n'y figure ; la fiche résume l'essentiel d'examen et n'épuise pas la physiologie."
+}

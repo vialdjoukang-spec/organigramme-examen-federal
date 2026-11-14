@@ -1,0 +1,140 @@
+{
+ "id": "PHY-S3-7",
+ "module": "physiologie",
+ "sous_onglet": "Sciences fondamentales > Physiologie",
+ "systeme": "S3",
+ "volet": "P",
+ "fonction": "Microcirculation et forces de Starling",
+ "niveau": "m",
+ "date": "14.11.2026",
+ "statut": "rédigé, à auditer",
+ "definition": "Dans le capillaire, la pression hydrostatique pousse le liquide vers l'interstitium et la pression oncotique des protéines le retient ; leur équilibre (forces de Starling) et le drainage lymphatique empêchent l'œdème.",
+ "boucle": {
+  "capteur": "Aucun capteur central : l'équilibre est physique et local.",
+  "integrateur": "La différence entre forces hydrostatiques et oncotiques fixe le flux net.",
+  "effecteur": "Les lymphatiques ramènent le surplus filtré ; le rein règle la volémie à long terme."
+ },
+ "mecanisme": [
+  "Au pôle artériel, la pression hydrostatique dépasse la pression oncotique ; le liquide filtre donc vers l'interstitium.",
+  "Au pôle veineux, la pression hydrostatique baisse ; une partie du liquide est réabsorbée.",
+  "Les lymphatiques ramènent le reste ; ainsi l'interstitium ne s'engorge pas.",
+  "L'œdème apparaît si la pression hydrostatique monte (insuffisance cardiaque, thrombose veineuse), si la pression oncotique baisse (hypoalbuminémie) ou si la perméabilité augmente (inflammation, sepsis, anaphylaxie).",
+  "Enfin, un drainage lymphatique interrompu (curage, infection) crée un lymphœdème riche en protéines."
+ ],
+ "valeurs_normales": [
+  {
+   "parametre": "albumine sérique",
+   "valeur": "35.0–52.0",
+   "unite": "g/L (HUG RPA 7036)"
+  },
+  {
+   "parametre": "pression oncotique plasmatique",
+   "valeur": "≈ 25",
+   "unite": "mmHg (non vérifié CH)"
+  }
+ ],
+ "regulation": "Quand le liquide filtre, la pression interstitielle monte et le débit lymphatique augmente ; ces deux freins retardent l'œdème jusqu'à leur saturation.",
+ "formule": {
+  "expression": "Flux net = Kf × [(Pc − Pi) − σ × (πc − πi)].",
+  "usage": "On l'utilise pour classer un œdème selon le terme déréglé et choisir le traitement.",
+  "exemple": "Simplification (Pi = 0, πi = 0, σ = 1, valeurs d'exemple) : pôle artériel Pc 35 et πc 25 → 35 − 25 = +10 (filtration) ; pôle veineux Pc 15 → 15 − 25 = −10 (réabsorption). Si l'albumine baisse et que πc tombe à 15 : 15 − 15 = 0 au pôle veineux ; la réabsorption cesse et l'œdème apparaît (déduction)."
+ },
+ "lien_clinique": "L'équilibre hydrostatique–oncotique explique les œdèmes cardiaques (pression), néphrotiques et hépatiques (oncotique) et inflammatoires (perméabilité) ; un œdème unilatéral oriente vers une cause locale (TVP, lymphœdème).",
+ "dereglements": [
+  {
+   "affection": "Insuffisance cardiaque droite",
+   "mecanisme": "La pression veineuse élevée augmente la filtration.",
+   "pp": "PP-S3-D",
+   "semiologie": [
+    "SY-18",
+    "S-24"
+   ]
+  },
+  {
+   "affection": "TVP",
+   "mecanisme": "L'obstruction veineuse élève la pression capillaire en aval.",
+   "pp": "PP-S3-V",
+   "semiologie": [
+    "SY-23",
+    "S-24"
+   ]
+  },
+  {
+   "affection": "Œdème pulmonaire cardiogénique",
+   "mecanisme": "La pression capillaire pulmonaire dépasse la pression oncotique.",
+   "pp": "PP-S4-V",
+   "semiologie": [
+    "SY-17",
+    "S-09"
+   ]
+  },
+  {
+   "affection": "Syndrome néphrotique, insuffisance hépatocellulaire",
+   "mecanisme": "L'hypoalbuminémie baisse la pression oncotique.",
+   "pp": null,
+   "semiologie": [
+    "SY-41",
+    "SY-37"
+   ]
+  },
+  {
+   "affection": "Anaphylaxie",
+   "mecanisme": "Les médiateurs augmentent brutalement la perméabilité.",
+   "pp": null,
+   "semiologie": [
+    "SY-80"
+   ]
+  }
+ ],
+ "cibles_pharmacologiques": [
+  {
+   "classe": "diurétiques",
+   "pourquoi": "Ils réduisent la volémie et donc la pression hydrostatique capillaire."
+  },
+  {
+   "classe": "albumine humaine",
+   "pourquoi": "Elle relève transitoirement la pression oncotique dans des indications limitées (À vérifier)."
+  },
+  {
+   "classe": "adrénaline",
+   "pourquoi": "Elle resserre les vaisseaux et réduit la fuite capillaire de l'anaphylaxie."
+  }
+ ],
+ "mnemotechnique": "« L'hydrostatique pousse, l'oncotique tire. »",
+ "sources": [
+  "HUG RPA fiche 7036 albumine sérique (03.09.2025, source suisse) — lu via la fiche Examens EX-1-S1-lcr-proteines-albumine-glucose (rédigée et sourcée le 13.11.2026), relue le 14.11.2026",
+  "Fiches Physiopathologie v2 PP-S3-D, PP-S3-V, PP-S4-V et fiches Sémiologie (SY, S) citées : lues le 14.11.2026 (renvois et cibles)",
+  "Physiologie médicale classique (manuels de référence) : chiffres marqués « (non vérifié CH) », non relus ce jour sur une source suisse — non lu"
+ ],
+ "passerelles": [
+  {
+   "vers": "physiopathologie",
+   "id": "PP-S3-D"
+  },
+  {
+   "vers": "physiopathologie",
+   "id": "PP-S3-V"
+  },
+  {
+   "vers": "physiopathologie",
+   "id": "PP-S4-V"
+  },
+  {
+   "vers": "semiologie",
+   "id": "S-24"
+  },
+  {
+   "vers": "semiologie",
+   "id": "SY-41"
+  },
+  {
+   "vers": "examens",
+   "id": "EX-1-S6-proteinurie-albuminurie"
+  },
+  {
+   "vers": "pharmaco",
+   "id": "PH-S3-chaine"
+  }
+ ],
+ "honnetete": "Les chiffres sourcés en Suisse viennent des fiches Examens déjà vérifiées ; les chiffres de physiologie classique restent marqués « (non vérifié CH) » ; aucune dose n'y figure ; la fiche résume l'essentiel d'examen et n'épuise pas la physiologie."
+}

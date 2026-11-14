@@ -1,0 +1,137 @@
+{
+ "id": "PHY-S4-6",
+ "module": "physiologie",
+ "sous_onglet": "Sciences fondamentales > Physiologie",
+ "systeme": "S4",
+ "volet": "P",
+ "fonction": "Équilibre acide-base respiratoire",
+ "niveau": "m",
+ "date": "14.11.2026",
+ "statut": "rédigé, à auditer",
+ "definition": "Le poumon règle la part respiratoire de l'équilibre acide-base en éliminant le CO2 ; le rein règle la part métabolique en ajustant le bicarbonate.",
+ "boucle": {
+  "capteur": "Les chémorécepteurs centraux et périphériques sentent le pH et la PaCO2 ; le tubule rénal sent le pH.",
+  "integrateur": "Les centres respiratoires (minutes) ; le rein (jours).",
+  "effecteur": "La ventilation élimine le CO2 ; le rein réabsorbe ou régénère le bicarbonate et excrète le H+."
+ },
+ "mecanisme": [
+  "Le CO2 s'hydrate en acide carbonique grâce à l'anhydrase carbonique, puis se dissocie en H+ et bicarbonate.",
+  "L'hypoventilation retient le CO2 ; le pH baisse donc (acidose respiratoire).",
+  "L'hyperventilation élimine le CO2 ; le pH monte (alcalose respiratoire).",
+  "Le rein compense en retenant ou en excrétant le bicarbonate, mais il lui faut plusieurs jours ; ainsi une acidose respiratoire aiguë reste peu compensée.",
+  "À l'inverse, le poumon compense en minutes une acidose métabolique (respiration de Kussmaul)."
+ ],
+ "valeurs_normales": [
+  {
+   "parametre": "pH artériel",
+   "valeur": "7.35–7.45",
+   "unite": "(USB 2023)"
+  },
+  {
+   "parametre": "pCO2 artérielle",
+   "valeur": "H 4.66–6.38 ; F 4.26–5.99",
+   "unite": "kPa (USB 2023)"
+  },
+  {
+   "parametre": "bicarbonate artériel",
+   "valeur": "H 22.2–28.3 ; F 21.2–27.0",
+   "unite": "mmol/L (USB 2023)"
+  },
+  {
+   "parametre": "excès de base",
+   "valeur": "−2.00 à +3.00",
+   "unite": "mmol/L (USB 2023)"
+  }
+ ],
+ "regulation": "Le système bicarbonate est ouvert : le poumon fixe la PaCO2 et le rein fixe le bicarbonate ; le pH dépend de leur rapport.",
+ "formule": {
+  "expression": "Henderson-Hasselbalch : pH = 6,1 + log10[HCO3 ÷ (0,03 × PaCO2 en mmHg)].",
+  "usage": "On l'utilise pour vérifier la cohérence d'une gazométrie et comprendre la compensation.",
+  "exemple": "HCO3 24 mmol/L, PaCO2 40 mmHg : 0,03 × 40 = 1,2 ; 24 ÷ 1,2 = 20 ; log10(20) = 1,30 ; pH = 7,40. BPCO en exacerbation, HCO3 30 mmol/L, PaCO2 8,5 kPa = 63,8 mmHg : 0,03 × 63,8 = 1,91 ; 30 ÷ 1,91 = 15,7 ; log10 = 1,20 ; pH ≈ 7,30 : acidose respiratoire aiguë sur chronique."
+ },
+ "lien_clinique": "L'hypoventilation acidifie, l'hyperventilation alcalinise ; le rein compense en jours. Un bicarbonate élevé chez un hypercapnique signe une hypercapnie ancienne.",
+ "dereglements": [
+  {
+   "affection": "BPCO",
+   "mecanisme": "L'hypoventilation chronique crée une acidose respiratoire compensée.",
+   "pp": "PP-S4-D",
+   "semiologie": [
+    "SY-31",
+    "SY-29"
+   ]
+  },
+  {
+   "affection": "Syndrome d'hyperventilation",
+   "mecanisme": "L'élimination excessive de CO2 crée une alcalose respiratoire.",
+   "pp": "PP-S4-F",
+   "semiologie": [
+    "S-01"
+   ]
+  },
+  {
+   "affection": "Hypoventilation de l'obèse",
+   "mecanisme": "L'hypoventilation diurne élève durablement la PaCO2.",
+   "pp": "PP-S4-F",
+   "semiologie": [
+    "SY-31",
+    "SY-18"
+   ]
+  },
+  {
+   "affection": "Acidocétose diabétique",
+   "mecanisme": "L'acidose métabolique déclenche une hyperventilation compensatrice.",
+   "pp": null,
+   "semiologie": [
+    "SY-54"
+   ]
+  }
+ ],
+ "cibles_pharmacologiques": [
+  {
+   "classe": "inhibiteurs de l'anhydrase carbonique",
+   "pourquoi": "Ils font perdre du bicarbonate par le rein et corrigent une alcalose métabolique."
+  },
+  {
+   "classe": "diurétiques de l'anse et thiazidiques",
+   "pourquoi": "Ils peuvent créer une alcalose de contraction (iatrogénie)."
+  },
+  {
+   "classe": "opioïdes et sédatifs",
+   "pourquoi": "Ils dépriment la ventilation et créent une acidose respiratoire (iatrogénie)."
+  }
+ ],
+ "mnemotechnique": "« ROME : Respiratoire = Opposé (pH et PaCO2), Métabolique = Égal (pH et HCO3). »",
+ "sources": [
+  "Hôpital universitaire de Bâle (USB), Labormedizin Update 03/2023 : valeurs de référence de la gazométrie (source suisse) — lu via la fiche Examens EX-1-S4-gaz-sang-arteriels (rédigée et sourcée le 13.11.2026), relue le 14.11.2026",
+  "Sibaï et Eggimann, Revue Médicale Suisse 2005;1:2106-15 (CHUV) — lu via la fiche Examens EX-1-S6-equilibre-acide-base (rédigée et sourcée le 13.11.2026), relue le 14.11.2026",
+  "Fiches Physiopathologie v2 PP-S4-D, PP-S4-F et fiches Sémiologie (SY, S) citées : lues le 14.11.2026 (renvois et cibles)",
+  "Physiologie médicale classique (manuels de référence) : chiffres marqués « (non vérifié CH) », non relus ce jour sur une source suisse — non lu"
+ ],
+ "passerelles": [
+  {
+   "vers": "physiopathologie",
+   "id": "PP-S4-D"
+  },
+  {
+   "vers": "physiopathologie",
+   "id": "PP-S4-F"
+  },
+  {
+   "vers": "examens",
+   "id": "EX-1-S4-gaz-sang-arteriels"
+  },
+  {
+   "vers": "examens",
+   "id": "EX-1-S6-equilibre-acide-base"
+  },
+  {
+   "vers": "semiologie",
+   "id": "SY-31"
+  },
+  {
+   "vers": "semiologie",
+   "id": "SY-54"
+  }
+ ],
+ "honnetete": "Les chiffres sourcés en Suisse viennent des fiches Examens déjà vérifiées ; les chiffres de physiologie classique restent marqués « (non vérifié CH) » ; aucune dose n'y figure ; la fiche résume l'essentiel d'examen et n'épuise pas la physiologie."
+}
