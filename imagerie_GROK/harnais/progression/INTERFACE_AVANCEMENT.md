@@ -11,7 +11,7 @@
 
 ## En cours
 
-- Aucun. Les sous-agents de paires et l'auditeur distinct sont lancés après cette relecture, sur des fichiers disjoints.
+- Aucun dossier ouvert. Auditeur distinct (autre agent) : IMG-001, IMG-250, IMG-257, EXP-112 conformes au statut partiel. Deux vérificateurs de lots disjoints : 0 écart de sexe sur les 23 côtés à mot explicite.
 
 ## Bloquants
 
