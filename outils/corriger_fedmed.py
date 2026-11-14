@@ -139,7 +139,13 @@ _tete = re.sub(r':root\[data-theme="\d+"\]\{[^}]*\}', '', _tete)
 _ancre_theme = ':root{--encre:'
 assert _tete.count(_ancre_theme) == 1
 _tete = _tete.replace(_ancre_theme, _css_themes + _ancre_theme, 1)
-_tete = _tete.replace('atténuées de 60 à 80 %', 'atténuées de 50 %', 1)
+_tete = _tete.replace(
+    'au plus 3 teintes atténuées de 60 à 80 % (EYE SPOT comprise), texte #111/#222 >= 7:1,\n'
+    '   fond de page blanc. EYE SPOT : tous les titres et sous-titres de la page active sur une seule bande --eye (teinte propre à la page\n'
+    '   et au thème, calculée par eye() dans le JS), texte #000 >= 7:1',
+    'au plus 3 teintes, chacune atténuée selon sa famille (claire 0 %, sombre 65 %), texte #111/#000 >= 7:1,\n'
+    '   fond de page blanc. EYE SPOT : la troisième couleur du thème, atténuée selon sa famille, sur une seule bande --eye (eye.fixe, sans rotation de teinte), texte #000/#111 >= 7:1',
+    1)
 
 _remplacements_rail = [
     ('header.h{position:sticky;top:0;z-index:12;background:#fff;border-bottom:1px solid var(--trait);padding:8px 14px 0}',

@@ -171,7 +171,7 @@ def themes(chemin):
             j = t['roles'][r]
             assert -1 <= j < n - 1, f"thème {i + 1} : rôle {r} sur la couleur {j} (la dernière est réservée à EYE SPOT)"
             h = attenue(hex_rgb(t['couleurs'][j]['base']), _att_de(t, j, r)) if j >= 0 else '#ffffff'
-            c = min(contraste(h, '#111111'), contraste(h, '#222222'))
+            c = min(contraste(h, '#000000'), contraste(h, '#111111'))
             assert c >= CONTRASTE_MIN, f"thème {i + 1} : contraste {c:.2f} < 7 sur {r} {h}"
             cmin = min(cmin, c)
             v.append(f'--t-{r}:{h};--b-{r}:{h if j >= 0 else "#6b6b6b"}')
@@ -195,9 +195,8 @@ CSS = """
 :root{--encre:#111;--doux:#222;--trait:#c4c4c4;--neutre:#6b6b6b;--mw:258px;--ht:96px;
 --eye:#dcdcdc;--eye-b:rgba(0,0,0,.24);
 --bleu:#0646db;--rouge:#b10521;--vert:#03651b;--violet:#7906df;--ocre:#8a6203;--orange:#c24a05}
-/* Thèmes (Claude/_progression/themes.json) : au plus 3 teintes atténuées de 50 % (EYE SPOT comprise), texte #111/#222 >= 7:1,
-   fond de page blanc. EYE SPOT : tous les titres et sous-titres de la page active sur une seule bande --eye (teinte propre à la page
-   et au thème, calculée par eye() dans le JS), texte #000 >= 7:1 ; les sous-titres varient en épaisseur et en graisse, jamais en couleur. Les couleurs à sens fixe (partie 0.6) ne sont que des marqueurs : liseré, bordure ou pastille. */
+/* Thèmes (Claude/_progression/themes.json) : au plus 3 teintes, chacune atténuée selon sa famille (claire 0 %, sombre 65 % ; les palettes à 50 % restent admises), texte #111/#000 >= 7:1,
+   fond de page blanc. EYE SPOT : la troisième couleur, atténuée selon sa famille, sur une seule bande --eye (eye.fixe, sans rotation de teinte), texte #000/#111 >= 7:1 ; les sous-titres varient en épaisseur et en graisse, jamais en couleur. Les couleurs à sens fixe (partie 0.6) ne sont que des marqueurs : liseré, bordure ou pastille. */
 *{box-sizing:border-box}html{-webkit-text-size-adjust:100%;background:#fff}body{margin:0;background:#fff;color:var(--encre);font:15px/1.45 "Atkinson Hyperlegible",Verdana,system-ui,sans-serif}
 button,input{font-family:inherit;color:var(--encre)}
 header.h{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid var(--trait);padding:8px 14px 0}
