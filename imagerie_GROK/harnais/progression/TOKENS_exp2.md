@@ -5,3 +5,5 @@ EXP-109 à EXP-105. Cinq diagnostics : un complet (EXP-109), deux partiels (EXP-
 EXP-104 à EXP-100. Cinq diagnostics : deux partiels (EXP-102, EXP-100), trois introuvables (EXP-104, EXP-103, EXP-101). La débitmétrie obstructive est lue chiffre par chiffre sur l'impression. La scintigraphie MAG3 est une grille d'images, pas une courbe au furosémide. Reprise : EXP-099.
 
 EXP-099 à EXP-095. Cinq diagnostics : un complet (EXP-095), quatre introuvables. La VCTE a été lue : 3 kPa en haut, 40 kPa en bas. Le contour a été déplacé sur la pente de l'onde. Reprise : EXP-094.
+
+EXP-094 à EXP-090. Cinq diagnostics : un partiel (EXP-094), quatre introuvables. Le cliché aux marqueurs a été lu : 60 retenus, pas de nom. Le contour entoure le cadre colique. Reprise : EXP-089.

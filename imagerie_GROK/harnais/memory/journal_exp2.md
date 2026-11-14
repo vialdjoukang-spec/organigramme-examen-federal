@@ -32,3 +32,11 @@ Prochain id : EXP-099.
 - EXP-095 complet. Slaurent73, CC BY-SA 4.0. VCTE : 3 kPa, pente lente, contre 40 kPa, front raide, foie qualifié de cirrhotique. La compensation n'est pas sur la carte. Le fichier est empilé, pas gauche-droite comme le dit la description.
 
 Prochain id : EXP-094.
+
+- EXP-094 partiel. Keller 2018, PMC6646879, CC BY 4.0. Soixante marqueurs retenus au jour 7, transit ≥ 144 h, répartition homogène. Seuils normaux dans la légende, pas de cliché normal.
+- EXP-093 introuvable. Pas de dosage d'élastase fécale.
+- EXP-092 introuvable. Pas de courbe d'hydrogène expiré.
+- EXP-091 introuvable. Coffret et uréase de biopsie, pas le résultat respiratoire.
+- EXP-090 introuvable. Pas de vidange gastrique humaine libre. Scintigraphie de chat en CC BY-NC.
+
+Prochain id : EXP-089.
