@@ -8,3 +8,4 @@ Périmètre réel de ce worktree (lot3, IMG-172 → IMG-087). Ordre décroissant
 - IMG-170 | partiel | Samir, Commons, CC BY 3.0 (ascite étiquetée, foie dit cirrhotique) ; même normale Ptrump16 | piège : définition non relue, lobe caudé non montré.
 - IMG-169 | partiel | Badea et Ioanitescu, Commons, CC BY 3.0 (kyste hydatique) ; normale Ptrump16 | piège : abcès absent, légende d'une ligne, confiance basse.
 - IMG-168 | partiel | Hellerhoff, Commons, CC BY-SA 4.0, titre « CT KM pv » ; normale Häggström, CC0, coupe axiale 52 | piège : phase de la normale non nommée, topogramme dans l'image, définition non relue.
+- IMG-167 | partiel | Hellerhoff, Commons, CC BY-SA 3.0, trois temps étiquetés, CHC graisseux histologiquement confirmé ; normale Häggström, CC0, coupe 45 | piège : « arteriell » n'est pas dit tardif ; nodule non fléché, placement visuel (moyenne) ; définition LI-RADS non relue. Reprise à IMG-166.
