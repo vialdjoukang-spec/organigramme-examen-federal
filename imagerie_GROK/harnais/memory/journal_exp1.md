@@ -12,4 +12,12 @@ Départ : EXP-153, ordre décroissant, jusqu'à EXP-115. Branche agentA/imagerie
 
 Piège : Open-i sert parfois une page HTML à la place de l'image. La figure Kasuya a été reprise depuis le CDN PMC indiqué par l'article, licence relue sur Open-i.
 
-Prochain id : EXP-148.
+## EXP-148 à EXP-144
+
+- EXP-148 partiel. Prick-tests des deux avant-bras, CC0, sans nom. Papule d'allergène et témoin H contourés. Pas de fichier séparé pour une lecture négative. IgE et provocation absentes.
+- EXP-147 introuvable. Écran DXA ALSPAC rejeté : date de naissance 01/05/1962. Photos d'appareils et radiographies de hanche écartées.
+- EXP-146 introuvable. Relevé d'impédancemétrie avec nom et date de naissance 04.01.1983. DXA corps entier du même écran, même rejet.
+- EXP-145 introuvable. Photos de canopy. La courbe « Indirect calorimetry » est une épreuve d'effort, pas une calorimétrie de repos.
+- EXP-144 introuvable. Pas de graphique calcémie, PTH ou calciurie. Open-i : échographie et scintigraphie, licence NC ou absente.
+
+Prochain id : EXP-143.
