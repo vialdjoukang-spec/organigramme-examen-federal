@@ -11,3 +11,7 @@ FTE-37 | corrigé | CC BY-SA 4.0, Vianogianluca, description relue : le polygone
 FTE-36 | corrigé | CC BY 3.0, Alshuaib et al., description relue : le rectangle descendait vers 30 dB et prenait la colonne vide à 125 Hz, il suit les seuils de 250 à 8000 Hz. Partiel : audiométrie vocale absente. Titre Normal Audiogram.
 FTE-35 | confirmé | Introuvable. Commons : rien. Open-i « nocturnal oximetry » relu : heatmap, licence CC BY-NC-ND, scanner thoracique. Pas de courbe.
 FTE-34 | corrigé | CC BY 4.0, PMC8285307 figure 1c, légende relue : le rectangle couvrait toute la ligne du 17/05, il est sur la barre noire de sommeil. Auteurs complétés. Partiel : cohorte de nourrissons avec hémangiome.
+FTE-33 | corrigé | CC BY 4.0, PMC5828406 figure 1, légende relue : la plage bleue du jeudi est le bloc de nuit, la pointe est au bord gauche. Partiel : participant 5, syndrome de Rett, une seule teinte bleue.
+FTE-32 | confirmé | Introuvable. Commons « maintenance of wakefulness test » : photos d'un colloque, pas un hypnogramme. Pas de tracé.
+FTE-31 | confirmé | Introuvable. Commons « multiple sleep latency test hypnogram filetype:bitmap » : rien. Pas de série de siestes à latence normale.
+FTE-30 | corrigé | CC BY 4.0, PMC8434530 figure 2, légende relue : le cadre incluait le débit de grande amplitude, il est limité au débit faible avant la première barre, pointe au bord droit. Partiel : le même extrait montre des apnées et des hypopnées, pas de saturation.
