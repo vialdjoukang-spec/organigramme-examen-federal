@@ -51,6 +51,19 @@ def main():
                 if not pg.locator("#db .bub:not(.compact)").count():
                     errors.append(f"{mid}: clic sur le numéro sans bulle")
                 else:
+                    fit = pg.evaluate("""() => {
+                      const bub = document.querySelector('#db .bub.sheet');
+                      const box = document.querySelector('#db .panel.p');
+                      if (!bub || !box) return null;
+                      const a = bub.getBoundingClientRect(), f = box.getBoundingClientRect();
+                      const cut = bub.scrollWidth > bub.clientWidth + 2 || bub.scrollHeight > bub.clientHeight + 2;
+                      const txt = bub.innerText || "";
+                      return {ok: a.left >= f.left - 1 && a.right <= f.right + 1 && a.top >= f.top - 1 && a.bottom <= f.bottom + 1 && !cut && txt.includes("Confiance"),
+                              L: Math.round(a.left - f.left), R: Math.round(f.right - a.right),
+                              T: Math.round(a.top - f.top), B: Math.round(f.bottom - a.bottom), cut};
+                    }""")
+                    if not fit or not fit["ok"]:
+                        errors.append(f"{mid}: bulle hors du panneau ou texte coupé {fit}")
                     txt = pg.locator("#db .bub:not(.compact)").first.inner_text()
                     if "Définition" not in txt:
                         errors.append(f"{mid}: bulle sans définition radiologique")
@@ -60,6 +73,8 @@ def main():
                 if det.count() < 1 or "Définition" not in det.first.inner_text():
                     errors.append(f"{mid}: le numéro n'ouvre ni le nom ni la définition")
                 # Bande et définition ouvertes, avant le mode « tous les noms ».
+                pg.locator("#db .bub.sheet").scroll_into_view_if_needed()
+                pg.wait_for_timeout(100)
                 snap(mid + "_bulles")
                 if i == 0 and pg.locator("#bNames").is_enabled():
                     pg.click("#bNames"); pg.wait_for_timeout(150)
@@ -114,7 +129,24 @@ def main():
                 mr.tap()
                 m.wait_for_timeout(200)
             if m.locator("#db .arw").count():
-                m.locator("#db .arw").first.tap(force=True); m.wait_for_timeout(150)
+                m.locator("#db .arw").first.tap(force=True); m.wait_for_timeout(200)
+                if m.locator("#db .les button").count() and m.locator("#db .bub:not(.compact)").count() < 1:
+                    m.locator("#db .les button").first.tap()
+                    m.wait_for_timeout(200)
+                m.locator("#db .bub.sheet").scroll_into_view_if_needed()
+                m.wait_for_timeout(150)
+                fit = m.evaluate("""() => {
+                  const bub = document.querySelector('#db .bub.sheet');
+                  const box = document.querySelector('#db .panel.p');
+                  if (!bub || !box) return null;
+                  const a = bub.getBoundingClientRect(), f = box.getBoundingClientRect();
+                  const cut = bub.scrollWidth > bub.clientWidth + 2 || bub.scrollHeight > bub.clientHeight + 2;
+                  const txt = bub.innerText || "";
+                  return {ok: a.left >= f.left - 1 && a.right <= f.right + 1 && a.width > 40 && !cut && txt.includes("Confiance"),
+                          w: Math.round(a.width), cut};
+                }""")
+                if not fit or not fit["ok"]:
+                    errors.append(f"mobile {ids[0]}: bulle hors du panneau ou texte coupé {fit}")
             f = os.path.join(shots, f"{tag}_mobile_{ids[0]}.png"); m.screenshot(path=f, full_page=False); made.append(f)
             m.evaluate("document.querySelector('#db').scrollTop=9999"); m.wait_for_timeout(100)
             f = os.path.join(shots, f"{tag}_mobile_{ids[0]}_bas.png"); m.screenshot(path=f); made.append(f)

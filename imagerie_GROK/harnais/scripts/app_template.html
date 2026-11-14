@@ -77,7 +77,8 @@ td.dx button:hover{text-decoration:underline}
 .zctl button{width:32px;height:32px;padding:0;border-radius:7px;background:rgba(31,37,45,.85);border:1px solid var(--ln);cursor:pointer}
 .ph{border:2px dashed #46505c;border-radius:10px;margin:14px;padding:20px;text-align:center;color:var(--mu);max-width:420px;line-height:1.5}
 .ph b{color:var(--tx);display:block;margin-bottom:6px;font-size:16px}
-.bub{position:absolute;z-index:4;background:#0b0d10;border:2px solid var(--ac);border-radius:8px;padding:7px 9px;width:max-content;max-width:min(280px,62vw);font-size:13px;line-height:1.35;color:#fff;box-shadow:0 4px 18px rgba(0,0,0,.6);pointer-events:auto}
+.bub{position:absolute;z-index:4;background:#0b0d10;border:2px solid var(--ac);border-radius:8px;padding:7px 9px;width:auto;max-width:100%;box-sizing:border-box;font-size:13px;line-height:1.35;color:#fff;box-shadow:0 4px 18px rgba(0,0,0,.6);pointer-events:auto;overflow-wrap:anywhere;word-break:break-word}
+.bub.sheet{position:static;display:block;margin:8px;max-width:none;max-height:none;overflow:visible;width:auto}
 .bub.compact{padding:3px 7px;font-weight:700;font-size:12.5px}
 .bub .r{font-size:11px;text-transform:uppercase;letter-spacing:.05em;font-weight:800}
 .bub .ev{color:#c8d0d8;font-style:italic;margin-top:4px}
@@ -291,45 +292,63 @@ function grade(arrows,W,H){
  return {hits, falsePos:proposals.length-hits.length};
 }
 function place(zw,b,a){
- // choose the bubble position that stays inside the image and covers neither the arrow nor the lesion tip
- const W=zw.offsetWidth,H=zw.offsetHeight,w=b.offsetWidth,h=b.offsetHeight;
- const zr=zw.getBoundingClientRect(),fr=zw.parentElement.getBoundingClientRect(),sc0=zr.width/(W||1)||1;
- const X0=(fr.left-zr.left)/sc0+2,X1=(fr.right-zr.left)/sc0-2,Y0=(fr.top-zr.top)/sc0+2,Y1=(fr.bottom-zr.top)/sc0-40;
- const others=[...zw.querySelectorAll(".bub")].filter(o=>o!==b).map(o=>[o.offsetLeft,o.offsetTop,o.offsetLeft+o.offsetWidth,o.offsetTop+o.offsetHeight]);
- const side=(zw._side&&zw._side.arrows)||[];
- const badges=side.filter(x=>x!==a).flatMap(x=>[[x.from[0]*W,x.from[1]*H],[x.tip[0]*W,x.tip[1]*H]]);
- const fx=a.from[0]*W,fy=a.from[1]*H,tx=a.tip[0]*W,ty=a.tip[1]*H,g=16;
- const C=[[g,-h/2],[-w-g,-h/2],[-w/2,-h-g],[-w/2,g],[g,-h+8],[g,-8],[-w-g,-h+8],[-w-g,-8],
-  [g-fx,g-fy],[W-w-g-fx,g-fy],[g-fx,H-h-g-fy],[W-w-g-fx,H-h-g-fy]];
+ // La bulle reste entière dans l'image : le cadre (.fig) coupe tout débordement.
+ const W=zw.offsetWidth,H=zw.offsetHeight;
+ if(W<40||H<40){b.style.left="4px";b.style.top="4px";return;}
+ const pad=4;
+ b.style.maxWidth=(W-pad*2)+"px";
+ b.style.maxHeight=(H-pad*2)+"px";
+ b.style.overflowY="auto";
+ const w=Math.min(b.offsetWidth,W-pad*2), h=Math.min(b.offsetHeight,H-pad*2);
+ const clamp=(L,T)=>[Math.min(Math.max(pad,L),W-w-pad), Math.min(Math.max(pad,T),H-h-pad)];
+ const fx=a.from[0]*W,fy=a.from[1]*H,tx=a.tip[0]*W,ty=a.tip[1]*H;
+ const raw=[[pad,pad],[W-w-pad,pad],[pad,H-h-pad],[W-w-pad,H-h-pad],
+  [fx+14,fy-h/2],[fx-w-14,fy-h/2],[tx-w/2,ty+18],[tx-w/2,ty-h-18]];
  const poly=(a.contour||[]).map(p=>[p[0]*W,p[1]*H]);
  let best=null,bs=1e18;
- for(const[ox,oy]of C){
-  const L=fx+ox,T=fy+oy,Rr=L+w,B=T+h;
-  let sc=(Math.max(0,X0-L)+Math.max(0,Rr-X1)+Math.max(0,Y0-T)+Math.max(0,B-Y1))*250;
-  for(const o of others){const ix=Math.max(0,Math.min(Rr,o[2])-Math.max(L,o[0])),iy=Math.max(0,Math.min(B,o[3])-Math.max(T,o[1]));sc+=ix*iy*0.5;}
-  for(const[qx,qy]of badges){if(qx>L-12&&qx<Rr+12&&qy>T-12&&qy<B+12)sc+=600;}
-  for(let k=0;k<=12;k++){const px=fx+(tx-fx)*k/12,py=fy+(ty-fy)*k/12;if(px>L-6&&px<Rr+6&&py>T-6&&py<B+6)sc+=k===12?8000:(k>=9?600:120);}
-  for(const[qx,qy] of poly){if(qx>L-10&&qx<Rr+10&&qy>T-10&&qy<B+10)sc+=8000;}
+ for(const[lx,ty0] of raw){
+  const[L,T]=clamp(lx,ty0), Rr=L+w, B=T+h;
+  let sc=0;
+  for(let k=0;k<=8;k++){const px=fx+(tx-fx)*k/8,py=fy+(ty-fy)*k/8;if(px>L-4&&px<Rr+4&&py>T-4&&py<B+4)sc+=k===8?4000:80;}
+  for(const[qx,qy] of poly){if(qx>L-6&&qx<Rr+6&&qy>T-6&&qy<B+6)sc+=2500;}
   const nx=Math.max(L,Math.min(tx,Rr)), ny=Math.max(T,Math.min(ty,B));
-  if(Math.hypot(tx-nx,ty-ny)<26) sc+=9000;
-  const cx=L+w/2,cy=T+h/2;if(Math.hypot(cx-tx,cy-ty)<Math.max(w,h)*0.6)sc+=800;
+  if(Math.hypot(tx-nx,ty-ny)<18) sc+=4000;
+  sc+=Math.hypot(L+w/2-tx,T+h/2-ty)*0.15;
   if(sc<bs){bs=sc;best=[L,T];}
  }
- b.style.left=best[0]+"px";b.style.top=best[1]+"px";
+ const[L,T]=best||clamp(pad,pad);
+ b.style.left=L+"px";b.style.top=T+"px";
 }
 function bubble(zw,side,i,compact){
  const a=side.arrows[i]; if(!a)return;
+ const panel=zw.closest(".panel");
+ if(!compact){
+  let s=panel&&panel.querySelector(`.bub.sheet[data-a="${i}"]`);
+  if(s)return s;
+  if(panel)panel.querySelectorAll(".bub.sheet").forEach(x=>x.remove());
+  s=document.createElement("div");s.className="bub sheet";s.dataset.a=i;
+  s.setAttribute("role","status");
+  const col=`var(--c-${a.role})`;s.style.borderColor=col;
+  const def=a.definition?esc(a.definition):"À vérifier";
+  const src=a.definition_source?`<div class="src">Source : ${esc(a.definition_source)}</div>`:"";
+  s.innerHTML=`<div class="r" style="color:${col}">${i+1} · ${esc(ROLES[a.role]||a.role)}</div><div><b>${esc(a.label)}</b></div><div class="def"><b>Définition :</b> ${def}</div>${src}<div class="ev">Preuve : ${a.evidence==="visuel"?"repérage visuel (pas de légende source)":"« "+esc(a.evidence)+" »"}</div><div class="cf">Confiance : ${esc(a.confidence)}${a.confidence==="basse"?" · À vérifier":""}</div>`;
+  const fig=zw.closest(".fig");
+  if(fig&&fig.nextSibling)panel.insertBefore(s,fig.nextSibling);else panel.appendChild(s);
+  return s;
+ }
  let b=zw.querySelector(`.bub[data-a="${i}"]`);
- if(b){ if(!compact&&b.classList.contains("compact")){b.remove();}else return b; }
- b=document.createElement("div");b.className="bub"+(compact?" compact":"");b.dataset.a=i;
+ if(b){ if(!b.classList.contains("compact")){b.remove();}else return b; }
+ b=document.createElement("div");b.className="bub compact";b.dataset.a=i;
  b.setAttribute("role","status");
- const col=`var(--c-${a.role})`;b.style.borderColor=col;
- const def=a.definition?esc(a.definition):"À vérifier";
- const src=a.definition_source?`<div class="src">Source : ${esc(a.definition_source)}</div>`:"";
- b.innerHTML=compact?`${i+1}. ${esc(a.label)}`:`<div class="r" style="color:${col}">${i+1} · ${esc(ROLES[a.role]||a.role)}</div><div><b>${esc(a.label)}</b></div><div class="def"><b>Définition :</b> ${def}</div>${src}<div class="ev">Preuve : ${a.evidence==="visuel"?"repérage visuel (pas de légende source)":"« "+esc(a.evidence)+" »"}</div><div class="cf">Confiance : ${esc(a.confidence)}${a.confidence==="basse"?" · À vérifier":""}</div>`;
+ b.style.borderColor=`var(--c-${a.role})`;
+ b.textContent=`${i+1}. ${a.label}`;
  zw.appendChild(b);place(zw,b,a);return b;
 }
-function clearBubbles(zw,keepCompact){zw.querySelectorAll(".bub").forEach(b=>{if(!(keepCompact&&b.classList.contains("compact")))b.remove();});}
+function clearBubbles(zw,keepCompact){
+ zw.querySelectorAll(".bub").forEach(b=>{if(!(keepCompact&&b.classList.contains("compact")))b.remove();});
+ const panel=zw.closest&&zw.closest(".panel");
+ if(panel)panel.querySelectorAll(".bub.sheet").forEach(b=>b.remove());
+}
 function applyAll(zw,side){zw.querySelectorAll(".bub.compact").forEach(b=>b.remove());if(hideArr){clearBubbles(zw,false);return;}if(showAll)side.arrows.forEach((_,i)=>{if(!zw.querySelector(`.bub[data-a="${i}"]`))bubble(zw,side,i,true);});}
 
 // --- zoom/pan (wheel, drag, buttons, pinch)
@@ -422,7 +441,8 @@ function show(){
   ro=new ResizeObserver(()=>draw());ro.observe(img);
   const setDetail=(i,on)=>{document.querySelectorAll("#db .les button").forEach(b=>{const d=b.querySelector(".detail");if(d)d.hidden=!(on&&+b.dataset.a===i);});};
   const toggle=i=>{
-   const ex=zw.querySelector(`.bub[data-a="${i}"]:not(.compact)`);
+   const panel=zw.closest(".panel");
+   const ex=panel&&panel.querySelector(`.bub.sheet[data-a="${i}"]`);
    if(ex){ex.remove();opened.delete(i);draw();if(showAll&&!hideArr)bubble(zw,p,i,true);setDetail(i,false);}
    else{clearBubbles(zw,true);opened.clear();opened.add(i);draw();bubble(zw,p,i,false);setDetail(i,true);}
   };
@@ -459,7 +479,7 @@ $("#bDefi").onclick=()=>{defi=!defi;proposals=[];opened=new Set();showAll=false;
 $("#bNote").onclick=()=>{if(!defi||!hideArr)return;hideArr=false;const p=view[cur].m&&view[cur].m.patho;opened=new Set(((p&&p.arrows)||[]).map((_,i)=>i));show();};
 document.addEventListener("keydown",e=>{
  if(!$("#ov").classList.contains("on"))return;
- if(e.key==="Escape"){e.preventDefault();const zw=document.querySelector("#db .panel.p .zw");if(zw&&zw.querySelector(".bub:not(.compact)")){clearBubbles(zw,true);opened.clear();const svg=zw.querySelector("svg");const pp=view[cur]&&view[cur].m&&view[cur].m.patho;if(svg&&pp)arrowSVG(pp,svg);document.querySelectorAll("#db .les .detail").forEach(d=>d.hidden=true);return;}close();return;}
+ if(e.key==="Escape"){e.preventDefault();const zw=document.querySelector("#db .panel.p .zw");if(zw&&zw.closest(".panel").querySelector(".bub.sheet")){clearBubbles(zw,true);opened.clear();const svg=zw.querySelector("svg");const pp=view[cur]&&view[cur].m&&view[cur].m.patho;if(svg&&pp)arrowSVG(pp,svg);document.querySelectorAll("#db .les .detail").forEach(d=>d.hidden=true);return;}close();return;}
  if(e.target.closest&&e.target.closest("input,select,textarea"))return;
  if(e.key==="ArrowLeft"){e.preventDefault();step(-1);}else if(e.key==="ArrowRight"){e.preventDefault();step(1);}
  else if(e.key==="Tab"){const f=[...$("#dlg").querySelectorAll('button:not([disabled]),a[href],[tabindex="0"],h2[tabindex]')].filter(x=>x.offsetParent!==null||x.closest("svg"));if(!f.length)return;const a=f[0],z=f[f.length-1];if(e.shiftKey&&document.activeElement===a){e.preventDefault();z.focus();}else if(!e.shiftKey&&document.activeElement===z){e.preventDefault();a.focus();}}
