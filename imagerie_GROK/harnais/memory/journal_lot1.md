@@ -69,3 +69,8 @@ IMG-022 | partiel | Nevit Dilmen, CC BY-SA 3.0, ventricules larges, LCS blanc | 
 IMG-021 | introuvable | — | pas de T1 ; schéma et films de rats
 IMG-020 | introuvable | — | pas de T1 coronal ; le T1 trouvé est axial
 IMG-019 | partiel | Hellerhoff, CC BY-SA 3.0, T1 gadolinium, schwannome du conduit gauche déjà entouré | pas de rocher normal
+IMG-018 | partiel | Hellerhoff, CC BY-SA 3.0, diffusion axiale, fosse postérieure | masse du vermis non cernée ; pas d'ADC
+IMG-017 | introuvable | — | pas de diffusion ; l'IRM libre est sagittale, sans ADC
+IMG-016 | partiel | Marvin 101, CC BY-SA 2.0 de, T1 injecté, métastase annulaire, flèche d'origine | pas de cerveau normal
+IMG-015 | partiel | Xunai, CC BY 4.0, méningiome de l'aile du sphénoïde rehaussé | gadolinium non écrit
+IMG-014 | introuvable | — | série sagittale sans lésion cernable ; pas de T2 axial
