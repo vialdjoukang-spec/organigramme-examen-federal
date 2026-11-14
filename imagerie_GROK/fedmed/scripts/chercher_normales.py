@@ -124,27 +124,48 @@ def requete(fiche):
     return f"{mots} {region}", mod, tech
 
 
-def porte(candidat, tech_patho, region, sexe_patho):
+NORMALITE = re.compile(
+    r"(normal anatomy|no injuries|unremarkable|no abnormality|without abnormality|"
+    r"healthy volunteer|normal (ct|mri|ultrasound|radiograph|x-ray|chest|abdomen|brain|study|scan))",
+    re.I,
+)
+CAS = re.compile(r"presents to|presenting with|was diagnosed|case report|emergency department", re.I)
+PEDIATRIE = re.compile(
+    r"\b(nouveau-né|nouveau né|nourrisson|enfant|pédiatri|pediatr|infant|neonat|child)\b",
+    re.I,
+)
+
+
+def porte(candidat, tech_patho, region, sexe_patho, age_patho=""):
     raisons = []
+    if PEDIATRIE.search(tech_patho or ""):
+        raisons.append("pathologie pédiatrique, normale adulte non appariée")
+    texte = ((candidat.get("description") or "") + " " + (candidat.get("titre") or ""))
+    if not NORMALITE.search(texte) or (CAS.search(texte) and not re.search(r"normal anatomy|no injuries|unremarkable", texte, re.I)):
+        raisons.append("normalité non attestée dans la légende")
     licence = candidat.get("licence") or ""
-    if not C.licence_ok(licence) and not re.search(r"\bcc[- ]by(-sa)?\b|\bcc0\b|public domain", licence, re.I):
+    if not C.licence_ok(licence):
         raisons.append("licence")
-    if re.search(r"\bnc\b|noncommercial|non-commercial", licence, re.I):
+    if re.search(r"\bnc\b|noncommercial|non-commercial|by-nc", licence, re.I):
         raisons.append("licence non commerciale")
     age, sexe = AD.depuis_texte(candidat.get("description") or "")
     if not age or not sexe:
         raisons.append("âge ou sexe absent")
     elif int(re.search(r"\d+", age).group(0)) < 18:
         raisons.append("non adulte")
+    elif age_patho:
+        na = re.search(r"\d+", age_patho)
+        if na and abs(int(na.group(0)) - int(re.search(r"\d+", age).group(0))) > 15:
+            raisons.append("écart d'âge supérieur à 15 ans")
     if C.donnees_patient((candidat.get("description") or "").encode()):
         raisons.append("données patient")
     if any(m in (region or "").lower() for m in SENSIBLES):
         if not sexe_patho or (sexe and sexe != sexe_patho):
             raisons.append("sexe non concordant")
-    mod_c = modalite(candidat.get("description") or "" + " " + candidat.get("titre"))
+    mod_c = modalite((candidat.get("description") or "") + " " + (candidat.get("titre") or ""))
     mod_p = modalite(tech_patho)
-    if mod_p and mod_c and mod_p != mod_c:
-        raisons.append("modalité différente")
+    if not mod_c or (mod_p and mod_c != mod_p):
+        raisons.append("modalité non attestée ou différente")
     if not candidat.get("thumb") and not candidat.get("octets"):
         raisons.append("pas de fichier image")
     inc_c = incidence((candidat.get("description") or "") + " " + (candidat.get("titre") or ""))
@@ -195,7 +216,7 @@ def figures_europepmc(requete):
             texte = re.sub(r"<[^>]+>", " ", cap.group(1) if cap else "")
             texte = re.sub(r"\s+", " ", texte)
             age, sexe = AD.depuis_texte(texte)
-            if not (age and sexe and int(re.search(r"\d+", age).group(0)) >= 18):
+            if not (age and sexe and int(re.search(r"\d+", age).group(0)) >= 18 and NORMALITE.search(texte)):
                 continue
             href = re.search(r'xlink:href="([^"]+)"', bloc)
             if not href:
@@ -231,18 +252,25 @@ def une(ident):
     q, mod, tech = requete(fiche)
     region = (fiche.get("contexte") or {}).get("region") or ""
     sexe_patho = (fusion["gabarit"].get("patho") or {}).get("sexe") or ""
+    age_patho = (fusion["gabarit"].get("patho") or {}).get("age") or ""
+    if PEDIATRIE.search(tech):
+        fusion["recherche_normale"] = {"ajoutee": False, "requete": q, "refus": ["pathologie pédiatrique"]}
+        C.ecrire_json(C.FUSION / f"{ident}.json", fusion)
+        return "pédiatrique, non cherchée"
     candidats = commons(q) 
     refus = []
     retenus = []
     for cand in candidats:
-        raisons, age, sexe = porte(cand, tech, region, sexe_patho)
+        raisons, age, sexe = porte(cand, tech, region, sexe_patho, age_patho)
+        if cand.get("url") in DEJA:
+            raisons.append("image déjà utilisée")
         if raisons:
             refus.append(cand.get("titre", "")[:40] + " : " + ", ".join(raisons))
             continue
         retenus.append((cand, age, sexe, "légende Commons"))
     if not retenus:
         for cand in figures_europepmc(q):
-            raisons, age, sexe = porte(cand, tech, region, sexe_patho)
+            raisons, age, sexe = porte(cand, tech, region, sexe_patho, age_patho)
             if raisons:
                 refus.append("PMC " + (cand.get("titre") or "")[:24] + " : " + ", ".join(raisons))
                 continue
@@ -279,6 +307,7 @@ def une(ident):
         }
         info["age_preuve"] = preuve
         fusion["recherche_normale"] = {"ajoutee": True, "requete": q}
+        DEJA.add(cand.get("url") or "")
         fusion["signaux"] = [s for s in (fusion.get("signaux") or []) if "Normale" not in s]
         fusion["signaux"].append("Normale ajoutée après recherche.")
         C.ecrire_json(C.FUSION / f"{ident}.json", fusion)
@@ -288,12 +317,20 @@ def une(ident):
     return "aucune (" + str(len(refus)) + " refus)"
 
 
+DEJA = set()
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--limite", type=int, default=10)
     ap.add_argument("--force", action="store_true")
     args = ap.parse_args()
     index = C.lire_json(C.FENETRES / "index.json")
+    for ident in index["ids"]:
+        doc = C.lire_json(C.FUSION / f"{ident}.json")
+        url = (doc.get("normal_ajoute") or {}).get("url")
+        if url:
+            DEJA.add(url)
     sans = []
     for ident in index["sans_normale"]:
         fusion = C.lire_json(C.FUSION / f"{ident}.json")
