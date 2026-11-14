@@ -264,5 +264,14 @@ assert '.gm{color:#0B2540}' in page
 assert page.count("cadre.src=D.base+l.f;vieux.replaceWith(cadre);$('#vn').href=D.base+l.f;") == 1
 assert page.count('</body>') == 1
 
+import importlib
+_luxe = importlib.import_module('luxe_ui') if __package__ else None
+if _luxe is None:
+    import importlib.util as _iu
+    _sp = _iu.spec_from_file_location('luxe_ui', os.path.join(os.path.dirname(os.path.abspath(__file__)), 'luxe_ui.py'))
+    _luxe = _iu.module_from_spec(_sp)
+    _sp.loader.exec_module(_luxe)
+page = _luxe.injecter(page)
+assert page.count('id="luxe-designer"') == 1
 open(SORTIE, 'w', encoding='utf-8').write(page)
 print(f'8 correctifs appliqués (C1–C8) et thèmes de luxe, sortie {SORTIE} : {len(page.encode("utf-8")) / 1e6:.1f} Mo')

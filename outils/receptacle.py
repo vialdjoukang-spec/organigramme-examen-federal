@@ -90,7 +90,9 @@ def contraste(a, b):
     return (x + .05) / (y + .05)
 
 
-ATT_MIN, ATT_MAX, CONTRASTE_MIN = 0.50, 0.50, 7.0  # atténuation de 50 % vers le blanc (ordre du 14.11.2026) : refus hors de cette valeur
+# 0 et 0,30 : fichier themes_luxe.json à venir (encre #111 ou #fff). 0,50 : palettes actuelles.
+ATT_OK = (0.0, 0.3, 0.5)
+CONTRASTE_MIN = 7.0
 # Bande EYE SPOT : hsl(teinte de page, S, L) atténuée de 50 % vers le blanc. La clarté est relevée juste assez pour que le texte
 # #000/#111 reste à 7:1 sur les 360 teintes ; S et L diffèrent par famille de page, afin que deux pages voisines se distinguent.
 EYE_PALIERS = {'cours': (0.72, 0.54), 'examens': (0.84, 0.57), 'pharmaco': (0.55, 0.46), 'fondamentales': (0.66, 0.53), 'fiche': (0.78, 0.55), 'vue': (0.72, 0.54)}
@@ -134,43 +136,76 @@ def eye_hex(eye, k, famille):
     return attenue(hsl_rgb(hue, s, l), e['a'])
 
 
+def _att_ok(a, ou):
+    a = float(a)
+    if not any(abs(a - x) < 1e-9 for x in ATT_OK):
+        raise AssertionError(f'{ou} : atténuation {a} hors 0, 0,30 ou 0,50')
+    return a
+
+
+def _encre(t, role):
+    """Encre du rôle : #111 ou #fff si le thème la donne, sinon None (le CSS garde #111 / #000)."""
+    brut = (t.get('encre') or {}).get(role)
+    if brut is None:
+        return None
+    s = str(brut).strip().lower()
+    if s in ('#111', '#111111'):
+        return '#111111'
+    if s in ('#fff', '#ffffff'):
+        return '#ffffff'
+    raise AssertionError(f'encre {role} = {brut} (attendu #111 ou #fff)')
+
+
+def _att_role(t, j, role):
+    col = t['couleurs'][j]
+    if isinstance(col, dict) and 'attenuation' in col:
+        return _att_ok(col['attenuation'], f'{role} couleur {j}')
+    return _att_ok(t['attenuation'][role], role)
+
+
 def themes(chemin):
-    """20 thèmes (ordres de Vial du 13.11.2026). Au plus 3 couleurs par thème, la bande EYE SPOT comptant parmi elles :
-    les deux premières teintent les zones (menu, rail, tableau, mot, bande, encadré), la dernière est la graine EYE SPOT
-    (bande unique de tous les titres de la page active, teinte tournée par page dans le JS). Atténuation de 50 % vers le
-    blanc ; contraste >= 7:1 calculé ici : zones avec #111 et #222, bande EYE SPOT avec
-    #000 et #111 sur les 360 teintes possibles (échec = arrêt). Rend (liste pour la page, CSS par thème)."""
+    """Thèmes du fichier (nombre libre). Au plus 3 couleurs : les premières teintent les zones, la dernière est la bande
+    des titres. Chaque couleur peut porter son atténuation (0, 0,30 ou 0,50) ; sinon le dictionnaire par usage s'applique.
+    Chaque rôle peut porter une encre #111 ou #fff. Contraste >= 7:1 contre cette encre (échec = arrêt)."""
     T = json.load(open(chemin, encoding='utf-8'))
     roles, usages, out, css = T['roles'], T['usages'], [], []
     assert len(T['themes']) >= 1, 'il faut au moins un thème'
     for i, t in enumerate(T['themes']):
         n = len(t['couleurs'])
         assert 2 <= n <= 3, f"thème {i + 1} : {n} couleurs (3 au plus, EYE SPOT comprise)"
-        att = t['attenuation']
-        for u in usages:
-            assert ATT_MIN <= att[u] <= ATT_MAX, f"thème {i + 1} : atténuation {u} = {att[u]} hors 50 %"
+        if isinstance(t.get('attenuation'), dict):
+            for u in usages:
+                if u in t['attenuation']:
+                    _att_ok(t['attenuation'][u], f"thème {i + 1} {u}")
         v, cmin = [], 99
         for r in roles:
             j = t['roles'][r]
             assert -1 <= j < n - 1, f"thème {i + 1} : rôle {r} sur la couleur {j} (la dernière est réservée à EYE SPOT)"
-            h = attenue(hex_rgb(t['couleurs'][j]['base']), att[r]) if j >= 0 else '#ffffff'
-            c = min(contraste(h, '#111111'), contraste(h, '#222222'))
-            assert c >= CONTRASTE_MIN, f"thème {i + 1} : contraste {c:.2f} < 7 sur {r} {h}"
+            h = attenue(hex_rgb(t['couleurs'][j]['base']), _att_role(t, j, r)) if j >= 0 else '#ffffff'
+            enc = _encre(t, r) or '#111111'
+            c = contraste(h, '#ffffff') if enc == '#ffffff' else min(contraste(h, '#111111'), contraste(h, '#222222'))
+            assert c >= CONTRASTE_MIN, f"thème {i + 1} : contraste {c:.2f} < 7 sur {r} {h} encre {enc}"
             cmin = min(cmin, c)
-            v.append(f'--t-{r}:{h};--b-{r}:{h if j >= 0 else "#6b6b6b"}')
-        h0, ae = teinte(t['couleurs'][-1]['base']), att['titre']
-        ce = min(min(contraste(attenue(hsl_rgb(d, sp, lp), ae), '#000000'), contraste(attenue(hsl_rgb(d, sp, lp), ae), '#111111')) for d in range(360) for sp, lp in EYE_PALIERS.values())
-        assert ce >= CONTRASTE_MIN, f"thème {i + 1} : bande EYE SPOT, contraste {ce:.2f} < 7"
-        # La bande des titres est la troisième couleur, atténuée : elle garde la teinte du nom (onyx, bordeaux, bleu nuit…).
+            extra = f';--e-{r}:{enc}' if _encre(t, r) else ''
+            v.append(f'--t-{r}:{h};--b-{r}:{h if j >= 0 else "#6b6b6b"}{extra}')
+        ae = _att_role(t, n - 1, 'titre') if 'attenuation' in t['couleurs'][-1] or (isinstance(t.get('attenuation'), dict) and 'titre' in t['attenuation']) else 0.5
+        if 'attenuation' not in t['couleurs'][-1] and isinstance(t.get('attenuation'), dict) and 'titre' in t['attenuation']:
+            ae = _att_ok(t['attenuation']['titre'], 'titre')
+        elif 'attenuation' in t['couleurs'][-1]:
+            ae = _att_ok(t['couleurs'][-1]['attenuation'], 'titre')
+        h0 = teinte(t['couleurs'][-1]['base'])
         fixe = attenue(hex_rgb(t['couleurs'][-1]['base']), ae)
-        cf = min(contraste(fixe, '#000000'), contraste(fixe, '#111111'))
+        enc_t = _encre(t, 'titre')
+        cf = contraste(fixe, '#ffffff') if enc_t == '#ffffff' else min(contraste(fixe, '#000000'), contraste(fixe, '#111111'))
         assert cf >= CONTRASTE_MIN, f"thème {i + 1} : bande {fixe} contraste {cf:.2f} < 7"
-        eye = {'h0': h0, 'a': ae, 'p': {k: list(v) for k, v in EYE_PALIERS.items()},
+        if enc_t:
+            v.append(f'--e-titre:{enc_t}')
+        eye = {'h0': h0, 'a': ae, 'p': {k: list(val) for k, val in EYE_PALIERS.items()},
                'z': [teinte(c['base']) for c in t['couleurs'][:-1]], 'e': 40, 'fixe': fixe}
         css.append(f':root[data-theme="{i}"]{{{";".join(v)};--eye:{fixe}}}')
-        teintes = [attenue(hex_rgb(c['base']), att['titre']) for c in t['couleurs']]
+        teintes = [attenue(hex_rgb(c['base']), _att_ok(c['attenuation'], 'teinte') if 'attenuation' in c else ae) for c in t['couleurs']]
         out.append({'nom': t['nom'], 'teintes': teintes, 'eye': eye,
-                    'attenuation': att, 'contraste_min': round(min(cmin, ce, cf), 2)})
+                    'attenuation': t.get('attenuation', {}), 'contraste_min': round(min(cmin, cf), 2)})
     return out, ''.join(css)
 
 
