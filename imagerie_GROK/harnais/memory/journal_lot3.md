@@ -65,3 +65,8 @@ IMG-198 | partiel | Hellerhoff 2012, carcinome épidermoïde de l'œsophage, par
 IMG-197 | introuvable | pas de TDM thoraco-abdomino-pelvienne ; TEP-TDM écartée
 IMG-196 | partiel | Hellerhoff 2024, colite à Clostridioides, relief polypoïde surligné | autres colites absentes
 IMG-195 | partiel | Hellerhoff 2010, abcès de diverticulite sigmoïdienne déjà fléché | injection non écrite
+IMG-194 | partiel | Hellerhoff 2010, appendicite en mode B, compas sur l'appendice | plan non écrit, pas de normale
+IMG-193 | partiel | Hellerhoff 2023, gaz des veines hépatiques et pneumatose | phases artérielle et portale non identifiées
+IMG-192 | introuvable | la seule échographie de la catégorie ne montre pas la rate
+IMG-191 | partiel | Atzmony 2009, deux infarctus spléniques déjà fléchés | phase non nommée, pas de normale
+IMG-190 | partiel | Hellerhoff 2017, rupture splénique en phase portale | phase artérielle absente

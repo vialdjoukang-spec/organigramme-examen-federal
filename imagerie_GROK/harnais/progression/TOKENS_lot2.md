@@ -51,3 +51,7 @@ Cinq diagnostics : pylore, colectasie, iléon terminal et bride en partiel ; pne
 ## Passage IMG-199 à IMG-195
 
 Cinq diagnostics : GIST fléchée, carcinome œsophagien, colite à Clostridioides et abcès de diverticulite en partiel ; stadification colorectale introuvable. Relectures pour poser le contour sur la flèche de la GIST et hors de l'os iliaque. Durée approximative : 25 minutes (estimation). Open-i a renvoyé une page d'erreur sur la stadification (estimation).
+
+## Passage IMG-194 à IMG-190
+
+Cinq diagnostics : appendicite, gaz veineux hépatique, deux infarctus spléniques et rupture portale en partiel ; splénomégalie introuvable. Relectures pour tenir le gaz dans le foie, les flèches sur la rate et la lacération hors du pôle homogène. Durée approximative : 30 minutes (estimation). Open-i a répondu ; les figures utiles étaient hors licence (estimation).
