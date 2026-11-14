@@ -1,0 +1,15 @@
+IMG-238 — confirmé — la catégorie « Urinary bladder cancer » ne montre qu'une animation, un schéma, un film endoscopique et une microscopie, pas d'échographie mode B.
+IMG-237 — corrigé — le polygone descendait dans l'aorte et le tissu gris ; il entoure l'origine rétrécie que montre la flèche noire. Pas de normale, « chronique » non écrit : le partiel tient. CC BY 4.0, sagittal.
+IMG-236 — corrigé — Endovasc.jpg est une reconstruction TDM d'endoprothèse, flèche bleue sur le stent, sans fuite écrite ; ce n'est pas une angio-TDM triphasique. L'introuvable tient. Les autres fichiers sont des schémas.
+IMG-235 — corrigé — le sommet était au-dessus du curseur antérieur ; le polygone joint les deux curseurs rouges, pointe sur la paroi droite. La rupture n'est pas sur le cliché : le partiel tient. CC0 et CC BY-SA 3.0. La normale lit 1,88 cm, plan non nommé.
+IMG-234 — confirmé — les recherches « Wilms tumor ultrasound » et « neuroblastoma ultrasound » n'ont renvoyé aucun bitmap.
+IMG-233 — confirmé — la recherche « kidney transplant doppler ultrasound » n'a renvoyé aucun bitmap.
+IMG-232 — confirmé — la recherche « renal trauma CT » n'a renvoyé aucun bitmap.
+IMG-231 — corrigé — le bas du rectangle entrait dans le rachis brillant ; il s'arrête sur la bande parenchymateuse, pointe dedans. Légende réduite au titre, définition « À vérifier ». Plans différents : le partiel tient. CC BY-SA 3.0 et 4.0. Normale : rein droit, 9,34 cm.
+IMG-230 — corrigé — le sommet était au-dessus des kystes ; le polygone couvre les logettes, pointe dans une logette. Légende réduite au titre, définition « À vérifier ». Le caractère autosomique dominant n'est pas écrit : le partiel tient. CC BY 4.0 et CC BY-SA 4.0. Sonde longitudinale. Pas de côté sur le cliché pathologique.
+IMG-229 — corrigé — le sommet était dans le parenchyme brillant ; le polygone suit les cavités anéchogènes centrales, pointe sur leur bord supérieur. Le reflux n'est pas montré : le partiel tient. CC BY 4.0. La normale porte les astérisques de la légende. Pas de côté.
+IMG-228 — corrigé — le coin supérieur gauche était dans le noir ; le polygone suit le rein, pointe sur le mot « Cortex ». Étiquettes LT KIDNEY et Sagittal section. L'écran lit 9,89 cm et 1,54 cm. L'obstacle n'est pas montré : le partiel tient. CC BY-SA 4.0. Normale : rein droit, 9,34 cm.
+IMG-227 — confirmé — le polygone suit le surlignage du pôle caudal, à droite de l'image (rein gauche), pointe dedans. Pas de thrombose veineuse ni de normale : le partiel tient. CC BY-SA 4.0.
+IMG-226 — confirmé — RA stenoz doppler.jpg porte une date, une heure et un numéro d'image à l'écran (KID RIGHT, A REN DX). Aucun autre bitmap.
+IMG-225 — corrigé — la pointe est sur l'astérisque, dans la masse entre l'aorte et la rate (M à droite de l'image, surrénale gauche). Foie L à gauche de l'image. Pas de normale, injection lue sur l'aorte : le partiel tient. CC BY-SA 3.0.
+IMG-224 — corrigé — le haut du polygone était dans le foie ; il entoure la masse moins dense que montre la flèche blanche, pointe dessus, vertèbre exclue. Pas de surrénale normale : le partiel tient. CC BY 4.0, sans injection.
