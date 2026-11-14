@@ -16,4 +16,9 @@ Périmètre réel de ce worktree (lot3, IMG-172 → IMG-087). Ordre décroissant
 - IMG-162 | partiel | schomynv, domaine public, deux kystes anéchogènes | piège : fibroadénome absent ; pas de normale mammaire libre. Légende d'un mot.
 - IMG-160 | partiel | SCiardullo, Commons, CC BY-SA 4.0, masse spiculée CC D ; normale = sein CC I du même cliché | piège : la légende dit « axillaire », les étiquettes disent CC. BI-RADS non relu.
 - IMG-134 | partiel | Hellerhoff, Commons, CC BY-SA 3.0, trait rouge sur la ligne pleurale gauche ; normale Häggström, CC0 | piège : pneumothorax compressif non montré. Confiance haute sur le trait de l'auteur.
-- IMG-132 | partiel | Hellerhoff, Commons, CC BY-SA 3.0, épanchement debout à la base ; même normale | piège : le côté n'est pas dans la légende. Définition non relue. Reprise : IMG-161, puis IMG-159 (IMG-160 déjà fait ; IMG-134 et IMG-132 déjà faits).
+- IMG-132 | partiel | Hellerhoff, Commons, CC BY-SA 3.0, épanchement debout à la base ; même normale | piège : le côté n'est pas dans la légende. Définition non relue.
+- IMG-161 | partiel | Nevit Dilmen, CC BY-SA 3.0, mammographie CC et MLO bilatérales, 40 ans | piège : aucune lésion décrite ; la paire montre les deux incidences d'un dépistage, pas un cas positif.
+- IMG-159 | partiel | James Heilman, CC BY-SA 3.0, thrombose cave supérieure sur cathéter, flèche d'auteur ; normale Häggström CC0 coupe 24 | piège : niveau du cœur, pas l'orifice thoracique. Fichier avec date gravée rejeté.
+- IMG-158 | partiel | Takeishi 2018, J Nucl Cardiol, PMC7031167, CC BY 4.0, FDG de la racine aortique (Takayasu) ; normale Opoka-Winiarska 2020, PMC7316673 | piège : TEP-IRM contre TEP-TDM ; artérite gigantocellulaire absente.
+- IMG-157 | partiel | Hsu 2014, J Cardiothorac Surg, PMC4234843, CC BY 4.0, hématome de l'aorte descendante ; normale Häggström | piège : pas de série sans injection ; ulcère pénétrant absent ; confiance basse.
+- IMG-156 | introuvable | Commons vide ; Open-i en CC BY-NC-ND, rejeté | piège : licence non blanche. Reprise à IMG-155.

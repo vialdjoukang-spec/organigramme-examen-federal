@@ -29,3 +29,10 @@ Les durées et les appels évités sont des estimations, marquées comme telles.
 - Appels de jugement visuel : 4 lectures (clichés et aperçus corrigés). Estimation.
 - Durée : courte, les fichiers étaient déjà dans les catégories listées plus tôt. Estimation.
 - Épargné par les scripts (estimation) : le second téléchargement de la normale est sorti du cache ; `validate.py` a signalé l'écart d'incidence sans bloquer le statut partiel.
+
+## IMG-161, IMG-159, IMG-158, IMG-157, IMG-156
+
+- Éléments traités : 5 diagnostics. Partiels : 161, 159, 158, 157. Introuvable : 156.
+- Appels de jugement visuel : environ 10 lectures (mammographies CC et MLO, deux TDM caves dont une rejetée pour date, TEP pathologique et normale, hématome et son contour déplacé). Estimation.
+- Durée : une passe. Estimation : les catégories Commons et une recherche Open-i ont suffi ; pas de second tour sur IMG-156.
+- Épargné par les scripts (estimation) : `fetch_openi.py` a marqué d'un `!` les licences NC-ND de la lésion traumatique de l'aorte, sans téléchargement. `validate.py` a contrôlé les cinq manifestes en une commande.
