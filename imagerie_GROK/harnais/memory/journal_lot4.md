@@ -65,4 +65,9 @@ IMG-284 | introuvable | pas d'échographie de phlegmon des gaines | recherches C
 IMG-283 | introuvable | pas d'échographie du nerf médian | la catégorie est clinique, pas échographique
 IMG-282 | introuvable | pas de goutte ni de chondrocalcinose du poignet ou du genou | les clichés de goutte vus sont des pieds
 IMG-281 | partiel | Heilman, CC BY-SA 3.0, rhizarthrose, flèche source | une seule main, côté non écrit
+IMG-280 | partiel | Lariob, CC BY-SA 4.0, érosions rhumatoïdes des métacarpiens | pas de pieds
+IMG-279 | introuvable | dissociation scapho-lunaire écartée | un nom est lisible dans l'en-tête
+IMG-278 | partiel | Heilman, CC BY-SA 4.0, fracture du tubercule du scaphoïde, flèche source | une incidence, pas la série dédiée
+IMG-277 | partiel | Hellerhoff, CC BY-SA 3.0, Salter-Harris II du radius, face et profil | fracture de l'enfant, pas de l'adulte
+IMG-276 | introuvable | pas d'échographie de bursite olécrânienne | radiographies et IRM seulement
 

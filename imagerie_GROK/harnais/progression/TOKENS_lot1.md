@@ -118,3 +118,12 @@ Reprise : IMG-285.
 - Épargné par les scripts (estimation) : les recherches vides ont clos trois introuvables. Le gain chiffré n'est pas mesuré.
 
 Reprise : IMG-280.
+
+## Passe IMG-280 à IMG-276
+
+- Éléments traités : 5 diagnostics. Trois partiels, deux introuvables. Aucun complet.
+- Appels de jugement visuel : environ 8 lectures. Le cliché de dissociation scapho-lunaire a été écarté à cause d'un nom lisible. Le contour du scaphoïde a été abaissé sur la flèche. Estimation.
+- Durée : une passe, non chronométrée. Estimation.
+- Épargné par les scripts (estimation) : le filtre a écarté les atlas hors licence avant lecture. Le gain chiffré n'est pas mesuré.
+
+Reprise : IMG-275.
