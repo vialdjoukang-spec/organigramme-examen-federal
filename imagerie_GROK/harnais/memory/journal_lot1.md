@@ -29,3 +29,8 @@ IMG-062 | partiel | Michael Goodyear, CC BY-SA 4.0, masse tonsillaire droite reh
 IMG-061 | partiel | Pidalka44, domaine public, panoramique, kyste sur dent de sagesse ; normal Roquex, CC0 | ostéonécrose absente ; contention sur le normal
 IMG-060 | partiel | Jmarchn, CC0, masse ethmoïdale, métastase d'adénocarcinome intestinal | injection non écrite ; pas une tumeur primitive ; pas de normal
 IMG-059 | partiel | Hellerhoff, CC BY-SA 4.0, fracture longitudinale du rocher droit | ligne peu visible, confiance basse ; pas de normal
+IMG-058 | partiel | Hellerhoff, CC BY-SA 4.0, TDM osseuse, plancher et paroi latérale de l'orbite gauche | Le Fort non nommé ; un quart du montage est une radiographie
+IMG-057 | partiel | Mustafakapadiya, CC BY-SA 4.0, coupe floue du rocher, cercle rouge | site non nommé ; haute résolution non établie
+IMG-056 | partiel | welleschik, CC BY 2.5, série, cholestéatome de l'attique déjà teinté | haute résolution non écrite
+IMG-055 | partiel | Jmarchn, CC BY-SA 3.0, mastoïde droite comblée | pas de complication intracrânienne
+IMG-054 | partiel | Hellerhoff, CC BY-SA 4.0, sphénoïde gauche comblé, paroi épaisse | ni champignon ni polypose
