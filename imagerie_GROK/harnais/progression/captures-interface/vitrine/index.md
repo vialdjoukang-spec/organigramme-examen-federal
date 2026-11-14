@@ -24,3 +24,4 @@
 - `22-mobile-survol.png` — Mobile, poumon droit allumé des deux côtés.
 - `23-mobile-bulle.png` — Mobile, bande rouge et définition entière, plus la bulle du poumon droit.
 - `24-mobile-source.png` — Mobile, bulle Source entière, sans déborder.
+- `25-legende-couleurs.png` — Légende ouverte. Chaque pastille reprend la couleur du contour (#00E5FF, #7CFF4F, #4DFFDF, #FF4DFF, #FF9F1C, lésion pointillée #FF1744). Tous les aspects sont « À vérifier ».

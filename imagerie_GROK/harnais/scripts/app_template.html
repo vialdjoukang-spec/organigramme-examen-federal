@@ -83,6 +83,13 @@ details.more summary{cursor:pointer;color:var(--tx)}
 .anat .ln{fill-opacity:.04;stroke-width:2.5;vector-effect:non-scaling-stroke}
 .anat g.on .ln{stroke-width:3.5;fill-opacity:.32}
 .structTip{margin:8px 0 0;padding:8px 12px;background:#07090c;color:#FFFFFF;border:2px solid var(--link);border-radius:8px;font-size:15.5px;line-height:1.35}
+.codeLegend{margin:8px 0 0;padding:10px 12px;background:#07090c;color:#FFFFFF;border:2px solid #FFD400;border-radius:8px;font-size:15.5px;line-height:1.4}
+.codeLegend h3,.codeLegend h4{margin:8px 0 6px;font-size:16px;color:#FFFFFF}
+.codeLegend h3{margin-top:0}
+.codeLegend ul{list-style:none;padding:0;margin:0;display:grid;gap:8px}
+.codeLegend li{display:flex;gap:10px;align-items:flex-start}
+.codeLegend i{flex:none;width:36px;height:16px;margin-top:4px;border:2px solid #061018;border-radius:2px}
+.codeLegend i.dot{background:transparent;border-style:dashed;border-width:3px}
 .arw{cursor:pointer;outline:none}
 .arw .hit{stroke:transparent;fill:none;pointer-events:stroke}
 .arw:focus-visible .ring{stroke:#fff;stroke-dasharray:4 3}
@@ -167,6 +174,7 @@ details.more summary{cursor:pointer;color:var(--tx)}
    <button class="btn" id="bDefi" aria-pressed="false">Mode défi</button>
    <button class="btn" id="bNote" hidden>Révéler et noter</button>
    <button class="btn" id="bLink" aria-pressed="false">Zoom lié</button>
+   <button class="btn" id="bCode" aria-pressed="false">Rappel du code couleur structure – aspect</button>
    <span id="scoreHead" hidden></span>
    <button class="btn" id="bPrev" aria-label="Diagnostic précédent">◀ Préc.</button>
    <button class="btn" id="bNext" aria-label="Diagnostic suivant">Suiv. ▶</button>
@@ -370,7 +378,7 @@ function applyAll(zw,side){zw.querySelectorAll(".bub.compact").forEach(b=>b.remo
 
 // --- zoom/pan (wheel, drag, buttons, pinch)
 let zooms=[];
-let linkZoom=false;
+let linkZoom=false, codeOpen=false;
 function zoomable(fig,zw){
  let s=1,tx=0,ty=0,drag=null,pts=new Map(),pinch=null;
  const boost=fig.closest(".panel.n")?1.12:1;
@@ -446,6 +454,39 @@ function drawAnat(svg,side){
   g.appendChild(halo);g.appendChild(pl);svg.appendChild(g);
  });
 }
+function aspectScale(mod){
+ const m=(mod||"").toLowerCase();
+ if(/rx|radio/.test(m)) return "Radiographie : l'aspect attendu se dit opaque ou clair.";
+ if(/tdm|scanner|\bct\b/.test(m)) return "Scanner : l'aspect attendu se dit hypodense, isodense ou hyperdense.";
+ if(/irm|\bmr\b/.test(m)) return "IRM : l'aspect attendu précise le signal en T1, en T2 et dans les autres séquences du cliché.";
+ if(/echo|échograph|ultras/.test(m)) return "Échographie : l'aspect attendu se dit anéchogène, hypoéchogène ou hyperéchogène.";
+ return "Technique non précisée.";
+}
+function aspectOf(item){
+ const src=((item&&(item.aspect_source||item.source))||"").trim();
+ const texte=((item&&item.aspect)||"").trim();
+ const unver=!src||/^à vérifier$/i.test(src)||/^a verifier$/i.test(src);
+ if(!texte||unver) return {texte:"À vérifier", src:src||"À vérifier"};
+ return {texte, src};
+}
+function codeLegend(n,p){
+ const mod=(n&&n.modality)||(p&&p.modality)||"";
+ const seen=new Map();
+ [n,p].forEach(side=>((side&&side.anatomie)||[]).forEach(st=>{
+  const id=st.id||st.nom;
+  if(id&&!seen.has(id)) seen.set(id,st);
+ }));
+ const rows=[...seen.values()].sort((a,b)=>(+a.ordre||0)-(+b.ordre||0)).map(st=>{
+  const col=anatColor(st), asp=aspectOf(st);
+  return `<li><i style="background:${col}"></i><span><b>${esc(st.nom)}</b> — trait plein ${esc(col)}<br>Aspect : ${esc(asp.texte)}<br>Source : ${esc(asp.src)}</span></li>`;
+ }).join("");
+ const LESION=["#FF1744","#651FFF","#2962FF","#FF6D00","#C51162","#00B8D4","#AA00FF","#DD2C00"];
+ const lesions=((p&&p.arrows)||[]).map((a,i)=>{
+  const col=a.couleur||LESION[i%LESION.length], asp=aspectOf(a);
+  return `<li><i class="dot" style="border-color:${col}"></i><span><b>${esc(a.label||"Lésion")}</b> — pointillé ${esc(col)}<br>Aspect : ${esc(asp.texte)}<br>Source : ${esc(asp.src)}</span></li>`;
+ }).join("");
+ return `<section id="codeLegend" class="codeLegend"${codeOpen?"":" hidden"}><h3>Code couleur — aspect</h3><p>${esc(aspectScale(mod))} Sans source lue, l'aspect reste « À vérifier ».</p><ul>${rows||"<li>Aucune structure anatomique.</li>"}</ul><h4>Lésions</h4><ul>${lesions||"<li>Aucune lésion annotée.</li>"}</ul></section>`;
+}
 function lightStruct(id){
  document.querySelectorAll("#db .anat g").forEach(g=>g.classList.toggle("on",!!id&&g.dataset.sid===id));
  const tip=document.querySelector("#structTip");
@@ -486,7 +527,7 @@ function show(){
   ? `<div class="leg">Regardez la normale à gauche. Cliquez sur l'image de droite là où vous voyez une lésion élémentaire (${arrows.length}), puis « Révéler et noter ».</div>${scoreBlock()}`
   : `<div class="leg" aria-label="Légende des rôles">${Object.keys(ROLES).map(k=>`<span><i style="background:var(--c-${k})"></i>${ROLES[k]}</span>`).join("")}<span>· Le numéro ouvre la bande pointillée, le nom et la définition</span></div>
 <ul class="les" aria-label="Lésions annotées">${arrows.map((a,i)=>`<li><button type="button" data-a="${i}" aria-label="Lésion ${i+1}, ${esc(ROLES[a.role]||a.role)}"><span class="num" style="background:var(--c-${a.role})">${i+1}</span><span><span class="muted">${esc(ROLES[a.role]||a.role)} · confiance ${esc(a.confidence)}${a.confidence==="basse"?" · <span class='av'>À vérifier</span>":""}</span><span class="detail" hidden><b>${esc(a.label)}</b><br>Définition : ${esc(a.definition||"À vérifier")}${a.definition_source?`<br><span class="muted">Source : ${esc(a.definition_source)}</span>`:""}</span></span></button></li>`).join("")}</ul>`;
- $("#db").innerHTML=`<div class="pair">${panel("normal",n,r)}${panel("pathologique",p,r)}</div><div id="structTip" class="structTip" hidden></div>`+(arrows.length?`<details class="more"><summary>Lésions</summary>${liste}</details>`:"");
+ $("#db").innerHTML=`<div class="pair">${panel("normal",n,r)}${panel("pathologique",p,r)}</div><div id="structTip" class="structTip" hidden></div>${codeLegend(n,p)}`+(arrows.length?`<details class="more"><summary>Lésions</summary>${liste}</details>`:"");
  const detail=[credit("Normal",n),credit("Pathologique",p),
   m.pair_match?`<div><b>Appariement :</b> ${esc(m.pair_match)}</div>`:"",
   (m.a_verifier&&m.a_verifier.length)?`<div class="av"><b>À vérifier :</b> ${m.a_verifier.map(esc).join(" · ")}</div>`:"",
@@ -504,6 +545,7 @@ function show(){
  $("#bDefi").disabled=!arrows.length;
  $("#bDefi").setAttribute("aria-pressed",defi?"true":"false");
  $("#bDefi").textContent=defi?"Quitter le défi":"Mode défi";
+ $("#bCode").setAttribute("aria-pressed",codeOpen?"true":"false");
  $("#bNote").hidden=!defi;
  $("#bNote").disabled=!defi||!hideArr;
  zooms=[];
@@ -587,6 +629,7 @@ $("#ov").addEventListener("click",e=>{if(e.target.id==="ov")close();});
 $("#bNames").onclick=()=>{if(defi)return;showAll=!showAll;show();};
 $("#bHide").onclick=()=>{hideArr=!hideArr;if(hideArr){opened.clear();showAll=false;}show();};
 $("#bLink").onclick=()=>{linkZoom=!linkZoom;$("#bLink").setAttribute("aria-pressed",linkZoom?"true":"false");if(linkZoom&&zooms[0])zooms.slice(1).forEach(z=>z.write(zooms[0].read()));};
+$("#bCode").onclick=()=>{codeOpen=!codeOpen;$("#bCode").setAttribute("aria-pressed",codeOpen?"true":"false");const el=document.querySelector("#codeLegend");if(el)el.hidden=!codeOpen;};
 $("#bDefi").onclick=()=>{defi=!defi;proposals=[];opened=new Set();showAll=false;if(defi)hideArr=true;show();};
 $("#bNote").onclick=()=>{if(!defi||!hideArr)return;hideArr=false;const p=view[cur].m&&view[cur].m.patho;opened=new Set(((p&&p.arrows)||[]).map((_,i)=>i));show();};
 document.addEventListener("keydown",e=>{
