@@ -59,3 +59,8 @@ IMG-032 | partiel | Mehta et al., CC BY 2.5, FLAIR, deux lésions déjà fléch�
 IMG-031 | partiel | Prashanth Saddala, CC BY-SA 3.0, échographie, contenu ventriculaire échogène | leucomalacie absente ; sillon caudothalamique non isolé
 IMG-030 | partiel | Hellerhoff, CC BY-SA 3.0, FLAIR, hamartome du caudé gauche déjà entouré | pas de neurofibromatose ni de Sturge-Weber
 IMG-029 | introuvable | — | pas de T1 sagittal ; seulement un T2 ou un contrôle post-opératoire
+IMG-028 | partiel | Hellerhoff, CC BY-SA 3.0, fenêtre osseuse, fracture de la voûte | base du crâne absente
+IMG-027 | partiel | James Heilman, CC BY-SA 3.0, déplacement de la ligne médiane, flèche d'origine | engagement temporal et des tonsilles absents
+IMG-026 | partiel | Hellerhoff, CC BY-SA 3.0, contusions frontales droites | lésions axonales non vues
+IMG-025 | partiel | Lucien Monfils, CC BY-SA 3.0, croissant sous-dural aigu, flèches d'origine | forme chronique absente
+IMG-024 | partiel | Hellerhoff, CC BY-SA 3.0, lentille extradurale droite | injection non écrite
