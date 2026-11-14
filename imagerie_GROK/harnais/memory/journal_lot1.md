@@ -79,3 +79,8 @@ IMG-012 | introuvable | — | pas de FLAIR ; seulement T2, diffusion et T1
 IMG-011 | partiel | Jmarchn, CC BY-SA 3.0, anneau occipital droit | gadolinium non écrit ; pas de lymphome
 IMG-010 | introuvable | — | pas de FLAIR ; le cliché trouvé est un T2
 IMG-009 | introuvable | — | le seul scanner porte le mot contraste
+IMG-008 | partiel | Hellerhoff, CC BY-SA 4.0, diffusion brillante et ADC sombre | montage de huit panneaux
+IMG-007 | partiel | Renamed user 1579654863, CC BY-SA 3.0, FLAIR, hypersignaux occipitaux | cadre d'abord trop haut
+IMG-006 | partiel | Carlier et Colas, CC BY 2.0, FLAIR, substance blanche | maladie de Fabry ; lacune sur l'autre panneau
+IMG-005 | partiel | Hellerhoff, CC BY-SA 4.0, T2, cavernome frontal droit | pas de malformation artério-veineuse
+IMG-004 | partiel | Hellerhoff, CC BY-SA 4.0, TDM native, sinus sagittal hyperdense | montage
