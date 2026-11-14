@@ -44,3 +44,8 @@ IMG-047 | partiel | James Heilman, CC BY-SA 3.0, TDM coronale, blow-out gauche, 
 IMG-046 | partiel | James Heilman, CC BY-SA 3.0, épaississement préseptal et sinus comblé, flèches d'origine | injection non écrite ; rétroseptal non isolé
 IMG-045 | introuvable | — | pas d'IRM injectée d'hypophysite
 IMG-044 | partiel | Hellerhoff, CC BY-SA 4.0, T1 sagittal, masse sellaire hémorragique | montage ; niveau liquide mieux vu ailleurs
+IMG-043 | partiel | Garnett, Puget, Grill, Sainte-Rose, CC BY 2.0, TDM sans injection, calcification suprasellaire, flèche d'origine | hydrocéphalie non isolée sur la coupe
+IMG-042 | partiel | S Bhimji, CC BY 4.0, prolactinome sagittal déjà entouré | T1 non nommé ; pas de microadénome ; cliché avec date de naissance écarté
+IMG-041 | partiel | Mirza et Gokhale, CC BY 4.0, hémorragie des noyaux gris, marques d'origine | anticoagulant non établi
+IMG-040 | partiel | Morabito et al., CC BY 4.0, carte rCBV, foyer frontal droit | liseré de radionécrose non séparé ; pseudo-progression non démontrée
+IMG-039 | partiel | Uhomachinky, CC BY-SA 4.0, hippocampe gauche déjà entouré | protocole épilepsie non nommé
