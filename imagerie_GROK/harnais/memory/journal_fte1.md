@@ -18,4 +18,12 @@ Fiches de technique, un seul tracé normal de référence. Départ FTE-58, ordre
 - FTE-50 introuvable. Pas d'exploration pelvi-périnéale normale.
 - FTE-49 introuvable. Pas de cystomanométrie normale.
 
-Prochain id : FTE-48.
+## FTE-48 à FTE-44
+
+- FTE-48 introuvable. Pas de débitmétrie normale.
+- FTE-47 introuvable. Le cliché de marqueurs (Keller 2018, CC BY 4.0) garde les 60 marqueurs, transit d'au moins 144 h : ce n'est pas une référence normale.
+- FTE-46 introuvable. Pas de pH-impédancemétrie normale de 24 heures.
+- FTE-45 introuvable. Le fichier de la catégorie est un schéma de ballonnet, pas une courbe. Open-i vide.
+- FTE-44 partiel. Topographie d'une déglutition normale, 36 capteurs (Sudip K. Ghosh, CC BY-SA 3.0). La flèche vise la contraction distale rouge. Achalasie, casse-noisette et manométrie à cinq canaux écartés. Pas de nom.
+
+FTE-44 est fait. Le lot FTE-58 à FTE-44 est couvert.

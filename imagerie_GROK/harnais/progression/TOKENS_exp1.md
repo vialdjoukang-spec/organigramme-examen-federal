@@ -25,3 +25,5 @@ Huitième lot, EXP-118 à EXP-115. Un complet, trois introuvables. L'anse géant
 Fiches de technique, premier lot FTE-58 à FTE-54. Un partiel, quatre introuvables. Le relevé d'impédancemétrie a été ouvert : la flèche vise la légende « Normal range ». Estimation. Reprise : FTE-53.
 
 Deuxième lot FTE-53 à FTE-49. Cinq introuvables. Les transits barytés et un rénogramme pathologique déjà vu n'ont pas été recyclés. Estimation. Reprise : FTE-48.
+
+Troisième lot FTE-48 à FTE-44. Un partiel, quatre introuvables. La contraction péristaltique a été recontourée deux fois pour suivre la bande rouge jusqu'à la jonction. Le cliché de transit colique retenu par Open-i était un transit lent et a été écarté. Estimation. FTE-44 est fait.
