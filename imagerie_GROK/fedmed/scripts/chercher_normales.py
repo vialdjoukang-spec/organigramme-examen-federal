@@ -87,9 +87,9 @@ def europepmc(requete):
 
 def incidence(texte):
     t = (texte or "").lower()
-    for mot in ("axial", "coronal", "sagittal", "profil"):
-        if re.search(r"\b" + mot + r"\b", t):
-            return mot
+    for mot, canon in (("coron", "coronal"), ("sagitt", "sagittal"), ("axial", "axial"), ("profil", "profil")):
+        if mot in t:
+            return canon
     if re.search(r"\bde face\b|\bface view\b|\bpa view\b|\bap view\b", t):
         return "face"
     return ""
@@ -99,6 +99,8 @@ def modalite(texte):
     t = (texte or "").lower()
     if any(k in t for k in ("échog", "echog", "ultrasound", "ultrason")):
         return "us"
+    if any(k in t for k in ("tep", "pet-ct", "pet/ct", "scintigraph")):
+        return "mn"
     if any(k in t for k in ("irm", "mri")):
         return "irm"
     if any(k in t for k in ("tdm", "scanner", " ct ", "computed tomography")):
@@ -336,7 +338,8 @@ def main():
         fusion = C.lire_json(C.FUSION / f"{ident}.json")
         if fusion.get("normal_ajoute"):
             continue
-        if fusion.get("recherche_normale") and not args.force:
+        deja = fusion.get("recherche_normale") or {}
+        if deja and not args.force and (deja.get("ajoutee") or deja.get("refus")):
             continue
         sans.append(ident)
         if len(sans) >= args.limite:
