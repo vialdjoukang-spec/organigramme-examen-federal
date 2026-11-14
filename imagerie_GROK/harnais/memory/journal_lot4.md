@@ -40,4 +40,9 @@ IMG-309 | introuvable | pas de radiographie de pied bot en charge | la catégori
 IMG-308 | partiel | Hellerhoff, CC BY-SA 3.0, destructions goutteuses du pied | charge non écrite ; pas de pied sain
 IMG-307 | introuvable | pas d'IRM STIR de pied diabétique ou de Charcot | œdème T2 non attribué au diabète
 IMG-306 | introuvable | pas d'IRM STIR de fracture de fatigue du pied | radiographie ou fracture lombaire seulement
+IMG-305 | partiel | Hellerhoff, CC BY-SA 3.0, rupture d'Achille, ligne rouge | pas de manœuvre dynamique
+IMG-304 | partiel | Kennedy et al., CC BY 2.0, Salter-Harris III du tibia distal | pas une malléole adulte ; Ottawa absent
+IMG-303 | introuvable | pas d'IRM de luxation de rotule | la catégorie est radiographique
+IMG-302 | partiel | nomen49, CC BY-SA 3.0 de, ostéochondrite en place, genou droit en charge | pas de profil
+IMG-301 | partiel | Intermedichbo, CC BY-SA 3.0, kyste poplité intact | la rupture n'est pas sur le cliché
 

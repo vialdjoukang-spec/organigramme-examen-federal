@@ -73,3 +73,12 @@ Reprise : IMG-310.
 - Épargné par les scripts (estimation) : le filtre a écarté les planches hors licence et les photographies de personnes. Le gain chiffré n'est pas mesuré.
 
 Reprise : IMG-305.
+
+## Passe IMG-305 à IMG-301
+
+- Éléments traités : 5 diagnostics. Quatre partiels, un introuvable. Aucun complet.
+- Appels de jugement visuel : environ 8 lectures, un contour déplacé sur le fragment articulaire. Estimation.
+- Durée : une passe, non chronométrée. Estimation.
+- Épargné par les scripts (estimation) : les catégories ont donné la légende et la licence avant la lecture. Le gain chiffré n'est pas mesuré.
+
+Reprise : IMG-300.
