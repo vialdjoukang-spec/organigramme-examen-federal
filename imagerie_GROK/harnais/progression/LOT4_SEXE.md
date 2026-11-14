@@ -10,8 +10,8 @@ Contrôle : `python3 scripts/validate.py --only` sur ces trente id, 0 erreur. Co
 
 | id | sexe | paire |
 | --- | --- | --- |
-| IMG-257 | F / F | DIU en place (female, 25 ans) et DIU perforé (woman, 67 ans), US sagittale mode B. |
-| IMG-267 | M / M | Face d’épaule en place (male, 26 ans, vide articulaire) et luxation avant réduction (male, 25 ans). Hill-Sachs et Bankart absents de cette incidence. |
+| IMG-257 | F / F | DIU en place (female, 25 ans) et DIU perforé (woman, 67 ans), US sagittale mode B. Adulte des deux côtés, preuve dans la légende. |
+| IMG-267 | M / M | Face d’épaule en place (male, 26 ans, vide articulaire) et luxation avant réduction (male, 25 ans). Physes soudées. Hill-Sachs et Bankart absents de cette incidence. |
 
 ## Bloquants (partiels)
 
