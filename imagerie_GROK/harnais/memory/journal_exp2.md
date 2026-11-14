@@ -24,3 +24,11 @@ Prochain id : EXP-104.
 - EXP-100 partiel. Tisljar 2020, PMC7515856, CC BY 4.0. Images MAG3, rétention du bassinet droit, sans furosémide écrit et sans courbe normale.
 
 Prochain id : EXP-099.
+
+- EXP-099 introuvable. Pas de trou anionique urinaire ni d'épreuve d'acidification libres.
+- EXP-098 introuvable. Pas de courbe de restriction hydrique, de desmopressine ou de copeptine.
+- EXP-097 introuvable. Pas de paire CKD-EPI. Un graphe de biais Open-i a une licence non lue.
+- EXP-096 introuvable. Pas de Child-Pugh ni de MELD.
+- EXP-095 complet. Slaurent73, CC BY-SA 4.0. VCTE : 3 kPa, pente lente, contre 40 kPa, front raide, foie qualifié de cirrhotique. La compensation n'est pas sur la carte. Le fichier est empilé, pas gauche-droite comme le dit la description.
+
+Prochain id : EXP-094.

@@ -3,3 +3,5 @@ EXP-114 à EXP-110. Cinq diagnostics : un complet (EXP-112), deux partiels (EXP-
 EXP-109 à EXP-105. Cinq diagnostics : un complet (EXP-109), deux partiels (EXP-108, EXP-105), deux introuvables (EXP-107, EXP-106). Open-i a renvoyé une page d'erreur ; les légendes utiles viennent d'Europe PMC et de Commons. Le contour du débit urinaire a été resserré sur la courbe jaune. Reprise : EXP-104.
 
 EXP-104 à EXP-100. Cinq diagnostics : deux partiels (EXP-102, EXP-100), trois introuvables (EXP-104, EXP-103, EXP-101). La débitmétrie obstructive est lue chiffre par chiffre sur l'impression. La scintigraphie MAG3 est une grille d'images, pas une courbe au furosémide. Reprise : EXP-099.
+
+EXP-099 à EXP-095. Cinq diagnostics : un complet (EXP-095), quatre introuvables. La VCTE a été lue : 3 kPa en haut, 40 kPa en bas. Le contour a été déplacé sur la pente de l'onde. Reprise : EXP-094.
