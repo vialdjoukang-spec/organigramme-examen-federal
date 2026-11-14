@@ -323,6 +323,9 @@ button.sc::after{content:" ⓘ";font-size:.8em}button.sc:focus-visible{outline:2
 #sco th{background:var(--t-tableau)}#sco td.pt{width:22%;font-weight:700;white-space:nowrap}#sco .src{font-size:.82rem}
 #fen pre.fx{font-family:ui-monospace,'DejaVu Sans Mono',Consolas,'Courier New',monospace;font-weight:700}#fen pre.ex{font-family:inherit}
 .tw{overflow-x:auto}
+/* Pages embarquées (outils/assembler_progression.py) : iframe pleine colonne. */
+.mod>.emb{min-width:0}.emb iframe{display:block;width:100%;height:calc(100vh - var(--ht) - 24px);min-height:420px;border:1px solid var(--b-rail);border-radius:12px;background:#fff}
+@media(min-width:1181px){.mod.embv{grid-template-columns:172px minmax(0,1fr)}}
 @media(max-width:1180px){.mod{grid-template-columns:minmax(0,1fr);gap:8px}
  .rail{position:static;max-height:none;flex-direction:row;overflow-x:auto}.rail button{white-space:nowrap}}
 @media(max-width:900px){:root{--mw:0px}.cadre{grid-template-columns:minmax(0,1fr)}
@@ -413,6 +416,20 @@ function filtrer(){const q=$('#q').value.trim().toLowerCase(),pret=$('#fp').clas
 $('#q').oninput=filtrer;$('#fp').onclick=e=>{e.target.classList.toggle('a');filtrer()};
 /* ----- Modules du cahier d'architecture v2 (données : Claude/_progression/donnees) ----- */
 const S=D.prog.S,G=D.prog.G,F=D.prog.F,V='—';
+/* Pages embarquées par outils/assembler_progression.py : blocs JSON data-emb = rts, sf, semio. */
+const EMB={},EMBF={},MONTRER={};$$('script[data-emb]').forEach(x=>EMB[x.dataset.emb]=x);
+if(S&&EMB.rts)S.examens.forEach(so=>{if(so.n==2)so.emb={p:'rts',o:'o-img'};if(so.n==3)so.emb={p:'rts',o:'o-exp'}});
+if(S&&(EMB.sf||EMB.semio))S.fondamentales.unshift(...[EMB.sf&&{code:'PHY',nom:'Physiologie',fiches:[],emb:{p:'sf',o:'onglet-physiologie'}},
+  EMB.sf&&{code:'PPA',nom:'Physiopathologie',fiches:[],emb:{p:'sf',o:'onglet-physiopathologie'}},EMB.semio&&{code:'SÉM',nom:'Sémiologie',fiches:[],emb:{p:'semio',o:''}}].filter(Boolean));
+const EMBT={rts:'Recensement topo-systémique',sf:'Sciences fondamentales',semio:'Sémiologie'};
+function embarquer(em,e){let f=EMBF[e.p];
+  if(!f){f=EMBF[e.p]=document.createElement('iframe');f.title=EMBT[e.p];f.dataset.p=e.p;
+    f.dataset.u=URL.createObjectURL(new Blob([JSON.parse(EMB[e.p].textContent)],{type:'text/html'}));f.src=f.dataset.u+(e.o?'#'+e.o:'');}
+  else if(e.o)f.src=f.dataset.u+'#'+e.o;
+  if(f.parentNode!==em)em.appendChild(f);$$('iframe',em).forEach(x=>x.hidden=x!==f);}
+addEventListener('message',ev=>{const d=ev.data;if(!d||!EMB[d.aller])return;const m=d.aller==='rts'?'examens':'fondamentales';
+  const k=S[m].findIndex(x=>x.emb&&x.emb.p===d.aller&&(!d.h||d.aller!=='sf'||d.h===x.emb.o));onglet(m);history.replaceState(null,'','#'+m);
+  MONTRER[m](k<0?S[m].findIndex(x=>x.emb&&x.emb.p===d.aller):k,{h:d.h});});
 const clone=x=>JSON.parse(JSON.stringify(x));
 function fi(id){const f=F[id];if(!f)return null;return Object.assign(clone(G[f.type]||{}),f);}
 const LBL={nom_exact:'Nom exact',synonymes:'Synonymes',prelevement_conditions:'Prélèvement ou conditions',bon_usage_suisse:'Bon usage suisse (Liste des analyses, Smarter Medicine, dose d\'irradiation OFSP)',
@@ -520,15 +537,16 @@ const listeF=(ids,pre)=>ids.length?'<ul class="lf">'+ids.map(id=>btnF(id,pre?pre
 const LEG='<div class="legende"><span class="c-bleu">bleu normal</span><span class="c-rouge">rouge pathologie</span><span class="c-vert">vert traitement du système</span><span class="c-violet">violet hors système</span><span class="c-ocre">ocre non médicamenteux</span><span class="c-orange">orange danger</span></div>';
 /* Gabarit commun : rail (racine) → colonne ; le plan numéroté de la colonne va dans la bande latérale. */
 function module(sel,nom,rail,corps){const el=$(sel),o=sel.slice(3);
-  el.innerHTML='<div class="mod"><nav class="rail" aria-label="Rail">'+rail.map((r,i)=>'<button type="button" data-r="'+i+'"><b>'+esc(r.n)+'</b><span>'+esc(r.t)+'</span></button>').join('')+'</nav><div class="col"></div></div>';
+  el.innerHTML='<div class="mod"><nav class="rail" aria-label="Rail">'+rail.map((r,i)=>'<button type="button" data-r="'+i+'"><b>'+esc(r.n)+'</b><span>'+esc(r.t)+'</span></button>').join('')+'</nav><div class="col"></div><div class="emb" hidden></div></div>';
   const montrer=(i,opt)=>{$$('.rail button',el).forEach(b=>b.classList.toggle('a',+b.dataset.r===i));const r=corps(i,opt||{});$('.col',el).innerHTML=r.h;
+    $('.col',el).hidden=!!r.emb;$('.emb',el).hidden=!r.emb;$('.mod',el).classList.toggle('embv',!!r.emb);if(r.emb)embarquer($('.emb',el),opt&&opt.h?{p:r.emb.p,o:opt.h}:r.emb);
     MOD[o]={titre:nom+' · '+rail[i].n+' '+rail[i].t,items:r.s.map(x=>Array.isArray(x)?{id:x[0],t:x[1]}:x)};el.dataset.i=i;
     if(el.classList.contains('a'))menuOnglet();};
   el.addEventListener('click',e=>{const r=e.target.closest('.rail button');if(r){montrer(+r.dataset.r);return el.scrollIntoView({block:'start'})}
     const v=e.target.closest('[data-vue]');if(v)return montrer(+el.dataset.i,{vue:v.dataset.vue});});
-  montrer(0);return montrer;}
+  MONTRER[o]=montrer;montrer(0);return montrer;}
 /* Examens paracliniques : 9 sous-onglets, entrée primaire puis axe secondaire. */
-function corpsEx(i,o){const so=S.examens[i];const parSys=so.entree_primaire.startsWith('Système');const vue=o.vue||'prim';
+function corpsEx(i,o){const so=S.examens[i];if(so.emb)return {h:'',s:[],emb:so.emb};const parSys=so.entree_primaire.startsWith('Système');const vue=o.vue||'prim';
   const toutes=so.systemes.flatMap(s=>s.fiches);
   let entrees;
   if(parSys||vue==='sys')entrees=so.systemes.map(s=>({k:s.code,t:s.code+' · '+s.nom,ids:s.fiches}));
@@ -590,7 +608,7 @@ function corpsPh(i,o){const sy=S.pharmaco[i];let h='<h2>'+esc(sy.code)+' · '+es
     h+=classesMol(sy,s,2);}
   return {h,s};}
 /* Sciences fondamentales : par système, gabarit cadre → entités → liens → ponts cliniques. */
-function corpsSF(i){const sy=S.fondamentales[i];return {h:'<h2>'+esc(sy.code)+' · '+esc(sy.nom)+'</h2><p class="meta">Gabarit : cadre d\'ensemble → entités → liens logiques → ponts cliniques</p>'+
+function corpsSF(i){const sy=S.fondamentales[i];if(sy.emb)return {h:'',s:[],emb:sy.emb};return {h:'<h2>'+esc(sy.code)+' · '+esc(sy.nom)+'</h2><p class="meta">Gabarit : cadre d\'ensemble → entités → liens logiques → ponts cliniques</p>'+
   sy.fiches.map((id,j)=>'<h3 id="sf-'+j+'"><span class="num">'+(j+1)+'</span>'+esc(fi(id).titre)+'</h3>'+listeF([id])).join(''),s:sy.fiches.map((id,j)=>['sf-'+j,fi(id).titre])};}
 /* Rangs EYE SPOT entrelacés (cours, puis examens:i, pharmaco:i, fondamentales:i) : pas d'angle d'or de 137,5° ; voisins de rail
    et premières pages des onglets écartés d'au moins 52° de teinte. */
@@ -688,5 +706,9 @@ if __name__ == '__main__':
     ap.add_argument('--themes', default='Claude/_progression/themes.json', help='20 thèmes : 3 couleurs au plus (EYE SPOT comprise), atténuées 60-80 %%, contraste >= 7:1')
     ap.add_argument('--glossaire', default='Claude/_progression/glossaire.json', help='sigles (survol) et scores (fenêtre au clic) des fiches')
     ap.add_argument('--sortie', default='progression.html')
+    ap.add_argument('--sans-embarques', action='store_true', help="ne pas embarquer recensement, sémiologie et sciences fondamentales")
     a = ap.parse_args()
     print('%d SSP prêts, %d cours ouvrables, %d octets' % rendre(a))
+    if not a.sans_embarques:  # pages produites à part, intégrées au même fichier autonome (images en base64)
+        import subprocess, sys
+        subprocess.run([sys.executable, os.path.join(os.path.dirname(os.path.abspath(__file__)), 'assembler_progression.py'), '--fichier', a.sortie], check=True)
