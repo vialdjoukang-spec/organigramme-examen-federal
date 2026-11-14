@@ -2,6 +2,7 @@
 
 ## Faits
 
+- 14.11.2026 13:22, relecture des textes affichés des neuf vitrines : phrases plus courtes, même sens, mêmes sources. Le poumon droit d'IMG-134 dit maintenant que les vaisseaux s'arrêtent à la ligne pleurale. La tête luxée d'IMG-267 n'est plus décrite comme en place.
 - 14.11.2026 13:14, le fond des cartes est le bleu ciel atténué #E1F3FA (#87CEEB mêlé à 75 % de blanc), bordure #87CEEB, texte #0B2540 (13,6:1). Cela remplace #E6F4FF et #9CCBF0. Les étiquettes sur l'image restent sombres. Captures de vitrine refaites, dont IMG-134 et IMG-250. IMG-250 est intégré : deux femmes, 36 et 41 ans, échographies, statut partiel.
 - 14.11.2026, vitrines regroupées après relecture de la vue initiale et de l'index : IMG-132, 158, 161, 164, 243, 267. IMG-158 est une planche (trois coupes à gauche, six vignettes à droite), laissée telle quelle. IMG-164 a une mention blanche en bas du cliché pathologique, en partie masquée. Les autres vues d'ouverture sont des clichés uniques, sans nom ni date lisibles.
 - 14.11.2026, IMG-136 intégré dans la branche de la PR. `build_app.py` embarque `aspect` et `aspect_source`. La légende du manteau cite la HAS, juillet 2013. La normale n'est plus le montage abdomen-pelvis : coupe axiale 68 de la série thorax de Häggström, homme de 37 ans, CC0, fenêtre pulmonaire, recadrée sans établissement, date ni topogramme. L'injection n'est pas mentionnée, la pathologique est injectée. Reste partiel. Captures relues dans `captures-interface/vitrine/IMG-136/`.

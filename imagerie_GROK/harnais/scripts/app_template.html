@@ -361,7 +361,7 @@ function bubble(zw,side,i,compact){
   s.setAttribute("role","status");
   const def=a.definition?esc(a.definition):"À vérifier";
   const src=a.definition_source?`<div class="src">Source : ${esc(a.definition_source)}</div>`:"";
-  s.innerHTML=`<div class="r">${i+1} · ${esc(ROLES[a.role]||a.role)}</div><div><b>${esc(a.label)}</b></div><div class="def"><b>Définition :</b> ${def}</div>${src}<div class="ev">Preuve : ${a.evidence==="visuel"?"repérage visuel (pas de légende source)":"« "+esc(a.evidence)+" »"}</div><div class="cf">Confiance : ${esc(a.confidence)}${a.confidence==="basse"?" · À vérifier":""}</div>`;
+  s.innerHTML=`<div class="r">${i+1} · ${esc(ROLES[a.role]||a.role)}</div><div><b>${esc(a.label)}</b></div><div class="def"><b>Définition :</b> ${def}</div>${src}<div class="ev">Preuve : ${a.evidence==="visuel"?"repérage sur l'image, sans légende de la source":"« "+esc(a.evidence)+" »"}</div><div class="cf">Confiance : ${esc(a.confidence)}${a.confidence==="basse"?" · À vérifier":""}</div>`;
   const fig=zw.closest(".fig");
   if(fig&&fig.nextSibling)panel.insertBefore(s,fig.nextSibling);else panel.appendChild(s);
   return s;
@@ -461,11 +461,11 @@ function drawAnat(svg,side){
 }
 function aspectScale(mod){
  const m=(mod||"").toLowerCase();
- if(/rx|radio/.test(m)) return "Radiographie : l'aspect attendu se dit opaque ou clair.";
- if(/tdm|scanner|\bct\b/.test(m)) return "Scanner : l'aspect attendu se dit hypodense, isodense ou hyperdense.";
- if(/irm|\bmr\b/.test(m)) return "IRM : l'aspect attendu précise le signal en T1, en T2 et dans les autres séquences du cliché.";
- if(/echo|échograph|ultras|\bus\b/.test(m)) return "Échographie : l'aspect attendu se dit anéchogène, hypoéchogène ou hyperéchogène.";
- return "Technique non précisée.";
+ if(/rx|radio/.test(m)) return "Radiographie : une structure est opaque ou claire.";
+ if(/tdm|scanner|\bct\b/.test(m)) return "Scanner : une structure est hypodense, isodense ou hyperdense.";
+ if(/irm|\bmr\b/.test(m)) return "IRM : on précise le signal en T1, en T2 et sur les autres séquences du cliché.";
+ if(/echo|échograph|ultras|\bus\b/.test(m)) return "Échographie : une structure est anéchogène, hypoéchogène ou hyperéchogène.";
+ return "La technique n'est pas précisée.";
 }
 function aspectOf(item){
  const src=((item&&(item.aspect_source||item.source))||"").trim();
