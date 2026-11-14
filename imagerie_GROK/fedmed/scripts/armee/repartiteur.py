@@ -89,7 +89,11 @@ def traiter(besoin):
             if not octets:
                 rapport["sources"][source]["raison"] = err or rapport["sources"][source]["raison"]
                 continue
-            ok, mention, jpeg = portes.evaluer(cand, besoin, octets)
+            try:
+                ok, mention, jpeg = portes.evaluer(cand, besoin, octets)
+            except Exception as exc:
+                rapport["sources"][source]["raison"] = f"image illisible ({type(exc).__name__})"
+                continue
             if not ok:
                 rapport["sources"][source]["raison"] = mention
                 continue

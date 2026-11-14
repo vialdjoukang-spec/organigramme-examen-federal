@@ -147,3 +147,239 @@ IMG-118, IMG-123, IMG-134 et IMG-153 portent la normale CC0 d'une femme de 21 an
 
 - SCHEMA — sans titre
 
+
+## Armée des sources
+
+Introuvables examinés : 205.
+Récupérés : 35. Restés introuvables : 170.
+
+## Comptes par source
+
+- commons : 3 retenu(s)
+- europepmc : 32 retenu(s)
+- pmc_oa : 0 retenu(s)
+- openi : 0 retenu(s)
+- medpix2 : 0 retenu(s)
+- idc : 0 retenu(s)
+- tcia : 0 retenu(s)
+- vindr : 0 retenu(s)
+- nih_cxr14 : 0 retenu(s)
+- isic : 0 retenu(s)
+- odir : 0 retenu(s)
+- ptbxl : 0 retenu(s)
+- sleep_edf : 0 retenu(s)
+- ctu_uhb : 0 retenu(s)
+- openneuro : 0 retenu(s)
+- kvasir : 0 retenu(s)
+- zenodo_figshare : 0 retenu(s)
+
+## Récupérés
+
+- EXP-023 (patho) via europepmc — âge non documenté (adulte d'aspect)
+- EXP-027 (patho) via commons — âge non documenté (adulte d'aspect)
+- EXP-030 (patho) via europepmc — âge non documenté (adulte d'aspect)
+- EXP-035 (patho) via europepmc — âge non documenté (adulte d'aspect)
+- EXP-076 (patho) via europepmc — âge non documenté (adulte d'aspect)
+- EXP-083 (patho) via europepmc — âge non documenté (adulte d'aspect)
+- EXP-090 (normal) via commons — âge non documenté (adulte d'aspect)
+- EXP-097 (patho) via europepmc — âge non documenté (adulte d'aspect)
+- EXP-099 (patho) via europepmc — âge non documenté (adulte d'aspect)
+- EXP-130 (patho) via europepmc — âge non documenté (adulte d'aspect)
+- EXP-140 (patho) via europepmc — âge non documenté (adulte d'aspect)
+- EXP-141 (patho) via europepmc — âge non documenté (adulte d'aspect)
+- EXP-143 (patho) via europepmc — âge non documenté (adulte d'aspect)
+- FTE-26 (normal) via europepmc — âge non documenté (adulte d'aspect)
+- FTE-45 (normal) via europepmc — âge non documenté (adulte d'aspect)
+- FTE-47 (normal) via europepmc — âge non documenté (adulte d'aspect)
+- IMG-014 (patho) via europepmc — âge non documenté (adulte d'aspect)
+- IMG-029 (patho) via europepmc — âge non documenté (adulte d'aspect)
+- IMG-033 (patho) via europepmc — âge non documenté (adulte d'aspect)
+- IMG-048 (patho) via europepmc — âge non documenté (adulte d'aspect)
+- IMG-049 (patho) via europepmc — âge non documenté (adulte d'aspect)
+- IMG-066 (patho) via europepmc — âge non documenté (adulte d'aspect)
+- IMG-077 (patho) via europepmc — âge non documenté (adulte d'aspect)
+- IMG-156 (patho) via europepmc — âge non documenté (adulte d'aspect)
+- IMG-175 (patho) via europepmc — âge non documenté (adulte d'aspect)
+- IMG-209 (patho) via europepmc — âge non documenté (adulte d'aspect)
+- IMG-216 (patho) via europepmc — âge non documenté (adulte d'aspect)
+- IMG-220 (patho) via europepmc — âge non documenté (adulte d'aspect)
+- IMG-223 (patho) via europepmc — âge non documenté (adulte d'aspect)
+- IMG-226 (patho) via commons — âge non documenté (adulte d'aspect)
+- IMG-234 (patho) via europepmc — âge non documenté (adulte d'aspect)
+- IMG-262 (patho) via europepmc — âge non documenté (adulte d'aspect)
+- IMG-283 (patho) via europepmc — âge non documenté (adulte d'aspect)
+- IMG-317 (patho) via europepmc — âge non documenté (adulte d'aspect)
+- IMG-320 (patho) via europepmc — âge non documenté (adulte d'aspect)
+
+## Restés introuvables
+
+- EXP-002 — openneuro: participants.tsv non apparié à ce besoin : pas de coupe extraite ; europepmc: aucune figure libre ; pmc_oa: secours S3 : pas de PMCID de figure isolé dans cette passe
+- EXP-003 — openneuro: participants.tsv non apparié à ce besoin : pas de coupe extraite ; europepmc: aucune figure libre ; pmc_oa: secours S3 : pas de PMCID de figure isolé dans cette passe
+- EXP-004 — openneuro: participants.tsv non apparié à ce besoin : pas de coupe extraite ; europepmc: modalité IRM au lieu de EEG ; pmc_oa: secours S3 : pas de PMCID de figure isolé dans cette passe
+- EXP-008 — commons: aucun fichier ; europepmc: aucune figure libre ; pmc_oa: secours S3 : pas de PMCID de figure isolé dans cette passe ; openi: JSON reçu sans image retenue dans cette passe ; zenodo_figshare: pas de notice CC BY avec âge ou mention a
+- EXP-015 — commons: téléchargement impossible (HTTPError) ; europepmc: modalité FO au lieu de AUTRE ; pmc_oa: secours S3 : pas de PMCID de figure isolé dans cette passe ; openi: JSON reçu sans image retenue dans cette passe ; zenodo_figshare: pas de n
+- EXP-016 — commons: aucun fichier ; europepmc: aucune figure libre ; pmc_oa: secours S3 : pas de PMCID de figure isolé dans cette passe ; openi: JSON reçu sans image retenue dans cette passe ; zenodo_figshare: pas de notice CC BY avec âge ou mention a
+- EXP-017 — odir: paquet Figshare sans image unitaire extraite dans cette passe ; europepmc: aucune figure libre ; pmc_oa: secours S3 : pas de PMCID de figure isolé dans cette passe
+- EXP-020 — commons: image illisible (UnidentifiedImageError) ; europepmc: aucune figure libre ; pmc_oa: secours S3 : pas de PMCID de figure isolé dans cette passe ; openi: JSON reçu sans image retenue dans cette passe ; zenodo_figshare: pas de notice 
+- EXP-022 — commons: aucun fichier ; europepmc: aucune figure libre ; pmc_oa: secours S3 : pas de PMCID de figure isolé dans cette passe ; openi: JSON reçu sans image retenue dans cette passe ; zenodo_figshare: pas de notice CC BY avec âge ou mention a
+- EXP-024 — commons: aucun fichier ; europepmc: aucune figure libre ; pmc_oa: secours S3 : pas de PMCID de figure isolé dans cette passe ; openi: JSON reçu sans image retenue dans cette passe ; zenodo_figshare: pas de notice CC BY avec âge ou mention a
+- EXP-025 — commons: aucun fichier ; europepmc: aucune figure libre ; pmc_oa: secours S3 : pas de PMCID de figure isolé dans cette passe ; openi: JSON reçu sans image retenue dans cette passe ; zenodo_figshare: pas de notice CC BY avec âge ou mention a
+- EXP-029 — commons: téléchargement impossible (HTTPError) ; europepmc: aucune figure libre ; pmc_oa: secours S3 : pas de PMCID de figure isolé dans cette passe ; openi: JSON reçu sans image retenue dans cette passe ; zenodo_figshare: pas de notice CC 
+- EXP-031 — commons: téléchargement impossible (HTTPError) ; europepmc: aucune figure libre ; pmc_oa: secours S3 : pas de PMCID de figure isolé dans cette passe ; openi: JSON reçu sans image retenue dans cette passe ; zenodo_figshare: pas de notice CC 
+- EXP-036 — commons: aucun fichier ; europepmc: aucune figure libre ; pmc_oa: secours S3 : pas de PMCID de figure isolé dans cette passe ; openi: JSON reçu sans image retenue dans cette passe ; zenodo_figshare: pas de notice CC BY avec âge ou mention a
+- EXP-040 — commons: téléchargement impossible (HTTPError) ; europepmc: aucune figure libre ; pmc_oa: secours S3 : pas de PMCID de figure isolé dans cette passe ; openi: JSON reçu sans image retenue dans cette passe ; zenodo_figshare: pas de notice CC 
+- EXP-041 — commons: téléchargement impossible (HTTPError) ; europepmc: aucune figure libre ; pmc_oa: secours S3 : pas de PMCID de figure isolé dans cette passe ; openi: JSON reçu sans image retenue dans cette passe ; zenodo_figshare: pas de notice CC 
+- EXP-042 — commons: aucun fichier ; europepmc: aucune figure libre ; pmc_oa: secours S3 : pas de PMCID de figure isolé dans cette passe ; openi: JSON reçu sans image retenue dans cette passe ; zenodo_figshare: pas de notice CC BY avec âge ou mention a
+- EXP-043 — commons: téléchargement impossible (HTTPError) ; europepmc: aucune figure libre ; pmc_oa: secours S3 : pas de PMCID de figure isolé dans cette passe ; openi: source injoignable (RemoteDisconnected) ; zenodo_figshare: pas de notice CC BY ave
+- EXP-066 — commons: aucun fichier ; europepmc: aucune figure libre ; pmc_oa: secours S3 : pas de PMCID de figure isolé dans cette passe ; openi: JSON reçu sans image retenue dans cette passe ; zenodo_figshare: pas de notice CC BY avec âge ou mention a
+- EXP-072 — commons: aucun fichier ; europepmc: aucune figure libre ; pmc_oa: secours S3 : pas de PMCID de figure isolé dans cette passe ; openi: JSON reçu sans image retenue dans cette passe ; zenodo_figshare: pas de notice CC BY avec âge ou mention a
+- EXP-073 — commons: aucun fichier ; europepmc: aucune figure libre ; pmc_oa: secours S3 : pas de PMCID de figure isolé dans cette passe ; openi: JSON reçu sans image retenue dans cette passe ; zenodo_figshare: pas de notice CC BY avec âge ou mention a
+- EXP-074 — commons: téléchargement impossible (HTTPError) ; europepmc: aucune figure libre ; pmc_oa: secours S3 : pas de PMCID de figure isolé dans cette passe ; openi: JSON reçu sans image retenue dans cette passe ; zenodo_figshare: pas de notice CC 
+- EXP-075 — commons: aucun fichier ; europepmc: aucune figure libre ; pmc_oa: secours S3 : pas de PMCID de figure isolé dans cette passe ; openi: JSON reçu sans image retenue dans cette passe ; zenodo_figshare: pas de notice CC BY avec âge ou mention a
+- EXP-077 — commons: aucun fichier ; europepmc: aucune figure libre ; pmc_oa: secours S3 : pas de PMCID de figure isolé dans cette passe ; openi: JSON reçu sans image retenue dans cette passe ; zenodo_figshare: pas de notice CC BY avec âge ou mention a
+- EXP-078 — commons: aucun fichier ; europepmc: aucune figure libre ; pmc_oa: secours S3 : pas de PMCID de figure isolé dans cette passe ; openi: JSON reçu sans image retenue dans cette passe ; zenodo_figshare: pas de notice CC BY avec âge ou mention a
+- EXP-079 — commons: aucun fichier ; europepmc: aucune figure libre ; pmc_oa: secours S3 : pas de PMCID de figure isolé dans cette passe ; openi: JSON reçu sans image retenue dans cette passe ; zenodo_figshare: pas de notice CC BY avec âge ou mention a
+- EXP-080 — commons: aucun fichier ; europepmc: aucune figure libre ; pmc_oa: secours S3 : pas de PMCID de figure isolé dans cette passe ; openi: JSON reçu sans image retenue dans cette passe ; zenodo_figshare: pas de notice CC BY avec âge ou mention a
+- EXP-081 — commons: aucun fichier ; europepmc: aucune figure libre ; pmc_oa: secours S3 : pas de PMCID de figure isolé dans cette passe ; openi: source injoignable (RemoteDisconnected) ; zenodo_figshare: pas de notice CC BY avec âge ou mention adulte 
+- EXP-082 — commons: aucun fichier ; europepmc: aucune figure libre ; pmc_oa: secours S3 : pas de PMCID de figure isolé dans cette passe ; openi: JSON reçu sans image retenue dans cette passe ; zenodo_figshare: pas de notice CC BY avec âge ou mention a
+- EXP-084 — commons: téléchargement impossible (HTTPError) ; europepmc: pas de fichier direct et pas de capture utile ; pmc_oa: secours S3 : pas de PMCID de figure isolé dans cette passe ; openi: réponse HTML, pas de JSON ; zenodo_figshare: pas de noti
+- EXP-085 — commons: aucun fichier ; europepmc: aucune figure libre ; pmc_oa: secours S3 : pas de PMCID de figure isolé dans cette passe ; openi: JSON reçu sans image retenue dans cette passe ; zenodo_figshare: pas de notice CC BY avec âge ou mention a
+- EXP-086 — commons: aucun fichier ; europepmc: aucune figure libre ; pmc_oa: secours S3 : pas de PMCID de figure isolé dans cette passe ; openi: JSON reçu sans image retenue dans cette passe ; zenodo_figshare: pas de notice CC BY avec âge ou mention a
+- EXP-088 — commons: aucun fichier ; europepmc: aucune figure libre ; pmc_oa: secours S3 : pas de PMCID de figure isolé dans cette passe ; openi: JSON reçu sans image retenue dans cette passe ; zenodo_figshare: pas de notice CC BY avec âge ou mention a
+- EXP-089 — commons: aucun fichier ; europepmc: aucune figure libre ; pmc_oa: secours S3 : pas de PMCID de figure isolé dans cette passe ; openi: JSON reçu sans image retenue dans cette passe ; zenodo_figshare: pas de notice CC BY avec âge ou mention a
+- EXP-091 — commons: aucun fichier ; europepmc: aucune figure libre ; pmc_oa: secours S3 : pas de PMCID de figure isolé dans cette passe ; openi: JSON reçu sans image retenue dans cette passe ; zenodo_figshare: pas de notice CC BY avec âge ou mention a
+- EXP-092 — commons: aucun fichier ; europepmc: aucune figure libre ; pmc_oa: secours S3 : pas de PMCID de figure isolé dans cette passe ; openi: JSON reçu sans image retenue dans cette passe ; zenodo_figshare: pas de notice CC BY avec âge ou mention a
+- EXP-093 — commons: aucun fichier ; europepmc: aucune figure libre ; pmc_oa: secours S3 : pas de PMCID de figure isolé dans cette passe ; openi: JSON reçu sans image retenue dans cette passe ; zenodo_figshare: pas de notice CC BY avec âge ou mention a
+- EXP-096 — commons: téléchargement impossible (HTTPError) ; europepmc: modalité US au lieu de AUTRE ; pmc_oa: secours S3 : pas de PMCID de figure isolé dans cette passe ; openi: réponse HTML, pas de JSON ; zenodo_figshare: pas de notice CC BY avec âge
+- EXP-098 — commons: image illisible (UnidentifiedImageError) ; europepmc: aucune figure libre ; pmc_oa: secours S3 : pas de PMCID de figure isolé dans cette passe ; openi: JSON reçu sans image retenue dans cette passe ; zenodo_figshare: pas de notice 
+- EXP-101 — commons: aucun fichier ; europepmc: aucune figure libre ; pmc_oa: secours S3 : pas de PMCID de figure isolé dans cette passe ; openi: JSON reçu sans image retenue dans cette passe ; zenodo_figshare: pas de notice CC BY avec âge ou mention a
+- EXP-103 — commons: aucun fichier ; europepmc: aucune figure libre ; pmc_oa: secours S3 : pas de PMCID de figure isolé dans cette passe ; openi: JSON reçu sans image retenue dans cette passe ; zenodo_figshare: pas de notice CC BY avec âge ou mention a
+- EXP-104 — commons: bassin, sein ou organes génitaux : sexe non attesté ; europepmc: aucune figure libre ; pmc_oa: secours S3 : pas de PMCID de figure isolé dans cette passe ; openi: JSON reçu sans image retenue dans cette passe ; zenodo_figshare: pas
+- EXP-106 — commons: bassin, sein ou organes génitaux : sexe non attesté ; europepmc: aucune figure libre ; pmc_oa: secours S3 : pas de PMCID de figure isolé dans cette passe ; openi: JSON reçu sans image retenue dans cette passe ; zenodo_figshare: pas
+- EXP-107 — commons: aucun fichier ; europepmc: aucune figure libre ; pmc_oa: secours S3 : pas de PMCID de figure isolé dans cette passe ; openi: réponse HTML, pas de JSON ; zenodo_figshare: pas de notice CC BY avec âge ou mention adulte pour ce besoin
+- EXP-110 — commons: aucun fichier ; europepmc: aucune figure libre ; pmc_oa: secours S3 : pas de PMCID de figure isolé dans cette passe ; openi: JSON reçu sans image retenue dans cette passe ; zenodo_figshare: pas de notice CC BY avec âge ou mention a
+- EXP-113 — commons: aucun fichier ; europepmc: bassin, sein ou organes génitaux : sexe non attesté ; pmc_oa: secours S3 : pas de PMCID de figure isolé dans cette passe ; openi: JSON reçu sans image retenue dans cette passe ; zenodo_figshare: pas de no
+- EXP-115 — commons: téléchargement impossible (HTTPError) ; europepmc: bassin, sein ou organes génitaux : sexe non attesté ; pmc_oa: secours S3 : pas de PMCID de figure isolé dans cette passe ; openi: JSON reçu sans image retenue dans cette passe ; ze
+- EXP-117 — commons: téléchargement impossible (HTTPError) ; europepmc: aucune figure libre ; pmc_oa: secours S3 : pas de PMCID de figure isolé dans cette passe ; medpix2: licence ODC-ODbL du catalogue, non vérifiée CC par cas ; openi: JSON reçu sans i
+- EXP-118 — commons: aucun fichier ; europepmc: aucune figure libre ; pmc_oa: secours S3 : pas de PMCID de figure isolé dans cette passe ; openi: JSON reçu sans image retenue dans cette passe ; zenodo_figshare: pas de notice CC BY avec âge ou mention a
+- EXP-119 — commons: téléchargement impossible (HTTPError) ; europepmc: aucune figure libre ; pmc_oa: secours S3 : pas de PMCID de figure isolé dans cette passe ; openi: JSON reçu sans image retenue dans cette passe ; zenodo_figshare: pas de notice CC 
+- EXP-120 — commons: téléchargement impossible (HTTPError) ; europepmc: aucune figure libre ; pmc_oa: secours S3 : pas de PMCID de figure isolé dans cette passe ; openi: JSON reçu sans image retenue dans cette passe ; zenodo_figshare: pas de notice CC 
+- EXP-121 — commons: aucun fichier ; europepmc: aucune figure libre ; pmc_oa: secours S3 : pas de PMCID de figure isolé dans cette passe ; openi: JSON reçu sans image retenue dans cette passe ; zenodo_figshare: pas de notice CC BY avec âge ou mention a
+- EXP-122 — commons: aucun fichier ; europepmc: aucune figure libre ; pmc_oa: secours S3 : pas de PMCID de figure isolé dans cette passe ; openi: JSON reçu sans image retenue dans cette passe ; zenodo_figshare: pas de notice CC BY avec âge ou mention a
+- EXP-124 — commons: image illisible (UnidentifiedImageError) ; europepmc: aucune figure libre ; pmc_oa: secours S3 : pas de PMCID de figure isolé dans cette passe ; openi: JSON reçu sans image retenue dans cette passe ; zenodo_figshare: pas de notice 
+- EXP-125 — commons: aucun fichier ; europepmc: aucune figure libre ; pmc_oa: secours S3 : pas de PMCID de figure isolé dans cette passe ; openi: JSON reçu sans image retenue dans cette passe ; zenodo_figshare: pas de notice CC BY avec âge ou mention a
+- EXP-126 — commons: aucun fichier ; europepmc: aucune figure libre ; pmc_oa: secours S3 : pas de PMCID de figure isolé dans cette passe ; openi: JSON reçu sans image retenue dans cette passe ; zenodo_figshare: pas de notice CC BY avec âge ou mention a
+- EXP-131 — sleep_edf: ODC-By 1.0 hors liste blanche CC0, domaine public, CC BY, CC BY-SA ; europepmc: aucune figure libre ; pmc_oa: secours S3 : pas de PMCID de figure isolé dans cette passe
+- EXP-132 — sleep_edf: ODC-By 1.0 hors liste blanche CC0, domaine public, CC BY, CC BY-SA ; europepmc: aucune figure libre ; pmc_oa: secours S3 : pas de PMCID de figure isolé dans cette passe
+- EXP-133 — commons: aucun fichier ; europepmc: aucune figure libre ; pmc_oa: secours S3 : pas de PMCID de figure isolé dans cette passe ; openi: JSON reçu sans image retenue dans cette passe ; zenodo_figshare: pas de notice CC BY avec âge ou mention a
+- EXP-134 — commons: téléchargement impossible (HTTPError) ; europepmc: aucune figure libre ; pmc_oa: secours S3 : pas de PMCID de figure isolé dans cette passe ; openi: JSON reçu sans image retenue dans cette passe ; zenodo_figshare: pas de notice CC 
+- EXP-135 — commons: aucun fichier ; europepmc: aucune figure libre ; pmc_oa: secours S3 : pas de PMCID de figure isolé dans cette passe ; openi: JSON reçu sans image retenue dans cette passe ; zenodo_figshare: pas de notice CC BY avec âge ou mention a
+- EXP-136 — commons: aucun fichier ; europepmc: aucune figure libre ; pmc_oa: secours S3 : pas de PMCID de figure isolé dans cette passe ; openi: JSON reçu sans image retenue dans cette passe ; zenodo_figshare: pas de notice CC BY avec âge ou mention a
+- EXP-137 — commons: aucun fichier ; europepmc: aucune figure libre ; pmc_oa: secours S3 : pas de PMCID de figure isolé dans cette passe ; openi: JSON reçu sans image retenue dans cette passe ; zenodo_figshare: pas de notice CC BY avec âge ou mention a
+- EXP-138 — commons: aucun fichier ; europepmc: aucune figure libre ; pmc_oa: secours S3 : pas de PMCID de figure isolé dans cette passe ; openi: JSON reçu sans image retenue dans cette passe ; zenodo_figshare: pas de notice CC BY avec âge ou mention a
+- EXP-139 — commons: aucun fichier ; europepmc: modalité TDM au lieu de AUTRE ; pmc_oa: secours S3 : pas de PMCID de figure isolé dans cette passe ; openi: JSON reçu sans image retenue dans cette passe ; zenodo_figshare: pas de notice CC BY avec âge ou
+- EXP-142 — commons: aucun fichier ; europepmc: aucune figure libre ; pmc_oa: secours S3 : pas de PMCID de figure isolé dans cette passe ; openi: JSON reçu sans image retenue dans cette passe ; zenodo_figshare: pas de notice CC BY avec âge ou mention a
+- EXP-144 — commons: aucun fichier ; europepmc: aucune figure libre ; pmc_oa: secours S3 : pas de PMCID de figure isolé dans cette passe ; openi: JSON reçu sans image retenue dans cette passe ; zenodo_figshare: pas de notice CC BY avec âge ou mention a
+- EXP-145 — commons: téléchargement impossible (HTTPError) ; europepmc: aucune figure libre ; pmc_oa: secours S3 : pas de PMCID de figure isolé dans cette passe ; openi: JSON reçu sans image retenue dans cette passe ; zenodo_figshare: pas de notice CC 
+- EXP-146 — commons: téléchargement impossible (HTTPError) ; europepmc: aucune figure libre ; pmc_oa: secours S3 : pas de PMCID de figure isolé dans cette passe ; openi: réponse HTML, pas de JSON ; zenodo_figshare: pas de notice CC BY avec âge ou menti
+- EXP-147 — commons: aucun fichier ; europepmc: aucune figure libre ; pmc_oa: secours S3 : pas de PMCID de figure isolé dans cette passe ; openi: JSON reçu sans image retenue dans cette passe ; zenodo_figshare: pas de notice CC BY avec âge ou mention a
+- EXP-150 — commons: aucun fichier ; europepmc: aucune figure libre ; pmc_oa: secours S3 : pas de PMCID de figure isolé dans cette passe ; openi: JSON reçu sans image retenue dans cette passe ; zenodo_figshare: pas de notice CC BY avec âge ou mention a
+- EXP-153 — openneuro: participants.tsv non apparié à ce besoin : pas de coupe extraite ; europepmc: aucune figure libre ; pmc_oa: secours S3 : pas de PMCID de figure isolé dans cette passe
+- FTE-02 — ptbxl: licence PhysioNet non confirmée dans la liste CC (CC BY annoncé par un tiers seulement) ; europepmc: aucune figure libre ; pmc_oa: secours S3 : pas de PMCID de figure isolé dans cette passe
+- FTE-11 — commons: image illisible (UnidentifiedImageError) ; europepmc: aucune figure libre ; pmc_oa: secours S3 : pas de PMCID de figure isolé dans cette passe ; openi: JSON reçu sans image retenue dans cette passe ; zenodo_figshare: pas de notice 
+- FTE-12 — commons: image illisible (UnidentifiedImageError) ; europepmc: aucune figure libre ; pmc_oa: secours S3 : pas de PMCID de figure isolé dans cette passe ; openi: JSON reçu sans image retenue dans cette passe ; zenodo_figshare: pas de notice 
+- FTE-13 — commons: image illisible (UnidentifiedImageError) ; europepmc: aucune figure libre ; pmc_oa: secours S3 : pas de PMCID de figure isolé dans cette passe ; openi: JSON reçu sans image retenue dans cette passe ; zenodo_figshare: pas de notice 
+- FTE-14 — commons: aucun fichier ; europepmc: aucune figure libre ; pmc_oa: secours S3 : pas de PMCID de figure isolé dans cette passe ; openi: JSON reçu sans image retenue dans cette passe ; zenodo_figshare: pas de notice CC BY avec âge ou mention a
+- FTE-16 — commons: téléchargement impossible (HTTPError) ; europepmc: aucune figure libre ; pmc_oa: secours S3 : pas de PMCID de figure isolé dans cette passe ; openi: réponse HTML, pas de JSON ; zenodo_figshare: pas de notice CC BY avec âge ou menti
+- FTE-17 — commons: aucun fichier ; europepmc: aucune figure libre ; pmc_oa: secours S3 : pas de PMCID de figure isolé dans cette passe ; openi: réponse HTML, pas de JSON ; zenodo_figshare: pas de notice CC BY avec âge ou mention adulte pour ce besoin
+- FTE-19 — commons: aucun fichier ; europepmc: aucune figure libre ; pmc_oa: secours S3 : pas de PMCID de figure isolé dans cette passe ; openi: réponse HTML, pas de JSON ; zenodo_figshare: pas de notice CC BY avec âge ou mention adulte pour ce besoin
+- FTE-22 — commons: image illisible (UnidentifiedImageError) ; europepmc: aucune figure libre ; pmc_oa: secours S3 : pas de PMCID de figure isolé dans cette passe ; openi: JSON reçu sans image retenue dans cette passe ; zenodo_figshare: pas de notice 
+- FTE-23 — commons: image illisible (UnidentifiedImageError) ; europepmc: aucune figure libre ; pmc_oa: secours S3 : pas de PMCID de figure isolé dans cette passe ; openi: JSON reçu sans image retenue dans cette passe ; zenodo_figshare: pas de notice 
+- FTE-24 — commons: aucun fichier ; europepmc: aucune figure libre ; pmc_oa: secours S3 : pas de PMCID de figure isolé dans cette passe ; openi: JSON reçu sans image retenue dans cette passe ; zenodo_figshare: pas de notice CC BY avec âge ou mention a
+- FTE-25 — commons: aucun fichier ; europepmc: aucune figure libre ; pmc_oa: secours S3 : pas de PMCID de figure isolé dans cette passe ; openi: réponse HTML, pas de JSON ; zenodo_figshare: pas de notice CC BY avec âge ou mention adulte pour ce besoin
+- FTE-27 — commons: aucun fichier ; europepmc: aucune figure libre ; pmc_oa: secours S3 : pas de PMCID de figure isolé dans cette passe ; openi: réponse HTML, pas de JSON ; zenodo_figshare: pas de notice CC BY avec âge ou mention adulte pour ce besoin
+- FTE-28 — commons: aucun fichier ; europepmc: aucune figure libre ; pmc_oa: secours S3 : pas de PMCID de figure isolé dans cette passe ; openi: réponse HTML, pas de JSON ; zenodo_figshare: pas de notice CC BY avec âge ou mention adulte pour ce besoin
+- FTE-31 — commons: aucun fichier ; europepmc: aucune figure libre ; pmc_oa: secours S3 : pas de PMCID de figure isolé dans cette passe ; openi: réponse HTML, pas de JSON ; zenodo_figshare: pas de notice CC BY avec âge ou mention adulte pour ce besoin
+- FTE-32 — commons: téléchargement impossible (HTTPError) ; europepmc: aucune figure libre ; pmc_oa: secours S3 : pas de PMCID de figure isolé dans cette passe ; openi: réponse HTML, pas de JSON ; zenodo_figshare: pas de notice CC BY avec âge ou menti
+- FTE-35 — commons: aucun fichier ; europepmc: aucune figure libre ; pmc_oa: secours S3 : pas de PMCID de figure isolé dans cette passe ; openi: réponse HTML, pas de JSON ; zenodo_figshare: pas de notice CC BY avec âge ou mention adulte pour ce besoin
+- FTE-38 — commons: aucun fichier ; europepmc: aucune figure libre ; pmc_oa: secours S3 : pas de PMCID de figure isolé dans cette passe ; openi: réponse HTML, pas de JSON ; zenodo_figshare: pas de notice CC BY avec âge ou mention adulte pour ce besoin
+- FTE-39 — commons: aucun fichier ; europepmc: aucune figure libre ; pmc_oa: secours S3 : pas de PMCID de figure isolé dans cette passe ; openi: JSON reçu sans image retenue dans cette passe ; zenodo_figshare: pas de notice CC BY avec âge ou mention a
+- FTE-46 — commons: aucun fichier ; europepmc: aucune figure libre ; pmc_oa: secours S3 : pas de PMCID de figure isolé dans cette passe ; openi: JSON reçu sans image retenue dans cette passe ; zenodo_figshare: pas de notice CC BY avec âge ou mention a
+- FTE-48 — commons: aucun fichier ; europepmc: aucune figure libre ; pmc_oa: secours S3 : pas de PMCID de figure isolé dans cette passe ; openi: JSON reçu sans image retenue dans cette passe ; zenodo_figshare: pas de notice CC BY avec âge ou mention a
+- FTE-49 — commons: aucun fichier ; europepmc: aucune figure libre ; pmc_oa: secours S3 : pas de PMCID de figure isolé dans cette passe ; openi: JSON reçu sans image retenue dans cette passe ; zenodo_figshare: pas de notice CC BY avec âge ou mention a
+- FTE-50 — commons: téléchargement impossible (HTTPError) ; europepmc: aucune figure libre ; pmc_oa: secours S3 : pas de PMCID de figure isolé dans cette passe ; openi: source injoignable (RemoteDisconnected) ; zenodo_figshare: pas de notice CC BY ave
+- FTE-51 — commons: aucun fichier ; europepmc: aucune figure libre ; pmc_oa: secours S3 : pas de PMCID de figure isolé dans cette passe ; openi: réponse HTML, pas de JSON ; zenodo_figshare: pas de notice CC BY avec âge ou mention adulte pour ce besoin
+- FTE-52 — commons: aucun fichier ; europepmc: aucune figure libre ; pmc_oa: secours S3 : pas de PMCID de figure isolé dans cette passe ; openi: JSON reçu sans image retenue dans cette passe ; zenodo_figshare: pas de notice CC BY avec âge ou mention a
+- FTE-53 — commons: aucun fichier ; europepmc: aucune figure libre ; pmc_oa: secours S3 : pas de PMCID de figure isolé dans cette passe ; openi: JSON reçu sans image retenue dans cette passe ; zenodo_figshare: pas de notice CC BY avec âge ou mention a
+- FTE-54 — commons: aucun fichier ; europepmc: aucune figure libre ; pmc_oa: secours S3 : pas de PMCID de figure isolé dans cette passe ; openi: réponse HTML, pas de JSON ; zenodo_figshare: pas de notice CC BY avec âge ou mention adulte pour ce besoin
+- FTE-55 — commons: téléchargement impossible (HTTPError) ; europepmc: aucune figure libre ; pmc_oa: secours S3 : pas de PMCID de figure isolé dans cette passe ; openi: JSON reçu sans image retenue dans cette passe ; zenodo_figshare: pas de notice CC 
+- FTE-57 — commons: aucun fichier ; europepmc: aucune figure libre ; pmc_oa: secours S3 : pas de PMCID de figure isolé dans cette passe ; openi: JSON reçu sans image retenue dans cette passe ; zenodo_figshare: pas de notice CC BY avec âge ou mention a
+- FTE-58 — commons: aucun fichier ; europepmc: aucune figure libre ; pmc_oa: secours S3 : pas de PMCID de figure isolé dans cette passe ; openi: JSON reçu sans image retenue dans cette passe ; zenodo_figshare: pas de notice CC BY avec âge ou mention a
+- IMG-009 — idc: idc-index absent : pas de série CC BY isolée ni de visionneuse ouverte dans cette passe ; tcia: collection sans licence CC lue dans l'archive ; medpix2: licence ODC-ODbL du catalogue, non vérifiée CC par cas ; commons: aucun fichier ; 
+- IMG-010 — openneuro: participants.tsv non apparié à ce besoin : pas de coupe extraite ; idc: idc-index absent : pas de série CC BY isolée ni de visionneuse ouverte dans cette passe ; medpix2: licence ODC-ODbL du catalogue, non vérifiée CC par cas ; c
+- IMG-012 — openneuro: participants.tsv non apparié à ce besoin : pas de coupe extraite ; idc: idc-index absent : pas de série CC BY isolée ni de visionneuse ouverte dans cette passe ; medpix2: licence ODC-ODbL du catalogue, non vérifiée CC par cas ; c
+- IMG-017 — openneuro: participants.tsv non apparié à ce besoin : pas de coupe extraite ; idc: idc-index absent : pas de série CC BY isolée ni de visionneuse ouverte dans cette passe ; medpix2: licence ODC-ODbL du catalogue, non vérifiée CC par cas ; c
+- IMG-020 — openneuro: participants.tsv non apparié à ce besoin : pas de coupe extraite ; idc: idc-index absent : pas de série CC BY isolée ni de visionneuse ouverte dans cette passe ; medpix2: licence ODC-ODbL du catalogue, non vérifiée CC par cas ; c
+- IMG-021 — openneuro: participants.tsv non apparié à ce besoin : pas de coupe extraite ; idc: idc-index absent : pas de série CC BY isolée ni de visionneuse ouverte dans cette passe ; medpix2: licence ODC-ODbL du catalogue, non vérifiée CC par cas ; c
+- IMG-034 — openneuro: participants.tsv non apparié à ce besoin : pas de coupe extraite ; idc: idc-index absent : pas de série CC BY isolée ni de visionneuse ouverte dans cette passe ; medpix2: licence ODC-ODbL du catalogue, non vérifiée CC par cas ; c
+- IMG-035 — openneuro: participants.tsv non apparié à ce besoin : pas de coupe extraite ; idc: idc-index absent : pas de série CC BY isolée ni de visionneuse ouverte dans cette passe ; medpix2: licence ODC-ODbL du catalogue, non vérifiée CC par cas ; c
+- IMG-038 — openneuro: participants.tsv non apparié à ce besoin : pas de coupe extraite ; idc: idc-index absent : pas de série CC BY isolée ni de visionneuse ouverte dans cette passe ; medpix2: licence ODC-ODbL du catalogue, non vérifiée CC par cas ; c
+- IMG-045 — openneuro: participants.tsv non apparié à ce besoin : pas de coupe extraite ; idc: idc-index absent : pas de série CC BY isolée ni de visionneuse ouverte dans cette passe ; medpix2: licence ODC-ODbL du catalogue, non vérifiée CC par cas ; c
+- IMG-065 — idc: idc-index absent : pas de série CC BY isolée ni de visionneuse ouverte dans cette passe ; tcia: collection sans licence CC lue dans l'archive ; medpix2: licence ODC-ODbL du catalogue, non vérifiée CC par cas ; commons: aucun fichier ; 
+- IMG-082 — openneuro: participants.tsv non apparié à ce besoin : pas de coupe extraite ; idc: idc-index absent : pas de série CC BY isolée ni de visionneuse ouverte dans cette passe ; medpix2: licence ODC-ODbL du catalogue, non vérifiée CC par cas ; c
+- IMG-096 — commons: aucun fichier ; europepmc: aucune figure libre ; pmc_oa: secours S3 : pas de PMCID de figure isolé dans cette passe ; openi: JSON reçu sans image retenue dans cette passe ; zenodo_figshare: pas de notice CC BY avec âge ou mention a
+- IMG-097 — openneuro: participants.tsv non apparié à ce besoin : pas de coupe extraite ; idc: idc-index absent : pas de série CC BY isolée ni de visionneuse ouverte dans cette passe ; medpix2: licence ODC-ODbL du catalogue, non vérifiée CC par cas ; c
+- IMG-099 — openneuro: participants.tsv non apparié à ce besoin : pas de coupe extraite ; idc: idc-index absent : pas de série CC BY isolée ni de visionneuse ouverte dans cette passe ; medpix2: licence ODC-ODbL du catalogue, non vérifiée CC par cas ; c
+- IMG-146 — commons: aucun fichier ; europepmc: aucune figure libre ; pmc_oa: secours S3 : pas de PMCID de figure isolé dans cette passe ; openi: JSON reçu sans image retenue dans cette passe ; zenodo_figshare: pas de notice CC BY avec âge ou mention a
+- IMG-147 — openneuro: participants.tsv non apparié à ce besoin : pas de coupe extraite ; idc: idc-index absent : pas de série CC BY isolée ni de visionneuse ouverte dans cette passe ; medpix2: licence ODC-ODbL du catalogue, non vérifiée CC par cas ; c
+- IMG-151 — commons: aucun fichier ; europepmc: aucune figure libre ; pmc_oa: secours S3 : pas de PMCID de figure isolé dans cette passe ; openi: JSON reçu sans image retenue dans cette passe ; zenodo_figshare: pas de notice CC BY avec âge ou mention a
+- IMG-165 — commons: téléchargement impossible (HTTPError) ; europepmc: aucune figure libre ; pmc_oa: secours S3 : pas de PMCID de figure isolé dans cette passe ; openi: réponse HTML, pas de JSON ; zenodo_figshare: pas de notice CC BY avec âge ou menti
+- IMG-180 — openneuro: participants.tsv non apparié à ce besoin : pas de coupe extraite ; idc: idc-index absent : pas de série CC BY isolée ni de visionneuse ouverte dans cette passe ; medpix2: licence ODC-ODbL du catalogue, non vérifiée CC par cas ; c
+- IMG-182 — commons: téléchargement impossible (HTTPError) ; europepmc: aucune figure libre ; pmc_oa: secours S3 : pas de PMCID de figure isolé dans cette passe ; openi: JSON reçu sans image retenue dans cette passe ; zenodo_figshare: pas de notice CC 
+- IMG-183 — openneuro: participants.tsv non apparié à ce besoin : pas de coupe extraite ; idc: idc-index absent : pas de série CC BY isolée ni de visionneuse ouverte dans cette passe ; medpix2: licence ODC-ODbL du catalogue, non vérifiée CC par cas ; c
+- IMG-188 — idc: idc-index absent : pas de série CC BY isolée ni de visionneuse ouverte dans cette passe ; tcia: collection sans licence CC lue dans l'archive ; medpix2: licence ODC-ODbL du catalogue, non vérifiée CC par cas ; commons: aucun fichier ; 
+- IMG-192 — commons: téléchargement impossible (HTTPError) ; europepmc: aucune figure libre ; pmc_oa: secours S3 : pas de PMCID de figure isolé dans cette passe ; openi: JSON reçu sans image retenue dans cette passe ; zenodo_figshare: pas de notice CC 
+- IMG-197 — idc: idc-index absent : pas de série CC BY isolée ni de visionneuse ouverte dans cette passe ; tcia: collection sans licence CC lue dans l'archive ; medpix2: licence ODC-ODbL du catalogue, non vérifiée CC par cas ; commons: aucun fichier ; 
+- IMG-201 — commons: aucun fichier ; europepmc: modalité RX au lieu de AUTRE ; pmc_oa: secours S3 : pas de PMCID de figure isolé dans cette passe ; openi: JSON reçu sans image retenue dans cette passe ; zenodo_figshare: pas de notice CC BY avec âge ou 
+- IMG-206 — commons: aucun fichier ; europepmc: aucune figure libre ; pmc_oa: secours S3 : pas de PMCID de figure isolé dans cette passe ; medpix2: licence ODC-ODbL du catalogue, non vérifiée CC par cas ; openi: réponse HTML, pas de JSON
+- IMG-208 — commons: aucun fichier ; europepmc: aucune figure libre ; pmc_oa: secours S3 : pas de PMCID de figure isolé dans cette passe ; openi: réponse HTML, pas de JSON ; zenodo_figshare: pas de notice CC BY avec âge ou mention adulte pour ce besoin
+- IMG-215 — idc: idc-index absent : pas de série CC BY isolée ni de visionneuse ouverte dans cette passe ; tcia: collection sans licence CC lue dans l'archive ; medpix2: licence ODC-ODbL du catalogue, non vérifiée CC par cas ; commons: aucun fichier ; 
+- IMG-218 — idc: idc-index absent : pas de série CC BY isolée ni de visionneuse ouverte dans cette passe ; tcia: collection sans licence CC lue dans l'archive ; medpix2: licence ODC-ODbL du catalogue, non vérifiée CC par cas ; commons: aucun fichier ; 
+- IMG-219 — idc: idc-index absent : pas de série CC BY isolée ni de visionneuse ouverte dans cette passe ; tcia: collection sans licence CC lue dans l'archive ; medpix2: licence ODC-ODbL du catalogue, non vérifiée CC par cas ; commons: aucun fichier ; 
+- IMG-232 — idc: idc-index absent : pas de série CC BY isolée ni de visionneuse ouverte dans cette passe ; tcia: collection sans licence CC lue dans l'archive ; medpix2: licence ODC-ODbL du catalogue, non vérifiée CC par cas ; commons: aucun fichier ; 
+- IMG-233 — commons: téléchargement impossible (HTTPError) ; europepmc: aucune figure libre ; pmc_oa: secours S3 : pas de PMCID de figure isolé dans cette passe ; medpix2: licence ODC-ODbL du catalogue, non vérifiée CC par cas ; openi: JSON reçu sans i
+- IMG-236 — idc: idc-index absent : pas de série CC BY isolée ni de visionneuse ouverte dans cette passe ; tcia: collection sans licence CC lue dans l'archive ; medpix2: licence ODC-ODbL du catalogue, non vérifiée CC par cas ; commons: aucun fichier ; 
+- IMG-238 — commons: bassin, sein ou organes génitaux : sexe non attesté ; europepmc: bassin, sein ou organes génitaux : sexe non attesté ; pmc_oa: secours S3 : pas de PMCID de figure isolé dans cette passe ; openi: JSON reçu sans image retenue dans ce
+- IMG-240 — idc: idc-index absent : pas de série CC BY isolée ni de visionneuse ouverte dans cette passe ; tcia: collection sans licence CC lue dans l'archive ; medpix2: licence ODC-ODbL du catalogue, non vérifiée CC par cas ; commons: aucun fichier ; 
+- IMG-241 — openneuro: participants.tsv non apparié à ce besoin : pas de coupe extraite ; idc: idc-index absent : pas de série CC BY isolée ni de visionneuse ouverte dans cette passe ; medpix2: licence ODC-ODbL du catalogue, non vérifiée CC par cas ; c
+- IMG-242 — commons: bassin, sein ou organes génitaux : sexe non attesté ; europepmc: aucune figure libre ; pmc_oa: secours S3 : pas de PMCID de figure isolé dans cette passe ; openi: JSON reçu sans image retenue dans cette passe ; zenodo_figshare: pas
+- IMG-248 — commons: téléchargement impossible (HTTPError) ; europepmc: aucune figure libre ; pmc_oa: secours S3 : pas de PMCID de figure isolé dans cette passe ; openi: JSON reçu sans image retenue dans cette passe ; zenodo_figshare: pas de notice CC 
+- IMG-251 — commons: téléchargement impossible (HTTPError) ; europepmc: bassin, sein ou organes génitaux : sexe non attesté ; pmc_oa: secours S3 : pas de PMCID de figure isolé dans cette passe ; openi: JSON reçu sans image retenue dans cette passe ; ze
+- IMG-252 — commons: aucun fichier ; europepmc: aucune figure libre ; pmc_oa: secours S3 : pas de PMCID de figure isolé dans cette passe ; medpix2: licence ODC-ODbL du catalogue, non vérifiée CC par cas ; openi: JSON reçu sans image retenue dans cette 
+- IMG-253 — commons: téléchargement impossible (HTTPError) ; europepmc: bassin, sein ou organes génitaux : sexe non attesté ; pmc_oa: secours S3 : pas de PMCID de figure isolé dans cette passe ; openi: source injoignable (RemoteDisconnected) ; zenodo_f
+- IMG-256 — commons: téléchargement impossible (HTTPError) ; europepmc: bassin, sein ou organes génitaux : sexe non attesté ; pmc_oa: secours S3 : pas de PMCID de figure isolé dans cette passe ; openi: JSON reçu sans image retenue dans cette passe ; ze
+- IMG-261 — commons: aucun fichier ; europepmc: bassin, sein ou organes génitaux : sexe non attesté ; pmc_oa: secours S3 : pas de PMCID de figure isolé dans cette passe ; openi: JSON reçu sans image retenue dans cette passe ; zenodo_figshare: pas de no
+- IMG-264 — commons: aucun fichier ; europepmc: aucune figure libre ; pmc_oa: secours S3 : pas de PMCID de figure isolé dans cette passe ; medpix2: licence ODC-ODbL du catalogue, non vérifiée CC par cas ; openi: JSON reçu sans image retenue dans cette 
+- IMG-275 — commons: aucun fichier ; europepmc: aucune figure libre ; pmc_oa: secours S3 : pas de PMCID de figure isolé dans cette passe ; openi: JSON reçu sans image retenue dans cette passe ; zenodo_figshare: pas de notice CC BY avec âge ou mention a
+- IMG-276 — commons: aucun fichier ; europepmc: aucune figure libre ; pmc_oa: secours S3 : pas de PMCID de figure isolé dans cette passe ; openi: JSON reçu sans image retenue dans cette passe ; zenodo_figshare: pas de notice CC BY avec âge ou mention a
+- IMG-279 — commons: aucun fichier ; europepmc: aucune figure libre ; pmc_oa: secours S3 : pas de PMCID de figure isolé dans cette passe ; openi: JSON reçu sans image retenue dans cette passe ; zenodo_figshare: pas de notice CC BY avec âge ou mention a
+- IMG-282 — commons: téléchargement impossible (HTTPError) ; europepmc: aucune figure libre ; pmc_oa: secours S3 : pas de PMCID de figure isolé dans cette passe ; openi: JSON reçu sans image retenue dans cette passe ; zenodo_figshare: pas de notice CC 
+- IMG-284 — commons: téléchargement impossible (HTTPError) ; europepmc: aucune figure libre ; pmc_oa: secours S3 : pas de PMCID de figure isolé dans cette passe ; openi: JSON reçu sans image retenue dans cette passe ; zenodo_figshare: pas de notice CC 
+- IMG-287 — commons: aucun fichier ; europepmc: aucune figure libre ; pmc_oa: secours S3 : pas de PMCID de figure isolé dans cette passe ; medpix2: licence ODC-ODbL du catalogue, non vérifiée CC par cas ; openi: JSON reçu sans image retenue dans cette 
+- IMG-288 — commons: aucun fichier ; europepmc: aucune figure libre ; pmc_oa: secours S3 : pas de PMCID de figure isolé dans cette passe ; medpix2: licence ODC-ODbL du catalogue, non vérifiée CC par cas ; openi: JSON reçu sans image retenue dans cette 
+- IMG-293 — commons: File:Graf Hip Ultrasound Type Ia.jpg absent. Le seul Graf Ia trouvé est un nouveau-né, refusé. ; europepmc: aucune figure libre ; pmc_oa: secours S3 : pas de PMCID de figure isolé dans cette passe ; openi: réponse HTML, pas de JSON
+- IMG-303 — openneuro: participants.tsv non apparié à ce besoin : pas de coupe extraite ; idc: idc-index absent : pas de série CC BY isolée ni de visionneuse ouverte dans cette passe ; medpix2: licence ODC-ODbL du catalogue, non vérifiée CC par cas ; c
+- IMG-306 — openneuro: participants.tsv non apparié à ce besoin : pas de coupe extraite ; idc: idc-index absent : pas de série CC BY isolée ni de visionneuse ouverte dans cette passe ; medpix2: licence ODC-ODbL du catalogue, non vérifiée CC par cas ; c
+- IMG-307 — openneuro: participants.tsv non apparié à ce besoin : pas de coupe extraite ; idc: idc-index absent : pas de série CC BY isolée ni de visionneuse ouverte dans cette passe ; medpix2: licence ODC-ODbL du catalogue, non vérifiée CC par cas ; c
+- IMG-309 — commons: téléchargement impossible (HTTPError) ; europepmc: aucune figure libre ; pmc_oa: secours S3 : pas de PMCID de figure isolé dans cette passe ; openi: source injoignable (RemoteDisconnected) ; zenodo_figshare: pas de notice CC BY ave
+- IMG-311 — commons: aucun fichier ; europepmc: aucune figure libre ; pmc_oa: secours S3 : pas de PMCID de figure isolé dans cette passe ; medpix2: licence ODC-ODbL du catalogue, non vérifiée CC par cas ; openi: JSON reçu sans image retenue dans cette 
+- IMG-313 — commons: image illisible (UnidentifiedImageError) ; europepmc: aucune figure libre ; pmc_oa: secours S3 : pas de PMCID de figure isolé dans cette passe ; medpix2: licence ODC-ODbL du catalogue, non vérifiée CC par cas ; openi: JSON reçu san
+- IMG-314 — commons: téléchargement impossible (HTTPError) ; europepmc: aucune figure libre ; pmc_oa: secours S3 : pas de PMCID de figure isolé dans cette passe ; openi: JSON reçu sans image retenue dans cette passe ; zenodo_figshare: pas de notice CC 
+- IMG-322 — openneuro: participants.tsv non apparié à ce besoin : pas de coupe extraite ; idc: idc-index absent : pas de série CC BY isolée ni de visionneuse ouverte dans cette passe ; medpix2: licence ODC-ODbL du catalogue, non vérifiée CC par cas ; c
+- IMG-326 — idc: idc-index absent : pas de série CC BY isolée ni de visionneuse ouverte dans cette passe ; tcia: collection sans licence CC lue dans l'archive ; medpix2: licence ODC-ODbL du catalogue, non vérifiée CC par cas ; commons: aucun fichier ; 
+- IMG-328 — idc: idc-index absent : pas de série CC BY isolée ni de visionneuse ouverte dans cette passe ; tcia: collection sans licence CC lue dans l'archive ; medpix2: licence ODC-ODbL du catalogue, non vérifiée CC par cas ; commons: aucun fichier ; 
+- IMG-329 — openneuro: participants.tsv non apparié à ce besoin : pas de coupe extraite ; idc: idc-index absent : pas de série CC BY isolée ni de visionneuse ouverte dans cette passe ; medpix2: licence ODC-ODbL du catalogue, non vérifiée CC par cas ; c
+- IMG-330 — idc: idc-index absent : pas de série CC BY isolée ni de visionneuse ouverte dans cette passe ; tcia: collection sans licence CC lue dans l'archive ; medpix2: licence ODC-ODbL du catalogue, non vérifiée CC par cas ; commons: aucun fichier ; 
+- IMG-334 — commons: aucun fichier ; europepmc: modalité TDM au lieu de AUTRE ; pmc_oa: secours S3 : pas de PMCID de figure isolé dans cette passe ; openi: JSON reçu sans image retenue dans cette passe ; zenodo_figshare: pas de notice CC BY avec âge ou
+- IMG-340 — commons: aucun fichier ; europepmc: aucune figure libre ; pmc_oa: secours S3 : pas de PMCID de figure isolé dans cette passe ; openi: JSON reçu sans image retenue dans cette passe ; zenodo_figshare: pas de notice CC BY avec âge ou mention a
+- IMG-341 — nih_cxr14: pas d'API anonyme d'un seul cliché ; store GCP sur formulaire ; vindr: licence DICOM PhysioNet non confirmée CC BY ; commons: aucun fichier ; europepmc: aucune figure libre ; pmc_oa: secours S3 : pas de PMCID de figure isolé dans
