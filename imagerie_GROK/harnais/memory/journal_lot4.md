@@ -35,4 +35,9 @@ IMG-314 | introuvable | pas d'échographie d'anévrisme poplité | le dessin de 
 IMG-313 | introuvable | pas de Doppler de faux anévrisme fémoral | catégorie vide
 IMG-312 | partiel | Häggström, CC0, reflux saphène en B-flow | position debout non écrite
 IMG-311 | introuvable | pas de Doppler artériel de membre | recherches Commons vides
+IMG-310 | partiel | Heilman, CC BY-SA 3.0, thrombus de la veine fémorale commune gauche | compression non montrée
+IMG-309 | introuvable | pas de radiographie de pied bot en charge | la catégorie est photographique
+IMG-308 | partiel | Hellerhoff, CC BY-SA 3.0, destructions goutteuses du pied | charge non écrite ; pas de pied sain
+IMG-307 | introuvable | pas d'IRM STIR de pied diabétique ou de Charcot | œdème T2 non attribué au diabète
+IMG-306 | introuvable | pas d'IRM STIR de fracture de fatigue du pied | radiographie ou fracture lombaire seulement
 

@@ -64,3 +64,12 @@ Reprise : IMG-315.
 - Épargné par les scripts (estimation) : les recherches vides ont clos trois introuvables sans téléchargement. Le gain chiffré n'est pas mesuré.
 
 Reprise : IMG-310.
+
+## Passe IMG-310 à IMG-306
+
+- Éléments traités : 5 diagnostics. Deux partiels, trois introuvables. Aucun complet.
+- Appels de jugement visuel : environ 6 lectures, un contour élargi. Estimation.
+- Durée : une passe, non chronométrée. Estimation.
+- Épargné par les scripts (estimation) : le filtre a écarté les planches hors licence et les photographies de personnes. Le gain chiffré n'est pas mesuré.
+
+Reprise : IMG-305.
