@@ -58,3 +58,8 @@ Les durées et les appels évités sont des estimations, marquées comme telles.
 - Décompte du bilan : voir BILAN_NUIT_20261114.html régénéré à cette heure (plus aucun « en recherche »).
 - Les explorations et les fiches ne sont pas encore auditées ni fusionnées. Une partie de l'imagerie l'est (fusions #679 à #695).
 - Estimation : les scripts ont fait le téléchargement, la validation et le décompte. Le jugement (lire l'image, poser le contour, choisir complet/partiel/introuvable) est resté aux modèles.
+
+
+## Décompte après audit · 14.11.2026
+
+Les 555 manifestes audités sont sur main : 3 complets, 347 partiels, 205 introuvables, 0 en recherche. Le bilan HTML reprend ces statuts, élément par élément.
