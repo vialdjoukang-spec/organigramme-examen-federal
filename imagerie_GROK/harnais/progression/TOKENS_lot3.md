@@ -78,3 +78,10 @@ Les durées et les appels évités sont des estimations, marquées comme telles.
 - Appels de jugement visuel : environ 12 lectures (thymome et son contour remonté, plaques et recadrage, mésothéliome ramené sur la paroi, hémothorax, empyème avec gaz). Estimation.
 - Durée : une passe. Estimation : Open-i a surtout renvoyé des licences non blanches.
 - Épargné par les scripts (estimation) : `fetch_commons.py cat` a listé les thymomes et les empyèmes ; `validate.py` a accepté les écarts de phase sans erreur.
+
+## IMG-131, IMG-130, IMG-129, IMG-128, IMG-127
+
+- Éléments traités : 5 diagnostics, tous partiels.
+- Appels de jugement visuel : environ 8 lectures (distension gauche, membranes hyalines, contusion sur la planche du bas, masque violet du séquestre, pneumopathie radique et pointe déplacée dans la condensation). Estimation.
+- Durée : une passe. Estimation : Open-i a renvoyé des licences non blanches ou inconnues pour le séquestre, la contusion et la pneumopathie radique.
+- Épargné par les scripts (estimation) : le décompte des pixels violets a calé le contour du séquestre ; `validate.py` a accepté les cinq partiels sans erreur.

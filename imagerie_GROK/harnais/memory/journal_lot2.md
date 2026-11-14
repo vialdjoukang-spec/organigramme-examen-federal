@@ -44,3 +44,8 @@ Périmètre réel de ce worktree (lot3, IMG-172 → IMG-087). Ordre décroissant
 - IMG-136 | partiel | Hellerhoff, CC BY-SA 3.0, mésothéliome pleural droit en manchon ; normale Häggström | piège : métastases pleurales absentes.
 - IMG-135 | partiel | Cevik, CC BY 3.0, hémothorax droit sous warfarine | piège : injection non visible. Le chiffre 114 n'est pas un nom.
 - IMG-133 | partiel | Hellerhoff, CC BY-SA 4.0, empyème gauche avec gaz, TDM injectée | piège : la normale n'est pas à la base. Reprise à IMG-131 (IMG-134 et IMG-132 déjà faits).
+- IMG-131 | partiel | Hellerhoff, CC BY-SA 4.0, distension du poumon gauche par effet de soupape | piège : le corps étranger a été retiré avant le cliché ; pas d'expiration ; pas de thorax de nourrisson normal.
+- IMG-130 | partiel | Mikael Häggström, CC0, opacités granulaires et bronchogramme aérique | piège : tachypnée transitoire et inhalation méconiale absentes ; pas de normale néonatale.
+- IMG-129 | partiel | Hellerhoff, CC BY-SA 4.0, contusion droite plus que gauche ; normale Häggström coupe 24 | piège : l'injection n'est pas écrite sur le fichier.
+- IMG-128 | partiel | Hellerhoff, CC BY-SA 4.0, séquestre postéro-basal droit peint en violet, artère systémique | piège : malformation adénomatoïde absente ; pas d'angio-TDM normale.
+- IMG-127 | partiel | Ito et al., Fujita Medical Journal 2017, CC BY 4.0, pneumopathie organisée le long de l'isodose à quatre mois | piège : coupe non libellée haute résolution ; pneumopathie médicamenteuse absente. Reprise à IMG-126.
