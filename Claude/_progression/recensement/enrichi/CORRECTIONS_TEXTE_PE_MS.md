@@ -49,3 +49,14 @@ Ils restent légitimes :
 - seuils d'abcès et durées non fixés par une source lue.
 
 Un contre-audit court, limité aux lignes modifiées, est requis.
+
+## Tour 2 (réponse à AUDIT_TEXTE_PE_MS_V2.md), 14.11.2026
+- **R1 (244, majeur)** : patch appliqué mot pour mot. La ceftriaxone passe à 1 g i.m. dose unique (IUSTI 2024), dans la posologie générale de l'AIPS Rocephin® (1–2 g/j). L'écart avec la ligne « blennorragie » de l'AIPS (0,25 g) est signalé.
+- **R2 (238)** : « elle ne remplace pas encore la résection de stadification (EAU 2025) ».
+- **R3** : dates AIPS ajoutées pour Lucrin Dépôt et Xarelto (mai 2025), Tranexam Labatec (juillet 2026) et Kenacort-A (décembre 2021). Plus aucune AIPS ne porte « lue par l'audit » à la place d'une date.
+- **R4** : en 255, Rotterdam passe avant Teede ; en 265, Parks passe en dernier.
+- **R5** : sans changement en 252, 267 et 288. Aucune source européenne n'a été lue ; l'étiquette américaine reste.
+- **R6 (264)** : citation mot pour mot, « affections d'origines obstétricales ».
+- **R7 (244)** : ajout dans `autres` de l'« IRM scrotale », rang 2 (abcès ou masse équivoque).
+
+Je n'ai pas touché aux images. Le JSON est valide.

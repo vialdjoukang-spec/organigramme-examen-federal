@@ -40,3 +40,6 @@ Auditeur indépendant. J'ai appliqué les skills `medecin-expert` et `expert-web
 ## 3. Verdict
 
 **corrections requises.** Il reste 1 majeur (R1, une ligne) et 6 mineurs. Aucune critique ne reste. Hors R1, aucune dose, contre-indication ou date fausse n'a été introduite. Après application de R1 mot pour mot, PE_MS (texte) peut recevoir « audit-ok » sans nouveau tour. Les mineurs R2 à R7 peuvent être appliqués dans le même commit.
+
+## Clôture
+Majeur R1 (244) appliqué mot pour mot, mineurs R2–R4, R6, R7 faits, R5 listé en complément : **audit-ok** pour le texte de PE_MS (IMG-238 à 288).
