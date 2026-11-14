@@ -8,4 +8,10 @@ Périmètre réel de ce worktree (lot3, IMG-172 → IMG-087). Ordre décroissant
 - IMG-170 | partiel | Samir, Commons, CC BY 3.0 (ascite étiquetée, foie dit cirrhotique) ; même normale Ptrump16 | piège : définition non relue, lobe caudé non montré.
 - IMG-169 | partiel | Badea et Ioanitescu, Commons, CC BY 3.0 (kyste hydatique) ; normale Ptrump16 | piège : abcès absent, légende d'une ligne, confiance basse.
 - IMG-168 | partiel | Hellerhoff, Commons, CC BY-SA 4.0, titre « CT KM pv » ; normale Häggström, CC0, coupe axiale 52 | piège : phase de la normale non nommée, topogramme dans l'image, définition non relue.
-- IMG-167 | partiel | Hellerhoff, Commons, CC BY-SA 3.0, trois temps étiquetés, CHC graisseux histologiquement confirmé ; normale Häggström, CC0, coupe 45 | piège : « arteriell » n'est pas dit tardif ; nodule non fléché, placement visuel (moyenne) ; définition LI-RADS non relue. Reprise à IMG-166.
+- IMG-167 | partiel | Hellerhoff, Commons, CC BY-SA 3.0, trois temps étiquetés, CHC graisseux histologiquement confirmé ; normale Häggström, CC0, coupe 45 | piège : « arteriell » n'est pas dit tardif ; nodule non fléché, placement visuel (moyenne) ; définition LI-RADS non relue.
+- IMG-166 | partiel | Hellerhoff, Commons, CC BY-SA 4.0, hémangiome hyperéchogène du bord hépatique avec artéfact en miroir ; normale Ptrump16 | piège : HNF et adénome absents. Définition non relue.
+- IMG-165 | introuvable | recherches Commons implant / rupture | piège : les fichiers libres sont une pièce explantée et une TDM, pas une échographie mammaire.
+- IMG-164 | partiel | Sjoehest, Commons, CC BY-SA 4.0, série costale gauche ; normale Häggström, CC0, thorax PA sans lésion | piège : incidence PA ou AP non précisée ; volet non affirmé.
+- IMG-163 | partiel | Nevit Dilmen, Commons, CC BY-SA 3.0, abcès du sein | piège : pas d'échographie mammaire normale libre ; mastite non isolée.
+- IMG-162 | partiel | schomynv, domaine public, deux kystes anéchogènes | piège : fibroadénome absent ; pas de normale mammaire libre. Légende d'un mot.
+- IMG-160 | partiel | SCiardullo, Commons, CC BY-SA 4.0, masse spiculée CC D ; normale = sein CC I du même cliché | piège : la légende dit « axillaire », les étiquettes disent CC. BI-RADS non relu. Reprise à IMG-161, puis IMG-159.

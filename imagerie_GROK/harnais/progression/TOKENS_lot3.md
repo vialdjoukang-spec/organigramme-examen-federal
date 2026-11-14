@@ -15,3 +15,10 @@ Les durées et les appels évités sont des estimations, marquées comme telles.
 - Appels de jugement visuel : 2 lectures de la TDM triphasique et 1 de l'aperçu des contours, plus les coupes normales déjà ouvertes pour IMG-168. Estimation.
 - Durée : courte par rapport au premier lot de cinq, le fichier et la normale étaient déjà téléchargés. Estimation.
 - Épargné par les scripts (estimation) : la recherche de catégorie Commons et la validation du décalage de phase (avertissement, pas une erreur, statut partiel).
+
+## IMG-166 à IMG-160 (IMG-161 non fait)
+
+- Éléments traités : 6 diagnostics. Partiels : 166, 164, 163, 162, 160. Introuvable : 165. IMG-161 reste à faire.
+- Appels de jugement visuel : environ 15 lectures (hémangiome et ses recadrages, côtes des deux côtés, mammographie et son contour corrigé deux fois, kystes, abcès, implant explanté rejeté). Estimation.
+- Durée : une passe de recherche Commons par catégories. Estimation : plus courte que le premier groupe, les catégories de thorax et de sein sont directes.
+- Épargné par les scripts (estimation) : `fetch_commons.py cat` a listé les côtes, le pneumothorax, l'épanchement et les BI-RADS sans ouvrir les pages. `validate.py` a accepté un partiel sans image normale (avertissement seulement).
