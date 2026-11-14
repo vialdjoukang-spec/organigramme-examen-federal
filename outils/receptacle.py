@@ -142,7 +142,7 @@ def themes(chemin):
     #000 et #111 sur les 360 teintes possibles (échec = arrêt). Rend (liste pour la page, CSS par thème)."""
     T = json.load(open(chemin, encoding='utf-8'))
     roles, usages, out, css = T['roles'], T['usages'], [], []
-    assert len(T['themes']) == 20, 'il faut 20 thèmes'
+    assert len(T['themes']) >= 1, 'il faut au moins un thème'
     for i, t in enumerate(T['themes']):
         n = len(t['couleurs'])
         assert 2 <= n <= 3, f"thème {i + 1} : {n} couleurs (3 au plus, EYE SPOT comprise)"
@@ -194,7 +194,7 @@ nav.on button.a{background:var(--eye);border-color:#111;color:#000}
 #theme{font:inherit;font-weight:700;border:2px solid var(--neutre);background:#fff;border-radius:10px;padding:5px 10px;margin-bottom:5px;cursor:pointer;flex:none;display:flex;gap:6px;align-items:center}
 .pal{display:inline-flex;gap:2px}.pal i{width:12px;height:12px;border-radius:3px;border:1px solid var(--neutre);display:block}
 #themes{position:absolute;right:10px;top:100%;z-index:40;background:#fff;border:2px solid var(--neutre);border-radius:12px;padding:8px;display:none;grid-template-columns:repeat(2,minmax(0,1fr));gap:4px;width:min(360px,calc(100vw - 20px));max-height:70vh;overflow:auto;box-shadow:0 8px 24px rgba(0,0,0,.18)}
-#themes.a{display:grid}#themes button{font:inherit;font-size:.86rem;display:flex;gap:6px;align-items:center;border:1px solid var(--trait);background:#fff;border-radius:8px;padding:5px 7px;cursor:pointer;text-align:left}
+#themes.a{display:grid}#themes .famille{grid-column:1/-1;margin:8px 2px 0;padding-top:4px;font-size:13px;font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:#111}#themes button{font:inherit;font-size:.86rem;display:flex;gap:6px;align-items:center;border:1px solid var(--trait);background:#fff;border-radius:8px;padding:5px 7px;cursor:pointer;text-align:left}
 #themes button[aria-pressed=true]{border:2px solid #111;font-weight:700}
 .cadre{display:grid;grid-template-columns:var(--mw) minmax(0,1fr);align-items:start}
 /* Bande latérale de menu : constante, contextuelle, numérotée */
@@ -327,13 +327,23 @@ JS = r"""
 const D=JSON.parse(document.getElementById('donnees').textContent);
 const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
 const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
-/* ----- Thèmes : 20 au choix, mémorisés (localStorage sous try/catch), défaut = thème 1 ----- */
+/* ----- Thèmes : autant que le fichier en donne, mémorisés (localStorage sous try/catch), défaut = le premier ----- */
 const TH=D.themes;
 function theme(i,garder){i=(i>=0&&i<TH.length)?i:0;document.documentElement.dataset.theme=i;
   $$('#themes button').forEach(b=>b.setAttribute('aria-pressed',+b.dataset.t===i?'true':'false'));
   $('#theme .pal').innerHTML=TH[i].teintes.map(c=>'<i style="background:'+c+'"></i>').join('');$('#theme').title='Thème '+(i+1)+' · '+TH[i].nom;
   if(garder){try{localStorage.setItem('progression-theme',String(i))}catch(e){}}if(window.EYE_OK)eye();}
-$('#themes').innerHTML=TH.map((t,i)=>'<button type="button" data-t="'+i+'" aria-pressed="false"><span class="pal">'+t.teintes.map(c=>'<i style="background:'+c+'"></i>').join('')+'</span>'+(i+1)+' · '+esc(t.nom)+'</button>').join('');
+function familleTheme(t){if(t.famille)return t.famille;if(t.dominante)return t.dominante;
+  const c=(t.teintes&&(t.teintes[2]||t.teintes[0]))||'#888888';
+  const r=parseInt(c.slice(1,3),16)||0,g=parseInt(c.slice(3,5),16)||0,b=parseInt(c.slice(5,7),16)||0;
+  const max=Math.max(r,g,b),min=Math.min(r,g,b);if(max-min<22)return 'Neutres';
+  const d=max-min;let h=max===r?((g-b)/d)%6:max===g?(b-r)/d+2:(r-g)/d+4;h=Math.round(((h*60)%360+360)%360);
+  if(h<15||h>=350)return 'Rouges';if(h<70)return 'Ors et cuivres';if(h<170)return 'Verts';if(h<200)return 'Lagons';if(h<255)return 'Bleus';if(h<320)return 'Violets';return 'Roses';}
+const ORDRE_FAMILLE=['Neutres','Ors et cuivres','Rouges','Roses','Verts','Lagons','Bleus','Violets'];
+function menuThemes(){const groupes={};TH.forEach((t,i)=>{const f=familleTheme(t);(groupes[f]||(groupes[f]=[])).push(i);});
+  const cles=ORDRE_FAMILLE.filter(k=>groupes[k]).concat(Object.keys(groupes).filter(k=>ORDRE_FAMILLE.indexOf(k)<0));
+  $('#themes').innerHTML=cles.map(f=>'<p class="famille">'+esc(f)+'</p>'+groupes[f].map(i=>{const t=TH[i];return '<button type="button" data-t="'+i+'" aria-pressed="false"><span class="pal">'+t.teintes.map(c=>'<i style="background:'+c+'"></i>').join('')+'</span>'+(i+1)+' · '+esc(t.nom)+'</button>';}).join('')).join('');}
+menuThemes();
 $('#theme').onclick=e=>{e.stopPropagation();$('#themes').classList.toggle('a')};
 $('#themes').onclick=e=>{const b=e.target.closest('[data-t]');if(b){theme(+b.dataset.t,true);$('#themes').classList.remove('a')}};
 document.addEventListener('click',e=>{if(!e.target.closest('#themes,#theme'))$('#themes').classList.remove('a')});
@@ -666,7 +676,7 @@ if __name__ == '__main__':
     ap.add_argument('--reference', default='Claude/_reference', help='ancien chemin (examens.json, pharmaco.json), conservé en lecture seule, non affiché')
     ap.add_argument('--donnees', default='Claude/_progression/donnees', help='source de vérité des onglets Examens, Pharmacologie, Sciences fondamentales')
     ap.add_argument('--base', default='', help='préfixe des liens vers les cours (vide : relatif à la page)')
-    ap.add_argument('--themes', default='Claude/_progression/themes.json', help='20 thèmes : 3 couleurs au plus (EYE SPOT comprise), atténuées de 50 %, contraste >= 7:1')
+    ap.add_argument('--themes', default='Claude/_progression/themes.json', help='thèmes : 3 couleurs au plus (EYE SPOT comprise), atténuées de 50 %, contraste >= 7:1, nombre libre')
     ap.add_argument('--glossaire', default='Claude/_progression/glossaire.json', help='sigles (survol) et scores (fenêtre au clic) des fiches')
     ap.add_argument('--sortie', default='progression.html')
     a = ap.parse_args()

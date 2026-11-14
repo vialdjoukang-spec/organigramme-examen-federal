@@ -124,27 +124,22 @@ _spec = importlib.util.spec_from_file_location('receptacle', os.path.join(os.pat
 _receptacle = importlib.util.module_from_spec(_spec)
 _spec.loader.exec_module(_receptacle)
 _themes, _css_themes = _receptacle.themes(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'Claude/_progression/themes.json'))
-assert len(_themes) == 20 and _css_themes.count(':root[data-theme=') == 20
+assert len(_themes) >= 1 and _css_themes.count(':root[data-theme=') == len(_themes)
+_pages_eye = ('examens:0', 'pharmaco:0', 'fondamentales:0')
+_css_themes += ''.join(
+    f':root[data-theme="{i}"][data-page="{pg}"]{{--eye:{th["eye"]["fixe"]}}}'
+    for i, th in enumerate(_themes) for pg in _pages_eye)
 
 _coupure = page.index('data-emb="rts"')
 _tete, _queue = page[:_coupure], page[_coupure:]
 _n_themes = len(re.findall(r':root\[data-theme="\d+"\]\{[^}]*\}', _tete))
-assert _n_themes == 20, f'{_n_themes} blocs data-theme dans la page'
-_tete = re.sub(r':root\[data-theme="\d+"\]\{[^}]*\}', '', _tete, count=20)
+assert _n_themes >= 1, 'aucun bloc data-theme dans la page'
+_tete = re.sub(r':root\[data-theme="\d+"\]\[data-page="[^"]+"\]\{--eye:#[0-9a-fA-F]+\}', '', _tete)
+_tete = re.sub(r':root\[data-theme="\d+"\]\{[^}]*\}', '', _tete)
 _ancre_theme = ':root{--encre:'
 assert _tete.count(_ancre_theme) == 1
 _tete = _tete.replace(_ancre_theme, _css_themes + _ancre_theme, 1)
 _tete = _tete.replace('atténuées de 60 à 80 %', 'atténuées de 50 %', 1)
-_idx_page = {'examens:0': 1, 'pharmaco:0': 2, 'fondamentales:0': 3}
-
-def _oeil(m):
-    i, page = int(m.group(1)), m.group(2)
-    col = _themes[i]['eye']['fixe']
-    return f':root[data-theme="{i}"][data-page="{page}"]{{--eye:{col}}}'
-
-_n_yeux = len(re.findall(r':root\[data-theme="\d+"\]\[data-page="[^"]+"\]\{--eye:#[0-9a-fA-F]+\}', _tete))
-assert _n_yeux == 60, f'{_n_yeux} règles EYE SPOT précalculées'
-_tete = re.sub(r':root\[data-theme="(\d+)"\]\[data-page="([^"]+)"\]\{--eye:#[0-9a-fA-F]+\}', _oeil, _tete)
 
 _remplacements_rail = [
     ('header.h{position:sticky;top:0;z-index:12;background:#fff;border-bottom:1px solid var(--trait);padding:8px 14px 0}',
@@ -197,6 +192,28 @@ page = remplacer_une_fois(
     "function eyeHex(cle,e){const [s,l]=e.p[cle.split(/[:|]/)[0]]||e.p.cours;return '#'+hsl(eyeTeinte(cle),s,l).map(v=>Math.floor(v*(1-e.a)+255*e.a+.5).toString(16).padStart(2,'0')).join('')}",
     "function eyeHex(cle,e){if(e.fixe)return e.fixe;const [s,l]=e.p[cle.split(/[:|]/)[0]]||e.p.cours;return '#'+hsl(eyeTeinte(cle),s,l).map(v=>Math.floor(v*(1-e.a)+255*e.a+.5).toString(16).padStart(2,'0')).join('')}",
     'eyeHex fixe')
+page = remplacer_une_fois(page, 'if(!(t>=0&&t<20))t=0', f'if(!(t>=0&&t<{len(_themes)}))t=0', 'borne des thèmes')
+page = remplacer_une_fois(page, '#themes.a{display:grid}',
+    '#themes.a{display:grid}#themes .famille{grid-column:1/-1;margin:8px 2px 0;padding-top:4px;font-size:13px;font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:#111}',
+    'groupes du menu Thème')
+_MENU = (
+    "function familleTheme(t){if(t.famille)return t.famille;if(t.dominante)return t.dominante;"
+    "const c=(t.teintes&&(t.teintes[2]||t.teintes[0]))||'#888888';"
+    "const r=parseInt(c.slice(1,3),16)||0,g=parseInt(c.slice(3,5),16)||0,b=parseInt(c.slice(5,7),16)||0;"
+    "const max=Math.max(r,g,b),min=Math.min(r,g,b);if(max-min<22)return 'Neutres';"
+    "const d=max-min;let h=max===r?((g-b)/d)%6:max===g?(b-r)/d+2:(r-g)/d+4;h=Math.round(((h*60)%360+360)%360);"
+    "if(h<15||h>=350)return 'Rouges';if(h<70)return 'Ors et cuivres';if(h<170)return 'Verts';if(h<200)return 'Lagons';if(h<255)return 'Bleus';if(h<320)return 'Violets';return 'Roses';}"
+    "const ORDRE_FAMILLE=['Neutres','Ors et cuivres','Rouges','Roses','Verts','Lagons','Bleus','Violets'];"
+    "function menuThemes(){const groupes={};TH.forEach((t,i)=>{const f=familleTheme(t);(groupes[f]||(groupes[f]=[])).push(i);});"
+    "const cles=ORDRE_FAMILLE.filter(k=>groupes[k]).concat(Object.keys(groupes).filter(k=>ORDRE_FAMILLE.indexOf(k)<0));"
+    "$('#themes').innerHTML=cles.map(f=>'<p class=\"famille\">'+esc(f)+'</p>'+groupes[f].map(i=>{const t=TH[i];return '<button type=\"button\" data-t=\"'+i+'\" aria-pressed=\"false\"><span class=\"pal\">'+t.teintes.map(c=>'<i style=\"background:'+c+'\"></i>').join('')+'</span>'+(i+1)+' · '+esc(t.nom)+'</button>';}).join('')).join('');}"
+    "menuThemes();"
+)
+page = remplacer_une_fois(
+    page,
+    """$('#themes').innerHTML=TH.map((t,i)=>'<button type="button" data-t="'+i+'" aria-pressed="false"><span class="pal">'+t.teintes.map(c=>'<i style="background:'+c+'"></i>').join('')+'</span>'+(i+1)+' · '+esc(t.nom)+'</button>').join('');""",
+    _MENU,
+    'menu Thème groupé')
 assert page.count('<head>') >= 1
 # Le script part dans l'en-tête, avant la création des iframes : il entend la demande et il repousse le thème quand eye() change.
 page = page.replace('<head>', '<head>' + _SCRIPT_THEME, 1)
