@@ -55,4 +55,9 @@ IMG-294 | partiel | Lengerke, CC0, épiphysiolyse, schéma rouge ajouté | pas d
 IMG-293 | introuvable | pas d'échographie de hanche dysplasique selon Graf | le seul Graf est un type Ia normal
 IMG-292 | partiel | Jmarchn, CC BY-SA 3.0, ostéonécrose de la tête fémorale gauche | pondération T1 non écrite
 IMG-291 | partiel | Häggström, CC0, coxarthrose gauche grade 3 de Tönnis | pas un bassin entier debout
+IMG-290 | partiel | Seannovak, CC BY-SA 3.0, fracture acétabulaire des deux colonnes | fenêtre osseuse, injection non écrite
+IMG-289 | partiel | Hellerhoff, CC BY-SA 3.0, fracture du col gauche selon la légende | trait peu lisible ; pas de profil
+IMG-288 | introuvable | pas de Doppler de défilé thoraco-brachial | le vol sous-clavier est un autre diagnostic
+IMG-287 | introuvable | pas de Doppler de fistule de dialyse | la catégorie Cimino est schémas et photographies
+IMG-286 | partiel | Rosen et al., CC BY 2.0, thrombose axillaire et sous-clavière | compression non montrée
 

@@ -100,3 +100,12 @@ Reprise : IMG-295.
 - Épargné par les scripts (estimation) : les catégories ont écarté le Graf normal et les graphiques épidémiologiques avant la lecture. Le gain chiffré n'est pas mesuré.
 
 Reprise : IMG-290.
+
+## Passe IMG-290 à IMG-286
+
+- Éléments traités : 5 diagnostics. Trois partiels, deux introuvables. Aucun complet.
+- Appels de jugement visuel : environ 8 lectures. Le myome calcifié a été écarté parce que la fracture d'anneau n'y était pas lisible. Estimation.
+- Durée : une passe, non chronométrée. Estimation.
+- Épargné par les scripts (estimation) : le filtre de licence et les légendes ont écarté les atlas et les schémas. Le gain chiffré n'est pas mesuré.
+
+Reprise : IMG-285.
