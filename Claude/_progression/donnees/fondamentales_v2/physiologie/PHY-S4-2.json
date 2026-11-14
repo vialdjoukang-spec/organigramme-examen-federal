@@ -9,7 +9,11 @@
  "date": "14.11.2026",
  "statut": "rédigé, à auditer",
  "definition": "La spirométrie mesure les volumes mobilisables et les débits expiratoires ; le rapport VEMS/CVF (Tiffeneau) sépare le trouble obstructif du trouble restrictif.",
- "boucle": null,
+ "boucle": {
+  "capteur": "Aucun capteur physiologique n'intervient : l'examen mesure le souffle.",
+  "integrateur": "Le médecin compare la mesure à la limite inférieure de la normale.",
+  "effecteur": "Il en déduit le trouble ventilatoire et décide du traitement."
+ },
  "mecanisme": [
   "Le patient inspire à fond puis expire le plus fort et le plus longtemps possible ; on mesure la capacité vitale forcée (CVF) et le volume expiré en une seconde (VEMS).",
   "Dans l'obstruction, les bronches se ferment tôt ; le VEMS baisse plus que la CVF, donc le rapport baisse et le volume résiduel augmente (distension).",
@@ -21,24 +25,32 @@
   {
    "parametre": "VEMS/CVF après bronchodilatateur",
    "valeur": "≥ 0,7 (ou ≥ limite inférieure de la normale)",
-   "unite": "rapport (source internationale : GOLD et ERS/ATS — non relues pour cette fiche, À vérifier)"
+   "unite": "rapport",
+   "sources": "(source internationale : GOLD et ERS/ATS — non relues pour cette fiche, À vérifier)"
   },
   {
    "parametre": "réversibilité significative",
-   "valeur": "hausse du VEMS ≥ 12 % et ≥ 200 mL",
-   "unite": "— (source internationale : GOLD et ERS/ATS — non relues pour cette fiche, À vérifier)"
+   "valeur": "hausse du VEMS ou de la CVF > 10 % de la valeur prédite",
+   "unite": "",
+   "sources": "(source européenne : ERS/ATS 2022, Stanojevic et coll., Eur Respir J 2022;60:2101499 — lu en résumé)"
+  },
+  {
+   "parametre": "réversibilité selon GINA (asthme)",
+   "valeur": "hausse du VEMS > 12 % et > 200 mL par rapport à la valeur initiale",
+   "unite": "",
+   "sources": "(source internationale : GINA — non relue, À vérifier)"
   }
  ],
  "regulation": "Les valeurs prédites dépendent de l'âge, du sexe, de la taille et de l'origine ; on compare donc le patient à sa limite inférieure de la normale plutôt qu'à un pourcentage fixe (non vérifié CH).",
  "formule": {
-  "expression": "Rapport de Tiffeneau = VEMS ÷ CVF ; réversibilité = (VEMS post − VEMS pré) ÷ VEMS pré.",
+  "expression": "Rapport de Tiffeneau = VEMS ÷ CVF ; réversibilité (ERS/ATS 2022) = (VEMS post − VEMS pré) ÷ VEMS prédit.",
   "usage": "On les calcule pour poser l'obstruction et tester sa réversibilité.",
-  "exemple": "VEMS pré 1,60 L, post 1,85 L, CVF post 3,10 L : 1,85 − 1,60 = 0,25 L (≥ 200 mL) ; 0,25 ÷ 1,60 = 15,6 % (≥ 12 %) : la réversibilité est significative ; 1,85 ÷ 3,10 = 0,60 < 0,7 : l'obstruction persiste après bronchodilatateur."
+  "exemple": "VEMS pré 1,60 L, post 1,85 L, CVF post 3,10 L : 1,85 − 1,60 = 0,25 L (≥ 200 mL) ; 0,25 ÷ 1,60 = 15,6 % (≥ 12 %) : la réversibilité est significative ; 1,85 ÷ 3,10 = 0,60 < 0,7 : l'obstruction persiste après bronchodilatateur. Avec un VEMS prédit de 2,40 L : 0,25 ÷ 2,40 = 10,4 % > 10 % ; la réponse est donc significative selon ERS/ATS 2022."
  },
  "lien_clinique": "Un VEMS/CVF < 0,7 après bronchodilatateur signe l'obstruction ; une CVF basse avec un rapport normal évoque la restriction, que la pléthysmographie confirme.",
  "dereglements": [
   {
-   "affection": "BPCO",
+   "titre": "BPCO",
    "mecanisme": "L'obstruction reste peu réversible.",
    "pp": "PP-S4-D",
    "semiologie": [
@@ -47,7 +59,7 @@
    ]
   },
   {
-   "affection": "Asthme allergique",
+   "titre": "Asthme allergique",
    "mecanisme": "L'obstruction varie et se corrige sous bronchodilatateur.",
    "pp": "PP-S4-A",
    "semiologie": [
@@ -56,7 +68,7 @@
    ]
   },
   {
-   "affection": "Fibrose pulmonaire idiopathique",
+   "titre": "Fibrose pulmonaire idiopathique",
    "mecanisme": "Les volumes baissent et la diffusion chute.",
    "pp": "PP-S4-D",
    "semiologie": [
@@ -64,7 +76,7 @@
    ]
   },
   {
-   "affection": "Déficit en alpha-1-antitrypsine",
+   "titre": "Déficit en alpha-1-antitrypsine",
    "mecanisme": "L'emphysème précoce donne une obstruction chez le jeune.",
    "pp": "PP-S4-C",
    "semiologie": [
@@ -75,21 +87,22 @@
  ],
  "cibles_pharmacologiques": [
   {
-   "classe": "bêta-2 mimétiques de courte durée",
+   "cible": "bêta-2 mimétiques de courte durée",
    "pourquoi": "On les utilise pour le test de réversibilité et la crise."
   },
   {
-   "classe": "bronchodilatateurs de longue durée (LABA, LAMA)",
+   "cible": "bronchodilatateurs de longue durée (LABA, LAMA)",
    "pourquoi": "Ils réduisent la dyspnée et les exacerbations de la BPCO."
   },
   {
-   "classe": "corticoïdes inhalés",
+   "cible": "corticoïdes inhalés",
    "pourquoi": "Ils contrôlent l'inflammation de l'asthme."
   }
  ],
- "mnemotechnique": "« Obstruction : le rapport ruine ; restriction : le rapport reste. »",
+ "mnemotechnique": "On retient : « Obstruction : le rapport ruine ; restriction : le rapport reste. »",
  "sources": [
   "Fiches Physiopathologie v2 PP-S4-D, PP-S4-A, PP-S4-C et fiches Sémiologie (SY, S) citées : lues le 14.11.2026 (renvois et cibles)",
+  "Stanojevic S et coll., ERS/ATS technical standard on interpretive strategies for routine lung function tests, Eur Respir J 2022;60:2101499 (source européenne) — résumé lu le 14.11.2026",
   "Physiologie médicale classique (manuels de référence) : chiffres marqués « (non vérifié CH) », non relus ce jour sur une source suisse — non lu",
   "(source internationale : GOLD et ERS/ATS — non relues pour cette fiche, À vérifier)"
  ],
