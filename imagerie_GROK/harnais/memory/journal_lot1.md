@@ -34,3 +34,8 @@ IMG-057 | partiel | Mustafakapadiya, CC BY-SA 4.0, coupe floue du rocher, cercle
 IMG-056 | partiel | welleschik, CC BY 2.5, série, cholestéatome de l'attique déjà teinté | haute résolution non écrite
 IMG-055 | partiel | Jmarchn, CC BY-SA 3.0, mastoïde droite comblée | pas de complication intracrânienne
 IMG-054 | partiel | Hellerhoff, CC BY-SA 4.0, sphénoïde gauche comblé, paroi épaisse | ni champignon ni polypose
+IMG-053 | partiel | James Heilman, CC BY-SA 3.0, sinus maxillaire comblé et cellulite préseptale, flèches d'origine | injection non écrite ; côté légende versus image
+IMG-052 | partiel | Chaustanley, CC BY-SA 4.0, décollement, signe de l'ange | milieux opaques non dits
+IMG-051 | partiel | Natebw, domaine public, masse intraoculaire, rétinoblastome | pas de mélanome choroïdien
+IMG-050 | partiel | ICON2022, CC BY-SA 4.0, nerf optique droit plus brillant | séquence non nommée
+IMG-049 | introuvable | — | seulement des IRM de Graves, le cliché demandé est une TDM
