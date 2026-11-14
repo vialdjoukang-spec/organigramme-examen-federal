@@ -74,3 +74,8 @@ IMG-017 | introuvable | — | pas de diffusion ; l'IRM libre est sagittale, sans
 IMG-016 | partiel | Marvin 101, CC BY-SA 2.0 de, T1 injecté, métastase annulaire, flèche d'origine | pas de cerveau normal
 IMG-015 | partiel | Xunai, CC BY 4.0, méningiome de l'aile du sphénoïde rehaussé | gadolinium non écrit
 IMG-014 | introuvable | — | série sagittale sans lésion cernable ; pas de T2 axial
+IMG-013 | partiel | Rossmeisl et al., CC BY 4.0, T1 injecté, glioblastome en papillon | légende coronale, coupe lue axiale
+IMG-012 | introuvable | — | pas de FLAIR ; seulement T2, diffusion et T1
+IMG-011 | partiel | Jmarchn, CC BY-SA 3.0, anneau occipital droit | gadolinium non écrit ; pas de lymphome
+IMG-010 | introuvable | — | pas de FLAIR ; le cliché trouvé est un T2
+IMG-009 | introuvable | — | le seul scanner porte le mot contraste
