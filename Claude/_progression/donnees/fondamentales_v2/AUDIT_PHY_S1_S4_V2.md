@@ -43,3 +43,6 @@ Les autres verbes remplacés gardent leur sens. Exemples : « touche », « orie
 
 ## 3. Verdict
 **Oui** pour `audit-ok`, à une condition : appliquer N1, seule erreur introduite par la correction, en un remplacement d'une phrase. N2 à N4 sont légers et ne bloquent pas. Aucun défaut grave ne reste.
+
+## Clôture
+N1 à N4 appliqués mot pour mot (tour 2) : **audit-ok** pour PHY-S1 à S4. La Physiologie complète (88 fiches) est audit-ok.
