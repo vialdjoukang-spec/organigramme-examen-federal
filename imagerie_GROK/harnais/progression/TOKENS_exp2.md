@@ -1,1 +1,3 @@
 EXP-114 à EXP-110. Cinq diagnostics : un complet (EXP-112), deux partiels (EXP-114, EXP-111), deux introuvables (EXP-113, EXP-110). Lectures visuelles des clichés retenus, des coins d'image et des aperçus de contour. Le code machine CA1421 du Doppler normal a été masqué. Commons puis Open-i, légendes lues dans le texte Europe PMC. Reprise : EXP-109.
+
+EXP-109 à EXP-105. Cinq diagnostics : un complet (EXP-109), deux partiels (EXP-108, EXP-105), deux introuvables (EXP-107, EXP-106). Open-i a renvoyé une page d'erreur ; les légendes utiles viennent d'Europe PMC et de Commons. Le contour du débit urinaire a été resserré sur la courbe jaune. Reprise : EXP-104.

@@ -8,3 +8,11 @@ Départ EXP-114, ordre décroissant, jusqu'à EXP-077. Rien n'est inventé. Repr
 - EXP-110 introuvable. Pas d'HGPO 75 g de grossesse. La courbe Powner 670 nm est une HGPO hors grossesse.
 
 Prochain id : EXP-109.
+
+- EXP-109 complet. Haruna 2019, PMC6406220, CC BY 4.0. CTG papier : normale à 37 SA avec accélération d'environ 30 bpm ; pathologie à 38 SA, décélération tardive après une contraction faible. Définition lue chez Sato 2025, PMC11798946. Pas de nom, échelle FHR1 100/180.
+- EXP-108 partiel. Park 2021, PMC8028073, CC BY 4.0, figure 2. RAIR présent contre RAIR absent ou altéré. Population : prolapsus rectal, pas Hirschsprung. PMC7880069 rejeté (CC BY-NC-ND).
+- EXP-107 introuvable. Commons vide. Open-i en erreur. Pas de tracé de dyssynergie défécatoire retenu.
+- EXP-106 introuvable. Commons vide pour la manométrie d'incontinence fécale.
+- EXP-105 partiel. Warbeck, domaine public. Pression-débit légendé « Possible Dyssynergia », sans EMG et sans tracé normal. Champ Patient vide. Cystométries de rat rejetées.
+
+Prochain id : EXP-104.
