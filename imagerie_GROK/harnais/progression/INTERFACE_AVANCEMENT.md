@@ -26,7 +26,8 @@
 
 ## Bloquants
 
-- IMG-001 ne peut pas être complet : sexe pathologique À vérifier, séquence non écrite, flèche et cartouche déjà incrustés (le défi est éventé par cette flèche).
+- IMG-001 ne peut pas être complet : la légende pathologique n'établit pas un adulte. La séquence n'est pas écrite. La flèche source est incrustée.
+- Relus à l'œil, encore grossiers : IMG-023 (deux pentagones sur les putamen), IMG-061 (hexagone autour de la lyse), IMG-105 (hexagone sur l'infiltrat). Un ovale régulier a été écarté : ce n'est pas le bord de la lésion. Captures : `progression/captures-interface/lot-silhouette/`.
 - 56 contours des 61 paires sont grossiers (rectangle, hexagone ou trop peu de points). Seules silhouettes : IMG-001, IMG-134, IMG-136, IMG-250. Elles n'ont pas le même sexe des deux côtés.
 - IMG-161 : les deux légendes disent « 40 F » (femme de 40 ans). Sexe posé à F des deux côtés. Reste partiel : deux incidences d'un dépistage sans lésion, aucun contour.
 - Complets retirés pour légende muette sur le sexe : IMG-250, IMG-257, EXP-112.
