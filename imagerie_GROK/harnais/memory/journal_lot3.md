@@ -6,3 +6,7 @@ IMG-257 | complet | Commons, DIU perforé sagittal CC BY-SA 4.0 et DIU au cuivre
 IMG-256 | introuvable | Commons : seulement des US 2D (bicorne, didelphe) ; Open-i renvoie une page d'erreur | cliché demandé = US 3D, images 2D écartées
 IMG-255 | partiel | Commons CC BY-SA 4.0, Di Michele et al., Biomedicines, capture 5D Follicle ; normale = corps jaune CC0 | voie endovaginale non écrite ; seuil PCOM non relu
 IMG-254 | complet | Commons CC0, Häggström 2015, stries d'adénomyose ; normale = endomètre trilamellaire | endométriome absent de cette coupe
+IMG-253 | introuvable | pas d'US libre d'abcès tubo-ovarien ni de salpingite ; hydrosalpinx et planches écartés | Open-i en page d'erreur
+IMG-252 | introuvable | catégorie torsion : mode B sans légende, identifiant CA1421 à l'écran | cliché demandé = Doppler
+IMG-251 | introuvable | pas d'US d'endomètre ni de col ; schémas, radiothérapie, pièce | 
+IMG-250 | complet | Commons CC0, Häggström 2014, fibrome sous-séreux de 5 cm déjà cerné | contour tenu à l'intérieur du pointillé source
