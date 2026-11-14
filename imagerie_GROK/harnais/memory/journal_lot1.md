@@ -84,3 +84,6 @@ IMG-007 | partiel | Renamed user 1579654863, CC BY-SA 3.0, FLAIR, hypersignaux o
 IMG-006 | partiel | Carlier et Colas, CC BY 2.0, FLAIR, substance blanche | maladie de Fabry ; lacune sur l'autre panneau
 IMG-005 | partiel | Hellerhoff, CC BY-SA 4.0, T2, cavernome frontal droit | pas de malformation artério-veineuse
 IMG-004 | partiel | Hellerhoff, CC BY-SA 4.0, TDM native, sinus sagittal hyperdense | montage
+IMG-003 | partiel | Hellerhoff, CC BY-SA 3.0, sang hyperdense des citernes | anévrisme absent de la coupe
+IMG-002 | partiel | James Heilman, CC BY-SA 4.0, hématome lobaire droit | injection non écrite
+IMG-001 | partiel | Cerevisae, CC BY-SA 4.0, artère cérébrale moyenne droite hyperdense | ruban insulaire non isolé
