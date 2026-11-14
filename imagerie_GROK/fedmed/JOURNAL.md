@@ -4,11 +4,13 @@ Branche `leona/fedmed-fenetres`, créée depuis `origin/main` (`65244131a`). Éc
 
 ## État
 
-- Étape en cours : original figé. Découpage non lancé.
+<!-- ETAT:DEBUT -->
+- Découpage fait : 396 fenêtres, dont 132 sans normale. Réinjection brute : octet identique (40 196 713 caractères).
 - Fenêtres fusionnées : 0 / 396.
 - Normales ajoutées : 0.
-- Fenêtres encore sans normale : non comptées (découpage en attente).
+- Fenêtres encore sans normale : 132.
 - Images signalées : 0.
+<!-- ETAT:FIN -->
 
 ## Original
 

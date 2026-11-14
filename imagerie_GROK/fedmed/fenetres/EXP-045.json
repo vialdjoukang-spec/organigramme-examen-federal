@@ -1,0 +1,175 @@
+{
+ "id": "EXP-045",
+ "contexte": {
+  "id": "EXP-045",
+  "famille": "exp",
+  "dx": "Fibrillation auriculaire",
+  "region": "Thorax",
+  "systeme": "Cœur : rythme et conduction",
+  "lettre": "Fonctionnel et métabolique",
+  "niveau": "Minimum indispensable",
+  "signe": "L' ECG montre des QRS irrégulièrement irréguliers sans onde P organisée."
+ },
+ "manque_normal": false,
+ "mime": {
+  "patho": "image/jpeg",
+  "normal": "image/jpeg"
+ },
+ "sha256": {
+  "patho": "dc797852be020993df8caeac1512103c6049b2515afa4bb6e336b98bd3f18147",
+  "normal": "75782ac8f5d95efe22f0e7096d561841988cb1bb14aea56f01f8a30e1bf27e5a"
+ },
+ "enr": {
+  "gold": {
+   "examen": "ECG à 12 dérivations (ou tracé d'une dérivation ≥ 30 s) documentant la fibrillation auriculaire",
+   "pourquoi": [
+    "la documentation ECG est obligatoire pour poser le diagnostic (ESC 2024)"
+   ],
+   "quand": [],
+   "montre": [],
+   "premiere_intention": ""
+  },
+  "autres": [
+   {
+    "examen": "Holter de 24 h à 7 jours",
+    "rang": 2,
+    "quand": [
+     "pour les épisodes paroxystiques ou après un AVC"
+    ],
+    "pourquoi_pas_gold": [
+     "manque les épisodes rares"
+    ],
+    "montre": [
+     "épisodes de FA paroxystique"
+    ]
+   },
+   {
+    "examen": "Enregistreur implantable",
+    "rang": 3,
+    "quand": [
+     "après un AVC cryptogénique"
+    ],
+    "pourquoi_pas_gold": [
+     "invasif"
+    ],
+    "montre": [
+     "FA infraclinique"
+    ]
+   },
+   {
+    "examen": "Échocardiographie transthoracique",
+    "rang": 4,
+    "quand": [
+     "chez tout patient avec FA"
+    ],
+    "pourquoi_pas_gold": [
+     "ne prouve pas l'arythmie"
+    ],
+    "montre": [
+     "valvulopathie, dilatation de l'oreillette gauche, FEVG"
+    ]
+   }
+  ],
+  "lecture": [
+   "Vérifier étalonnage (10 mm/mV), vitesse (25 mm/s) et position des électrodes",
+   "Lire la fréquence et le rythme (onde P avant chaque QRS ?)",
+   "Mesurer PR, QRS et QT, puis calculer le QTc",
+   "Déterminer l'axe du QRS",
+   "Analyser la morphologie : onde P, QRS, segment ST, onde T",
+   "Comparer à un tracé antérieur et conclure",
+   "Rechercher une préexcitation (FA rapide à QRS larges : danger)"
+  ],
+  "valeurs_normales": [
+   {
+    "parametre": "Fréquence cardiaque au repos",
+    "valeur": "60–100 (50–100 selon les auteurs)",
+    "unite": "bpm",
+    "source": "Source européenne : ESC — À vérifier"
+   },
+   {
+    "parametre": "Intervalle PR",
+    "valeur": "120–200",
+    "unite": "ms",
+    "source": "Valeur classique — À vérifier"
+   },
+   {
+    "parametre": "Durée du QRS",
+    "valeur": "< 120 (≤ 110 sans trouble de conduction)",
+    "unite": "ms",
+    "source": "Source internationale : AHA/ACCF/HRS 2009 — résumé"
+   },
+   {
+    "parametre": "QTc",
+    "valeur": "< 450 (homme), < 460 (femme)",
+    "unite": "ms",
+    "source": "Source internationale : AHA/ACCF/HRS 2009 — résumé"
+   }
+  ],
+  "syndrome": [
+   "palpitations, dyspnée, asthénie, ou découverte fortuite",
+   "AVC embolique",
+   "insuffisance cardiaque rythmique"
+  ],
+  "traitement": [
+   "Anticoagulation selon le score CHA2DS2-VA (ESC 2024) : apixaban « La dose recommandée est de 5 mg deux fois par jour » ; 2,5 mg deux fois par jour si ≥ 2 critères : âge ≥ 80 ans, poids ≤ 60 kg, créatinine ≥ 133 µmol/l (AIPS Eliquis® n° 61549, août 2026) ; « apixaban n'est pas recommandé » si clairance de la créatinine < 15 ml/min ou dialyse (même AIPS)",
+   "Contrôle de la fréquence (bêtabloquant, diltiazem, digoxine) ou du rythme (cardioversion, ablation)",
+   "Corriger les facteurs de risque (HTA, obésité, apnées, alcool)"
+  ],
+  "sources": [
+   "Source européenne : Van Gelder et al., ESC 2024 FA, Eur Heart J 2024;45:3314 — résumé",
+   "Société suisse de cardiologie : adopte les recommandations ESC (endorsement) — non lu, À vérifier",
+   "AIPS Eliquis® (n° 61549, août 2026) — lu"
+  ],
+  "calculs": [
+   {
+    "nom": "Fréquence cardiaque",
+    "formule": "FC = 300 / nombre de grands carreaux entre deux R (à 25 mm/s) ; si irrégulier : nombre de QRS sur 10 s × 6",
+    "a_quoi_ca_sert": "estime la fréquence et la réponse ventriculaire",
+    "exemple": "4 grands carreaux → 75/min"
+   },
+   {
+    "nom": "Score CHA2DS2-VA",
+    "formule": "Insuffisance cardiaque 1, HTA 1, âge ≥ 75 ans 2, diabète 1, AVC, AIT ou embolie systémique 2, maladie vasculaire 1, âge 65–74 ans 1",
+    "a_quoi_ca_sert": "décide l'anticoagulation (≥ 2 : recommandée ; 1 : à envisager)",
+    "exemple": "homme 72 ans hypertendu : 1 + 1 = 2 → anticoaguler"
+   }
+  ],
+  "tr": true,
+  "images": {
+   "normal": {
+    "fichier": "images/EXP-045_normal.jpg",
+    "technique": "ECG 12 dérivations, 25 mm/s, 10 mm/mV : rythme sinusal à 65/min, PR 129 ms, QRS 100 ms, QTc 398 ms (rythme sinusal restauré par digoxine après réduction d'une fibrillation auriculaire, tracé normal)",
+    "credit": "J Med Case Rep. 2011 Jan 19;5:18. doi: 10.1186/1752-1947-5-18 — « Atrial fibrillation in healthy adolescents after highly caffeinated beverage consumption: two case reports » (zone identifiante masquée)",
+    "licence": "CC BY",
+    "url": "https://europepmc.org/article/PMC/PMC3038953"
+   },
+   "patho": {
+    "fichier": "images/EXP-045_patho.jpg",
+    "technique": "ECG 12 dérivations, 25 mm/s : fibrillation auriculaire à réponse ventriculaire rapide, QRS fins",
+    "credit": "J Med Case Rep. 2011 Jan 19;5:18. doi: 10.1186/1752-1947-5-18 — « Atrial fibrillation in healthy adolescents after highly caffeinated beverage consumption: two case reports » (zone identifiante masquée)",
+    "licence": "CC BY",
+    "url": "https://europepmc.org/article/PMC/PMC3038953",
+    "reperes": [
+     {
+      "n": 1,
+      "x": 41,
+      "y": 74,
+      "fx": 25,
+      "fy": 95,
+      "lesion": "QRS irrégulièrement irréguliers",
+      "semio": "Les intervalles RR varient sans aucune régularité sur le long tracé, ce qui signe la fibrillation auriculaire."
+     },
+     {
+      "n": 2,
+      "x": 25,
+      "y": 60,
+      "fx": 12,
+      "fy": 48,
+      "lesion": "absence d'onde P, trémulation de la ligne de base en V1",
+      "semio": "Aucune onde P organisée ne précède les QRS et la ligne de base ondule finement, ce qui traduit l'activité auriculaire anarchique."
+     }
+    ]
+   }
+  }
+ }
+}

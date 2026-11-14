@@ -1,0 +1,175 @@
+{
+ "id": "EXP-052",
+ "contexte": {
+  "id": "EXP-052",
+  "famille": "exp",
+  "dx": "QT long acquis (médicaments, hypokaliémie)",
+  "region": "Thorax",
+  "systeme": "Cœur : rythme et conduction",
+  "lettre": "Iatrogène",
+  "niveau": "Minimum indispensable",
+  "signe": "Un QTc supérieur à 500 ms expose aux torsades de pointes, et l'on arrête alors les médicaments en cause, notamment les psychotropes."
+ },
+ "manque_normal": false,
+ "mime": {
+  "patho": "image/jpeg",
+  "normal": "image/jpeg"
+ },
+ "sha256": {
+  "patho": "95de89500038ee4519fc71d3b80c73aa6b2dd18c7c745fcdd1aa4772b71d646a",
+  "normal": "11f84529c36615501dc6cb0376999f308f789f015d825d8775903bfcc4d722c9"
+ },
+ "enr": {
+  "gold": {
+   "examen": "ECG 12 dérivations avec mesure manuelle du QTc (méthode de la tangente, en D2 ou V5)",
+   "pourquoi": [
+    "mesure directement la repolarisation que les médicaments et l'hypokaliémie allongent",
+    "chiffre le risque de torsades de pointes (QTc > 500 ms ou allongement > 60 ms)",
+    "se répète facilement sous traitement"
+   ],
+   "quand": [],
+   "montre": [],
+   "premiere_intention": ""
+  },
+  "autres": [
+   {
+    "examen": "Ionogramme sanguin avec magnésémie",
+    "rang": 2,
+    "quand": [
+     "d'emblée, en même temps que l'ECG"
+    ],
+    "pourquoi_pas_gold": [
+     "ne mesure pas le QT, il en cherche la cause"
+    ],
+    "montre": [
+     "hypokaliémie, hypomagnésémie, hypocalcémie"
+    ]
+   },
+   {
+    "examen": "Monitoring ECG continu (télémétrie)",
+    "rang": 3,
+    "quand": [
+     "si QTc > 500 ms ou torsades de pointes",
+     "pendant la charge d'un médicament à risque"
+    ],
+    "pourquoi_pas_gold": [
+     "mesure moins précisément le QT"
+    ],
+    "montre": [
+     "salves de torsades, extrasystoles en R/T, pauses déclenchantes"
+    ]
+   }
+  ],
+  "lecture": [
+   "choisit D2 ou V5, où la fin de T se voit le mieux",
+   "mesure du début du QRS à la fin de T (tangente à la pente descendante)",
+   "exclut l'onde U lorsqu'elle est séparée de T",
+   "corrige par Bazett (ou Fridericia si FC > 90/min)",
+   "soustrait l'élargissement du QRS en cas de bloc de branche (mesure du JT)",
+   "cherche ondes U, T bifides, extrasystoles et pauses"
+  ],
+  "valeurs_normales": [
+   {
+    "parametre": "QTc homme",
+    "valeur": "< 450",
+    "unite": "ms",
+    "source": "critère classique AHA/ACCF/HRS 2009 (dernier recours, USA ; non vérifié CH)"
+   },
+   {
+    "parametre": "QTc femme",
+    "valeur": "< 460",
+    "unite": "ms",
+    "source": "critère classique AHA/ACCF/HRS 2009 (dernier recours, USA ; non vérifié CH)"
+   },
+   {
+    "parametre": "QTc à haut risque de torsades",
+    "valeur": "> 500 ou + 60 vs base",
+    "unite": "ms",
+    "source": "ESC 2022 (Europe)"
+   }
+  ],
+  "calculs": [
+   {
+    "nom": "QTc de Bazett",
+    "formule": "QTc = QT / √RR (QT en ms, RR en s)",
+    "a_quoi_ca_sert": "corrige le QT selon la fréquence ; surestime le QTc au-delà de 90/min",
+    "exemple": "QT 400 ms, FC 75/min (RR 0,8 s) → QTc = 400/0,894 ≈ 447 ms"
+   },
+   {
+    "nom": "QTc de Fridericia",
+    "formule": "QTc = QT / ∛RR",
+    "a_quoi_ca_sert": "corrige mieux aux fréquences rapides ou lentes ; préférée en pharmacovigilance",
+    "exemple": "QT 400 ms, RR 0,6 s (100/min) → 400/0,843 ≈ 474 ms (Bazett : 516 ms)"
+   }
+  ],
+  "syndrome": [
+   "syndrome du QT long acquis : QTc allongé + facteur déclenchant (médicament, hypokaliémie, hypomagnésémie, bradycardie)",
+   "risque de torsades de pointes : syncope, mort subite"
+  ],
+  "traitement": [
+   "arrête tout médicament allongeant le QT (liste CredibleMeds)",
+   "corrige la kaliémie (cible haute normale, chiffre non vérifié dans l'ESC 2022) et la magnésémie",
+   "torsades : sulfate de magnésium i.v. ; AIPS : 1–2 g/h en perfusion dans les troubles du rythme cardiaque ; l'ESC 2022 recommande un bolus i.v., que le libellé AIPS ne prévoit pas",
+   "torsades récidivantes : accélère la fréquence par stimulation temporaire ; isoprénaline (Isuprel) hors indication AIPS pour les torsades (indications : troubles du rythme bradycardes avant pacemaker, syndrome de Stokes-Adams) ; « La posologie varie selon l'indication de 0.2 mg à 10 mg par 24 heures » en perfusion, arrêt si FC ≥ 130/min (AIPS Isuprel n° 56457, novembre 2020)",
+   "torsades soutenues sans pouls : défibrillation (ERC 2025)"
+  ],
+  "sources": [
+   "Europe : ESC 2022, ventricular arrhythmias and prevention of sudden cardiac death (Eur Heart J 2022;43:3997-4126) — résumé",
+   "Suisse : AIPS Sulfate de magnésium «Bichsel» 10 %, 20 %, 50 % (n° 56394, mise à jour octobre 2025) — lu",
+   "Suisse : plateforme FMH « Guides de pratique Suisse » (guidelines.fmh.ch), qui recense les recommandations ESC adoptées par la SSC — résumé (référence signalée par l'audit du 14.11.2026, texte intégral non lu)",
+   "CredibleMeds QTdrugs list (consultée : À vérifier) — non lu",
+   "Europe : ERC Guidelines 2025, special circumstances in resuscitation (Resuscitation 2025;215 suppl. 1:110753) — résumé (adaptation du Resuscitation Council UK lue par recherche web, texte ERC non lu)",
+   "Suisse : AIPS Isuprel® (isoprénaline, n° 56457, mise à jour novembre 2020) — lu"
+  ],
+  "tr": true,
+  "images": {
+   "a_chercher": {
+    "normal": "ECG 12 dérivations normal de l'adulte, 25 mm/s, 10 mm/mV, rythme sinusal, axe, intervalles PR, QRS et QT normaux ; QTc < 440 ms mesurable en D2",
+    "patho": "ECG 12 dérivations, 25 mm/s : QT allongé (QTc > 500 ms) avec onde T large ou bifide, idéalement début de torsade de pointes (QRS polymorphes tournant autour de la ligne isoélectrique)"
+   },
+   "normal": {
+    "fichier": "images/EXP-052_normal.jpg",
+    "technique": "ECG 12 dérivations normal, 25 mm/s, 10 mm/mV, enregistré après réduction d'une FA par digoxine chez un adolescent sain (fig. 2) : rythme sinusal à 65/min, PR 129 ms, QRS 100 ms, QTc 398 ms, ST isoélectrique",
+    "credit": "J Med Case Rep. 2011 Jan 19;5:18. doi: 10.1186/1752-1947-5-18 — « Atrial fibrillation in healthy adolescents after highly caffeinated beverage consumption: two case reports »",
+    "licence": "CC BY",
+    "url": "https://europepmc.org/article/PMC/PMC3038953"
+   },
+   "patho": {
+    "fichier": "images/EXP-052_patho.jpg",
+    "technique": "ECG 12 dérivations, 25 mm/s, 10 mm/mV (panneau A de la figure) : bradycardie sinusale à 45/min avec échappement jonctionnel et QT/QTc 626/543 ms mesurés par l'appareil ; QT long acquis bradycardie-dépendant, prélude à des torsades de pointes chez ce patient ; tracé réservé à EXP-052 (ne pas le réutiliser pour EXP-152)",
+    "credit": "Front Cardiovasc Med. 2023 May 24;10:1156658. doi: 10.3389/fcvm.2023.1156658 — « Case report: Torsade de pointes induced by the bigeminy result from retrograde ventriculoatrial activation in VVI pacing and resolved by intentional atrial pacing »",
+    "licence": "CC BY",
+    "url": "https://europepmc.org/article/PMC/PMC10244670",
+    "reperes": [
+     {
+      "n": 1,
+      "x": 19,
+      "y": 41.5,
+      "fx": 33,
+      "fy": 33,
+      "lesion": "onde T large et négative en D2",
+      "semio": "Une onde T ample, étalée et négative suit chaque QRS en D2, ce qui traduit une repolarisation ventriculaire très allongée."
+     },
+     {
+      "n": 2,
+      "x": 62,
+      "y": 73,
+      "fx": 75,
+      "fy": 66,
+      "lesion": "QT allongé en V4",
+      "semio": "La fin de l'onde T s'éloigne loin du QRS en V4, ce qui place le QTc au-dessus de 500 ms."
+     },
+     {
+      "n": 3,
+      "x": 20,
+      "y": 9,
+      "fx": 33,
+      "fy": 16,
+      "lesion": "QTc à 543 ms",
+      "semio": "L'appareil chiffre le QT à 626 ms et le QTc à 543 ms, ce qui classe le tracé à haut risque de torsades de pointes."
+     }
+    ]
+   }
+  }
+ }
+}
