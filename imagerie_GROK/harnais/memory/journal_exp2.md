@@ -56,3 +56,9 @@ Prochain id : EXP-084.
 - EXP-080 introuvable. Diagramme de Davenport, figure 2, isoplèthe PCO2 = 40 mmHg, sans trouble légendé.
 
 Prochain id : EXP-079.
+
+- EXP-079 introuvable. Pas de gazométrie artérielle normale contre hypoxémie ou hypercapnie.
+- EXP-078 introuvable. Pas de DLCO isolément basse.
+- EXP-077 introuvable. Pas de DLCO d'emphysème ou de fibrose. Les courbes débit-volume ne sont pas une DLCO.
+
+Intervalle EXP-114 à EXP-077 couvert. Prochain id sous cet intervalle : EXP-076.

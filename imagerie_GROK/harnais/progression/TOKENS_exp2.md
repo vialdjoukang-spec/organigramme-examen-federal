@@ -11,3 +11,5 @@ EXP-094 à EXP-090. Cinq diagnostics : un partiel (EXP-094), quatre introuvables
 EXP-089 à EXP-085. Cinq diagnostics : un complet (EXP-087), quatre introuvables. La déglutition normale et l'achalasie de type II ont été lues. Le contour est sur la bande de pressurisation. Reprise : EXP-084.
 
 EXP-084 à EXP-080. Cinq diagnostics, tous introuvables. DLCO, co-oxymétrie, marche de 6 minutes, gradient alvéolo-artériel et trouble acido-basique : aucun couple libre. Le diagramme de Davenport a été lu et écarté. Reprise : EXP-079.
+
+EXP-079 à EXP-077. Trois introuvables : gazométrie artérielle, DLCO vasculaire, DLCO d'emphysème ou de fibrose. L'intervalle demandé est fermé. Prochain id hors intervalle : EXP-076.
