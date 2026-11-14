@@ -1,0 +1,131 @@
+{
+ "id": "PHY-S6-2",
+ "module": "physiologie",
+ "systeme": "S6",
+ "volet": "P",
+ "niveau": "m",
+ "fonction": "Réabsorption tubulaire par segment",
+ "definition": "Chaque segment du tubule réabsorbe une part du filtrat par un transporteur propre ; chaque diurétique bloque l'un d'eux.",
+ "chaine_regulation": {
+  "capteur": "capteurs de volume (barorécepteurs) et osmorécepteurs",
+  "integrateur": "angiotensine II, aldostérone, ADH, peptides natriurétiques",
+  "effecteur": "transporteurs segmentaires (NHE3, NKCC2, NCC, ENaC)"
+ },
+ "mecanisme": [
+  "Le tubule proximal réabsorbe la majeure partie du sodium, l'eau, le glucose (SGLT2), le bicarbonate et les acides aminés",
+  "la branche ascendante large de Henle réabsorbe Na, K, 2 Cl par NKCC2 sans eau ; elle crée donc le gradient médullaire",
+  "le tubule distal réabsorbe NaCl par NCC et le calcium sous PTH",
+  "le canal collecteur ajuste enfin le sodium (ENaC, aldostérone), le potassium et l'eau (aquaporine 2, ADH)"
+ ],
+ "regulation": "Les hormones agissent en aval : l'angiotensine II au proximal, l'aldostérone et l'ADH au collecteur. Le segment en aval compense partiellement un blocage en amont.",
+ "valeurs_normales": [
+  {
+   "parametre": "sodium urinaire de 24 h",
+   "valeur": "40–220 selon l'apport",
+   "unite": "mmol/24 h (HUG CHIMURG, 05.08.2026, via EX-1-S6-ionogramme-sodium-osmolalite)"
+  },
+  {
+   "parametre": "calcium urinaire",
+   "valeur": "2,5–7,5",
+   "unite": "mmol/24 h (HUG CHIMURG, via EX-1-S6-analyse-calculs)"
+  }
+ ],
+ "formule": {
+  "expression": "charge filtrée = DFG × concentration plasmatique",
+  "usage": "On calcule la charge filtrée pour comprendre pourquoi une petite fraction excrétée suffit à équilibrer l'apport et pourquoi un diurétique proximal ou de l'anse déplace de grands volumes.",
+  "exemple": "DFG 100 mL/min = 144 L/j, sodium 140 mmol/L : charge filtrée ≈ 20 000 mmol/j ; si l'urine en contient 150 mmol/j, le rein en a réabsorbé plus de 99 %."
+ },
+ "dereglements": [
+  {
+   "affection": "lithiase urinaire (hypercalciurie)",
+   "pp": "PP-S6-F",
+   "semiologie": [
+    "SY-43"
+   ]
+  },
+  {
+   "affection": "néphrotoxicité des aminosides (tubule proximal)",
+   "pp": "PP-S6-Ia",
+   "semiologie": []
+  },
+  {
+   "affection": "syndrome d'Alport et néphropathies héréditaires",
+   "pp": "PP-S6-C",
+   "semiologie": [
+    "SY-40"
+   ]
+  }
+ ],
+ "cibles_pharmacologiques": [
+  {
+   "classe": "diurétique de l'anse",
+   "pourquoi": "il bloque NKCC2 ; il est le plus puissant, car l'anse réabsorbe beaucoup et efface le gradient médullaire"
+  },
+  {
+   "classe": "diurétique thiazidique",
+   "pourquoi": "il bloque NCC ; il augmente la réabsorption distale du calcium, donc il protège des calculs calciques"
+  },
+  {
+   "classe": "épargneur de potassium (amiloride, antagoniste de l'aldostérone)",
+   "pourquoi": "il agit au collecteur, réduit l'excrétion du potassium et ajoute un effet natriurétique modeste"
+  },
+  {
+   "classe": "inhibiteur du SGLT2",
+   "pourquoi": "il bloque la réabsorption proximale du glucose : glucosurie et natriurèse modérée"
+  }
+ ],
+ "lien_clinique": "L'anse perd du calcium (calciurie), le thiazidique le retient (hypercalcémie possible) : ce contraste guide le choix chez le lithiasique.",
+ "mnemotechnique": "« Anse : Aspire le calcium dans l'urine ; Thiazide : Tient le calcium. »",
+ "sources": [
+  {
+   "ref": "HUG, Répertoire des prestations d'analyses (RPA), Chimie clinique des urgences, fiche sodium urinaire (05.08.2026)",
+   "origine": "Suisse",
+   "statut": "lu par la fiche EX-1-S6-ionogramme-sodium-osmolalite le 13.11.2026 ; non relu ici",
+   "via": "EX-1-S6-ionogramme-sodium-osmolalite"
+  },
+  {
+   "ref": "HUG, Répertoire des prestations d'analyses (RPA), Chimie clinique des urgences, fiches urinaires de 24 h",
+   "origine": "Suisse",
+   "statut": "lu par la fiche EX-1-S6-analyse-calculs le 13.11.2026 ; non relu ici",
+   "via": "EX-1-S6-analyse-calculs"
+  },
+  {
+   "ref": "Physiologie classique rédigée en posture d'expert (déduction)",
+   "origine": "aucune source lue",
+   "statut": "non lu : à vérifier contre une source suisse ou européenne (non vérifié CH)"
+  }
+ ],
+ "passerelles": [
+  {
+   "vers": "physiopathologie",
+   "id": "PP-S6-C"
+  },
+  {
+   "vers": "physiopathologie",
+   "id": "PP-S6-F"
+  },
+  {
+   "vers": "physiopathologie",
+   "id": "PP-S6-Ia"
+  },
+  {
+   "vers": "examens",
+   "id": "EX-1-S6-ionogramme-sodium-osmolalite"
+  },
+  {
+   "vers": "examens",
+   "id": "EX-3-S6-epreuves-fonctionnelles-renales-dynamiques"
+  },
+  {
+   "vers": "pharmacologie",
+   "id": "PH-S6-chaine"
+  },
+  {
+   "vers": "sciences fondamentales",
+   "id": "SF-S6-physiologie"
+  }
+ ],
+ "honnetete": "Les mécanismes sont rédigés en posture d'expert sans relecture d'une source suisse phrase par phrase ; seules les valeurs étiquetées HUG, Insel ou CHUV proviennent de laboratoires suisses, lues par les fiches EX citées. Les mentions « non vérifié CH » restent à vérifier. Aucune dose n'est donnée.",
+ "statut": "rédigé, à auditer",
+ "date": "14.11.2026"
+}

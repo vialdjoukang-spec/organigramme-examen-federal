@@ -1,0 +1,149 @@
+{
+ "id": "PHY-S7-1",
+ "module": "physiologie",
+ "systeme": "S7",
+ "volet": "P",
+ "niveau": "m",
+ "fonction": "Axe gonadotrope et cycle menstruel",
+ "definition": "Le cycle menstruel résulte du dialogue entre l'hypothalamus (GnRH), l'hypophyse (FSH, LH), l'ovaire (œstradiol, progestérone) et l'endomètre.",
+ "chaine_regulation": {
+  "capteur": "hypothalamus et hypophyse, sensibles à l'œstradiol et à la progestérone",
+  "integrateur": "GnRH pulsatile",
+  "effecteur": "follicule ovarien, corps jaune, endomètre"
+ },
+ "mecanisme": [
+  "La GnRH pulsatile libère FSH et LH ; la FSH recrute des follicules, qui sécrètent l'œstradiol",
+  "l'œstradiol prolifère l'endomètre et freine la FSH ; seul le follicule dominant survit",
+  "au-delà d'un seuil soutenu, l'œstradiol bascule en rétrocontrôle positif : le pic de LH déclenche l'ovulation",
+  "le corps jaune sécrète alors la progestérone, qui rend l'endomètre sécrétoire",
+  "sans grossesse, le corps jaune involue ; la chute de la progestérone déclenche les règles"
+ ],
+ "regulation": "Le rétrocontrôle est négatif la plupart du temps et devient positif en fin de phase folliculaire. La fréquence des pulses de GnRH oriente vers la LH (rapide) ou la FSH (lente).",
+ "valeurs_normales": [
+  {
+   "parametre": "FSH, phase folliculaire précoce",
+   "valeur": "3,1–9,5",
+   "unite": "U/L (HUG RPA 3920, via EX-1-S7-fsh-lh)"
+  },
+  {
+   "parametre": "LH, pic ovulatoire",
+   "valeur": "28,5–89,9",
+   "unite": "U/L (HUG RPA 3921, via EX-1-S7-fsh-lh)"
+  },
+  {
+   "parametre": "progestérone, phase lutéale moyenne",
+   "valeur": "4,92–19,67",
+   "unite": "µg/L (HUG RPA 3922, via EX-1-S7-oestradiol-progesterone)"
+  },
+  {
+   "parametre": "œstradiol, phase folliculaire",
+   "valeur": "12,4–233",
+   "unite": "ng/L (HUG RPA 3919, via EX-1-S7-oestradiol-progesterone)"
+  }
+ ],
+ "formule": {
+  "expression": "jour d'ovulation ≈ durée du cycle − 14 (phase lutéale peu variable, non vérifié CH)",
+  "usage": "On estime l'ovulation pour dater un dosage de progestérone (milieu de phase lutéale) ou une fenêtre de fertilité.",
+  "exemple": "Cycle de 32 jours : ovulation ≈ J18 ; on dose donc la progestérone vers J25, une semaine après."
+ },
+ "dereglements": [
+  {
+   "affection": "SOPK",
+   "pp": "PP-S7-F",
+   "semiologie": []
+  },
+  {
+   "affection": "aménorrhée hypothalamique",
+   "pp": "PP-S7-F",
+   "semiologie": [
+    "S-02"
+   ]
+  },
+  {
+   "affection": "syndrome de Turner",
+   "pp": "PP-S7-C",
+   "semiologie": [
+    "S-33"
+   ]
+  },
+  {
+   "affection": "léiomyomes, endométriose (œstrogénodépendance)",
+   "pp": "PP-S7-T",
+   "semiologie": [
+    "SY-63"
+   ]
+  }
+ ],
+ "cibles_pharmacologiques": [
+  {
+   "classe": "contraception œstroprogestative",
+   "pourquoi": "elle freine FSH et LH par rétrocontrôle négatif et supprime le pic de LH"
+  },
+  {
+   "classe": "analogue de la GnRH (administration continue)",
+   "pourquoi": "il désensibilise l'hypophyse et effondre les stéroïdes sexuels"
+  },
+  {
+   "classe": "antagoniste de la GnRH",
+   "pourquoi": "il bloque d'emblée le récepteur, sans effet de flambée initiale"
+  },
+  {
+   "classe": "inducteur de l'ovulation",
+   "pourquoi": "il lève le frein œstrogénique et relance la FSH"
+  }
+ ],
+ "lien_clinique": "Des pulses de GnRH sont nécessaires : une administration continue d'agoniste supprime l'axe, ce qu'on exploite contre l'endométriose ou le cancer de la prostate.",
+ "mnemotechnique": "« FSH Fait le Follicule ; LH Libère l'ovule. »",
+ "sources": [
+  {
+   "ref": "HUG, Répertoire des prestations d'analyses (RPA), Chimie clinique des urgences, fiches 3920 FSH et 3921 LH (03.09.2025)",
+   "origine": "Suisse",
+   "statut": "lu par la fiche EX-1-S7-fsh-lh le 13.11.2026 ; non relu ici",
+   "via": "EX-1-S7-fsh-lh"
+  },
+  {
+   "ref": "HUG, Répertoire des prestations d'analyses (RPA), Chimie clinique des urgences, fiches 3919 œstradiol et 3922 progestérone",
+   "origine": "Suisse",
+   "statut": "lu par la fiche EX-1-S7-oestradiol-progesterone le 13.11.2026 ; non relu ici",
+   "via": "EX-1-S7-oestradiol-progesterone"
+  },
+  {
+   "ref": "Physiologie classique rédigée en posture d'expert (déduction)",
+   "origine": "aucune source lue",
+   "statut": "non lu : à vérifier contre une source suisse ou européenne (non vérifié CH)"
+  }
+ ],
+ "passerelles": [
+  {
+   "vers": "physiopathologie",
+   "id": "PP-S7-C"
+  },
+  {
+   "vers": "physiopathologie",
+   "id": "PP-S7-F"
+  },
+  {
+   "vers": "physiopathologie",
+   "id": "PP-S7-T"
+  },
+  {
+   "vers": "examens",
+   "id": "EX-1-S7-fsh-lh"
+  },
+  {
+   "vers": "examens",
+   "id": "EX-1-S7-oestradiol-progesterone"
+  },
+  {
+   "vers": "pharmacologie",
+   "id": "PH-S7-chaine"
+  },
+  {
+   "vers": "sciences fondamentales",
+   "id": "SF-S7-physiologie"
+  }
+ ],
+ "honnetete": "Les mécanismes sont rédigés en posture d'expert sans relecture d'une source suisse phrase par phrase ; seules les valeurs étiquetées HUG, Insel ou CHUV proviennent de laboratoires suisses, lues par les fiches EX citées. Les mentions « non vérifié CH » restent à vérifier. Aucune dose n'est donnée.",
+ "statut": "rédigé, à auditer",
+ "date": "14.11.2026"
+}

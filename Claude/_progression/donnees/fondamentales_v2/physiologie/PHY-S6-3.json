@@ -1,0 +1,141 @@
+{
+ "id": "PHY-S6-3",
+ "module": "physiologie",
+ "systeme": "S6",
+ "volet": "P",
+ "niveau": "m",
+ "fonction": "Concentration urinaire et ADH",
+ "definition": "Le rein concentre ou dilue l'urine selon l'ADH, qui ouvre des aquaporines dans le canal collecteur ; il garde ainsi l'osmolalité plasmatique constante.",
+ "chaine_regulation": {
+  "capteur": "osmorécepteurs hypothalamiques (et, à un moindre degré, barorécepteurs)",
+  "integrateur": "noyaux supra-optique et paraventriculaire, post-hypophyse",
+  "effecteur": "récepteur V2 et aquaporine 2 du canal collecteur"
+ },
+ "mecanisme": [
+  "L'osmolalité plasmatique monte ; les osmorécepteurs stimulent donc la soif et la sécrétion d'ADH",
+  "l'ADH se fixe au récepteur V2, augmente l'AMPc et insère l'aquaporine 2 dans la membrane apicale",
+  "l'eau quitte le collecteur vers la médullaire hypertonique, créée par l'anse de Henle et l'urée",
+  "l'urine se concentre ; l'osmolalité plasmatique revient à la normale et l'ADH baisse (rétrocontrôle)"
+ ],
+ "regulation": "L'osmolalité commande l'ADH finement ; une hypovolémie importante la stimule aussi, même si le plasma est dilué. Nausée, douleur et certains médicaments stimulent l'ADH.",
+ "valeurs_normales": [
+  {
+   "parametre": "osmolalité plasmatique",
+   "valeur": "275–290 (mesurée, RMS 2010) ; 280–295 (calculée, HUG CHIMURG)",
+   "unite": "mOsm/kg (via EX-1-S6-ionogramme-sodium-osmolalite)"
+  },
+  {
+   "parametre": "sodium plasmatique",
+   "valeur": "136–144",
+   "unite": "mmol/L (HUG CHIMURG, 03.09.2025, via EX-1-S6-ionogramme-sodium-osmolalite)"
+  },
+  {
+   "parametre": "osmolalité urinaire",
+   "valeur": "pas de norme fixe : elle varie avec l'apport hydrique",
+   "unite": "mOsm/kg (HUG CHIMURG)"
+  }
+ ],
+ "formule": {
+  "expression": "osmolalité calculée = 2 × Na + glucose + urée (en mmol/L)",
+  "usage": "On compare la valeur calculée à la mesurée : un trou osmolaire élevé révèle un osmole non mesuré (méthanol, éthylène glycol) ; on calcule aussi la tonicité devant une dysnatrémie.",
+  "exemple": "Na 140, glucose 5, urée 5 mmol/L : 2 × 140 + 5 + 5 = 290 mOsm/kg ; si la mesure donne 320, le trou vaut 30 (> 10, RMS 2005) : on recherche un toxique."
+ },
+ "dereglements": [
+  {
+   "affection": "dysnatrémies",
+   "pp": "PP-S6-F",
+   "semiologie": [
+    "SY-57"
+   ]
+  },
+  {
+   "affection": "SIADH",
+   "pp": "PP-S8-F",
+   "semiologie": [
+    "SY-57"
+   ]
+  },
+  {
+   "affection": "néphrotoxicité du lithium (diabète insipide néphrogénique)",
+   "pp": "PP-S6-Ia",
+   "semiologie": [
+    "SY-81"
+   ]
+  },
+  {
+   "affection": "diabète insipide central post-traumatique",
+   "pp": "PP-S8-Tr",
+   "semiologie": [
+    "SY-81"
+   ]
+  }
+ ],
+ "cibles_pharmacologiques": [
+  {
+   "classe": "desmopressine",
+   "pourquoi": "agoniste V2, elle remplace l'ADH absente (diabète insipide central)"
+  },
+  {
+   "classe": "antagoniste du récepteur V2 (vaptan)",
+   "pourquoi": "il bloque l'ADH en excès et fait perdre de l'eau libre (SIADH, polykystose)"
+  },
+  {
+   "classe": "thiazidique dans le diabète insipide néphrogénique",
+   "pourquoi": "il contracte le volume ; le proximal réabsorbe davantage et la polyurie baisse"
+  }
+ ],
+ "lien_clinique": "L'excès d'ADH dilue le plasma (hyponatrémie avec urine concentrée) ; son défaut ou son inefficacité dilue l'urine (polyurie, hypernatrémie si la soif ne compense pas).",
+ "mnemotechnique": "« ADH = Aquaporines Dans l'Hypertonie. »",
+ "sources": [
+  {
+   "ref": "HUG, Répertoire des prestations d'analyses (RPA), Chimie clinique des urgences, fiche sodium (03.09.2025) ; Revue Médicale Suisse 2010 (osmolalité)",
+   "origine": "Suisse",
+   "statut": "lu par la fiche EX-1-S6-ionogramme-sodium-osmolalite le 13.11.2026 ; non relu ici",
+   "via": "EX-1-S6-ionogramme-sodium-osmolalite"
+  },
+  {
+   "ref": "Revue Médicale Suisse 2005 (trou osmolaire)",
+   "origine": "Suisse",
+   "statut": "lu par la fiche EX-1-S6-equilibre-acide-base le 13.11.2026 ; non relu ici",
+   "via": "EX-1-S6-equilibre-acide-base"
+  },
+  {
+   "ref": "Physiologie classique rédigée en posture d'expert (déduction)",
+   "origine": "aucune source lue",
+   "statut": "non lu : à vérifier contre une source suisse ou européenne (non vérifié CH)"
+  }
+ ],
+ "passerelles": [
+  {
+   "vers": "physiopathologie",
+   "id": "PP-S6-F"
+  },
+  {
+   "vers": "physiopathologie",
+   "id": "PP-S6-Ia"
+  },
+  {
+   "vers": "physiopathologie",
+   "id": "PP-S8-F"
+  },
+  {
+   "vers": "physiopathologie",
+   "id": "PP-S8-Tr"
+  },
+  {
+   "vers": "examens",
+   "id": "EX-1-S6-ionogramme-sodium-osmolalite"
+  },
+  {
+   "vers": "pharmacologie",
+   "id": "PH-S6-chaine"
+  },
+  {
+   "vers": "sciences fondamentales",
+   "id": "SF-S6-physiologie"
+  }
+ ],
+ "honnetete": "Les mécanismes sont rédigés en posture d'expert sans relecture d'une source suisse phrase par phrase ; seules les valeurs étiquetées HUG, Insel ou CHUV proviennent de laboratoires suisses, lues par les fiches EX citées. Les mentions « non vérifié CH » restent à vérifier. Aucune dose n'est donnée.",
+ "statut": "rédigé, à auditer",
+ "date": "14.11.2026"
+}

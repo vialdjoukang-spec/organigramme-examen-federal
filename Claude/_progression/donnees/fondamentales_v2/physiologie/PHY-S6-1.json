@@ -1,0 +1,154 @@
+{
+ "id": "PHY-S6-1",
+ "module": "physiologie",
+ "systeme": "S6",
+ "volet": "P",
+ "niveau": "m",
+ "fonction": "Filtration glomérulaire et DFG",
+ "definition": "Le débit de filtration glomérulaire (DFG) est le volume de plasma filtré par les glomérules par unité de temps ; il mesure la fonction rénale.",
+ "chaine_regulation": {
+  "capteur": "macula densa (NaCl distal) et barorécepteur artériolaire",
+  "integrateur": "rétrocontrôle tubulo-glomérulaire, myogénie, système rénine-angiotensine",
+  "effecteur": "artérioles afférente et efférente"
+ },
+ "mecanisme": [
+  "La pression hydrostatique glomérulaire pousse le plasma à travers la barrière ; la pression oncotique et la pression de la capsule s'y opposent",
+  "si la pression artérielle monte, l'artériole afférente se contracte (réflexe myogène) ; le DFG reste donc stable",
+  "si le NaCl distal monte, la macula densa contracte l'afférente (rétrocontrôle tubulo-glomérulaire)",
+  "si la perfusion baisse, l'angiotensine II contracte l'efférente ; la pression glomérulaire se maintient",
+  "les prostaglandines dilatent enfin l'afférente lors d'une hypoperfusion"
+ ],
+ "regulation": "L'autorégulation garde le DFG stable sur une large plage de pression ; elle échoue sous hypoperfusion sévère ou quand un médicament supprime ses bras (AINS sur l'afférente, IEC sur l'efférente).",
+ "valeurs_normales": [
+  {
+   "parametre": "DFG mesuré (clairance du iohexol)",
+   "valeur": "≥ 90",
+   "unite": "mL/min/1,73 m² (HUG RQ, 03.09.2025, via EX-1-S6-creatinine-dfg-uree)"
+  },
+  {
+   "parametre": "créatinine plasmatique",
+   "valeur": "homme 62–106 ; femme 44–80",
+   "unite": "µmol/L (HUG CHIMURG, 03.09.2025, via EX-1-S6-creatinine-dfg-uree)"
+  },
+  {
+   "parametre": "cystatine C",
+   "valeur": "< 50 ans 0,65–1,24 ; ≥ 50 ans 0,81–1,64",
+   "unite": "mg/L (HUG RQ, via EX-1-S6-creatinine-dfg-uree)"
+  }
+ ],
+ "formule": {
+  "expression": "clairance (mL/min) = U × V ÷ P (U : créatinine urinaire, V : débit urinaire en mL/min, P : créatinine plasmatique, mêmes unités pour U et P)",
+  "usage": "On mesure la clairance quand l'estimation CKD-EPI est peu fiable (masse musculaire extrême, amputation, dénutrition) ; sinon on utilise le DFG estimé pour classer la maladie et adapter les médicaments.",
+  "exemple": "U = 8 000 µmol/L, V = 1 440 mL/24 h soit 1 mL/min, P = 80 µmol/L : clairance = 8 000 × 1 ÷ 80 = 100 mL/min."
+ },
+ "dereglements": [
+  {
+   "affection": "insuffisance rénale aiguë pré-rénale",
+   "pp": "PP-S6-F",
+   "semiologie": [
+    "SY-81",
+    "SY-42"
+   ]
+  },
+  {
+   "affection": "maladie rénale chronique",
+   "pp": "PP-S6-D",
+   "semiologie": [
+    "SY-42",
+    "SY-63"
+   ]
+  },
+  {
+   "affection": "association IEC + diurétique + AINS",
+   "pp": "PP-S6-Ia",
+   "semiologie": [
+    "SY-42",
+    "SY-81"
+   ]
+  },
+  {
+   "affection": "néphropathie à IgA",
+   "pp": "PP-S6-A",
+   "semiologie": [
+    "SY-40"
+   ]
+  },
+  {
+   "affection": "néphroangiosclérose",
+   "pp": "PP-S6-V",
+   "semiologie": [
+    "SY-42"
+   ]
+  }
+ ],
+ "cibles_pharmacologiques": [
+  {
+   "classe": "IEC ou sartan",
+   "pourquoi": "il dilate l'efférente et baisse la pression glomérulaire : il protège à long terme, mais baisse le DFG sous hypovolémie"
+  },
+  {
+   "classe": "inhibiteur du SGLT2",
+   "pourquoi": "il rétablit le rétrocontrôle tubulo-glomérulaire et réduit l'hyperfiltration"
+  },
+  {
+   "classe": "AINS (à éviter)",
+   "pourquoi": "il supprime la dilatation prostaglandinique de l'afférente, donc il fait chuter le DFG en cas d'hypoperfusion"
+  }
+ ],
+ "lien_clinique": "La créatinine monte tard, car le rein perd une large part de sa fonction avant qu'elle ne dépasse la norme ; on adapte donc les doses au DFG estimé, pas à la créatinine seule.",
+ "mnemotechnique": "« Triple whammy » : IEC (efférente) + AINS (afférente) + diurétique (volume) = chute du DFG.",
+ "sources": [
+  {
+   "ref": "HUG, Répertoire des prestations d'analyses (RPA), Chimie clinique des urgences, fiches créatinine, urée, cystatine C (03.09.2025)",
+   "origine": "Suisse",
+   "statut": "lu par la fiche EX-1-S6-creatinine-dfg-uree le 13.11.2026 ; non relu ici",
+   "via": "EX-1-S6-creatinine-dfg-uree"
+  },
+  {
+   "ref": "Physiologie classique rédigée en posture d'expert (déduction)",
+   "origine": "aucune source lue",
+   "statut": "non lu : à vérifier contre une source suisse ou européenne (non vérifié CH)"
+  }
+ ],
+ "passerelles": [
+  {
+   "vers": "physiopathologie",
+   "id": "PP-S6-A"
+  },
+  {
+   "vers": "physiopathologie",
+   "id": "PP-S6-D"
+  },
+  {
+   "vers": "physiopathologie",
+   "id": "PP-S6-F"
+  },
+  {
+   "vers": "physiopathologie",
+   "id": "PP-S6-Ia"
+  },
+  {
+   "vers": "physiopathologie",
+   "id": "PP-S6-V"
+  },
+  {
+   "vers": "examens",
+   "id": "EX-1-S6-creatinine-dfg-uree"
+  },
+  {
+   "vers": "examens",
+   "id": "EX-1-S6-proteinurie-albuminurie"
+  },
+  {
+   "vers": "pharmacologie",
+   "id": "PH-S6-chaine"
+  },
+  {
+   "vers": "sciences fondamentales",
+   "id": "SF-S6-physiologie"
+  }
+ ],
+ "honnetete": "Les mécanismes sont rédigés en posture d'expert sans relecture d'une source suisse phrase par phrase ; seules les valeurs étiquetées HUG, Insel ou CHUV proviennent de laboratoires suisses, lues par les fiches EX citées. Les mentions « non vérifié CH » restent à vérifier. Aucune dose n'est donnée.",
+ "statut": "rédigé, à auditer",
+ "date": "14.11.2026"
+}

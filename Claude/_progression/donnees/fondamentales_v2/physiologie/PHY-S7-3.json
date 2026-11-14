@@ -1,0 +1,135 @@
+{
+ "id": "PHY-S7-3",
+ "module": "physiologie",
+ "systeme": "S7",
+ "volet": "P",
+ "niveau": "m",
+ "fonction": "Fécondation, implantation et hCG",
+ "definition": "Après la fécondation dans l'ampoule tubaire, l'embryon s'implante dans l'endomètre ; le trophoblaste sécrète l'hCG, qui maintient le corps jaune.",
+ "chaine_regulation": {
+  "capteur": "trophoblaste",
+  "integrateur": "hCG (analogue de la LH)",
+  "effecteur": "corps jaune, puis placenta"
+ },
+ "mecanisme": [
+  "Le spermatozoïde féconde l'ovocyte dans l'ampoule ; la trompe transporte l'embryon vers l'utérus en quelques jours",
+  "le blastocyste s'implante dans l'endomètre préparé par la progestérone",
+  "le syncytiotrophoblaste sécrète l'hCG, qui stimule le récepteur de la LH du corps jaune",
+  "le corps jaune continue donc à sécréter la progestérone jusqu'à ce que le placenta prenne le relais au premier trimestre"
+ ],
+ "regulation": "L'hCG remplace la LH : elle empêche l'involution du corps jaune et donc les règles. Sa concentration double à intervalle régulier au début d'une grossesse évolutive.",
+ "valeurs_normales": [
+  {
+   "parametre": "bêta-hCG, grossesse évolutive",
+   "valeur": "valeur doublée en 48 h",
+   "unite": "U/L (HUG RPA 3883, via EX-1-S7-hcg)"
+  },
+  {
+   "parametre": "bêta-hCG, femme non enceinte",
+   "valeur": "< 5",
+   "unite": "U/L (non vérifié CH, via EX-1-S7-hcg)"
+  }
+ ],
+ "formule": {
+  "expression": "hausse (%) = (hCG à 48 h − hCG initiale) ÷ hCG initiale × 100",
+  "usage": "Devant un utérus vide ou des saignements, une hausse < 60 % en 48 h ou une baisse indique une grossesse non évolutive ou extra-utérine (HUG brochure GNE, via EX-1-S7-hcg) ; on confronte toujours à l'échographie.",
+  "exemple": "hCG 1 200 puis 1 500 U/L : hausse = 300 ÷ 1 200 × 100 = 25 % < 60 % ; la grossesse n'évolue pas normalement : on recherche une GEU."
+ },
+ "dereglements": [
+  {
+   "affection": "GEU",
+   "pp": "PP-S7-F",
+   "semiologie": [
+    "SY-46",
+    "SY-21"
+   ]
+  },
+  {
+   "affection": "maladie trophoblastique gestationnelle (hCG très élevée)",
+   "pp": "PP-S7-T",
+   "semiologie": [
+    "SY-50"
+   ]
+  },
+  {
+   "affection": "syndrome d'hyperstimulation ovarienne",
+   "pp": "PP-S7-Ia",
+   "semiologie": [
+    "SY-81"
+   ]
+  },
+  {
+   "affection": "cancer du testicule (hCG marqueur)",
+   "pp": "PP-S7-T",
+   "semiologie": [
+    "S-14"
+   ]
+  }
+ ],
+ "cibles_pharmacologiques": [
+  {
+   "classe": "méthotrexate (GEU, hors indication AIPS)",
+   "pourquoi": "il bloque la prolifération du trophoblaste ; on suit la chute de l'hCG"
+  },
+  {
+   "classe": "antiprogestatif (mifépristone)",
+   "pourquoi": "il bloque le récepteur de la progestérone et rend l'endomètre impropre à la grossesse"
+  },
+  {
+   "classe": "immunoglobulines anti-D",
+   "pourquoi": "elles préviennent l'allo-immunisation chez la femme RhD négative après une perte de grossesse"
+  }
+ ],
+ "lien_clinique": "L'hCG partage sa sous-unité α avec la TSH : une hCG très élevée (môle, grossesse multiple) peut stimuler la thyroïde.",
+ "mnemotechnique": "« hCG = Corps jaune Gardé. »",
+ "sources": [
+  {
+   "ref": "HUG, Répertoire des prestations d'analyses (RPA), Chimie clinique des urgences, fiche 3883 bêta-hCG ; HUG, brochure « Grossesse non évolutive »",
+   "origine": "Suisse",
+   "statut": "lu par la fiche EX-1-S7-hcg le 13.11.2026 ; non relu ici",
+   "via": "EX-1-S7-hcg"
+  },
+  {
+   "ref": "Physiologie classique rédigée en posture d'expert (déduction)",
+   "origine": "aucune source lue",
+   "statut": "non lu : à vérifier contre une source suisse ou européenne (non vérifié CH)"
+  }
+ ],
+ "passerelles": [
+  {
+   "vers": "physiopathologie",
+   "id": "PP-S7-F"
+  },
+  {
+   "vers": "physiopathologie",
+   "id": "PP-S7-Ia"
+  },
+  {
+   "vers": "physiopathologie",
+   "id": "PP-S7-T"
+  },
+  {
+   "vers": "examens",
+   "id": "EX-1-S7-hcg"
+  },
+  {
+   "vers": "examens",
+   "id": "EX-8-S7-test-grossesse-urinaire"
+  },
+  {
+   "vers": "examens",
+   "id": "EX-2-S7-echographie-pelvienne-foetale"
+  },
+  {
+   "vers": "pharmacologie",
+   "id": "PH-S7-chaine"
+  },
+  {
+   "vers": "sciences fondamentales",
+   "id": "SF-S7-physiologie"
+  }
+ ],
+ "honnetete": "Les mécanismes sont rédigés en posture d'expert sans relecture d'une source suisse phrase par phrase ; seules les valeurs étiquetées HUG, Insel ou CHUV proviennent de laboratoires suisses, lues par les fiches EX citées. Les mentions « non vérifié CH » restent à vérifier. Aucune dose n'est donnée.",
+ "statut": "rédigé, à auditer",
+ "date": "14.11.2026"
+}

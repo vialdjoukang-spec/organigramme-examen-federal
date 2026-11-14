@@ -1,0 +1,151 @@
+{
+ "id": "PHY-S8-9",
+ "module": "physiologie",
+ "systeme": "S8",
+ "volet": "B",
+ "niveau": "m",
+ "fonction": "Métabolisme énergétique : jeûne, néoglucogenèse, cétogenèse",
+ "definition": "À jeun, l'organisme maintient la glycémie par la glycogénolyse puis la néoglucogenèse, et fournit au cerveau des corps cétoniques quand le jeûne se prolonge.",
+ "chaine_regulation": {
+  "capteur": "cellules α et β pancréatiques, sensibles au glucose",
+  "integrateur": "rapport insuline/glucagon, cortisol, catécholamines",
+  "effecteur": "foie (glycogène, néoglucogenèse, cétogenèse), tissu adipeux (lipolyse), muscle (acides aminés)"
+ },
+ "mecanisme": [
+  "L'insuline baisse et le glucagon monte ; le foie dégrade d'abord son glycogène",
+  "le glycogène s'épuise en un à deux jours (non vérifié CH) ; le foie fabrique alors le glucose à partir du lactate, du glycérol et de l'alanine (néoglucogenèse)",
+  "la lipolyse libère les acides gras ; le foie les oxyde en acétyl-CoA, puis en corps cétoniques (β-hydroxybutyrate, acétoacétate)",
+  "le cerveau utilise progressivement les cétones et épargne les protéines musculaires",
+  "l'insuline, même faible, limite la cétogenèse ; sans insuline, elle s'emballe : l'acidocétose survient"
+ ],
+ "regulation": "Le rapport insuline/glucagon pilote le passage du stockage à la mobilisation ; un peu d'insuline suffit à éviter l'acidose de jeûne.",
+ "valeurs_normales": [
+  {
+   "parametre": "glucose plasmatique à jeun",
+   "valeur": "adulte 4,1–6,0",
+   "unite": "mmol/L (HUG RPA 9258, via EX-1-S8-glycemie-hba1c)"
+  },
+  {
+   "parametre": "lactate",
+   "valeur": "0,4–1,9",
+   "unite": "mmol/L (HUG CHIMURG, via EX-1-S6-equilibre-acide-base)"
+  },
+  {
+   "parametre": "trou anionique",
+   "valeur": "11 ± 2",
+   "unite": "mmol/L (RMS 2005, via EX-1-S6-equilibre-acide-base)"
+  },
+  {
+   "parametre": "thiamine pyrophosphate (B1)",
+   "valeur": "65–200",
+   "unite": "nmol/L (HUG RPA Toxicologie 91, via EX-1-S8-vitamines-b12-b9-b1)"
+  }
+ ],
+ "formule": {
+  "expression": "natrémie corrigée = Na mesuré + 2,4 × (glycémie − 5,5) ÷ 5,5 (glycémie en mmol/L ; non vérifié CH)",
+  "usage": "Dans l'hyperglycémie, l'eau sort des cellules et dilue le sodium ; on corrige la natrémie pour juger le vrai bilan de l'eau et guider la réhydratation.",
+  "exemple": "Na 130 mmol/L, glycémie 33 mmol/L : 130 + 2,4 × 27,5 ÷ 5,5 = 130 + 12 = 142 mmol/L : la natrémie corrigée est normale, le patient n'est pas hyponatrémique."
+ },
+ "dereglements": [
+  {
+   "affection": "acidocétose",
+   "pp": "PP-S8-F",
+   "semiologie": [
+    "SY-54",
+    "SY-81"
+   ]
+  },
+  {
+   "affection": "état hyperosmolaire",
+   "pp": "PP-S8-F",
+   "semiologie": [
+    "SY-81"
+   ]
+  },
+  {
+   "affection": "dénutrition",
+   "pp": "PP-S8-F",
+   "semiologie": [
+    "S-02",
+    "S-34"
+   ]
+  },
+  {
+   "affection": "syndrome de renutrition inappropriée",
+   "pp": "PP-S8-F",
+   "semiologie": [
+    "S-02"
+   ]
+  }
+ ],
+ "cibles_pharmacologiques": [
+  {
+   "classe": "insuline intraveineuse",
+   "pourquoi": "elle arrête la lipolyse et la cétogenèse ; on maintient du glucose si la glycémie baisse avant que les cétones disparaissent"
+  },
+  {
+   "classe": "thiamine avant le glucose",
+   "pourquoi": "elle sert de cofacteur au métabolisme du glucose et prévient l'encéphalopathie de Wernicke"
+  },
+  {
+   "classe": "inhibiteur du SGLT2 (vigilance)",
+   "pourquoi": "il baisse l'insuline et augmente le glucagon : il expose à une acidocétose à glycémie peu élevée"
+  }
+ ],
+ "lien_clinique": "Au réalimentaire, l'insuline fait entrer phosphate, potassium et magnésium dans les cellules : le syndrome de renutrition inappropriée se prévient par une renutrition progressive.",
+ "mnemotechnique": "« Jeûne : glycogène (jours 1–2), néoglucogenèse, puis cétones pour le cerveau. »",
+ "sources": [
+  {
+   "ref": "HUG, Répertoire des prestations d'analyses (RPA), Chimie clinique des urgences, fiches 9258 glycémie et 3970 HbA1c ; Insel Gruppe, ZLM Berne : Cobas PRO – Referenzwerte Klinische Chemie, v21.0 du 25.06.2026 ; HUG SMPR « Diabète de type 2 » 2022",
+   "origine": "Suisse",
+   "statut": "lu par la fiche EX-1-S8-glycemie-hba1c le 13.11.2026 ; non relu ici",
+   "via": "EX-1-S8-glycemie-hba1c"
+  },
+  {
+   "ref": "HUG, Répertoire des prestations d'analyses (RPA), Chimie clinique des urgences, fiches bicarbonate, chlorures, lactate (03.09.2025) ; Revue Médicale Suisse 2005 (trou anionique)",
+   "origine": "Suisse",
+   "statut": "lu par la fiche EX-1-S6-equilibre-acide-base le 13.11.2026 ; non relu ici",
+   "via": "EX-1-S6-equilibre-acide-base"
+  },
+  {
+   "ref": "HUG, Répertoire des prestations d'analyses (RPA), Chimie clinique des urgences Toxicologie, fiche 91",
+   "origine": "Suisse",
+   "statut": "lu par la fiche EX-1-S8-vitamines-b12-b9-b1 le 13.11.2026 ; non relu ici",
+   "via": "EX-1-S8-vitamines-b12-b9-b1"
+  },
+  {
+   "ref": "Physiologie classique rédigée en posture d'expert (déduction)",
+   "origine": "aucune source lue",
+   "statut": "non lu : à vérifier contre une source suisse ou européenne (non vérifié CH)"
+  }
+ ],
+ "passerelles": [
+  {
+   "vers": "physiopathologie",
+   "id": "PP-S8-F"
+  },
+  {
+   "vers": "examens",
+   "id": "EX-1-S8-glycemie-hba1c"
+  },
+  {
+   "vers": "examens",
+   "id": "EX-1-S6-equilibre-acide-base"
+  },
+  {
+   "vers": "examens",
+   "id": "EX-3-S8-calorimetrie-indirecte"
+  },
+  {
+   "vers": "pharmacologie",
+   "id": "PH-S8-chaine"
+  },
+  {
+   "vers": "sciences fondamentales",
+   "id": "SF-S8-physiologie"
+  }
+ ],
+ "honnetete": "Les mécanismes sont rédigés en posture d'expert sans relecture d'une source suisse phrase par phrase ; seules les valeurs étiquetées HUG, Insel ou CHUV proviennent de laboratoires suisses, lues par les fiches EX citées. Les mentions « non vérifié CH » restent à vérifier. Aucune dose n'est donnée.",
+ "statut": "rédigé, à auditer",
+ "date": "14.11.2026"
+}

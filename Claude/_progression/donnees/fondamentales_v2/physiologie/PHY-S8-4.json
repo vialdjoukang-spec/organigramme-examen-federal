@@ -1,0 +1,142 @@
+{
+ "id": "PHY-S8-4",
+ "module": "physiologie",
+ "systeme": "S8",
+ "volet": "P",
+ "niveau": "m",
+ "fonction": "Aldostérone",
+ "definition": "L'aldostérone, sécrétée par la zone glomérulée, réabsorbe le sodium et fait excréter le potassium et les ions H+ au canal collecteur.",
+ "chaine_regulation": {
+  "capteur": "appareil juxtaglomérulaire (volume) et cellule glomérulée (kaliémie)",
+  "integrateur": "angiotensine II et potassium (ACTH accessoire)",
+  "effecteur": "récepteur minéralocorticoïde de la cellule principale du collecteur"
+ },
+ "mecanisme": [
+  "Le volume baisse ou la kaliémie monte ; l'angiotensine II ou le potassium stimulent donc la zone glomérulée",
+  "l'aldostérone se fixe au récepteur minéralocorticoïde et augmente ENaC et la Na+/K+-ATPase",
+  "le sodium est réabsorbé ; le gradient électrique fait sortir le potassium et les ions H+ dans l'urine",
+  "le volume se restaure et la kaliémie baisse ; la rénine diminue (rétrocontrôle)"
+ ],
+ "regulation": "Deux stimuli indépendants commandent l'aldostérone : l'angiotensine II (volume) et la kaliémie. Dans l'excès primaire, l'aldostérone est autonome et la rénine effondrée.",
+ "valeurs_normales": [
+  {
+   "parametre": "rapport aldostérone/rénine directe",
+   "valeur": "sous 64 (aldostérone en pmol/L, rénine en mU/L), seuil propre à la méthode",
+   "unite": "(via EX-1-S8-renine-aldosterone)"
+  },
+  {
+   "parametre": "potassium plasmatique",
+   "valeur": "3,6–4,6",
+   "unite": "mmol/L (HUG CHIMURG, via EX-1-S6-ionogramme-potassium)"
+  }
+ ],
+ "formule": {
+  "expression": "RAR = aldostérone ÷ rénine (unités du laboratoire)",
+  "usage": "On dépiste l'hyperaldostéronisme primaire par le RAR devant une HTA résistante, une HTA avec hypokaliémie ou un incidentalome surrénalien ; on confirme ensuite par un test de freinage.",
+  "exemple": "Aldostérone 600 pmol/L, rénine directe 3 mU/L : RAR = 200, au-dessus de 64 : le dépistage est positif."
+ },
+ "dereglements": [
+  {
+   "affection": "adénome de Conn",
+   "pp": "PP-S8-T",
+   "semiologie": []
+  },
+  {
+   "affection": "maladie d'Addison (déficit minéralocorticoïde)",
+   "pp": "PP-S8-A",
+   "semiologie": [
+    "SY-53"
+   ]
+  },
+  {
+   "affection": "sténose de l'artère rénale (hyperaldostéronisme secondaire)",
+   "pp": "PP-S6-V",
+   "semiologie": [
+    "SY-17"
+   ]
+  },
+  {
+   "affection": "hyperkaliémie",
+   "pp": "PP-S6-F",
+   "semiologie": [
+    "SY-42"
+   ]
+  }
+ ],
+ "cibles_pharmacologiques": [
+  {
+   "classe": "antagoniste du récepteur minéralocorticoïde (spironolactone, éplérénone)",
+   "pourquoi": "il bloque l'aldostérone : il traite le Conn et l'insuffisance cardiaque, mais élève la kaliémie"
+  },
+  {
+   "classe": "fludrocortisone",
+   "pourquoi": "elle remplace l'aldostérone dans l'insuffisance surrénale primaire"
+  },
+  {
+   "classe": "IEC ou sartan",
+   "pourquoi": "il réduit la stimulation par l'angiotensine II, donc l'aldostérone"
+  }
+ ],
+ "lien_clinique": "HTA + hypokaliémie spontanée = on dose aldostérone et rénine avant de modifier le traitement, car plusieurs antihypertenseurs faussent le RAR.",
+ "mnemotechnique": "« Aldostérone : Absorbe le sodium, Abandonne le potassium. »",
+ "sources": [
+  {
+   "ref": "CHUV, catalogue des analyses (aldostérone) et notices du Service de néphrologie ; SFE/SFHTA/AFCE 2016 (européen)",
+   "origine": "Suisse",
+   "statut": "lu par la fiche EX-1-S8-renine-aldosterone le 13.11.2026 ; non relu ici",
+   "via": "EX-1-S8-renine-aldosterone"
+  },
+  {
+   "ref": "HUG, Répertoire des prestations d'analyses (RPA), Chimie clinique des urgences, fiche potassium (03.09.2025) ; Revue Médicale Suisse 2018;14:406-10 (hyperkaliémie)",
+   "origine": "Suisse",
+   "statut": "lu par la fiche EX-1-S6-ionogramme-potassium le 13.11.2026 ; non relu ici",
+   "via": "EX-1-S6-ionogramme-potassium"
+  },
+  {
+   "ref": "Physiologie classique rédigée en posture d'expert (déduction)",
+   "origine": "aucune source lue",
+   "statut": "non lu : à vérifier contre une source suisse ou européenne (non vérifié CH)"
+  }
+ ],
+ "passerelles": [
+  {
+   "vers": "physiopathologie",
+   "id": "PP-S8-T"
+  },
+  {
+   "vers": "physiopathologie",
+   "id": "PP-S8-A"
+  },
+  {
+   "vers": "physiopathologie",
+   "id": "PP-S6-V"
+  },
+  {
+   "vers": "physiopathologie",
+   "id": "PP-S6-F"
+  },
+  {
+   "vers": "examens",
+   "id": "EX-1-S8-renine-aldosterone"
+  },
+  {
+   "vers": "examens",
+   "id": "EX-1-S6-ionogramme-potassium"
+  },
+  {
+   "vers": "examens",
+   "id": "EX-2-S8-tdm-surrenales"
+  },
+  {
+   "vers": "pharmacologie",
+   "id": "PH-S8-chaine"
+  },
+  {
+   "vers": "sciences fondamentales",
+   "id": "SF-S8-physiologie"
+  }
+ ],
+ "honnetete": "Les mécanismes sont rédigés en posture d'expert sans relecture d'une source suisse phrase par phrase ; seules les valeurs étiquetées HUG, Insel ou CHUV proviennent de laboratoires suisses, lues par les fiches EX citées. Les mentions « non vérifié CH » restent à vérifier. Aucune dose n'est donnée.",
+ "statut": "rédigé, à auditer",
+ "date": "14.11.2026"
+}

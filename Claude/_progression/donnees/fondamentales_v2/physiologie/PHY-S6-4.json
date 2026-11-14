@@ -1,0 +1,138 @@
+{
+ "id": "PHY-S6-4",
+ "module": "physiologie",
+ "systeme": "S6",
+ "volet": "P",
+ "niveau": "m",
+ "fonction": "Équilibre sodé et volume extracellulaire",
+ "definition": "Le capital sodé fixe le volume extracellulaire ; la natrémie, elle, reflète le bilan de l'eau.",
+ "chaine_regulation": {
+  "capteur": "barorécepteurs (sinus carotidien, oreillettes) et artériole afférente",
+  "integrateur": "système rénine-angiotensine-aldostérone, sympathique, peptides natriurétiques",
+  "effecteur": "tubule rénal (proximal et collecteur)"
+ },
+ "mecanisme": [
+  "Le volume circulant efficace baisse ; l'appareil juxtaglomérulaire libère donc la rénine",
+  "la rénine forme l'angiotensine I, que l'enzyme de conversion transforme en angiotensine II",
+  "l'angiotensine II contracte les artérioles, réabsorbe le sodium au proximal et libère l'aldostérone",
+  "l'aldostérone réabsorbe le sodium au collecteur ; le volume se restaure",
+  "à l'inverse, la distension des oreillettes libère les peptides natriurétiques, qui font excréter le sodium"
+ ],
+ "regulation": "Le volume commande le sodium (rénine, aldostérone, peptides natriurétiques) ; l'osmolalité commande l'eau (ADH, soif). Les deux systèmes se croisent quand l'hypovolémie est majeure.",
+ "valeurs_normales": [
+  {
+   "parametre": "sodium plasmatique",
+   "valeur": "136–144",
+   "unite": "mmol/L (HUG CHIMURG, 03.09.2025, via EX-1-S6-ionogramme-sodium-osmolalite)"
+  },
+  {
+   "parametre": "sodium urinaire de 24 h",
+   "valeur": "40–220 selon l'apport",
+   "unite": "mmol/24 h (HUG CHIMURG, via EX-1-S6-ionogramme-sodium-osmolalite)"
+  }
+ ],
+ "formule": {
+  "expression": "FENa (%) = (Na urinaire × créatinine plasmatique) ÷ (Na plasmatique × créatinine urinaire) × 100",
+  "usage": "Devant une insuffisance rénale aiguë sans diurétique, une FENa basse (< 1 %, non vérifié CH) indique un rein qui retient le sodium : l'atteinte est pré-rénale.",
+  "exemple": "Na urinaire 10 mmol/L, créatinine plasmatique 200 µmol/L, Na plasmatique 140 mmol/L, créatinine urinaire 10 000 µmol/L : (10 × 200) ÷ (140 × 10 000) × 100 ≈ 0,14 % : pré-rénal."
+ },
+ "dereglements": [
+  {
+   "affection": "insuffisance rénale aiguë pré-rénale",
+   "pp": "PP-S6-F",
+   "semiologie": [
+    "SY-81",
+    "SY-42"
+   ]
+  },
+  {
+   "affection": "dysnatrémies",
+   "pp": "PP-S6-F",
+   "semiologie": [
+    "SY-57"
+   ]
+  },
+  {
+   "affection": "sténose de l'artère rénale",
+   "pp": "PP-S6-V",
+   "semiologie": [
+    "SY-17"
+   ]
+  },
+  {
+   "affection": "cirrhose (rétention sodée, ascite)",
+   "pp": "PP-S5-D",
+   "semiologie": [
+    "SY-36"
+   ]
+  }
+ ],
+ "cibles_pharmacologiques": [
+  {
+   "classe": "diurétique",
+   "pourquoi": "il augmente l'excrétion du sodium, donc il réduit le volume extracellulaire (œdèmes, HTA)"
+  },
+  {
+   "classe": "IEC, sartan",
+   "pourquoi": "il interrompt l'axe rénine-angiotensine et baisse la rétention sodée"
+  },
+  {
+   "classe": "soluté salé isotonique",
+   "pourquoi": "il restaure le volume extracellulaire quand le sodium manque"
+  }
+ ],
+ "lien_clinique": "On sépare donc trouble du sel (volume : œdèmes ou déshydratation extracellulaire) et trouble de l'eau (natrémie) ; une hyponatrémie peut coexister avec un excès de sodium total (insuffisance cardiaque).",
+ "mnemotechnique": "« Le Sel fait le Volume, l'Eau fait la Natrémie. »",
+ "sources": [
+  {
+   "ref": "HUG, Répertoire des prestations d'analyses (RPA), Chimie clinique des urgences, fiche sodium (03.09.2025) ; Revue Médicale Suisse 2010 (osmolalité)",
+   "origine": "Suisse",
+   "statut": "lu par la fiche EX-1-S6-ionogramme-sodium-osmolalite le 13.11.2026 ; non relu ici",
+   "via": "EX-1-S6-ionogramme-sodium-osmolalite"
+  },
+  {
+   "ref": "HUG, Répertoire des prestations d'analyses (RPA), Chimie clinique des urgences, fiches créatinine, urée, cystatine C (03.09.2025)",
+   "origine": "Suisse",
+   "statut": "lu par la fiche EX-1-S6-creatinine-dfg-uree le 13.11.2026 ; non relu ici",
+   "via": "EX-1-S6-creatinine-dfg-uree"
+  },
+  {
+   "ref": "Physiologie classique rédigée en posture d'expert (déduction)",
+   "origine": "aucune source lue",
+   "statut": "non lu : à vérifier contre une source suisse ou européenne (non vérifié CH)"
+  }
+ ],
+ "passerelles": [
+  {
+   "vers": "physiopathologie",
+   "id": "PP-S6-F"
+  },
+  {
+   "vers": "physiopathologie",
+   "id": "PP-S6-V"
+  },
+  {
+   "vers": "physiopathologie",
+   "id": "PP-S5-D"
+  },
+  {
+   "vers": "examens",
+   "id": "EX-1-S6-ionogramme-sodium-osmolalite"
+  },
+  {
+   "vers": "examens",
+   "id": "EX-1-S6-creatinine-dfg-uree"
+  },
+  {
+   "vers": "pharmacologie",
+   "id": "PH-S6-chaine"
+  },
+  {
+   "vers": "sciences fondamentales",
+   "id": "SF-S6-physiologie"
+  }
+ ],
+ "honnetete": "Les mécanismes sont rédigés en posture d'expert sans relecture d'une source suisse phrase par phrase ; seules les valeurs étiquetées HUG, Insel ou CHUV proviennent de laboratoires suisses, lues par les fiches EX citées. Les mentions « non vérifié CH » restent à vérifier. Aucune dose n'est donnée.",
+ "statut": "rédigé, à auditer",
+ "date": "14.11.2026"
+}

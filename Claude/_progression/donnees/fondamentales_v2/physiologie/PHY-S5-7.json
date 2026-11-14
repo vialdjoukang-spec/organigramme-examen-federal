@@ -1,0 +1,126 @@
+{
+ "id": "PHY-S5-7",
+ "module": "physiologie",
+ "systeme": "S5",
+ "volet": "B",
+ "niveau": "m",
+ "fonction": "Métabolisme de la bilirubine",
+ "definition": "La bilirubine provient de la dégradation de l'hème ; le foie la conjugue pour la rendre hydrosoluble et l'excréter dans la bile.",
+ "chaine_regulation": {
+  "capteur": "macrophage splénique, qui dégrade les érythrocytes vieillis",
+  "integrateur": "UDP-glucuronyltransférase (UGT1A1) hépatique",
+  "effecteur": "transporteur canaliculaire (MRP2) et voies biliaires"
+ },
+ "mecanisme": [
+  "Le macrophage dégrade l'hème en biliverdine, puis en bilirubine non conjuguée",
+  "l'albumine transporte cette bilirubine liposoluble jusqu'au foie",
+  "l'UGT1A1 la conjugue à l'acide glucuronique ; elle devient donc hydrosoluble",
+  "le canalicule l'excrète dans la bile ; les bactéries coliques la transforment en urobilinogène, dont une part revient au foie et une petite part passe dans l'urine"
+ ],
+ "regulation": "Le flux dépend de la masse érythrocytaire détruite (amont), de la capacité de conjugaison (foie) et de la perméabilité biliaire (aval).",
+ "valeurs_normales": [
+  {
+   "parametre": "bilirubine totale",
+   "valeur": "adulte 6,8–25 (HUG) ; > 19 ans < 21 (Insel)",
+   "unite": "µmol/L (via EX-1-S5-bilan-hepatique-asat-alat-pal)"
+  },
+  {
+   "parametre": "bilirubine conjuguée",
+   "valeur": "adulte 0,49–9,5 (HUG) ; ≤ 5 (Insel)",
+   "unite": "µmol/L (via EX-1-S5-bilan-hepatique-asat-alat-pal)"
+  }
+ ],
+ "formule": {
+  "expression": "bilirubine non conjuguée = bilirubine totale − bilirubine conjuguée",
+  "usage": "On calcule la fraction libre pour orienter : libre prédominante → hémolyse ou Gilbert ; conjuguée prédominante → cholestase ou atteinte hépatocellulaire.",
+  "exemple": "Totale 45 µmol/L, conjuguée 4 µmol/L : libre = 41 µmol/L ; elle prédomine, donc on recherche une hémolyse, puis un Gilbert si l'hémolyse manque."
+ },
+ "dereglements": [
+  {
+   "affection": "syndrome de Gilbert",
+   "pp": "PP-S5-C",
+   "semiologie": []
+  },
+  {
+   "affection": "atrésie des voies biliaires",
+   "pp": "PP-S5-C",
+   "semiologie": [
+    "SY-35",
+    "S-32"
+   ]
+  },
+  {
+   "affection": "cholangite biliaire primitive",
+   "pp": "PP-S5-A",
+   "semiologie": [
+    "SY-35"
+   ]
+  },
+  {
+   "affection": "hépatites virales",
+   "pp": "PP-S5-I",
+   "semiologie": [
+    "SY-37",
+    "SY-35"
+   ]
+  }
+ ],
+ "cibles_pharmacologiques": [
+  {
+   "classe": "photothérapie (néonatale)",
+   "pourquoi": "elle isomérise la bilirubine libre en forme hydrosoluble éliminée sans conjugaison"
+  },
+  {
+   "classe": "inducteur enzymatique (phénobarbital)",
+   "pourquoi": "il augmente l'activité de l'UGT1A1 ; on l'évoque en physiopathologie (Crigler-Najjar de type 2)"
+  }
+ ],
+ "lien_clinique": "Une urine foncée signe une bilirubine conjuguée, car seule la forme hydrosoluble passe le filtre glomérulaire ; des selles décolorées signent l'obstacle biliaire.",
+ "mnemotechnique": "« Libre = Lysis (hémolyse) ; Conjuguée = Cholestase. »",
+ "sources": [
+  {
+   "ref": "HUG, Répertoire des prestations d'analyses (RPA), Chimie clinique des urgences ; Insel Gruppe, ZLM Berne : Cobas PRO – Referenzwerte Klinische Chemie, v21.0 du 25.06.2026",
+   "origine": "Suisse",
+   "statut": "lu par la fiche EX-1-S5-bilan-hepatique-asat-alat-pal le 13.11.2026 ; non relu ici",
+   "via": "EX-1-S5-bilan-hepatique-asat-alat-pal"
+  },
+  {
+   "ref": "Physiologie classique rédigée en posture d'expert (déduction)",
+   "origine": "aucune source lue",
+   "statut": "non lu : à vérifier contre une source suisse ou européenne (non vérifié CH)"
+  }
+ ],
+ "passerelles": [
+  {
+   "vers": "physiopathologie",
+   "id": "PP-S5-C"
+  },
+  {
+   "vers": "physiopathologie",
+   "id": "PP-S5-A"
+  },
+  {
+   "vers": "physiopathologie",
+   "id": "PP-S5-I"
+  },
+  {
+   "vers": "examens",
+   "id": "EX-1-S5-bilan-hepatique-asat-alat-pal"
+  },
+  {
+   "vers": "examens",
+   "id": "EX-1-S10-hemolyse-haptoglobine-ldh-bilirubine"
+  },
+  {
+   "vers": "pharmacologie",
+   "id": "PH-S5-chaine"
+  },
+  {
+   "vers": "sciences fondamentales",
+   "id": "SF-S5-physiologie"
+  }
+ ],
+ "honnetete": "Les mécanismes sont rédigés en posture d'expert sans relecture d'une source suisse phrase par phrase ; seules les valeurs étiquetées HUG, Insel ou CHUV proviennent de laboratoires suisses, lues par les fiches EX citées. Les mentions « non vérifié CH » restent à vérifier. Aucune dose n'est donnée.",
+ "statut": "rédigé, à auditer",
+ "date": "14.11.2026"
+}
