@@ -70,4 +70,9 @@ IMG-279 | introuvable | dissociation scapho-lunaire écartée | un nom est lisib
 IMG-278 | partiel | Heilman, CC BY-SA 4.0, fracture du tubercule du scaphoïde, flèche source | une incidence, pas la série dédiée
 IMG-277 | partiel | Hellerhoff, CC BY-SA 3.0, Salter-Harris II du radius, face et profil | fracture de l'enfant, pas de l'adulte
 IMG-276 | introuvable | pas d'échographie de bursite olécrânienne | radiographies et IRM seulement
+IMG-275 | introuvable | pas d'échographie d'épicondylopathie latérale | recherches Commons vides
+IMG-274 | partiel | Jane Agnes, CC BY-SA 3.0, Monteggia, fracture de l'ulna droite | une incidence ; luxation radiale seulement dans la légende
+IMG-273 | partiel | Zimmermann, CC BY-SA 3.0 de, tête radiale, flèche source | profil absent de ce fichier
+IMG-272 | partiel | Heilman, CC BY-SA 4.0, signes de la voile, fracture supracondylienne | pas de face ; trait discret
+IMG-271 | partiel | cdang, CC BY-SA 3.0, disjonction acromio-claviculaire gauche | pas de clichés comparatifs ; vis anciennes
 

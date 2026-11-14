@@ -127,3 +127,12 @@ Reprise : IMG-280.
 - Épargné par les scripts (estimation) : le filtre a écarté les atlas hors licence avant lecture. Le gain chiffré n'est pas mesuré.
 
 Reprise : IMG-275.
+
+## Passe IMG-275 à IMG-271
+
+- Éléments traités : 5 diagnostics. Quatre partiels, un introuvable. Aucun complet.
+- Appels de jugement visuel : environ 10 lectures. Le contour de Monteggia a été descendu sur la fracture de l'ulna. Estimation.
+- Durée : une passe, non chronométrée. Estimation.
+- Épargné par les scripts (estimation) : les catégories ont donné la légende avant la lecture. Le gain chiffré n'est pas mesuré.
+
+Reprise : IMG-270.
