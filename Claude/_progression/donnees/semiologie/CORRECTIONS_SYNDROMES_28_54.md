@@ -45,3 +45,17 @@ Réponse à `AUDIT_SYNDROMES_28_54.md`. Les doses ont été relues par URL refda
 - délai d'endoscopie dans l'hémorragie variqueuse
 - schéma de l'infection génitale haute (IUSTI 2017)
 - AIPS du gluconate de calcium injectable, absente du corpus
+
+## Tour 2 (réponse à AUDIT_SYNDROMES_28_54_V2.md)
+- **G4, SY-54** : les seuils de potassium suivent désormais le PATCH mot pour mot.
+  - Paliers : K⁺ > 5,5 mmol/l, pas de potassium ; 3,5–5,5 mmol/l, 40 mmol de KCl par litre ; < 3,5 mmol/l, avis senior et potassium supplémentaire. La fiche les attribue à JBDS (source britannique, via des protocoles secondaires, texte non lu, À vérifier).
+  - La concentration de 40 mmol/l est conforme à l'AIPS Kaliumchlorid B. Braun n° 29552.
+  - Le seuil d'insuline différée < 3,3 mmol/l est attribué à l'ADA (source américaine : Kitabchi 2009, non lu), ajoutée aux sources.
+- **L1** : la mention « (en perfusion continue) » suit désormais le maximum de 100 mg/j de morphine dans SY-28, 32, 43 et 48.
+- **L2** : le renvoi à la posologie pédiatrique est supprimé de SY-48 ; la dose adulte s'applique au cas de 14 ans.
+- **L3** : les images n'ont pas pu être recadrées depuis l'original en pleine résolution.
+  - Wikimedia a refusé le téléchargement (HTTP 429, « robot policy »).
+  - SY-50 : l'original ne fait que 300 px, et le recadrage de 120 px est donc le maximum possible.
+  - SY-35 : à refaire depuis la vignette de 960 px dès que l'accès est rétabli.
+- **L4, SY-42** : le premier drapeau rouge précise « hyperkaliémie réfractaire ».
+- Les 27 JSON passent json.load. Ni commit ni push.

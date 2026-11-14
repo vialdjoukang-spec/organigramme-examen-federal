@@ -1,0 +1,174 @@
+{
+  "id": "A-MOT-4",
+  "titre": "Syncope et malaise",
+  "systeme": "S3 — Cardiovasculaire",
+  "niveau": "m",
+  "ssp": "149, 217",
+  "ouverture": "Racontez-moi le malaise depuis le début, comme un film : où étiez-vous, que faisiez-vous ?",
+  "questions": [
+    {
+      "axe": "Temps",
+      "items": [
+        "Quand cela s'est-il passé ?",
+        "Combien de temps êtes-vous resté sans connaissance, selon les témoins ?",
+        "Combien de temps avez-vous mis pour retrouver vos esprits ?",
+        "Est-ce déjà arrivé ? Combien de fois, depuis combien d'années ?"
+      ]
+    },
+    {
+      "axe": "Lieu",
+      "items": [
+        "Où étiez-vous : debout, assis, couché ? Dans un endroit chaud ou bondé ?"
+      ]
+    },
+    {
+      "axe": "Caractéristiques",
+      "items": [
+        "Avez-vous senti venir le malaise : chaleur, sueurs, nausées, vision qui se brouille ?",
+        "Ou bien est-ce arrivé d'un coup, sans aucun signe avant ?",
+        "Avez-vous eu des palpitations ou une douleur dans la poitrine juste avant ?",
+        "Vous êtes-vous mordu la langue, sur le côté ? Avez-vous uriné sur vous ?",
+        "Les témoins ont-ils vu des secousses ? Combien de temps ?",
+        "Étiez-vous confus après, pendant plusieurs minutes ?",
+        "Vous êtes-vous blessé en tombant ?"
+      ]
+    },
+    {
+      "axe": "Facteurs d'influence",
+      "items": [
+        "Est-ce arrivé pendant un effort, ou couché ?",
+        "Est-ce arrivé en vous levant, en toussant, en urinant, en allant à selle, après un repas ?",
+        "Est-ce arrivé après une émotion, une douleur ou la vue du sang ?",
+        "Est-ce arrivé en tournant la tête ou en serrant une cravate ?"
+      ]
+    },
+    {
+      "axe": "Contexte (ATCD, médicaments, habitudes, famille, social)",
+      "items": [
+        "Avez-vous une maladie du cœur, un infarctus, une insuffisance cardiaque ?",
+        "Quels médicaments prenez-vous, en particulier contre la tension, pour uriner, pour la prostate ?",
+        "Quelqu'un de votre famille est-il mort subitement jeune ?",
+        "Avez-vous eu des selles noires ou des saignements ?",
+        "Êtes-vous diabétique ? Avez-vous mangé ?",
+        "Êtes-vous enceinte ou est-ce possible ?",
+        "Conduisez-vous ? Quel est votre métier ?"
+      ]
+    }
+  ],
+  "drapeaux_rouges": [
+    {
+      "question": "Le malaise est-il survenu pendant un effort ou en position couchée ?",
+      "si_oui": "Critère de haut risque (HUG 2024) : origine cardiaque probable ; ECG, monitorage, avis spécialisé."
+    },
+    {
+      "question": "Avez-vous eu des palpitations juste avant de perdre connaissance ?",
+      "si_oui": "Critère de haut risque : arythmie ; monitorage."
+    },
+    {
+      "question": "Est-ce arrivé sans aucun signe avant-coureur, en moins de 10 secondes ?",
+      "si_oui": "Syncope « à l'emporte-pièce », critère de haut risque : rythmique jusqu'à preuve du contraire."
+    },
+    {
+      "question": "Avez-vous eu d'un coup une douleur thoracique, un essoufflement, une douleur abdominale ou un mal de tête ?",
+      "si_oui": "Syncope « pointe de l'iceberg » : SCA, embolie pulmonaire, anévrisme aortique, GEU, hémorragie sous-arachnoïdienne (HUG 2024)."
+    },
+    {
+      "question": "Avez-vous une maladie du cœur connue ?",
+      "si_oui": "Cardiopathie structurelle sévère ou coronarienne : critère de haut risque."
+    },
+    {
+      "question": "Y a-t-il eu des morts subites jeunes dans votre famille ?",
+      "si_oui": "Critère de haut risque : canalopathie ou cardiomyopathie héréditaire."
+    },
+    {
+      "question": "Avez-vous eu des selles noires ?",
+      "si_oui": "Hémorragie digestive (SY-38) : critère de haut risque à l'examen."
+    }
+  ],
+  "hypotheses": [
+    {
+      "lettre": "V — Cardiaque",
+      "diagnostics": [
+        "arythmie (bloc AV de haut degré, tachycardie ventriculaire)",
+        "sténose aortique",
+        "cardiomyopathie hypertrophique",
+        "embolie pulmonaire",
+        "dissection aortique"
+      ],
+      "question_discriminante": "Est-ce arrivé à l'effort ou couché, sans prodrome ?"
+    },
+    {
+      "lettre": "F — Réflexe (vasovagale, situationnelle, sinus carotidien)",
+      "diagnostics": [
+        "syncope vasovagale",
+        "syncope de miction, de toux, de défécation",
+        "hypersensibilité du sinus carotidien"
+      ],
+      "question_discriminante": "Avez-vous eu chaud, des sueurs et des nausées juste avant, debout ou dans un lieu bondé ?"
+    },
+    {
+      "lettre": "Ia — Hypotension orthostatique",
+      "diagnostics": [
+        "médicamenteuse (antihypertenseurs, diurétiques, alpha-bloquants)",
+        "hypovolémie, hémorragie",
+        "dysautonomie (diabète, Parkinson)"
+      ],
+      "question_discriminante": "Est-ce arrivé dans les minutes qui ont suivi le passage en position debout ?"
+    },
+    {
+      "lettre": "Diagnostic différentiel (non syncopal)",
+      "diagnostics": [
+        "crise épileptique",
+        "hypoglycémie",
+        "AVC ou AIT vertébro-basilaire (rare)",
+        "chute mécanique",
+        "crise psychogène"
+      ],
+      "question_discriminante": "Étiez-vous confus longtemps après, avec une morsure latérale de langue ?"
+    }
+  ],
+  "idees_craintes_attentes": [
+    "Qu'avez-vous pensé quand c'est arrivé ?",
+    "Qu'est-ce qui vous inquiète le plus : le cœur, le cerveau, que cela recommence ?",
+    "Qu'attendez-vous de moi, par exemple pour la conduite ou le travail ?"
+  ],
+  "liens": {
+    "status": [
+      "S-01",
+      "S-10",
+      "S-23",
+      "S-26",
+      "S-27",
+      "S-15"
+    ],
+    "syndromes": [
+      "SY-21",
+      "SY-38",
+      "SY-46",
+      "SY-25",
+      "SY-55",
+      "SY-81"
+    ],
+    "imagerie": [
+      "IMG-148",
+      "IMG-154",
+      "IMG-125",
+      "IMG-209",
+      "IMG-258",
+      "IMG-003"
+    ]
+  },
+  "synthese_cs": "Monsieur X, 67 ans, a perdu connaissance brutalement pendant qu'il montait les escaliers, sans prodrome, avec récupération immédiate ; il a un souffle systolique non connu. Cette syncope d'effort sans prodrome est à haut risque et oriente vers une sténose aortique ou une arythmie : je demande ECG, monitorage et échocardiographie.",
+  "pieges": [
+    "Confondre syncope et crise épileptique : quelques secousses brèves sont fréquentes dans la syncope ; la confusion prolongée et la morsure latérale orientent vers l'épilepsie.",
+    "Oublier de demander au témoin : il est la meilleure source (EPA 1.5).",
+    "Oublier la mesure de la PA couché puis debout (S-01).",
+    "Oublier les conséquences sur la conduite automobile."
+  ],
+  "sources": [
+    "HUG, Service de médecine de premier recours (SMPR), Stratégie « Syncope », 2024 (critères de haut et de bas risque à l'anamnèse) — lu (14.11.2026)",
+    "ASSM, « La communication dans la médecine au quotidien », guide pratique, 3e éd. 2022 (texte inchangé depuis 2019), § 2.2 ARRR et § 3.2 Anamnèse (axes Temps, Lieu, Caractéristiques, Facteurs d'influence), CC BY 4.0, DOI 10.5281/zenodo.7148494 — lu (texte intégral, 14.11.2026)",
+    "PROFILES 2017, Joint Commission of the Swiss Medical Schools : EPA 1 (1.1 à 1.13, 1a à 1g) et liste des situations SSP — lu (texte intégral, 14.11.2026)",
+    "ESC 2018, Guidelines for the diagnosis and management of syncope (source européenne) — résumé (via HUG 2024)"
+  ]
+}

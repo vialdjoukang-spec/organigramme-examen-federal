@@ -47,3 +47,6 @@ L3 : les recadrages SY-35 (≈ 150 px) et SY-50 (≈ 120 px) sont très petits ;
 L4 : SY-42 drapeaux[0] devrait préciser « hyperkaliémie réfractaire », comme le fait la même stratégie HUG (indications de dialyse : « troubles métaboliques réfractaires tels que … l'hyperkaliémie »).
 
 Question finale : **non** tant que G4 reste ouvert ; **oui** après G4.
+
+## Clôture
+G4 et les légers L1, L2, L4 appliqués ; L3 (recadrage plus fin de SY-35) reporté faute d'accès à Commons (429), image déjà sans visage identifiable : **audit-ok** pour SY-28 à SY-54.

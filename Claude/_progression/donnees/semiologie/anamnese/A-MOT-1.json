@@ -1,0 +1,176 @@
+{
+  "id": "A-MOT-1",
+  "titre": "Douleur thoracique",
+  "systeme": "S3 — Cardiovasculaire",
+  "niveau": "m",
+  "ssp": "44, 204 (et 43, 51)",
+  "ouverture": "Racontez-moi ce qui s'est passé avec cette douleur dans la poitrine.",
+  "questions": [
+    {
+      "axe": "Temps",
+      "items": [
+        "Quand la douleur a-t-elle commencé ?",
+        "Est-elle venue d'un coup, en une seconde, ou progressivement ?",
+        "Combien de temps dure-t-elle : quelques secondes, quelques minutes, plus de 20 minutes ?",
+        "Est-ce la première fois ? Les crises sont-elles plus fréquentes ou plus longues ces derniers jours ?"
+      ]
+    },
+    {
+      "axe": "Lieu",
+      "items": [
+        "Montrez-moi avec la main où vous avez mal.",
+        "Est-ce que la douleur part dans le bras, la mâchoire, le dos ou le ventre ?",
+        "Est-ce que la douleur a changé de place, par exemple de la poitrine vers le dos ?"
+      ]
+    },
+    {
+      "axe": "Caractéristiques",
+      "items": [
+        "Comment est la douleur : elle serre, elle pèse, elle brûle, elle déchire, elle pique ?",
+        "Combien sur 10 ?",
+        "Avez-vous transpiré, eu des nausées, été essoufflé, eu des palpitations ou un malaise ?",
+        "Avez-vous de la fièvre ou de la toux ?"
+      ]
+    },
+    {
+      "axe": "Facteurs d'influence",
+      "items": [
+        "Est-ce que la douleur apparaît à l'effort, par exemple en montant les escaliers, et disparaît au repos ?",
+        "Est-ce que la douleur augmente quand vous respirez profondément ou toussez ?",
+        "Est-ce qu'elle change selon la position, par exemple couché ou penché en avant ?",
+        "Est-ce qu'elle augmente quand j'appuie ou quand vous bougez le bras ?",
+        "Est-elle liée aux repas ?"
+      ]
+    },
+    {
+      "axe": "Contexte (ATCD, médicaments, habitudes, famille, social)",
+      "items": [
+        "Avez-vous de l'hypertension, du cholestérol, du diabète ? Fumez-vous ? Y a-t-il eu des infarctus ou des morts subites avant 55 ans chez l'homme ou 65 ans chez la femme dans votre famille proche ?",
+        "Avez-vous déjà eu un problème au cœur, une coronarographie, un stent ?",
+        "Avez-vous été immobilisé, opéré ou fait un long voyage récemment ? Prenez-vous la pilule ?",
+        "Prenez-vous de la cocaïne ou des amphétamines ?",
+        "Quels médicaments prenez-vous ?"
+      ]
+    }
+  ],
+  "drapeaux_rouges": [
+    {
+      "question": "La douleur serre-t-elle la poitrine depuis plus de 20 minutes, avec sueurs ou nausées ?",
+      "si_oui": "Syndrome coronarien aigu (SY-19) : ECG dans les 10 minutes, appel 144 hors hôpital, aspirine selon AIPS, troponine."
+    },
+    {
+      "question": "La douleur a-t-elle commencé d'un coup, comme un coup de couteau qui déchire, et migre-t-elle dans le dos ?",
+      "si_oui": "Dissection aortique (SY-25) : mesurer la PA aux deux bras, éviter les anticoagulants, angio-TDM en urgence (IMG-154)."
+    },
+    {
+      "question": "Êtes-vous essoufflé, avec une douleur qui augmente à l'inspiration, et une jambe gonflée ?",
+      "si_oui": "Embolie pulmonaire : score de probabilité clinique, D-dimères ou angio-TDM (IMG-125)."
+    },
+    {
+      "question": "La douleur a-t-elle commencé d'un coup avec un essoufflement, d'un seul côté ?",
+      "si_oui": "Pneumothorax (SY-28) : auscultation, percussion ; décompression si signes de tension."
+    },
+    {
+      "question": "Avez-vous fait un malaise ou perdu connaissance ?",
+      "si_oui": "Signe de gravité hémodynamique ou de trouble du rythme : monitorage immédiat."
+    },
+    {
+      "question": "Avez-vous vomi violemment juste avant la douleur ?",
+      "si_oui": "Rupture œsophagienne (syndrome de Boerhaave, IMG-140) : TDM thoracique."
+    }
+  ],
+  "hypotheses": [
+    {
+      "lettre": "V — Vasculaire",
+      "diagnostics": [
+        "syndrome coronarien aigu",
+        "dissection aortique",
+        "embolie pulmonaire",
+        "tamponnade (SY-20)",
+        "angor stable"
+      ],
+      "question_discriminante": "Est-ce que la douleur apparaît à l'effort et cède au repos en quelques minutes ?"
+    },
+    {
+      "lettre": "I — Infectieux et inflammatoire",
+      "diagnostics": [
+        "péricardite (douleur soulagée penché en avant)",
+        "pneumonie avec pleurésie",
+        "myocardite",
+        "zona"
+      ],
+      "question_discriminante": "Est-ce que la douleur diminue quand vous vous penchez en avant ?"
+    },
+    {
+      "lettre": "Tr — Traumatique et mécanique",
+      "diagnostics": [
+        "pneumothorax",
+        "fracture de côte",
+        "douleur pariétale musculo-squelettique"
+      ],
+      "question_discriminante": "Est-ce que je reproduis exactement votre douleur en appuyant ici ?"
+    },
+    {
+      "lettre": "F — Fonctionnel et digestif",
+      "diagnostics": [
+        "reflux gastro-œsophagien",
+        "spasme œsophagien",
+        "attaque de panique"
+      ],
+      "question_discriminante": "La douleur survient-elle après les repas ou couché, avec une remontée acide ?"
+    },
+    {
+      "lettre": "Ia/T — Iatrogène ou tumoral",
+      "diagnostics": [
+        "vasospasme sous cocaïne",
+        "cancer bronchique ou métastase costale"
+      ],
+      "question_discriminante": "Avez-vous maigri ou consommé de la cocaïne ?"
+    }
+  ],
+  "idees_craintes_attentes": [
+    "Qu'est-ce que vous pensez que c'est ?",
+    "Est-ce que vous craignez quelque chose de précis, par exemple un infarctus comme quelqu'un de votre entourage ?",
+    "Qu'attendez-vous de moi aujourd'hui ?"
+  ],
+  "liens": {
+    "status": [
+      "S-01",
+      "S-09",
+      "S-10",
+      "S-23",
+      "S-24"
+    ],
+    "syndromes": [
+      "SY-19",
+      "SY-25",
+      "SY-28",
+      "SY-20",
+      "SY-21",
+      "SY-17"
+    ],
+    "imagerie": [
+      "IMG-142",
+      "IMG-143",
+      "IMG-154",
+      "IMG-125",
+      "IMG-134",
+      "IMG-146",
+      "IMG-140"
+    ]
+  },
+  "synthese_cs": "Monsieur X, 58 ans, fumeur et hypertendu, présente depuis 40 minutes une douleur rétrosternale constrictive irradiant au bras gauche, avec sueurs. Je suspecte un syndrome coronarien aigu ; je demande un ECG immédiat et une troponine, et je garde la dissection aortique et l'embolie pulmonaire comme diagnostics à exclure.",
+  "pieges": [
+    "Se rassurer par une douleur reproduite à la palpation : elle n'exclut pas un syndrome coronarien.",
+    "Oublier les présentations atypiques (femme, diabétique, sujet âgé : dyspnée, fatigue, douleur épigastrique).",
+    "Ne pas mesurer la PA aux deux bras avant de conclure.",
+    "Attendre la fin de l'anamnèse pour demander l'ECG : il se fait dans les 10 minutes, en parallèle."
+  ],
+  "sources": [
+    "Universität Bern, Clinical Skills Training « Herz Kreislauf Lymphknoten », 1re version mai 2024 (Berner Anamneseschema : items de l'angor, signes d'insuffisance cardiaque gauche et droite) — lu (14.11.2026)",
+    "ASSM, « La communication dans la médecine au quotidien », guide pratique, 3e éd. 2022 (texte inchangé depuis 2019), § 2.2 ARRR et § 3.2 Anamnèse (axes Temps, Lieu, Caractéristiques, Facteurs d'influence), CC BY 4.0, DOI 10.5281/zenodo.7148494 — lu (texte intégral, 14.11.2026)",
+    "PROFILES 2017, Joint Commission of the Swiss Medical Schools : EPA 1 (1.1 à 1.13, 1a à 1g) et liste des situations SSP — lu (texte intégral, 14.11.2026)",
+    "ESC 2023, Guidelines for the management of acute coronary syndromes (source européenne) — non lu (à vérifier)",
+    "ESC 2024, Guidelines for peripheral arterial and aortic diseases (source européenne) — non lu (à vérifier)"
+  ]
+}
