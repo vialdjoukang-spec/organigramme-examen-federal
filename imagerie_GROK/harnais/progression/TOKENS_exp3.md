@@ -1,0 +1,1 @@
+EXP-076 à EXP-072. Cinq introuvables. Recherches Commons puis Open-i, une dizaine de lectures visuelles (courbes Metaxas, schéma des volumes, rapport BTL, boucle illustrative, Doppler gardés pour la suite). Le rapport BTL est écarté : date de naissance et identifiant. Les schémas dessinés de volumes ne portent pas les seuils du catalogue. Reprise : EXP-071.
