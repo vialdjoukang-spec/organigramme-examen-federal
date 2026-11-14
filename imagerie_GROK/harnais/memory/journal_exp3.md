@@ -16,3 +16,8 @@ Périmètre EXP-076 → EXP-039, ordre décroissant. Rien n'est inventé. Repris
 - EXP-064 partiel. Doppler continu ECHOpedia E00695, TR 4,28 m/s, gradient 73 mmHg. Pas de spectre normal. Le cas s'intitule sténose pulmonaire. Le seuil de 20 mmHg au cathétérisme n'est pas sur l'image.
 - EXP-063 partiel. Doppler continu E00184, insuffisance aortique, PHT 135 ms. Pas de fuite mitrale, pas de PISA, pas de spectre normal.
 - EXP-062 partiel. Doppler continu E00264 : 6,78 m/s, gradient moyen 119 mmHg, gradient maximal 184 mmHg. Pas de spectre aortique normal. Surface valvulaire absente.
+- EXP-061 introuvable. Aucune échocardiographie libre avec une FEVG chiffrée d'au plus 40 %. Les figures Simpson trouvées sont en licence NC.
+- EXP-060 partiel. Épreuve d'effort de J. Heuser, CC BY-SA 3.0 : sous-décalage en V6 dès 100 W, flèche de l'auteur. Le millimètre n'est pas mesuré. La colonne A sert de comparaison.
+- EXP-059 partiel. ECG de Wellens sans douleur, James Heilman : ondes T négatives en V2-V3. Pas de série d'ECG, pas de sous-décalage nommé par la légende.
+- EXP-058 partiel. STEMI antérieur, domaine public, Displaced : sus-décalage en V2-V4. Pas de 18 dérivations, amplitude non chiffrée. ECG 001 écarté : le sus-décalage annoncé n'est pas visible.
+- EXP-057 partiel. Onde J d'Osborn, WikiSysop, CC BY 3.0, encoche au point J en V4-V6. Pas de tracé de tricycliques libre. Open-i en licence NC.
