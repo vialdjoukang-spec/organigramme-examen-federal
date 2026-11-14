@@ -54,3 +54,8 @@ Périmètre réel de ce worktree (lot3, IMG-172 → IMG-087). Ordre décroissant
 - IMG-124 | partiel | Hellerhoff, CC BY-SA 3.0, atélectasie des deux lobes inférieurs ; prise antérieure du même patient | piège : le cliché pathologique est couché.
 - IMG-123 | partiel | Samir, CC BY-SA 3.0, SDRA semi-assis ; normale Häggström PA | piège : incidences différentes. Le point d'interrogation n'est pas un nom.
 - IMG-122 | partiel | Hellerhoff, CC BY-SA 4.0, œdème en ailes de papillon, décompensation cardiaque ; normale Häggström PA | piège : antéro-postérieur contre postéro-antérieur. Reprise à IMG-121.
+- IMG-121 | partiel | Yale Rosen, CC BY-SA 2.0, nodule du lobe supérieur droit avec aiguille de biopsie | piège : l'absence d'injection n'est pas écrite ; pas de TDM normale.
+- IMG-120 | partiel | Mluisamtz11, CC BY-SA 3.0, TDM haute résolution, verre dépoli et nodules centrolobulaires | piège : pas de TDM normale.
+- IMG-119 | partiel | Mluisamtz11, CC BY-SA 3.0, verre dépoli basal d'une PINS | piège : connectivite non nommée ; coupe non libellée haute résolution.
+- IMG-118 | partiel | Hellerhoff, CC BY-SA 3.0, sarcoïdose au stade de fibrose ; normale Häggström PA | piège : stades ganglionnaires absents.
+- IMG-117 | partiel | Hellerhoff, CC BY-SA 3.0, bronchectasies kystiques des bases | piège : mucoviscidose non indiquée ; coupe non libellée haute résolution. Reprise à IMG-116.

@@ -92,3 +92,10 @@ Les durées et les appels évités sont des estimations, marquées comme telles.
 - Appels de jugement visuel : environ 14 lectures (SPECT du CTEPH et pointe rentrée dans le défaut, thrombus en selle, atélectasie et ses deux bases, coins du cliché de SDRA, ailes de papillon). Estimation.
 - Durée : une passe. Estimation : Open-i a renvoyé des licences inconnues ou NC pour le SDRA et l'œdème ; la catégorie Commons a donné le cliché cardiogénique.
 - Épargné par les scripts (estimation) : `fetch_commons.py` a écarté l'histologie d'œdème ; le XML Europe PMC a fourni la figure SPECT ; `validate.py` a accepté les cinq partiels sans erreur.
+
+## IMG-121, IMG-120, IMG-119, IMG-118, IMG-117
+
+- Éléments traités : 5 diagnostics, tous partiels.
+- Appels de jugement visuel : environ 9 lectures (deux TDM de Wegener, hypersensibilité, PINS avec l'opacité ronde laissée hors du contour, fibrose de sarcoïdose, bronchectasies kystiques). Estimation.
+- Durée : une passe. Estimation : Open-i a renvoyé des licences inconnues ou NC.
+- Épargné par les scripts (estimation) : la recherche Commons a trouvé les fichiers de Yale Rosen, Mluisamtz11 et Hellerhoff ; `validate.py` a accepté les cinq partiels sans erreur.
