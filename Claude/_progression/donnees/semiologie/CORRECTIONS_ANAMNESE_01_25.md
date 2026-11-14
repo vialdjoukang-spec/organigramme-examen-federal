@@ -35,3 +35,14 @@ Ces corrections répondent à AUDIT_ANAMNESE_01_25.md et datent du 14.11.2026. J
 ## Honnêteté
 
 L'auditeur a lu les sources CFIST 2025, IENK 2026 et les check-lists de la SSP ; je ne les ai pas relues. Elles portent donc la mention « lu (audit du 14.11.2026) ». Les fichiers sources de génération du scratchpad (p1.py à p9.py) ne contiennent pas ces patchs : les JSON font foi.
+
+## Tour 2 (AUDIT_ANAMNESE_01_25_V2.md, 14.11.2026)
+
+- **V2-1 (moyen)** : dans A-SPE-1b, les drapeaux rouges [1] et [2] posaient la question à l'envers. Je les ai remplacés mot pour mot par le texte de l'audit : « ne marche-t-il toujours pas seul ? » et « dit-il moins de 10 mots ou ne réagit-il pas à son nom ? ». La réponse « oui » déclenche maintenant bien la conduite.
+- **V2-2** : la question de A-SPE-1c devient « Se trompe-t-il sur le jour ou le lieu ? (…) ».
+- **V2-3** : dans A-MOT-24, la ponctuation « 17.12.2026, soit » est corrigée.
+- **V2-4** : dans A-MOT-8, le groupe Tr/D ne mentionne plus que la « torsion testiculaire », car la torsion d'annexe figure déjà dans le groupe V.
+- **V2-5** : dans A-MOT-24, le drapeau rouge du valproate cite maintenant mot pour mot la contre-indication pendant la grossesse (AIPS Orfiril n° 43225, sept. 2025).
+- **V2-6** : les conduites nominales restantes de A-MOT-4 (haut risque, pointe de l'iceberg, cardiopathie, mort subite familiale, méléna) et de A-MOT-6 (red flags HUG 2025) sont réécrites en phrases verbales.
+- **Patch 21** : l'audit V2 le déclare clos.
+- **Validation** : les 33 JSON se rechargent avec json.load.
