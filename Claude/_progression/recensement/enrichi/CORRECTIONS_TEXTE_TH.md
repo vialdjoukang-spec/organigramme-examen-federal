@@ -50,3 +50,15 @@ Les patchs viennent de AUDIT_TEXTE_TH.md. Le champ `images` n'a pas été modifi
 - Antibiotique oral de la mastite.
 - Référence exacte de l'ERS 2025 sur les PID des connectivites.
 - EUSOBI et ERS pour la pneumopathie d'hypersensibilité.
+
+## Tour 2 (AUDIT_TEXTE_TH_V2.md, 14.11.2026) : patchs appliqués mot pour mot
+- Critique N1, 149 : bisoprolol de 1,25 à 10 mg/j par paliers (AIPS Bisoprolol Spirig HC® 70190) ; la source est ajoutée.
+- Majeur N2, 146 : doses de la péricardite selon le tableau 13 de l'ESC 2025 (AAS et ibuprofène 3×/j avec décroissance, IPP, colchicine 0,5 mg 1 ou 2×/j pendant ≥ 3 mois) ; référence complète de Schulz-Menger 2025.
+- Majeur N3, 147 et 146 : sport suspendu jusqu'à la rémission, au moins 1 mois (ESC 2025, classe I) ; la source de 147 est complétée.
+- Majeur N4, 122 : furosémide ; « ESC 2026 » n'est plus présenté comme source d'un chiffre : il reste à relire dans la section 6.1.3.1.
+- Mineurs :
+  - 149 : spironolactone 12,5–25 mg/j, cible 50 mg/j (ESC 2026, tableau 11) ;
+  - 118 : date de l'AIPS 29349 (juin 2026) ;
+  - 108 : AIPS Co-Amoxi-Mepha® i.v. 56758 ;
+  - 154 : AIPS Esmolol OrPha® 57413.
+- Images non modifiées ; JSON validé (61 entrées).
