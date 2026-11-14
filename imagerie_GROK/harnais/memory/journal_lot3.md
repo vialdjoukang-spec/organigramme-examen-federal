@@ -50,3 +50,8 @@ IMG-213 | partiel | Häggström 2019, hernie inguinale graisseuse en coupe | pas
 IMG-212 | partiel | Singh 2018, gâteau épiploïque | pas de TDM normale
 IMG-211 | partiel | Drahreg01 2010, ascite anéchogène | pas d'abdomen sans liquide
 IMG-210 | partiel | Hellerhoff 2012, achalasie barytée en bec | hernie hiatale absente
+IMG-209 | introuvable | pas d'angio-TDM triphasique d'hémorragie digestive
+IMG-208 | introuvable | pas de radiographie du cou d'une pile bouton ni d'aimants
+IMG-207 | partiel | Hellerhoff 2020, pneumatose d'entérocolite ulcéro-nécrosante | pneumatose hépatique peu distincte
+IMG-206 | introuvable | pas de Doppler mésentérique de volvulus
+IMG-205 | partiel | Gaillard 2017, signe de la cible chez un enfant de 3 ans | pas d'anse normale

@@ -39,3 +39,7 @@ Cinq diagnostics : calcul urétéral droit sans injection en partiel ; pyéloné
 ## Passage IMG-214 à IMG-210
 
 Cinq diagnostics, tous partiels : hématome de la gaine des droits, hernie inguinale graisseuse, gâteau épiploïque, ascite et achalasie barytée. Relectures pour tenir le contour hors de l'os iliaque, sur la nappe épiploïque et sur le bec baryté. Durée approximative : 25 minutes (estimation). Open-i a répondu ; les figures de gaine étaient en CC BY-NC-ND (estimation).
+
+## Passage IMG-209 à IMG-205
+
+Cinq diagnostics : pneumatose d'entérocolite et cible d'invagination en partiel ; hémorragie triphasique, pile bouton et volvulus mésentérique introuvables. Relectures de la paroi mousseuse et des anneaux concentriques. Durée approximative : 20 minutes (estimation).
