@@ -9,3 +9,5 @@ EXP-099 à EXP-095. Cinq diagnostics : un complet (EXP-095), quatre introuvables
 EXP-094 à EXP-090. Cinq diagnostics : un partiel (EXP-094), quatre introuvables. Le cliché aux marqueurs a été lu : 60 retenus, pas de nom. Le contour entoure le cadre colique. Reprise : EXP-089.
 
 EXP-089 à EXP-085. Cinq diagnostics : un complet (EXP-087), quatre introuvables. La déglutition normale et l'achalasie de type II ont été lues. Le contour est sur la bande de pressurisation. Reprise : EXP-084.
+
+EXP-084 à EXP-080. Cinq diagnostics, tous introuvables. DLCO, co-oxymétrie, marche de 6 minutes, gradient alvéolo-artériel et trouble acido-basique : aucun couple libre. Le diagramme de Davenport a été lu et écarté. Reprise : EXP-079.

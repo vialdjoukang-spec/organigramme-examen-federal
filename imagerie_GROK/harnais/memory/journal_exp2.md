@@ -48,3 +48,11 @@ Prochain id : EXP-089.
 - EXP-085 introuvable. Photos d'appareil de pression, pas de PImax, de SNIP ni de CV couchée.
 
 Prochain id : EXP-084.
+
+- EXP-084 introuvable. Pas de DLCO de surveillance. Les résultats Commons « DLCO » sont des archives hors sujet. Open-i : TDM d'emphysème.
+- EXP-083 introuvable. Photo d'un co-oxymètre Masimo, pas un résultat. Open-i : globes pâles, pas la carboxyhémoglobine.
+- EXP-082 introuvable. Pas d'oxymétrie de test de marche.
+- EXP-081 introuvable. Pas de gradient alvéolo-artériel. Open-i : radiographie et TDM.
+- EXP-080 introuvable. Diagramme de Davenport, figure 2, isoplèthe PCO2 = 40 mmHg, sans trouble légendé.
+
+Prochain id : EXP-079.
