@@ -265,7 +265,9 @@ nav.menu a:hover,nav.menu a:focus{text-decoration:underline}
 nav.menu a[aria-current=true]{border-left-color:#000;font-weight:700}
 nav.menu .absent{font-style:italic}
 .basc{display:none}
-main{padding:24px 32px 64px;max-width:1180px;min-width:0;overflow-wrap:anywhere}
+main{padding:24px 32px 64px;max-width:1180px;min-width:0}
+main p,main li,main dd,figcaption{overflow-wrap:break-word}
+.sources,.credit,.afournir{overflow-wrap:anywhere}
 main>h1{font-size:1.6rem;margin:0 0 4px;color:var(--fiche)}
 .chapeau{margin:0 0 8px}
 .alerte{border:2px solid #000;padding:8px 12px;margin:12px 0}
