@@ -392,7 +392,7 @@ def main():
         alerte = f'<p class="alerte">JSON illisible(s) sauté(s) : {e(", ".join(illisibles))}.</p>'
     page = f"""<!doctype html>
 <html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Sémiologie Status</title><style>{CSS}.vignette.occ{position:relative;overflow:hidden}.vignette.occ img{filter:blur(28px)}.vignette.occ .voile{position:absolute;inset:0;display:grid;place-items:center;background:#fff;color:#000;font-weight:700;border:2px solid #000;padding:8px;text-align:center}
+<title>Sémiologie Status</title><style>{CSS}.vignette.occ{{position:relative;overflow:hidden}}.vignette.occ img{{filter:blur(28px)}}.vignette.occ .voile{{position:absolute;inset:0;display:grid;place-items:center;background:#fff;color:#000;font-weight:700;border:2px solid #000;padding:8px;text-align:center}}
 </style></head>
 <body><a class="saut" href="#contenu">Aller au contenu</a>
 <div class="cadre">
