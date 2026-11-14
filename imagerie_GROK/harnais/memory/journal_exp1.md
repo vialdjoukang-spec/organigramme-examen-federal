@@ -64,4 +64,11 @@ Open-i, pour ces cinq requêtes, renvoie le titre « There seems to be an error 
 - EXP-120 introuvable. Jamar photographié au repos, aiguille à zéro.
 - EXP-119 introuvable. ENMG de plexus : rien de libre. Open-i en page d'erreur.
 
-Prochain id : EXP-118.
+## EXP-118 à EXP-115
+
+- EXP-118 introuvable. Conduction ulnaire au coude : rien. Le comparatif médian-ulnaire est un canal carpien. L'échographie du nerf n'est pas un ENMG.
+- EXP-117 introuvable. Test d'Allen et Doppler de l'arcade : les requêtes « Allen » ramènent des homonymes. Open-i vide.
+- EXP-116 complet. Capillaroscopie périunguéale. Normale : phénomène de Raynaud à patron normal, échelle 0,2 mm (Jmarchn, CC BY-SA 3.0). Pathologique : anse géante du patron actif (Borja Gracia Tello, CC BY 4.0), barre 50 µm à 1 mm. Le polygone entoure cette anse.
+- EXP-115 introuvable. Hystérosalpingo-sonographie de contraste : rien.
+
+Le lot EXP-153 à EXP-115 est couvert. Prochain id hors de ce lot : EXP-114.

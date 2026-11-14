@@ -19,3 +19,5 @@ Cinquième lot, EXP-133 à EXP-129. Quatre introuvables, un partiel. Le cadre ve
 Sixième lot, EXP-128 à EXP-124. Deux partiels, trois introuvables. Le cadre rouge oA a été mesuré sur les pixels du fichier, puis revu sur l'aperçu. La conduction fibulaire normale a été lue (52 m/s). Estimation. Reprise : EXP-123.
 
 Septième lot, EXP-123 à EXP-119. Un partiel, quatre introuvables. Le reflux a été relu deux fois : le polygone a été abaissé jusqu'au pic sous la ligne de base. Estimation. Reprise : EXP-118.
+
+Huitième lot, EXP-118 à EXP-115. Un complet, trois introuvables. L'anse géante a été entourée après une grille. Les scripts ont validé le complet sans avertissement. Estimation. Le lot demandé s'arrête à EXP-115. Prochain id hors lot : EXP-114.
