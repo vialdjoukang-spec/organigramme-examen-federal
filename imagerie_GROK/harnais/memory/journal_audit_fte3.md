@@ -1,0 +1,17 @@
+# Journal audit fte3
+Audit indépendant du 14.11.2026. Images ouvertes avant tout verdict. Ordre FTE-14 → FTE-01. Une fiche n'a qu'un tracé de référence.
+
+FTE-14 | confirmé | Introuvable. Le tilt relu est celui du POTS (CC BY 4.0, tachycardie posturale), pas un tracé normal. Massage sinocarotidien et tilt normal : aucun fichier. Open-i a répondu hors JSON.
+FTE-13 | confirmé | Introuvable. Aucun tracé de distance ni de saturation. La photo COSMED n'est pas un tracé. Open-i a répondu hors JSON.
+FTE-12 | confirmé | Introuvable. La catégorie ne contient que le schéma du geste, dont File:Pad abi.jpg en domaine public. Aucune onde Doppler. Open-i a répondu hors JSON.
+FTE-11 | corrigé | Introuvable maintenu. Les requêtes omettaient File:Hypertension pediatrics white coat.png, MAPA d'hypertension blouse blanche à 13 ans, et ne gardaient que l'HTA nocturne. Open-i renvoie des échocardiographies et une IRM, pas une MAPA normale.
+FTE-10 | corrigé | CC BY-SA 4.0, Sahararai, légende relue. Le rectangle prenait aussi VCO2 ; le contour est sur le sommet de VO2, courbe rouge, en fin d'épreuve. Le statut reste partiel : pas de paire, seuil non marqué, sujet non dit sain.
+FTE-09 | corrigé | CC BY-SA 3.0, J. Heuser, légende relue. L'extrait est la colonne A, bord gauche du fichier source, avant la colonne B. La pointe est ramenée sur le segment ST de V5. Le statut reste partiel : les autres dérivations et les paliers manquent, le sous-décalage commence en colonne C.
+FTE-08 | corrigé | Domaine public, Rodhullandemu. Le tirage imprime QT 372 ms et QTc 434 ms. La flèche était sur un QRS de V5 ; elle suit un QT de DII, pointe à la fin de l'onde T. Confiance moyenne. Le statut reste partiel : aucun psychotrope, pas de paire.
+FTE-07 | confirmé | CC BY-SA 3.0, Mariakeernik, légende relue. La pointe est sur le rythme cardiaque fœtal, confiance basse, libellé dans a_verifier. La source ne dit pas que le tracé est normal. Partiel, pas de paire. Date 28/07/10, pas de nom.
+FTE-06 | corrigé | L'introuvable écartait un potentiel évoqué auditif libre. File:PEATE-ABR Bilateral.jpg, CC BY-SA 4.0, USP Bauru, légende relue : ondes I, III et V marquées. Contour sur l'onde V. Partiel : pas de visuel, de somesthésique ni de moteur, la source ne dit pas normal. Pas de fichier pathologique.
+FTE-05 | corrigé | CC BY-SA 4.0, Medicus of Borg, légende relue : conduction sensitive normale du sural. Le rectangle prenait l'artefact de stimulation ; le contour est sur le potentiel de A1. Partiel : pas de conduction motrice ni d'EMG de détection.
+FTE-04 | corrigé | CC BY-SA 3.0, Nitramus, légende relue. La flèche appelait « blocage » la déflexion frontale de fermeture des yeux. Libellé corrigé, confiance basse, reporté dans a_verifier. Partiel : pas un EEG fait en psychiatrie.
+FTE-03 | corrigé | Même figure, légende relue. Le contour est resserré sur le rythme alpha occipital, après la ligne de fermeture des yeux. Partiel : adulte seulement, enfant et nouveau-né absents.
+FTE-02 | confirmé | Introuvable. Holter report.jpg relu : compte rendu DEMO, naissance 1924-09-21, pause 2166 ms, pas une bande. Cubeholter.jpg porte le nom ROSSINI GIOACCHINO et la date 07/09/2001. BTL-MEW.JPG montre des extrasystoles. Open-i : pause de 3215 ms.
+FTE-01 | corrigé | Domaine public, Rodhullandemu. Le tirage imprime un rythme sinusal normal, onde P 98 ms, PR 158 ms, QRS 78 ms. Le rectangle couvrait deux battements et la pointe était entre eux. Le contour est un complexe de DII, pointe à la fin de T. Partiel : pas de paire.
