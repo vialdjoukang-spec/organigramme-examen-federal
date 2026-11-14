@@ -109,3 +109,12 @@ Reprise : IMG-290.
 - Épargné par les scripts (estimation) : le filtre de licence et les légendes ont écarté les atlas et les schémas. Le gain chiffré n'est pas mesuré.
 
 Reprise : IMG-285.
+
+## Passe IMG-285 à IMG-281
+
+- Éléments traités : 5 diagnostics. Deux partiels, trois introuvables. Aucun complet.
+- Appels de jugement visuel : environ 4 lectures. Estimation.
+- Durée : une passe, non chronométrée. Estimation.
+- Épargné par les scripts (estimation) : les recherches vides ont clos trois introuvables. Le gain chiffré n'est pas mesuré.
+
+Reprise : IMG-280.

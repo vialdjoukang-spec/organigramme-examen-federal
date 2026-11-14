@@ -60,4 +60,9 @@ IMG-289 | partiel | Hellerhoff, CC BY-SA 3.0, fracture du col gauche selon la l�
 IMG-288 | introuvable | pas de Doppler de défilé thoraco-brachial | le vol sous-clavier est un autre diagnostic
 IMG-287 | introuvable | pas de Doppler de fistule de dialyse | la catégorie Cimino est schémas et photographies
 IMG-286 | partiel | Rosen et al., CC BY 2.0, thrombose axillaire et sous-clavière | compression non montrée
+IMG-285 | partiel | Setzner1337, CC0, âge osseux BoneXpert, fille de 7,60 ans | côté gauche non écrit
+IMG-284 | introuvable | pas d'échographie de phlegmon des gaines | recherches Commons vides
+IMG-283 | introuvable | pas d'échographie du nerf médian | la catégorie est clinique, pas échographique
+IMG-282 | introuvable | pas de goutte ni de chondrocalcinose du poignet ou du genou | les clichés de goutte vus sont des pieds
+IMG-281 | partiel | Heilman, CC BY-SA 3.0, rhizarthrose, flèche source | une seule main, côté non écrit
 
