@@ -5,7 +5,7 @@
 - 14.11.2026, bulle IMG-001 : le texte n'est plus coupé. La définition est une fiche sous l'image, dans le panneau, relue en entier sur bureau (`progression/captures-interface/IMG-001_desktop_bulle.png`, jusqu'à « Confiance : haute ») et sur mobile (`IMG-001_mobile_bulle.png`). La bande reste sur le foyer.
 - Règle de Vial du 14.11.2026 10:48, précisée : le même sexe seulement pour bassin, sein, organes génitaux. Ailleurs, adulte suffit. L'adulte vient de la légende ou d'un signe visible, noté dans `adulte_preuve`. Sans signe concluant : « À vérifier ». `validate.py` refuse un complet sans cette preuve.
 - IMG-001 patho : adulte À vérifier (ethmoïde pneumatisé, pas de suture ni de physe sur la coupe). IMG-134 : oui des deux côtés (physes humérales soudées). IMG-136 : oui des deux côtés (squelette adulte). IMG-250 : oui des deux côtés (utérus adulte) mais sexe non écrit, donc pas complet. Aucun des quatre n'est complet (séquence ou sexe).
-- Les quatre lots tournaient encore : la plateforme refuse un message tant qu'ils n'ont pas fini. La règle est dans ce journal et dans `validate.py`. L'auditeur recontrôle les preuves à l'œil.
+- Lot 3 (`bc-4e45b5d2-c132-5c1d-bc8e-97181bfc32aa`) a poussé 30 id sur cette branche (0 complet, journal `LOT3_SEXE.md`, captures `captures-interface/lot3/`). Il appliquait encore l'ancien sexe partout. La règle adulte lui a été renvoyée. IMG-243 relu : décagone régulier dans un carré, pas le bord du testicule. Ce contour n'est pas accepté.
 
 ## Faits (précédent)
 
