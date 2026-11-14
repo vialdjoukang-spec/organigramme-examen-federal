@@ -47,3 +47,7 @@ Cinq diagnostics : pneumatose d'entérocolite et cible d'invagination en partiel
 ## Passage IMG-204 à IMG-200
 
 Cinq diagnostics : pylore, colectasie, iléon terminal et bride en partiel ; pneumopéritoine introuvable. Relectures du canal pylorique, du côlon dilaté, du cercle rouge et du grêle orange. Durée approximative : 25 minutes (estimation).
+
+## Passage IMG-199 à IMG-195
+
+Cinq diagnostics : GIST fléchée, carcinome œsophagien, colite à Clostridioides et abcès de diverticulite en partiel ; stadification colorectale introuvable. Relectures pour poser le contour sur la flèche de la GIST et hors de l'os iliaque. Durée approximative : 25 minutes (estimation). Open-i a renvoyé une page d'erreur sur la stadification (estimation).

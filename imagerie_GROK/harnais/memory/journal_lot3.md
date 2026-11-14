@@ -60,3 +60,8 @@ IMG-203 | partiel | Hellerhoff 2012, colectasie d'une rectocolite, abdomen couch
 IMG-202 | partiel | Hellerhoff 2012, iléon terminal cerclé en entéro-IRM T2 | pas d'entéro-IRM normale
 IMG-201 | introuvable | pas de thorax debout de pneumopéritoine ; planche de 1906 hors licence
 IMG-200 | partiel | Hellerhoff 2023, grêle dilaté et grêle à jeun surligné | volvulus absent
+IMG-199 | partiel | Inversitus 2014, GIST sous-séreuse déjà fléchée | injection non écrite, pas de normale
+IMG-198 | partiel | Hellerhoff 2012, carcinome épidermoïde de l'œsophage, paroi circulaire | estomac absent
+IMG-197 | introuvable | pas de TDM thoraco-abdomino-pelvienne ; TEP-TDM écartée
+IMG-196 | partiel | Hellerhoff 2024, colite à Clostridioides, relief polypoïde surligné | autres colites absentes
+IMG-195 | partiel | Hellerhoff 2010, abcès de diverticulite sigmoïdienne déjà fléché | injection non écrite
