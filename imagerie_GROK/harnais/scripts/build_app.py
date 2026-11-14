@@ -6,12 +6,55 @@ CLI: python3 scripts/build_app.py [--external] [--include-test] [--out app/Radio
   --include-test : manifests TEST-*.json appliqués à leur diagnostic (champ test_of), badge TEST
 Le statut affiché est le statut VALIDÉ par validate.py (un manifest en erreur n'est jamais « complet »).
 Avant d'écrire la page, contraste.py refuse un texte sous 7:1 ou un petit libellé sous 4,5:1.
+Les cartes explicatives (survol, définition, légende, indice, Source) sont bleu ciel atténué :
+fond #E1F3FA (#87CEEB mêlé à 75 % de blanc), bordure #87CEEB, texte #0B2540, au moins 7:1.
+La page est refusée sinon.
 """
 import base64, glob, json, os, sys, html, datetime
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import validate as V
 import contraste as C
 ROOT = V.ROOT
+CARTE_FOND = "#E1F3FA"
+CARTE_BORD = "#87CEEB"
+CARTE_TEXTE = "#0B2540"
+CARTES = (
+    ".src-pop",
+    ".structTip",
+    ".codeLegend",
+    ".bub.sheet",
+    ".atip:not(:empty)",
+    ".step:not(:empty)",
+)
+
+def verifier_cartes(css_path):
+    """Refuse le gabarit si une carte explicative n'a pas le fond, la bordure et le texte imposés."""
+    style = open(css_path, encoding="utf-8").read().split("<style>", 1)[-1].split("</style>", 1)[0]
+    if C.ratio(CARTE_TEXTE, CARTE_FOND) + 1e-9 < 7:
+        return [f"carte {CARTE_TEXTE} sur {CARTE_FOND} sous 7:1"]
+    vars_ = C.variables(style)
+    manquants = []
+    for voulu in CARTES:
+        ok = False
+        for sel, decl in C.regles(style):
+            if voulu not in sel:
+                continue
+            brut_bg = decl.get("background") or decl.get("background-color") or ""
+            brut_fg = decl.get("color") or ""
+            if not brut_bg.strip() or not brut_fg.strip():
+                continue
+            bg = C.resolve(brut_bg, vars_)
+            fg = C.resolve(brut_fg, vars_)
+            morceaux = (decl.get("border") or "").split()
+            bord = C.resolve(morceaux[-1], vars_) if morceaux else None
+            if bg == CARTE_FOND.lower() and fg == CARTE_TEXTE.lower() and bord == CARTE_BORD.lower():
+                ok = True
+                break
+        if not ok:
+            manquants.append(voulu)
+    if manquants:
+        return ["carte absente ou couleurs différentes : " + ", ".join(manquants)]
+    return []
 
 def main():
     a = sys.argv[1:]
@@ -83,7 +126,7 @@ def main():
         rows.append(r)
     data = {"rows": rows, "built": datetime.datetime.now().strftime("%d.%m.%Y %H:%M"), "test": inc}
     tpl_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "app_template.html")
-    ecarts = C.check(tpl_path)
+    ecarts = C.check(tpl_path) + verifier_cartes(tpl_path)
     if ecarts:
         print("CONTRASTE refusé :", *ecarts, sep="\n - ")
         sys.exit(1)
