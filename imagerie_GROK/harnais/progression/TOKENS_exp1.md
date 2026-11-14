@@ -6,6 +6,8 @@ Lectures visuelles : une vingtaine de clichés candidats et trois aperçus de co
 
 Les scripts ont filtré les licences, servi le cache, normalisé les JPEG et validé les manifestes. Open-i a renvoyé une page d'erreur à la place de plusieurs figures : ces URL n'ont pas été réécrites à la main dans les manifestes.
 
-Reprise après ce lot : EXP-143.
+Reprise après le troisième lot : EXP-138.
+
+Troisième lot, EXP-143 à EXP-139. Cinq introuvables. Commons vide ou hors sujet. Open-i hors service (page « There seems to be an error »). Pas de lecture d'image retenue. Estimation.
 
 Second lot, EXP-148 à EXP-144. Un partiel, quatre introuvables. Le prick-test a demandé deux aperçus : le premier polygone tombait sous la papule. Les scripts ont validé sans erreur. Estimation, pas une mesure d'horloge.

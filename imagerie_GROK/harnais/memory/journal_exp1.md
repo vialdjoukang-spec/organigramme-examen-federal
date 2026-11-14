@@ -20,4 +20,14 @@ Piège : Open-i sert parfois une page HTML à la place de l'image. La figure Kas
 - EXP-145 introuvable. Photos de canopy. La courbe « Indirect calorimetry » est une épreuve d'effort, pas une calorimétrie de repos.
 - EXP-144 introuvable. Pas de graphique calcémie, PTH ou calciurie. Open-i : échographie et scintigraphie, licence NC ou absente.
 
-Prochain id : EXP-143.
+Prochain id : EXP-138.
+
+## EXP-143 à EXP-139
+
+- EXP-143 introuvable. Courbe de GnRH : Commons vide, Open-i en page d'erreur.
+- EXP-142 introuvable. Osmolalités et natriurèse : rien.
+- EXP-141 introuvable. Stimulation de la GH : rien.
+- EXP-140 introuvable. HGPO avec GH : rien.
+- EXP-139 introuvable. Jeûne de 72 h : la requête « fast » ramène un kit social et des autotests COVID.
+
+Open-i, pour ces cinq requêtes, renvoie le titre « There seems to be an error ».
