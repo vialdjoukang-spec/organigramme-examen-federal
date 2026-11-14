@@ -44,3 +44,6 @@
 ## 3. Verdict
 
 **Corrections requises (mineures en volume)**. Il reste 3 majeurs : 1 erreur nouvelle (N1) et 2 forces ESVS désormais connues (N2, N3), ainsi que 5 mineurs. Une fois ces 8 patchs appliqués tels quels, le fichier peut passer en **audit-ok** sans troisième lecture complète. Une vérification par script des 8 chaînes suffit.
+
+## Clôture
+Les 8 patchs du V2 appliqués mot pour mot (tour 2) : **audit-ok** pour le texte de AB (IMG-166 à 237). Tous les textes de l'imagerie (IMG-001 à 344) sont audit-ok.

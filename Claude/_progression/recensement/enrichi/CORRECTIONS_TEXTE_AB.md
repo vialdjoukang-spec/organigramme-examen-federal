@@ -59,3 +59,14 @@ C1–C17 sont appliqués avec la dose lue, le n° Swissmedic et le mois de mise 
 - délai sportif après mononucléose (192).
 
 Je n'ai pas vérifié moi-même les références de pages EASL 2025, BCLC 2025, ESVS 2025, IAP 2025 et ESPR 2026 : elles sont reprises de l'audit.
+
+## Tour 2 (AUDIT_TEXTE_AB_V2.md, 14.11.2026)
+J'ai appliqué les 8 patchs mot pour mot. Le champ images est inchangé et le JSON est valide.
+- **N1** (213) : HerniaSurge 2023 — la technique prépéritonéale ouverte est une alternative acceptable, sans voie préférée (faible).
+- **N2** (193) : ESVS 2025, rec. 37, 35 et 40 (IIa B / IIa C, devrait).
+- **N3** (237) : ESVS 2025, rec. 14 (I B, doit) et rec. 13 (III C, ne doit pas) ; ce dernier remplace « nutrition ».
+- **n1** : 4 lignes « AIPS AIPS » supprimées (179, 199, 202, 230).
+- **n2** (189) : Prednisolone Streuli n° 29348.
+- **n3** (229) : EAU/ESPU 2026.
+- **n4** (214) : vitamine K 10–20 mg/j i.v., indication citée.
+- **n5** (180) : source AIPS Ursofalk n° 42782 ajoutée.
