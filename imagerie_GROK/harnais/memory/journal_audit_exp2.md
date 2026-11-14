@@ -1,0 +1,8 @@
+# Journal audit exp2
+Audit indépendant du 14.11.2026. Tracés ouverts avant tout verdict. Ordre EXP-114 → EXP-100. Les manifestes n'ont pas été rédigés par l'auditeur.
+
+EXP-114 | corrigé | CC BY 4.0, Fernandes 2018, PMC6124582, texte et figure 10 relus : sous 25 cm/s insuffisance, 25–35 cm/s indéterminé. Le rectangle prenait le noir et « 25 MINUTOS », la pointe était au-dessus du spectre ; le contour suit les pics bas du volet C (13,8 cm/s) et la pointe est sur un pic. Le partiel tient : la normale n'a que deux phases, pas le flux antérograde à 10 min.
+EXP-113 | confirmé | Introuvable, aucun fichier. Recherche rejouée : File:A step of semen analysis.jpg est une photo de pot, pipette et cellule de Neubauer, pas un spermogramme. Pas de courbe ménothermique anovulatoire.
+EXP-112 | corrigé | CC BY, Almeida 2021, PMC10183866, figure 1 relue : (A) col normal, (B) col court, seuil d'hôpital ≤ 25 mm, meilleur seuil de cohorte 20 mm. Les coins se lisent 34 et 21. La pointe était au centre du canal, elle est au bord, vers le caliper. Le complet tient : même examen, mêmes plan et mesure.
+EXP-111 | corrigé | CC BY, da Silva 2007, PMC1838895, figure 3 relue (« Absent end diastolic flow »). Le trapèze couvrait les pics systoliques ; le contour et la pointe sont sur le retour à la ligne de base. Le partiel tient : vaisseau normal nommé seulement par la catégorie Commons, pas de profil biophysique. La diastole de la normale reste au-dessus de la ligne de base.
+EXP-110 | confirmé | Introuvable, aucun fichier. Recherche rejouée : seules les courbes d'HGPO hors grossesse de Powner et Jeffery, déjà écartées. Pas de courbe de grossesse.
