@@ -88,8 +88,8 @@ def europepmc(requete):
 def incidence(texte):
     t = (texte or "").lower()
     for mot, canon in (
-        ("longitud", "longitudinal"), ("coron", "coronal"), ("sagitt", "sagittal"),
-        ("axial", "axial"), ("profil", "profil"), ("transvers", "axial"),
+        ("longitud", "longitudinal"), ("lateral", "profil"), ("coron", "coronal"),
+        ("sagitt", "sagittal"), ("axial", "axial"), ("profil", "profil"), ("transvers", "axial"),
     ):
         if mot in t:
             return canon
@@ -153,6 +153,23 @@ PEDIATRIE = re.compile(
 )
 
 
+GROUPES = {
+    "tete": ("orbite", "orbit", "sinus", "crân", "cran", "facial", "céréb", "cereb", "cerveau", "encéph", "brain", "head", "skull"),
+    "cou": ("cervical", "neck", "thyro"),
+    "thorax": ("thorax", "thorac", "poumon", "lung", "chest", "plevr", "médiast", "mediast", "clav"),
+    "abdomen": ("abdomen", "abdomin", "foie", "liver", "rein", "kidney", "hépat", "hepat", "pelvis", "aorte", "navel", "ombilic"),
+    "membre": ("fémor", "femor", "inguinal", "groin", "genou", "knee"),
+}
+
+
+def groupe(texte):
+    t = (texte or "").lower()
+    for nom, mots in GROUPES.items():
+        if any(m in t for m in mots):
+            return nom
+    return ""
+
+
 def porte(candidat, tech_patho, region, sexe_patho, age_patho=""):
     raisons = []
     if PEDIATRIE.search(tech_patho or ""):
@@ -183,6 +200,10 @@ def porte(candidat, tech_patho, region, sexe_patho, age_patho=""):
     mod_p = modalite(tech_patho)
     if not mod_p or not mod_c or mod_c != mod_p:
         raisons.append("modalité non attestée ou différente")
+    g_patho = groupe(tech_patho + " " + (region or ""))
+    g_norm = groupe((candidat.get("description") or "") + " " + (candidat.get("titre") or ""))
+    if g_patho and g_norm and g_patho != g_norm:
+        raisons.append("région différente")
     if not candidat.get("thumb") and not candidat.get("octets"):
         raisons.append("pas de fichier image")
     inc_c = incidence((candidat.get("description") or "") + " " + (candidat.get("titre") or ""))
