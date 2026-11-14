@@ -2,8 +2,8 @@
 
 - `01-vue-initiale.png` — Bureau. Âges 30 et 23 ans, Source, diagnostic, zoom visible, aucune ligne.
 - `02-anatomie-paroi.png` — Étape 1, paroi cyan des deux côtés.
-- `03-anatomie-poumons.png` — Étape 2, poumons vert et turquoise, même couleur à gauche et à droite.
-- `04-anatomie-coeur.png` — Étape 3, silhouette cardiaque magenta. Le contour suit le médiastin, un peu anguleux à la pointe.
+- `03-anatomie-poumons.png` — Étape 2, poumons vert et turquoise, même couleur à gauche et à droite. À droite, le poumon droit s'arrête sur la ligne pleurale.
+- `04-anatomie-coeur.png` — Étape 3, silhouette cardiaque magenta, même ovale des deux côtés, posée sur l'opacité cardiaque.
 - `05-anatomie-diaphragme.png` — Étape 4, coupoles orange sur les bases.
 - `06-survol-poumon-droit-gauche.png` — Survol à gauche : les deux poumons droits s'allument, bulle blanche sur fond opaque.
 - `07-survol-poumon-gauche-droite.png` — Survol à droite : l'homologue gauche s'allume aussi.
