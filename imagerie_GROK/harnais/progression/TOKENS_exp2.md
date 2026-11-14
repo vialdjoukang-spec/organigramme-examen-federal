@@ -7,3 +7,5 @@ EXP-104 à EXP-100. Cinq diagnostics : deux partiels (EXP-102, EXP-100), trois i
 EXP-099 à EXP-095. Cinq diagnostics : un complet (EXP-095), quatre introuvables. La VCTE a été lue : 3 kPa en haut, 40 kPa en bas. Le contour a été déplacé sur la pente de l'onde. Reprise : EXP-094.
 
 EXP-094 à EXP-090. Cinq diagnostics : un partiel (EXP-094), quatre introuvables. Le cliché aux marqueurs a été lu : 60 retenus, pas de nom. Le contour entoure le cadre colique. Reprise : EXP-089.
+
+EXP-089 à EXP-085. Cinq diagnostics : un complet (EXP-087), quatre introuvables. La déglutition normale et l'achalasie de type II ont été lues. Le contour est sur la bande de pressurisation. Reprise : EXP-084.

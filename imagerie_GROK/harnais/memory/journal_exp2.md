@@ -40,3 +40,11 @@ Prochain id : EXP-094.
 - EXP-090 introuvable. Pas de vidange gastrique humaine libre. Scintigraphie de chat en CC BY-NC.
 
 Prochain id : EXP-089.
+
+- EXP-089 introuvable. Pas de haute résolution de spasme ou de marteau-piqueur. Nutcracker manometry.jpg est un schéma à trois capteurs, écarté.
+- EXP-088 introuvable. Pas de pH-impédancemétrie de 24 h. Open-i en erreur ou hors sujet.
+- EXP-087 complet. Normale : Sudip K. Ghosh, CC BY-SA 3.0, déglutition péristaltique sur 36 capteurs. Pathologie : Sato 2018, PLoS ONE, CC BY 4.0, achalasie de type II, pressurisation pan-œsophagienne, PIR 43,3 mmHg.
+- EXP-086 introuvable. Pas de gazométrie diurne. Open-i « blood gas » : seringues et cordon, pas le rapport.
+- EXP-085 introuvable. Photos d'appareil de pression, pas de PImax, de SNIP ni de CV couchée.
+
+Prochain id : EXP-084.
