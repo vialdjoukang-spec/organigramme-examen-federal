@@ -80,4 +80,9 @@ IMG-269 | partiel | Mme Mim, CC BY-SA 3.0, rupture transfixiante, flèches sourc
 IMG-268 | partiel | Ramessos, CC BY-SA 3.0, fracture déplacée de la clavicule gauche | pas d'humérus proximal ; une incidence
 IMG-267 | partiel | Hellerhoff, CC BY-SA 3.0, luxation antéro-inférieure gauche | Hill-Sachs et Bankart non vus
 IMG-266 | partiel | Wadhwani, CC BY 4.0, défécographie, rectocèle marquée | rectocèle discrète ; pas de plancher sain
+IMG-265 | partiel | Khanduri, CC BY 4.0, fistule intersphinctérienne T2, flèches sources | STIR dans le même fichier ; pas d'abcès
+IMG-264 | introuvable | pas de Doppler de rétention placentaire | histologie, enquête ou malformation artérioveineuse
+IMG-263 | partiel | CDC/Jim Gathany, domaine public, fœtus en mode B | une coupe ; pas de pathologie nommée
+IMG-262 | introuvable | pas de Doppler ombilical de retard de croissance | le spectre légendé inversé n'était pas inversé
+IMG-261 | introuvable | pas d'échographie endovaginale de placenta prævia | schémas, sus-pubien ou Doppler peropératoire
 

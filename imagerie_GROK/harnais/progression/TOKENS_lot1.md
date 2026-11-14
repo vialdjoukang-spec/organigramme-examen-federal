@@ -145,3 +145,12 @@ Reprise : IMG-270.
 - Épargné par les scripts (estimation) : les catégories ont écarté les atlas hors licence. Open-i a renvoyé une page HTML. Le gain chiffré n'est pas mesuré.
 
 Reprise : IMG-265.
+
+## Passe IMG-265 à IMG-261
+
+- Éléments traités : 5 diagnostics. Deux partiels, trois introuvables. Aucun complet.
+- Appels de jugement visuel : environ 8 lectures. Le contour de la fistule a été descendu sur la flèche orange du T2 axial. Le spectre dit inversé a été écarté parce que la diastole restait positive. Estimation.
+- Durée : une passe, non chronométrée. Estimation.
+- Épargné par les scripts (estimation) : Open-i est resté en page HTML. Europe PMC a donné les légendes avant le téléchargement. Le gain chiffré n'est pas mesuré.
+
+Reprise : IMG-260.
