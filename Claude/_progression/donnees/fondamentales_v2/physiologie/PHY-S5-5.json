@@ -1,0 +1,148 @@
+{
+ "id": "PHY-S5-5",
+ "module": "physiologie",
+ "systeme": "S5",
+ "volet": "P",
+ "niveau": "m",
+ "fonction": "Absorption par segment (fer au duodénum, B12 à l'iléon)",
+ "definition": "Chaque segment de l'intestin grêle absorbe des nutriments propres : le duodénum le fer, le jéjunum la plupart des nutriments, l'iléon terminal la B12 et les sels biliaires.",
+ "chaine_regulation": {
+  "capteur": "hépatocyte, qui perçoit les réserves de fer et l'inflammation",
+  "integrateur": "hepcidine",
+  "effecteur": "ferroportine de l'entérocyte duodénal"
+ },
+ "mecanisme": [
+  "Au duodénum, la réductase ferrique réduit le fer en Fe2+ ; le transporteur DMT1 le fait entrer dans l'entérocyte",
+  "la ferroportine l'exporte vers le plasma, où la transferrine le transporte",
+  "quand les réserves montent ou qu'une inflammation survient, le foie sécrète l'hepcidine, qui dégrade la ferroportine : l'absorption baisse",
+  "pour la B12, l'acide libère la vitamine, l'haptocorrine la protège, puis le facteur intrinsèque gastrique la porte jusqu'au récepteur de l'iléon terminal"
+ ],
+ "regulation": "L'hepcidine règle l'absorption du fer ; le facteur intrinsèque conditionne celle de la B12 ; l'acidité gastrique favorise les deux.",
+ "valeurs_normales": [
+  {
+   "parametre": "ferritine",
+   "valeur": "homme ≥ 20 ans 30–400 ; femme 15–51 ans 13–150",
+   "unite": "µg/L (Insel, via EX-1-S10-ferritine-bilan-martial)"
+  },
+  {
+   "parametre": "coefficient de saturation de la transferrine",
+   "valeur": "16–45",
+   "unite": "% (Insel, via EX-1-S10-ferritine-bilan-martial)"
+  },
+  {
+   "parametre": "vitamine B12 sérique",
+   "valeur": "125–574 ; < 100 déficitaire",
+   "unite": "pmol/L (HUG RPA fiche 3906, via EX-1-S8-vitamines-b12-b9-b1)"
+  }
+ ],
+ "formule": {
+  "expression": "CST (%) = fer sérique (µmol/L) ÷ capacité totale de fixation (µmol/L) × 100 ; capacité ≈ transferrine (g/L) × 25 (non vérifié CH)",
+  "usage": "On calcule le CST pour séparer carence martiale (CST bas, ferritine basse) et surcharge (CST haut, hémochromatose).",
+  "exemple": "Fer 10 µmol/L, transferrine 3,2 g/L : capacité ≈ 80 µmol/L, donc CST ≈ 12,5 % : sous 16 %, la carence est probable si la ferritine est basse."
+ },
+ "dereglements": [
+  {
+   "affection": "maladie cœliaque (carence martiale)",
+   "pp": "PP-S5-A",
+   "semiologie": [
+    "SY-39",
+    "SY-63"
+   ]
+  },
+  {
+   "affection": "MICI, Crohn iléal (carence en B12)",
+   "pp": "PP-S5-A",
+   "semiologie": [
+    "SY-38",
+    "SY-39"
+   ]
+  },
+  {
+   "affection": "hémochromatose",
+   "pp": "PP-S5-C",
+   "semiologie": [
+    "SY-37"
+   ]
+  },
+  {
+   "affection": "angiodysplasie (perte de fer)",
+   "pp": "PP-S5-V",
+   "semiologie": [
+    "SY-63",
+    "SY-38"
+   ]
+  }
+ ],
+ "cibles_pharmacologiques": [
+  {
+   "classe": "supplémentation en fer",
+   "pourquoi": "elle compense la perte ; la voie IV contourne l'hepcidine si l'inflammation bloque l'absorption"
+  },
+  {
+   "classe": "vitamine B12 parentérale",
+   "pourquoi": "elle contourne l'absence de facteur intrinsèque ou d'iléon"
+  },
+  {
+   "classe": "inhibiteur de la pompe à protons (prise prolongée)",
+   "pourquoi": "il réduit l'acidité et peut donc limiter l'absorption du fer et de la B12"
+  }
+ ],
+ "lien_clinique": "Le site de la lésion prédit la carence : maladie cœliaque (duodénum) → fer ; Crohn iléal ou résection iléale → B12 et sels biliaires.",
+ "mnemotechnique": "« Fer en haut (duodénum), B12 en bas (iléon). »",
+ "sources": [
+  {
+   "ref": "Insel Gruppe, cobas pro (ferritine, transferrine, CST)",
+   "origine": "Suisse",
+   "statut": "lu par la fiche EX-1-S10-ferritine-bilan-martial le 13.11.2026 ; non relu ici",
+   "via": "EX-1-S10-ferritine-bilan-martial"
+  },
+  {
+   "ref": "HUG, Répertoire des prestations d'analyses (RPA), Chimie clinique des urgences, fiche 3906",
+   "origine": "Suisse",
+   "statut": "lu par la fiche EX-1-S8-vitamines-b12-b9-b1 le 13.11.2026 ; non relu ici",
+   "via": "EX-1-S8-vitamines-b12-b9-b1"
+  },
+  {
+   "ref": "Physiologie classique rédigée en posture d'expert (déduction)",
+   "origine": "aucune source lue",
+   "statut": "non lu : à vérifier contre une source suisse ou européenne (non vérifié CH)"
+  }
+ ],
+ "passerelles": [
+  {
+   "vers": "physiopathologie",
+   "id": "PP-S5-A"
+  },
+  {
+   "vers": "physiopathologie",
+   "id": "PP-S5-C"
+  },
+  {
+   "vers": "physiopathologie",
+   "id": "PP-S5-V"
+  },
+  {
+   "vers": "examens",
+   "id": "EX-1-S10-ferritine-bilan-martial"
+  },
+  {
+   "vers": "examens",
+   "id": "EX-1-S8-vitamines-b12-b9-b1"
+  },
+  {
+   "vers": "examens",
+   "id": "EX-1-S5-serologie-coeliaque"
+  },
+  {
+   "vers": "pharmacologie",
+   "id": "PH-S5-chaine"
+  },
+  {
+   "vers": "sciences fondamentales",
+   "id": "SF-S5-physiologie"
+  }
+ ],
+ "honnetete": "Les mécanismes sont rédigés en posture d'expert sans relecture d'une source suisse phrase par phrase ; seules les valeurs étiquetées HUG, Insel ou CHUV proviennent de laboratoires suisses, lues par les fiches EX citées. Les mentions « non vérifié CH » restent à vérifier. Aucune dose n'est donnée.",
+ "statut": "rédigé, à auditer",
+ "date": "14.11.2026"
+}

@@ -1,0 +1,177 @@
+{
+ "id": "PHY-S5-6",
+ "module": "physiologie",
+ "systeme": "S5",
+ "volet": "P",
+ "niveau": "m",
+ "fonction": "Fonctions hépatiques (synthèse, détoxification)",
+ "definition": "Le foie synthétise l'albumine et les facteurs de coagulation, stocke le glycogène, détoxifie l'ammoniac et les médicaments.",
+ "chaine_regulation": {
+  "capteur": "veine porte, qui apporte nutriments et toxiques",
+  "integrateur": "hépatocyte (enzymes, cycle de l'urée)",
+  "effecteur": "plasma (albumine, facteurs), bile et urine (excrétion)"
+ },
+ "mecanisme": [
+  "L'hépatocyte synthétise l'albumine, qui maintient la pression oncotique",
+  "il synthétise aussi les facteurs II, VII, IX et X, qu'il active par une carboxylation dépendante de la vitamine K",
+  "il convertit l'ammoniac en urée (cycle de l'urée)",
+  "enfin, il métabolise les médicaments en phase I (cytochromes P450) puis en phase II (conjugaison, glutathion)"
+ ],
+ "regulation": "L'insuline et le glucagon règlent le stockage et la libération du glucose. L'inflammation (IL-6) oriente la synthèse vers les protéines de phase aiguë au détriment de l'albumine.",
+ "valeurs_normales": [
+  {
+   "parametre": "albumine",
+   "valeur": "adulte 35–48 (HUG) ; > 18 ans 35–52 (Insel)",
+   "unite": "g/L (via EX-1-S5-albumine)"
+  },
+  {
+   "parametre": "TP (Quick)",
+   "valeur": "≥ 70",
+   "unite": "% (HUG fiche 2725, via EX-1-S5-tp-facteur-v)"
+  },
+  {
+   "parametre": "facteur V",
+   "valeur": "≥ 70 après 3 mois",
+   "unite": "% (HUG fiche 2719, via EX-1-S5-tp-facteur-v)"
+  },
+  {
+   "parametre": "ALAT",
+   "valeur": "homme 12–50, femme 9–42",
+   "unite": "U/L (HUG, via EX-1-S5-bilan-hepatique-asat-alat-pal)"
+  },
+  {
+   "parametre": "ammonium plasmatique",
+   "valeur": "adulte 11–35",
+   "unite": "µmol/L (HUG RPA 3930, via EX-1-S1-ammoniemie)"
+  }
+ ],
+ "formule": {
+  "expression": "SAAG = albumine sérique − albumine d'ascite (prélevées le même jour)",
+  "usage": "On calcule le SAAG pour rattacher une ascite à l'hypertension portale (≥ 11 g/L) ou à une autre cause (< 11 g/L) (RMS 2017, via EX-1-S5-liquide-ascite).",
+  "exemple": "Albumine sérique 30 g/L, ascite 8 g/L : SAAG = 22 g/L ≥ 11, donc l'ascite est portale (cirrhose probable)."
+ },
+ "dereglements": [
+  {
+   "affection": "cirrhose",
+   "pp": "PP-S5-D",
+   "semiologie": [
+    "SY-36",
+    "SY-37"
+   ]
+  },
+  {
+   "affection": "hépatite au paracétamol",
+   "pp": "PP-S5-Ia",
+   "semiologie": [
+    "SY-37"
+   ]
+  },
+  {
+   "affection": "carcinome hépatocellulaire",
+   "pp": "PP-S5-T",
+   "semiologie": [
+    "SY-37",
+    "SY-36"
+   ]
+  },
+  {
+   "affection": "thrombose porte et syndrome de Budd-Chiari",
+   "pp": "PP-S5-V",
+   "semiologie": [
+    "SY-36"
+   ]
+  }
+ ],
+ "cibles_pharmacologiques": [
+  {
+   "classe": "N-acétylcystéine",
+   "pourquoi": "elle reconstitue le glutathion qui neutralise le métabolite toxique du paracétamol"
+  },
+  {
+   "classe": "vitamine K",
+   "pourquoi": "elle corrige un TP bas par carence, mais pas celui de l'insuffisance hépatocellulaire"
+  },
+  {
+   "classe": "disaccharide non absorbable",
+   "pourquoi": "il acidifie le côlon, piège l'ammoniac et prévient l'encéphalopathie"
+  }
+ ],
+ "lien_clinique": "Le facteur V ne dépend pas de la vitamine K : s'il baisse avec le TP, l'insuffisance est hépatocellulaire ; s'il reste normal, une carence en vitamine K ou un AVK est en cause.",
+ "mnemotechnique": "« Facteurs K : 2, 7, 9, 10 (1972 à l'envers : 10-9-7-2). »",
+ "sources": [
+  {
+   "ref": "HUG, Répertoire des prestations d'analyses (RPA), Chimie clinique des urgences ; Insel Gruppe, ZLM Berne : Cobas PRO – Referenzwerte Klinische Chemie, v21.0 du 25.06.2026",
+   "origine": "Suisse",
+   "statut": "lu par la fiche EX-1-S5-albumine le 13.11.2026 ; non relu ici",
+   "via": "EX-1-S5-albumine"
+  },
+  {
+   "ref": "HUG, fiches 2725 et 2719 (03.12.2025)",
+   "origine": "Suisse",
+   "statut": "lu par la fiche EX-1-S5-tp-facteur-v le 13.11.2026 ; non relu ici",
+   "via": "EX-1-S5-tp-facteur-v"
+  },
+  {
+   "ref": "Finci L. et al. Rev Med Suisse 2017;13:1509-15",
+   "origine": "Suisse",
+   "statut": "lu par la fiche EX-1-S5-liquide-ascite le 13.11.2026 ; non relu ici",
+   "via": "EX-1-S5-liquide-ascite"
+  },
+  {
+   "ref": "HUG, Répertoire des prestations d'analyses (RPA), Chimie clinique des urgences, fiche 3930",
+   "origine": "Suisse",
+   "statut": "lu par la fiche EX-1-S1-ammoniemie le 13.11.2026 ; non relu ici",
+   "via": "EX-1-S1-ammoniemie"
+  },
+  {
+   "ref": "Physiologie classique rédigée en posture d'expert (déduction)",
+   "origine": "aucune source lue",
+   "statut": "non lu : à vérifier contre une source suisse ou européenne (non vérifié CH)"
+  }
+ ],
+ "passerelles": [
+  {
+   "vers": "physiopathologie",
+   "id": "PP-S5-D"
+  },
+  {
+   "vers": "physiopathologie",
+   "id": "PP-S5-Ia"
+  },
+  {
+   "vers": "physiopathologie",
+   "id": "PP-S5-T"
+  },
+  {
+   "vers": "physiopathologie",
+   "id": "PP-S5-V"
+  },
+  {
+   "vers": "examens",
+   "id": "EX-1-S5-albumine"
+  },
+  {
+   "vers": "examens",
+   "id": "EX-1-S5-tp-facteur-v"
+  },
+  {
+   "vers": "examens",
+   "id": "EX-1-S5-bilan-hepatique-asat-alat-pal"
+  },
+  {
+   "vers": "examens",
+   "id": "EX-1-S5-liquide-ascite"
+  },
+  {
+   "vers": "pharmacologie",
+   "id": "PH-S5-chaine"
+  },
+  {
+   "vers": "sciences fondamentales",
+   "id": "SF-S5-physiologie"
+  }
+ ],
+ "honnetete": "Les mécanismes sont rédigés en posture d'expert sans relecture d'une source suisse phrase par phrase ; seules les valeurs étiquetées HUG, Insel ou CHUV proviennent de laboratoires suisses, lues par les fiches EX citées. Les mentions « non vérifié CH » restent à vérifier. Aucune dose n'est donnée.",
+ "statut": "rédigé, à auditer",
+ "date": "14.11.2026"
+}

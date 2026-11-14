@@ -1,0 +1,135 @@
+{
+ "id": "PHY-S7-2",
+ "module": "physiologie",
+ "systeme": "S7",
+ "volet": "P",
+ "niveau": "c",
+ "fonction": "Spermatogenèse",
+ "definition": "La spermatogenèse produit les spermatozoïdes dans les tubes séminifères sous l'action de la FSH et d'une testostérone intratesticulaire élevée.",
+ "chaine_regulation": {
+  "capteur": "hypothalamus et hypophyse, sensibles à la testostérone et à l'inhibine",
+  "integrateur": "GnRH, puis FSH et LH",
+  "effecteur": "cellules de Sertoli (FSH) et de Leydig (LH)"
+ },
+ "mecanisme": [
+  "La LH stimule les cellules de Leydig, qui produisent la testostérone",
+  "la FSH et la testostérone locale activent les cellules de Sertoli, qui nourrissent les cellules germinales",
+  "les spermatogonies se divisent, puis la méiose produit les spermatides, qui se différencient en spermatozoïdes",
+  "la testostérone freine la LH ; l'inhibine sertolienne freine la FSH (rétrocontrôle)"
+ ],
+ "regulation": "La spermatogenèse exige une testostérone intratesticulaire bien supérieure à la testostérone sanguine, et une température scrotale inférieure à celle du corps.",
+ "valeurs_normales": [
+  {
+   "parametre": "testostérone totale, homme 20–49 ans",
+   "valeur": "3,30–8,05",
+   "unite": "µg/L (HUG RPA 3924, via EX-1-S7-testosterone)"
+  },
+  {
+   "parametre": "FSH, homme",
+   "valeur": "1,5–12,4",
+   "unite": "U/L (HUG RPA 3920, via EX-1-S7-fsh-lh)"
+  },
+  {
+   "parametre": "concentration des spermatozoïdes",
+   "valeur": "≥ 16",
+   "unite": "millions/mL (OMS 2021 selon AMBOSS, via EX-1-S7-spermogramme)"
+  },
+  {
+   "parametre": "numération totale",
+   "valeur": "≥ 39",
+   "unite": "millions par éjaculat (OMS 2021, via EX-1-S7-spermogramme)"
+  }
+ ],
+ "formule": {
+  "expression": "numération totale = concentration × volume de l'éjaculat",
+  "usage": "On calcule la numération totale, car une concentration normale dans un petit volume peut masquer une production faible.",
+  "exemple": "20 millions/mL × 1,5 mL = 30 millions : la concentration est normale, mais la numération (< 39 millions) est basse."
+ },
+ "dereglements": [
+  {
+   "affection": "syndrome de Klinefelter",
+   "pp": "PP-S7-C",
+   "semiologie": [
+    "S-14"
+   ]
+  },
+  {
+   "affection": "cryptorchidie",
+   "pp": "PP-S7-C",
+   "semiologie": [
+    "S-32",
+    "S-14"
+   ]
+  }
+ ],
+ "cibles_pharmacologiques": [
+  {
+   "classe": "testostérone exogène (piège)",
+   "pourquoi": "elle freine LH et FSH ; la testostérone intratesticulaire s'effondre et la spermatogenèse s'arrête"
+  },
+  {
+   "classe": "gonadotrophines (hCG, FSH)",
+   "pourquoi": "elles remplacent LH et FSH dans l'hypogonadisme hypogonadotrope et relancent la production"
+  },
+  {
+   "classe": "inhibiteur de la 5α-réductase",
+   "pourquoi": "il réduit la dihydrotestostérone sans arrêter la spermatogenèse"
+  }
+ ],
+ "lien_clinique": "Un homme qui désire un enfant ne reçoit pas de testostérone : elle le rend azoospermique.",
+ "mnemotechnique": "« Sertoli = Soutien (FSH) ; Leydig = Libère la testostérone (LH). »",
+ "sources": [
+  {
+   "ref": "HUG, Répertoire des prestations d'analyses (RPA), Chimie clinique des urgences, fiche 3924",
+   "origine": "Suisse",
+   "statut": "lu par la fiche EX-1-S7-testosterone le 13.11.2026 ; non relu ici",
+   "via": "EX-1-S7-testosterone"
+  },
+  {
+   "ref": "HUG, Répertoire des prestations d'analyses (RPA), Chimie clinique des urgences, fiches 3920 FSH et 3921 LH (03.09.2025)",
+   "origine": "Suisse",
+   "statut": "lu par la fiche EX-1-S7-fsh-lh le 13.11.2026 ; non relu ici",
+   "via": "EX-1-S7-fsh-lh"
+  },
+  {
+   "ref": "OMS, Laboratory manual for the examination and processing of human semen, 6e éd. 2021 (selon AMBOSS)",
+   "origine": "OMS (dernier recours)",
+   "statut": "résumé lu par la fiche EX-1-S7-spermogramme ; non relu ici",
+   "via": "EX-1-S7-spermogramme"
+  },
+  {
+   "ref": "Physiologie classique rédigée en posture d'expert (déduction)",
+   "origine": "aucune source lue",
+   "statut": "non lu : à vérifier contre une source suisse ou européenne (non vérifié CH)"
+  }
+ ],
+ "passerelles": [
+  {
+   "vers": "physiopathologie",
+   "id": "PP-S7-C"
+  },
+  {
+   "vers": "examens",
+   "id": "EX-1-S7-spermogramme"
+  },
+  {
+   "vers": "examens",
+   "id": "EX-1-S7-testosterone"
+  },
+  {
+   "vers": "examens",
+   "id": "EX-1-S7-fsh-lh"
+  },
+  {
+   "vers": "pharmacologie",
+   "id": "PH-S7-chaine"
+  },
+  {
+   "vers": "sciences fondamentales",
+   "id": "SF-S7-physiologie"
+  }
+ ],
+ "honnetete": "Les mécanismes sont rédigés en posture d'expert sans relecture d'une source suisse phrase par phrase ; seules les valeurs étiquetées HUG, Insel ou CHUV proviennent de laboratoires suisses, lues par les fiches EX citées. Les mentions « non vérifié CH » restent à vérifier. Aucune dose n'est donnée.",
+ "statut": "rédigé, à auditer",
+ "date": "14.11.2026"
+}

@@ -1,0 +1,148 @@
+{
+ "id": "PHY-S8-5",
+ "module": "physiologie",
+ "systeme": "S8",
+ "volet": "P",
+ "niveau": "m",
+ "fonction": "Insuline et glucagon",
+ "definition": "L'insuline, seule hormone hypoglycémiante, fait entrer le glucose et le potassium dans les cellules ; le glucagon libère le glucose hépatique à jeun.",
+ "chaine_regulation": {
+  "capteur": "cellule β (glucose via GLUT2 et glucokinase) et cellule α pancréatiques",
+  "integrateur": "insuline, glucagon, incrétines (GLP-1, GIP)",
+  "effecteur": "foie, muscle, tissu adipeux"
+ },
+ "mecanisme": [
+  "Le glucose entre dans la cellule β et produit de l'ATP ; les canaux K-ATP se ferment, la cellule se dépolarise et sécrète l'insuline",
+  "les incrétines intestinales amplifient cette sécrétion après un repas",
+  "l'insuline insère GLUT4 dans le muscle et le tissu adipeux, stimule la glycogenèse et la lipogenèse, freine la néoglucogenèse",
+  "elle active aussi la Na+/K+-ATPase : le potassium entre dans les cellules",
+  "à jeun, le glucagon stimule la glycogénolyse et la néoglucogenèse hépatiques"
+ ],
+ "regulation": "Le rapport insuline/glucagon fixe l'orientation métabolique : stockage après le repas, mobilisation à jeun. Le cortisol, l'adrénaline et la GH s'opposent à l'insuline.",
+ "valeurs_normales": [
+  {
+   "parametre": "glucose plasmatique à jeun",
+   "valeur": "adulte 4,1–6,0",
+   "unite": "mmol/L (HUG RPA fiche 9258, via EX-1-S8-glycemie-hba1c)"
+  },
+  {
+   "parametre": "glucose 120 min après 75 g",
+   "valeur": "< 7,8",
+   "unite": "mmol/L (HUG SMPR 2022, via EX-1-S8-glycemie-hba1c)"
+  },
+  {
+   "parametre": "HbA1c",
+   "valeur": "4,8–5,9 % ; 29–42 mmol/mol (Insel) ; diabète si ≥ 6,5 % (HUG SMPR 2022)",
+   "unite": "% NGSP ; mmol/mol IFCC (via EX-1-S8-glycemie-hba1c)"
+  }
+ ],
+ "formule": {
+  "expression": "HbA1c (mmol/mol IFCC) = (HbA1c % NGSP − 2,15) × 10,929 (non vérifié CH)",
+  "usage": "On convertit l'HbA1c pour lire un rapport en mmol/mol et le comparer aux seuils exprimés en %.",
+  "exemple": "HbA1c 7,0 % : (7,0 − 2,15) × 10,929 ≈ 53 mmol/mol ; au-dessus de 6,5 % (≈ 48 mmol/mol), le diabète est confirmé si un second test concorde."
+ },
+ "dereglements": [
+  {
+   "affection": "diabète de type 1",
+   "pp": "PP-S8-A",
+   "semiologie": [
+    "SY-54"
+   ]
+  },
+  {
+   "affection": "diabète de type 2",
+   "pp": "PP-S8-D",
+   "semiologie": [
+    "SY-9"
+   ]
+  },
+  {
+   "affection": "hypoglycémie à l'insuline et aux sulfonylurées",
+   "pp": "PP-S8-Ia",
+   "semiologie": [
+    "SY-55"
+   ]
+  },
+  {
+   "affection": "hyperkaliémie (traitement par insuline + glucose)",
+   "pp": "PP-S6-F",
+   "semiologie": [
+    "SY-42"
+   ]
+  }
+ ],
+ "cibles_pharmacologiques": [
+  {
+   "classe": "insuline",
+   "pourquoi": "elle remplace ou complète l'hormone ; avec du glucose, elle fait entrer le potassium dans les cellules"
+  },
+  {
+   "classe": "sulfonylurée",
+   "pourquoi": "elle ferme le canal K-ATP et force la sécrétion, même sans hyperglycémie : risque d'hypoglycémie"
+  },
+  {
+   "classe": "agoniste du GLP-1",
+   "pourquoi": "il amplifie la sécrétion glucose-dépendante, freine le glucagon et la vidange gastrique"
+  },
+  {
+   "classe": "metformine",
+   "pourquoi": "elle freine la néoglucogenèse hépatique sans stimuler l'insuline"
+  },
+  {
+   "classe": "glucagon",
+   "pourquoi": "il libère le glycogène hépatique dans l'hypoglycémie sévère"
+  }
+ ],
+ "lien_clinique": "Corriger une acidocétose par l'insuline fait chuter la kaliémie : on contrôle et on supplémente le potassium.",
+ "mnemotechnique": "« L'insuline fait Entrer (glucose et K) ; le glucagon fait Sortir (glucose du foie). »",
+ "sources": [
+  {
+   "ref": "HUG, Répertoire des prestations d'analyses (RPA), Chimie clinique des urgences, fiches 9258 glycémie et 3970 HbA1c ; Insel Gruppe, ZLM Berne : Cobas PRO – Referenzwerte Klinische Chemie, v21.0 du 25.06.2026 ; HUG SMPR « Diabète de type 2 » 2022",
+   "origine": "Suisse",
+   "statut": "lu par la fiche EX-1-S8-glycemie-hba1c le 13.11.2026 ; non relu ici",
+   "via": "EX-1-S8-glycemie-hba1c"
+  },
+  {
+   "ref": "Physiologie classique rédigée en posture d'expert (déduction)",
+   "origine": "aucune source lue",
+   "statut": "non lu : à vérifier contre une source suisse ou européenne (non vérifié CH)"
+  }
+ ],
+ "passerelles": [
+  {
+   "vers": "physiopathologie",
+   "id": "PP-S8-A"
+  },
+  {
+   "vers": "physiopathologie",
+   "id": "PP-S8-D"
+  },
+  {
+   "vers": "physiopathologie",
+   "id": "PP-S8-F"
+  },
+  {
+   "vers": "physiopathologie",
+   "id": "PP-S8-Ia"
+  },
+  {
+   "vers": "examens",
+   "id": "EX-1-S8-glycemie-hba1c"
+  },
+  {
+   "vers": "examens",
+   "id": "EX-8-S8-glycemie-capillaire"
+  },
+  {
+   "vers": "pharmacologie",
+   "id": "PH-S8-chaine"
+  },
+  {
+   "vers": "sciences fondamentales",
+   "id": "SF-S8-physiologie"
+  }
+ ],
+ "honnetete": "Les mécanismes sont rédigés en posture d'expert sans relecture d'une source suisse phrase par phrase ; seules les valeurs étiquetées HUG, Insel ou CHUV proviennent de laboratoires suisses, lues par les fiches EX citées. Les mentions « non vérifié CH » restent à vérifier. Aucune dose n'est donnée.",
+ "statut": "rédigé, à auditer",
+ "date": "14.11.2026"
+}

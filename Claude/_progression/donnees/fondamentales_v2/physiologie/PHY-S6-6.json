@@ -1,0 +1,142 @@
+{
+ "id": "PHY-S6-6",
+ "module": "physiologie",
+ "systeme": "S6",
+ "volet": "P",
+ "niveau": "m",
+ "fonction": "Régulation rénale de l'acide-base",
+ "definition": "Le rein réabsorbe le bicarbonate filtré, excrète la charge acide quotidienne et régénère le bicarbonate consommé.",
+ "chaine_regulation": {
+  "capteur": "cellule tubulaire, sensible au pH et à la PaCO2",
+  "integrateur": "anhydrase carbonique, ammoniogenèse, aldostérone",
+  "effecteur": "tubule proximal (réabsorption du HCO3-) et cellule intercalaire de type A (sécrétion de H+)"
+ },
+ "mecanisme": [
+  "Le tubule proximal sécrète H+ ; l'anhydrase carbonique permet de réabsorber le bicarbonate filtré",
+  "la cellule intercalaire sécrète H+ dans l'urine, où les phosphates (acidité titrable) et l'ammoniac (NH4+) le tamponnent",
+  "chaque H+ excrété génère un bicarbonate neuf, renvoyé dans le sang",
+  "face à une acidose, le rein augmente l'ammoniogenèse en quelques jours : la compensation rénale est lente, la respiratoire rapide"
+ ],
+ "regulation": "Le poumon ajuste la PaCO2 en minutes ; le rein ajuste le bicarbonate en jours. L'aldostérone et l'hypokaliémie stimulent la sécrétion de H+.",
+ "valeurs_normales": [
+  {
+   "parametre": "bicarbonate veineux",
+   "valeur": "21–28,5",
+   "unite": "mmol/L (HUG CHIMURG, 03.09.2025, via EX-1-S6-equilibre-acide-base)"
+  },
+  {
+   "parametre": "chlorures",
+   "valeur": "96–107",
+   "unite": "mmol/L (HUG CHIMURG, via EX-1-S6-equilibre-acide-base)"
+  },
+  {
+   "parametre": "trou anionique (sans potassium)",
+   "valeur": "11 ± 2",
+   "unite": "mmol/L (RMS 2005, via EX-1-S6-equilibre-acide-base)"
+  },
+  {
+   "parametre": "pH artériel ; PaCO2",
+   "valeur": "7,35–7,45 ; 4,7–6,0 kPa",
+   "unite": "(non vérifié CH)"
+  }
+ ],
+ "formule": {
+  "expression": "trou anionique = Na − (Cl + HCO3-)",
+  "usage": "On calcule le trou devant toute acidose métabolique : élevé, il signe un acide ajouté (lactate, cétones, toxiques, urémie) ; normal, une perte de bicarbonate (diarrhée, acidose tubulaire).",
+  "exemple": "Na 140, Cl 100, HCO3- 10 mmol/L : 140 − 110 = 30 mmol/L, bien au-dessus de 11 ± 2 : on recherche lactate, cétones et toxiques."
+ },
+ "dereglements": [
+  {
+   "affection": "acidocétose",
+   "pp": "PP-S8-F",
+   "semiologie": [
+    "SY-54",
+    "SY-81"
+   ]
+  },
+  {
+   "affection": "maladie rénale chronique (acidose)",
+   "pp": "PP-S6-D",
+   "semiologie": [
+    "SY-42"
+   ]
+  },
+  {
+   "affection": "sténose hypertrophique du pylore (alcalose)",
+   "pp": "PP-S5-C",
+   "semiologie": [
+    "S-32",
+    "SY-81"
+   ]
+  },
+  {
+   "affection": "hyperkaliémie",
+   "pp": "PP-S6-F",
+   "semiologie": [
+    "SY-42"
+   ]
+  }
+ ],
+ "cibles_pharmacologiques": [
+  {
+   "classe": "bicarbonate de sodium (alcalinisant)",
+   "pourquoi": "il remplace le bicarbonate perdu dans l'acidose à trou normal ou dans la maladie rénale chronique"
+  },
+  {
+   "classe": "inhibiteur de l'anhydrase carbonique (acétazolamide)",
+   "pourquoi": "il bloque la réabsorption proximale du bicarbonate : il corrige une alcalose métabolique, mais il peut provoquer une acidose"
+  }
+ ],
+ "lien_clinique": "Un trou anionique élevé change la conduite : on dose lactate, cétones, osmolalité et on cherche un toxique avant de corriger le pH.",
+ "mnemotechnique": "Acidose à trou élevé : « MUDPILES » (Méthanol, Urémie, Diabète, Paraldéhyde, Isoniazide, Lactate, Éthylène glycol, Salicylés).",
+ "sources": [
+  {
+   "ref": "HUG, Répertoire des prestations d'analyses (RPA), Chimie clinique des urgences, fiches bicarbonate, chlorures, lactate (03.09.2025) ; Revue Médicale Suisse 2005 (trou anionique)",
+   "origine": "Suisse",
+   "statut": "lu par la fiche EX-1-S6-equilibre-acide-base le 13.11.2026 ; non relu ici",
+   "via": "EX-1-S6-equilibre-acide-base"
+  },
+  {
+   "ref": "Physiologie classique rédigée en posture d'expert (déduction)",
+   "origine": "aucune source lue",
+   "statut": "non lu : à vérifier contre une source suisse ou européenne (non vérifié CH)"
+  }
+ ],
+ "passerelles": [
+  {
+   "vers": "physiopathologie",
+   "id": "PP-S6-F"
+  },
+  {
+   "vers": "physiopathologie",
+   "id": "PP-S6-D"
+  },
+  {
+   "vers": "physiopathologie",
+   "id": "PP-S8-F"
+  },
+  {
+   "vers": "physiopathologie",
+   "id": "PP-S5-C"
+  },
+  {
+   "vers": "examens",
+   "id": "EX-1-S6-equilibre-acide-base"
+  },
+  {
+   "vers": "examens",
+   "id": "EX-1-S4-gaz-sang-arteriels"
+  },
+  {
+   "vers": "pharmacologie",
+   "id": "PH-S6-chaine"
+  },
+  {
+   "vers": "sciences fondamentales",
+   "id": "SF-S6-physiologie"
+  }
+ ],
+ "honnetete": "Les mécanismes sont rédigés en posture d'expert sans relecture d'une source suisse phrase par phrase ; seules les valeurs étiquetées HUG, Insel ou CHUV proviennent de laboratoires suisses, lues par les fiches EX citées. Les mentions « non vérifié CH » restent à vérifier. Aucune dose n'est donnée.",
+ "statut": "rédigé, à auditer",
+ "date": "14.11.2026"
+}

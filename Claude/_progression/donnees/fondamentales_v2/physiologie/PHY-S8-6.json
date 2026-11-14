@@ -1,0 +1,148 @@
+{
+ "id": "PHY-S8-6",
+ "module": "physiologie",
+ "systeme": "S8",
+ "volet": "P",
+ "niveau": "m",
+ "fonction": "Calcium et phosphate (PTH, calcitriol, calcitonine)",
+ "definition": "La PTH et le calcitriol maintiennent la calcémie ionisée dans une plage étroite ; le FGF23 et la PTH font excréter le phosphate.",
+ "chaine_regulation": {
+  "capteur": "récepteur sensible au calcium (CaSR) de la parathyroïde",
+  "integrateur": "PTH, calcitriol, FGF23 (calcitonine accessoire)",
+  "effecteur": "os, rein (tubule distal et proximal), intestin"
+ },
+ "mecanisme": [
+  "La calcémie ionisée baisse ; le CaSR libère donc la PTH",
+  "la PTH mobilise le calcium osseux (via RANKL et les ostéoclastes) et le réabsorbe au tubule distal",
+  "elle fait excréter le phosphate au tubule proximal et stimule la 1α-hydroxylase, qui forme le calcitriol",
+  "le calcitriol fait absorber calcium et phosphate par l'intestin ; la calcémie remonte et la PTH baisse",
+  "le FGF23 osseux répond au phosphate : il le fait excréter et freine le calcitriol"
+ ],
+ "regulation": "La PTH agit en minutes sur le rein et l'os ; le calcitriol agit en jours sur l'intestin. La calcitonine a un rôle mineur chez l'adulte.",
+ "valeurs_normales": [
+  {
+   "parametre": "calcium total",
+   "valeur": "2,20–2,52 (HUG) ; 18–60 ans 2,15–2,50 (Insel)",
+   "unite": "mmol/L (via EX-1-S8-pth)"
+  },
+  {
+   "parametre": "PTH intacte",
+   "valeur": "1,1–6,8",
+   "unite": "pmol/L (HUG RPA 3977, via EX-1-S8-pth)"
+  },
+  {
+   "parametre": "25-OH-vitamine D",
+   "valeur": "≥ 75 optimal ; < 25 déficience",
+   "unite": "nmol/L (HUG RPA 3979, via EX-1-S8-pth)"
+  },
+  {
+   "parametre": "phosphate inorganique",
+   "valeur": "adulte 0,80–1,45",
+   "unite": "mmol/L (HUG RPA 3875, via EX-1-S9-calcium-phosphate)"
+  }
+ ],
+ "formule": {
+  "expression": "calcium corrigé (mmol/L) = calcium total + 0,025 × (40 − albumine en g/L) (non vérifié CH ; le laboratoire HUG le calcule automatiquement)",
+  "usage": "On corrige le calcium total quand l'albumine est basse, car seule la fraction ionisée agit ; on dose le calcium ionisé si le doute persiste.",
+  "exemple": "Calcium 2,00 mmol/L, albumine 28 g/L : 2,00 + 0,025 × 12 = 2,30 mmol/L : la calcémie est normale."
+ },
+ "dereglements": [
+  {
+   "affection": "dyscalcémies",
+   "pp": "PP-S8-F",
+   "semiologie": [
+    "SY-56"
+   ]
+  },
+  {
+   "affection": "ostéoporose",
+   "pp": "PP-S8-D",
+   "semiologie": [
+    "S-17"
+   ]
+  },
+  {
+   "affection": "maladie rénale chronique (hyperparathyroïdie secondaire)",
+   "pp": "PP-S6-D",
+   "semiologie": [
+    "SY-42"
+   ]
+  }
+ ],
+ "cibles_pharmacologiques": [
+  {
+   "classe": "bisphosphonate",
+   "pourquoi": "il freine les ostéoclastes : il traite l'hypercalcémie osseuse et l'ostéoporose"
+  },
+  {
+   "classe": "calcimimétique (cinacalcet)",
+   "pourquoi": "il sensibilise le CaSR et baisse la PTH"
+  },
+  {
+   "classe": "vitamine D active",
+   "pourquoi": "elle contourne la 1α-hydroxylase rénale défaillante"
+  },
+  {
+   "classe": "analogue de la PTH (tériparatide)",
+   "pourquoi": "administré par intermittence, il stimule la formation osseuse"
+  }
+ ],
+ "lien_clinique": "Hypercalcémie avec PTH haute ou inappropriée = hyperparathyroïdie primaire ; hypercalcémie avec PTH freinée = cause non parathyroïdienne (néoplasie, vitamine D).",
+ "mnemotechnique": "« PTH : Pompe le calcium dans le sang, Tire le phosphate dans l'urine. »",
+ "sources": [
+  {
+   "ref": "HUG, Répertoire des prestations d'analyses (RPA), Chimie clinique des urgences, fiches 3977 PTH, calcium total, 3979 calcidiol ; Insel Gruppe, ZLM Berne : Cobas PRO – Referenzwerte Klinische Chemie, v21.0 du 25.06.2026",
+   "origine": "Suisse",
+   "statut": "lu par la fiche EX-1-S8-pth le 13.11.2026 ; non relu ici",
+   "via": "EX-1-S8-pth"
+  },
+  {
+   "ref": "HUG, Répertoire des prestations d'analyses (RPA), Chimie clinique des urgences, fiche 3875",
+   "origine": "Suisse",
+   "statut": "lu par la fiche EX-1-S9-calcium-phosphate le 13.11.2026 ; non relu ici",
+   "via": "EX-1-S9-calcium-phosphate"
+  },
+  {
+   "ref": "Physiologie classique rédigée en posture d'expert (déduction)",
+   "origine": "aucune source lue",
+   "statut": "non lu : à vérifier contre une source suisse ou européenne (non vérifié CH)"
+  }
+ ],
+ "passerelles": [
+  {
+   "vers": "physiopathologie",
+   "id": "PP-S8-D"
+  },
+  {
+   "vers": "physiopathologie",
+   "id": "PP-S8-F"
+  },
+  {
+   "vers": "physiopathologie",
+   "id": "PP-S6-D"
+  },
+  {
+   "vers": "examens",
+   "id": "EX-1-S8-pth"
+  },
+  {
+   "vers": "examens",
+   "id": "EX-1-S9-calcium-phosphate"
+  },
+  {
+   "vers": "examens",
+   "id": "EX-2-S8-osteodensitometrie"
+  },
+  {
+   "vers": "pharmacologie",
+   "id": "PH-S8-chaine"
+  },
+  {
+   "vers": "sciences fondamentales",
+   "id": "SF-S8-physiologie"
+  }
+ ],
+ "honnetete": "Les mécanismes sont rédigés en posture d'expert sans relecture d'une source suisse phrase par phrase ; seules les valeurs étiquetées HUG, Insel ou CHUV proviennent de laboratoires suisses, lues par les fiches EX citées. Les mentions « non vérifié CH » restent à vérifier. Aucune dose n'est donnée.",
+ "statut": "rédigé, à auditer",
+ "date": "14.11.2026"
+}
