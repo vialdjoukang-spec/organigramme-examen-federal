@@ -23,3 +23,7 @@ Cinq diagnostics : rétention sur vessie trabéculée, sténose ostiale de l'art
 ## Passage IMG-234 à IMG-230
 
 Cinq diagnostics : néphroblastome, greffon et traumatisme rénal introuvables (Open-i en page d'erreur) ; rein en fer à cheval et polykystose avancée en partiel, appariés à un rein droit normal de 9,34 cm. Relectures de l'isthme et du bouquet de kystes. Durée approximative : 20 minutes (estimation).
+
+## Passage IMG-229 à IMG-225
+
+Cinq diagnostics : hydronéphrose d'enfant, cortex hyperéchogène, infarctus polaire et phéochromocytome en partiel ; sténose de l'artère rénale introuvable (numéro d'examen à l'écran). Relectures des cavités dilatées, du cortex, du surlignage jaune et de l'astérisque. Durée approximative : 25 minutes (estimation).

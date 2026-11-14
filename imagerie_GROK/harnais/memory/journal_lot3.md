@@ -30,3 +30,8 @@ IMG-233 | introuvable | pas de Doppler de complication du greffon
 IMG-232 | introuvable | pas de TDM artérielle de traumatisme rénal
 IMG-231 | partiel | Dilmen 2013, série rein en fer à cheval | isthme placé à l'œil ; normale longitudinale
 IMG-230 | partiel | Hansen, Nielsen, Ewertsen 2017, polykystose avancée ; Ptrump16 2022, rein droit 9,34 cm | caractère autosomique dominant non écrit
+IMG-229 | partiel | Hansen 2017, hydronéphrose d'enfant par jonction ; rein pédiatrique normal | reflux absent
+IMG-228 | partiel | Cerevisae 2022, cortex trop échogène, rein gauche 9,9 cm | obstacle non illustré ; normale = rein droit
+IMG-227 | partiel | Hellerhoff 2021, infarctus du pôle caudal gauche déjà surligné | thrombose veineuse absente, pas de normale
+IMG-226 | introuvable | Doppler de sténose écarté : numéro d'examen à l'écran
+IMG-225 | partiel | Drahreg01 2010, phéochromocytome axial marqué d'un astérisque | pas de surrénale normale
