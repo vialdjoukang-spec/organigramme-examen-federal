@@ -91,3 +91,12 @@ Reprise : IMG-300.
 - Épargné par les scripts (estimation) : les catégories ont fourni la légende et la licence. Le cliché en flexion sans arthrose visible a été écarté. Le gain chiffré n'est pas mesuré.
 
 Reprise : IMG-295.
+
+## Passe IMG-295 à IMG-291
+
+- Éléments traités : 5 diagnostics. Quatre partiels, un introuvable. Aucun complet.
+- Appels de jugement visuel : environ 8 lectures. Estimation.
+- Durée : une passe, non chronométrée. Estimation.
+- Épargné par les scripts (estimation) : les catégories ont écarté le Graf normal et les graphiques épidémiologiques avant la lecture. Le gain chiffré n'est pas mesuré.
+
+Reprise : IMG-290.

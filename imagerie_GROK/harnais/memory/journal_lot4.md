@@ -50,4 +50,9 @@ IMG-299 | partiel | LottieLattes, CC BY-SA 4.0, enfoncement du plateau tibial la
 IMG-298 | partiel | Hellerhoff, CC BY-SA 3.0, rupture du croisé antérieur en DP | suppression de graisse non écrite ; ménisque non indiqué
 IMG-297 | partiel | Hellerhoff, CC BY-SA 4.0, came de la hanche gauche sur bassin de face | pas un profil de Dunn
 IMG-296 | partiel | Ruiz Santiago et al., CC BY 4.0, épanchement de synovite transitoire | arthrite septique non montrée
+IMG-295 | partiel | Hellerhoff, CC BY-SA 4.0, Perthes droit au stade de fragmentation | pas de profil
+IMG-294 | partiel | Lengerke, CC0, épiphysiolyse, schéma rouge ajouté | pas de Lauenstein
+IMG-293 | introuvable | pas d'échographie de hanche dysplasique selon Graf | le seul Graf est un type Ia normal
+IMG-292 | partiel | Jmarchn, CC BY-SA 3.0, ostéonécrose de la tête fémorale gauche | pondération T1 non écrite
+IMG-291 | partiel | Häggström, CC0, coxarthrose gauche grade 3 de Tönnis | pas un bassin entier debout
 
