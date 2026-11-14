@@ -65,3 +65,23 @@ Les affections ajoutées sont listées dans le champ `ajouts_audit` de chaque fi
 - Lire en entier au moins une recommandation de société suisse par système. Aujourd'hui, on n'a lu que les pages Swissmedic et des extraits de recherche.
 - Faire contre-auditer les 19 affections ajoutées, qui n'ont pas été auditées.
 - Le script générateur et correcteur se trouve dans le scratchpad de session (`gen.py`, `patch.py`) ; il n'est pas versionné.
+
+## Tour 2 (réponse à `AUDIT_PP_S9_S12_V2.md`, 14.11.2026)
+
+Les 36 JSON sont réécrits et validés : 0 erreur, 140 affections, plus aucun `nom_audit`.
+
+| # | Correction appliquée |
+|---|---|
+| M15 | PP-S9-Ia : la quatrième affection devient « ostéonécrose de la mâchoire liée aux antirésorbeurs (bisphosphonates, dénosumab) » dans `affections` et `detail_affections` ; `nom_audit` est supprimé. Dans `recensement_sf/recensement_sf.json`, seule la ligne 3771 change, avec ce même libellé ; le JSON reste valide. |
+| N1 | Le texte du valproate (PP-S11-F, trouble bipolaire) reprend la formulation de Swissmedic, Vigilance-News éd. 32. Sa prescription est contre-indiquée chez les jeunes filles et les femmes en âge de procréer, sauf programme de prévention de la grossesse. Elle est aussi contre-indiquée pendant la grossesse dans le trouble bipolaire. Le texte ajoute le risque possible de troubles neurodéveloppementaux chez l'enfant d'un père traité dans les trois mois précédant la conception. J'ai lu moi-même le PDF français (messages-clés 2 et 3) ; le statut de la source devient « lu le 14.11.2026 », avec citation. |
+| N2 | LAP : le syndrome de différenciation est ajouté (fièvre, détresse respiratoire, épanchements, prise de poids), traité par corticoïdes. |
+| N3 | Angio-œdème sous IEC : l'icatibant et le concentré d'inhibiteur de C1 « se discutent hors indication » dans les formes graves, « sans efficacité démontrée par les essais ». Les voies aériennes passent en premier. |
+| N4 | Encéphalite herpétique : `EX-1-S1-lcr-pcr-multiplex` est placé en tête des renvois. |
+| N5 | Duchenne : les thérapies ciblées sont « en développement ou d'autorisation limitée (statut Swissmedic non vérifié) ». |
+| N6 | L'épiphysiolyse reste dans PP-S9-Tr, pour ne pas modifier la liste du cadrage. Elle reçoit `renvoi_fiche` vers PP-S9-D (terrain endocrinien, IMG-294 classée D). |
+| N7 | Arthrite de Lyme : la séquence est corrigée. Une seconde cure orale ou la ceftriaxone intraveineuse traitent l'arthrite qui persiste ; la synovite post-antibiotique relève d'un anti-inflammatoire, voire d'une synovectomie. |
+| N8 | SAPL : pendant la grossesse, l'aspirine et l'HBPM remplacent les AVK, qui sont tératogènes. |
+| N9 | Parvovirus B19 : l'anémie fœtale et l'anasarque chez la femme enceinte sont ajoutées. |
+| N10 | TOC : « (AIPS) » devient « (AIPS suisse, non lu) ». |
+
+Réserve maintenue : 17 omissions « Moyen » du §5 V1 restent ouvertes, et aucune recommandation de société suisse n'a été lue en entier.
