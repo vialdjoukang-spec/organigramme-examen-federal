@@ -67,3 +67,7 @@ Cinq diagnostics : pancréatite exsudative et polype vésiculaire en partiel ; f
 ## Passage IMG-179 à IMG-175
 
 Cinq diagnostics : cholangiocarcinome cerclé, calcul du cholédoque, calcul vésiculaire et cholécystite lithiasique en partiel ; Doppler de TIPS ou de transplantation introuvable. Une vésicule sans calcul sert de normale aux deux échographies vésiculaires. Relectures du cerclage, du calcul cholédocien et de la paroi. Durée approximative : 25 minutes (estimation). Open-i a d'abord renvoyé une page d'erreur, puis la vésicule normale (estimation).
+
+## Passage IMG-174 à IMG-173
+
+Deux diagnostics, tous deux partiels : surcharge en fer sur une T2* mesurée à 7,3 ms, et lacération portale avec pseudo-anévrisme artériel. Relectures pour poser le contour sur la ROI, les flèches de la lacération et le cercle. Durée approximative : 15 minutes (estimation). La licence CC BY 4.0 de la T2* est lue sur la page PMC (estimation).

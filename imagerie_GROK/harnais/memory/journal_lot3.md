@@ -85,3 +85,5 @@ IMG-178 | partiel | Cerevisae 2022, calcul du cholédoque et voie dilatée déj�
 IMG-177 | partiel | Dilmen 2012, calcul vésiculaire avec cône d'ombre | plan de la vésicule normale non écrit
 IMG-176 | partiel | Cerevisae 2023, paroi épaissie et calcul déjà légendés | plan axial contre vésicule normale non précisée
 IMG-175 | introuvable | pas de Doppler de TIPS ni de transplantation ; Open-i en page d'erreur
+IMG-174 | partiel | Çalışkan Kamış 2026, foie sombre en T2*, 7,3 ms | série multi-écho non affichée, contexte transfusionnel
+IMG-173 | partiel | Fouad 2025, lacération portale fléchée et pseudo-anévrisme artériel cerclé | pas de TDM normale
