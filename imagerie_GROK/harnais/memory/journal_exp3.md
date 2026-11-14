@@ -44,3 +44,8 @@ Périmètre EXP-076 → EXP-039, ordre décroissant. Rien n'est inventé. Repris
 - FTE-12 introuvable. Les fichiers d'index cheville-bras sont des schémas du geste, pas une onde.
 - FTE-11 introuvable. La seule MAPA libre est une hypertension nocturne.
 - FTE-10 partiel. VO2 et VCO2 d'une épreuve maximale, protocole 60 W puis +35 W. Pas de seuil marqué.
+- FTE-09 partiel. Colonne A de l'épreuve d'effort, avant 100 W, segment ST de V5 sur la ligne de base.
+- FTE-08 partiel. ECG normal, QT 372 ms et QTc 434 ms imprimés. Aucun psychotrope indiqué.
+- FTE-07 partiel. Cardiotocogramme réel, rythme fœtal et tocométrie. La source ne le classe pas.
+- FTE-06 introuvable. Pas de potentiel évoqué humain libre. Le schéma lisse et l'ABR de souris sont écartés.
+- FTE-05 partiel. Conduction sensitive normale du sural, 3,1 ms, 8,2 µV, 42,8 m/s.

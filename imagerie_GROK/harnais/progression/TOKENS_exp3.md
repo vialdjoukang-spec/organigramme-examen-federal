@@ -14,3 +14,5 @@ EXP-046 à EXP-042. Deux partiels, trois introuvables. Lectures du flutter fléc
 EXP-041 à EXP-039. Deux introuvables, un partiel. L'onde positive aiguë est retenue sans myotome. Reprise des fiches : FTE-14.
 
 FTE-14 à FTE-10. Quatre introuvables, un partiel. L'ergospirométrie garde la courbe VO2 sans seuil anaérobie. Reprise : FTE-09.
+
+FTE-09 à FTE-05. Quatre partiels, un introuvable. Effort, QT, cardiotocogramme et sural lus sur l'image. Reprise : FTE-04.
