@@ -20,4 +20,9 @@ IMG-329 | introuvable | pas d'IRM du rachis entier tumorale | la catégorie ne c
 IMG-328 | introuvable | pas de TDM d'immunothérapie | la catégorie Pneumonitis n'est pas une pneumopathie d'inhibiteur
 IMG-327 | partiel | Drahreg01, CC BY-SA 3.0, foyers d'un cancer prostatique ; normale Heilman, CC BY-SA 4.0 | la scintigraphie de comparaison est normale chez un sujet qui a une ostéopoïkilie
 IMG-326 | introuvable | aucune TDM comparative RECIST | recherches Commons vides
+IMG-325 | partiel | Heilman, CC BY-SA 4.0, métastases hépatiques d'un cancer du côlon | une coupe coronale, pas un TAP complet
+IMG-324 | partiel | Jmarchn, CC BY-SA 3.0, TEP d'un lymphome B à grandes cellules | pas de second TEP pour Deauville ; cerveau, cœur et vessie physiologiques
+IMG-323 | partiel | Leridant, domaine public, déchirure du gastrocnémien médial | planche avec Doppler ; date d'examen, pas de nom lu
+IMG-322 | introuvable | pas d'IRM STIR de loge ou de rhabdomyolyse | recherches Commons vides
+IMG-321 | partiel | Hellerhoff, CC BY-SA 4.0, Salter-Harris II du tibia distal | la planche mêle radiographies et scanner
 

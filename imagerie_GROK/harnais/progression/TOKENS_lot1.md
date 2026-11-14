@@ -37,3 +37,12 @@ Reprise : IMG-330.
 - Épargné par les scripts (estimation) : les catégories Commons ont écarté seules les myélopathies hors sujet avant toute lecture d'image. Le gain chiffré n'est pas mesuré.
 
 Reprise : IMG-325.
+
+## Passe IMG-325 à IMG-321
+
+- Éléments traités : 5 diagnostics. Quatre partiels, un introuvable. Aucun complet.
+- Appels de jugement visuel : environ 8 lectures. Estimation.
+- Durée : une passe, non chronométrée. Estimation.
+- Épargné par les scripts (estimation) : les catégories ont fourni la légende et la licence avant la lecture. Le gain chiffré n'est pas mesuré.
+
+Reprise : IMG-320.
