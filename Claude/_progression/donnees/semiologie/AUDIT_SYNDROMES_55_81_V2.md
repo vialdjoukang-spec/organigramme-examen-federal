@@ -47,3 +47,6 @@ M1, M3, M5, M6, M7, L2, L3, L4 et L6 sont aussi relus et conformes.
 | SY-56 étiologies | « T (tumoral bénin) » pour l'adénome parathyroïdien | Acceptable ; ne rien changer. |
 
 Les points restés « À vérifier » sont légitimes : NaCl 3 %, cyproheptadine et physostigmine sont absents du corpus, et aucune AIPS ne donne le bolus de glucose ni les volumes de cristalloïdes.
+
+## Clôture
+Patch léger SY-80 appliqué (plus de 12 ans 0,5 mg) : **audit-ok** confirmé.
