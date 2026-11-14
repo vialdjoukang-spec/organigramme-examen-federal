@@ -64,7 +64,7 @@ def main():
             o.update(im)
         o["arrows"] = [{k: x.get(k) for k in (
             "tip", "from", "label", "role", "evidence", "confidence",
-            "contour", "definition", "definition_source")} for x in s.get("arrows") or []]
+            "contour", "definition", "definition_source", "couleur")} for x in s.get("arrows") or []]
         return o
     for d in dxs:
         r = dict(d)

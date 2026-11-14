@@ -77,14 +77,18 @@ td.dx button:hover{text-decoration:underline}
 .atip{color:#F7F8FA;min-height:1.2em}
 details.more{margin-top:8px;color:var(--mu);font-size:15px}
 details.more summary{cursor:pointer;color:var(--tx)}
-.anat .ln{fill:rgba(124,240,255,.04);stroke:#7cf0ff;stroke-width:2.5;vector-effect:non-scaling-stroke}
-.anat g:hover .ln{stroke:#fff}
+.ann{pointer-events:none}
+.ann .arw,.ann .mark{pointer-events:auto}
+.anat .halo{fill:none;stroke:#061018;stroke-width:6;vector-effect:non-scaling-stroke;pointer-events:none}
+.anat .ln{fill-opacity:.04;stroke-width:2.5;vector-effect:non-scaling-stroke}
+.anat g.on .ln{stroke-width:3.5;fill-opacity:.32}
+.structTip{margin:8px 0 0;padding:8px 12px;background:#07090c;color:#FFFFFF;border:2px solid var(--link);border-radius:8px;font-size:15.5px;line-height:1.35}
 .arw{cursor:pointer;outline:none}
 .arw .hit{stroke:transparent;fill:none;pointer-events:stroke}
 .arw:focus-visible .ring{stroke:#fff;stroke-dasharray:4 3}
 .arw .ring{fill:none;stroke:transparent}
 .zctl{position:absolute;right:6px;bottom:6px;display:flex;gap:4px;z-index:3}
-.zctl button{width:34px;height:34px;padding:0;border-radius:7px;background:#1a1f27;color:#FFFFFF;border:1px solid #8b97a6;cursor:pointer;font-size:16px;font-weight:700}
+.zctl button{width:42px;height:42px;padding:0;border-radius:8px;background:#07090c;color:#FFFFFF;border:2px solid #FFD400;cursor:pointer;font-size:18px;font-weight:800}
 .ph{border:2px dashed #46505c;border-radius:10px;margin:14px;padding:20px;text-align:center;color:var(--mu);max-width:420px;line-height:1.5}
 .ph b{color:var(--tx);display:block;margin-bottom:6px;font-size:16px}
 .bub{position:absolute;z-index:4;background:#07090c;border:2px solid var(--ac);border-radius:8px;padding:8px 10px;width:auto;max-width:100%;box-sizing:border-box;font-size:15px;line-height:1.4;color:#FFFFFF;opacity:1;box-shadow:0 8px 22px rgba(0,0,0,.72);pointer-events:auto;overflow-wrap:anywhere;word-break:break-word}
@@ -162,6 +166,7 @@ details.more summary{cursor:pointer;color:var(--tx)}
    <button class="btn" id="bHide" aria-pressed="false">Révéler les flèches</button>
    <button class="btn" id="bDefi" aria-pressed="false">Mode défi</button>
    <button class="btn" id="bNote" hidden>Révéler et noter</button>
+   <button class="btn" id="bLink" aria-pressed="false">Zoom lié</button>
    <span id="scoreHead" hidden></span>
    <button class="btn" id="bPrev" aria-label="Diagnostic précédent">◀ Préc.</button>
    <button class="btn" id="bNext" aria-label="Diagnostic suivant">Suiv. ▶</button>
@@ -216,11 +221,12 @@ addEventListener("resize",setHH);
 function arrowSVG(side,svg){
  const W=side.w,H=side.h,disp=svg.getBoundingClientRect().width||W;
  const k=W/disp; // viewBox units per screen px
- // Flèche fine (épaisseur normale ≈ 1,6 px), couleur vive, liseré sombre.
- const sw=1.6*k, rim=3.3*k, hl=13*k, hw=4.6*k, rr=9*k;
+ // Trait 2,6 px, halo sombre d'environ 1,6 px. Couleur de lésion, distincte de l'anatomie.
+ const LESION=["#FF1744","#651FFF","#2962FF","#FF6D00","#C51162","#00B8D4","#AA00FF","#DD2C00"];
+ const sw=2.6*k, rim=sw+3.2*k, hl=13*k, hw=4.6*k, rr=11*k;
  let out="";
  side.arrows.forEach((a,i)=>{
-  const col=`var(--c-${a.role in ROLES?a.role:"principale"})`;
+  const col=a.couleur||LESION[i%LESION.length];
   const tx=a.tip[0]*W,ty=a.tip[1]*H,fx=a.from[0]*W,fy=a.from[1]*H;
   const dx=tx-fx,dy=ty-fy,L=Math.hypot(dx,dy)||1,ux=dx/L,uy=dy/L;
   const bx=tx-ux*hl,by=ty-uy*hl, px=-uy,py=ux;
@@ -244,8 +250,8 @@ function arrowSVG(side,svg){
    seq.push(seq[0]);
    const pts=seq.map(p=>`${p[0]*W},${p[1]*H}`).join(" ");
    const dash=`${3.2*k} ${2.6*k}`;
-   contour=`<polyline class="band" points="${pts}" fill="none" stroke="#061018" stroke-width="${4.2*k}" stroke-dasharray="${dash}" stroke-linejoin="round" stroke-linecap="round"/>
-<polyline class="band" points="${pts}" fill="none" stroke="#FFE14A" stroke-width="${2.4*k}" stroke-dasharray="${dash}" stroke-linejoin="round" stroke-linecap="round"/>`;
+   contour=`<polyline class="band" points="${pts}" fill="none" stroke="#061018" stroke-width="${rim}" stroke-dasharray="${dash}" stroke-linejoin="round" stroke-linecap="round"/>
+<polyline class="band" points="${pts}" fill="none" stroke="${col}" stroke-width="${sw}" stroke-dasharray="${dash}" stroke-linejoin="round" stroke-linecap="round"/>`;
   }
   out+=`<g class="arw${opened.has(i)?" on":""}" data-a="${i}" tabindex="0" role="button" aria-label="${esc(lab)}">
 ${contour}
@@ -254,9 +260,10 @@ ${contour}
 <polygon points="${head}" fill="#061018" stroke="#061018" stroke-width="${1.4*k}" stroke-linejoin="round"/>
 <line x1="${sx}" y1="${sy}" x2="${bx}" y2="${by}" stroke="${col}" stroke-width="${sw}" stroke-linecap="round"/>
 <polygon points="${head}" fill="${col}"/>
-<circle cx="${fx}" cy="${fy}" r="${rr}" fill="${col}" stroke="#061018" stroke-width="${1.6*k}"/>
+<circle cx="${fx}" cy="${fy}" r="${rr+2.2*k}" fill="#061018"/>
+<circle cx="${fx}" cy="${fy}" r="${rr}" fill="#07090c" stroke="${col}" stroke-width="${sw}"/>
 <circle class="ring" cx="${fx}" cy="${fy}" r="${rr+3.2*k}" stroke-width="${1.4*k}"/>
-<text x="${fx}" y="${fy}" dy="${4.4*k}" text-anchor="middle" font-size="${12*k}" font-weight="800" fill="#061018" font-family="system-ui,sans-serif">${i+1}</text>
+<text x="${fx}" y="${fy}" dy="${4.6*k}" text-anchor="middle" font-size="${13*k}" font-weight="800" fill="#FFFFFF" font-family="system-ui,sans-serif">${i+1}</text>
 </g>`;
  });
  proposals.forEach(pt=>{
@@ -362,11 +369,15 @@ function clearBubbles(zw,keepCompact){
 function applyAll(zw,side){zw.querySelectorAll(".bub.compact").forEach(b=>b.remove());if(hideArr){clearBubbles(zw,false);return;}if(showAll)side.arrows.forEach((_,i)=>{if(!zw.querySelector(`.bub[data-a="${i}"]`))bubble(zw,side,i,true);});}
 
 // --- zoom/pan (wheel, drag, buttons, pinch)
+let zooms=[];
+let linkZoom=false;
 function zoomable(fig,zw){
  let s=1,tx=0,ty=0,drag=null,pts=new Map(),pinch=null;
  const boost=fig.closest(".panel.n")?1.12:1;
  const set=()=>{zw.style.transform=`translate(${tx}px,${ty}px) scale(${s*boost})`;};
- const zoomAt=(ns,cx,cy)=>{ns=Math.max(1,Math.min(5,ns));const r=zw.getBoundingClientRect();const ox=cx-r.left,oy=cy-r.top;tx+=ox-ox*ns/s;ty+=oy-oy*ns/s;s=ns;if(s===1){tx=0;ty=0;}set();};
+ const api={read(){return {s,tx,ty};},write(o){s=o.s;tx=o.tx;ty=o.ty;set();}};
+ zooms.push(api);
+ const zoomAt=(ns,cx,cy)=>{ns=Math.max(1,Math.min(5,ns));const r=zw.getBoundingClientRect();const ox=cx-r.left,oy=cy-r.top;tx+=ox-ox*ns/s;ty+=oy-oy*ns/s;s=ns;if(s===1){tx=0;ty=0;}set();if(linkZoom)zooms.forEach(z=>{if(z!==api)z.write({s,tx,ty});});};
  fig.addEventListener("wheel",e=>{e.preventDefault();zoomAt(s*(e.deltaY<0?1.2:1/1.2),e.clientX,e.clientY);},{passive:false});
  fig.addEventListener("pointerdown",e=>{pts.set(e.pointerId,e);if(pts.size===2){const[p,q]=[...pts.values()];pinch={d:Math.hypot(p.clientX-q.clientX,p.clientY-q.clientY),s};}else if(s>1&&!e.target.closest(".arw,.bub,.zctl")){drag={x:e.clientX,y:e.clientY,tx,ty,moved:false};}});
  fig.addEventListener("pointermove",e=>{if(pts.has(e.pointerId))pts.set(e.pointerId,e);if(pinch&&pts.size===2){const[p,q]=[...pts.values()];const d=Math.hypot(p.clientX-q.clientX,p.clientY-q.clientY);zoomAt(pinch.s*d/pinch.d,(p.clientX+q.clientX)/2,(p.clientY+q.clientY)/2);return;}if(drag){const ddx=e.clientX-drag.x,ddy=e.clientY-drag.y;if(Math.abs(ddx)+Math.abs(ddy)>4)drag.moved=true;tx=drag.tx+ddx;ty=drag.ty+ddy;set();}});
@@ -409,28 +420,39 @@ function panel(kind,s,r){
  const note=isP?'<p class="step"></p>':'<p class="atip"></p>';
  const h=`<div class="panel ${isP?"p":"n"}"><h3>${isP?"Pathologique":"Normal"} <small>${demo(s)}</small>${act}</h3>${note}<div class="fig${isP&&defi?" defi":""}">`;
  if(!src)return h+placeholder(isP?"pathologique":"normale",r)+`</div></div>`;
- const layers=!isP&&s&&s.w?`<svg class="anat" viewBox="0 0 ${s.w} ${s.h}" preserveAspectRatio="none" aria-label="Anatomie"></svg>`:"";
- const mark=isP?`<svg viewBox="0 0 ${s.w} ${s.h}" preserveAspectRatio="none" class="${hideArr?"hide":""}" aria-label="Annotations"></svg>`:layers;
- return h+`<div class="zw"><img alt="${isP?"Image pathologique":"Image normale"} : ${esc(r.dx)}" src="${src}" draggable="false">${mark}</div></div></div>`;
+ const anatSvg=s&&s.w?`<svg class="anat" viewBox="0 0 ${s.w} ${s.h}" preserveAspectRatio="none" aria-label="Anatomie"></svg>`:"";
+ const ann=isP?`<svg class="ann ${hideArr?"hide":""}" viewBox="0 0 ${s.w} ${s.h}" preserveAspectRatio="none" aria-label="Annotations"></svg>`:"";
+ return h+`<div class="zw"><img alt="${isP?"Image pathologique":"Image normale"} : ${esc(r.dx)}" src="${src}" draggable="false">${anatSvg}${ann}</div></div></div>`;
 }
+const ANAT={"paroi":"#00E5FF","poumon-droit":"#7CFF4F","poumon-gauche":"#4DFFDF","coeur":"#FF4DFF","diaphragme":"#FF9F1C"};
+function anatColor(st){return st.couleur||ANAT[st.id]||"#FFFFFF";}
 function drawAnat(svg,side){
+ if(!svg||!side)return;
  svg.innerHTML="";
- (side.anatomie||[]).filter(st=>(st.ordre||0)<=anatStep).forEach(st=>{
-  const g=document.createElementNS("http://www.w3.org/2000/svg","g");
+ const NS="http://www.w3.org/2000/svg";
+ (side.anatomie||[]).filter(st=>(+st.ordre||0)<=anatStep).forEach(st=>{
+  const g=document.createElementNS(NS,"g");
+  g.dataset.sid=st.id||st.nom||"";
   g.dataset.nom=st.nom||"";
   g.dataset.desc=st.description||"À vérifier";
-  g.dataset.src=st.source||"À vérifier";
-  const pl=document.createElementNS("http://www.w3.org/2000/svg","polygon");
-  pl.setAttribute("class","ln");
-  pl.setAttribute("points",(st.contour||[]).map(pt=>`${pt[0]*side.w},${pt[1]*side.h}`).join(" "));
-  g.appendChild(pl);svg.appendChild(g);
+  const open=st.id==="diaphragme";
+  const pts=(st.contour||[]).map(pt=>`${pt[0]*side.w},${pt[1]*side.h}`).join(" ");
+  const halo=document.createElementNS(NS,open?"polyline":"polygon");
+  halo.setAttribute("class","halo");halo.setAttribute("points",pts);
+  const pl=document.createElementNS(NS,open?"polyline":"polygon");
+  pl.setAttribute("class","ln");pl.setAttribute("points",pts);
+  pl.setAttribute("stroke",anatColor(st));
+  pl.setAttribute("fill",open?"none":anatColor(st));
+  g.appendChild(halo);g.appendChild(pl);svg.appendChild(g);
  });
- const tip=svg.closest(".panel").querySelector(".atip");
- svg.onpointermove=e=>{
-  const g=e.target.closest("g");
-  if(tip)tip.textContent=g?`${g.dataset.nom} — ${g.dataset.desc} (${g.dataset.src})`:"";
- };
- svg.onpointerleave=()=>{if(tip)tip.textContent="";};
+}
+function lightStruct(id){
+ document.querySelectorAll("#db .anat g").forEach(g=>g.classList.toggle("on",!!id&&g.dataset.sid===id));
+ const tip=document.querySelector("#structTip");
+ if(!tip)return;
+ const g=id&&document.querySelector(`#db .anat g[data-sid="${CSS.escape(id)}"]`);
+ tip.hidden=!g;
+ tip.innerHTML=g?`<b>${esc(g.dataset.nom)}</b> — ${esc(g.dataset.desc)}`:"";
 }
 function paintHint(p){
  const el=document.querySelector("#db .step");if(!el||!p)return;
@@ -464,7 +486,7 @@ function show(){
   ? `<div class="leg">Regardez la normale à gauche. Cliquez sur l'image de droite là où vous voyez une lésion élémentaire (${arrows.length}), puis « Révéler et noter ».</div>${scoreBlock()}`
   : `<div class="leg" aria-label="Légende des rôles">${Object.keys(ROLES).map(k=>`<span><i style="background:var(--c-${k})"></i>${ROLES[k]}</span>`).join("")}<span>· Le numéro ouvre la bande pointillée, le nom et la définition</span></div>
 <ul class="les" aria-label="Lésions annotées">${arrows.map((a,i)=>`<li><button type="button" data-a="${i}" aria-label="Lésion ${i+1}, ${esc(ROLES[a.role]||a.role)}"><span class="num" style="background:var(--c-${a.role})">${i+1}</span><span><span class="muted">${esc(ROLES[a.role]||a.role)} · confiance ${esc(a.confidence)}${a.confidence==="basse"?" · <span class='av'>À vérifier</span>":""}</span><span class="detail" hidden><b>${esc(a.label)}</b><br>Définition : ${esc(a.definition||"À vérifier")}${a.definition_source?`<br><span class="muted">Source : ${esc(a.definition_source)}</span>`:""}</span></span></button></li>`).join("")}</ul>`;
- $("#db").innerHTML=`<div class="pair">${panel("normal",n,r)}${panel("pathologique",p,r)}</div>`+(arrows.length?`<details class="more"><summary>Lésions</summary>${liste}</details>`:"");
+ $("#db").innerHTML=`<div class="pair">${panel("normal",n,r)}${panel("pathologique",p,r)}</div><div id="structTip" class="structTip" hidden></div>`+(arrows.length?`<details class="more"><summary>Lésions</summary>${liste}</details>`:"");
  const detail=[credit("Normal",n),credit("Pathologique",p),
   m.pair_match?`<div><b>Appariement :</b> ${esc(m.pair_match)}</div>`:"",
   (m.a_verifier&&m.a_verifier.length)?`<div class="av"><b>À vérifier :</b> ${m.a_verifier.map(esc).join(" · ")}</div>`:"",
@@ -484,17 +506,26 @@ function show(){
  $("#bDefi").textContent=defi?"Quitter le défi":"Mode défi";
  $("#bNote").hidden=!defi;
  $("#bNote").disabled=!defi||!hideArr;
+ zooms=[];
  document.querySelectorAll("#db .fig").forEach(f=>{const zw=f.querySelector(".zw");if(zw)zoomable(f,zw);});
- const pf=document.querySelector("#db .panel.p .fig"),zw=pf&&pf.querySelector(".zw"),svg=zw&&zw.querySelector("svg");
+ const pf=document.querySelector("#db .panel.p .fig"),zw=pf&&pf.querySelector(".zw"),svg=zw&&zw.querySelector("svg.ann");
  if(ro){ro.disconnect();ro=null;}
  const bAnat=$("#bAnat");
  if(bAnat&&n)bAnat.onclick=()=>{
-  const max=(n.anatomie||[]).reduce((m,s)=>Math.max(m,+s.ordre||0),0);
+  const layers=[...(n.anatomie||[]),...((p&&p.anatomie)||[])];
+  const max=layers.reduce((m,s)=>Math.max(m,+s.ordre||0),0);
   anatStep=anatStep>=max?0:anatStep+1;
-  const asvg=document.querySelector("#db .anat");
-  if(asvg)drawAnat(asvg,n);
+  document.querySelectorAll("#db .anat").forEach(svg=>{
+   const side=svg.closest(".panel").classList.contains("n")?n:p;
+   drawAnat(svg,side);
+  });
+  lightStruct("");
   bAnat.setAttribute("aria-pressed",anatStep>0?"true":"false");
  };
+ document.querySelectorAll("#db .anat").forEach(svg=>{
+  svg.onpointermove=e=>{const g=e.target.closest("g[data-sid]");lightStruct(g?g.dataset.sid:"");};
+  svg.onpointerleave=()=>lightStruct("");
+ });
  if(svg){
   zw._side=p;
   const draw=()=>{
@@ -555,11 +586,12 @@ $("#bX").onclick=close;$("#bPrev").onclick=()=>step(-1);$("#bNext").onclick=()=>
 $("#ov").addEventListener("click",e=>{if(e.target.id==="ov")close();});
 $("#bNames").onclick=()=>{if(defi)return;showAll=!showAll;show();};
 $("#bHide").onclick=()=>{hideArr=!hideArr;if(hideArr){opened.clear();showAll=false;}show();};
+$("#bLink").onclick=()=>{linkZoom=!linkZoom;$("#bLink").setAttribute("aria-pressed",linkZoom?"true":"false");if(linkZoom&&zooms[0])zooms.slice(1).forEach(z=>z.write(zooms[0].read()));};
 $("#bDefi").onclick=()=>{defi=!defi;proposals=[];opened=new Set();showAll=false;if(defi)hideArr=true;show();};
 $("#bNote").onclick=()=>{if(!defi||!hideArr)return;hideArr=false;const p=view[cur].m&&view[cur].m.patho;opened=new Set(((p&&p.arrows)||[]).map((_,i)=>i));show();};
 document.addEventListener("keydown",e=>{
  if(!$("#ov").classList.contains("on"))return;
- if(e.key==="Escape"){e.preventDefault();const zw=document.querySelector("#db .panel.p .zw");if(zw&&zw.closest(".panel").querySelector(".bub.sheet")){clearBubbles(zw,true);opened.clear();const svg=zw.querySelector("svg");const pp=view[cur]&&view[cur].m&&view[cur].m.patho;if(svg&&pp)arrowSVG(pp,svg);document.querySelectorAll("#db .les .detail").forEach(d=>d.hidden=true);return;}close();return;}
+ if(e.key==="Escape"){e.preventDefault();const zw=document.querySelector("#db .panel.p .zw");if(zw&&zw.closest(".panel").querySelector(".bub.sheet")){clearBubbles(zw,true);opened.clear();const svg=zw.querySelector("svg.ann");const pp=view[cur]&&view[cur].m&&view[cur].m.patho;if(svg&&pp)arrowSVG(pp,svg);document.querySelectorAll("#db .les .detail").forEach(d=>d.hidden=true);return;}close();return;}
  if(e.target.closest&&e.target.closest("input,select,textarea"))return;
  if(e.key==="ArrowLeft"){e.preventDefault();step(-1);}else if(e.key==="ArrowRight"){e.preventDefault();step(1);}
  else if(e.key==="Tab"){const f=[...$("#dlg").querySelectorAll('button:not([disabled]),a[href],[tabindex="0"],h2[tabindex]')].filter(x=>x.offsetParent!==null||x.closest("svg"));if(!f.length)return;const a=f[0],z=f[f.length-1];if(e.shiftKey&&document.activeElement===a){e.preventDefault();z.focus();}else if(!e.shiftKey&&document.activeElement===z){e.preventDefault();a.focus();}}
