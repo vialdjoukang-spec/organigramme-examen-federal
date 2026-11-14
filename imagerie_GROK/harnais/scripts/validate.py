@@ -9,7 +9,8 @@ Rules:
   E  licence in whitelist (CC0, Public domain/PD, CC BY x.y, CC BY-SA x.y); author + source_url present
   E  complet => modality, plane (and sequence when given) identical normal vs patho; modality matches cliché
   E  complet => image normale présente
-  E  complet => les deux clichés sont d'un adulte (champ adulte = oui). Enfant ou âge non établi interdit.
+  E  complet => les deux clichés sont d'un adulte (champ adulte = oui) et chaque oui a une adulte_preuve
+       (légende ou signe de maturité : physes soudées, dentition définitive, sutures ou morphologie adultes).
   E  complet et région bassin, sein ou organes génitaux => sexe M/F écrit et identique des deux côtés
   E  dans ces régions, sexes établis et discordants => erreur
   E  complet => contour rectangulaire de ≤ 5 points interdit
@@ -222,6 +223,11 @@ def check(m, dx, errs, warns):
         errs.append("adulte illisible (attendu : oui, non ou « À vérifier »)")
     elif st == "complet" and (an != "oui" or ap != "oui"):
         errs.append("complet : les deux clichés doivent être ceux d'un adulte")
+    elif st == "complet":
+        for tag, side in (("normal", n), ("patho", p)):
+            preuve = (side.get("adulte_preuve") or "").strip()
+            if not preuve or norm(preuve) in ("à vérifier", "a vérifier", "a verifier"):
+                errs.append(f"complet : {tag} adulte sans adulte_preuve")
     if p and not p.get("caption_source"):
         warns.append("patho: caption_source absent")
     arrows = (p or {}).get("arrows") or []

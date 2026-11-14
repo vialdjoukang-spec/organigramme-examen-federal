@@ -76,6 +76,7 @@ def manifest():
         "author": "Essai de harnais, image synthétique, aucun patient",
         "sex": "M",
         "adulte": "oui",
+        "adulte_preuve": "image synthétique d'essai, sujet déclaré adulte, aucun patient",
         "modality": "RX", "sequence": "thorax", "plane": "face", "region": "thorax",
         "note": "Image dessinée par script pour l'essai du rendu. Aucun patient.",
     }

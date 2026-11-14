@@ -3,7 +3,9 @@
 ## Faits
 
 - 14.11.2026, bulle IMG-001 : le texte n'est plus coupé. La définition est une fiche sous l'image, dans le panneau, relue en entier sur bureau (`progression/captures-interface/IMG-001_desktop_bulle.png`, jusqu'à « Confiance : haute ») et sur mobile (`IMG-001_mobile_bulle.png`). La bande reste sur le foyer.
-- Règle de Vial du 14.11.2026 10:48 : le même sexe n'est exigé que pour le bassin, le sein et les organes génitaux. Ailleurs, les deux clichés doivent être ceux d'un adulte (`adulte` = oui). `validate.py` applique cette règle. IMG-001 reste partiel : la pathologique n'est pas établie comme adulte.
+- Règle de Vial du 14.11.2026 10:48, précisée : le même sexe seulement pour bassin, sein, organes génitaux. Ailleurs, adulte suffit. L'adulte vient de la légende ou d'un signe visible, noté dans `adulte_preuve`. Sans signe concluant : « À vérifier ». `validate.py` refuse un complet sans cette preuve.
+- IMG-001 patho : adulte À vérifier (ethmoïde pneumatisé, pas de suture ni de physe sur la coupe). IMG-134 : oui des deux côtés (physes humérales soudées). IMG-136 : oui des deux côtés (squelette adulte). IMG-250 : oui des deux côtés (utérus adulte) mais sexe non écrit, donc pas complet. Aucun des quatre n'est complet (séquence ou sexe).
+- Les quatre lots tournaient encore : la plateforme refuse un message tant qu'ils n'ont pas fini. La règle est dans ce journal et dans `validate.py`. L'auditeur recontrôle les preuves à l'œil.
 
 ## Faits (précédent)
 
