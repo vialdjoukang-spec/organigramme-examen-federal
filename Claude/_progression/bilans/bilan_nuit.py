@@ -34,7 +34,7 @@ h1{{background:var(--n1);padding:8px 12px;border-radius:6px}}h2{{background:var(
 .w{{overflow-x:auto}}table{{border-collapse:collapse;width:100%}}th,td{{border-bottom:1px solid #ddd;padding:6px 8px;text-align:left;vertical-align:top}}th{{border-bottom:2px solid #000}}
 td.ok{{background:var(--n3);font-weight:700}}.k{{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px}}.k div{{border:1px solid #999;border-radius:8px;padding:10px}}.k b{{font-size:1.6em;display:block}}
 figure{{margin:14px 0}}figure img{{max-width:100%;border:1px solid #999}}figcaption{{font-weight:700}}</style>
-<h1>Bilan de la nuit — 14.11.2026, 02h00 → 08h00</h1>
+<h1>Bilan de la nuit — 14.11.2026, 02h00 → 14h13</h1>
 <p>Toutes les fiches ci-dessous ont été rédigées, puis auditées par un agent médical indépendant, puis corrigées jusqu'au verdict « audit-ok » (2 à 3 tours). Les doses viennent de l'AIPS suisse lue mot pour mot ; toute source non suisse porte son étiquette.</p>
 <h2>Ce qui est fait</h2><div class=w><table><tr><th>Bloc</th><th>Fiches</th><th>État</th><th>Détail</th></tr>{lig}</table></div>
 <p><b>{T['audits']}</b> rapports d'audit écrits ; <b>{T['commits']}</b> commits poussés. Pages à ouvrir : <code>recensement/RECENSEMENT_TOPOSYSTEMIQUE.html</code>, <code>donnees/semiologie/SEMIOLOGIE.html</code>, <code>donnees/fondamentales_v2/SCIENCES_FONDAMENTALES.html</code>.</p>
