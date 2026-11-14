@@ -8,11 +8,16 @@ function srcDe(en,cote){
  if(!b||typeof b.fichier!=="string"||b.fichier.indexOf("data:")!==0)return "";
  return b.fichier;
 }
+function demo(info){
+ info=info||{};
+ if(info.age&&info.sexe)return esc(info.age)+" · "+esc(info.sexe);
+ if(info.age)return esc(info.age)+" · sexe non documenté";
+ if(info.sexe)return "âge non documenté · "+esc(info.sexe);
+ return "âge/sexe non documentés";
+}
 function metaLigne(info){
  info=info||{};
- var bits=[];
- if(info.age)bits.push(esc(info.age));
- if(info.sexe)bits.push(esc(info.sexe));
+ var bits=[demo(info)];
  var s=info.source||{};
  var pop=[s.auteur,s.licence,s.url,s.credit].filter(Boolean).map(esc).join(" — ");
  bits.push('<span class="gm-src" tabindex="0">Source'+(pop?'<span class="gm-pop">'+pop+"</span>":"")+"</span>");

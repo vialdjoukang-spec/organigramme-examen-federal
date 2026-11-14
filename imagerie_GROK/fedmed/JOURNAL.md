@@ -11,6 +11,7 @@ Branche `leona/fedmed-fenetres`, créée depuis `origin/main` (`65244131a`). Éc
 - Images retirées (licence hors liste blanche ou données patient) : 0.
 - Signalements : 646, dont 628 « âge ou sexe absent » (cliché conservé), 15 normales locales non ajoutées, 3 normales ajoutées. Détail : `signaux/images_signalees.json`.
 - Captures, console sans erreur : `captures/` (IMG-134, IMG-001, IMG-136, IMG-267, EXP-001, EXP-002, EXP-024, EXP-032, IMG-166, IMG-168, plus flèches et légende d'IMG-134).
+- Suite validée : segmentation sur les images du fichier (en cours), âge/sexe affichés ou « âge/sexe non documentés », recherche des normales manquantes, en-têtes de cartes en bleu ciel.
 <!-- ETAT:FIN -->
 
 ## Original
