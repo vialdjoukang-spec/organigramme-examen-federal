@@ -25,3 +25,9 @@ Les durées et les appels évités sont des estimations, marquées comme telles.
 ## Explorations EXP-153 → EXP-001, puis FTE
 
 - Non commencées. Elles attendent la fin de l'imagerie.
+
+## Point à 02:58 Europe/Zurich (estimation d'horloge, pas une mesure de jetons)
+
+- Demandes de fusion fusionnées par commit de fusion, CI verte : #678 (harnais), #679 (IMG-086–082), #680 (IMG-258–254), #681 (IMG-172–168).
+- Les chercheurs continuent. Le bilan HTML est recalculé depuis les manifestes des worktrees.
+- Épargné par les scripts (estimation) : validate.py a refusé les manifests incomplets avant les audits ; les téléchargements passent par le cache commun.
