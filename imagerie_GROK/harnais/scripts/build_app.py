@@ -7,7 +7,8 @@ CLI: python3 scripts/build_app.py [--external] [--include-test] [--out app/Radio
 Le statut affiché est le statut VALIDÉ par validate.py (un manifest en erreur n'est jamais « complet »).
 Avant d'écrire la page, contraste.py refuse un texte sous 7:1 ou un petit libellé sous 4,5:1.
 Les cartes explicatives (survol, définition, légende, indice, Source) sont bleu ciel atténué :
-fond #E1F3FA (#87CEEB mêlé à 75 % de blanc), bordure #87CEEB, texte #0B2540, au moins 7:1.
+fond #F3FAFD (#87CEEB mêlé à 90 % de blanc), bordure #87CEEB, texte #0B2540, au moins 7:1.
+La police Atkinson Hyperlegible (OFL) est incorporée dans la page.
 La page est refusée sinon.
 """
 import base64, glob, json, os, sys, html, datetime
@@ -15,7 +16,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import validate as V
 import contraste as C
 ROOT = V.ROOT
-CARTE_FOND = "#E1F3FA"
+CARTE_FOND = "#F3FAFD"
 CARTE_BORD = "#87CEEB"
 CARTE_TEXTE = "#0B2540"
 CARTES = (
@@ -55,6 +56,33 @@ def verifier_cartes(css_path):
     if manquants:
         return ["carte absente ou couleurs différentes : " + ", ".join(manquants)]
     return []
+
+FONTS = (
+    ("../fonts/AtkinsonHyperlegible-Regular.ttf", "AtkinsonHyperlegible-Regular.ttf"),
+    ("../fonts/AtkinsonHyperlegible-Bold.ttf", "AtkinsonHyperlegible-Bold.ttf"),
+    ("../fonts/AtkinsonHyperlegible-Italic.ttf", "AtkinsonHyperlegible-Italic.ttf"),
+    ("../fonts/AtkinsonHyperlegible-BoldItalic.ttf", "AtkinsonHyperlegible-BoldItalic.ttf"),
+)
+
+def embarquer_police(tpl):
+    """Incorpore Atkinson Hyperlegible (OFL) pour que la page reste lisible hors ligne."""
+    dossier = os.path.join(ROOT, "fonts")
+    licence = open(os.path.join(dossier, "OFL.txt"), encoding="utf-8").read()
+    if "SIL Open Font License" not in licence:
+        print("police refusée : licence OFL absente")
+        sys.exit(1)
+    for url, nom in FONTS:
+        path = os.path.join(dossier, nom)
+        brut = open(path, "rb").read()
+        if not brut.startswith(b"\x00\x01\x00\x00"):
+            print("police refusée :", nom)
+            sys.exit(1)
+        if url not in tpl:
+            print("gabarit sans", url)
+            sys.exit(1)
+        uri = "data:font/ttf;base64," + base64.b64encode(brut).decode()
+        tpl = tpl.replace(url, uri)
+    return tpl
 
 def main():
     a = sys.argv[1:]
@@ -130,7 +158,7 @@ def main():
     if ecarts:
         print("CONTRASTE refusé :", *ecarts, sep="\n - ")
         sys.exit(1)
-    tpl = open(tpl_path, encoding="utf-8").read()
+    tpl = embarquer_police(open(tpl_path, encoding="utf-8").read())
     js = json.dumps(data, ensure_ascii=False).replace("</", "<\\/")
     page = tpl.replace("/*__DATA__*/null", js).replace("/*__IMGS__*/null", json.dumps(imgs))
     os.makedirs(os.path.dirname(out), exist_ok=True)

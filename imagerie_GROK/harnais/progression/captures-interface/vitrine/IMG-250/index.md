@@ -2,7 +2,7 @@
 
 `validate.py --only IMG-250` : déclaré partiel, validé partiel, 0 erreur, 1 avertissement (plan : sagittal ≠ non précisé). Ce n'est pas un complet.
 
-Cartes (règle du 14.11.2026, 13 h 14) : fond `#E1F3FA`, bordure `#87CEEB`, texte `#0B2540`. Le numéro de flèche sur l'image reste une pastille sombre.
+Cartes (règle du 14.11.2026, 13 h 48) : fond `#F3FAFD`, bordure `#87CEEB`, texte `#0B2540`. Police Atkinson Hyperlegible. Le numéro de flèche sur l'image reste une pastille sombre.
 
 - `01-vue-initiale.png` — Bureau 1440×900. 36 ans · femme et 41 ans · femme, Source, indice « Diagnostic : Fibrome utérin » sur carte bleu ciel. Aucun trait. Zoom des deux côtés.
 - `02-anatomie-myometre.png` — Myomètre cyan des deux côtés. À gauche le trait longe le secteur coupé par le cadre. À droite il suit l'éventail.

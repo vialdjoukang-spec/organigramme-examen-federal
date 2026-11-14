@@ -2,6 +2,7 @@
 
 ## Faits
 
+- 14.11.2026 13:48, fond des cartes #F3FAFD (#87CEEB mêlé à 90 % de blanc). Police Atkinson Hyperlegible, licence OFL, incorporée dans la page. Les aspects encore « À vérifier » sont lus sur le cliché et marqués « Interprétation de l'image (non sourcée) ». Les aspects déjà sourcés gardent leur source.
 - 14.11.2026 13:22, relecture des textes affichés des neuf vitrines : phrases plus courtes, même sens, mêmes sources. Le poumon droit d'IMG-134 dit maintenant que les vaisseaux s'arrêtent à la ligne pleurale. La tête luxée d'IMG-267 n'est plus décrite comme en place.
 - 14.11.2026 13:14, le fond des cartes est le bleu ciel atténué #E1F3FA (#87CEEB mêlé à 75 % de blanc), bordure #87CEEB, texte #0B2540 (13,6:1). Cela remplace #E6F4FF et #9CCBF0. Les étiquettes sur l'image restent sombres. Captures de vitrine refaites, dont IMG-134 et IMG-250. IMG-250 est intégré : deux femmes, 36 et 41 ans, échographies, statut partiel.
 - 14.11.2026, vitrines regroupées après relecture de la vue initiale et de l'index : IMG-132, 158, 161, 164, 243, 267. IMG-158 est une planche (trois coupes à gauche, six vignettes à droite), laissée telle quelle. IMG-164 a une mention blanche en bas du cliché pathologique, en partie masquée. Les autres vues d'ouverture sont des clichés uniques, sans nom ni date lisibles.
