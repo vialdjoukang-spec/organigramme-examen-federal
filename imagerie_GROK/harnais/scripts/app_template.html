@@ -70,11 +70,13 @@ td.dx button:hover{text-decoration:underline}
 #scoreHead{font-size:15px;font-weight:800;color:#b6ffcf;background:#102116;border:2px solid #7dffa8;border-radius:8px;padding:4px 8px}
 .score .miss{color:#ffb4b4}
 .src{position:static;text-decoration:underline;cursor:help;color:var(--tx)}
-.src-pop{display:none;position:absolute;z-index:6;left:8px;top:calc(100% + 4px);width:min(420px,calc(100% - 16px));background:#07090c;color:#FFFFFF;border:2px solid var(--link);border-radius:8px;padding:8px 10px;font-size:14.5px;line-height:1.4;text-decoration:none;opacity:1;overflow-wrap:anywhere;box-shadow:0 8px 22px rgba(0,0,0,.72)}
+.src-pop{display:none;position:absolute;z-index:6;left:8px;top:calc(100% + 4px);width:min(420px,calc(100% - 16px));background:#E6F4FF;color:#0B2540;border:2px solid #9CCBF0;border-radius:8px;padding:8px 10px;font-size:14.5px;line-height:1.4;text-decoration:none;opacity:1;overflow-wrap:anywhere;box-shadow:0 8px 22px rgba(11,37,64,.18)}
+.src-pop a{color:#0B2540;background:#E6F4FF;text-decoration:underline}
 .src:hover .src-pop,.src:focus .src-pop,.src:focus-within .src-pop{display:block}
 .atip,.step{margin:0;padding:6px 10px;font-size:15.5px;line-height:1.35}
-.step{color:var(--ac)}
+.step{color:#0B2540;background:#E6F4FF;border:2px solid #9CCBF0;border-radius:8px;margin:6px 8px}
 .atip{color:#F7F8FA;min-height:1.2em}
+.atip:not(:empty){color:#0B2540;background:#E6F4FF;border:2px solid #9CCBF0;border-radius:8px;margin:6px 8px}
 details.more{margin-top:8px;color:var(--mu);font-size:15px}
 details.more summary{cursor:pointer;color:var(--tx)}
 .ann{pointer-events:none}
@@ -85,9 +87,9 @@ details.more summary{cursor:pointer;color:var(--tx)}
 .anat g[data-sid="paroi"] .ln,.anat g[data-sid="diaphragme"] .ln{fill:none;fill-opacity:0}
 .anat g[data-sid="diaphragme"].on .ln{stroke-width:8}
 .panel h3{position:sticky;top:0;z-index:4}
-.structTip{margin:8px 0 0;padding:8px 12px;background:#07090c;color:#FFFFFF;border:2px solid var(--link);border-radius:8px;font-size:15.5px;line-height:1.35}
-.codeLegend{margin:8px 0 0;padding:10px 12px;background:#07090c;color:#FFFFFF;border:2px solid #FFD400;border-radius:8px;font-size:15.5px;line-height:1.4}
-.codeLegend h3,.codeLegend h4{margin:8px 0 6px;font-size:16px;color:#FFFFFF}
+.structTip{margin:8px 0 0;padding:8px 12px;background:#E6F4FF;color:#0B2540;border:2px solid #9CCBF0;border-radius:8px;font-size:15.5px;line-height:1.35}
+.codeLegend{margin:8px 0 0;padding:10px 12px;background:#E6F4FF;color:#0B2540;border:2px solid #9CCBF0;border-radius:8px;font-size:15.5px;line-height:1.4}
+.codeLegend h3,.codeLegend h4{margin:8px 0 6px;font-size:16px;color:#0B2540;background:#E6F4FF}
 .codeLegend h3{margin-top:0}
 .codeLegend ul{list-style:none;padding:0;margin:0;display:grid;gap:8px}
 .codeLegend li{display:flex;gap:10px;align-items:flex-start}
@@ -102,13 +104,15 @@ details.more summary{cursor:pointer;color:var(--tx)}
 .ph{border:2px dashed #46505c;border-radius:10px;margin:14px;padding:20px;text-align:center;color:var(--mu);max-width:420px;line-height:1.5}
 .ph b{color:var(--tx);display:block;margin-bottom:6px;font-size:16px}
 .bub{position:absolute;z-index:4;background:#07090c;border:2px solid var(--ac);border-radius:8px;padding:8px 10px;width:auto;max-width:100%;box-sizing:border-box;font-size:15px;line-height:1.4;color:#FFFFFF;opacity:1;box-shadow:0 8px 22px rgba(0,0,0,.72);pointer-events:auto;overflow-wrap:anywhere;word-break:break-word}
-.bub.sheet{position:static;display:block;margin:8px;max-width:none;max-height:none;overflow:visible;width:auto}
-.bub.compact{padding:4px 8px;font-weight:800;font-size:14px;color:#FFFFFF}
+.bub.sheet{position:static;display:block;margin:8px;max-width:none;max-height:none;overflow:visible;width:auto;background:#E6F4FF;color:#0B2540;border:2px solid #9CCBF0;box-shadow:none}
+.bub.compact{padding:4px 8px;font-weight:800;font-size:14px;color:#FFFFFF;background:#07090c;border:2px solid #FFD400}
 .bub .r{font-size:13px;text-transform:uppercase;letter-spacing:.05em;font-weight:800}
 .bub .ev{color:#F2F4F7;font-style:italic;margin-top:4px}
 .bub .def{margin-top:4px}
 .bub .src{margin-top:2px;font-size:14px;color:#F2F4F7}
 .bub .cf{margin-top:3px;font-size:14px;color:#F2F4F7}
+.bub.sheet .ev,.bub.sheet .src,.bub.sheet .cf,.bub.sheet .def,.bub.sheet .r{color:#0B2540;background:#E6F4FF}
+.bub.sheet .r{color:#0B2540 !important;background:#E6F4FF}
 .les .detail{display:block;margin-top:3px}
 .les .detail[hidden]{display:none}
 .leg{display:flex;gap:12px;flex-wrap:wrap;font-size:14.5px;color:#F2F4F7;padding:8px 2px 0}
@@ -356,7 +360,7 @@ function bubble(zw,side,i,compact){
   if(panel)panel.querySelectorAll(".bub.sheet").forEach(x=>x.remove());
   s=document.createElement("div");s.className="bub sheet";s.dataset.a=i;
   s.setAttribute("role","status");
-  const col=`var(--c-${a.role})`;s.style.borderColor=col;
+  const col=`var(--c-${a.role})`;
   const def=a.definition?esc(a.definition):"À vérifier";
   const src=a.definition_source?`<div class="src">Source : ${esc(a.definition_source)}</div>`:"";
   s.innerHTML=`<div class="r" style="color:${col}">${i+1} · ${esc(ROLES[a.role]||a.role)}</div><div><b>${esc(a.label)}</b></div><div class="def"><b>Définition :</b> ${def}</div>${src}<div class="ev">Preuve : ${a.evidence==="visuel"?"repérage visuel (pas de légende source)":"« "+esc(a.evidence)+" »"}</div><div class="cf">Confiance : ${esc(a.confidence)}${a.confidence==="basse"?" · À vérifier":""}</div>`;
