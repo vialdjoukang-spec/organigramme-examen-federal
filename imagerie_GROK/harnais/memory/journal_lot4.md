@@ -10,4 +10,9 @@ IMG-339 | partiel | Hellerhoff, CC BY-SA 4.0, TDM nourrisson 8 mois ; normale H�
 IMG-338 | partiel | Jmh649, CC BY-SA 3.0, épanchement péricardique hémorragique | cause cancéreuse, pas un POCUS de choc ; pas d'échographie normale avec auteur
 IMG-337 | partiel | Drahreg01, CC BY-SA 3.0, Morison avec et sans liquide | une seule fenêtre eFAST ; le liquide n'est pas rattaché à un traumatisme ; noms masqués
 IMG-336 | partiel | Stevenfruitsmaak, CC BY-SA 3.0, rachis en bambou | DISH absent ; pas de face lombaire saine retenue
+IMG-335 | partiel | Hellerhoff, CC BY-SA 4.0, ostéogenèse imparfaite du nouveau-né | achondroplasie absente ; pas de squelette sain de nouveau-né
+IMG-334 | introuvable | aucune main d'hyperparathyroïdie sous licence | acro-ostéolyse non rattachée ; catégorie ostéite fibreuse vide
+IMG-333 | partiel | Olgahospital Stuttgart, CC BY-SA 4.0, rachitisme floride du poignet | RicketsXray.jpg rejeté (mains adultes) ; pas d'ostéomalacie ni de poignet sain
+IMG-332 | partiel | Hellerhoff, CC BY-SA 4.0, Paget du bassin droit | prothèse controlatérale non décrite ; pas de bassin sain
+IMG-331 | partiel | Jmarchn, CC BY-SA 3.0, DXA lombaire ostéoporotique | la courbe de référence est sur la même planche, pas une patiente normale
 

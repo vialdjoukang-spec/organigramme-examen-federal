@@ -19,3 +19,12 @@ Reprise : IMG-340.
 - Épargné par les scripts (estimation) : métadonnées Commons, JPEG et validation. Open-i a de nouveau renvoyé une page d'erreur sur l'eFAST. Le gain chiffré n'est pas mesuré.
 
 Reprise : IMG-335.
+
+## Passe IMG-335 à IMG-331
+
+- Éléments traités : 5 diagnostics. Quatre partiels, un introuvable. Aucun complet.
+- Appels de jugement visuel : environ 12 lectures (clichés et aperçus). Estimation.
+- Durée : une passe, non chronométrée. Estimation.
+- Épargné par les scripts (estimation) : catégories Commons, JPEG, validation. Un fichier légendé rachitisme a été rejeté après lecture parce que c'étaient des mains adultes. Le gain chiffré n'est pas mesuré.
+
+Reprise : IMG-330.
