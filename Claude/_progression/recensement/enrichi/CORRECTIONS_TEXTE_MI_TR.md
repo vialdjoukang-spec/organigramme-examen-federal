@@ -41,3 +41,9 @@ Le champ `images` n'a pas été modifié. Le JSON est valide (56 entrées). J'ai
 - 296 et 315 : doses d'amoxicilline-acide clavulanique et de céfuroxime.
 - 325 : dates des guidelines ESMO selon l'organe.
 - Sources signalées par l'audit mais non lues ni vérifiées en ligne : NICE NG234, consensus IgG4 2015, AO Surgery Reference.
+
+## Tour 2 (AUDIT_TEXTE_MI_TR_V2.md, 14.11.2026)
+- 296 et 315, défaut critique corrigé : amoxicilline-acide clavulanique jusqu'à 55 mg/kg toutes les 6 h (AIPS Co-Amoxi-Mepha i.v., n° 56758, sept. 2026), dose relue mot pour mot. Le céfuroxime est marqué hors AIPS (Zinacef®, n° 41940). La source AIPS est ajoutée.
+- 308 : ajout de la limite de 6 mg par crise et de l'arrêt en cas de diarrhée ou de vomissements (AIPS COLCTAB®, relue).
+- 327 : EAU 2026. 304 : AIPS Clexane® ajoutée aux sources. 341 : niveaux de référence de l'OFSP marqués « non vérifié CH ».
+- Images inchangées ; JSON valide.
