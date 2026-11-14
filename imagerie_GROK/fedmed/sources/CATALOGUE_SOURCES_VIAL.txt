@@ -1,0 +1,337 @@
+Catalogue des sources d'imagerie médicale et d'explorations fonctionnelles et pipelines d'accès direct pour l'IA
+Cet inventaire recense 28 sources et familles de sources numérotées couvrant l'imagerie médicale et les explorations fonctionnelles (radiologie, TDM, IRM, échographie-Doppler, médecine nucléaire, endoscopie, dermatoscopie, fond d'œil, électrophysiologie et biomécanique), accompagnées de leurs liens ou points d'accès programmables pour toute IA et d'un pipeline conditionnel en quatre portes garantissant l'accès aux images ou à leurs captures d'écran uniquement lorsque l'âge et le sexe sont attestés, avec sélection prioritaire des adultes (≥ 18 ans). Face aux 933 visuels réels restant à fournir dans le référentiel des besoins (632 clichés diagnostiques d'imagerie, 38 fiches techniques d'imagerie, 220 tracés d'explorations fonctionnelles et 43 fiches techniques d'explorations, en complément de 101 schémas théoriques dessinés en interne) et aux 205 éléments introuvables relevés au 14 novembre 2026 (87 IMG, 85 EXP, 33 FTE), aucun dépôt unique ne suffit à couvrir l'ensemble des besoins cliniques.
+La faisabilité opérationnelle repose sur la séparation nette entre deux régimes juridiques et techniques. D'une part, la publication sur un dépôt et une page publics impose la liste blanche du projet (CC0, Domaine Public, CC BY, CC BY-SA, avec mention de l'auteur et de l'URL), ce qui écarte plusieurs corpus pourtant riches mais restreints à un usage non commercial ou non redistribuable (Eurorad, CheXpert, PadChest, CAMUS, EchoNet-Dynamic). D'autre part, les clichés courants de TDM, IRM, radiographie thoracique, dermatoscopie, fond d'œil, ECG, polysomnographie et cardiotocographie peuvent être automatisés via des bases structurées, alors que l'échographie-Doppler spécialisée, les épreuves fonctionnelles ORL, l'urodynamique, la manométrie et l'ENMG clinique dépendent d'une extraction ciblée dans la littérature ouverte (Europe PMC et PMC Open Access Subset). Aucun connecteur Google Drive n'étant disponible dans cette session pour écrire un fichier .gdoc natif, ce document est structuré en Markdown normalisé pour permettre une importation directe dans Google Docs.
+1. Liste complète et numérotée des sources et liens d'accès direct pour l'IA
+La liste suivante regroupe les 28 sources documentées (dépôts bruts, portails fédérés, API documentaires et corpus thématiques), classées par famille d'accès et modalité clinique.
+Wikimedia Commons (MediaWiki Action API) — Multi-modalités (radiographie, TDM, IRM, échographie, schémas). Accès direct par API JSON sur https://commons.wikimedia.org/w/api.php?action=query&prop=imageinfo&iiprop=url|size|extmetadata&format=json&titles=File:... retournant le lien direct vers le fichier original (url), la licence (LicenseShortName) et l'auteur (Artist). L'âge et le sexe ne sont ni structurés ni garantis (à analyser dans ImageDescription). Compatible avec la liste blanche si licence CC0, Public domain, CC BY ou CC BY-SA et champ Artist renseigné.
+Europe PMC (REST API et fullTextXML) — Toutes modalités d'imagerie et toutes explorations fonctionnelles via les figures d'articles publiés (https://europepmc.org). Accès automatisé aux textes intégraux XML indexés (HAS_FT:Y) pour extraire les présentations de cas (âge, sexe) et les légendes de figures. Compatible liste blanche sous réserve de filtrer au niveau de l'article les licences CC0, CC BY ou CC BY-SA (en excluant NC et ND).
+PubMed Central Open Access Subset (PMC OAI-PMH, efetch et AWS S3) — Corpus intégral en libre accès du NIH couvrant toutes modalités et explorations. Accès direct sans authentification aux paquets et médias sur https://pmc-oa-opendata.s3.amazonaws.com/ (s3://pmc-oa-opendata/), via OAI-PMH (https://pmc.ncbi.nlm.nih.gov/api/oai/v1/mh/, paramètre set=pmc-open, metadataPrefix=pmc, limité à 3 requêtes/s hors heures de pointe), ou via https://eutilspreview.ncbi.nlm.nih.gov/entrez/eutils/efetch.cgi?db=pmc&id=...&rettype=xml. Les paquets sont pré-triés par licence ; seul le groupe Commercial Use Allowed hors CC BY-ND satisfait la liste blanche stricte pour un usage avec annotations.
+Open-i (NLM/NIH Biomedical Image Search Engine) — Radiographies thoraciques (Indiana University), anatomie chirurgicale orthopédique (USC), figures PMC OA, division d'histoire de la médecine NLM et MedPix (https://openi.nlm.nih.gov/ et point d'entrée API documenté sur https://openi.nlm.nih.gov/services#searchAPIUsingGET). Permet théoriquement le filtrage par type d'image et type de licence, avec âge et sexe dans les résumés cliniques associés ; toutefois, des pages d'erreur HTML et absences de JSON ont été constatées lors des requêtes du 14 novembre 2026.
+MedPix et MedPix 2.0 (NLM/NIH, OData, Zenodo et Hugging Face) — TDM, IRM, radiographies, échographies et médecine nucléaire accompagnées de cas cliniques complets (https://medpix.nlm.nih.gov/home, point OData https://datadiscovery.nlm.nih.gov/api/views/vp23-ayt5). Selon les auteurs de MedPix 2.0, la base brute réunit plus de 12 000 cas, 9 000 sujets et près de 59 000 images, dont un sous-ensemble structuré en JSON et PNG (1 062 TDM, 988 IRM et 671 cas cliniques avec champs explicites Age et Sex) publié sur Zenodo (https://zenodo.org/records/12624810) et Hugging Face (https://huggingface.co/datasets/architojha/medpix-2.0-dataset). Ressource ouverte NLM/NIH (le portail Data.gov référence la licence ODC-ODbL pour l'enregistrement catalogue) ; vérifier la licence de réutilisation exacte par cas ou sur le dépôt Zenodo avant publication publique.
+NCI Imaging Data Commons (IDC) — Plus de 100 To d'imagerie oncologique harmonisée au format DICOM (TDM, IRM, TEP, pathologie numérique, microscopie de fluorescence, segmentations et mesures dérivées) issus notamment de TCGA, TCIA, CPTAC, CCDI, HTAN et LIDC (https://imaging.datacommons.cancer.gov/). Accès direct anonyme par SQL via la bibliothèque Python idc-index, téléchargement rapide via s5cmd depuis AWS S3 (s3://idc-open-data-cr/ et s3://idc-open-data/), accès Google Cloud/BigQuery (nci-idc-data), et génération directe de liens de visionneuses web OHIF (radiologie) ou Slim (pathologie) via get_viewer_URL. Plus de 95 % des données sont sous licence CC BY (chaque fichier est étiqueté avec sa licence ; exclure la fraction CC NC). Présence de données cliniques associées et de métadonnées DICOM désidentifiées à contrôler par collection.
+The Cancer Imaging Archive (TCIA / NBIA REST API) — TDM, IRM, TEP, radiographies et échographies-biopsies oncologiques (ex. LIDC-IDRI, RIDER Pilot, NLST). Accès via l'API REST publique https://services.cancerimagingarchive.net/nbia-api/services/v1/ (et v2 avec jeton nbia_guest sur /nbia-api/oauth/token, ou serveur dédié https://nlst.cancerimagingarchive.net/nbia-api/services/), incluant getPatient, getSeries, getImage (ZIP avec fichier de licence) et getSingleImage (objet DICOM unique), ainsi que nbiatoolkit et le plugin Orthanc. Chaque collection ayant sa propre licence dans l'archive ZIP retournée, il est préférable d'interroger le miroir NCI IDC dès qu'une collection y est harmonisée en CC BY.
+Medical Imaging and Data Resource Center (MIDRC) — Imagerie thoracique et multimodale (DX, TDM, IRM) avec codes LOINC et données cliniques (age, sex at birth). Accessible sur https://data.midrc.org/ via les API FAIR et le SDK Python de Gen3 Data Commons (stockage objet sur AWS S3) et indexé par le Biomedical Imaging Hub (BIH). L'accès est gratuit mais requiert une inscription et l'acceptation d'un Data Use Agreement (académique ou commercial), ce qui ne permet pas l'accès anonyme direct ni la redistribution publique sans vérification des clauses du DUA.
+Eurorad (European Society of Radiology) — Bibliothèque européenne de cas cliniques radiologiques multi-organes évalués par des pairs (4 827 cas extraits dans une étude récente sur https://www.eurorad.org/). L'âge et le sexe figurent dans les observations cliniques, mais aucune API publique de téléchargement d'images n'est documentée dans les sources consultées, et les cas publiés après le 6 juillet 2015 relèvent de la licence CC BY-NC-SA 4.0, exclue de la liste blanche du projet.
+Radiopaedia (radiopaedia.org et RadiopaediaConnect) — Base encyclopédique de cas radiologiques multi-organes. Bien qu'une API OAuth2 soit documentée (https://radiopaedia.org/api-documentation), l'outil open source RadiopaediaConnect sert au téléversement de cas vers la plateforme ; l'usage de l'API exige un compte valide et demeure soumis aux conditions d'utilisation propriétaires de Radiopaedia, interdisant une réutilisation publique automatisée sous licence ouverte.
+VinDr-CXR (PhysioNet) — Radiographies thoraciques de face (PA) exclusivement adultes au format DICOM, annotées par 17 radiologues avec boîtes englobantes diagnostiques (https://physionet.org/content/vindr-cxr/, doi:10.13026/3akn-b287). L'article descriptif (CC BY 4.0) précise que l'âge et le sexe sont disponibles pour les clichés où ils étaient connus et que les clichés pédiatriques ont été filtrés ; la licence exacte des fichiers DICOM bruts sur PhysioNet doit être vérifiée avant redistribution publique.
+PadChest et PadChest-GR (BIMCV) — Corpus de 160 000 radiographies thoraciques (1,02 To) annotées en espagnol (http://bimcv.cipf.es/bimcv-projects/padchest/), complété par PadChest-GR (4 555 études bilingues d'âge médian 69 ans à répartition homme/femme équilibrée, boîtes englobantes par deux radiologues, sur https://bimcv.cipf.es/bimcv-projects/padchest-gr/). Bien qu'un miroir Hugging Face mentionne une licence CC BY-SA 4.0 et que l'article de PadChest-GR soit sous CC BY 4.0, le Research Use Agreement officiel du BIMCV interdit formellement toute redistribution, publication ou partage du lien de téléchargement de PadChest, rendant la source incompatible avec un dépôt public sans autorisation écrite.
+NIH ChestX-ray14 (Box NIH et Google Cloud Healthcare API) — 112 120 radiographies thoraciques frontales accompagnées du fichier démographique Data_Entry_2017 (âge et sexe par étude, avec valeurs manquantes à filtrer). Accès via https://nihcc.app.box.com/v/ChestXray-NIHCC, Google Cloud Storage, BigQuery (chc-nih-chest-xray) et Cloud Healthcare API DICOMweb (formulaire requis pour le store GCP et les étiquettes expertes). Selon la documentation Google Cloud, il n'existe pas de restriction sur les images sous réserve d'attribution et de citation du papier CVPR 2017 (bien qu'une étude récente mentionne un usage de recherche non commercial), et une analyse du fournisseur LXT signale un bruit d'étiquetage NLP de 10 à 30 %.
+CheXpert (Stanford AIMI) — Grand jeu de radiographies thoraciques exclusivement adultes avec fichier train.csv contenant âge et sexe (223 413 études analysées dans une publication de 2025 ; un site tiers du secteur avance 224 316 clichés sur plus de 65 000 patients). Libre pour la recherche non commerciale uniquement, donc exclu de la liste blanche publique.
+MIMIC-CXR, BRAX et BIMCV-COVID — Grands corpus hospitaliers complémentaires de radiographies thoraciques indexés sur http://bimcv.cipf.es/bimcv-projects/bimcv-covid19/, https://brax.ai/ et PhysioNet. Les documents disponibles ne détaillent pas leurs champs individuels âge/sexe ni la compatibilité de leur licence avec une rediffusion commerciale ouverte, nécessitant une vérification dédiée.
+PI-CAI Challenge Dataset (Zenodo et GitHub) — 1 500 cas (1 476 patients adultes masculins issus de 11 sites, âge médian 66 ans, incluant 328 cas issus de PROSTATEx) d'IRM prostatique multiparamétrique (T2W, DWI, ADC en .mha) avec scores PI-RADS, grades ISUP et âge patient (patient_age dans clinical_information/marksheet.csv). Accès direct sur https://zenodo.org/records/6624726 et https://github.com/DIAGNijmegen/picai_labels. La littérature spécialisée recense dix autres jeux d'IRM prostatique ouverts (dont Prostate-MRI-US-Biopsy, PROSTATEx et TCGA-PRAD) sans préciser leurs colonnes démographiques. Vérifier les conditions exactes de redistribution sur la fiche Zenodo avant publication publique.
+ISIC Archive (API REST v2 et AWS Open Data) — Dermatoscopie et lésions cutanées. Accès direct par API REST documentée sur https://api.isic-archive.com/api/docs/swagger/, requête filtrée native sur /api/v2/images/search/ acceptant age_approx et sex (ex. age_approx:[20 TO 40] AND sex:male), outil en ligne de commande isic-cli, ou snapshot complet de 61 Go sur AWS Open Data. Totalement automatisable en filtrant les champs d'âge, de sexe et de licence par image (CC-0, CC-BY).
+ODIR-5K (Grand Challenge et Figshare) — Photographies couleur bilatérales du fond d'œil (.jpg) de 5 000 patients sur 8 catégories diagnostiques (normal, diabète, glaucome, cataracte, DMLA, hypertension, myopie, autre), avec âge et sexe documentés dans le fichier d'annotations (https://odir2019.grand-challenge.org/dataset/ et miroir https://figshare.com/articles/dataset/ODIR-5K_dataset/32157930). La fiche Figshare affiche une licence CC BY 4.0, dont la concordance avec les conditions du challenge d'origine doit être confirmée avant publication publique ; une analyse tierce y relève un petit pic pédiatrique à écarter par filtrage adulte.
+CAMUS (Hugging Face zeahub/camus) — 500 patients en échocardiographie transthoracique 2D (vues apicales 2 et 4 cavités) convertis en HDF5 sur https://huggingface.co/datasets/zeahub/camus, incluant metadata/subject avec identifiant, âge et sexe. Publié sous licence CC BY-NC-SA 4.0 (recherche scientifique non commerciale uniquement), incompatible avec la liste blanche publique.
+EchoNet-Dynamic, EchoNet-LVH et TMED-2 (Stanford AIMI / PhysioNet) — Vidéos d'échocardiographie apicale (10 030 clips .avi recadrés en 112 × 112 px pour EchoNet-Dynamic sur https://echonet.github.io/dynamic/, https://github.com/echonet/dynamic et https://aimi.stanford.edu/datasets/echonet-dynamic-cardiac-ultrasound) et corpus de sténose aortique TMED-2 sur PhysioNet. Des ventilations âge/sexe existent dans l'évaluation de TMED-2 et EchoNet-LVH, mais EchoNet-Dynamic impose un accord non commercial, écartant une réutilisation publique libre.
+HyperKvasir, Kvasir et corpus d'endoscopie digestive (Simula et Zenodo) — Images et vidéos d'endoscopie gastro-intestinale validées par des médecins, incluant Kvasir (https://datasets.simula.no/kvasir/), HyperKvasir (CC BY 4.0) et des corpus de polypes/endoscopie sous CC BY 4.0 (dont https://zenodo.org/records/7785916). Malgré la licence CC BY 4.0, la présence d'âge et de sexe par cliché n'est pas attestée dans les sources consultées, ce qui bloque leur passage automatique sous la règle stricte âge+sexe.
+GlottisNetV2 (Zenodo) — 105,6 Go de vidéos d'endoscopie laryngée (.mp4), masques HDF5 et métadonnées .meta JSON (https://zenodo.org/records/6938457). Ni la licence exacte ni la présence d'âge et de sexe dans les fichiers .meta ne sont documentées dans les sources consultées.
+OpenNeuro et NEMAR (BIDS sur AWS S3) — Plateforme ouverte de neuroimagerie et d'électrophysiologie (IRM, IRMf, diffusion, spectroscopie MRS, EEG, MEG, iEEG, ECoG) structurée au standard BIDS (https://openneuro.org/, API NEMAR https://api.nemar.org/datasets/... et https://data.nemar.org/..., paquets Python openneuro-py et MNE-BIDS, et bucket public AWS S3). De nombreux jeux sont sous licence CC0 avec cohortes adultes documentées (ex. ds006395, 91 adultes de 18 à 78 ans), mais certains jeux (comme on006159) ont une table participants.tsv sans âge ni sexe, imposant un contrôle systématique par jeu de données.
+Temple University Hospital (TUH) EEG Corpus et TUH Abnormal EEG Corpus — Corpus clinique hospitalier d'EEG de surface normaux et pathologiques intégrant l'âge et le sexe dans les chargeurs standardisés de la bibliothèque braindecode (braindecode.org). Les conditions exactes d'accès et de redistribution publique de la licence TUH ne sont pas attestées dans les documents consultés.
+PhysioNet PTB-XL et PTB-XL+ (AWS S3 physionet-open) — Grand répertoire d'ECG à 12 dérivations (500 Hz et 100 Hz) annoté par codes SCP-ECG avec double validation cardiologique sur les plis 9 et 10 et champs démographiques age et sex dans la base tabulaire (https://physionet.org/content/ptb-xl/, téléchargement direct sans inscription par https://physionet.org/files/ptb-xl/1.0.3/ ou aws s3 sync --no-sign-request s3://physionet-open/ptb-xl/1.0.3/). Le répertoire secondaire Medexhaq lui attribue une licence CC BY 4.0 (à vérifier sur la page officielle PhysioNet).
+PhysioNet Sleep-EDFx, Sleep-EDF, CAP Sleep et CPS-Dataset-Sleep — 197 enregistrements polysomnographiques nuit entière au format EDF/EDF+ dans Sleep-EDFx (https://physionet.org/content/sleep-edfx/1.0.0/, 8,1 Go, s3://physionet-open/sleep-edfx/1.0.0/), incluant EEG, EOG, EMG mentonnier, parfois respiration et température, et hypnogrammes scorés, avec genre et âge dans l'en-tête EDF. La version antérieure obsolète (sleep-edf) relève de Open Data Commons Attribution License v1.0 (ODC-By 1.0) ; CPS-Dataset-Sleep (https://physionet.org/content/cps-dataset-sleep/) regroupe l'âge par tranches sans confirmer le sexe dans l'extrait disponible, et CAP Sleep sur AWS Open Data fournit des .edf sans confirmation démographique dans la notice consultée.
+PhysioNet CTU-UHB Intrapartum Cardiotocography Database — 552 enregistrements intrapartum (rythme cardiaque fœtal et contractions utérines à 4 Hz, grossesses uniques > 36 semaines d'aménorrhée, pH ombilical) sur https://www.physionet.org/physiobank/database/ctu-uhb-ctgdb/. Les fichiers d'en-tête .hea (ex. 1151.hea) incluent l'âge maternel (#Age), et la licence officielle est ODC-By 1.0 (réutilisation commerciale avec attribution autorisée, à valider par rapport à la liste stricte des licences Creative Commons du projet).
+Collections spécialisées Zenodo et Figshare (Health&Gait, ARTERiA, MRTDosimetry) — Dépôts ouverts accessibles via API REST et OAI-PMH : Health&Gait (https://zenodo.org/records/14039922, 32,0 To, 398 participants, paramètres de marche OptoGait/MuscleLAB, sans âge/sexe ni licence confirmés dans l'extrait) ; ARTERiA (https://zenodo.org/records/18923890, sons respiratoires .wav d'estimation spirométrique, restreint, CC BY-NC 4.0, sans âge ni sexe) ; MRTDosimetry (https://zenodo.org/records/18890542, SPECT/CT Lu-177 sur fantômes physiques non humains, inéligible aux clichés cliniques humains).
+Synthèse comparative des 28 sources
+Pour respecter les conditions d'un dépôt public (CC0, Domaine Public, CC BY, CC BY-SA avec attribution complète), chaque source est classée en Niveau A (compatible avec la liste blanche), Niveau B (licence non commerciale, DUA fermé, ODC-By à valider ou absence de redistribution autorisée) ou Niveau C (absence confirmée d'âge/sexe, données non humaines ou métadonnées insuffisantes dans les sources).
+#
+Source
+Modalités
+Accès IA / point d'entrée
+Âge & Sexe
+Statut licence projet
+1
+Wikimedia Commons
+RX, TDM, IRM, US, schémas
+API MediaWiki JSON (url directe)
+Rares / non structurés
+Niveau A (si CC0/DP/CC BY/CC BY-SA + Artist)
+2
+Europe PMC
+Toutes modalités + explorations
+REST API + fullTextXML
+À extraire du texte et légendes
+Niveau A (filtrer CC0/CC BY/CC BY-SA)
+3
+PMC Open Access Subset
+Toutes modalités + explorations
+OAI-PMH, efetch, AWS S3 sans auth
+À extraire du XML JATS
+Niveau A (paquet commercial hors CC BY-ND)
+4
+Open-i (NLM)
+RX, TDM, IRM, US, orthopédie
+API JSON (erreurs fréquentes fin 2026)
+Dans le contexte clinique
+Niveau A/B mixte (filtrable par licence)
+5
+MedPix / MedPix 2.0
+TDM, IRM, RX, US, méd. nucléaire
+OData, Open-i, Zenodo/HF (PNG)
+Structurés (Age, Sex) dans MedPix 2.0
+Niveau A/B (ressource NLM ; ODC-ODbL au catalogue — vérifier par cas)
+6
+NCI Imaging Data Commons
+TDM, IRM, TEP, pathologie
+idc-index SQL, S3, OHIF/Slim
+Données cliniques + DICOM à vérifier
+Niveau A (> 95 % CC BY, balisé par fichier)
+7
+TCIA / NBIA
+TDM, IRM, TEP, RX, US
+REST API nbia-api (nbia_guest)
+À vérifier par collection (getPatient)
+Niveau A/B mixte (préférer le miroir IDC)
+8
+MIDRC
+RX, TDM, IRM thoracique
+Gen3 API / SDK, AWS S3 (data.midrc.org)
+age, sex at birth
+Niveau B (inscription + DUA requis)
+9
+Eurorad (ESR)
+Radiologie multi-organes
+Pages web par ID (eurorad.org)
+Présents dans l'énoncé clinique
+Niveau B (CC BY-NC-SA 4.0 : exclu)
+10
+Radiopaedia
+Radiologie multi-organes
+API restreinte aux membres (upload)
+Présents dans les cas cliniques
+Niveau B (conditions propriétaires)
+11
+VinDr-CXR
+RX thoracique PA adulte
+PhysioNet (10.13026/3akn-b287)
+Connus pour les cas retenus (adultes)
+Niveau A/B (article CC BY 4.0 ; vérifier DICOM)
+12
+PadChest / PadChest-GR
+RX thoracique + boîtes
+Sur demande (bimcv.cipf.es)
+Présents (PadChest-GR médiane 69 ans)
+Niveau B (RUA BIMCV interdit tout partage ; conflit notice)
+
+13
+NIH ChestX-ray14
+RX thoracique frontale (112 120)
+Box NIH, BigQuery, DICOMweb
+Data_Entry_2017 (filtrer manquants)
+14
+CheXpert
+RX thoracique adulte
+Stanford AIMI
+train.[span_86](start_span)[span_86](end_span)csv (âge + sexe, adultes)
+Niveau B (usage non commercial uniquement)
+15
+MIMIC-CXR / BRAX / BIMCV-COVID
+RX thoracique
+PhysioNet / portails dédiés
+Non détaillés dans les sources
+Niveau B/C (licences et champs à vérifier)
+16
+PI-CAI Challenge
+IRM prostatique (.mha)
+Zenodo 6624726 + GitHub
+patient_age + hommes adultes
+Niveau A/B (vérifier termes exacts sur Zenodo)
+17
+ISIC Archive
+Dermatoscopie
+API REST v2, isic-cli, S3 (61 Go)
+Requête native age_approx + sex
+Niveau A (filtrer licence libre par image)
+18
+ODIR-5K
+Fond d'œil bilatéral (.jpg)
+Grand Challenge, Figshare 32157930
+Âge + sexe (filtrer rares mineurs)
+Niveau A/B ([span_118](start_span)[span_118](end_span)CC BY 4.0 sur Figshare ; vérifier source)
+19
+CAMUS
+Échocardiographie 2D (HDF5)
+Hugging Face zeahub/camus
+metadata/subject (age, sex)
+Niveau B (CC BY-NC-SA 4.0 : exclu)
+20
+EchoNet / TMED-2
+Échocardiographie vidéo / Ao
+GitHub, Stanford AIMI, PhysioNet
+Sous-groupes âge/sexe documentés
+Niveau B (accord non commercial sur EchoNet)
+21
+HyperKvasir / Kvasir
+Endoscopie digestive
+Simula / Zenodo 7785916
+Non confirmés dans les sources
+Niveau C (bloqué sous règle stricte âge+sexe malgré CC BY 4.0)
+22
+GlottisNetV2
+Endoscopie laryngée (.mp4)
+Zenodo 6938457 (105,6 Go)
+Non confirmés dans .meta
+Niveau C (licence et démographie non attestées)
+23
+OpenNeuro et NEMAR
+IRM, IRMf, DWI, MRS, EEG, MEG
+AWS S3, openneuro-py, API NEMAR
+participants.tsv (variable par jeu)
+Niveau A si CC0 et participants.tsv complet
+24
+TUH EEG / Abnormal
+EEG clinique
+Portail TUH (braindecode)
+Âge et sexe parsés
+Niveau B (vérifier termes TUH hors usage académique)
+25
+PhysioNet PTB-XL / PTB-XL+
+ECG 12 dérivations (500 Hz)
+AWS S3 sans auth, wget, ZIP
+age, sex en CSV
+Niveau A (CC BY 4.0 selon Medexhaq ; vérifier PhysioNet)
+26
+PhysioNet Sleep-EDFx / CAP / CPS
+Polysomnographie (EDF/EDF+)
+AWS S3 sans auth, LightWAVE
+En-tête EDF (gender, age) dans Sleep-EDFx
+Niveau B ([span_181](start_span)[span_181](end_span)ODC-By 1.0 sur Sleep-EDF : à valider hors CC)
+27
+PhysioNet CTU-UHB
+Cardiotocographie (4 Hz)
+PhysioNet .dat/.hea
+#Age maternel dans .hea (femmes)
+Niveau B (ODC-By 1.0 : à valider hors CC)
+28
+Zenodo (Health&Gai[span_193](start_span)[span_193](end_span)t, ARTERiA, MRTDo[span_194](start_span)[span_194](end_span)simetry)
+Marche, acoustique, fantômes
+API REST Zenodo / OAI-PMH
+Absents (ARTERiA) ou fantômes (MRT)
+Niveau B/C (ARTERiA CC BY-NC 4.0 ; MRT non humain)
+---
+2. Couverture des 933 besoins et résolution des 205 introuvables
+Le bilan éditorial BESOINS_IMAGES.html totalise 344 diagnostics d'imagerie (56 clichés trouvés pour IMG-001 à IMG-028 et 632 restant à fournir), 38 fiches techniques d'imagerie (38 à fournir), 153 explorations fonctionnelles (220 tracés réels à fournir et 86 schémas dessinés en interne) et 58 fiches techniques d'explorations (43 tracés réels à fournir et 15 schémas dessinés), soit 933 fichiers réels manquants et 101 schémas internes. Parallèlement, l'audit automatisé INTROUVABLES_imagerie_GROK.html arrêté au 14 novembre 2026 à 11:02 (Zurich, branche PR 726) recense 205 éléments introuvables (87 IMG, 85 EXP et 33 FTE), dont sept fiches figurant pourtant comme trouvées dans le bilan global (IMG-009, IMG-010, IMG-012, IMG-014, IMG-017, IMG-020 et IMG-021).
+L'analyse des motifs consignés dans cet audit explique pourquoi les collectes classiques échouent et dicte la spécialisation des sources. Premièrement, le moteur Open-i a renvoyé des pages d'erreur HTML ou échoué à livrer du JSON sur des cibles clés (IMG-010, IMG-175, IMG-197, IMG-201, IMG-234, EXP-139 à EXP-143), rendant indispensable un basculement direct sur Europe PMC et le bucket AWS S3 pmc-oa-opendata. Deuxièmement, de nombreuses figures cliniques pourtant pertinentes ont été écartées en raison de licences CC BY-NC ou CC BY-NC-ND (IMG-156, IMG-180, IMG-182, IMG-183, IMG-188, IMG-192, EXP-035, EXP-144). Troisièmement, des défauts d'anonymisation ou d'attribution ont provoqué des rejets bloquants : identifiant d'examen visible (IMG-226, IMG-252), nom ou date de naissance à l'écran (IMG-279, EXP-017, EXP-146, EXP-147, FTE-25), visage non flouté (EXP-031) ou champ Artist vide sur Wikimedia Commons (IMG-077). Quatrièmement, les requêtes généralistes sur Wikimedia Commons ramènent souvent des modèles murins (IMG-021, IMG-038, FTE-38), des photographies externes, de l'histologie ou des séquences IRM inadéquates (T2 au lieu de T1/FLAIR/diffusion). Cinquièmement, la demande d'un tracé normal complet de référence pour les fiches techniques FTE se heurte à la rareté des cas sains isolés dans la littérature (FTE-16, FTE-39, FTE-47, FTE-54).
+Le tableau ci-dessous cartographie chaque famille de modalité du référentiel des besoins vers les sources compatibles, les replis sous droits et les angles morts persistants.
+Famille de modalité
+Exemples d'identifiants du référentiel
+Sources principales (Niveau A — Liste blanche)
+Sources complémentaires (Niveau B — Sous droits/DUA)
+Couverture et angles morts critiques
+Radiographie standard (thorax, os, cou, ASP)
+IMG-064, 105, 122, 124, 134, 201, 267, 277, 280, 291, 304, 317, 334, FTI-01–04
+NIH ChestX-ray14 (thorax), Europe PMC / PMC OA (CC BY), MedPix 2.0, Wikimedia Commons (filtré)
+VinDr-CXR (adultes PA), CheXpert, PadChest, Eurorad
+Thorax très bien couvert ; os périphérique, rachis, main (IMG-334) et pédiatrie (IMG-340) dépendent de PMC OA et MedPix.
+TDM, angio-TDM et uro-TDM
+IMG-001–004, 009, 046–048, 053–055, 057–059, 106–117, 125, 154–156, 167, 184–186, 193, 195, 217–223, 235–237, FTI-08–12
+NCI IDC (CC BY oncologie), MedPix 2.0 (1 062 TDM PNG), Europe PMC / PMC OA (CC BY)
+TCIA, MIDRC, Eurorad, Radiopaedia
+Oncologie bien couverte par IDC ; urgences et phases multiphasiques (angio-TDM triphasique, uro-TDM) dépendent de PMC OA et MedPix.
+IRM, angio-IRM et bili-IRM
+IMG-005–008, 010–022, 029–030, 032–040, 042–045, 077, 082–085, 097–104, 143, 147, 149, 165–166, 168, 178–180, 183, 202, 241, 251, 254, 269, 278, 292, 298, 302–303, 306–307, 320, 322, 329, FTI-13–21
+OpenNeuro (CC0 neuro), NCI IDC (CC BY tumeurs), MedPix 2.0 (988 IRM PNG), Europe PMC / PMC OA (CC BY)
+PI-CAI (prostate PI-RADS, licence Zenodo à confirmer), Eurorad
+Neuro/oncologie bien couvertes ; séquences spécialisées (T2 myocardite IMG-147, bili-IRM hépatospécifique IMG-183, STIR pied) rares hors PMC OA.
+Échographie, Doppler et échocardiographie
+IMG-031, 051–052, 067, 080, 132, 145–146, 148, 170–171, 175–177, 192, 194, 204–205, 228, 239, 242–250, 252–253, 255–262, 264, 275–276, 283–284, 293, 305, 310, 313–314, 337–338, EXP-061–064, 111–112, 114–115, 123, FTI-22–27, FTE-18–20
+Europe PMC / PMC OA (CC BY), MedPix, Wikimedia Commons (filtré sans ID écran)
+CAMUS (CC BY-NC-SA), EchoNet-Dynamic (NC), TMED-2, TCIA Prostate-MRI-US-Biopsy
+Angle mort majeur : aucun grand dépôt CC BY/CC0 avec âge+sexe pour échocardiographie, Doppler viscéral/greffon, endovaginal/3D utérin ou MSK.
+Médecine nucléaire (Scintigraphie, SPECT, TEP-TDM)
+IMG-023, 068, 070, 075, 126, 150, 158, 188, 324, 327, 330, 342–343, EXP-090, FTI-28–31
+NCI IDC (TEP-TDM oncologie CC BY), Europe PMC / PMC OA, MedPix
+TCIA, Eurorad
+Scintigraphies non oncologiques (thyroïde, V/Q, vidange gastrique) dépendent de PMC OA ; MRTDosimetry ne contient que des fantômes.
+Mammographie, DXA, interventionnel et scores transversaux
+IMG-160–161, 331, FTI-05–07, FTI-10, FTI-32–38
+Europe PMC / PMC OA (CC BY), NCI IDC (collections dédiées CC BY)
+TCIA
+DXA particulièrement exposée au rejet pour date de naissance visible à l'écran (EXP-146, 147 en PR 726).
+Dermatoscopie
+EXP-151, FTE-43
+ISIC Archive v2 (age_approx + sex, filtrer licences CC-0/CC-BY)
+Collections NC de l'ISIC
+Couverture optimale et directement automatisable en liste blanche.
+Ophtalmologie (Fond d'œil, OCT, champ visuel)
+EXP-010–016, FTE-40–42
+ODIR-5K (CC BY 4.0 Figshare à confirmer, fond d'œil + âge/sexe), Europe PMC / PMC OA (CC BY pour OCT/champ visuel)
+ODIR-5K Grand Challenge
+Angle mort pour l'OCT maculaire et les champs visuels automatisés : dépendance à PMC OA.
+Endoscopie et déglutition (FEES, vidéofluoroscopie)
+EXP-028, 030, FTE-51
+Europe PMC / PMC OA (CC BY avec âge+sexe en texte)
+HyperKvasir / Kvasir (CC BY 4.0 sans âge/sexe attestés), GlottisNetV2
+Laryngoscopies statiques et déglutition avec âge+sexe dépendent de PMC OA (les vidéos .ogv Commons posent un échec de format fixe).
+Électrophysiologie cardiaque (ECG 12 dérivations, Holter)
+EXP-045–060, 065, 068–069, 152, FTE-01–02, 08
+PhysioNet PTB-XL / PTB-XL+ (age/sex/scp_codes ; vérifier CC BY 4.0 sur PhysioNet), Europe PMC / PMC OA
+—
+ECG 12 dérivations très bien couvert ; Holter complet normal (FTE-02) à extraire de PMC OA ou par fenêtrage long.
+Neuro-électrophysiologie (EEG, ENMG, PE, ERG)
+EXP-001–009, 017, 032–041, 043–044, 118–119, 127, 152–153, FTE-03–06
+OpenNeuro / NEMAR (CC0 si participants.tsv complet), Europe PMC / PMC OA (CC BY)
+TUH EEG Corpus
+Angle mort pour ENMG clinique (blocs, décrément myasthénique, incrément), PEV/PES/PEM et ERG propres : dépendance à PMC OA.
+Sommeil et cardiotocographie
+EXP-109, 128–135, FTE-07, 29–35
+Europe PMC / PMC OA (CC BY) ; Sleep-EDFx et CTU-UHB (ODC-By 1.0, âge/sexe en en-tête, à valider hors CC)
+CPS-Dataset-Sleep, CAP Sleep
+PSG et CTG couvertes en signal brut ; TILE/MSLT, TME/MWT, actimétrie et oxymétrie nocturne isolée dépendent de PMC OA.
+ORL sensoriel et explorations spécialisées (digestif, uro, hémodynamique, gériatrie)
+EXP-018–027, 042, 066–067, 082, 087–090, 094–095, 102–108, 116–117, 120–122, 124–126, FTE-09–20, 36–39, 44–50
+Europe PMC / PMC OA (CC BY avec âge+sexe en texte)
+Health&Gait (Zenodo 14039922, marche — licence/démographie non attestées)
+Angle mort complet : aucun dépôt structuré identifié pour audiométrie, vHIT/VNG, manométrie HR, pH-impédance, urodynamique, capillaroscopie, tilt-test ou ergospirométrie.
+Ventilatoire et tests dynamiques / métaboliques
+EXP-029, 070–081, 083–086, 091–093, 096–101, 110, 113, 136–150, FTE-21–28, 52–58 (101 tracés)
+Dessinés en interne selon BESOINS_IMAGES.html (86 en Bloc C + 15 en Bloc D) ; appui optionnel Europe PMC / PMC OA
+ARTERiA (CC BY-NC 4.0, audio sans âge/sexe)
+Aucune acquisition de droits nécessaire pour ces 101 tracés théoriques.
+3. Pipeline conditionnel d'accès direct aux images et captures d'écran
+Pour permettre à une IA multimodale ou à un script d'ingestion de collecter des visuels conformes sans reproduire les rejets de la branche PR 726, le flux d'extraction doit enchaîner quatre portes séquentielles strictes.
+Porte 1 : Filtrage juridique sur liste blanche
+Avant tout téléchargement de pixel ou déclenchement de capture, l'orchestrateur contrôle la licence machine et rejette toute ressource étrangère à la liste blanche (CC0, Domaine Public, CC BY, CC BY-SA) :
+Sur NCI IDC, filtrer la table index pour ne retenir que les séries marquées CC BY et écarter le sous-ensemble CC NC.
+Sur Europe PMC et PMC Open Access Subset, vérifier dans le XML JATS que la balise <license> correspond à CC0, CC BY ou CC BY-SA, en excluant CC BY-NC, CC BY-NC-SA, CC BY-NC-ND ainsi que CC BY-ND (bien que CC BY-ND figure dans le paquet Commercial Use Allowed de PMC, elle empêche l'apposition de flèches ou de recadrages considérés comme des adaptations).
+Sur ISIC Archive v2, vérifier le champ de licence sur /api/v2/images/{isic_id}/ pour n'accepter que CC-0 ou CC-BY.
+Sur OpenNeuro / NEMAR, lire dataset_description.json à la racine du jeu et exiger "License": "CC0" (ou "CC BY").
+Sur Wikimedia Commons, exiger simultanément dans extmetadata un LicenseShortName conforme (CC0, Public domain, CC BY, CC BY-SA) et un champ Artist non vide.
+Sur PhysioNet et MedPix, valider en amont la recevabilité des licences ODC-By 1.0 (CTU-UHB, Sleep-EDF) et ODC-ODbL (MedPix Data.gov) ou s'en tenir aux corpus CC BY 4.0 vérifiés (PTB-XL).
+Porte 2 : Verrou bloquant âge et sexe avec priorité adulte
+Aucune image ni capture n'est récupérée ou transmise à l'IA sans valeur explicite d'âge et de sexe. Par défaut, le filtre impose age >= 18 ans (priorité aux sujets adultes). L'abaissement sous 18 ans n'est débloqué que pour les fiches explicitement pédiatriques, néonatales ou adolescentes du référentiel (ex. IMG-018, 031, 043, 075, 095, 096, 128, 130, 131, 141, 182, 204–208, 229, 234, 272, 285, 293–296, 315, 318, 319, 321, 333, 335, 339–341, EXP-006, 016, 023, 040, 141, 143). Les fiches d'obstétrique (IMG-258–264, EXP-109, 111, 112, FTE-07) et de gynécologie (IMG-249–257) imposent sex == F et age >= 18, tandis que les fiches prostatiques et scrotales (IMG-241–248) imposent sex == M et age >= 18.
+Type de source
+Mécanisme d'extraction du couple (Âge, Sexe)
+Condition de rejet automatique
+API à requête démographique native (ISIC v2)
+Requête directe age_approx:[18 TO 120] associée au filtre sex sur /api/v2/images/search/
+Rejet si age_approx manquant ou sex non renseigné
+Tables tabulaires et index structurés (PTB-XL, ODIR-5K, MedPix 2.0, NIH ChestX-ray14, PI-CAI)
+Lecture directe de ptbxl_[span_202](start_span)[span_202](end_span)database.csv (age, sex), du tableur ODIR-5K, du JSON Description de MedPix 2.0 (Age, Sex), de Data_Entry_2017 ou de marksheet.csv (patient_age, cohorte masculine adulte NCT05489341)
+Rejet si valeur manquante, indéterminée ou hors tranche d'âge
+Collections DICOM / cliniques (NCI IDC, TCIA, VinDr-CXR)
+Inspection des tables cliniques associées et des en-têtes DICOM (ex. PatientSex (0010,0040) et métadonnées d'âge conservées après désidentification)
+Rejet systématique si l'anonymisation a effacé l'âge ou le sexe (comme les clichés sans démographie de VinDr-CXR)
+En-têtes BIDS et signaux (OpenNeuro, Sleep-EDFx, CTU-UHB)
+Validation préalable de participants.tsv (OpenNeuro), de l'en-tête EDF (gender, age dans Sleep-EDFx) ou de #Age dans .hea (CTU-UHB)
+Rejet du jeu entier si participants.tsv omet age ou sex (cas documenté de on006159)
+Littérature et archives libres (Europe PMC, PMC OA, Open-i, Wikimedia Commons)
+Extraction conjointe sur fullTextXML (présentation du cas + légende <fig>) ou ImageDescrip[span_252](start_span)[span_252](end_span)tion exigeant un âge chiffré explicite et un marqueur de sexe rattachés au patient figuré
+Rejet en cas de cohorte agrégée sans attribution individuelle au cliché, ou d'absence d'un des deux champs
+Porte 3 : Quatre pipelines d'accès direct ou de capture d'écran
+Selon le format livré par les dépôts validés aux Portes 1 et 2, quatre pipelines produisent une URL ou une image matricielle .jpg / .png exploitable par n'importe quelle IA de vision :
+Pipeline A (Accès HTTP direct aux images matricielles .jpg / .png) : adapté à ISIC v2, MedPix 2.0, ODIR-5K, Wikimedia Commons et aux figures d'Europe PMC / PMC OA. Pour les quatre premiers, le JSON ou l'index expose directement l'URL HTTPS du fichier image. Pour la littérature biomédicale, l'instabilité d'Open-i est contournée par une chaîne déterministe documentée : interrogation REST Europe PMC (HAS_FT:Y) → téléchargement du fullTextXML (repli sur PMC OAI-PMH set=pmc-open puis NCBI efetch) → extraction de la référence graphique dans <fig> pour les figures appariées au cas âge/sexe → récupération du fichier source sur le bucket public https://pmc-oa-opendata.s3.amazonaws.com/.
+Pipeline B (Rendu DICOM ou capture d'écran automatisée sur visionneuse web) : adapté à NCI IDC, TCIA, VinDr-CXR et NIH ChestX-ray14 (DICOMweb). En voie légère sans décodage DICOM local, idc-index génère par client.get_viewer_URL(seriesInstanceUID=...) le lien direct vers la visionneuse web OHIF (radiologie) ou Slim (pathologie), qu'un navigateur automatisé ouvre pour capturer le seul canevas d'image propre. En voie déterministe haute qualité, la série filtrée est téléchargée via s5cmd depuis s3://idc-open-data-cr/ ou getSingleImage (TCIA), fenêtrée en unités Hounsfield (pour la TDM) ou normalisée (IRM/RX), puis exportée en .jpg sans incrustation textuelle.
+Pipeline C (Extraction de coupes 2D depuis volumes 3D et matrices HDF5) : adapté à OpenNeuro (.nii.gz BIDS), PI-CAI (.mha) et CAMUS (.h5, uniquement si un droit non commercial ou spécifique est acquis). Pour OpenNeuro, openneuro-py ou AWS S3 ne télécharge que les sujets adultes filtrés dans participants.tsv, puis nibabel extrait la coupe axiale, sagittale ou coronale requise vers .jpg. Pour PI-CAI, les masques d'experts picai_labels permettent de centrer automatiquement l'extraction T2W/DWI/ADC sur le plan exact de la lésion PI-RADS (_patho.jpg) ou sur un plan prostatique sain (_normal.jpg).
+Pipeline D (Génération ou capture d'écran de tracés physiologiques calibrés) : adapté à PTB-XL (ECG 12 dérivations), Sleep-EDFx / OpenNeuro EEG (.edf / BIDS) et CTU-UHB (cardiotocographie). Ces bases distribuant des signaux numériques bruts plutôt que des images pré-rendues, ce pipeline propose leur conversion automatisée en tracés .jpg calibrés. Pour PTB-XL, les signaux à 500 Hz des sujets validés (prioritairement plis 9 et 10) sont lus via la suite WFDB et rendus sur grille 12 dérivations (I–V6). Pour l'EEG et la polysomnographie, les fichiers validés sont lus via MNE-Python (MNE-BIDS) ou EDFbrowser (avec option de capture web automatisée dans LightWAVE). Pour CTU-UHB, le couple rythme cardiaque fœtal (FHR) et contraction utérine (UC) échantillonné à 4 Hz est tracé sur deux pistes synchronisées pour les mères de 18 ans et plus.
+Porte 4 : Contrôle qualité et conformité au référentiel
+Chaque image ou capture issue de la Porte 3 passe quatre vérifications finales alignées sur BESOINS_IMAGES.html et les causes de rejet de INTROUVABLES_imagerie_GROK.html :
+Contrôle optique de désidentification (OCR et détection visuelle) : rejeter tout cliché comportant un numéro d'examen à l'écran (ex. CA1421), un nom propre, une date de naissance (04.01.1983, 01/05/1962) ou un visage non masqué, et recadrer les marges noires le cas échéant.
+Appariement Normal / Pathologique : pour les blocs A (IMG) et C (EXP), vérifier que _normal.jpg et _patho.jpg partagent strictement la même modalité, le même plan anatomique et la même séquence ou dérivation.
+Nommage et journal de provenance : enregistrer sous le nom exact attendu (IMG-xxx_normal.jpg, IMG-xxx_patho.jpg, FTI-xx.jpg, EXP-xxx_normal.jpg, EXP-xxx_patho.jpg, FTE-xx.jpg) avec un fichier JSON compagnon consignant source, url_directe, auteur, licence, age, sexe et methode_rendu.
+Ordonnancement MIN puis CIBLE : traiter prioritairement toutes les fiches marquées MIN (socle indispensable de l'examen fédéral suisse) avant les fiches CIBLE.
+4. Exportation vers Google Docs
+En l'absence d'outil d'écriture vers Google Drive dans cet environnement, deux voies directes permettent d'obtenir le document Google Docs sans perte de mise en forme (aucun bloc de code ni diagramme ASCII n'ayant été utilisé) :
+Collage Markdown natif dans Google Docs : dans un nouveau document Google Docs, activer Outils → Préférences → Activer la détection automatique du format Markdown, copier l'intégralité du texte ci-dessus et sélectionner Édition → Coller depuis Markdown afin de convertir automatiquement tous les titres, les listes numérotées et l'ensemble des tableaux comparatifs.
+Importation par fichier : enregistrer ce texte brut au format .md (ou le convertir en .docx), puis l'importer dans Google Drive avec l'option de conversion vers Google Docs activée.
+Sources des citations
+1. Upper limb dystonia, cervical dystonia and healthy controls dataset, https://openneuro.org/datasets/ds006395/versions/1.0.8 2. ISIC Archive, https://api.isic-archive.com/ 3. CHExpert Dataset: Chest X-rays for medical AI | Innovatiana, https://www.innovatiana.com/en/datasets/chexpert-dataset 4. VinDr-CXR: An open dataset of chest X-rays with radiologist, https://physionet.org/content/vindr-cxr/ 5. Apples-to-Apples: Age-Sex Standardisation of Public Chest X-ray, https://pmc.ncbi.nlm.nih.gov/articles/PMC12716848/ 6. zeahub/camus · Datasets at Hugging Face, https://huggingface.co/datasets/zeahub/camus 7. EchoNet-Dynamic is a deep learning model for assessing cardiac, https://github.com/echonet/dynamic 8. A Benchmark Study on 1933 Eurorad Case Reports - medRxiv, https://www.medrxiv.org/content/10.1101/2024.09.04.24313026v2.full-text 9. PADCHEST Dataset Research Use Agreement - BIMCV, https://bimcv.cipf.es/bimcv-projects/padchest/padchest-dataset-research-use-agreement/ 10. New in PMC - NIH, https://pmc.ncbi.nlm.nih.gov/about/new-in-pmc/ 11. Imaging Data Commons | CRDC, https://datacommons.cancer.gov/repository/imaging-data-commons 12. Europe Pmc Tools - ToolUniverse Documentation - Zitnik Lab, https://zitniklab.hms.harvard.edu/ToolUniverse/tools/europe_pmc_tools.html 13. Dataset-数据集 - ODIR-2019, https://odir2019.grand-challenge.org/dataset/ 14. PTB-XL, a large publicly available electrocardiography dataset v1.0.3, https://physionet.org/content/ptb-xl/ 15. Sleep-EDF Database Expanded v1.0.0 - PhysioNet, https://physionet.org/content/sleep-edfx/1.0.0/ 16. CTU-CHB Intrapartum Cardiotocography Database v1.0.0 - PhysioNet, https://www.physionet.org/physiobank/database/ctu-uhb-ctgdb/ 17. Commons:Machine-readable data, https://commons.wikimedia.org/wiki/Commons:Machine-readable_data 18. Wikimedia Commons API - Globaltrackers, https://globaltrackers.app/docs/data-sources/wikimedia-commons.md 19. wikimediacommons package - go.ub.unibas.ch/mediaserver, https://pkg.go.dev/go.ub.unibas.ch/mediaserver/mediaservercli/pkg/wikimediacommons 20. Provider API – Wikimedia Commons - Make WordPress, https://make.wordpress.org/openverse/handbook/openverse-catalog/provider-api-wikimedia-commons/ 21. Phase 1 of the National Institutes of Health Preprint Pilot - PMC, https://pmc.ncbi.nlm.nih.gov/articles/PMC9774216/ 22. europepmc/README.Rmd at main · ropensci/europepmc - GitHub, https://github.com/ropensci/europepmc/blob/main/README.Rmd 23. europepmc - R Interface to Europe PMC RESTful Web Service, https://docs.ropensci.org/europepmc/ 24. BioContextAI Knowledgebase MCP by biocontext-ai - Glama, https://glama.ai/mcp/servers/biocontext-ai/knowledgebase-mcp 25. NIH NLM NCBI PubMed Central (PMC) Article Datasets, https://registry.opendata.aws/ncbi-pmc/ 26. Accessing PMC Article Datasets Using Amazon Web Services - NIH, https://pmc.ncbi.nlm.nih.gov/tools/pmcaws/ 27. PMC OAI-PMH API - NIH, https://pmc.ncbi.nlm.nih.gov/tools/oai/ 28. ClinFusion: A Vision-Centric Multimodal LLM System for Holistic, https://arxiv.org/pdf/2607.24743v1.pdf?utm_source=radaislice.com 29. U.S. Department of Health & Human Services - MedPix, https://catalog.data.gov/dataset/medpix 30. OPEN-i®: A Unique Image Search Engine – HSLS Update, https://info.hsls.pitt.edu/updatereport/2019/july-2019/open-i%C2%AE-a-unique-image-search-engine/ 31. Data Archive - BrainX Community, https://brainxai.org/data/ 32. D4.1 Integration of DeepHealth platforms and use cases, https://deephealth-project.eu/wp-content/uploads/2020/06/D4.1_Integration-for-DeepHealth-platforms-and-use-cases-I_v1.0-compressed.pdf 33. Towards the usage of Large Language Models in Information, https://iris.unipa.it/retrieve/057fc06d-21d8-4242-97a7-32f4cd0fc8bc/Tesi_PhD_Siragusa_compressed.pdf 34. MedPix | National Institutes of Health | Open Data Portal, https://datadiscovery.nlm.nih.gov/Diagnostic-Imaging/MedPix/vp23-ayt5 35. MedPix 2.0: A Comprehensive Multimodal Biomedical Dataset for, https://www.researchgate.net/publication/381960651_MedPix_20_A_Comprehensive_Multimodal_Biomedical_Dataset_for_Advanced_AI_Applications 36. MedPix 2.0: A Comprehensive Multimodal Biomedical Data set for, https://arxiv.org/html/2407.02994v2 37. MedPix-2.0 - Zenodo, https://zenodo.org/records/12624810 38. architojha/medpix-2.0-dataset - Hugging Face, https://huggingface.co/datasets/architojha/medpix-2.0-dataset 39. NCI Imaging Data Commons about - Zenodo, https://zenodo.org/communities/nci-idc/about 40. ImagingDataCommons/idc-index: Python package to ... - GitHub, https://github.com/ImagingDataCommons/idc-index 41. National Cancer Institute Imaging Data Commons (IDC) Collections, https://registry.opendata.aws/nci-imaging-data-commons/ 42. Imaging Data Commons (IDC) datasets | Cloud Healthcare API, https://docs.cloud.google.com/healthcare-api/docs/resources/public-datasets/idc 43. NCI Imaging Data Commons (IDC) - Scigantic, https://scigantic.com/archive/270d1e86-d234-4234-9cac-dc846bcad87f 44. NBIA Search REST API Guide - Cancer Imaging Archive Wiki, https://wiki.cancerimagingarchive.net/x/fILTB 45. NBIA Search with Authentication REST API Guide, https://wiki.cancerimagingarchive.net/display/Public/NBIA+Search+with+Authentication+REST+API+Guide 46. NBIA Toolkit — nbiatoolkit 1.3.1 documentation, https://nbia-toolkit.readthedocs.io/ 47. TCIA plugin — Orthanc Book documentation, https://orthanc.uclouvain.be/book/plugins/tcia.html 48. Sequestration of imaging studies in MIDRC: stratified sampling to, https://pmc.ncbi.nlm.nih.gov/articles/PMC10704184/ 49. MIDRC: Medical Imaging & Data Resource Center - CASRAI, https://casrai.org/guides/midrc 50. (PDF) Managing, Analyzing and Sharing Research Data with Gen3, https://www.researchgate.net/publication/405028310_Managing_Analyzing_and_Sharing_Research_Data_with_Gen3_Data_Commons 51. Managing, Analyzing and Sharing Research Data with Gen3 Data, https://papers.rgrossman.com/journal-115.pdf 52. Benchmarking the diagnostic performance of open source LLMs in, https://pmc.ncbi.nlm.nih.gov/articles/PMC11814077/ 53. MedRAX: Medical Reasoning Agent for Chest X-ray - arXiv, https://arxiv.org/html/2502.02673v2 54. RadKev: An Open-Weight Decision Model for Radiology - medRxiv, https://www.medrxiv.org/content/10.64898/2026.10.07.26364991v1.full.pdf 55. radiopaedia/RadiopaediaConnect: An uploader for ... - GitHub, https://github.com/radiopaedia/RadiopaediaConnect 56. VinDr-CXR: An open dataset of chest X-rays with radiologist's ... - PMC, https://pmc.ncbi.nlm.nih.gov/articles/PMC9300612/ 57. Download README.md from peternasser99/MED - Hugging Face, https://huggingface.co/datasets/peternasser99/MED/blob/644c1260725fb8b08f15e97aac99dbd3f8245f1a/README.md 58. (PDF) PadChest-GR: A Bilingual Chest X-ray Dataset for Grounded, https://www.researchgate.net/publication/385700830_PadChest-GR_A_Bilingual_Chest_X-ray_Dataset_for_Grounded_Radiology_Report_Generation 59. PadChest-GR: A Bilingual Chest X-ray Dataset for Grounded ... - arXiv, https://arxiv.org/html/2411.05085v2 60. PADCHEST - BIMCV, https://bimcv.cipf.es/bimcv-projects/padchest/ 61. Public Imaging Datasets: Limits for Commercial AI | BCONZ, https://www.bconz.com/insights/public-medical-imaging-datasets-limits 62. NIH Chest X-ray dataset | Cloud Healthcare API, https://docs.cloud.google.com/healthcare-api/docs/resources/public-datasets/nih-chest 63. Chest X-Ray Datasets for Medical Imaging AI - LXT AI, https://www.lxt.ai/datasets/chest-x-ray/ 64. A Generative Foundation Model for Chest Radiography - arXiv, https://arxiv.org/html/2509.03903v1 65. DIAGNijmegen/picai_labels: Annotations for the PI-CAI Challenge, https://github.com/DIAGNijmegen/picai_labels 66. NCT05489341 | Artificial Intelligence and Radiologists at Prostate, https://clinicaltrials.gov/study/NCT05489341 67. Prostate Cancer (PI-CAI) Dataset - Kaggle, https://www.kaggle.com/datasets/varshithpsingh/prostate-cancer-pi-cai-dataset/data 68. The PI-CAI Challenge: Public Training and Development Dataset, https://zenodo.org/records/6624726 69. Artificial intelligence for prostate MRI: open datasets, available, https://www.springermedizin.de/artificial-intelligence-for-prostate-mri-open-datasets-available/25670948 70. API - ISIC Archive, https://api.isic-archive.com/api/docs/swagger/ 71. Awesome-Medical-Dataset/resources/ODIR-5K.md at main - GitHub, https://github.com/openmedlab/Awesome-Medical-Dataset/blob/main/resources/ODIR-5K.md 72. Ocular Disease Intelligent Recognition (ODIR-2019) - Medium, https://medium.com/datascientest/ocular-disease-intelligent-recognition-odir-2019-77bb62d42f1b 73. ODIR-5K dataset - Figshare, https://figshare.com/articles/dataset/ODIR-5K_dataset/32157930 74. EchoSAM2: enhancing anatomical consistency in few-shot cardiac, https://www.frontiersin.org/journals/medicine/articles/10.3389/fmed.2026.1868533/full 75. Mean age, sex percentage, and sex patient count in echocardiogram, https://www.researchgate.net/figure/Mean-age-sex-percentage-and-sex-patient-count-in-echocardiogram-datasets-TMED-2-and_tbl2_398227337 76. A unified multi-task learning framework for automated assessment of, https://pmc.ncbi.nlm.nih.gov/articles/PMC12816601/ 77. EchoNet-Dynamic Cardiac Ultrasound, https://aimi.stanford.edu/datasets/echonet-dynamic-cardiac-ultrasound 78. Kvasir - Simula Datasets, https://datasets.simula.no/kvasir/ 79. richardesp/Attention-based-models-for-Hyper-Kvasir - GitHub, https://github.com/richardesp/Attention-based-models-for-Hyper-Kvasir 80. GastroVision: A Multi-class Endoscopy Image Dataset for Computer, https://arxiv.org/html/2307.08140v2 81. 14: The Hyper Kvasir Dataset Landmark Classification (Upper GI tract), https://zenodo.org/records/7785916 82. GlottisNetV2 - Time variant training and testing data - Zenodo, https://zenodo.org/records/6938457 83. Heart rate variability biofeedback training and emotion regulation, https://openneuro.org/datasets/ds003823/versions/1.3.5 84. Implicit Learning EEG (BioSemi) - NEMAR, https://nemar.org/dataset/on006159 85. OpenNeuro ds008834: PKUEEG - CNS Open Data, https://cnsopendata.org/items/openneuro-ds008834 86. UBC Dynamic Brain Circits Cluster Whitepaper Documentation, https://ubcbraincircuits.readthedocs.io/_/downloads/en/latest/pdf/ 87. Registry of Open Data on AWS, https://registry.opendata.aws/tag/life-sciences/ 88. Source code for braindecode.datasets.tuh, https://braindecode.org/0.7/_modules/braindecode/datasets/tuh.html 89. PTB-XL+, a comprehensive electrocardiographic feature dataset, https://physionet.org/content/ptb-xl-plus/ 90. Open Data | Medex, https://medexhaq.ai/open-data?q=physionet 91. Sleep-EDF Database v1.0.0 - PhysioNet, https://physionet.org/physiobank/database/sleep-edf/ 92. A Resource for Sleep-Related Arousal Research v1.0.0 - PhysioNet, https://physionet.org/content/cps-dataset-sleep/ 93. CAP Sleep Database - Registry of Open Data on AWS, https://registry.opendata.aws/capslpdb/ 94. CTU-CHB-Intrapartum-Cardiotocography-Caesarean-Section, https://github.com/anantgupta129/CTU-CHB-Intrapartum-Cardiotocography-Caesarean-Section-Prediction 95. CTU-CHB Intrapartum Cardiotocography Database 1.0.0 - PhysioNet, https://physionet.org/content/ctu-uhb-ctgdb/1.0.0/1151.hea 96. Source Licensing and Terms - BioMCP, https://biomcp.org/reference/source-licensing/ 97. Zenodo, https://zenodo.org/ 98. The Dataverse Project: Managing and Sharing Your Research Data, https://zenodo.org/records/8074752 99. Health&Gait: a dataset for gait-based analysis - Zenodo, https://zenodo.org/records/14039922 100. Spirometric Dataset | Zenodo, https://zenodo.org/records/18923890 101. MRTDosimetry Imaging Datasets - Zenodo, https://zenodo.org/records/18890542 102. Ocular Disease Intelligent Recognition ODIR-5K - Academic Torrents, https://academictorrents.com/details/cf3b8d5ecdd4284eb9b3a80fcfe9b1d621548f72
