@@ -222,6 +222,45 @@ def segment_like(im, sx, sy, mode):
         mask = sm >= 26
         mask = morphology.closing(mask, morphology.disk(3))
         mask = morphology.remove_small_holes(mask, max_size=8000)
+    elif mode in ("voisin-os", "voisin-air"):
+        # Voisinage de la graine : l'os ou l'air local, pas tout le cliché.
+        # Utile quand le recalage tombe à côté ou que os/air global dessine le cadre.
+        sv = float(sm[sy, sx])
+        yy, xx = np.ogrid[:h, :w]
+        win = (np.abs(yy - sy) < int(h * 0.24)) & (np.abs(xx - sx) < int(w * 0.18))
+        if mode == "voisin-os":
+            band = (sm >= max(sv - 28.0, float(np.percentile(sm, 68)))) & win
+        else:
+            band = (sm <= sv + 16.0) & win
+        band = morphology.closing(band, morphology.disk(2))
+        if not band[sy, sx]:
+            band[sy, sx] = True
+        lab = measure.label(band)
+        comp = lab == lab[sy, sx]
+        frac = float(comp.mean())
+        if frac < 0.003 or frac > 0.16:
+            return None
+        return morphology.closing(comp, morphology.disk(2))
+    elif mode == "foyer":
+        # Bande étroite autour de la graine, élargie tant que la composante
+        # est un point ou presque toute l'image. air, os, enveloppe et eau
+        # restent ceux du thorax de face.
+        sv = float(sm[sy, sx])
+        # La plus grande composante encore locale : un poumon entier plutôt
+        # qu'un fragment, sans prendre le fond de l'image.
+        chosen, best = None, -1.0
+        for tol in (55.0, 36.0, 22.0, 12.0):
+            band = np.abs(sm - sv) <= tol
+            band = morphology.opening(band, morphology.disk(1))
+            if not band[sy, sx]:
+                band[sy, sx] = True
+            lab = measure.label(band)
+            comp = lab == lab[sy, sx]
+            frac = float(comp.mean())
+            if 0.004 <= frac <= 0.22 and frac > best:
+                chosen = morphology.closing(comp, morphology.disk(2))
+                best = frac
+        return chosen
     else:
         mask = (sm >= 100) & (sm <= 185)
         mask[:, : int(w * 0.32)] = False
