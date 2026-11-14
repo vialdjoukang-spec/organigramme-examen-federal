@@ -173,12 +173,12 @@ def examens_html(r, cle_tech, tabl):
         return '<ul class="techl">' + "".join(puce_tech(t["tech"], tabl, t["detail"]) for t in r[cle_tech]) + "</ul>"
     g = en["gold"]
     h = (f'<button type="button" class="gold" data-ex="g" aria-haspopup="dialog"><span class="ref">Référence</span>'
-         f'<span class="exn">{E(g["examen"])}</span></button>')
+         f'<span class="exn">{T(g["examen"])}</span></button>')
     if g["premiere_intention"]:
-        h += f'<p class="pi"><span class="k">1re intention :</span> {E(g["premiere_intention"])}</p>'
+        h += f'<p class="pi"><span class="k">1re intention :</span> {T(g["premiere_intention"])}</p>'
     if en["autres"]:
         h += '<ol class="autres">' + "".join(
-            f'<li><button type="button" class="exb" data-ex="{i}" aria-haspopup="dialog">{E(a["examen"])}</button></li>'
+            f'<li><button type="button" class="exb" data-ex="{i}" aria-haspopup="dialog">{T(a["examen"])}</button></li>'
             for i, a in enumerate(en["autres"])) + "</ol>"
     return h
 
@@ -216,7 +216,7 @@ DONNEES_LIGNES = {}
 
 def donnees_json():
     ids = {r["id"] for rows in DONNEES_LIGNES.values() for r in rows}
-    d = {"lignes": DONNEES_LIGNES, "reg": {c: r["nom"] for c, r in REG.items()},
+    d = {"sig": SIG, "lignes": DONNEES_LIGNES, "reg": {c: r["nom"] for c, r in REG.items()},
          "let": {c: pastille_lettre(c) for c in LET}, "letn": {c: l["nom"] for c, l in LET.items()},
          "enr": {k: {kk: vv for kk, vv in v.items() if kk != "ligne"} for k, v in ENR.items() if k in ids}}
     return json.dumps(d, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/").replace("<!--", "<\\u0021--")
@@ -445,7 +445,11 @@ JS = r"""
  var DON=JSON.parse(document.getElementById('donnees').textContent);
  var MAP={'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'};
  function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return MAP[c];});}
- function liste(a){return (a&&a.length)?'<ul class="enum">'+a.map(function(x){return '<li>'+esc(x)+'</li>';}).join('')+'</ul>':'';}
+ var SIGK=Object.keys(DON.sig||{}).sort(function(a,b){return b.length-a.length;});
+ var SIGR=SIGK.length?new RegExp('(?<![\\p{L}\\p{N}_])('+SIGK.map(function(k){return k.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');}).join('|')+')(?![\\p{L}\\p{N}_])','gu'):null;
+ /* tx : échappe puis place chaque sigle dans <abbr title> (même règle que T() côté Python). */
+ function tx(s){s=String(s==null?'':s);if(!SIGR)return esc(s);var o='',p=0,m;SIGR.lastIndex=0;while((m=SIGR.exec(s))){o+=esc(s.slice(p,m.index))+'<abbr title="'+esc(DON.sig[m[1]])+'">'+esc(m[1])+'</abbr>';p=m.index+m[1].length;}return o+esc(s.slice(p));}
+ function liste(a){return (a&&a.length)?'<ul class="enum">'+a.map(function(x){return '<li>'+tx(x)+'</li>';}).join('')+'</ul>':'';}
  function hauteurs(){document.querySelectorAll('table.main').forEach(function(t){var h=t.tHead.offsetHeight;if(h)t.style.setProperty('--th',h+'px');});}
  /* Onglets */
  var tabs=document.querySelectorAll('.tabs [role=tab]');
@@ -524,7 +528,7 @@ JS = r"""
    secs=[['Pourquoi c’est la référence',g.pourquoi],['Quand on la réalise',g.quand],['Ce qu’elle montre',g.montre]];}
   else{var a=en.autres[+k];if(!a)return;t=a.examen;badge='Autre examen n° '+(+k+1);
    secs=[['Pourquoi ce n’est pas la référence',a.pourquoi_pas_gold],['Quand on la réalise quand même',a.quand],['Ce qu’elle montre',a.montre]];}
-  var h='<button type="button" class="ferme" aria-label="Fermer">✕</button><span class="badge'+(k==='g'?' or':'')+'">'+esc(badge)+'</span><h4>'+esc(t)+'</h4>',vide=true;
+  var h='<button type="button" class="ferme" aria-label="Fermer">✕</button><span class="badge'+(k==='g'?' or':'')+'">'+esc(badge)+'</span><h4>'+tx(t)+'</h4>',vide=true;
   if(k==='g'&&g.premiere_intention){h+='<h5>Examen de 1re intention</h5>'+liste([g.premiere_intention]);}
   secs.forEach(function(s){if(s[1]&&s[1].length){vide=false;h+='<h5>'+esc(s[0])+'</h5>'+liste(s[1]);}});
   if(vide)h+='<p>Aucune justification n’est encore rédigée.</p>';
@@ -570,7 +574,7 @@ JS = r"""
    img.onload=function(){if(vue==='patho')reperes(o);};
    img.onerror=function(){cap.innerHTML='<strong>Image introuvable</strong> : '+esc(o.fichier||'');};
    img.alt=nom+(o.technique?' : '+o.technique:'');img.src=o.fichier||'';
-   cap.innerHTML='<strong>'+nom+'</strong>'+(o.technique?' — '+esc(o.technique):'');
+   cap.innerHTML='<strong>'+nom+'</strong>'+(o.technique?' — '+tx(o.technique):'');
    if(bt){bt.textContent=vue==='normal'?'Voir la pathologie':'Revoir le cliché normal';bt.setAttribute('aria-pressed',vue==='patho');}
    if(vue==='patho'&&(o.reperes||[]).length){les.hidden=false;les.innerHTML='<p class="aide">Cliquez un numéro sur l’image pour lire la lésion élémentaire.</p>';}
   }
@@ -587,7 +591,7 @@ JS = r"""
     b.style.left=fx+'%';b.style.top=fy+'%';b.setAttribute('aria-pressed','false');b.setAttribute('aria-label','Repère '+p.n+' : afficher la lésion');
     b.addEventListener('click',function(){
      cadre.querySelectorAll('.rep').forEach(function(z){z.setAttribute('aria-pressed',z===b);});
-     les.hidden=false;les.innerHTML='<p><span class="num">'+esc(p.n)+'</span> <strong>'+esc(p.lesion)+'</strong></p><p>'+esc(p.semio)+'</p>';});
+     les.hidden=false;les.innerHTML='<p><span class="num">'+esc(p.n)+'</span> <strong>'+tx(p.lesion)+'</strong></p><p>'+tx(p.semio)+'</p>';});
     cadre.appendChild(b);
    });
    svg.innerHTML=s;
