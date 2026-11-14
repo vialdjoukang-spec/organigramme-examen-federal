@@ -11,7 +11,11 @@ Branche `leona/fedmed-fenetres`, créée depuis `origin/main` (`65244131a`). Éc
 - Images retirées (licence hors liste blanche ou données patient) : 0.
 - Signalements : 646, dont 628 « âge ou sexe absent » (cliché conservé), 15 normales locales non ajoutées, 3 normales ajoutées. Détail : `signaux/images_signalees.json`.
 - Captures, console sans erreur : `captures/` (IMG-134, IMG-001, IMG-136, IMG-267, EXP-001, EXP-002, EXP-024, EXP-032, IMG-166, IMG-168, plus flèches et légende d'IMG-134).
-- Suite validée : segmentation sur les images du fichier (en cours), âge/sexe affichés ou « âge/sexe non documentés », recherche des normales manquantes, en-têtes de cartes en bleu ciel.
+- Segmentation : 396 fenêtres traitées par segment.py sur les clichés du fichier. Contours marqués approximatifs. 262 fenêtres ont au moins une structure, 306 un contour de lésion.
+- Âge et sexe : attestés pour 143 clichés pathologiques (crédit, Europe PMC ou Commons). Sinon la ligne affiche « âge/sexe non documentés ».
+- En-têtes de fenêtre et de cartes : fond #F3FAFD, bordure #87CEEB, police Atkinson Hyperlegible, y compris le titre.
+- Captures poussées : IMG-134 (vue, flèches, survol, légende), IMG-136, EXP-001, IMG-157 (normale ajoutée), IMG-159, IMG-001, IMG-267, IMG-166, IMG-168, EXP-002, EXP-024, EXP-032.
+- Recherche des normales manquantes : en cours. Le dossier leona/ n'est pas modifié.
 <!-- ETAT:FIN -->
 
 ## Original

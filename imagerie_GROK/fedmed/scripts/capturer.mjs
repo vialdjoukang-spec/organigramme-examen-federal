@@ -54,6 +54,12 @@ for (const id of ids) {
     await frame.evaluate(() => document.querySelector('[data-act="fleches"]').click());
     await frame.waitForTimeout(150);
     await frame.locator("#voile .fen").screenshot({ path: resolve(outDir, "IMG-134-fleches.png"), animations: "disabled", timeout: 20000 });
+    await frame.evaluate(() => {
+      const el = document.querySelector(".gm-svg .st.lin");
+      if (el) el.dispatchEvent(new PointerEvent("pointerenter", {bubbles: true}));
+    });
+    await frame.waitForTimeout(150);
+    await frame.locator("#voile .fen").screenshot({ path: resolve(outDir, "IMG-134-survol.png"), animations: "disabled", timeout: 20000 });
     await frame.evaluate(() => document.querySelector('[data-act="code"]').click());
     await frame.waitForTimeout(100);
     await frame.locator(".gm-code").screenshot({ path: resolve(outDir, "IMG-134-couleurs.png"), animations: "disabled", timeout: 20000 });
