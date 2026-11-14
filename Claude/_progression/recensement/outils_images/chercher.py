@@ -94,6 +94,9 @@ def http_get(url, params=None, source="autre", binaire=False, essais=7):
             open(meta, "w").write("404")
             return 404, None
         if r.status_code in (429, 500, 502, 503, 504) or (source == "commons" and "ratelimited" in r.text[:500]):
+            if source in ("epmc", "s3", "upload") and r.status_code >= 500 and essai >= 1:
+                log(f"  ! {source} HTTP {r.status_code} persistant, abandon : {brut[:120]}")
+                return r.status_code, None
             if source == "commons" and essai >= 1:
                 ETAT_COMMONS["bloque_jusqua"] = time.time() + PAUSE_COMMONS
                 ETAT_COMMONS["echecs"] += 1
