@@ -11,6 +11,8 @@ Rules:
   E  complet => image normale présente
   E  complet => les deux clichés sont d'un adulte (champ adulte = oui) et chaque oui a une adulte_preuve
        (légende ou signe de maturité : physes soudées, dentition définitive, sutures ou morphologie adultes).
+  E  complet => age_ans des deux côtés, écart d'au plus 15 ans ; anonymisation_verifiee = oui des deux côtés
+  E  complet => anatomie normale d'au moins 3 couches (contour ≥ 8 points, description) et indices diagnostic/région/signe
   E  complet et région bassin, sein ou organes génitaux => sexe M/F écrit et identique des deux côtés
   E  dans ces régions, sexes établis et discordants => erreur
   E  complet => contour rectangulaire de ≤ 5 points interdit
@@ -92,6 +94,20 @@ def sexe_requis(m, dx):
         (m.get("patho") or {}).get("region") or "",
     ])
     return bool(SEX_REG.search(blob))
+
+def age_ans(side):
+    v = side.get("age_ans")
+    if isinstance(v, bool) or not isinstance(v, (int, float)):
+        return None
+    if not 0 < v < 120:
+        return None
+    return float(v)
+
+
+def ages_proches(n, p):
+    a, b = age_ans(n), age_ans(p)
+    return a is not None and b is not None and abs(a - b) <= 15
+
 
 def adulte_code(v):
     """oui, non, '' si absent ou « À vérifier », None si illisible."""
@@ -287,6 +303,28 @@ def check(m, dx, errs, warns):
             preuve = (side.get("adulte_preuve") or "").strip()
             if not preuve or norm(preuve) in ("à vérifier", "a vérifier", "a verifier"):
                 errs.append(f"complet : {tag} adulte sans adulte_preuve")
+        if norm(n.get("anonymisation_verifiee")) not in ("oui", "yes"):
+            errs.append("complet : anonymisation non vérifiée (normale)")
+        if norm(p.get("anonymisation_verifiee")) not in ("oui", "yes"):
+            errs.append("complet : anonymisation non vérifiée (pathologique)")
+        if not ages_proches(n, p):
+            errs.append("complet : âges non comparables (écart > 15 ans ou âge manquant)")
+        anat = n.get("anatomie")
+        if not isinstance(anat, list) or len(anat) < 3:
+            errs.append("complet : anatomie par couches absente (3 structures au moins)")
+        else:
+            for i, stc in enumerate(anat, 1):
+                if not isinstance(stc, dict) or not str(stc.get("nom") or "").strip() or not str(stc.get("description") or "").strip():
+                    errs.append(f"complet : structure {i} sans nom ou sans description")
+                    break
+                contour = stc.get("contour")
+                if not isinstance(contour, list) or len(contour) < 8:
+                    errs.append(f"complet : structure {i} sans contour d'au moins 8 points")
+                    break
+        ix = p.get("indices") if isinstance(p.get("indices"), dict) else {}
+        for key, label in (("diagnostic", "diagnostic"), ("region", "région"), ("signe", "signe")):
+            if not str(ix.get(key) or "").strip():
+                errs.append(f"complet : accompagnement sans {label}")
     if p and not p.get("caption_source"):
         warns.append("patho: caption_source absent")
     arrows = (p or {}).get("arrows") or []

@@ -2,6 +2,7 @@
 
 ## Faits
 
+- 14.11.2026 11:01, prototypes IMG-001 et IMG-134. L'image normale est agrandie à l'affichage (échelle 1,12, sans déformation). Restent visibles l'âge, le sexe et « Source » (auteur, licence, URL et légende au survol). Le bouton Anatomie ajoute les couches de dehors en dedans ; le survol donne la description, source « À vérifier ». Le bouton Indice passe du diagnostic à la région, puis au signe, puis à la lésion. `validate.py` refuse un complet sans `anonymisation_verifiee` = oui des deux côtés, sans âges écartés d'au plus 15 ans, sans au moins trois couches, ou sans indices diagnostic / région / signe. Aucun des deux n'est complet : IMG-001 n'a pas l'âge pathologique ; IMG-134 n'illustre pas le pneumothorax compressif et sa définition reste « À vérifier ». Âges de IMG-134 : 30 ans et 23 ans. Anonymisation relue : pas de nom, de date ni d'établissement (marqueurs R, L et STAAND conservés). Captures : `captures-interface/IMG-001_desktop_anatomie.png`, `IMG-001_desktop_indice.png`, `IMG-134_desktop_indice.png`, et les mêmes en mobile.
 - 14.11.2026, bulle IMG-001 : le texte n'est plus coupé. La définition est une fiche sous l'image, dans le panneau, relue en entier sur bureau (`progression/captures-interface/IMG-001_desktop_bulle.png`, jusqu'à « Confiance : haute ») et sur mobile (`IMG-001_mobile_bulle.png`). La bande reste sur le foyer.
 - Règle de Vial du 14.11.2026 10:48, précisée : le même sexe seulement pour bassin, sein, organes génitaux. Ailleurs, adulte suffit. L'adulte vient de la légende ou d'un signe visible, noté dans `adulte_preuve`. Sans signe concluant : « À vérifier ». `validate.py` refuse un complet sans cette preuve.
 - IMG-001 patho : adulte À vérifier (ethmoïde pneumatisé, pas de suture ni de physe sur la coupe). IMG-134 : oui des deux côtés (physes humérales soudées). IMG-136 : oui des deux côtés (squelette adulte). IMG-250 : oui des deux côtés (utérus adulte) mais sexe non écrit, donc pas complet. Aucun des quatre n'est complet (séquence ou sexe).
@@ -22,7 +23,7 @@
 
 ## En cours
 
-- Quatre lots encore au travail : la règle adulte n'a pas pu leur être envoyée tant qu'ils n'ont pas fini. L'auditeur l'a reçue. Le redessin des contours grossiers continue sur cette branche.
+- Consignes du 14.11.2026 11 h 01 écrites dans `progression/CONSIGNES_14-11-1101.md` et transmises aux quatre lots et à l'auditeur. Prototypes IMG-001 et IMG-134 en place. Le redessin des contours reste scripté (`segment.py`).
 - Lot 1 `bc-3c7f04cb-b49c-5f3b-9c92-3af7023e9930` : paires IMG-001 à IMG-129 (16), puis pathologiques IMG-002 à IMG-070.
 - Lot 2 `bc-8f34385d-cb6c-53e4-ad71-fdd28d1deedb` : IMG-132 à IMG-166 (15), puis IMG-071 à IMG-141.
 - Lot 3 `bc-4e45b5d2-c132-5c1d-bc8e-97181bfc32aa` : IMG-167 à IMG-244 (15), puis IMG-142 à IMG-260.

@@ -69,6 +69,16 @@ td.dx button:hover{text-decoration:underline}
 .score b{color:#b6ffcf}
 #scoreHead{font-size:15px;font-weight:800;color:#b6ffcf;background:#102116;border:2px solid #7dffa8;border-radius:8px;padding:4px 8px}
 .score .miss{color:#ffb4b4}
+.src{position:relative;text-decoration:underline;cursor:help;color:var(--tx)}
+.src-pop{display:none;position:absolute;z-index:6;right:0;top:1.5em;width:min(380px,72vw);background:#0b0d10;border:1px solid var(--ln);border-radius:8px;padding:8px 10px;font-size:12.5px;line-height:1.4;text-decoration:none;box-shadow:0 6px 18px rgba(0,0,0,.5)}
+.src:hover .src-pop,.src:focus .src-pop,.src:focus-within .src-pop{display:block}
+.atip,.step{margin:0;padding:6px 10px;font-size:13.5px;line-height:1.35}
+.step{color:var(--ac)}
+.atip{color:#d5dde6;min-height:1.2em}
+details.more{margin-top:8px;color:var(--mu);font-size:13px}
+details.more summary{cursor:pointer;color:var(--tx)}
+.anat .ln{fill:rgba(124,240,255,.04);stroke:#7cf0ff;stroke-width:2.5;vector-effect:non-scaling-stroke}
+.anat g:hover .ln{stroke:#fff}
 .arw{cursor:pointer;outline:none}
 .arw .hit{stroke:transparent;fill:none;pointer-events:stroke}
 .arw:focus-visible .ring{stroke:#fff;stroke-dasharray:4 3}
@@ -354,7 +364,8 @@ function applyAll(zw,side){zw.querySelectorAll(".bub.compact").forEach(b=>b.remo
 // --- zoom/pan (wheel, drag, buttons, pinch)
 function zoomable(fig,zw){
  let s=1,tx=0,ty=0,drag=null,pts=new Map(),pinch=null;
- const set=()=>{zw.style.transform=`translate(${tx}px,${ty}px) scale(${s})`;};
+ const boost=fig.closest(".panel.n")?1.12:1;
+ const set=()=>{zw.style.transform=`translate(${tx}px,${ty}px) scale(${s*boost})`;};
  const zoomAt=(ns,cx,cy)=>{ns=Math.max(1,Math.min(5,ns));const r=zw.getBoundingClientRect();const ox=cx-r.left,oy=cy-r.top;tx+=ox-ox*ns/s;ty+=oy-oy*ns/s;s=ns;if(s===1){tx=0;ty=0;}set();};
  fig.addEventListener("wheel",e=>{e.preventDefault();zoomAt(s*(e.deltaY<0?1.2:1/1.2),e.clientX,e.clientY);},{passive:false});
  fig.addEventListener("pointerdown",e=>{pts.set(e.pointerId,e);if(pts.size===2){const[p,q]=[...pts.values()];pinch={d:Math.hypot(p.clientX-q.clientX,p.clientY-q.clientY),s};}else if(s>1&&!e.target.closest(".arw,.bub,.zctl")){drag={x:e.clientX,y:e.clientY,tx,ty,moved:false};}});
@@ -367,6 +378,7 @@ function zoomable(fig,zw){
  bi.onclick=()=>zoomAt(s*1.4,...mid());bo.onclick=()=>zoomAt(s/1.4,...mid());br.onclick=()=>{s=1;tx=0;ty=0;set();};
  fig.addEventListener("dblclick",e=>{if(!e.target.closest(".arw,.zctl")){s=1;tx=0;ty=0;set();}});
  fig.appendChild(c);
+ set();
 }
 
 // --- modal
@@ -383,18 +395,59 @@ function placeholder(kind,r){
  if(r.st==="introuvable")return `<div class="ph"><b>Image ${kind} introuvable</b>Aucune image sous licence libre et appariée n'a été trouvée.${m&&m.queries.length?`<br><span style="font-size:12.5px">Requêtes tentées : ${m.queries.map(esc).join(" ; ")}</span>`:""}</div>`;
  return `<div class="ph"><b>Image ${kind} manquante</b>Statut ${esc(STL[r.st]||r.st)} : la paire n'est pas complète. Voir « À vérifier » ci-dessous.</div>`;
 }
+function demo(s){
+ if(!s)return "";
+ const age=(typeof s.age_ans==="number")?`${s.age_ans} ans`:"";
+ const sx=s.sex?(SEXL[s.sex]||s.sex):"";
+ const who=[age,sx].filter(Boolean).join(" · ");
+ const pop=[s.author,s.license,s.source_url,s.caption_source].filter(Boolean).map(esc).join("<br>");
+ return `${esc(who)} <span class="src" tabindex="0">Source<span class="src-pop">${pop}</span></span>`;
+}
 function panel(kind,s,r){
  const isP=kind==="pathologique",src=srcOf(s);
- const tech=s?[s.modality,s.sequence,s.plane].filter(Boolean).map(esc).join(" · "):"";
- const h=`<div class="panel ${isP?"p":"n"}"><h3>${isP?"Pathologique":"Normal"} <small>${tech}</small></h3><div class="fig${isP&&defi?" defi":""}">`;
+ const act=isP?`<button type="button" class="btn" id="bHint">Indice</button>`:`<button type="button" class="btn" id="bAnat">Anatomie</button>`;
+ const note=isP?'<p class="step"></p>':'<p class="atip"></p>';
+ const h=`<div class="panel ${isP?"p":"n"}"><h3>${isP?"Pathologique":"Normal"} <small>${demo(s)}</small>${act}</h3>${note}<div class="fig${isP&&defi?" defi":""}">`;
  if(!src)return h+placeholder(isP?"pathologique":"normale",r)+`</div></div>`;
- return h+`<div class="zw"><img alt="${isP?"Image pathologique":"Image normale"} : ${esc(r.dx)}" src="${src}" draggable="false">${isP?`<svg viewBox="0 0 ${s.w} ${s.h}" preserveAspectRatio="none" class="${hideArr?"hide":""}" aria-label="Annotations"></svg>`:""}</div></div></div>`;
+ const layers=!isP&&s&&s.w?`<svg class="anat" viewBox="0 0 ${s.w} ${s.h}" preserveAspectRatio="none" aria-label="Anatomie"></svg>`:"";
+ const mark=isP?`<svg viewBox="0 0 ${s.w} ${s.h}" preserveAspectRatio="none" class="${hideArr?"hide":""}" aria-label="Annotations"></svg>`:layers;
+ return h+`<div class="zw"><img alt="${isP?"Image pathologique":"Image normale"} : ${esc(r.dx)}" src="${src}" draggable="false">${mark}</div></div></div>`;
+}
+function drawAnat(svg,side){
+ svg.innerHTML="";
+ (side.anatomie||[]).filter(st=>(st.ordre||0)<=anatStep).forEach(st=>{
+  const g=document.createElementNS("http://www.w3.org/2000/svg","g");
+  g.dataset.nom=st.nom||"";
+  g.dataset.desc=st.description||"À vérifier";
+  g.dataset.src=st.source||"À vérifier";
+  const pl=document.createElementNS("http://www.w3.org/2000/svg","polygon");
+  pl.setAttribute("class","ln");
+  pl.setAttribute("points",(st.contour||[]).map(pt=>`${pt[0]*side.w},${pt[1]*side.h}`).join(" "));
+  g.appendChild(pl);svg.appendChild(g);
+ });
+ const tip=svg.closest(".panel").querySelector(".atip");
+ svg.onpointermove=e=>{
+  const g=e.target.closest("g");
+  if(tip)tip.textContent=g?`${g.dataset.nom} — ${g.dataset.desc} (${g.dataset.src})`:"";
+ };
+ svg.onpointerleave=()=>{if(tip)tip.textContent="";};
+}
+function paintHint(p){
+ const el=document.querySelector("#db .step");if(!el||!p)return;
+ const ix=p.indices||{};
+ const nAr=(p.arrows||[]).length;
+ if(hintStep<=0)el.textContent=ix.diagnostic||"";
+ else if(hintStep===1)el.textContent=`Région : ${ix.region||"À vérifier"}`;
+ else if(hintStep===2)el.textContent=`Signe : ${ix.signe||"À vérifier"}`;
+ else {const left=nAr-Math.min(nAr,hintStep-2);el.textContent=left>0?"Il reste d'autres anomalies.":"Lésion révélée.";}
 }
 let ro=null;
+let anatStep=0,hintStep=0;
 function show(){
  const r=view[cur];if(!r)return;
  const m=r.m||{},n=m.normal,p=m.patho;
- $("#dT").innerHTML=`${esc(r.dx)} <span class="badge ${STC[r.st]}">${STL[r.st]}</span>${m.test?'<span class="badge test">TEST</span>':""}<span class="meta">${esc(r.id)} · ${esc(r.region)} · ${esc(r.systeme)} · Cliché demandé : ${esc(r.cliche)} · ${cur+1}/${view.length}</span>`;
+ anatStep=0;hintStep=0;
+ $("#dT").innerHTML=`${esc(r.dx)} <span class="badge ${STC[r.st]}">${STL[r.st]}</span>${m.test?'<span class="badge test">TEST</span>':""}`;
  const arrows=p&&srcOf(p)?p.arrows:[];
  const legRoles=[...new Set(arrows.map(a=>a.role))];
  const g=defi&&!hideArr&&arrows.length?grade(arrows,p.w||1,p.h||1):null;
@@ -411,12 +464,14 @@ function show(){
   ? `<div class="leg">Regardez la normale à gauche. Cliquez sur l'image de droite là où vous voyez une lésion élémentaire (${arrows.length}), puis « Révéler et noter ».</div>${scoreBlock()}`
   : `<div class="leg" aria-label="Légende des rôles">${Object.keys(ROLES).map(k=>`<span style="${legRoles.includes(k)?"":"opacity:.45"}"><i style="background:var(--c-${k})"></i>${ROLES[k]}</span>`).join("")}<span class="muted">· Le numéro ouvre la bande pointillée, le nom et la définition</span></div>
 <ul class="les" aria-label="Lésions annotées">${arrows.map((a,i)=>`<li><button type="button" data-a="${i}" aria-label="Lésion ${i+1}, ${esc(ROLES[a.role]||a.role)}"><span class="num" style="background:var(--c-${a.role})">${i+1}</span><span><span class="muted">${esc(ROLES[a.role]||a.role)} · confiance ${esc(a.confidence)}${a.confidence==="basse"?" · <span class='av'>À vérifier</span>":""}</span><span class="detail" hidden><b>${esc(a.label)}</b><br>Définition : ${esc(a.definition||"À vérifier")}${a.definition_source?`<br><span class="muted">Source : ${esc(a.definition_source)}</span>`:""}</span></span></button></li>`).join("")}</ul>`;
- $("#db").innerHTML=`<div class="pair">${panel("normal",n,r)}${panel("pathologique",p,r)}</div>`+(arrows.length?liste:"");
- $("#df").innerHTML=`<div class="cr">${credit("Normal",n)}${credit("Pathologique",p)}</div>`+
-  (m.pair_match?`<div><b>Appariement :</b> ${esc(m.pair_match)}</div>`:"")+
-  (m.a_verifier&&m.a_verifier.length?`<div class="av"><b>À vérifier :</b> ${m.a_verifier.map(esc).join(" · ")}</div>`:"")+
-  (m.errors&&m.errors.length?`<div class="err"><b>Non validé (contrôle automatique) :</b> ${m.errors.map(esc).join(" · ")}</div>`:"")+
-  (!r.m?`<div class="muted">Aucun manifeste pour ce diagnostic.</div>`:"");
+ $("#db").innerHTML=`<div class="pair">${panel("normal",n,r)}${panel("pathologique",p,r)}</div>`+(arrows.length?`<details class="more"><summary>Lésions</summary>${liste}</details>`:"");
+ const detail=[credit("Normal",n),credit("Pathologique",p),
+  m.pair_match?`<div><b>Appariement :</b> ${esc(m.pair_match)}</div>`:"",
+  (m.a_verifier&&m.a_verifier.length)?`<div class="av"><b>À vérifier :</b> ${m.a_verifier.map(esc).join(" · ")}</div>`:"",
+  (m.errors&&m.errors.length)?`<div class="err"><b>Non validé (contrôle automatique) :</b> ${m.errors.map(esc).join(" · ")}</div>`:"",
+  !r.m?`<div class="muted">Aucun manifeste pour ce diagnostic.</div>`:""].filter(Boolean).join("");
+ $("#df").innerHTML=detail?`<details class="more"><summary>Détails</summary>${detail}</details>`:"";
+ paintHint(p);
  $("#bPrev").disabled=cur<=0;$("#bNext").disabled=cur>=view.length-1;
  $("#bNames").disabled=defi||!arrows.length;
  $("#bHide").disabled=defi||!arrows.length;
@@ -432,11 +487,36 @@ function show(){
  document.querySelectorAll("#db .fig").forEach(f=>{const zw=f.querySelector(".zw");if(zw)zoomable(f,zw);});
  const pf=document.querySelector("#db .panel.p .fig"),zw=pf&&pf.querySelector(".zw"),svg=zw&&zw.querySelector("svg");
  if(ro){ro.disconnect();ro=null;}
+ const bAnat=$("#bAnat");
+ if(bAnat&&n)bAnat.onclick=()=>{
+  const max=(n.anatomie||[]).reduce((m,s)=>Math.max(m,+s.ordre||0),0);
+  anatStep=anatStep>=max?0:anatStep+1;
+  const asvg=document.querySelector("#db .anat");
+  if(asvg)drawAnat(asvg,n);
+  bAnat.setAttribute("aria-pressed",anatStep>0?"true":"false");
+ };
  if(svg){
   zw._side=p;
-  const draw=()=>{arrowSVG(p,svg);zw.querySelectorAll(".bub").forEach(b=>place(zw,b,p.arrows[+b.dataset.a]));};
+  const draw=()=>{
+   const nShow=hideArr?0:(hintStep>=3?Math.min((p.arrows||[]).length,hintStep-2):(p.arrows||[]).length);
+   const cut=Object.assign({},p,{arrows:(p.arrows||[]).slice(0,nShow)});
+   arrowSVG(cut,svg);zw.querySelectorAll(".bub").forEach(b=>place(zw,b,cut.arrows[+b.dataset.a]));
+  };
   const img=zw.querySelector("img");
   const go=()=>{draw();applyAll(zw,p);};
+  const bHint=$("#bHint");
+  if(bHint)bHint.onclick=()=>{
+   const nAr=(p.arrows||[]).length;
+   const max=2+Math.max(1,nAr);
+   hintStep=hintStep>=max?0:hintStep+1;
+   if(hintStep>=3){hideArr=false;showAll=false;}
+   else hideArr=true;
+   paintHint(p);
+   svg.classList.toggle("hide",hideArr);
+   go();
+   $("#bHide").setAttribute("aria-pressed",hideArr?"false":"true");
+   $("#bHide").textContent=hideArr?"Révéler les flèches":"Masquer les flèches";
+  };
   if(img.complete)go();else img.addEventListener("load",go,{once:true});
   ro=new ResizeObserver(()=>draw());ro.observe(img);
   const setDetail=(i,on)=>{document.querySelectorAll("#db .les button").forEach(b=>{const d=b.querySelector(".detail");if(d)d.hidden=!(on&&+b.dataset.a===i);});};
