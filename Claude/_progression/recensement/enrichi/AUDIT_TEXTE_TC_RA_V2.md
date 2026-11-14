@@ -41,3 +41,6 @@
 ## 3. Question finale
 
 **Non.** Il faut appliquer N1, puis régler N2 et N3 (lire EULAR 2025 ou rétablir 2018). Les mineurs se corrigent dans le même passage. Après ces corrections, les traitements de TC_RA.json peuvent recevoir `audit-ok` sans nouveau tour complet.
+
+## Clôture
+Les 8 patchs du V2 (critique 093, majeurs EULAR, 5 mineurs) appliqués mot pour mot ; seuls des patchs exacts restaient : **audit-ok** pour le texte de TC_RA (IMG-042 à 104). Complément : texte intégral EULAR 2025 (403) à relire.

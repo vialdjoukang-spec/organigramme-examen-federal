@@ -24,3 +24,10 @@ m1 première intention 092 attribuée à EULAR 2015 ; m2 rangs renumérotés (04
 
 ## Restent « À vérifier »
 Les durées d'antibiothérapie, la position de l'EULAR 2025 sur l'aspirine, les schémas du myélome, les seuils SOSORT et les doses sans AIPS au corpus (méthylprednisolone hors SEP, prednisone dans De Quervain, corticoïdes de l'épiglottite).
+
+## Tour 2 (AUDIT_TEXTE_TC_RA_V2.md) — 14.11.2026
+- N1 (093) : Solu-Medrol 35112 = indication traumatisme médullaire < 8 h sans posologie propre ; schéma de 48 h des états vitaux déconseillé par AO Spine 2017.
+- N2 (080) : aspirine « non systématique (EULAR 2018, remplacée) ; EULAR 2025 non lue sur ce point » ; source EULAR 2018 rétablie avec la mention « remplacée ».
+- N3 (080) : prednisone 40–60 mg/j confirmée par le résumé PubMed 42481270 (EUtils, lu le 14.11.2026 : « 40 to 60 mg for GCA or TAK ») ; DOI 10.1016/j.ard.2026.06.009 ajouté. Texte intégral inaccessible (HTTP 403).
+- m1 (063) co-amoxicilline i.v. seule ; m2 (064) Rimactan « mise à jour novembre 2026 », doublon « (refdata) » supprimé ; m3 (079) Strbian 2024, « faible, certitude faible » ; m4 (093) AO Spine étiqueté international, Fehlings 2024 ajouté ; m5 (042, 043, 045) « substituer à vie : » sans doublon.
+- Images intactes ; JSON valide (63 fiches).
