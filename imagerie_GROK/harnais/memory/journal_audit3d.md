@@ -1,0 +1,8 @@
+# Journal audit 3d
+Audit indépendant du 14.11.2026. Images ouvertes avant tout verdict. Ordre IMG-137 → IMG-123. Ces manifestes n'ont pas été rédigés par l'auditeur.
+
+IMG-137 | corrigé | CC BY-SA 2.0, Yale Rosen : le rectangle couvrait la côte et le cœur, le contour suit la bande claire de la plèvre latérale gauche, repère L à droite de l'image, la masse du poumon droit reste la cryptococcose, et le partiel tient faute de TDM normale et de définition relue.
+IMG-136 | corrigé | CC BY-SA 3.0, Hellerhoff, normale CC0, Häggström : le rectangle était sur la peau et les côtes, le contour suit le manchon gris juste en dedans des côtes, à gauche de l'image donc à droite du patient, et le partiel tient, coupe haute, métastases absentes, définition non relue.
+IMG-135 | corrigé | CC BY 3.0, Cevik Y : le titre dit scanner mais l'image est une radiographie de face, électrodes, bulle gastrique et rachis projeté, le contour suit l'opacité de l'hémithorax droit à gauche de l'image, hors rachis, et le partiel tient, injection invisible, définition non relue.
+IMG-134 | corrigé | CC BY-SA 3.0, Hellerhoff, normale CC0, Häggström : le polygone était dans les parties molles de l'épaule, il suit l'air au-dessus du trait rouge, marqueur L à droite de l'image, et le partiel tient, pneumothorax compressif absent, définition non relue.
+IMG-133 | corrigé | CC BY-SA 4.0, Hellerhoff, normale CC0, Häggström : le rectangle prenait la condensation et la paroi, le contour suit la collection ovale et les bulles, à droite de l'image donc à gauche du patient, et le partiel tient, normale au niveau du cœur, définition non relue.
