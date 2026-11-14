@@ -7,3 +7,7 @@ Cinq diagnostics traités : IMG-258 partiel, IMG-257 complet, IMG-256 introuvabl
 ## Passage IMG-253 à IMG-250
 
 Quatre diagnostics : IMG-253, IMG-252 et IMG-251 introuvables après recherches Commons (Open-i renvoie une page d'erreur), IMG-250 complet (fibrome sous-séreux déjà cerné). Plusieurs relectures visuelles du contour du fibrome et rejet de clichés avec identifiant d'examen. Durée approximative : 25 minutes (estimation). Les scripts ont de nouveau fourni métadonnées, JPEG et validation (estimation).
+
+## Passage IMG-249 à IMG-245
+
+Cinq diagnostics : IMG-249, 247, 246 et 245 partiels, IMG-248 introuvable. Relectures visuelles de l'endométriome, du panorama de cryptorchidie (testicule non vu, image écartée), de la figure normale/non descendu, du Doppler de varicocèle et du nodule de séminome. Durée approximative : 30 minutes (estimation). Open-i répond de nouveau ; les scripts ont évité la normalisation et le contrôle de schéma (estimation).

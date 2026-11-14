@@ -10,3 +10,8 @@ IMG-253 | introuvable | pas d'US libre d'abcès tubo-ovarien ni de salpingite ; 
 IMG-252 | introuvable | catégorie torsion : mode B sans légende, identifiant CA1421 à l'écran | cliché demandé = Doppler
 IMG-251 | introuvable | pas d'US d'endomètre ni de col ; schémas, radiothérapie, pièce | 
 IMG-250 | complet | Commons CC0, Häggström 2014, fibrome sous-séreux de 5 cm déjà cerné | contour tenu à l'intérieur du pointillé source
+IMG-249 | partiel | Commons CC0, endométriome 67×40 mm, curseurs sur la masse | normale = corps jaune ; score IOTA/O-RADS absent
+IMG-248 | introuvable | pas d'échographie transrectale ; planche de 1916 hors licence
+IMG-247 | partiel | Mak et Tzeng 2018, CC BY 3.0, testicule non descendu panneau (b) | légende ne désigne pas le panneau ; voie dite scrotale
+IMG-246 | partiel | Mak et Tzeng 2018, Doppler couleur du plexus | normale axiale, pas la même coupe
+IMG-245 | partiel | Jmarchn 2016, nodule hypoéchogène de séminome gauche | normale axiale avec boîte Doppler
