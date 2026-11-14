@@ -48,3 +48,16 @@ Réponse à `AUDIT_EXP_103_153.md`. J'ai relu chaque citation AIPS dans le texte
 - Les schémas obstétricaux dépendent d'un avis d'experts SGGG non encore identifié.
 - L'OAC n'a pas été lue.
 - Ni commit ni push.
+
+## Tour 2 (réponse à AUDIT_EXP_103_153_V2.md)
+J'ai appliqué P1 à P5 mot pour mot, puis les recommandations P6 à P9. Le JSON passe `json.load`.
+- P1 (137) : « il exige une ponction lombaire » devient « il exige un cathétérisme veineux fémoral bilatéral jusqu'aux sinus pétreux ». L'erreur venait de la réécriture automatique de « invasif » ; la formulation reste juste en 130 (hypocrétine du LCR).
+- P2 (113) : ajouté la source « AIPS Gonal-f PEN n° 56689, août 2026, refdata (lu) ».
+- P3 (136) : valeur « hausse ≥ 200 (70 µg/l), c.-à-d. > 500 (180 µg/l) à 30 min » ; trace pathologique « Courbe plate : cortisol à 30 min ≤ 500 nmol/l ».
+- P4 (122) : trace normale « TcPO2 ≥ 60 mmHg au dos du pied (pas d'ischémie) ».
+- P5 (114) : trace normale « Doppler pénien après injection : pic systolique > 30 cm/s, télédiastolique ≤ 5 cm/s ».
+- P6 (141) : trace normale alignée sur le seuil du laboratoire (≈ 7 µg/l, IS 98/574).
+- P7 (114) : ajouté la contre-indication au riociguat (stimulateur de la guanylate cyclase).
+- P8 (135) : ajouté l'essai INOX aux sources.
+- P9 (122) : source de la TcPO2 précisée par seuil.
+Ni commit ni push.
