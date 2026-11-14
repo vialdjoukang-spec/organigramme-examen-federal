@@ -43,3 +43,6 @@ La phrase des fiches reprend le texte de l'AIPS sans l'adoucir : « Assurez-vous
 ## 4. Verdict
 
 **Publication : oui, sous réserve du patch V2-1.** Le seul défaut Grave, la PEP, est corrigé sans erreur nouvelle, et les neuf défauts Moyens sont corrigés. La correction du n° 4 a pourtant créé une inversion de sens dans A-SPE-1b (V2-1, Moyen) : elle doit être corrigée avant la publication. Les patchs V2-2 à V2-6 sont légers et ne bloquent pas la publication.
+
+## Clôture
+V2-1 et les légers V2-2 à V2-6 appliqués mot pour mot : **audit-ok** pour A-TRAME, A-SPE et A-MOT-1 à 25.
