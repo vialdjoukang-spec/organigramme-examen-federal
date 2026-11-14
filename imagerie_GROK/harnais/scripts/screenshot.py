@@ -37,9 +37,24 @@ def main():
             pg.wait_for_timeout(350)
             snap(mid)
             if pg.locator("#db .arw").count():
-                pg.locator("#db .arw").first.click(force=True); pg.wait_for_timeout(150)
+                # Le centre du groupe tombe souvent dans le vide du contour : on clique le numéro.
+                num = pg.locator("#db .arw text")
+                (num.first if num.count() else pg.locator("#db .les button").first).click(force=True)
+                pg.wait_for_timeout(200)
+                if pg.locator("#db .les .detail:not([hidden])").count() < 1:
+                    pg.locator("#db .les button").first.click()
+                    pg.wait_for_timeout(200)
                 if not pg.locator("#db .bub:not(.compact)").count():
-                    errors.append(f"{mid}: clic flèche sans bulle")
+                    errors.append(f"{mid}: clic sur le numéro sans bulle")
+                else:
+                    txt = pg.locator("#db .bub:not(.compact)").first.inner_text()
+                    if "Définition" not in txt:
+                        errors.append(f"{mid}: bulle sans définition radiologique")
+                if pg.locator("#db .panel.p svg polyline").count() < 1:
+                    errors.append(f"{mid}: contour pointillé absent")
+                det = pg.locator("#db .les .detail:not([hidden])")
+                if det.count() < 1 or "Définition" not in det.first.inner_text():
+                    errors.append(f"{mid}: le numéro n'ouvre ni le nom ni la définition")
                 if i == 0:
                     pg.click("#bNames"); pg.wait_for_timeout(150)
                 snap(mid + "_bulles")

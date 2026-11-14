@@ -15,8 +15,10 @@
    - que la modalité et le plan sont les bons ;
    - que la lésion est visible ;
    - qu'aucun identifiant de patient n'apparaît.
-4. **Flèches.** Pointer la lésion principale et les lésions associées, secondaires ou compliquantes.
+4. **Flèches, contour, définition.** Pointer la lésion principale et les lésions associées, secondaires ou compliquantes.
    - Coordonnées normalisées : la pointe (`tip`) et la queue (`from`).
+   - Contour : polygone fermé de points normalisés 0–1 qui épouse la lésion (dernier point = premier).
+   - Définition radiologique du signe, avec sa source datée. Sans source : « À vérifier », et pas de statut complet.
    - Chaque flèche a un nom en français médical, un rôle, une preuve (citation de la légende source) et une confiance :
      - **haute** : la source porte déjà la marque ;
      - **moyenne** : la légende localise la lésion et la vérification visuelle confirme ;
@@ -31,7 +33,8 @@
 **Sortie.** `app/Radio_Paires.html`, un fichier unique hors ligne.
 - Le clic sur un diagnostic ouvre une fenêtre : Normal à gauche, Pathologique à droite.
 - Flèches numérotées, contrastées (liseré noir), d'épaisseur normale.
-- Le clic sur un numéro ouvre le nom de la lésion. Boutons « Afficher tous les noms » et « Masquer les flèches ».
+- Flèche fine, couleur vive, liseré sombre. À la pointe, contour pointillé vif qui épouse la lésion.
+- Le clic sur un numéro (lésion principale, associée, secondaire ou complication) ouvre le nom du signe et sa définition radiologique. Les cadres de noms sont fermés par défaut. Boutons « Afficher tous les noms » et « Masquer les flèches ».
 - Crédits, écarts d'appariement et mentions « À vérifier » en bas de fenêtre.
 
 **Équipe.**

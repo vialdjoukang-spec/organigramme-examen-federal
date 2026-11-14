@@ -14,6 +14,10 @@ Une NORMALE peut être de n'importe quelle source libre mais DOIT être apparié
 ## Annotations (manifest/IMG-xxx.json, voir SCHEMA)
 - Chaque flèche : tip [x,y] normalisés 0–1 sur l'image patho, `from` [x,y] (queue), `label` (nom de la lésion), `role` ∈ principale|associee|secondaire|complication,
   `evidence` = citation exacte de la légende/description source qui localise la lésion, ou "visuel" ; `confidence` ∈ haute|moyenne|basse.
+- Chaque lésion porte en plus un `contour` et une définition radiologique sourcée.
+  `contour` : liste de points [x,y] dans [0,1], polygone fermé qui épouse la lésion (au moins 3 sommets distincts, le dernier point répète le premier).
+  `definition` : définition radiologique du signe, en français.
+  `definition_source` : source datée (société savante, glossaire, article). Sans source lue : « À vérifier », confiance `basse`, et le statut ne peut pas être `complet`.
 - Localisation : (a) si l'image source porte déjà des flèches/marques → pointer exactement là (haute) ; (b) si la légende localise (côté, lobe, segment) → vérifier visuellement en ouvrant l'image (Read) et placer (moyenne) ; (c) purement visuel → basse + "À vérifier". Gauche/droite radiologique : le côté gauche de l'image = droite du patient (TDM/IRM axiale, RX face).
 - Ouvrir CHAQUE image retenue avec Read (vision) avant de la valider : vérifier modalité, plan, qualité, absence d'identifiants patients, pathologie visible.
 
@@ -42,8 +46,14 @@ Requêtes API en anglais (terminologie radiologique), limitées ; légende lue e
 - `python3 scripts/validate.py [--only IMG-001,IMG-002] [--quiet]` → tableau + `validate_report.json` ; code 1 si erreur.
   Contrôles : fichiers JPEG ≤ 1024, licence liste blanche (CC0 / PD / CC BY x.y / CC BY-SA x.y), auteur + source_url,
   modalité/plan/séquence identiques normal = patho et conformes au cliché (pour « complet »), ≥ 1 flèche `principale`,
-  tip/from dans [0,1], label/role/evidence/confidence présents, confiance `basse` ⇒ label cité dans `a_verifier`.
-  Lancer après CHAQUE manifest ; un manifest en erreur s'affiche « erreur » dans l'app (jamais « complet »).
+  tip/from dans [0,1], label/role/evidence/confidence présents, confiance `basse` ⇒ label cité dans `a_verifier`,
+  contour fermé (≥ 3 sommets, dernier point = premier, chaque point dans l'image), définition et source présentes
+  (un complet refuse « À vérifier » comme définition ou comme source).
+  Lancer après CHAQUE manifest ; un manifest en erreur s'affiche « non validé » dans l'app (jamais « complet »).
+- `python3 scripts/overlay.py manifest/IMG-xxx.json /tmp/IMG-xxx_overlay.png` → flèche et contour dessinés sur la patho, pour relecture visuelle.
+- `python3 scripts/essai_harnais.py` → essai synthétique (aucun patient) : contrôles négatifs, capture, effacement de la paire.
+- `python3 scripts/progression_heure.py` → validate + build_app --external + screenshot, archive dans progression/.
+- `python3 scripts/bilan_nuit.py` → progression/BILAN_NUIT_20261114.html (stdlib, jaune). Ne compte un complet que s'il a un manifeste.
 - `python3 scripts/build_app.py [--external] [--include-test]` → `app/Radio_Paires.html` (hors-ligne, images en data URI ; `--external` = liens vers images/).
 - `python3 scripts/screenshot.py` → captures `shots/*.png` + contrôle console sans erreur.
 - Manifests de test : `manifest/TEST-*.json` (ignorés par défaut, `--include-test` pour les voir) — à supprimer après essai.
