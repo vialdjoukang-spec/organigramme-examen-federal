@@ -27,4 +27,5 @@ Périmètre réel de ce worktree (lot3, IMG-172 → IMG-087). Ordre décroissant
 - IMG-153 | partiel | domaine public, Pologne, cathéter jugulaire droit, mention « Na stojąco » ; normale Häggström PA | piège : extrémité placée à l'œil. Incidence non dite PA.
 - IMG-152 | partiel | Ciernik, CC BY-SA 4.0, myxome de l'oreillette gauche, flèches orange | piège : pas d'échocardiographie normale (schémas seulement) ; thrombus absent.
 - IMG-151 | introuvable | CIA et CIV de Kjetil Lenes ont une date d'examen gravée ; CAVC a un nom ; coarctation = schémas | piège : identifiants. Open-i en erreur HTML.
-- IMG-150 | partiel | Treibel et al., JCMR 2016, CC BY 4.0, fixation cardiaque du DPD | piège : pas de scintigraphie normale ; grade de Perugini non indiqué. Reprise à IMG-149.
+- IMG-150 | partiel | Treibel et al., JCMR 2016, CC BY 4.0, fixation cardiaque du DPD | piège : pas de scintigraphie normale ; grade de Perugini non indiqué.
+- IMG-149 | partiel | Nowell M. Fine, CC BY-SA 4.0, ventricule droit dilaté, cœur pulmonaire | piège : pas de normale ; cardiomyopathie du ventricule gauche absente. Reprise à IMG-148.

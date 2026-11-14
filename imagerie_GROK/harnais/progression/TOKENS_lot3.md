@@ -50,3 +50,10 @@ Les durées et les appels évités sont des estimations, marquées comme telles.
 - Appels de jugement visuel : environ 14 lectures (quatre TDM de dissection, radiographie du cathéter et son coin « Na stojąco », myxome et contour déplacé, CIA et CIV rejetées pour date, CAVC rejeté pour un nom, scintigraphie DPD). Estimation.
 - Durée : une passe. Estimation : Open-i renvoyait une page HTML, les catégories Commons ont porté la recherche.
 - Épargné par les scripts (estimation) : `fetch_commons.py` a donné licence et auteur ; le wikitexte a fourni l'auteur manquant des clichés de Lenes, écartés ensuite pour la date gravée. `validate.py` a accepté l'introuvable et les partiels sans normale.
+
+## IMG-149
+
+- Éléments traités : 1 diagnostic, partiel. Cœur pulmonaire, ventricule droit étiqueté.
+- Appels de jugement visuel : 2 lectures. Estimation.
+- Durée : courte. Estimation.
+- Épargné par les scripts (estimation) : la recherche Commons a écarté les animations ; `validate.py` a signalé l'absence de normale sans erreur.
