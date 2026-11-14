@@ -83,3 +83,6 @@ Aucune erreur médicale nouvelle n'a été trouvée. Les défauts restants conce
 | Doses et style | 2 | Aucune dose ; les phrases sont verbales. |
 
 **`audit-ok` : non en l'état. Oui dès l'application des patchs C1 à C6, qui sont des remplacements de chaînes.** M1 et M2 sont à appliquer dans la même passe. Les points Léger et ceux du § 4 vont dans une liste « compléments à venir » et ne bloquent pas.
+
+## Clôture
+C1 à C6 et les 2 moyens appliqués mot pour mot après relecture des AIPS (tour 2 du correcteur) : **audit-ok** pour PP-S5 à S8, conformément au verdict « oui après les 6 patchs ». Compléments à venir : sources « non lu », références SGGG/Swissmedic, passerelle LOT, statut de l'amiloride.
