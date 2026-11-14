@@ -84,3 +84,8 @@ Périmètre réel de ce worktree (lot3, IMG-172 → IMG-087). Ordre décroissant
 - IMG-094 | partiel | James Heilman, CC BY-SA 4.0, fracture comminutive de L4, flèche rouge | piège : injection et instabilité non écrites.
 - IMG-093 | partiel | Utz et al., Insights into Imaging 2013, CC BY 4.0, fracture des isthmes de C2 | piège : l'absence d'injection n'est pas écrite.
 - IMG-092 | partiel | Herregods et al., JBSR 2016, CC BY 4.0, STIR de sacro-iliite, flèches | piège : pas d'IRM normale. La légende dit que le cas ne remplit pas la définition ASAS. Reprise à IMG-091.
+- IMG-091 | partiel | Chan et Oh, Int J Emerg Med 2016, CC BY 4.0, collection épidurale postérieure | piège : T2, le gadolinium n'est pas montré. Le T en bas n'est pas un nom.
+- IMG-090 | partiel | Hellerhoff, CC BY-SA 4.0, T1 sagittal de spondylodiscite L3-L4 | piège : la planche mélange plusieurs séquences.
+- IMG-089 | partiel | Mikael Häggström, CC0, lésions ostéoblastiques du rachis lombaire | piège : pas un corps entier faible dose ; forme condensante.
+- IMG-088 | introuvable | métastases en NC-ND ou sans lésion vertébrale T1 | piège : pas de rachis entier T1 en licence blanche.
+- IMG-087 | partiel | Glitzy queen00, domaine public, tassements cunéiformes de L1 et L2, profil | piège : photo de négatoscope. Dernier id du lot.

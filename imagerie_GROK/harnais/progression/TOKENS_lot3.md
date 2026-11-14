@@ -134,3 +134,10 @@ Les durées et les appels évités sont des estimations, marquées comme telles.
 - Appels de jugement visuel : environ 10 lectures (scoliose, fracture de L4 ramenée sur la flèche rouge, fracture de C2 ramenée sur la flèche blanche, STIR sacro-iliaque). Estimation.
 - Durée : une passe. Estimation : Open-i a renvoyé des licences inconnues ou NC. Une scoliose en appui a été écartée pour une date gravée.
 - Épargné par les scripts (estimation) : les catégories Commons ont donné la scoliose et les fractures ; `validate.py` a accepté les cinq fichiers sans erreur.
+
+## IMG-091, IMG-090, IMG-089, IMG-088, IMG-087
+
+- Éléments traités : 5 diagnostics, 4 partiels et 1 introuvable. Dernier id du lot : IMG-087.
+- Appels de jugement visuel : environ 11 lectures (abcès ramené hors de la graisse, T1 de spondylodiscite, myélome, corps entier sans lésion contourable, tassement de profil). Estimation.
+- Durée : une passe. Estimation : Open-i a donné un T2 fléché qui n'était pas le T1 demandé, et une page HTML pour le tassement.
+- Épargné par les scripts (estimation) : `fetch_commons.py` a donné l'abcès, la spondylodiscite et le tassement ; `validate.py` a accepté les cinq fichiers sans erreur.
