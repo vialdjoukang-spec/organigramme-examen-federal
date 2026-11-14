@@ -20,3 +20,8 @@ IMG-243 | partiel | Mak et Tzeng 2018, boîte Doppler vide de torsion | plan non
 IMG-242 | introuvable | pas d'échographie sus-pubienne ; préréglage endocavitaire et collie écartés
 IMG-241 | introuvable | pas d'IRM T2 de cancer de prostate
 IMG-240 | introuvable | pas de cystographie TDM de rupture vésicale
+IMG-239 | partiel | Häggström 2018, CC0, paroi vésicale trabéculée | résidu non mesuré, pas de vessie normale légendée
+IMG-238 | introuvable | pas d'échographie de tumeur de vessie ; schémas et histologie
+IMG-237 | partiel | Spangler 2024, CC BY 4.0, sténose ostiale de l'AMS déjà fléchée | chronique non écrit, pas de normale
+IMG-236 | introuvable | pas d'angio-TDM d'endofuite
+IMG-235 | partiel | Häggström 2019, anévrisme axial déjà mesuré ; Heilman 2016, aorte 1,88 cm | rupture absente

@@ -15,3 +15,7 @@ Cinq diagnostics : IMG-249, 247, 246 et 245 partiels, IMG-248 introuvable. Relec
 ## Passage IMG-244 à IMG-240
 
 Cinq diagnostics : orchi-épididymite et torsion en Doppler partiels, hyperplasie sus-pubienne, IRM prostatique et cystographie de rupture introuvables. Relectures du signal couleur, de la boîte vide et du cliché prostatique à sonde inférieure. Durée approximative : 20 minutes (estimation).
+
+## Passage IMG-239 à IMG-235
+
+Cinq diagnostics : rétention sur vessie trabéculée, sténose ostiale de l'artère mésentérique supérieure et anévrisme aortique axial en partiel ; tumeur de vessie et endofuite introuvables. Relectures du contour de la paroi vésicale, de la sténose fléchée et du sac aortique jusqu'au trait de mesure. Durée approximative : 25 minutes (estimation). Les scripts ont fourni les fichiers, les dates de dépôt et la validation (estimation).
