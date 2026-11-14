@@ -5,6 +5,7 @@ Les graines sont des positions types. Un contour n'est gardé que si l'algorithm
 en produit un, fermé, ni minuscule ni collé au cadre. Il est marqué approximatif.
 """
 import argparse
+import gc
 import importlib.util
 import json
 import subprocess
@@ -237,7 +238,11 @@ def main():
             if args.limite and len(cibles) >= args.limite:
                 break
     for ident in cibles:
-        print(ident, appliquer(seg, ident), flush=True)
+        try:
+            print(ident, appliquer(seg, ident), flush=True)
+        except Exception as exc:
+            print(ident, "ERREUR", type(exc).__name__, flush=True)
+        gc.collect()
 
 
 if __name__ == "__main__":
