@@ -11,3 +11,8 @@ EXP-055 | corrigé | CC BY-SA 3.0, Rosengarten : le cadre est resserré sur la l
 EXP-054 | corrigé | CC BY 4.0, Agbayani et Gonzales : la pointe était sous l'onde T. Elle est sur le sommet pointu en V3, et une associée sur le sommet en V4. Partiel, pas d'onde U ni de calcium. En-tête masqué.
 EXP-053 | corrigé | CC BY-SA 3.0, P.G. Postema (crédit, artiste vide) : le grand cadre est ramené sur le ST en dôme de V1, pointe sur la descente. Partiel, pas d'ajmaline.
 EXP-052 | corrigé | CC BY-SA 4.0, N. Adadi 2017 : la pointe était dans le vide entre II et III. Le contour va du QRS de DII à la fin de l'onde T. Partiel, QT congénital, 500 ms non imprimé.
+EXP-051 | corrigé | CC BY-SA 3.0, CardioNetworks, R.W. Koster : la pointe était dans l'intervalle entre V1 et V2. Elle est sur la ligne plate de la pause en V1, avant le QRS terminal. Partiel, pas de Holter.
+EXP-050 | corrigé | CC BY-SA 4.0, M. Ciernik : la pointe était à droite du cercle, sur le complexe suivant. Elle est dans le cercle rouge, sur le QRS large de V1. Partiel, 120 ms non écrits.
+EXP-049 | corrigé | CC BY-SA 3.0, Rosengarten : la pointe était sur le ST après un QRS conduit. Elle est sur l'onde P non suivie d'un QRS, et une seconde pause plus loin. Partiel, le normal n'est pas un Holter.
+EXP-048 | corrigé | CC BY-SA 2.5, Ksheka : le grand cadre est ramené sur une salve de QRS larges, pointe sur un sommet. Partiel, pas de capture, de fusion ni de fibrillation ventriculaire.
+EXP-047 | corrigé | CC BY-SA 3.0, Ksheka : la pointe était sur la ligne isoélectrique de C1. Elle est sur l'empâtement initial du QRS en DII. Partiel, pas de crise ni d'étude électrophysiologique.
