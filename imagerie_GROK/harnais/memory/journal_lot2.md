@@ -49,3 +49,8 @@ Périmètre réel de ce worktree (lot3, IMG-172 → IMG-087). Ordre décroissant
 - IMG-129 | partiel | Hellerhoff, CC BY-SA 4.0, contusion droite plus que gauche ; normale Häggström coupe 24 | piège : l'injection n'est pas écrite sur le fichier.
 - IMG-128 | partiel | Hellerhoff, CC BY-SA 4.0, séquestre postéro-basal droit peint en violet, artère systémique | piège : malformation adénomatoïde absente ; pas d'angio-TDM normale.
 - IMG-127 | partiel | Ito et al., Fujita Medical Journal 2017, CC BY 4.0, pneumopathie organisée le long de l'isodose à quatre mois | piège : coupe non libellée haute résolution ; pneumopathie médicamenteuse absente. Reprise à IMG-126.
+- IMG-126 | partiel | Johns 2017, JMRI, PMC5697671, CC BY 4.0, SPECT de perfusion, défauts en coin ; normale = panneau A | piège : pas de ventilation ; la rangée du bas est une IRM.
+- IMG-125 | partiel | Myat et Ahsan, Thrombosis Journal 2007, CC BY 2.0, thrombus en selle ; normale Häggström coupe 24 | piège : la normale n'est pas une angio-TDM pulmonaire.
+- IMG-124 | partiel | Hellerhoff, CC BY-SA 3.0, atélectasie des deux lobes inférieurs ; prise antérieure du même patient | piège : le cliché pathologique est couché.
+- IMG-123 | partiel | Samir, CC BY-SA 3.0, SDRA semi-assis ; normale Häggström PA | piège : incidences différentes. Le point d'interrogation n'est pas un nom.
+- IMG-122 | partiel | Hellerhoff, CC BY-SA 4.0, œdème en ailes de papillon, décompensation cardiaque ; normale Häggström PA | piège : antéro-postérieur contre postéro-antérieur. Reprise à IMG-121.

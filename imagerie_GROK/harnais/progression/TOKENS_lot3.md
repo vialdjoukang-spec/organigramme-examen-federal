@@ -85,3 +85,10 @@ Les durées et les appels évités sont des estimations, marquées comme telles.
 - Appels de jugement visuel : environ 8 lectures (distension gauche, membranes hyalines, contusion sur la planche du bas, masque violet du séquestre, pneumopathie radique et pointe déplacée dans la condensation). Estimation.
 - Durée : une passe. Estimation : Open-i a renvoyé des licences non blanches ou inconnues pour le séquestre, la contusion et la pneumopathie radique.
 - Épargné par les scripts (estimation) : le décompte des pixels violets a calé le contour du séquestre ; `validate.py` a accepté les cinq partiels sans erreur.
+
+## IMG-126, IMG-125, IMG-124, IMG-123, IMG-122
+
+- Éléments traités : 5 diagnostics, tous partiels.
+- Appels de jugement visuel : environ 14 lectures (SPECT du CTEPH et pointe rentrée dans le défaut, thrombus en selle, atélectasie et ses deux bases, coins du cliché de SDRA, ailes de papillon). Estimation.
+- Durée : une passe. Estimation : Open-i a renvoyé des licences inconnues ou NC pour le SDRA et l'œdème ; la catégorie Commons a donné le cliché cardiogénique.
+- Épargné par les scripts (estimation) : `fetch_commons.py` a écarté l'histologie d'œdème ; le XML Europe PMC a fourni la figure SPECT ; `validate.py` a accepté les cinq partiels sans erreur.
