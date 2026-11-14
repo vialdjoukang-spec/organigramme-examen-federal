@@ -61,15 +61,15 @@ def manifests():
     out = {}
     _lire_dossier(os.path.join(ROOT, "manifest"), out)
     for i in range(1, 5):
-        _lire_dossier(f"/tmp/imagerie-lot{i}/manifest", out)
+        _lire_dossier(f"/tmp/imagerie-lot{i}/imagerie_GROK/harnais/manifest", out)
     for i in range(1, 5):
-        _lire_dossier(f"/tmp/imagerie-audit{i}/manifest", out)
+        _lire_dossier(f"/tmp/imagerie-audit{i}/imagerie_GROK/harnais/manifest", out)
     return out
 
 def glob_tokens():
     paths = []
     for folder in [os.path.join(ROOT, "progression")] + [
-        f"/tmp/imagerie-{kind}{i}/progression" for kind in ("lot", "audit") for i in range(1, 5)
+        f"/tmp/imagerie-{kind}{i}/imagerie_GROK/harnais/progression" for kind in ("lot", "audit") for i in range(1, 5)
     ]:
         if not os.path.isdir(folder):
             continue
@@ -81,7 +81,7 @@ def glob_tokens():
 def journaux():
     chunks = []
     folders = [os.path.join(ROOT, "memory")]
-    folders += [f"/tmp/imagerie-{kind}{i}/memory" for kind in ("lot", "audit") for i in range(1, 5)]
+    folders += [f"/tmp/imagerie-{kind}{i}/imagerie_GROK/harnais/memory" for kind in ("lot", "audit") for i in range(1, 5)]
     seen = set()
     for mem in folders:
         if not os.path.isdir(mem):

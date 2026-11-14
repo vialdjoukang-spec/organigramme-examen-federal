@@ -19,8 +19,9 @@ def checkouts():
             (f"lot{i}", f"/tmp/imagerie-lot{i}"),
             (f"audit{i}", f"/tmp/imagerie-audit{i}"),
         ):
-            if os.path.isdir(os.path.join(path, "scripts", "validate.py")):
-                found.append((name, path))
+            harness = os.path.join(path, "imagerie_GROK", "harnais")
+            if os.path.isdir(os.path.join(harness, "scripts", "validate.py")):
+                found.append((name, harness))
     return found
 
 def run(cwd, args):
