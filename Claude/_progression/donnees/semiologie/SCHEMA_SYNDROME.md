@@ -12,7 +12,7 @@
  "diagnostics_differentiels": ["..."],
  "a_dire_cs": ["synthèse orale de 2 phrases que le candidat présente à l'examinateur"],
  "status_lies": ["S-10", "..."],
- "image": {"fichier": "img/SY-17_nom.jpg", "credit": "...", "licence": "...", "url": "..."} | {"a_fournir": "..."} | null,
+ "image": {"fichier": "img/SY-17_nom.jpg", "legende": "ce que montre la photo (une phrase)", "credit": "...", "licence": "...", "url": "..."} | {"a_fournir": "..."} | null,
  "sources": ["source (étiquette entre parenthèses si non suisse)"]
 }
 Ordre des sources : Suisse → Europe (« source européenne : … ») → autre → OMS en dernier. Images RÉELLES seulement (Commons libre), jamais générées ; image facultative, seulement si un signe visible enseigne quelque chose.
