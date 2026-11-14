@@ -30,3 +30,6 @@ Version auditée : 35 JSON, 131 195 octets, SHA-256 de la concaténation `24d670
 ## Verdict
 
 **Question finale : oui, sous réserve de N1.** G1 et les neuf défauts moyens sont corrigés sans erreur de fond, sauf N1, une erreur moyenne introduite par la correction M4 (fosfomycine chez l'homme hors AIPS). Après le PATCH de N1 (une phrase), le lot peut recevoir `audit-ok`. Aucun défaut critique. P1 et N2 à N4 sont légers et ne bloquent pas. Le moment de l'amiodarone est tranché : 300 mg après le 3e choc, 150 mg après le 5e (RC UK ALS 2025, adaptation ERC 2025, lu).
+
+## Clôture
+Patch N1 appliqué mot pour mot (M-06, fosfomycine hors AIPS chez l'homme) : **audit-ok** pour Management et Communication.
