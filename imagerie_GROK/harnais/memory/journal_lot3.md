@@ -35,3 +35,8 @@ IMG-228 | partiel | Cerevisae 2022, cortex trop échogène, rein gauche 9,9 cm |
 IMG-227 | partiel | Hellerhoff 2021, infarctus du pôle caudal gauche déjà surligné | thrombose veineuse absente, pas de normale
 IMG-226 | introuvable | Doppler de sténose écarté : numéro d'examen à l'écran
 IMG-225 | partiel | Drahreg01 2010, phéochromocytome axial marqué d'un astérisque | pas de surrénale normale
+IMG-224 | partiel | Guerrisi 2018, adénome de découverte fortuite, TDM sans injection | pas de surrénale normale
+IMG-223 | introuvable | pas d'uro-TDM ; la phase parenchymateuse a été écartée
+IMG-222 | partiel | Hellerhoff 2009, angiomyolipomes bilatéraux hypodenses, flèches | aorte non opacifiée, pas de rein normal
+IMG-221 | partiel | SCiardullo 2016, Bosniak I sans injection, 4,6 UH | protocole multiphasique et version 2019 absents
+IMG-220 | introuvable | pas de TDM sans injection d'un carcinome à cellules claires ; papillaire écarté
