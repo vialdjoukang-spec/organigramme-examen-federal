@@ -28,3 +28,12 @@ Reprise : IMG-335.
 - Épargné par les scripts (estimation) : catégories Commons, JPEG, validation. Un fichier légendé rachitisme a été rejeté après lecture parce que c'étaient des mains adultes. Le gain chiffré n'est pas mesuré.
 
 Reprise : IMG-330.
+
+## Passe IMG-330 à IMG-326
+
+- Éléments traités : 5 diagnostics. Un partiel, quatre introuvables. Aucun complet.
+- Appels de jugement visuel : 3 lectures (scintigraphie pathologique, scintigraphie de comparaison, aperçu). Estimation.
+- Durée : une passe, non chronométrée. Estimation.
+- Épargné par les scripts (estimation) : les catégories Commons ont écarté seules les myélopathies hors sujet avant toute lecture d'image. Le gain chiffré n'est pas mesuré.
+
+Reprise : IMG-325.

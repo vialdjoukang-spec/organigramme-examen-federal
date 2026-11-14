@@ -15,4 +15,9 @@ IMG-334 | introuvable | aucune main d'hyperparathyroïdie sous licence | acro-os
 IMG-333 | partiel | Olgahospital Stuttgart, CC BY-SA 4.0, rachitisme floride du poignet | RicketsXray.jpg rejeté (mains adultes) ; pas d'ostéomalacie ni de poignet sain
 IMG-332 | partiel | Hellerhoff, CC BY-SA 4.0, Paget du bassin droit | prothèse controlatérale non décrite ; pas de bassin sain
 IMG-331 | partiel | Jmarchn, CC BY-SA 3.0, DXA lombaire ostéoporotique | la courbe de référence est sur la même planche, pas une patiente normale
+IMG-330 | introuvable | aucune TDM de primitif inconnu | recherches Commons vides
+IMG-329 | introuvable | pas d'IRM du rachis entier tumorale | la catégorie ne contient qu'une myélopathie cervicale dégénérative et un signe des yeux de hibou post-traumatique
+IMG-328 | introuvable | pas de TDM d'immunothérapie | la catégorie Pneumonitis n'est pas une pneumopathie d'inhibiteur
+IMG-327 | partiel | Drahreg01, CC BY-SA 3.0, foyers d'un cancer prostatique ; normale Heilman, CC BY-SA 4.0 | la scintigraphie de comparaison est normale chez un sujet qui a une ostéopoïkilie
+IMG-326 | introuvable | aucune TDM comparative RECIST | recherches Commons vides
 
