@@ -52,3 +52,6 @@ Je n'ai trouvé aucune phrase nominale réelle. Ces signalements ne bloquent pas
 ## 5. Verdict
 
 Le défaut Grave est corrigé. Huit défauts Moyens sur neuf sont corrigés, et 2 erreurs Moyennes nouvelles sont apparues (A, B). **Prêt pour `audit-ok` ? Non.** Il manque les patchs A et B ; C, D et E sont souhaités. Une fois A et B appliqués à l'identique, l'audit peut passer sans troisième tour. La fiche PP « MTEV de la grossesse » reste un complément à venir et ne bloque pas.
+
+## Clôture
+Patchs A à E appliqués mot pour mot (tour 2) : **audit-ok** pour PHY-S5 à S8. Compléments à venir : fiches PP « pancréatite chronique » et « MTEV de la grossesse ».

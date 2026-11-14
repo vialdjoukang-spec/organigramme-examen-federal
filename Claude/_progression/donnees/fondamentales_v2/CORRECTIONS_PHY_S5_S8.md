@@ -53,3 +53,15 @@ Toutes les corrections légères sont appliquées selon le patch de l'audit :
 
 - Script de validation : 33 fiches, 0 erreur (schéma, renvois PP, EX, PH et « via » existants, aucune dose).
 - `verbal.py` signale encore 324 phrases sur 876. Les fiches PP déjà auditées en comptent autant. Ces signalements portent sur des étiquettes (unités, classes, noms d'affection, chaînes, formules, mnémotechniques), puis sur 36 phrases rédigées qui contiennent un verbe conjugué absent du lexique du détecteur (« sécrète », « réabsorbe », « freine »…). Je n'ai trouvé aucune phrase nominale réelle. J'ai reformulé la phrase de réserve sur les doses pour qu'elle passe.
+
+## Tour 2 (AUDIT_PHY_S5_S8_V2)
+
+| Réf. | Fiche | Correction appliquée mot pour mot |
+|---|---|---|
+| A | S5-5 | Le dérèglement devient « cancer pancréatique (insuffisance pancréatique exocrine, malabsorption de la B12) », avec PP-S5-T et SY-39. **Complément PP à venir : « pancréatite chronique ».** |
+| B | S7-4 | `dereglements[2]` devient « maladie thromboembolique veineuse de la grossesse (hypercoagulabilité ; fiche PP dédiée à venir) », avec PP-S7-V et SY-23. La formulation fausse « hémorragie du post-partum, pré-éclampsie : terrain hypercoagulable » est supprimée. **Complément PP à venir : « MTEV de la grossesse ».** |
+| C | S7-3 | Statut de la source NICE : « seuil de 63 % vu par l'auditeur dans un résumé de recherche de la page NG126 (14.11.2026) ; page non lue en entier ». |
+| D | S8-3 | L'unité du seuil Synacthen précise maintenant l'origine des seuils : 100 volontaires sains danois, 250 µg IV, femmes sous œstrogènes oraux exclues. Ils ne s'appliquent que si l'Insel dose par Elecsys Cortisol II (cobas), ce qui reste à confirmer. Les œstrogènes oraux élèvent faussement le cortisol total. |
+| E | toutes | Chaque champ `honnetete` est désormais construit à partir des sources de sa propre fiche marquées « lu » :<br>• S5-4 : HPC Swissmedic ;<br>• S5-5 : HUG B12 2013 ;<br>• S6-4 et S6-5 : RMS 2005, résumé ;<br>• S8-3 : Okutan 2024.<br>Les autres fiches indiquent qu'aucune source n'a été relue. |
+
+Validation : le script de validation passe sur les 33 fiches sans erreur. `verbal.py` signale 324 phrases sur 909. Ce sont des étiquettes et des verbes absents du lexique ; l'auditeur les a jugés non bloquants au paragraphe 4.
