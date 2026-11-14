@@ -16,3 +16,10 @@ Dernier fait : FTE-39. Prochain : FTE-38.
 - FTE-34 partiel. Theiler 2021, PMC8285307, CC BY 4.0. Agenda de 24 h, 17 au 20 mai. Numéro d'actimètre laissé hors cadre. Pas de nom.
 
 Dernier fait : FTE-34. Prochain : FTE-33.
+
+- FTE-33 partiel. Merbler 2018, PMC5828406, CC BY 4.0. Actogramme de sept jours. Flèche sur la plage sombre du jeudi. Étude dans le syndrome de Rett, pas une nuit déclarée normale. Pas de nom.
+- FTE-32 introuvable. Pas de tracé de maintien de l'éveil. La figure CC BY est une photographie de passation.
+- FTE-31 introuvable. Le schéma Commons intitulé MSLT a une latence courte puis du N3. Le fichier voisin est un SOREM. Pas de série de siestes normale.
+- FTE-30 partiel. Drzazga et Cyganek 2021, PMC8434530, CC BY 4.0. Débit et efforts, début sans barre d'apnée. La suite du même extrait montre des hypopnées et des apnées. Pas de saturation. Pas de nom.
+
+Intervalle FTE-43 à FTE-30 fermé. Dernier fait : FTE-30.
