@@ -55,3 +55,22 @@ Date : 14.11.2026. Les 36 fiches ont été régénérées, puis corrigées par s
 - L'identifiant LOT des passerelles `cours` n'est pas résolu.
 - Les mécanismes des affections ajoutées relèvent de la déduction d'expert, sans relecture suisse.
 - Scripts : scratchpad `pp/` (s5–s8.py puis corrections.py, valider.py).
+
+## Tour 2 (AUDIT_PP_S5_S8_V2.md)
+
+Le 14.11.2026, j'ai relu les six AIPS sur files.refdata.ch avec `Claude/_harnais/aips_fiche.py fiche <url>`, aux URL de `aips_corpus_index.json`. Pour chacune, j'ai vérifié le numéro, la date de mise à jour et le texte cité (Letrozol Accord et Depakine dans le HTML mis en cache). J'ai ajouté chaque AIPS dans `sources`, avec l'origine « Suisse (AIPS) » et le statut « lu le 14.11.2026 (files.refdata.ch, via aips_fiche.py) ».
+
+| Point | Correction appliquée mot pour mot |
+|---|---|
+| C1, PP-S7-T, môle | méthotrexate : indication AIPS « choriocarcinome et autres tumeurs trophoblastiques » (Methotrexat-Teva onco n° 47999, février 2025) |
+| C2, PP-S7-Ia | citation de l'AIPS Depakine n° 34734 (septembre 2025, rubrique Grossesse) sur l'absence d'action préventive de l'acide folique ; la ligne « Swissmedic… référence à identifier » est retirée |
+| C3, PP-S5-Ia | misoprostol : indication AIPS Cytotec n° 46945 (février 2026), prévention des ulcères sous AINS au long cours dans l'arthrose ou la polyarthrite sévère |
+| C4, PP-S6-F | tamsulosine : hors indication AIPS, l'indication autorisée étant l'HBP (Tamsulosin-Mepha retard n° 58828, décembre 2023) |
+| C5, PP-S7-F | létrozole : hors indication AIPS, l'indication autorisée étant le cancer du sein de la femme ménopausée (Letrozol Accord n° 68655, août 2021) |
+| C6, PP-S8-T | osilodrostat : indication AIPS Isturisa n° 67262 (janvier 2026) ; la métyrapone est absente du corpus AIPS suisse |
+| M1, PP-S5-Tr | ATLS (source américaine) remplacé par la S3-Leitlinie Polytrauma de la DGU (source européenne, non lue) |
+| M2, PP-S6-D et PP-S6-V | KDIGO Glomerular retiré ; KDIGO 2024 CKD ajouté à PP-S6-D (non lu, dernier recours) |
+| L1 à L3 | Christ-Crain : « revue internationale (auteure bâloise) » ; prævia : césarienne seulement si le placenta recouvre l'orifice ou en est très proche ; HCS de PP-S7-C : le « pourquoi » est explicité |
+| § 4 | Les lignes « SGGG… référence à identifier » passent de `sources` au champ `complements_a_venir`, avec la résolution du LOT et la lecture des sources non lues |
+
+Validation : 36 JSON valides, 0 erreur (renvois, champs, doses). Statut : « corrigé tour 2, prêt pour audit-ok ». Une mention reste hors du périmètre C1–C6 : amiloride (PP-S6-Ia), « hors indication AIPS, statut à vérifier ». Ni commit ni push.
