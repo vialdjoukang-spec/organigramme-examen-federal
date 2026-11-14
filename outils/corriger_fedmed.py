@@ -139,7 +139,7 @@ _idx_page = {'examens:0': 1, 'pharmaco:0': 2, 'fondamentales:0': 3}
 
 def _oeil(m):
     i, page = int(m.group(1)), m.group(2)
-    col = _receptacle.eye_hex(_themes[i]['eye'], _idx_page[page], page.split(':')[0])
+    col = _themes[i]['eye']['fixe']
     return f':root[data-theme="{i}"][data-page="{page}"]{{--eye:{col}}}'
 
 _n_yeux = len(re.findall(r':root\[data-theme="\d+"\]\[data-page="[^"]+"\]\{--eye:#[0-9a-fA-F]+\}', _tete))
@@ -192,6 +192,11 @@ _SCRIPT_THEME = (
     'if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",brancher);else brancher();})();</script>'
 )
 page = _tete + _queue
+page = remplacer_une_fois(
+    page,
+    "function eyeHex(cle,e){const [s,l]=e.p[cle.split(/[:|]/)[0]]||e.p.cours;return '#'+hsl(eyeTeinte(cle),s,l).map(v=>Math.floor(v*(1-e.a)+255*e.a+.5).toString(16).padStart(2,'0')).join('')}",
+    "function eyeHex(cle,e){if(e.fixe)return e.fixe;const [s,l]=e.p[cle.split(/[:|]/)[0]]||e.p.cours;return '#'+hsl(eyeTeinte(cle),s,l).map(v=>Math.floor(v*(1-e.a)+255*e.a+.5).toString(16).padStart(2,'0')).join('')}",
+    'eyeHex fixe')
 assert page.count('<head>') >= 1
 # Le script part dans l'en-tête, avant la création des iframes : il entend la demande et il repousse le thème quand eye() change.
 page = page.replace('<head>', '<head>' + _SCRIPT_THEME, 1)

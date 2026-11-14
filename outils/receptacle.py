@@ -158,15 +158,19 @@ def themes(chemin):
             assert c >= CONTRASTE_MIN, f"thème {i + 1} : contraste {c:.2f} < 7 sur {r} {h}"
             cmin = min(cmin, c)
             v.append(f'--t-{r}:{h};--b-{r}:{h if j >= 0 else "#6b6b6b"}')
-        h0, ae = (teinte(t['couleurs'][-1]['base']) + 29 * i) % 360, att['titre']  # graine décalée par thème : une même page change de couleur d'un thème à l'autre
+        h0, ae = teinte(t['couleurs'][-1]['base']), att['titre']
         ce = min(min(contraste(attenue(hsl_rgb(d, sp, lp), ae), '#000000'), contraste(attenue(hsl_rgb(d, sp, lp), ae), '#111111')) for d in range(360) for sp, lp in EYE_PALIERS.values())
         assert ce >= CONTRASTE_MIN, f"thème {i + 1} : bande EYE SPOT, contraste {ce:.2f} < 7"
+        # La bande des titres est la troisième couleur, atténuée : elle garde la teinte du nom (onyx, bordeaux, bleu nuit…).
+        fixe = attenue(hex_rgb(t['couleurs'][-1]['base']), ae)
+        cf = min(contraste(fixe, '#000000'), contraste(fixe, '#111111'))
+        assert cf >= CONTRASTE_MIN, f"thème {i + 1} : bande {fixe} contraste {cf:.2f} < 7"
         eye = {'h0': h0, 'a': ae, 'p': {k: list(v) for k, v in EYE_PALIERS.items()},
-               'z': [teinte(c['base']) for c in t['couleurs'][:-1]], 'e': 40}
-        css.append(f':root[data-theme="{i}"]{{{";".join(v)};--eye:{eye_hex(eye, 0, "cours")}}}')
-        teintes = [attenue(hex_rgb(c['base']), att['menu']) for c in t['couleurs'][:-1]] + [eye_hex(eye, 0, 'cours')]  # aperçu : zones + bande EYE SPOT de l'accueil
+               'z': [teinte(c['base']) for c in t['couleurs'][:-1]], 'e': 40, 'fixe': fixe}
+        css.append(f':root[data-theme="{i}"]{{{";".join(v)};--eye:{fixe}}}')
+        teintes = [attenue(hex_rgb(c['base']), att['titre']) for c in t['couleurs']]
         out.append({'nom': t['nom'], 'teintes': teintes, 'eye': eye,
-                    'attenuation': att, 'contraste_min': round(min(cmin, ce), 2)})
+                    'attenuation': att, 'contraste_min': round(min(cmin, ce, cf), 2)})
     return out, ''.join(css)
 
 
