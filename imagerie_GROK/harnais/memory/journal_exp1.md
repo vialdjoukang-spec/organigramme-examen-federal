@@ -40,4 +40,12 @@ Open-i, pour ces cinq requêtes, renvoie le titre « There seems to be an error 
 - EXP-135 introuvable. Oxymètres et courbe de dissociation, pas une oxymétrie de nuit.
 - EXP-134 introuvable. « MWT » ramène un colloque.
 
-Prochain id : EXP-133.
+## EXP-133 à EXP-129
+
+- EXP-133 introuvable. Agenda et actimétrie : rien.
+- EXP-132 introuvable. Vidéo-polysomnographie du trouble du comportement en sommeil paradoxal : rien. Les polysomnographies libres sont des apnées ou des stades.
+- EXP-131 introuvable. Mouvements périodiques : rien.
+- EXP-130 introuvable. Tests itératifs de latence : rien.
+- EXP-129 partiel. Normale : stade N3, débit régulier, saturation 96-97 (NascarEd, CC BY-SA 3.0). Pathologique : cadre cA 42 s déjà tracé (Eumetaxas, CC BY-SA 3.0). La légende dit apnée obstructive. Cheyne-Stokes absent. Le compte rendu polygraphique Guy Courtois est rejeté : numéro de dossier 05220UEM.
+
+Prochain id : EXP-128.

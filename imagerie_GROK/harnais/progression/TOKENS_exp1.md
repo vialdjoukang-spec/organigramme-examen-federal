@@ -11,3 +11,7 @@ Reprise après le troisième lot : EXP-138.
 Troisième lot, EXP-143 à EXP-139. Cinq introuvables. Commons vide ou hors sujet. Open-i hors service (page « There seems to be an error »). Pas de lecture d'image retenue. Estimation.
 
 Second lot, EXP-148 à EXP-144. Un partiel, quatre introuvables. Le prick-test a demandé deux aperçus : le premier polygone tombait sous la papule. Les scripts ont validé sans erreur. Estimation, pas une mesure d'horloge.
+
+Quatrième lot, EXP-138 à EXP-134. Cinq introuvables. Une HGPO a été ouverte puis écartée : la glycémie à 120 minutes n'était pas celle d'un diabète. Estimation.
+
+Cinquième lot, EXP-133 à EXP-129. Quatre introuvables, un partiel. Le cadre vert cA 42 s était déjà sur le tracé ; le polygone a été élargi pour le couvrir. Un compte rendu avec numéro de dossier a été écarté. Estimation. Reprise : EXP-128.
