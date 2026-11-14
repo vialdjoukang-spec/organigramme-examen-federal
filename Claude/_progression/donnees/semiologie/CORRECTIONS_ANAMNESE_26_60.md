@@ -54,3 +54,14 @@ J'ai lu ces 7 sources moi-même pendant la rédaction, dans des PDF télécharg�
 - Gardier, RMS 2018 : lu partiellement.
 
 Les sources de la Swiss Stroke Society, de la Ligue contre l'épilepsie, de Pédiatrie Suisse et du CEMV restent marquées « non lu » ou « À vérifier ».
+
+## Tour 2 (AUDIT_ANAMNESE_26_60_V2.md)
+
+| # | Fiche | Correction appliquée mot pour mot |
+|---|---|---|
+| N-1 | 55 `pieges[1]` | Ancien seuil ASSM collé supprimé ; fin : « …l'ancien seuil de 4 et 2 verres, avec 10 à 12 g par verre. » |
+| N-2 | 26 `sources[2]` | Étendue de lecture : points à retenir, tableau 2 SNNOOP10, tableau 7 imagerie, § 5.3 ponction lombaire, critères de céphalée par abus médicamenteux |
+| N-3 | 26 `drapeaux_rouges[10]` | Seuils d'abus : 15 jours par mois ou plus (paracétamol, AINS), 10 jours ou plus (triptans, opiacés) ; vérifiés dans HUG Céphalées 2022 |
+| N-4 | 31 `hypotheses[0]` | Question discriminante : « L'engourdissement est-il apparu d'un coup, d'un seul côté, visage compris ? » |
+
+JSON revalidés (json.load). Ni commit ni push.

@@ -38,3 +38,6 @@ Auditeur indépendant, 14.11.2026. Bases de la vérification : `CORRECTIONS_ANAM
 | Les 3 défauts graves sont-ils corrigés ? | Oui |
 | Les 11 défauts moyens sont-ils corrigés ? | 10 sur 11. M-6 a laissé l'ancien texte en place (N-1) |
 | Les fiches peuvent-elles recevoir `audit-ok` ? | **Oui, sous condition** : appliquer N-1, qui est une correction mécanique, sans nouvel audit. N-2 à N-4 sont recommandés mais ne bloquent pas |
+
+## Clôture
+N-1 à N-4 appliqués mot pour mot : **audit-ok** pour A-MOT-26 à 60. Toute la Sémiologie (Status, Syndromes, Anamnèse, Management, Communication) est audit-ok.
