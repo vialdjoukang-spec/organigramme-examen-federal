@@ -71,3 +71,61 @@ Non appliqués :
 
 ## 4. Sigle
 « PIC » (pression intracrânienne) → « pression intracrânienne » en toutes lettres (1 occurrence, IMG-026). Aucune autre occurrence dans les trois fichiers.
+
+---
+
+# Tour 2 (réponse à AUDIT_ENCEPHALE_V2.md, 14.11.2026)
+
+Skills `medecin-expert`, `radiologue-expert` et `expert-web` appliqués. `aips_fiche.py` a été appelé avec l'URL refdata, jamais avec un simple numéro ; le texte a été relu dans la rubrique Posologie ou Indications, puis daté. JSON valide ; `generer.py` sans erreur.
+
+## Critiques
+| Id | Décision | Preuve lue |
+|---|---|---|
+| C1 031 | Appliqué. Bétaméthasone 2 × 12 mg i.m. à 24 h d'intervalle entre 24+0 et 33+6 SA (SGGG, Expertenbrief n° 56, 03.05.2019). Hors AIPS : Diprophos n'a aucune indication de maturation pulmonaire et signale l'hypoglycémie néonatale après 33 SA. | Diprophos 39528 (mars 2026) : indications et rubrique Grossesse ; EB 56 lu en ligne (rosenfluh) |
+| C2 006 | Appliqué : clopidogrel 75 mg 1×/j (AVC récent, 7 j à environ 6 mois) ; Aspirine Cardio après AIT 300 mg 1×/j **ou 100 mg 3×/j** (l'AIPS dit les deux) ; 100 mg/j hors schéma AIPS. | Plavix 70367 (sept. 2022) ; Aspirine Cardio 51795 (mars 2026) |
+| C3 033 | Appliqué : méthylprednisolone hors AIPS dans la NMO (Solu-Medrol : poussées de SEP seulement, parmi les indications neurologiques). | Solu-Medrol 35112 (août 2025) |
+| C4 040 | Appliqué : bévacizumab hors AIPS (au niveau cérébral, Avastin n'indique que le glioblastome récidivant après témozolomide). | Avastin 56922 (mai 2026) |
+| C5 021[0] | Appliqué : « À vérifier » supprimé ; Exelon n'indique que la démence d'Alzheimer et la démence parkinsonienne. | Exelon 54275 (janvier 2024) |
+| C6 | Appliqué pour chaque ligne : 001[5] Plavix/Aspirine ; 012[1] Solu-Medrol hors AIPS (syndrome de reconstitution immunitaire absent des indications), 012[2] reformulé sans « À vérifier » ; 021[1] quétiapine hors AIPS (Seroquel « non homologué » chez le dément âgé) et clozapine hors AIPS (Leponex : psychose parkinsonienne seulement) ; 021[2] trazodone hors AIPS (Trittico : troubles dépressifs) ; 030[3] Aspirine Cardio hors AIPS ; 034[1] et 035[0] rituximab hors AIPS (MabThera : vascularites à ANCA, pas l'encéphalite ni la vascularite primitive du SNC) et cyclophosphamide (Endoxan : « maladies auto-immunes d'évolution menaçante », liste d'exemples ; posologie générale 10–15 mg/kg tous les 2–5 j) ; 035[1] Imurek, CellCept et Methotrexat Accord hors AIPS ; 037[1] Minirin hors AIPS (diabète insipide central, test). Ajouté de moi-même : 022 acétazolamide hors AIPS (Diamox 21191, juillet 2026). | Seroquel 54182, Leponex 37491, Trittico 46559, MabThera 54378, Endoxan 25441, Imurek 31887, CellCept 53337, Methotrexat Accord 66780, Minirin 43585, Diamox 21191 |
+
+## Majeurs
+| Id | Décision |
+|---|---|
+| M1 038 | Appliqué : prévention de la fièvre pendant 36 à 72 h. Mineur 038[2] : pronostic évalué 72 h ou plus après le retour à une circulation spontanée, sédatifs, opioïdes et curares exclus. Texte RCUK 2025 (reprise d'ERC-ESICM 2025) lu le 14.11.2026. |
+| M2 008 | Appliqué : écart signalé avec l'AIPS 48018 (5–7 j, en règle 10 j au plus, 1er trimestre contre-indiqué) ; Flagyl en relais oral retiré ; « relais oral précoce non recommandé faute de données (ESCMID 2024) ». |
+| M3 031 | Appliqué : SGGG, Expertenbrief n° 66 du 16.12.2019, lu en texte intégral (PDF Gynäkologie 2020/03) : bolus unique de 4 g en perfusion courte de 15 min, entretien facultatif de 1 g/h, 24 h au plus, entre 24+0 et 32+0 SA. |
+| M4 002/041 | Appliqué. Le tableau 2 de l'ESO-EANS 2025 a été lu sur PMC12098356 (le lecteur web en a donné un extrait cité ; le XML intégral n'est pas fourni par l'éditeur). Sa formulation : pression systolique < 140 mmHg dans les 6 h si l'hématome est mineur ou modéré (< 30 ml) ; pas de baisse > 70 mmHg ni de baisse active sous 110 mmHg ; maintien < 140 mmHg jusqu'à 7 j ; suggestion, recommandation faible. La même phrase figure dans 002 et 041. |
+
+## Mineurs
+Appliqués :
+- 024–027 : la dose initiale post-traumatique est donnée AIPS par AIPS (40–100 mg pour Fortecortin et Galepharm, **50–100 mg** pour Mephameson, texte lu).
+- 015 : la mention « aspect injecté probable » est ajoutée.
+- 002 et 041 : le bolus d'andexanet est passé « à 30 mg/min » (Ondexxya).
+- 033 : la vaccination antiméningococcique est notée obligatoire avant éculizumab ou ravulizumab (Soliris et Ultomiris, texte lu).
+
+Non appliqué :
+- 004 et 006 : les images restent étroites (252 et 250 px), car Commons ne fournit pas de version plus large de ces fichiers.
+
+## Règle de Vial « Suisse d'abord »
+- **Traitements** : chaque mention d'une société non suisse entre parenthèses est désormais préfixée « source européenne : » (ESO, ESCMID, EANO, EHA-ESMO, EACS, ERC-ESICM, ESVS, EAN/MDS-ES, Spasovski 2014). La même règle vaut pour « source américaine : » (Brain Trauma Foundation, Angioma Alliance) et « source britannique : » (ABN/BIA).
+- **Sources** : elles sont triées Suisse (AIPS, OFSP, SGGG, Swiss Memory Clinics) → Europe → autres → OMS en dernier. Toute source non suisse porte son étiquette : « (source européenne) », « (source britannique) », « (source américaine) », « (source internationale) », « (étude, source non suisse) » ou « (dernier recours : OMS) ».
+- **Versions suisses cherchées sans succès** (portes essayées) :
+  - Hémorragie cérébrale (Swiss Stroke Society) : recherche web FR/DE « Empfehlungen Hirnblutung », sans résultat. Seul le registre suisse (Bettschen 2024, BORIS) est sorti, et ce n'est pas une recommandation.
+  - Réanimation (Swiss Resuscitation Council) : seule une présentation « Reanimation 2025 » de SIRMED/SRC est sortie, sans texte d'adoption lisible.
+  - Méningite et abcès (SSI) : ssi.guidelines.ch reste vide sans JavaScript (constat de l'auditeur V2 confirmé).
+  
+  Ces cas restent cités en source européenne.
+- **Seule source suisse ajoutée** : SGGG EB 66 et EB 56 pour IMG-031.
+
+## « À vérifier » restants (hors périmètre du V2, aucun ne cache une AIPS du corpus qui répondrait)
+- 007 : cible tensionnelle du PRES.
+- 009 : vancomycine selon la résistance suisse.
+- 010 : prolongation de l'aciclovir.
+- 011 : schéma EACS 13.0.
+- 023 : EAN/MDS-ES.
+- 027 : dose de NaCl hypertonique.
+- 032 : traitements de fond de la SEP.
+- 039 : antiépileptiques.
+- IMG-018 : SIOP-E.
+- IMG-038 : nouveau-né ERC 2025.
+- IMG-031 : imagerie, Société suisse de néonatologie.
