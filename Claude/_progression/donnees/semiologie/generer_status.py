@@ -142,10 +142,12 @@ def rendre_image(img, nom, sid):
         leg = img.get("legende") or nom
         if os.path.exists(os.path.join(ICI, chemin)):
             return (
-                f'<figure class="fig"><button type="button" class="vignette" data-src="{e(chemin)}" '
+                f'<figure class="fig"><button type="button" class="vignette{" occ" if img.get("occulter") else ""}" data-src="{e(chemin)}" '
                 f'data-leg="{e(leg)}" data-credit="{e(img.get("credit", ""))} — {e(img.get("licence", ""))}" '
                 f'data-url="{e(img.get("url", ""))}" aria-label="Agrandir l’image : {e(leg)}">'
-                f'<img src="{e(chemin)}" alt="{e(leg)}" loading="lazy"></button>'
+                f'<img src="{e(chemin)}" alt="{e(leg)}" loading="lazy">'
+                + ('<span class="voile">Image intime masquée : cliquer pour l’ouvrir</span>' if img.get("occulter") else "")
+                + '</button>'
                 f'<figcaption>{txt(leg)}</figcaption>{credit}</figure>'
             )
         print(f"[signalement] {sid} : image annoncée absente de img/ : {chemin}", file=sys.stderr)
@@ -390,7 +392,8 @@ def main():
         alerte = f'<p class="alerte">JSON illisible(s) sauté(s) : {e(", ".join(illisibles))}.</p>'
     page = f"""<!doctype html>
 <html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Sémiologie Status</title><style>{CSS}</style></head>
+<title>Sémiologie Status</title><style>{CSS}.vignette.occ{position:relative;overflow:hidden}.vignette.occ img{filter:blur(28px)}.vignette.occ .voile{position:absolute;inset:0;display:grid;place-items:center;background:#fff;color:#000;font-weight:700;border:2px solid #000;padding:8px;text-align:center}
+</style></head>
 <body><a class="saut" href="#contenu">Aller au contenu</a>
 <div class="cadre">
 <button type="button" class="basc" aria-expanded="false" aria-controls="menu">☰ Menu des fiches S-01 → S-35</button>
