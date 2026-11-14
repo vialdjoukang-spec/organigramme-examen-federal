@@ -75,4 +75,9 @@ IMG-274 | partiel | Jane Agnes, CC BY-SA 3.0, Monteggia, fracture de l'ulna droi
 IMG-273 | partiel | Zimmermann, CC BY-SA 3.0 de, tête radiale, flèche source | profil absent de ce fichier
 IMG-272 | partiel | Heilman, CC BY-SA 4.0, signes de la voile, fracture supracondylienne | pas de face ; trait discret
 IMG-271 | partiel | cdang, CC BY-SA 3.0, disjonction acromio-claviculaire gauche | pas de clichés comparatifs ; vis anciennes
+IMG-270 | partiel | Hellerhoff, CC BY-SA 4.0, dépôt calcique du supra-épineux | capsulite absente ; une incidence
+IMG-269 | partiel | Mme Mim, CC BY-SA 3.0, rupture transfixiante, flèches sources | côté non dit
+IMG-268 | partiel | Ramessos, CC BY-SA 3.0, fracture déplacée de la clavicule gauche | pas d'humérus proximal ; une incidence
+IMG-267 | partiel | Hellerhoff, CC BY-SA 3.0, luxation antéro-inférieure gauche | Hill-Sachs et Bankart non vus
+IMG-266 | partiel | Wadhwani, CC BY 4.0, défécographie, rectocèle marquée | rectocèle discrète ; pas de plancher sain
 

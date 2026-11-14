@@ -136,3 +136,12 @@ Reprise : IMG-275.
 - Épargné par les scripts (estimation) : les catégories ont donné la légende avant la lecture. Le gain chiffré n'est pas mesuré.
 
 Reprise : IMG-270.
+
+## Passe IMG-270 à IMG-266
+
+- Éléments traités : 5 diagnostics. Cinq partiels. Aucun complet.
+- Appels de jugement visuel : environ 12 lectures. Le dépôt calcique a été resserré au-dessus du tubercule, et la tête luxée a été recadrée hors des côtes. Estimation.
+- Durée : une passe, non chronométrée. Estimation.
+- Épargné par les scripts (estimation) : les catégories ont écarté les atlas hors licence. Open-i a renvoyé une page HTML. Le gain chiffré n'est pas mesuré.
+
+Reprise : IMG-265.
