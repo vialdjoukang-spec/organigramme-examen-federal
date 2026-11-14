@@ -1,6 +1,6 @@
 # Audit médical agressif — PHY-S9 à PHY-S12 (23 fiches)
 
-Auditeur indépendant, 14.11.2026. J'ai lu les 23 JSON en entier. J'ai confronté chaque valeur normale à la fiche EX citée (`donnees/examens/*.json`), j'ai refait les 9 calculs par script et j'ai testé l'existence des 160 passerelles. Je n'ai lu aucune AIPS : le cache `.cache/aips/` n'existe pas. Aucune dose ne figure dans les fiches (recherche par expression régulière). Je n'ai rien modifié d'autre que ce fichier ; ni commit ni push.
+Auditeur indépendant, 14.11.2026. J'ai lu les 23 JSON en entier. J'ai confronté chaque valeur normale à la fiche EX citée (`donnees/examens/*.json`), j'ai refait les 9 calculs par script et j'ai testé l'existence des 179 passerelles. Je n'ai lu aucune AIPS : le cache `.cache/aips/` n'existe pas. Aucune dose ne figure dans les fiches (recherche par expression régulière). Je n'ai rien modifié d'autre que ce fichier ; ni commit ni push.
 
 ## 1. Contrôles globaux
 
@@ -8,7 +8,7 @@ Auditeur indépendant, 14.11.2026. J'ai lu les 23 JSON en entier. J'ai confront�
 |---|---|
 | Valeurs normales avec étiquette de laboratoire (Viollier, HUG, Insel, CHUV, SVTM) | **Conformes** aux fiches EX sources, chiffre pour chiffre (CK, myoglobine, Ca, PTH, 25-OH-D, CTX, PINP, Hb, VGM, TCMH, réticulocytes, ferritine, transferrine, CST, B12, holoTC, folates, plaquettes, VPM, Quick, TCA, fibrinogène, D-dimères, prolactine, cortisol, ACTH). |
 | Calculs refaits (Python) | **Tous justes** : Ca corrigé 2,40 ; RétA 80 G/L ; CST 13,3 % ; INR 2,0 ; CaO2 19,998 ≈ 20 ; efficacité 75 % ; âge corrigé 4,16 mois ; Wallace 27 % (total 100 %) ; IPS 0,50. |
-| Passerelles | **160/160 existent**. En revanche, plusieurs renvoient vers une fiche PP qui ne traite pas l'entité citée (voir M9). |
+| Passerelles | **179/179 existent**. En revanche, plusieurs renvoient vers une fiche PP qui ne traite pas l'entité citée (voir M9). |
 | Doses | Aucune. |
 | Sources | Honnêtes dans leur libellé (« repris de la fiche EX… », « non lu »). Défaut systémique : tous les **mécanismes** reposent sur Guyton et Boron, manuels américains « non lus » (voir M10). |
 
