@@ -11,3 +11,8 @@ FTE-23 | confirmé | Introuvable. Pas de courbe d'apnée ni de résultat de DLCO
 FTE-22 | confirmé | Introuvable. Pas de tracé de volume gazeux thoracique. La photo de cabine n'est pas le tracé.
 FTE-21 | corrigé | Le rectangle prenait l'axe et la pente expiratoire, la pointe était sous le sommet. Le polygone reste sur le débit de pointe. Pas de courbe de réversibilité. Partiel tenu, légende relue, licence CC BY-SA 3.0.
 FTE-20 | corrigé | La pointe tombait à côté du pointillé. Elle est sur le tireté légendé E = 3 kPa. Le volet cirrhotique n'est pas dans le fichier. Le chiffre 40 kPa, non revu, est retiré. Partiel tenu, légende relue, licence CC BY-SA 4.0.
+FTE-19 | confirmé | Introuvable. Les figures libres trouvées sont des icônes d'épreuve d'effort, pas une échocardiographie de stress.
+FTE-18 | corrigé | Le rectangle couvrait le ventricule gauche et la pointe était sur le texte. Le polygone suit les deux feuillets. Schéma du parasternal, pas l'image ultrasonore, pas de vue transœsophagienne. Partiel tenu, légendes relues sur le dessin, licence CC BY-SA 3.0.
+FTE-17 | confirmé | Introuvable. Plateforme et photo d'examen d'équilibre, pas de statokinésigramme ni de cycle de marche.
+FTE-16 | confirmé | Introuvable. Aucun tracé de pressions du cœur droit en licence blanche. Le diagramme de Wiggers n'a pas été réattribué.
+FTE-15 | corrigé | Le rectangle était trop haut et la pointe n'était pas sur une anse. Le cadre suit la rangée, pointe sur les apex. Confiance ramenée à moyenne : la légende dit seulement « Normal capillaroscopy ». Partiel tenu, licence CC BY-SA 3.0 relue.
