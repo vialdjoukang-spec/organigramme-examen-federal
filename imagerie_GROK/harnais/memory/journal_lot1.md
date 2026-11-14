@@ -19,3 +19,8 @@ IMG-072 | partiel | Schomynv, CC BY-SA 3.0, adénome pléomorphe parotidien, PAR
 IMG-071 | partiel | Mme Mim, CC BY-SA 4.0, ganglion rond sans hile, métastase de mélanome | siège cervical non écrit ; pas de normal
 IMG-070 | partiel | Hellerhoff, CC BY-SA 3.0, adénome parathyroïdien droit, flèche verte | pas de normal
 IMG-069 | partiel | Drahreg01, CC BY-SA 3.0, lobe droit longitudinal, Hashimoto | De Quervain absent ; pas de normal
+IMG-068 | partiel | Hellerhoff, CC BY-SA 4.0, scintigraphie, nodule chaud du lobe marqué L, TSH 0,17 | isotope non écrit ; Basedow et thyroïdite absents ; pas de normal
+IMG-067 | partiel | Hellerhoff, CC BY-SA 4.0, nodule solide à foyers échogènes, carcinome papillaire | score EU-TIRADS non donné ; pas de normal
+IMG-066 | introuvable | — | pas de cou de profil simple ; pièces en face, thorax de profil ou transit baryté
+IMG-065 | introuvable | — | pas de TDM injectée ; seulement des photographies cliniques
+IMG-064 | partiel | Med Chaos, CC0, profil, signe du pouce fléché ; normal Med Chaos, CC BY-SA 3.0, panneau gauche recadré | normal en phonation, autre cliché ; définition non relue
