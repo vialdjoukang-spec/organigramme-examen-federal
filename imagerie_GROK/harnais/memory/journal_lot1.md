@@ -54,3 +54,8 @@ IMG-037 | partiel | Jto410, CC BY-SA 3.0, T2, hypersignal central du pont | form
 IMG-036 | partiel | Jto410, CC BY-SA 3.0, FLAIR, thalamus dorsaux médiaux | mamillaires et périaqueduc non sur la coupe
 IMG-035 | introuvable | — | pas de diffusion ; le seul cliché est un T1 injecté
 IMG-034 | introuvable | — | pas de FLAIR limbique ; schéma et EEG seulement
+IMG-033 | introuvable | — | pas de T2 de neuromyélite ni de MOGAD
+IMG-032 | partiel | Mehta et al., CC BY 2.5, FLAIR, deux lésions déjà fléchées | montage avec une carte de phase
+IMG-031 | partiel | Prashanth Saddala, CC BY-SA 3.0, échographie, contenu ventriculaire échogène | leucomalacie absente ; sillon caudothalamique non isolé
+IMG-030 | partiel | Hellerhoff, CC BY-SA 3.0, FLAIR, hamartome du caudé gauche déjà entouré | pas de neurofibromatose ni de Sturge-Weber
+IMG-029 | introuvable | — | pas de T1 sagittal ; seulement un T2 ou un contrôle post-opératoire
