@@ -45,3 +45,8 @@ IMG-218 | introuvable | pas de phase néphrographique ; TDM blanche et phase por
 IMG-217 | partiel | Heilman 2009, calcul de l'uretère proximal droit déjà fléché | faible dose non écrite, pas de normale
 IMG-216 | introuvable | pas de TDM d'abcès postopératoire
 IMG-215 | introuvable | pas de TDM de fibrose rétropéritonéale
+IMG-214 | partiel | Hellerhoff 2015, hématome de la gaine des droits | psoas et phase sans injection absents
+IMG-213 | partiel | Häggström 2019, hernie inguinale graisseuse en coupe | pas dynamique, pas d'étranglement
+IMG-212 | partiel | Singh 2018, gâteau épiploïque | pas de TDM normale
+IMG-211 | partiel | Drahreg01 2010, ascite anéchogène | pas d'abdomen sans liquide
+IMG-210 | partiel | Hellerhoff 2012, achalasie barytée en bec | hernie hiatale absente

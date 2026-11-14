@@ -35,3 +35,7 @@ Cinq diagnostics : adénome surrénalien sans injection, angiomyolipomes graisse
 ## Passage IMG-219 à IMG-215
 
 Cinq diagnostics : calcul urétéral droit sans injection en partiel ; pyélonéphrite emphysémateuse, phase néphrographique, abcès postopératoire et fibrose rétropéritonéale introuvables. Relecture du foyer hyperdense déjà fléché. Durée approximative : 15 minutes (estimation).
+
+## Passage IMG-214 à IMG-210
+
+Cinq diagnostics, tous partiels : hématome de la gaine des droits, hernie inguinale graisseuse, gâteau épiploïque, ascite et achalasie barytée. Relectures pour tenir le contour hors de l'os iliaque, sur la nappe épiploïque et sur le bec baryté. Durée approximative : 25 minutes (estimation). Open-i a répondu ; les figures de gaine étaient en CC BY-NC-ND (estimation).
