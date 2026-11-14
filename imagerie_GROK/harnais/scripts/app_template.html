@@ -73,7 +73,11 @@ td.dx button:hover{text-decoration:underline}
 .bub.compact{padding:3px 7px;font-weight:700;font-size:12.5px}
 .bub .r{font-size:11px;text-transform:uppercase;letter-spacing:.05em;font-weight:800}
 .bub .ev{color:#c8d0d8;font-style:italic;margin-top:4px}
+.bub .def{margin-top:4px}
+.bub .src{margin-top:2px;font-size:12px;color:#c8d0d8}
 .bub .cf{margin-top:3px;font-size:12px;color:var(--mu)}
+.les .detail{display:block;margin-top:3px}
+.les .detail[hidden]{display:none}
 .leg{display:flex;gap:12px;flex-wrap:wrap;font-size:12.5px;color:var(--mu);padding:8px 2px 0}
 .leg span{display:inline-flex;align-items:center;gap:5px}
 .leg i{width:14px;height:14px;border-radius:50%;border:2px solid #000;display:inline-block;outline:1px solid #555}
@@ -189,7 +193,8 @@ addEventListener("resize",setHH);
 function arrowSVG(side,svg){
  const W=side.w,H=side.h,disp=svg.getBoundingClientRect().width||W;
  const k=W/disp; // viewBox units per screen px
- const sw=Math.max(2.5,Math.min(4,3*disp/1024))*k, hl=16*k, hw=7*k, rr=11*k;
+ // Flèche fine (épaisseur normale ≈ 1,6 px), couleur vive, liseré sombre.
+ const sw=1.6*k, rim=3.3*k, hl=13*k, hw=4.6*k, rr=9*k;
  let out="";
  side.arrows.forEach((a,i)=>{
   const col=`var(--c-${a.role in ROLES?a.role:"principale"})`;
@@ -199,15 +204,23 @@ function arrowSVG(side,svg){
   const sx=fx+ux*rr, sy=fy+uy*rr;
   const head=`${tx},${ty} ${bx+px*hw},${by+py*hw} ${bx-px*hw},${by-py*hw}`;
   const lab=`${i+1}. ${a.label} (${ROLES[a.role]||a.role})`;
+  let contour="";
+  if(Array.isArray(a.contour)&&a.contour.length>=3){
+   const pts=a.contour.map(p=>`${p[0]*W},${p[1]*H}`).join(" ");
+   const dash=`${7*k} ${4.2*k}`;
+   contour=`<polyline points="${pts}" fill="none" stroke="#061018" stroke-width="${rim}" stroke-dasharray="${dash}" stroke-linejoin="round" stroke-linecap="round"/>
+<polyline points="${pts}" fill="none" stroke="${col}" stroke-width="${sw+0.35*k}" stroke-dasharray="${dash}" stroke-linejoin="round" stroke-linecap="round"/>`;
+  }
   out+=`<g class="arw" data-a="${i}" tabindex="0" role="button" aria-label="${esc(lab)}">
-<line class="hit" x1="${fx}" y1="${fy}" x2="${tx}" y2="${ty}" stroke-width="${26*k}"/>
-<line x1="${sx}" y1="${sy}" x2="${bx+ux*k}" y2="${by+uy*k}" stroke="#000" stroke-width="${sw+3*k}" stroke-linecap="round"/>
-<polygon points="${head}" fill="#000" stroke="#000" stroke-width="${3*k}" stroke-linejoin="round"/>
-<line x1="${sx}" y1="${sy}" x2="${bx+ux*k}" y2="${by+uy*k}" stroke="${col}" stroke-width="${sw}" stroke-linecap="round"/>
+${contour}
+<line class="hit" x1="${fx}" y1="${fy}" x2="${tx}" y2="${ty}" stroke-width="${18*k}"/>
+<line x1="${sx}" y1="${sy}" x2="${bx}" y2="${by}" stroke="#061018" stroke-width="${rim}" stroke-linecap="round"/>
+<polygon points="${head}" fill="#061018" stroke="#061018" stroke-width="${1.4*k}" stroke-linejoin="round"/>
+<line x1="${sx}" y1="${sy}" x2="${bx}" y2="${by}" stroke="${col}" stroke-width="${sw}" stroke-linecap="round"/>
 <polygon points="${head}" fill="${col}"/>
-<circle cx="${fx}" cy="${fy}" r="${rr}" fill="${col}" stroke="#000" stroke-width="${2.2*k}"/>
-<circle class="ring" cx="${fx}" cy="${fy}" r="${rr+4*k}" stroke-width="${2*k}"/>
-<text x="${fx}" y="${fy}" dy="${4.6*k}" text-anchor="middle" font-size="${13.5*k}" font-weight="800" fill="#000" font-family="system-ui,sans-serif">${i+1}</text>
+<circle cx="${fx}" cy="${fy}" r="${rr}" fill="${col}" stroke="#061018" stroke-width="${1.6*k}"/>
+<circle class="ring" cx="${fx}" cy="${fy}" r="${rr+3.2*k}" stroke-width="${1.4*k}"/>
+<text x="${fx}" y="${fy}" dy="${4.4*k}" text-anchor="middle" font-size="${12*k}" font-weight="800" fill="#061018" font-family="system-ui,sans-serif">${i+1}</text>
 </g>`;
  });
  svg.innerHTML=out;
@@ -241,7 +254,9 @@ function bubble(zw,side,i,compact){
  b=document.createElement("div");b.className="bub"+(compact?" compact":"");b.dataset.a=i;
  b.setAttribute("role","status");
  const col=`var(--c-${a.role})`;b.style.borderColor=col;
- b.innerHTML=compact?`${i+1}. ${esc(a.label)}`:`<div class="r" style="color:${col}">${i+1} · ${esc(ROLES[a.role]||a.role)}</div><div><b>${esc(a.label)}</b></div><div class="ev">Preuve : ${a.evidence==="visuel"?"repérage visuel (pas de légende source)":"« "+esc(a.evidence)+" »"}</div><div class="cf">Confiance : ${esc(a.confidence)}${a.confidence==="basse"?" · À vérifier":""}</div>`;
+ const def=a.definition?esc(a.definition):"À vérifier";
+ const src=a.definition_source?`<div class="src">Source : ${esc(a.definition_source)}</div>`:"";
+ b.innerHTML=compact?`${i+1}. ${esc(a.label)}`:`<div class="r" style="color:${col}">${i+1} · ${esc(ROLES[a.role]||a.role)}</div><div><b>${esc(a.label)}</b></div><div class="def"><b>Définition :</b> ${def}</div>${src}<div class="ev">Preuve : ${a.evidence==="visuel"?"repérage visuel (pas de légende source)":"« "+esc(a.evidence)+" »"}</div><div class="cf">Confiance : ${esc(a.confidence)}${a.confidence==="basse"?" · À vérifier":""}</div>`;
  zw.appendChild(b);place(zw,b,a);return b;
 }
 function clearBubbles(zw,keepCompact){zw.querySelectorAll(".bub").forEach(b=>{if(!(keepCompact&&b.classList.contains("compact")))b.remove();});}
@@ -294,7 +309,7 @@ function show(){
  const legRoles=[...new Set(arrows.map(a=>a.role))];
  $("#db").innerHTML=`<div class="pair">${panel("normal",n,r)}${panel("pathologique",p,r)}</div>`+
   (arrows.length?`<div class="leg" aria-label="Légende des rôles">${Object.keys(ROLES).map(k=>`<span style="${legRoles.includes(k)?"":"opacity:.45"}"><i style="background:var(--c-${k})"></i>${ROLES[k]}</span>`).join("")}<span class="muted">· Clic, toucher ou Entrée sur une flèche ou son numéro : nom de la lésion</span></div>
-<ul class="les" aria-label="Lésions annotées">${arrows.map((a,i)=>`<li><button type="button" data-a="${i}"><span class="num" style="background:var(--c-${a.role})">${i+1}</span><span><b>${esc(a.label)}</b> <span class="muted">— ${esc(ROLES[a.role]||a.role)} · confiance ${esc(a.confidence)}${a.confidence==="basse"?" · <span class='av'>À vérifier</span>":""}</span></span></button></li>`).join("")}</ul>`:"");
+<ul class="les" aria-label="Lésions annotées">${arrows.map((a,i)=>`<li><button type="button" data-a="${i}" aria-label="Lésion ${i+1}, ${esc(ROLES[a.role]||a.role)}"><span class="num" style="background:var(--c-${a.role})">${i+1}</span><span><span class="muted">${esc(ROLES[a.role]||a.role)} · confiance ${esc(a.confidence)}${a.confidence==="basse"?" · <span class='av'>À vérifier</span>":""}</span><span class="detail" hidden><b>${esc(a.label)}</b><br>Définition : ${esc(a.definition||"À vérifier")}${a.definition_source?`<br><span class="muted">Source : ${esc(a.definition_source)}</span>`:""}</span></span></button></li>`).join("")}</ul>`:"");
  $("#df").innerHTML=`<div class="cr">${credit("Normal",n)}${credit("Pathologique",p)}</div>`+
   (m.pair_match?`<div><b>Appariement :</b> ${esc(m.pair_match)}</div>`:"")+
   (m.a_verifier&&m.a_verifier.length?`<div class="av"><b>À vérifier :</b> ${m.a_verifier.map(esc).join(" · ")}</div>`:"")+
@@ -312,7 +327,8 @@ function show(){
   const go=()=>{draw();applyAll(zw,p);};
   if(img.complete)go();else img.addEventListener("load",go,{once:true});
   ro=new ResizeObserver(()=>draw());ro.observe(img);
-  const toggle=i=>{const ex=zw.querySelector(`.bub[data-a="${i}"]:not(.compact)`);if(ex){ex.remove();if(showAll)bubble(zw,p,i,true);}else{clearBubbles(zw,true);const c=zw.querySelector(`.bub.compact[data-a="${i}"]`);if(c)c.remove();bubble(zw,p,i,false);}};
+  const setDetail=(i,on)=>{document.querySelectorAll("#db .les button").forEach(b=>{const d=b.querySelector(".detail");if(d)d.hidden=!(on&&+b.dataset.a===i);});};
+  const toggle=i=>{const ex=zw.querySelector(`.bub[data-a="${i}"]:not(.compact)`);if(ex){ex.remove();if(showAll)bubble(zw,p,i,true);setDetail(i,false);}else{clearBubbles(zw,true);const c=zw.querySelector(`.bub.compact[data-a="${i}"]`);if(c)c.remove();bubble(zw,p,i,false);setDetail(i,true);}};
   svg.addEventListener("click",e=>{const g=e.target.closest(".arw");if(g){e.stopPropagation();toggle(+g.dataset.a);}});
   svg.addEventListener("keydown",e=>{const g=e.target.closest(".arw");if(g&&(e.key==="Enter"||e.key===" ")){e.preventDefault();toggle(+g.dataset.a);}});
   pf.addEventListener("click",e=>{if(pf.dataset.dragged)return;if(!e.target.closest(".arw,.bub,.zctl")){clearBubbles(zw,true);}});

@@ -10,6 +10,8 @@ Rules:
   E  complet => modality, plane (and sequence when given) identical normal vs patho; modality matches cliché
   E  complet => >= 1 arrow role=principale
   E  every arrow: tip/from in [0,1], label, role in whitelist, evidence, confidence in haute|moyenne|basse
+  E  every arrow: contour = polygone fermé (dernier point = premier, ≥ 3 sommets distincts, chaque point dans [0,1])
+  E  every arrow: definition + definition_source non vides ; complet interdit « À vérifier » comme définition ou source
   E  confidence basse => arrow label quoted in a_verifier
   E  introuvable => queries non-empty
   W  partiel without pair_match explanation; pixel identical normal/patho; caption_source missing
@@ -57,7 +59,34 @@ def img_check(path, errs, tag):
         errs.append(f"{tag}: illisible {e}")
 
 def inunit(v):
-    return isinstance(v, (list, tuple)) and len(v) == 2 and all(isinstance(c, (int, float)) and 0 <= c <= 1 for c in v)
+    return isinstance(v, (list, tuple)) and len(v) == 2 and all(
+        isinstance(c, (int, float)) and not isinstance(c, bool) and 0 <= c <= 1 for c in v)
+
+def _pt(v):
+    if not inunit(v):
+        return None
+    return (float(v[0]), float(v[1]))
+
+def contour_ok(contour, errs, tag):
+    """Polygone fermé, ≥ 3 sommets distincts, chaque point dans l'image (0–1)."""
+    if not isinstance(contour, list) or len(contour) < 4:
+        errs.append(f"{tag}: contour absent ou non fermé (< 3 sommets + fermeture)")
+        return
+    pts = []
+    for j, p in enumerate(contour, 1):
+        q = _pt(p)
+        if q is None:
+            errs.append(f"{tag}: point {j} hors de l'image ou invalide")
+            return
+        pts.append(q)
+    dist = ((pts[0][0] - pts[-1][0]) ** 2 + (pts[0][1] - pts[-1][1]) ** 2) ** 0.5
+    if dist > 0.015:
+        errs.append(f"{tag}: polygone non fermé (le dernier point doit répéter le premier)")
+        return
+    verts = pts[:-1]
+    uniq = {(round(x, 3), round(y, 3)) for x, y in verts}
+    if len(uniq) < 3:
+        errs.append(f"{tag}: moins de 3 sommets distincts")
 
 def check(m, dx, errs, warns):
     st = m.get("statut")
@@ -113,6 +142,17 @@ def check(m, dx, errs, warns):
         if not (a.get("evidence") or "").strip(): errs.append(f"{t}: evidence absente")
         c = a.get("confidence")
         if c not in CONF: errs.append(f"{t}: confidence «{c}» invalide")
+        defin = (a.get("definition") or "").strip()
+        dsrc = (a.get("definition_source") or "").strip()
+        if not defin:
+            errs.append(f"{t}: définition radiologique absente")
+        elif st == "complet" and norm(defin) in ("à vérifier", "a vérifier"):
+            errs.append(f"{t}: définition « À vérifier » incompatible avec complet")
+        if not dsrc:
+            errs.append(f"{t}: définition non sourcée (definition_source absent)")
+        elif st == "complet" and norm(dsrc) in ("à vérifier", "a vérifier", "visuel"):
+            errs.append(f"{t}: définition non sourcée (complet)")
+        contour_ok(a.get("contour"), errs, t)
         if c == "basse" and (a.get("label") or "").strip().lower() not in av:
             errs.append(f"{t}: confiance basse mais «{a.get('label')}» absent de a_verifier")
     if st == "partiel" and not (m.get("pair_match") or m.get("a_verifier")):

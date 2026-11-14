@@ -7,7 +7,7 @@
 ## Risques et réponses
 1. **Flèche mal placée.** C'est le risque principal.
    - Réponse : une échelle de confiance, la preuve citée pour chaque flèche, et une relecture visuelle par l'auditeur.
-   - Faille connue : `validate.py` ne contrôle pas la position anatomique des flèches.
+   - `validate.py` contrôle le contour (points dans l'image, polygone fermé, au moins trois sommets), la définition et sa source. Il ne contrôle pas la justesse anatomique : seule la relecture visuelle le fait.
 2. **Appariement imparfait** (sujet, fenêtre, temps différents). L'écart est écrit dans `pair_match`, jamais masqué.
 3. **Licences.** Seules les licences de la liste blanche sont acceptées. Radiopaedia est exclu, car sa licence est non commerciale.
 4. **Poids de l'app.** Environ 50 Mo si toutes les images sont embarquées ; `build_app.py --external` évite cela.

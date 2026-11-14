@@ -1,7 +1,112 @@
-{"id":"IMG-001","dx":"AVC ischémique aigu","cliche":"TDM — sans injection","statut":"complet",
- "normal":{"file":"images/normal/IMG-001_normal.jpg","source_url":"https://commons.wikimedia.org/wiki/File:...","license":"CC BY-SA 4.0","author":"...","modality":"TDM","sequence":"sans injection","plane":"axial","region":"encéphale","note":"coupe au niveau des noyaux gris"},
- "patho":{"file":"images/patho/IMG-001_patho.jpg","source_url":"...","license":"...","author":"...","modality":"TDM","sequence":"sans injection","plane":"axial","region":"encéphale","caption_source":"citation exacte de la légende source",
-   "arrows":[{"tip":[0.62,0.41],"from":[0.80,0.25],"label":"Hypodensité du territoire sylvien droit","role":"principale","evidence":"citation","confidence":"haute"}]},
- "pair_match":"modalité, séquence, plan identiques | écarts : ...",
- "a_verifier":["..."],
- "queries":["..."]}
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://vialdjoukang-spec.github.io/organigramme-examen-federal/imagerie_GROK/harnais/manifest/SCHEMA.json",
+  "title": "Manifeste Radio-Paires",
+  "type": "object",
+  "required": ["id", "dx", "cliche", "statut"],
+  "additionalProperties": true,
+  "properties": {
+    "id": {"type": "string", "pattern": "^(IMG-\\d{3}|EXP-\\d{3}|FTE-\\d{2}|TEST-.+)$"},
+    "test_of": {"type": "string", "description": "Réservé aux fichiers TEST-* : id réel exercé par l'essai du harnais."},
+    "dx": {"type": "string"},
+    "cliche": {"type": "string"},
+    "statut": {"enum": ["complet", "partiel", "introuvable"]},
+    "pair_match": {"type": "string"},
+    "a_verifier": {"type": "array", "items": {"type": "string"}},
+    "queries": {"type": "array", "items": {"type": "string"}},
+    "normal": {"$ref": "#/$defs/side"},
+    "patho": {"$ref": "#/$defs/side"}
+  },
+  "$defs": {
+    "point": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 2,
+      "items": {"type": "number", "minimum": 0, "maximum": 1},
+      "description": "Coordonnée normalisée [x, y] dans l'image, origine en haut à gauche."
+    },
+    "arrow": {
+      "type": "object",
+      "required": ["tip", "from", "label", "role", "evidence", "confidence", "contour", "definition", "definition_source"],
+      "properties": {
+        "tip": {"$ref": "#/$defs/point"},
+        "from": {"$ref": "#/$defs/point"},
+        "label": {"type": "string", "minLength": 1, "description": "Nom du signe, français médical."},
+        "role": {"enum": ["principale", "associee", "secondaire", "complication"]},
+        "evidence": {"type": "string", "minLength": 1, "description": "Citation exacte de la légende source, ou « visuel »."},
+        "confidence": {"enum": ["haute", "moyenne", "basse"]},
+        "contour": {
+          "type": "array",
+          "minItems": 4,
+          "items": {"$ref": "#/$defs/point"},
+          "description": "Polygone fermé épousant la lésion : au moins 3 sommets distincts, le dernier point répète le premier. Coordonnées 0–1."
+        },
+        "definition": {"type": "string", "minLength": 1, "description": "Définition radiologique du signe. « À vérifier » si elle n'est pas sourcée (alors statut ≠ complet)."},
+        "definition_source": {"type": "string", "minLength": 1, "description": "Source datée de la définition (société savante, glossaire, article). « À vérifier » si absente."}
+      }
+    },
+    "side": {
+      "type": "object",
+      "properties": {
+        "file": {"type": "string"},
+        "source_url": {"type": "string"},
+        "license": {"type": "string"},
+        "license_url": {"type": "string"},
+        "author": {"type": "string"},
+        "modality": {"type": "string"},
+        "sequence": {"type": "string"},
+        "plane": {"type": "string"},
+        "region": {"type": "string"},
+        "note": {"type": "string"},
+        "caption_source": {"type": "string"},
+        "arrows": {"type": "array", "items": {"$ref": "#/$defs/arrow"}}
+      }
+    }
+  },
+  "examples": [
+    {
+      "id": "IMG-001",
+      "dx": "AVC ischémique aigu",
+      "cliche": "TDM — sans injection",
+      "statut": "complet",
+      "normal": {
+        "file": "images/normal/IMG-001_normal.jpg",
+        "source_url": "https://commons.wikimedia.org/wiki/File:...",
+        "license": "CC BY-SA 4.0",
+        "author": "...",
+        "modality": "TDM",
+        "sequence": "sans injection",
+        "plane": "axial",
+        "region": "encéphale",
+        "note": "coupe au niveau des noyaux gris"
+      },
+      "patho": {
+        "file": "images/patho/IMG-001_patho.jpg",
+        "source_url": "https://commons.wikimedia.org/wiki/File:...",
+        "license": "CC BY-SA 4.0",
+        "author": "...",
+        "modality": "TDM",
+        "sequence": "sans injection",
+        "plane": "axial",
+        "region": "encéphale",
+        "caption_source": "citation exacte de la légende source",
+        "arrows": [
+          {
+            "tip": [0.62, 0.41],
+            "from": [0.80, 0.25],
+            "label": "Hypodensité du territoire sylvien droit",
+            "role": "principale",
+            "evidence": "citation de la légende",
+            "confidence": "haute",
+            "contour": [[0.55, 0.34], [0.70, 0.36], [0.68, 0.52], [0.54, 0.48], [0.55, 0.34]],
+            "definition": "Hypodensité parenchymateuse systématisée, effaçant la différenciation gris-blanc dans un territoire artériel.",
+            "definition_source": "À vérifier"
+          }
+        ]
+      },
+      "pair_match": "modalité, séquence, plan identiques | écarts : ...",
+      "a_verifier": [],
+      "queries": []
+    }
+  ]
+}
