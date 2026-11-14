@@ -46,3 +46,12 @@ Reprise : IMG-325.
 - Épargné par les scripts (estimation) : les catégories ont fourni la légende et la licence avant la lecture. Le gain chiffré n'est pas mesuré.
 
 Reprise : IMG-320.
+
+## Passe IMG-320 à IMG-316
+
+- Éléments traités : 5 diagnostics. Trois partiels, deux introuvables. Aucun complet.
+- Appels de jugement visuel : environ 10 lectures, dont trois corrections de contour. Estimation.
+- Durée : une passe, non chronométrée. Estimation.
+- Épargné par les scripts (estimation) : le filtre de licence a écarté les planches d'atlas avant lecture. Le gain chiffré n'est pas mesuré.
+
+Reprise : IMG-315.

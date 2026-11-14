@@ -25,4 +25,9 @@ IMG-324 | partiel | Jmarchn, CC BY-SA 3.0, TEP d'un lymphome B à grandes cellul
 IMG-323 | partiel | Leridant, domaine public, déchirure du gastrocnémien médial | planche avec Doppler ; date d'examen, pas de nom lu
 IMG-322 | introuvable | pas d'IRM STIR de loge ou de rhabdomyolyse | recherches Commons vides
 IMG-321 | partiel | Hellerhoff, CC BY-SA 4.0, Salter-Harris II du tibia distal | la planche mêle radiographies et scanner
+IMG-320 | introuvable | pas d'IRM de sarcome des parties molles des membres | léiomyosarcome surrénalien écarté
+IMG-319 | partiel | Hellerhoff, CC BY-SA 3.0, exostose du fémur distal, deux incidences | pas de genou sain ; biopsie non écrite sur le cliché
+IMG-318 | partiel | Richardson, CC BY-SA 3.0, Ewing du tibia, flèche source | une incidence ; ostéosarcome humain licencié absent
+IMG-317 | introuvable | pas de critères d'agressivité en deux incidences | ostéosarcomes hors licence, chien, ou thorax
+IMG-316 | partiel | Heilman, CC BY-SA 4.0, gaz de fasciite nécrosante | injection non écrite sur la légende
 
