@@ -2,6 +2,7 @@
 
 ## Faits
 
+- Second audit de [l'auditeur](bc-143a29d4-f998-55ad-93ab-82f2cc05b769), vitrine IMG-134, branche `cursor/audit-prototypes-ffbc`. Couleurs, survol des poumons et du cœur, pointillé distinct et zoom lié acceptés. Reprises faites : la paroi ne teinte plus tout le cliché, le diaphragme s'épaissit au survol, la bulle de structure est au-dessus de chaque image (y compris mobile), l'indice 1 dit « Diagnostic : Pneumothorax », le zoom des boutons reste centré, et le pointillé suit la ligne pleurale au lieu de couvrir l'hémithorax. Captures 09, 10, 15, 17, 18, 20 et 22 refaites.
 - Audit de [l'auditeur](bc-143a29d4-f998-55ad-93ab-82f2cc05b769) sur les six captures anciennes, branche `cursor/audit-prototypes-ffbc`. Rien n'est complet. IMG-001 : les ellipses ne suivent pas les globes, l'ethmoïde ni le parenchyme. IMG-134 de ces captures : zigzags, et le contour de lésion couvre l'hémithorax au lieu de la ligne pleurale. La vitrine ultérieure change les couleurs et le survol ; elle ne corrige pas ce contour de lésion. Textes entiers et anonymisation acceptés.
 - [Lot 1](bc-9fc98fc7-7fb5-55ba-9689-fcbdbc42cf00) fusionné : IMG-023, 061, 064, 086, 105, 106, 108, 114, 118, 122, 123, 124, 125, 126, 129 restent partiels. Âges seulement quand la légende les donne. Anonymisation relue. Pas de complet.
 - [Lot 2](bc-bcca8c7b-e85f-52c3-9498-16c5550d3fbb) fusionné : IMG-132, 133, 136, 138, 153, 154, 155, 157, 158, 159, 160, 161, 164, 166 restent partiels. IMG-134 non repris. Contours de lésion réécrits seulement pour IMG-132, 158 et 164. Pas de complet.

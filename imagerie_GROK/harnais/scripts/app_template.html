@@ -81,7 +81,10 @@ details.more summary{cursor:pointer;color:var(--tx)}
 .ann .arw,.ann .mark{pointer-events:auto}
 .anat .halo{fill:none;stroke:#061018;stroke-width:6;vector-effect:non-scaling-stroke;pointer-events:none}
 .anat .ln{fill-opacity:.04;stroke-width:2.5;vector-effect:non-scaling-stroke}
-.anat g.on .ln{stroke-width:3.5;fill-opacity:.32}
+.anat g.on .ln{stroke-width:5;fill-opacity:.32}
+.anat g[data-sid="paroi"] .ln,.anat g[data-sid="diaphragme"] .ln{fill:none;fill-opacity:0}
+.anat g[data-sid="diaphragme"].on .ln{stroke-width:8}
+.panel h3{position:sticky;top:0;z-index:4}
 .structTip{margin:8px 0 0;padding:8px 12px;background:#07090c;color:#FFFFFF;border:2px solid var(--link);border-radius:8px;font-size:15.5px;line-height:1.35}
 .codeLegend{margin:8px 0 0;padding:10px 12px;background:#07090c;color:#FFFFFF;border:2px solid #FFD400;border-radius:8px;font-size:15.5px;line-height:1.4}
 .codeLegend h3,.codeLegend h4{margin:8px 0 6px;font-size:16px;color:#FFFFFF}
@@ -121,7 +124,7 @@ details.more summary{cursor:pointer;color:var(--tx)}
 .err{color:#ff9cf0}
 .kbd{font-size:14px;color:var(--mu)}
 @media (max-width:820px){
- :root{--figh:min(40vh,420px)}
+ :root{--figh:min(28vh,260px)}
  .pair{grid-template-columns:minmax(0,1fr)}
  .dh{padding:8px 10px;gap:6px}
  .dh h2{flex-basis:100%;font-size:16px}
@@ -385,16 +388,16 @@ function zoomable(fig,zw){
  const set=()=>{zw.style.transform=`translate(${tx}px,${ty}px) scale(${s*boost})`;};
  const api={read(){return {s,tx,ty};},write(o){s=o.s;tx=o.tx;ty=o.ty;set();}};
  zooms.push(api);
- const zoomAt=(ns,cx,cy)=>{ns=Math.max(1,Math.min(5,ns));const r=zw.getBoundingClientRect();const ox=cx-r.left,oy=cy-r.top;tx+=ox-ox*ns/s;ty+=oy-oy*ns/s;s=ns;if(s===1){tx=0;ty=0;}set();if(linkZoom)zooms.forEach(z=>{if(z!==api)z.write({s,tx,ty});});};
- fig.addEventListener("wheel",e=>{e.preventDefault();zoomAt(s*(e.deltaY<0?1.2:1/1.2),e.clientX,e.clientY);},{passive:false});
+ const zoomAt=(ns)=>{ns=Math.max(1,Math.min(2.2,ns));const r=zw.getBoundingClientRect();const k=s*boost||1;const w=r.width/k,h=r.height/k;tx+=(w/2)*boost*(s-ns);ty+=(h/2)*boost*(s-ns);s=ns;if(s===1){tx=0;ty=0;}set();if(linkZoom)zooms.forEach(z=>{if(z!==api)z.write({s,tx,ty});});};
+ fig.addEventListener("wheel",e=>{e.preventDefault();zoomAt(s*(e.deltaY<0?1.15:1/1.15));},{passive:false});
  fig.addEventListener("pointerdown",e=>{pts.set(e.pointerId,e);if(pts.size===2){const[p,q]=[...pts.values()];pinch={d:Math.hypot(p.clientX-q.clientX,p.clientY-q.clientY),s};}else if(s>1&&!e.target.closest(".arw,.bub,.zctl")){drag={x:e.clientX,y:e.clientY,tx,ty,moved:false};}});
- fig.addEventListener("pointermove",e=>{if(pts.has(e.pointerId))pts.set(e.pointerId,e);if(pinch&&pts.size===2){const[p,q]=[...pts.values()];const d=Math.hypot(p.clientX-q.clientX,p.clientY-q.clientY);zoomAt(pinch.s*d/pinch.d,(p.clientX+q.clientX)/2,(p.clientY+q.clientY)/2);return;}if(drag){const ddx=e.clientX-drag.x,ddy=e.clientY-drag.y;if(Math.abs(ddx)+Math.abs(ddy)>4)drag.moved=true;tx=drag.tx+ddx;ty=drag.ty+ddy;set();}});
+ fig.addEventListener("pointermove",e=>{if(pts.has(e.pointerId))pts.set(e.pointerId,e);if(pinch&&pts.size===2){const[p,q]=[...pts.values()];const d=Math.hypot(p.clientX-q.clientX,p.clientY-q.clientY);zoomAt(pinch.s*d/pinch.d);return;}if(drag){const ddx=e.clientX-drag.x,ddy=e.clientY-drag.y;if(Math.abs(ddx)+Math.abs(ddy)>4)drag.moved=true;tx=drag.tx+ddx;ty=drag.ty+ddy;set();}});
  const up=e=>{pts.delete(e.pointerId);if(pts.size<2)pinch=null;if(drag&&drag.moved){fig.dataset.dragged="1";setTimeout(()=>delete fig.dataset.dragged,0);}drag=null;};
  fig.addEventListener("pointerup",up);fig.addEventListener("pointercancel",up);
  const c=document.createElement("div");c.className="zctl";
  c.innerHTML=`<button type="button" aria-label="Zoom avant">+</button><button type="button" aria-label="Zoom arrière">−</button><button type="button" aria-label="Réinitialiser le zoom">⟲</button>`;
  const [bi,bo,br]=c.querySelectorAll("button");const mid=()=>{const r=fig.getBoundingClientRect();return[r.left+r.width/2,r.top+r.height/2];};
- bi.onclick=()=>zoomAt(s*1.4,...mid());bo.onclick=()=>zoomAt(s/1.4,...mid());br.onclick=()=>{s=1;tx=0;ty=0;set();};
+ bi.onclick=()=>zoomAt(s*1.25);bo.onclick=()=>zoomAt(s/1.25);br.onclick=()=>{s=1;tx=0;ty=0;set();if(linkZoom)zooms.forEach(z=>{if(z!==api)z.write({s,tx,ty});});};
  fig.addEventListener("dblclick",e=>{if(!e.target.closest(".arw,.zctl")){s=1;tx=0;ty=0;set();}});
  fig.appendChild(c);
  set();
@@ -425,7 +428,7 @@ function demo(s){
 function panel(kind,s,r){
  const isP=kind==="pathologique",src=srcOf(s);
  const act=isP?`<button type="button" class="btn" id="bHint">Indice</button>`:`<button type="button" class="btn" id="bAnat">Anatomie</button>`;
- const note=isP?'<p class="step"></p>':'<p class="atip"></p>';
+ const note=`<p class="atip"></p>`+(isP?'<p class="step"></p>':'');
  const h=`<div class="panel ${isP?"p":"n"}"><h3>${isP?"Pathologique":"Normal"} <small>${demo(s)}</small>${act}</h3>${note}<div class="fig${isP&&defi?" defi":""}">`;
  if(!src)return h+placeholder(isP?"pathologique":"normale",r)+`</div></div>`;
  const anatSvg=s&&s.w?`<svg class="anat" viewBox="0 0 ${s.w} ${s.h}" preserveAspectRatio="none" aria-label="Anatomie"></svg>`:"";
@@ -443,7 +446,7 @@ function drawAnat(svg,side){
   g.dataset.sid=st.id||st.nom||"";
   g.dataset.nom=st.nom||"";
   g.dataset.desc=st.description||"À vérifier";
-  const open=st.id==="diaphragme";
+  const open=st.id==="diaphragme"||st.id==="paroi";
   const pts=(st.contour||[]).map(pt=>`${pt[0]*side.w},${pt[1]*side.h}`).join(" ");
   const halo=document.createElementNS(NS,open?"polyline":"polygon");
   halo.setAttribute("class","halo");halo.setAttribute("points",pts);
@@ -489,17 +492,17 @@ function codeLegend(n,p){
 }
 function lightStruct(id){
  document.querySelectorAll("#db .anat g").forEach(g=>g.classList.toggle("on",!!id&&g.dataset.sid===id));
- const tip=document.querySelector("#structTip");
- if(!tip)return;
  const g=id&&document.querySelector(`#db .anat g[data-sid="${CSS.escape(id)}"]`);
- tip.hidden=!g;
- tip.innerHTML=g?`<b>${esc(g.dataset.nom)}</b> — ${esc(g.dataset.desc)}`:"";
+ const html=g?`<b>${esc(g.dataset.nom)}</b> — ${esc(g.dataset.desc)}`:"";
+ document.querySelectorAll("#db .atip").forEach(t=>{t.textContent="";t.innerHTML=html;});
+ const tip=document.querySelector("#structTip");
+ if(tip){tip.hidden=!g;tip.innerHTML=html;}
 }
 function paintHint(p){
  const el=document.querySelector("#db .step");if(!el||!p)return;
  const ix=p.indices||{};
  const nAr=(p.arrows||[]).length;
- if(hintStep<=0)el.textContent=ix.diagnostic||"";
+ if(hintStep<=0)el.textContent=ix.diagnostic?`Diagnostic : ${ix.diagnostic}`:"";
  else if(hintStep===1)el.textContent=`Région : ${ix.region||"À vérifier"}`;
  else if(hintStep===2)el.textContent=`Signe : ${ix.signe||"À vérifier"}`;
  else {const left=nAr-Math.min(nAr,hintStep-2);el.textContent=left>0?"Il reste d'autres anomalies.":"Lésion révélée.";}
