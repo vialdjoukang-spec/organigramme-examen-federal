@@ -21,7 +21,7 @@
 - Lot 2 `bc-8f34385d-cb6c-53e4-ad71-fdd28d1deedb` : IMG-132 à IMG-166 (15), puis IMG-071 à IMG-141.
 - Lot 3 `bc-4e45b5d2-c132-5c1d-bc8e-97181bfc32aa` : IMG-167 à IMG-244 (15), puis IMG-142 à IMG-260.
 - Lot 4 `bc-2a7ab1bc-6808-5d9e-a189-7eca3f3eda49` : IMG-245 à IMG-344 (15), puis IMG-263 à IMG-338.
-- Audit contours des 61 paires (`bc-4f77b9e3-02f6-5e6e-b53f-3ec179f6a4f1`) a fini : 56 contours grossiers, 1 absent (IMG-161), 4 silhouettes (IMG-001, IMG-134, IMG-136, IMG-250), 0 complet possible. Aucune silhouette n'a le même sexe des deux côtés.
+- Audit contours des 61 paires (`bc-4f77b9e3-02f6-5e6e-b53f-3ec179f6a4f1`), seconde lecture avec la règle adulte : IMG-001, IMG-134, IMG-136 et IMG-250 n'ont pas deux adultes établis par les légendes. IMG-250 exige en plus le sexe (utérus), non écrit. 56 contours restent grossiers. 0 complet.
 - Le dépôt a 61 paires avec les deux fichiers, pas 112.
 
 ## Bloquants
