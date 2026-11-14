@@ -1,0 +1,129 @@
+{
+ "id": "PHY-S4-5",
+ "module": "physiologie",
+ "sous_onglet": "Sciences fondamentales > Physiologie",
+ "systeme": "S4",
+ "volet": "P",
+ "fonction": "Contrôle de la ventilation (chémorécepteurs)",
+ "niveau": "m",
+ "date": "14.11.2026",
+ "statut": "rédigé, à auditer",
+ "definition": "Le tronc cérébral règle la ventilation pour maintenir la PaCO2 et le pH ; l'hypoxémie n'intervient fortement qu'en dessous d'un seuil.",
+ "boucle": {
+  "capteur": "Les chémorécepteurs centraux (bulbe) sentent le H+ du LCR produit par le CO2 ; les chémorécepteurs périphériques (glomus carotidien IX, aortique X) sentent surtout la PaO2 basse.",
+  "integrateur": "Les groupes respiratoires du bulbe génèrent le rythme ; le pont le module ; le cortex peut le commander volontairement.",
+  "effecteur": "Le diaphragme et les muscles respiratoires."
+ },
+ "mecanisme": [
+  "Le CO2 traverse la barrière et acidifie le LCR ; les chémorécepteurs centraux stimulent alors la ventilation ; c'est le stimulus principal.",
+  "Les chémorécepteurs périphériques répondent surtout quand la PaO2 tombe vers 8 kPa (≈ 60 mmHg) (non vérifié CH).",
+  "Dans l'hypercapnie chronique, le rein retient le bicarbonate et le LCR se tamponne ; la sensibilité au CO2 s'émousse donc.",
+  "Si l'on donne trop d'oxygène à ce patient, la PaCO2 monte surtout parce que la vasoconstriction hypoxique se lève et que l'hémoglobine relâche son CO2 (effet Haldane), plus que par suppression de la commande.",
+  "Les opioïdes et les benzodiazépines dépriment les centres ; ils abaissent ainsi la ventilation et élèvent la PaCO2."
+ ],
+ "valeurs_normales": [
+  {
+   "parametre": "pCO2 artérielle",
+   "valeur": "H 4.66–6.38 ; F 4.26–5.99",
+   "unite": "kPa (USB 2023)"
+  },
+  {
+   "parametre": "SpO2 cible chez l'hypercapnique chronique",
+   "valeur": "88–92",
+   "unite": "% (source européenne : British Thoracic Society — non relue, À vérifier)"
+  }
+ ],
+ "regulation": "La ventilation alvéolaire varie en sens inverse de la PaCO2 ; une petite hausse de PaCO2 augmente fortement la ventilation chez le sujet sain.",
+ "formule": {
+  "expression": "Ventilation alvéolaire (L/min) = VCO2 (mL/min) × 0,863 ÷ PaCO2 (mmHg).",
+  "usage": "On l'utilise pour comprendre que diviser la ventilation alvéolaire par deux double la PaCO2.",
+  "exemple": "VCO2 200 mL/min et PaCO2 40 mmHg : 200 × 0,863 = 172,6 ; 172,6 ÷ 40 ≈ 4,3 L/min. Si la ventilation tombe à 2,15 L/min : 172,6 ÷ 2,15 ≈ 80 mmHg."
+ },
+ "lien_clinique": "Chez l'hypercapnique chronique, on vise une SpO2 de 88–92 % et on contrôle la gazométrie, car trop d'oxygène peut aggraver l'hypercapnie et l'acidose.",
+ "dereglements": [
+  {
+   "affection": "BPCO",
+   "mecanisme": "L'hypercapnie chronique émousse la réponse au CO2.",
+   "pp": "PP-S4-D",
+   "semiologie": [
+    "SY-31",
+    "SY-29"
+   ]
+  },
+  {
+   "affection": "Syndrome d'apnées obstructives du sommeil",
+   "mecanisme": "Les voies aériennes se collabent au sommeil ; les centres réveillent le patient.",
+   "pp": "PP-S4-F",
+   "semiologie": [
+    "S-01"
+   ]
+  },
+  {
+   "affection": "Syndrome d'hyperventilation",
+   "mecanisme": "La commande excessive abaisse la PaCO2 et donne paresthésies et vertige.",
+   "pp": "PP-S4-F",
+   "semiologie": [
+    "S-01"
+   ]
+  },
+  {
+   "affection": "Toxidrome opioïde",
+   "mecanisme": "Les opioïdes dépriment les centres bulbaires.",
+   "pp": null,
+   "semiologie": [
+    "SY-75"
+   ]
+  }
+ ],
+ "cibles_pharmacologiques": [
+  {
+   "classe": "oxygène titré",
+   "pourquoi": "Il corrige l'hypoxémie, mais on le dose selon la saturation chez l'hypercapnique."
+  },
+  {
+   "classe": "antagoniste opioïde (naloxone)",
+   "pourquoi": "Il lève la dépression respiratoire des opioïdes."
+  },
+  {
+   "classe": "opioïdes et benzodiazépines (iatrogénie)",
+   "pourquoi": "Ils dépriment la commande ventilatoire ; on les évite chez l'hypercapnique."
+  },
+  {
+   "classe": "inhibiteurs de l'anhydrase carbonique",
+   "pourquoi": "Ils créent une acidose métabolique qui stimule la ventilation (mal aigu des montagnes)."
+  }
+ ],
+ "mnemotechnique": "« Le CO2 commande, l'O2 secourt. »",
+ "sources": [
+  "Hôpital universitaire de Bâle (USB), Labormedizin Update 03/2023 : valeurs de référence de la gazométrie (source suisse) — lu via la fiche Examens EX-1-S4-gaz-sang-arteriels (rédigée et sourcée le 13.11.2026), relue le 14.11.2026",
+  "Fiches Physiopathologie v2 PP-S4-D, PP-S4-F et fiches Sémiologie (SY, S) citées : lues le 14.11.2026 (renvois et cibles)",
+  "Physiologie médicale classique (manuels de référence) : chiffres marqués « (non vérifié CH) », non relus ce jour sur une source suisse — non lu"
+ ],
+ "passerelles": [
+  {
+   "vers": "physiopathologie",
+   "id": "PP-S4-D"
+  },
+  {
+   "vers": "physiopathologie",
+   "id": "PP-S4-F"
+  },
+  {
+   "vers": "examens",
+   "id": "EX-1-S4-gaz-sang-arteriels"
+  },
+  {
+   "vers": "examens",
+   "id": "EX-3-S4-oxymetrie-nocturne"
+  },
+  {
+   "vers": "semiologie",
+   "id": "SY-31"
+  },
+  {
+   "vers": "semiologie",
+   "id": "SY-75"
+  }
+ ],
+ "honnetete": "Les chiffres sourcés en Suisse viennent des fiches Examens déjà vérifiées ; les chiffres de physiologie classique restent marqués « (non vérifié CH) » ; aucune dose n'y figure ; la fiche résume l'essentiel d'examen et n'épuise pas la physiologie."
+}

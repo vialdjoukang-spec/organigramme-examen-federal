@@ -1,0 +1,152 @@
+{
+ "id": "PHY-S3-9",
+ "module": "physiologie",
+ "sous_onglet": "Sciences fondamentales > Physiologie",
+ "systeme": "S3",
+ "volet": "P",
+ "fonction": "États de choc : déterminants hémodynamiques",
+ "niveau": "m",
+ "date": "14.11.2026",
+ "statut": "rédigé, à auditer",
+ "definition": "Le choc est une insuffisance circulatoire aiguë : l'apport d'oxygène ne couvre plus les besoins des tissus, qui passent au métabolisme anaérobie.",
+ "boucle": {
+  "capteur": "Les barorécepteurs, les chémorécepteurs et les tissus hypoxiques.",
+  "integrateur": "Les centres bulbaires, l'axe hypothalamo-hypophysaire et le rein.",
+  "effecteur": "La tachycardie, la vasoconstriction, le SRAA et l'ADH tentent de maintenir la pression."
+ },
+ "mecanisme": [
+  "Le choc hypovolémique baisse la précharge ; le débit chute et les résistances montent (peau froide).",
+  "Le choc cardiogénique baisse la contractilité ; le débit chute alors que les pressions de remplissage montent.",
+  "Le choc distributif (sepsis, anaphylaxie, atteinte médullaire) effondre les résistances ; le débit reste souvent élevé et la peau chaude au début.",
+  "Le choc obstructif (EP, tamponnade, pneumothorax compressif) bloque le remplissage ou l'éjection.",
+  "Dans tous les cas, l'hypoxie tissulaire produit du lactate ; si rien ne corrige la cause, les organes défaillent l'un après l'autre."
+ ],
+ "valeurs_normales": [
+  {
+   "parametre": "lactate artériel",
+   "valeur": "< 1.8",
+   "unite": "mmol/L (USB, ancienne référence)"
+  },
+  {
+   "parametre": "lactate veineux",
+   "valeur": "0.5–2.2",
+   "unite": "mmol/L (USB 2023)"
+  },
+  {
+   "parametre": "PAM cible dans le choc septique",
+   "valeur": "≥ 65",
+   "unite": "mmHg (source internationale : Surviving Sepsis Campaign, (non vérifié CH))"
+  }
+ ],
+ "regulation": "Le baroréflexe, le SRAA, l'ADH et les catécholamines compensent d'abord ; la pression peut donc rester normale alors que le lactate monte déjà (choc compensé).",
+ "formule": {
+  "expression": "DO2 = DC × CaO2 × 10 ; CaO2 = 1,34 × Hb (g/dL) × SaO2 + 0,003 × PaO2 (mmHg).",
+  "usage": "On l'utilise pour voir que l'apport d'oxygène dépend du débit, de l'hémoglobine et de la saturation, et donc pour choisir remplissage, transfusion ou oxygène.",
+  "exemple": "DC 5 L/min, Hb 14 g/dL, SaO2 0,98, PaO2 95 mmHg : 1,34 × 14 × 0,98 = 18,4 ; 0,003 × 95 = 0,3 ; CaO2 = 18,7 mL/dL ; DO2 = 5 × 18,7 × 10 ≈ 935 mL/min. Après hémorragie, DC 3 et Hb 8 : CaO2 = 1,34 × 8 × 0,98 + 0,3 ≈ 10,8 ; DO2 = 3 × 10,8 × 10 ≈ 324 mL/min."
+ },
+ "lien_clinique": "On reconnaît le mécanisme au lit du malade : peau froide et jugulaires plates (hypovolémie), jugulaires turgescentes avec crépitants (cardiogénique), peau chaude (distributif), jugulaires turgescentes sans crépitants (obstructif) ; l'échographie ciblée confirme.",
+ "dereglements": [
+  {
+   "affection": "États de choc",
+   "mecanisme": "Les quatre mécanismes aboutissent à l'hypoxie tissulaire.",
+   "pp": "PP-S3-F",
+   "semiologie": [
+    "SY-21",
+    "SY-79",
+    "SY-80",
+    "S-01"
+   ]
+  },
+  {
+   "affection": "Tamponnade traumatique",
+   "mecanisme": "Le péricarde plein bloque le remplissage.",
+   "pp": "PP-S3-Tr",
+   "semiologie": [
+    "SY-20",
+    "SY-21",
+    "S-31"
+   ]
+  },
+  {
+   "affection": "EP massive",
+   "mecanisme": "Le caillot obstrue l'éjection du VD.",
+   "pp": "PP-S4-V",
+   "semiologie": [
+    "SY-30",
+    "SY-23"
+   ]
+  },
+  {
+   "affection": "Pneumothorax compressif",
+   "mecanisme": "La pression thoracique écrase le retour veineux.",
+   "pp": "PP-S4-Tr",
+   "semiologie": [
+    "SY-28",
+    "SY-21"
+   ]
+  }
+ ],
+ "cibles_pharmacologiques": [
+  {
+   "classe": "solutés cristalloïdes",
+   "pourquoi": "Ils restaurent la précharge dans le choc hypovolémique et distributif."
+  },
+  {
+   "classe": "vasopresseurs (agonistes α1)",
+   "pourquoi": "Ils relèvent les résistances dans le choc vasoplégique."
+  },
+  {
+   "classe": "inotropes (agonistes β1)",
+   "pourquoi": "Ils augmentent la contractilité dans le choc cardiogénique."
+  },
+  {
+   "classe": "adrénaline",
+   "pourquoi": "Elle traite d'abord l'anaphylaxie : vasoconstriction, bronchodilatation, stabilisation des mastocytes."
+  },
+  {
+   "classe": "thrombolytiques",
+   "pourquoi": "Ils lèvent l'obstacle de l'EP à haut risque."
+  }
+ ],
+ "mnemotechnique": "« HCDO : Hypovolémique, Cardiogénique, Distributif, Obstructif ; chaud = distributif. »",
+ "sources": [
+  "Hôpital universitaire de Bâle (USB), Labormedizin Update 03/2023 : valeurs de référence de la gazométrie (source suisse) — lu via la fiche Examens EX-1-S4-gaz-sang-arteriels (rédigée et sourcée le 13.11.2026), relue le 14.11.2026",
+  "Fiches Physiopathologie v2 PP-S3-F, PP-S3-Tr, PP-S4-V, PP-S4-Tr et fiches Sémiologie (SY, S) citées : lues le 14.11.2026 (renvois et cibles)",
+  "Physiologie médicale classique (manuels de référence) : chiffres marqués « (non vérifié CH) », non relus ce jour sur une source suisse — non lu"
+ ],
+ "passerelles": [
+  {
+   "vers": "physiopathologie",
+   "id": "PP-S3-F"
+  },
+  {
+   "vers": "physiopathologie",
+   "id": "PP-S3-Tr"
+  },
+  {
+   "vers": "physiopathologie",
+   "id": "PP-S4-V"
+  },
+  {
+   "vers": "physiopathologie",
+   "id": "PP-S4-Tr"
+  },
+  {
+   "vers": "semiologie",
+   "id": "SY-21"
+  },
+  {
+   "vers": "semiologie",
+   "id": "S-31"
+  },
+  {
+   "vers": "examens",
+   "id": "EX-1-S4-gaz-sang-arteriels"
+  },
+  {
+   "vers": "pharmaco",
+   "id": "PH-S3-chaine"
+  }
+ ],
+ "honnetete": "Les chiffres sourcés en Suisse viennent des fiches Examens déjà vérifiées ; les chiffres de physiologie classique restent marqués « (non vérifié CH) » ; aucune dose n'y figure ; la fiche résume l'essentiel d'examen et n'épuise pas la physiologie."
+}
