@@ -66,3 +66,6 @@ Aucune nouvelle erreur de dose. Toutes les citations AIPS ajoutées ou corrigée
 Question finale : **non**, tant que N1 et N2 ne sont pas appliqués. Ce sont deux attributions inexactes, et elles viennent de mes propres PATCH V1.
 
 Pour atteindre 95 % : appliquer N1 à N3, puis ouvrir au moins une source suisse pour les valeurs normales et une pour l'adoption des recommandations ESC/ERC (SSC, Swiss Resuscitation Council). Une fois N1 et N2 appliqués, la réponse devient « oui ».
+
+## Clôture
+N1 à N3 appliqués mot pour mot (tour 2) ; zéro critique et zéro grave restant : **audit-ok** pour EXP-001 à 051.
