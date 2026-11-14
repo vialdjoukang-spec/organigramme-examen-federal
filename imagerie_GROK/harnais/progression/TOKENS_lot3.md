@@ -43,3 +43,10 @@ Les durées et les appels évités sont des estimations, marquées comme telles.
 - Appels de jugement visuel : 2 lectures. Estimation.
 - Durée : courte, l'image était déjà téléchargée. Estimation.
 - Épargné par les scripts (estimation) : la recherche de pixels jaunes de la mesure « 73 mm » a placé le contour sans nouvelle requête.
+
+## IMG-154, IMG-153, IMG-152, IMG-151, IMG-150
+
+- Éléments traités : 5 diagnostics. Partiels : 154, 153, 152, 150. Introuvable : 151.
+- Appels de jugement visuel : environ 14 lectures (quatre TDM de dissection, radiographie du cathéter et son coin « Na stojąco », myxome et contour déplacé, CIA et CIV rejetées pour date, CAVC rejeté pour un nom, scintigraphie DPD). Estimation.
+- Durée : une passe. Estimation : Open-i renvoyait une page HTML, les catégories Commons ont porté la recherche.
+- Épargné par les scripts (estimation) : `fetch_commons.py` a donné licence et auteur ; le wikitexte a fourni l'auteur manquant des clichés de Lenes, écartés ensuite pour la date gravée. `validate.py` a accepté l'introuvable et les partiels sans normale.

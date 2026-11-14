@@ -22,4 +22,9 @@ Périmètre réel de ce worktree (lot3, IMG-172 → IMG-087). Ordre décroissant
 - IMG-158 | partiel | Takeishi 2018, J Nucl Cardiol, PMC7031167, CC BY 4.0, FDG de la racine aortique (Takayasu) ; normale Opoka-Winiarska 2020, PMC7316673 | piège : TEP-IRM contre TEP-TDM ; artérite gigantocellulaire absente.
 - IMG-157 | partiel | Hsu 2014, J Cardiothorac Surg, PMC4234843, CC BY 4.0, hématome de l'aorte descendante ; normale Häggström | piège : pas de série sans injection ; ulcère pénétrant absent ; confiance basse.
 - IMG-156 | introuvable | Commons vide ; Open-i en CC BY-NC-ND, rejeté | piège : licence non blanche.
-- IMG-155 | partiel | James Heilman, CC BY-SA 3.0, anévrisme thoracique mesuré 73 mm ; normale Häggström coupe 24 | piège : niveau différent, phase non nommée. Reprise à IMG-154.
+- IMG-155 | partiel | James Heilman, CC BY-SA 3.0, anévrisme thoracique mesuré 73 mm ; normale Häggström coupe 24 | piège : niveau différent, phase non nommée.
+- IMG-154 | partiel | James Heilman, CC BY-SA 3.0, dissection de type A, flèches sur les deux voiles ; normale Häggström coupe 24 | piège : pas de série sans injection. AoDiss écarté (date JUN-91).
+- IMG-153 | partiel | domaine public, Pologne, cathéter jugulaire droit, mention « Na stojąco » ; normale Häggström PA | piège : extrémité placée à l'œil. Incidence non dite PA.
+- IMG-152 | partiel | Ciernik, CC BY-SA 4.0, myxome de l'oreillette gauche, flèches orange | piège : pas d'échocardiographie normale (schémas seulement) ; thrombus absent.
+- IMG-151 | introuvable | CIA et CIV de Kjetil Lenes ont une date d'examen gravée ; CAVC a un nom ; coarctation = schémas | piège : identifiants. Open-i en erreur HTML.
+- IMG-150 | partiel | Treibel et al., JCMR 2016, CC BY 4.0, fixation cardiaque du DPD | piège : pas de scintigraphie normale ; grade de Perugini non indiqué. Reprise à IMG-149.
