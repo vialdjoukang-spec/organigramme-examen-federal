@@ -11,3 +11,8 @@ EXP-108 | confirmé | CC BY 4.0, Park 2021, PMC8028073 relu : prolapsus rectal, 
 EXP-107 | confirmé | Introuvable, aucun fichier. Recherche Commons rejouée : aucun tracé de dyssynergie défécatoire.
 EXP-106 | confirmé | Introuvable, aucun fichier. Recherche Commons rejouée : aucune manométrie d'incontinence fécale.
 EXP-105 | corrigé | Domaine public, Warbeck, description relue : pas d'EMG, la dyssynergie ne se pose pas sur ce seul tracé. Le polygone était sous la courbe jaune, dans le bandeau ; il suit l'interruption du débit et la pointe est sur le retour à la ligne de base. Confiance basse, libellé déjà dans a_verifier. Définition « À vérifier ».
+EXP-104 | confirmé | Introuvable, aucun fichier. Recherche Commons rejouée : aucun tracé de toux.
+EXP-103 | confirmé | Introuvable, aucun fichier. Recherche Commons rejouée : aucune cystomanométrie d'hyperactivité détrusorienne.
+EXP-102 | corrigé | CC BY-SA 3.0, Jmarchn, descriptions « Obstructive » et « Normal » relues. Chiffres relus : 5,1 ml/s et 48 s contre 20,8 ml/s et 20 s. Le polygone prenait l'aire sous la courbe et la pointe était dans le vide ; le contour entoure la courbe basse et la pointe est sur le trait. Le résidu post-mictionnel reste absent : partiel.
+EXP-101 | confirmé | Introuvable, aucun fichier. Recherche Commons rejouée : aucun rapport aldostérone/rénine.
+EXP-100 | corrigé | CC BY 4.0, Tisljar 2020, PMC7515856, légende relue ; furosémide absent du texte. Le polygone était dans le blanc entre les reins. Il entoure le rein gauche de l'image (droite du patient) et la pointe est sur son bord médial. Confiance basse, libellé dans a_verifier. Pas de courbe ni de normale : partiel.
