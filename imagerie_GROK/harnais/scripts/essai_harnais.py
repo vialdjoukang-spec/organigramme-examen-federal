@@ -14,7 +14,11 @@ ESSAI = os.path.join(ROOT, "images", "_essai")
 MAN = os.path.join(ROOT, "manifest", "TEST-harnais.json")
 SHOTS = os.path.join(ROOT, "progression", "essai-harnais")
 
-CONTOUR = [[0.62, 0.08], [0.90, 0.10], [0.88, 0.38], [0.63, 0.40], [0.62, 0.08]]
+CONTOUR = [
+    [0.62, 0.08], [0.74, 0.05], [0.86, 0.10], [0.91, 0.20],
+    [0.88, 0.32], [0.76, 0.39], [0.64, 0.34], [0.60, 0.20], [0.62, 0.08],
+]
+RECT = [[0.20, 0.20], [0.55, 0.20], [0.55, 0.48], [0.20, 0.48], [0.20, 0.20]]
 
 def fail(msg):
     print("ÉCHEC", msg)
@@ -70,6 +74,9 @@ def manifest():
         "license": "CC0 1.0",
         "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
         "author": "Essai de harnais, image synthétique, aucun patient",
+        "sex": "M",
+        "adulte": "oui",
+        "adulte_preuve": "image synthétique d'essai, sujet déclaré adulte, aucun patient",
         "modality": "RX", "sequence": "thorax", "plane": "face", "region": "thorax",
         "note": "Image dessinée par script pour l'essai du rendu. Aucun patient.",
     }
@@ -110,6 +117,39 @@ def main():
     assert_rejects({"contour": [[0.1, 0.1], [0.4, 0.2], [0.1, 0.1]]}, dx, "3 sommets")
     assert_rejects({"definition": ""}, dx, "définition radiologique absente")
     assert_rejects({"definition_source": "À vérifier"}, dx, "définition non sourcée")
+    assert_rejects({"contour": RECT}, dx, "rectangulaire")
+    msex = {
+        "id": "IMG-134", "dx": dx["dx"], "cliche": dx["cliche"], "statut": "complet",
+        "normal": {"file": "x", "license": "CC0 1.0", "author": "a", "source_url": "https://example.org/n",
+                   "modality": "RX", "sequence": "thorax", "plane": "face", "sex": "M", "adulte": "oui"},
+        "patho": {"file": "x", "license": "CC0 1.0", "author": "a", "source_url": "https://example.org/p",
+                  "modality": "RX", "sequence": "thorax", "plane": "face", "caption_source": "essai", "sex": "F", "adulte": "oui",
+                  "arrows": [{"tip": [0.63, 0.24], "from": [0.48, 0.16], "label": "Ligne pleurale viscérale",
+                              "role": "principale", "evidence": "essai", "confidence": "moyenne", "contour": CONTOUR,
+                              "definition": "Air dans l'espace pleural.",
+                              "definition_source": "Fleischner Society, Radiology 2008;246:697-722"}]},
+    }
+    errs, warns = [], []
+    V.check(msex, dx, errs, warns)
+    if any("discordant" in e or "sexe requis" in e for e in errs):
+        fail(f"le thorax ne doit pas exiger le même sexe : {errs}")
+    dxp = dict(dx, region="Pelvis", dx="Fibromes utérins", cliche="US — endovaginale")
+    errs = []
+    V.check(msex, dxp, errs, warns)
+    if not any("sexe requis" in e or "discordant" in e for e in errs):
+        fail(f"bassin/utérus sans sexe concordant non bloqué : {errs}")
+    msex["normal"]["adulte"] = "non"
+    errs = []
+    V.check(msex, dx, errs, warns)
+    if not any("adulte" in e for e in errs):
+        fail(f"sujet non adulte non bloqué : {errs}")
+    msex["normal"]["adulte"] = "oui"
+    msex["normal"].pop("sex"); msex["patho"]["sex"] = "À vérifier"
+    msex.pop("normal")
+    errs = []
+    V.check(msex, dx, errs, warns)
+    if not any("sans image normale" in e for e in errs):
+        fail(f"normale absente non bloquée : {errs}")
     print("Contrôles négatifs : OK")
     try:
         draw_pair()

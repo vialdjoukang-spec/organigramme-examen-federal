@@ -5,17 +5,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Radio-Paires · Normal / Pathologique</title>
 <style>
-:root{--bg:#0f1216;--pan:#171b21;--pan2:#1f252d;--tx:#e8ecf1;--mu:#9aa6b2;--ln:#2c343e;--ac:#FFD400;
---c-principale:#FFD400;--c-associee:#00E5FF;--c-secondaire:#7CFF4F;--c-complication:#FF3B6B;--figh:min(58vh,640px)}
+:root{--bg:#0f1216;--pan:#171b21;--pan2:#1f252d;--tx:#FFFFFF;--mu:#F2F4F7;--ln:#3c4654;--ac:#FFD400;
+--c-principale:#FFD400;--c-associee:#00E5FF;--c-secondaire:#7CFF4F;--c-complication:#FF7A96;--figh:min(58vh,640px);--link:#A8DCFF;
+--carte:#E1F3FA;--carte-bord:#87CEEB;--carte-tx:#0B2540}
 *{box-sizing:border-box}
-html,body{margin:0;background:var(--bg);color:var(--tx);font:15px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
-a{color:#7cc4ff}
+html,body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+a{color:var(--link)}
 button,select,input{font:inherit;color:inherit}
 :focus-visible{outline:3px solid var(--ac);outline-offset:2px}
 #dT:focus{outline:none}
-header{position:sticky;top:0;z-index:5;background:rgba(15,18,22,.96);border-bottom:1px solid var(--ln);padding:12px 16px}
+header{position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:1px solid var(--ln);padding:12px 16px}
 h1{font-size:19px;margin:0 0 6px;display:flex;gap:12px;align-items:baseline;flex-wrap:wrap}
-.cnt{font-size:14px;color:var(--mu);font-weight:500}
+.cnt{font-size:15.5px;color:var(--mu);font-weight:600}
 .cnt b{color:var(--ac);font-size:17px}
 .bar{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
 .bar select,.bar input{background:var(--pan2);border:1px solid var(--ln);border-radius:8px;padding:7px 9px;min-height:38px}
@@ -23,19 +24,19 @@ h1{font-size:19px;margin:0 0 6px;display:flex;gap:12px;align-items:baseline;flex
 .prog{height:6px;background:var(--pan2);border-radius:4px;overflow:hidden;margin-top:8px;display:flex}
 .prog i{display:block;height:100%}
 main{padding:10px 16px 40px}
-table{width:100%;border-collapse:collapse;font-size:14px}
+table{width:100%;border-collapse:collapse;font-size:16px}
 th,td{padding:7px 8px;border-bottom:1px solid var(--ln);text-align:left;vertical-align:top}
 th{color:var(--mu);font-weight:600;position:sticky;top:var(--hh,118px);background:var(--bg);z-index:2}
 tbody tr{cursor:pointer}
 tbody tr:hover{background:var(--pan)}
 td.dx button{background:none;border:0;padding:0;text-align:left;cursor:pointer;font-weight:600;color:var(--tx)}
 td.dx button:hover{text-decoration:underline}
-.badge{display:inline-block;padding:1px 8px;border-radius:999px;font-size:12px;font-weight:700;white-space:nowrap;border:1px solid transparent}
+.badge{display:inline-block;padding:1px 8px;border-radius:999px;font-size:13.5px;font-weight:700;white-space:nowrap;border:1px solid transparent}
 .s-complet{background:#123d22;color:#7dffa8;border-color:#1f6b3a}
 .s-partiel{background:#3d3212;color:#ffd970;border-color:#6b561f}
 .s-introuvable{background:#3d1717;color:#ff9c9c;border-color:#6b2626}
 .s-nonvalide{background:#3d1735;color:#ff9cf0;border-color:#6b2660}
-.s-enrecherche{background:#20262e;color:#9aa6b2;border-color:#323b46}
+.s-enrecherche{background:#20262e;color:#F2F4F7;border-color:#323b46}
 .test{background:#5a2bd6;color:#fff;margin-left:6px}
 .muted{color:var(--mu)}
 .empty{padding:30px;text-align:center;color:var(--mu)}
@@ -46,52 +47,87 @@ td.dx button:hover{text-decoration:underline}
 .db{flex:1 1 auto;min-height:0}
 .dh{display:flex;gap:10px;align-items:center;padding:10px 14px;border-bottom:1px solid var(--ln);flex-wrap:wrap}
 .dh h2{font-size:18px;margin:0;flex:1 1 300px;min-width:0;overflow-wrap:anywhere}
-.dh .meta{color:var(--mu);font-size:13px;font-weight:500;display:block}
+.dh .meta{color:var(--mu);font-size:15px;font-weight:600;display:block}
 .btn{background:var(--pan2);border:1px solid var(--ln);border-radius:8px;padding:6px 11px;cursor:pointer;min-height:36px}
 .btn:hover{border-color:#4a5562}
 .btn[aria-pressed=true]{background:#3b3410;border-color:var(--ac);color:var(--ac)}
 .db{overflow:auto;padding:12px 14px}
 .pair{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px}
 .panel{background:#000;border:1px solid var(--ln);border-radius:10px;display:flex;flex-direction:column;min-width:0}
-.panel h3{margin:0;padding:7px 10px;font-size:15px;letter-spacing:.02em;border-bottom:1px solid var(--ln);background:var(--pan2);border-radius:10px 10px 0 0;display:flex;justify-content:space-between;gap:8px;align-items:center}
-.panel h3 small{color:var(--mu);font-weight:500;font-size:12px}
-.panel.n h3{color:#9fe3ff}.panel.p h3{color:var(--ac)}
+.panel h3{position:relative;margin:0;padding:7px 10px;font-size:15px;letter-spacing:.02em;border-bottom:1px solid var(--ln);background:var(--pan2);border-radius:10px 10px 0 0;display:flex;justify-content:space-between;gap:8px;align-items:center}
+.panel h3 small{color:var(--mu);font-weight:700;font-size:14.5px}
+.panel.n h3{color:#C6F6FF}.panel.p h3{color:var(--ac)}
 .fig{height:var(--figh);display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative;touch-action:none}
 .zw{position:relative;display:inline-block;transform-origin:0 0;line-height:0;max-width:100%}
 .zw img{display:block;max-height:var(--figh);max-width:100%;user-select:none;-webkit-user-drag:none}
 .zw svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
 .zw svg.hide .arw{display:none}
+.zw svg.hide .arw.on{display:block}
+.zw svg .band{display:none}
+.zw svg .arw.on .band{display:block}
+.fig.defi,.fig.defi .zw{cursor:crosshair}
+.score{margin:8px 0 0;padding:10px 12px;border:2px solid #7dffa8;border-radius:8px;background:#102116;line-height:1.4;font-size:16px}
+.score b{color:#b6ffcf}
+#scoreHead{font-size:15px;font-weight:800;color:#b6ffcf;background:#102116;border:2px solid #7dffa8;border-radius:8px;padding:4px 8px}
+.score .miss{color:#ffb4b4}
+.src{position:static;text-decoration:underline;cursor:help;color:var(--tx)}
+.src-pop{display:none;position:absolute;z-index:6;left:8px;top:calc(100% + 4px);width:min(420px,calc(100% - 16px));background:var(--carte);color:var(--carte-tx);border:2px solid var(--carte-bord);border-radius:8px;padding:8px 10px;font-size:15px;line-height:1.4;text-decoration:none;opacity:1;overflow-wrap:anywhere;box-shadow:0 8px 22px rgba(11,37,64,.18)}
+.src-pop a{color:var(--carte-tx);background:var(--carte);text-decoration:underline}
+.src:hover .src-pop,.src:focus .src-pop,.src:focus-within .src-pop{display:block}
+.atip,.step{margin:0;padding:6px 10px;font-size:15.5px;line-height:1.35}
+.step{color:var(--ac)}
+.atip{color:#F7F8FA;min-height:1.2em}
+.atip:not(:empty),.step:not(:empty){display:block;margin:8px 10px;padding:8px 12px;background:var(--carte);color:var(--carte-tx);border:2px solid var(--carte-bord);border-radius:8px}
+details.more{margin-top:8px;color:var(--mu);font-size:15px}
+details.more summary{cursor:pointer;color:var(--tx)}
+.ann{pointer-events:none}
+.ann .arw,.ann .mark{pointer-events:auto}
+.anat .halo{fill:none;stroke:#061018;stroke-width:6;vector-effect:non-scaling-stroke;pointer-events:none}
+.anat .ln{fill-opacity:.04;stroke-width:2.5;vector-effect:non-scaling-stroke}
+.anat g.on .ln{stroke-width:5;fill-opacity:.32}
+.anat g[data-sid="paroi"] .ln,.anat g[data-sid="diaphragme"] .ln{fill:none;fill-opacity:0}
+.anat g[data-sid="diaphragme"].on .ln{stroke-width:8}
+.panel h3{position:sticky;top:0;z-index:4}
+.structTip{margin:8px 10px 0;padding:8px 12px;background:var(--carte);color:var(--carte-tx);border:2px solid var(--carte-bord);border-radius:8px;font-size:15.5px;line-height:1.35}
+.codeLegend{margin:8px 0 0;padding:10px 12px;background:var(--carte);color:var(--carte-tx);border:2px solid var(--carte-bord);border-radius:8px;font-size:15.5px;line-height:1.4}
+.codeLegend h3,.codeLegend h4{margin:8px 0 6px;font-size:16px;color:var(--carte-tx);background:var(--carte)}
+.codeLegend h3{margin-top:0}
+.codeLegend ul{list-style:none;padding:0;margin:0;display:grid;gap:8px}
+.codeLegend li{display:flex;gap:10px;align-items:flex-start}
+.codeLegend i{flex:none;width:36px;height:16px;margin-top:4px;border:2px solid #061018;border-radius:2px}
+.codeLegend i.dot{background:transparent;border-style:dashed;border-width:3px}
 .arw{cursor:pointer;outline:none}
 .arw .hit{stroke:transparent;fill:none;pointer-events:stroke}
 .arw:focus-visible .ring{stroke:#fff;stroke-dasharray:4 3}
 .arw .ring{fill:none;stroke:transparent}
 .zctl{position:absolute;right:6px;bottom:6px;display:flex;gap:4px;z-index:3}
-.zctl button{width:32px;height:32px;padding:0;border-radius:7px;background:rgba(31,37,45,.85);border:1px solid var(--ln);cursor:pointer}
+.zctl button{width:42px;height:42px;padding:0;border-radius:8px;background:#07090c;color:#FFFFFF;border:2px solid #FFD400;cursor:pointer;font-size:18px;font-weight:800}
 .ph{border:2px dashed #46505c;border-radius:10px;margin:14px;padding:20px;text-align:center;color:var(--mu);max-width:420px;line-height:1.5}
 .ph b{color:var(--tx);display:block;margin-bottom:6px;font-size:16px}
-.bub{position:absolute;z-index:4;background:#0b0d10;border:2px solid var(--ac);border-radius:8px;padding:7px 9px;width:max-content;max-width:min(280px,62vw);font-size:13px;line-height:1.35;color:#fff;box-shadow:0 4px 18px rgba(0,0,0,.6);pointer-events:auto}
-.bub.compact{padding:3px 7px;font-weight:700;font-size:12.5px}
-.bub .r{font-size:11px;text-transform:uppercase;letter-spacing:.05em;font-weight:800}
-.bub .ev{color:#c8d0d8;font-style:italic;margin-top:4px}
-.bub .def{margin-top:4px}
-.bub .src{margin-top:2px;font-size:12px;color:#c8d0d8}
-.bub .cf{margin-top:3px;font-size:12px;color:var(--mu)}
+.bub{position:absolute;z-index:4;background:var(--carte);border:2px solid var(--carte-bord);border-radius:8px;padding:8px 10px;width:auto;max-width:100%;box-sizing:border-box;font-size:15px;line-height:1.4;color:var(--carte-tx);opacity:1;box-shadow:0 8px 22px rgba(11,37,64,.18);pointer-events:auto;overflow-wrap:anywhere;word-break:break-word}
+.bub.sheet{position:static;display:block;margin:8px;max-width:none;max-height:none;overflow:visible;width:auto;background:var(--carte);color:var(--carte-tx);border:2px solid var(--carte-bord)}
+.bub.compact{padding:4px 8px;font-weight:800;font-size:14px;background:#07090c;color:#FFFFFF;border:2px solid var(--ac);box-shadow:0 4px 12px rgba(0,0,0,.72)}
+.bub .r{font-size:15px;text-transform:uppercase;letter-spacing:.05em;font-weight:800;color:var(--carte-tx);background:var(--carte)}
+.bub .ev{color:var(--carte-tx);background:var(--carte);font-style:italic;margin-top:4px}
+.bub .def{margin-top:4px;color:var(--carte-tx);background:var(--carte)}
+.bub .src{margin-top:2px;font-size:15px;color:var(--carte-tx);background:var(--carte)}
+.bub .cf{margin-top:3px;font-size:15px;color:var(--carte-tx);background:var(--carte)}
 .les .detail{display:block;margin-top:3px}
 .les .detail[hidden]{display:none}
-.leg{display:flex;gap:12px;flex-wrap:wrap;font-size:12.5px;color:var(--mu);padding:8px 2px 0}
+.leg{display:flex;gap:12px;flex-wrap:wrap;font-size:14.5px;color:#F2F4F7;padding:8px 2px 0}
 .leg span{display:inline-flex;align-items:center;gap:5px}
 .leg i{width:14px;height:14px;border-radius:50%;border:2px solid #000;display:inline-block;outline:1px solid #555}
 .les{list-style:none;padding:0;margin:8px 0 0;display:grid;gap:4px}
 .les button{all:unset;cursor:pointer;display:flex;gap:8px;align-items:flex-start;padding:4px 6px;border-radius:6px}
 .les button:hover,.les button:focus-visible{background:var(--pan2);outline:2px solid var(--ac)}
-.num{flex:none;width:22px;height:22px;border-radius:50%;color:#000;font-weight:800;font-size:12.5px;display:inline-flex;align-items:center;justify-content:center;border:2px solid #000}
-.df{border-top:1px solid var(--ln);padding:10px 14px;font-size:13px;color:#c8d0d8;display:grid;gap:6px;max-height:24vh;overflow:auto;flex:none}
+.num{flex:none;width:24px;height:24px;border-radius:50%;color:#000;font-weight:800;font-size:14px;display:inline-flex;align-items:center;justify-content:center;border:2px solid #000}
+.df{border-top:1px solid var(--ln);padding:10px 14px;font-size:15px;color:#F2F4F7;display:grid;gap:6px;max-height:24vh;overflow:auto;flex:none}
 .df .cr{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .av{color:#ffd970}
 .err{color:#ff9cf0}
-.kbd{font-size:12px;color:var(--mu)}
+.kbd{font-size:14px;color:var(--mu)}
 @media (max-width:820px){
- :root{--figh:min(40vh,420px)}
+ :root{--figh:min(28vh,260px)}
  .pair{grid-template-columns:minmax(0,1fr)}
  .dh{padding:8px 10px;gap:6px}
  .dh h2{flex-basis:100%;font-size:16px}
@@ -104,8 +140,8 @@ td.dx button:hover{text-decoration:underline}
  .ov{padding:0}
  .dlg{border-radius:0;height:100%}
  th.c-sys,td.c-sys,th.c-niv,td.c-niv,th.c-reg,td.c-reg{display:none}
- h1{font-size:17px}
- table{font-size:13px;table-layout:fixed}
+ h1{font-size:18px}
+ table{font-size:15px;table-layout:fixed}
  th,td{padding:6px 4px;overflow-wrap:break-word;hyphens:auto}
  th:nth-child(1){width:34px} th:nth-child(6){width:30%} th:nth-child(7){width:92px}
  main{padding:8px 8px 40px}
@@ -140,7 +176,12 @@ td.dx button:hover{text-decoration:underline}
   <div class="dh">
    <h2 id="dT" tabindex="-1"></h2>
    <button class="btn" id="bNames" aria-pressed="false">Afficher tous les noms</button>
-   <button class="btn" id="bHide" aria-pressed="false">Masquer les flèches</button>
+   <button class="btn" id="bHide" aria-pressed="false">Révéler les flèches</button>
+   <button class="btn" id="bDefi" aria-pressed="false">Mode défi</button>
+   <button class="btn" id="bNote" hidden>Révéler et noter</button>
+   <button class="btn" id="bLink" aria-pressed="false">Zoom lié</button>
+   <button class="btn" id="bCode" aria-pressed="false">Rappel du code couleur structure – aspect</button>
+   <span id="scoreHead" hidden></span>
    <button class="btn" id="bPrev" aria-label="Diagnostic précédent">◀ Préc.</button>
    <button class="btn" id="bNext" aria-label="Diagnostic suivant">Suiv. ▶</button>
    <button class="btn" id="bX" aria-label="Fermer (Échap)">✕</button>
@@ -162,7 +203,8 @@ const STL={"complet":"Complet","partiel":"Partiel","introuvable":"Introuvable","
 const esc=s=>String(s==null?"":s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const srcOf=s=>s&&(s.src||(s.ref&&IMGS[s.ref]))||null;
 const norm=s=>String(s||"").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"");
-let view=[], cur=-1, lastFocus=null, showAll=false, hideArr=false;
+let view=[], cur=-1, lastFocus=null, showAll=false, hideArr=true, defi=false, proposals=[], opened=new Set();
+const SEXL={M:"homme",F:"femme","À vérifier":"À vérifier"};
 
 // --- list
 function fill(sel,vals){vals.forEach(v=>{const o=document.createElement("option");o.value=v;o.textContent=v;sel.appendChild(o);});}
@@ -175,7 +217,7 @@ function counts(){
  $("#cnt").innerHTML=`Trouvés : <b>${c["complet"]||0} / ${R.length}</b> · partiels ${c["partiel"]||0} · introuvables ${c["introuvable"]||0}`+(c["non validé"]?` · non validés ${c["non validé"]}`:"")+` · en recherche ${c["en recherche"]||0}`+(DATA.test?` <span class="badge test">MODE TEST</span>`:"");
  const col={"complet":"#2fbf62","partiel":"#d6a821","non validé":"#c04fb0","introuvable":"#c04646"};
  $("#prog").innerHTML=Object.keys(col).map(k=>`<i style="width:${100*(c[k]||0)/R.length}%;background:${col[k]}"></i>`).join("");
- $("#foot").textContent=`Généré le ${DATA.built} · Statut = statut validé automatiquement (validate.py) · Clic ou Entrée sur une ligne : fenêtre Normal / Pathologique · ← → : précédent / suivant · Échap : fermer.`;
+ $("#foot").textContent=`Généré le ${DATA.built} · Statut = statut validé automatiquement (validate.py) · Clic ou Entrée : fenêtre Normal à gauche / Pathologique à droite · Flèches cachées, bouton « Révéler les flèches » · Mode défi : cliquer les lésions à droite, puis révéler · ← → · Échap.`;
 }
 function render(){
  const fr=$("#fReg").value,fm=$("#fMod").value,fs=$("#fSt").value,q=norm($("#q").value.trim());
@@ -193,11 +235,12 @@ addEventListener("resize",setHH);
 function arrowSVG(side,svg){
  const W=side.w,H=side.h,disp=svg.getBoundingClientRect().width||W;
  const k=W/disp; // viewBox units per screen px
- // Flèche fine (épaisseur normale ≈ 1,6 px), couleur vive, liseré sombre.
- const sw=1.6*k, rim=3.3*k, hl=13*k, hw=4.6*k, rr=9*k;
+ // Trait 2,6 px, halo sombre d'environ 1,6 px. Couleur de lésion, distincte de l'anatomie.
+ const LESION=["#FF1744","#651FFF","#2962FF","#FF6D00","#C51162","#00B8D4","#AA00FF","#DD2C00"];
+ const sw=2.6*k, rim=sw+3.2*k, hl=13*k, hw=4.6*k, rr=11*k;
  let out="";
  side.arrows.forEach((a,i)=>{
-  const col=`var(--c-${a.role in ROLES?a.role:"principale"})`;
+  const col=a.couleur||LESION[i%LESION.length];
   const tx=a.tip[0]*W,ty=a.tip[1]*H,fx=a.from[0]*W,fy=a.from[1]*H;
   const dx=tx-fx,dy=ty-fy,L=Math.hypot(dx,dy)||1,ux=dx/L,uy=dy/L;
   const bx=tx-ux*hl,by=ty-uy*hl, px=-uy,py=ux;
@@ -206,78 +249,160 @@ function arrowSVG(side,svg){
   const lab=`${i+1}. ${a.label} (${ROLES[a.role]||a.role})`;
   let contour="";
   if(Array.isArray(a.contour)&&a.contour.length>=3){
-   const pts=a.contour.map(p=>`${p[0]*W},${p[1]*H}`).join(" ");
-   const dash=`${7*k} ${4.2*k}`;
-   contour=`<polyline points="${pts}" fill="none" stroke="#061018" stroke-width="${rim}" stroke-dasharray="${dash}" stroke-linejoin="round" stroke-linecap="round"/>
-<polyline points="${pts}" fill="none" stroke="${col}" stroke-width="${sw+0.35*k}" stroke-dasharray="${dash}" stroke-linejoin="round" stroke-linecap="round"/>`;
+   const raw=a.contour;
+   const closed=Math.hypot(raw[0][0]-raw[raw.length-1][0], raw[0][1]-raw[raw.length-1][1])<0.02;
+   const n=closed?raw.length-1:raw.length;
+   let cx=0,cy=0;
+   for(let i=0;i<n;i++){cx+=raw[i][0];cy+=raw[i][1];}
+   cx/=n; cy/=n;
+   const svgH=disp*H/W;
+   let rad=0;
+   for(let i=0;i<n;i++) rad=Math.max(rad, Math.hypot((raw[i][0]-cx)*disp, (raw[i][1]-cy)*svgH));
+   const sc=Math.max(1, 18/Math.max(rad, 0.8));
+   const seq=[];
+   for(let i=0;i<n;i++) seq.push([cx+(raw[i][0]-cx)*sc, cy+(raw[i][1]-cy)*sc]);
+   seq.push(seq[0]);
+   const pts=seq.map(p=>`${p[0]*W},${p[1]*H}`).join(" ");
+   const dash=`${9*k} ${6*k}`;
+   contour=`<polyline class="band" points="${pts}" fill="none" stroke="#061018" stroke-width="${rim}" stroke-dasharray="${dash}" stroke-linejoin="round" stroke-linecap="round"/>
+<polyline class="band" points="${pts}" fill="none" stroke="${col}" stroke-width="${sw}" stroke-dasharray="${dash}" stroke-linejoin="round" stroke-linecap="round"/>`;
   }
-  out+=`<g class="arw" data-a="${i}" tabindex="0" role="button" aria-label="${esc(lab)}">
+  out+=`<g class="arw${opened.has(i)?" on":""}" data-a="${i}" tabindex="0" role="button" aria-label="${esc(lab)}">
 ${contour}
 <line class="hit" x1="${fx}" y1="${fy}" x2="${tx}" y2="${ty}" stroke-width="${18*k}"/>
 <line x1="${sx}" y1="${sy}" x2="${bx}" y2="${by}" stroke="#061018" stroke-width="${rim}" stroke-linecap="round"/>
 <polygon points="${head}" fill="#061018" stroke="#061018" stroke-width="${1.4*k}" stroke-linejoin="round"/>
 <line x1="${sx}" y1="${sy}" x2="${bx}" y2="${by}" stroke="${col}" stroke-width="${sw}" stroke-linecap="round"/>
 <polygon points="${head}" fill="${col}"/>
-<circle cx="${fx}" cy="${fy}" r="${rr}" fill="${col}" stroke="#061018" stroke-width="${1.6*k}"/>
+<circle cx="${fx}" cy="${fy}" r="${rr+2.2*k}" fill="#061018"/>
+<circle cx="${fx}" cy="${fy}" r="${rr}" fill="#07090c" stroke="${col}" stroke-width="${sw}"/>
 <circle class="ring" cx="${fx}" cy="${fy}" r="${rr+3.2*k}" stroke-width="${1.4*k}"/>
-<text x="${fx}" y="${fy}" dy="${4.4*k}" text-anchor="middle" font-size="${12*k}" font-weight="800" fill="#061018" font-family="system-ui,sans-serif">${i+1}</text>
+<text x="${fx}" y="${fy}" dy="${4.6*k}" text-anchor="middle" font-size="${13*k}" font-weight="800" fill="#FFFFFF" font-family="system-ui,sans-serif">${i+1}</text>
 </g>`;
+ });
+ proposals.forEach(pt=>{
+  out+=`<circle class="mark" cx="${pt[0]*W}" cy="${pt[1]*H}" r="${8*k}" fill="none" stroke="#061018" stroke-width="${3*k}"/>
+<circle class="mark" cx="${pt[0]*W}" cy="${pt[1]*H}" r="${8*k}" fill="none" stroke="#FF7A96" stroke-width="${1.8*k}"/>`;
  });
  svg.innerHTML=out;
 }
+function inside(poly,x,y){
+ let c=false;
+ for(let i=0,j=poly.length-1;i<poly.length;j=i++){
+  const xi=poly[i][0],yi=poly[i][1],xj=poly[j][0],yj=poly[j][1];
+  if((yi>y)!==(yj>y)&&(x<(xj-xi)*(y-yi)/(yj-yi+0.0000001)+xi))c=!c;
+ }
+ return c;
+}
+function segDist(x,y,a,b){
+ const dx=b[0]-a[0],dy=b[1]-a[1],l=dx*dx+dy*dy||1e-9;
+ let t=((x-a[0])*dx+(y-a[1])*dy)/l; t=Math.max(0,Math.min(1,t));
+ return Math.hypot(x-(a[0]+t*dx), y-(a[1]+t*dy));
+}
+function matches(a,pt,W,H){
+ const tol=0.04*Math.min(W,H);
+ const poly=Array.isArray(a.contour)?a.contour:[];
+ if(poly.length>=3&&inside(poly,pt[0],pt[1]))return true;
+ if(Math.hypot((pt[0]-a.tip[0])*W,(pt[1]-a.tip[1])*H)<tol)return true;
+ for(let i=0;i<poly.length-1;i++){
+  if(segDist(pt[0]*W,pt[1]*H,[poly[i][0]*W,poly[i][1]*H],[poly[i+1][0]*W,poly[i+1][1]*H])<tol)return true;
+ }
+ return false;
+}
+function grade(arrows,W,H){
+ const used=new Set(); const hits=[];
+ proposals.forEach(pt=>{
+  let best=null,bd=1e9;
+  arrows.forEach((a,i)=>{
+   if(used.has(i)||!matches(a,pt,W,H))return;
+   const d=Math.hypot((pt[0]-a.tip[0])*W,(pt[1]-a.tip[1])*H);
+   if(d<bd){bd=d;best=i;}
+  });
+  if(best!=null){used.add(best);hits.push(best);}
+ });
+ return {hits, falsePos:proposals.length-hits.length};
+}
 function place(zw,b,a){
- // choose the bubble position that stays inside the image and covers neither the arrow nor the lesion tip
- const W=zw.offsetWidth,H=zw.offsetHeight,w=b.offsetWidth,h=b.offsetHeight;
- const zr=zw.getBoundingClientRect(),fr=zw.parentElement.getBoundingClientRect(),sc0=zr.width/(W||1)||1;
- const X0=(fr.left-zr.left)/sc0+2,X1=(fr.right-zr.left)/sc0-2,Y0=(fr.top-zr.top)/sc0+2,Y1=(fr.bottom-zr.top)/sc0-40;
- const others=[...zw.querySelectorAll(".bub")].filter(o=>o!==b).map(o=>[o.offsetLeft,o.offsetTop,o.offsetLeft+o.offsetWidth,o.offsetTop+o.offsetHeight]);
- const side=(zw._side&&zw._side.arrows)||[];
- const badges=side.filter(x=>x!==a).flatMap(x=>[[x.from[0]*W,x.from[1]*H],[x.tip[0]*W,x.tip[1]*H]]);
- const fx=a.from[0]*W,fy=a.from[1]*H,tx=a.tip[0]*W,ty=a.tip[1]*H,g=16;
- const C=[[g,-h/2],[-w-g,-h/2],[-w/2,-h-g],[-w/2,g],[g,-h+8],[g,-8],[-w-g,-h+8],[-w-g,-8]];
+ // La bulle reste entière dans l'image : le cadre (.fig) coupe tout débordement.
+ const W=zw.offsetWidth,H=zw.offsetHeight;
+ if(W<40||H<40){b.style.left="4px";b.style.top="4px";return;}
+ const pad=4;
+ b.style.maxWidth=(W-pad*2)+"px";
+ b.style.maxHeight=(H-pad*2)+"px";
+ b.style.overflowY="auto";
+ const w=Math.min(b.offsetWidth,W-pad*2), h=Math.min(b.offsetHeight,H-pad*2);
+ const clamp=(L,T)=>[Math.min(Math.max(pad,L),W-w-pad), Math.min(Math.max(pad,T),H-h-pad)];
+ const fx=a.from[0]*W,fy=a.from[1]*H,tx=a.tip[0]*W,ty=a.tip[1]*H;
+ const raw=[[pad,pad],[W-w-pad,pad],[pad,H-h-pad],[W-w-pad,H-h-pad],
+  [fx+14,fy-h/2],[fx-w-14,fy-h/2],[tx-w/2,ty+18],[tx-w/2,ty-h-18]];
+ const poly=(a.contour||[]).map(p=>[p[0]*W,p[1]*H]);
  let best=null,bs=1e18;
- for(const[ox,oy]of C){
-  const L=fx+ox,T=fy+oy,Rr=L+w,B=T+h;
-  let sc=(Math.max(0,X0-L)+Math.max(0,Rr-X1)+Math.max(0,Y0-T)+Math.max(0,B-Y1))*250;
-  for(const o of others){const ix=Math.max(0,Math.min(Rr,o[2])-Math.max(L,o[0])),iy=Math.max(0,Math.min(B,o[3])-Math.max(T,o[1]));sc+=ix*iy*0.5;}
-  for(const[qx,qy]of badges){if(qx>L-12&&qx<Rr+12&&qy>T-12&&qy<B+12)sc+=600;}
-  for(let k=0;k<=12;k++){const px=fx+(tx-fx)*k/12,py=fy+(ty-fy)*k/12;if(px>L-6&&px<Rr+6&&py>T-6&&py<B+6)sc+=k===12?5000:(k>=9?600:120);}
-  const cx=L+w/2,cy=T+h/2;if(Math.hypot(cx-tx,cy-ty)<Math.max(w,h)*0.6)sc+=800;
+ for(const[lx,ty0] of raw){
+  const[L,T]=clamp(lx,ty0), Rr=L+w, B=T+h;
+  let sc=0;
+  for(let k=0;k<=8;k++){const px=fx+(tx-fx)*k/8,py=fy+(ty-fy)*k/8;if(px>L-4&&px<Rr+4&&py>T-4&&py<B+4)sc+=k===8?4000:80;}
+  for(const[qx,qy] of poly){if(qx>L-6&&qx<Rr+6&&qy>T-6&&qy<B+6)sc+=2500;}
+  const nx=Math.max(L,Math.min(tx,Rr)), ny=Math.max(T,Math.min(ty,B));
+  if(Math.hypot(tx-nx,ty-ny)<18) sc+=4000;
+  sc+=Math.hypot(L+w/2-tx,T+h/2-ty)*0.15;
   if(sc<bs){bs=sc;best=[L,T];}
  }
- b.style.left=best[0]+"px";b.style.top=best[1]+"px";
+ const[L,T]=best||clamp(pad,pad);
+ b.style.left=L+"px";b.style.top=T+"px";
 }
 function bubble(zw,side,i,compact){
  const a=side.arrows[i]; if(!a)return;
+ const panel=zw.closest(".panel");
+ if(!compact){
+  let s=panel&&panel.querySelector(`.bub.sheet[data-a="${i}"]`);
+  if(s)return s;
+  if(panel)panel.querySelectorAll(".bub.sheet").forEach(x=>x.remove());
+  s=document.createElement("div");s.className="bub sheet";s.dataset.a=i;
+  s.setAttribute("role","status");
+  const def=a.definition?esc(a.definition):"À vérifier";
+  const src=a.definition_source?`<div class="src">Source : ${esc(a.definition_source)}</div>`:"";
+  s.innerHTML=`<div class="r">${i+1} · ${esc(ROLES[a.role]||a.role)}</div><div><b>${esc(a.label)}</b></div><div class="def"><b>Définition :</b> ${def}</div>${src}<div class="ev">Preuve : ${a.evidence==="visuel"?"repérage visuel (pas de légende source)":"« "+esc(a.evidence)+" »"}</div><div class="cf">Confiance : ${esc(a.confidence)}${a.confidence==="basse"?" · À vérifier":""}</div>`;
+  const fig=zw.closest(".fig");
+  if(fig&&fig.nextSibling)panel.insertBefore(s,fig.nextSibling);else panel.appendChild(s);
+  return s;
+ }
  let b=zw.querySelector(`.bub[data-a="${i}"]`);
- if(b){ if(!compact&&b.classList.contains("compact")){b.remove();}else return b; }
- b=document.createElement("div");b.className="bub"+(compact?" compact":"");b.dataset.a=i;
+ if(b){ if(!b.classList.contains("compact")){b.remove();}else return b; }
+ b=document.createElement("div");b.className="bub compact";b.dataset.a=i;
  b.setAttribute("role","status");
- const col=`var(--c-${a.role})`;b.style.borderColor=col;
- const def=a.definition?esc(a.definition):"À vérifier";
- const src=a.definition_source?`<div class="src">Source : ${esc(a.definition_source)}</div>`:"";
- b.innerHTML=compact?`${i+1}. ${esc(a.label)}`:`<div class="r" style="color:${col}">${i+1} · ${esc(ROLES[a.role]||a.role)}</div><div><b>${esc(a.label)}</b></div><div class="def"><b>Définition :</b> ${def}</div>${src}<div class="ev">Preuve : ${a.evidence==="visuel"?"repérage visuel (pas de légende source)":"« "+esc(a.evidence)+" »"}</div><div class="cf">Confiance : ${esc(a.confidence)}${a.confidence==="basse"?" · À vérifier":""}</div>`;
+ b.style.borderColor=`var(--c-${a.role})`;
+ b.textContent=`${i+1}. ${a.label}`;
  zw.appendChild(b);place(zw,b,a);return b;
 }
-function clearBubbles(zw,keepCompact){zw.querySelectorAll(".bub").forEach(b=>{if(!(keepCompact&&b.classList.contains("compact")))b.remove();});}
+function clearBubbles(zw,keepCompact){
+ zw.querySelectorAll(".bub").forEach(b=>{if(!(keepCompact&&b.classList.contains("compact")))b.remove();});
+ const panel=zw.closest&&zw.closest(".panel");
+ if(panel)panel.querySelectorAll(".bub.sheet").forEach(b=>b.remove());
+}
 function applyAll(zw,side){zw.querySelectorAll(".bub.compact").forEach(b=>b.remove());if(hideArr){clearBubbles(zw,false);return;}if(showAll)side.arrows.forEach((_,i)=>{if(!zw.querySelector(`.bub[data-a="${i}"]`))bubble(zw,side,i,true);});}
 
 // --- zoom/pan (wheel, drag, buttons, pinch)
+let zooms=[];
+let linkZoom=false, codeOpen=false;
 function zoomable(fig,zw){
  let s=1,tx=0,ty=0,drag=null,pts=new Map(),pinch=null;
- const set=()=>{zw.style.transform=`translate(${tx}px,${ty}px) scale(${s})`;};
- const zoomAt=(ns,cx,cy)=>{ns=Math.max(1,Math.min(5,ns));const r=zw.getBoundingClientRect();const ox=cx-r.left,oy=cy-r.top;tx+=ox-ox*ns/s;ty+=oy-oy*ns/s;s=ns;if(s===1){tx=0;ty=0;}set();};
- fig.addEventListener("wheel",e=>{e.preventDefault();zoomAt(s*(e.deltaY<0?1.2:1/1.2),e.clientX,e.clientY);},{passive:false});
+ const boost=fig.closest(".panel.n")?1.12:1;
+ const set=()=>{zw.style.transform=`translate(${tx}px,${ty}px) scale(${s*boost})`;};
+ const api={read(){return {s,tx,ty};},write(o){s=o.s;tx=o.tx;ty=o.ty;set();}};
+ zooms.push(api);
+ const zoomAt=(ns)=>{ns=Math.max(1,Math.min(2.2,ns));const r=zw.getBoundingClientRect();const k=s*boost||1;const w=r.width/k,h=r.height/k;tx+=(w/2)*boost*(s-ns);ty+=(h/2)*boost*(s-ns);s=ns;if(s===1){tx=0;ty=0;}set();if(linkZoom)zooms.forEach(z=>{if(z!==api)z.write({s,tx,ty});});};
+ fig.addEventListener("wheel",e=>{e.preventDefault();zoomAt(s*(e.deltaY<0?1.15:1/1.15));},{passive:false});
  fig.addEventListener("pointerdown",e=>{pts.set(e.pointerId,e);if(pts.size===2){const[p,q]=[...pts.values()];pinch={d:Math.hypot(p.clientX-q.clientX,p.clientY-q.clientY),s};}else if(s>1&&!e.target.closest(".arw,.bub,.zctl")){drag={x:e.clientX,y:e.clientY,tx,ty,moved:false};}});
- fig.addEventListener("pointermove",e=>{if(pts.has(e.pointerId))pts.set(e.pointerId,e);if(pinch&&pts.size===2){const[p,q]=[...pts.values()];const d=Math.hypot(p.clientX-q.clientX,p.clientY-q.clientY);zoomAt(pinch.s*d/pinch.d,(p.clientX+q.clientX)/2,(p.clientY+q.clientY)/2);return;}if(drag){const ddx=e.clientX-drag.x,ddy=e.clientY-drag.y;if(Math.abs(ddx)+Math.abs(ddy)>4)drag.moved=true;tx=drag.tx+ddx;ty=drag.ty+ddy;set();}});
+ fig.addEventListener("pointermove",e=>{if(pts.has(e.pointerId))pts.set(e.pointerId,e);if(pinch&&pts.size===2){const[p,q]=[...pts.values()];const d=Math.hypot(p.clientX-q.clientX,p.clientY-q.clientY);zoomAt(pinch.s*d/pinch.d);return;}if(drag){const ddx=e.clientX-drag.x,ddy=e.clientY-drag.y;if(Math.abs(ddx)+Math.abs(ddy)>4)drag.moved=true;tx=drag.tx+ddx;ty=drag.ty+ddy;set();}});
  const up=e=>{pts.delete(e.pointerId);if(pts.size<2)pinch=null;if(drag&&drag.moved){fig.dataset.dragged="1";setTimeout(()=>delete fig.dataset.dragged,0);}drag=null;};
  fig.addEventListener("pointerup",up);fig.addEventListener("pointercancel",up);
  const c=document.createElement("div");c.className="zctl";
  c.innerHTML=`<button type="button" aria-label="Zoom avant">+</button><button type="button" aria-label="Zoom arrière">−</button><button type="button" aria-label="Réinitialiser le zoom">⟲</button>`;
  const [bi,bo,br]=c.querySelectorAll("button");const mid=()=>{const r=fig.getBoundingClientRect();return[r.left+r.width/2,r.top+r.height/2];};
- bi.onclick=()=>zoomAt(s*1.4,...mid());bo.onclick=()=>zoomAt(s/1.4,...mid());br.onclick=()=>{s=1;tx=0;ty=0;set();};
+ bi.onclick=()=>zoomAt(s*1.25);bo.onclick=()=>zoomAt(s/1.25);br.onclick=()=>{s=1;tx=0;ty=0;set();if(linkZoom)zooms.forEach(z=>{if(z!==api)z.write({s,tx,ty});});};
  fig.addEventListener("dblclick",e=>{if(!e.target.closest(".arw,.zctl")){s=1;tx=0;ty=0;set();}});
  fig.appendChild(c);
+ set();
 }
 
 // --- modal
@@ -285,7 +410,8 @@ function credit(lbl,s){
  if(!s)return `<div><b>${lbl} :</b> <span class="muted">aucune image</span></div>`;
  const lic=s.license_url?`<a href="${esc(s.license_url)}" target="_blank" rel="noopener">${esc(s.license)}</a>`:esc(s.license);
  const tech=[s.modality,s.sequence,s.plane,s.region].filter(Boolean).map(esc).join(" · ");
- return `<div><b>${lbl} :</b> ${esc(s.author)} · ${lic} · <a href="${esc(s.source_url)}" target="_blank" rel="noopener">source</a><br><span class="muted">${tech}${s.note?" — "+esc(s.note):""}</span>${s.caption_source?`<br><span class="muted">Légende source : « ${esc(s.caption_source)} »</span>`:""}</div>`;
+ const sx=s.sex?` · sexe ${esc(SEXL[s.sex]||s.sex)}`:"";
+ return `<div><b>${lbl} :</b> ${esc(s.author)} · ${lic}${sx} · <a href="${esc(s.source_url)}" target="_blank" rel="noopener">source</a><br><span class="muted">${tech}${s.note?" — "+esc(s.note):""}</span>${s.caption_source?`<br><span class="muted">Légende source : « ${esc(s.caption_source)} »</span>`:""}</div>`;
 }
 function placeholder(kind,r){
  const m=r.m;
@@ -293,58 +419,227 @@ function placeholder(kind,r){
  if(r.st==="introuvable")return `<div class="ph"><b>Image ${kind} introuvable</b>Aucune image sous licence libre et appariée n'a été trouvée.${m&&m.queries.length?`<br><span style="font-size:12.5px">Requêtes tentées : ${m.queries.map(esc).join(" ; ")}</span>`:""}</div>`;
  return `<div class="ph"><b>Image ${kind} manquante</b>Statut ${esc(STL[r.st]||r.st)} : la paire n'est pas complète. Voir « À vérifier » ci-dessous.</div>`;
 }
+function demo(s){
+ if(!s)return "";
+ const age=(typeof s.age_ans==="number")?`${s.age_ans} ans`:"";
+ const sx=s.sex?(SEXL[s.sex]||s.sex):"";
+ const who=[age,sx].filter(Boolean).join(" · ");
+ const pop=[s.author,s.license,s.source_url,s.caption_source].filter(Boolean).map(esc).join("<br>");
+ return `${esc(who)} <span class="src" tabindex="0">Source<span class="src-pop">${pop}</span></span>`;
+}
 function panel(kind,s,r){
  const isP=kind==="pathologique",src=srcOf(s);
- const tech=s?[s.modality,s.sequence,s.plane].filter(Boolean).map(esc).join(" · "):"";
- const h=`<div class="panel ${isP?"p":"n"}"><h3>${isP?"Pathologique":"Normal"} <small>${tech}</small></h3><div class="fig">`;
+ const act=isP?`<button type="button" class="btn" id="bHint">Indice</button>`:`<button type="button" class="btn" id="bAnat">Anatomie</button>`;
+ const note=`<p class="atip"></p>`+(isP?'<p class="step"></p>':'');
+ const h=`<div class="panel ${isP?"p":"n"}"><h3>${isP?"Pathologique":"Normal"} <small>${demo(s)}</small>${act}</h3>${note}<div class="fig${isP&&defi?" defi":""}">`;
  if(!src)return h+placeholder(isP?"pathologique":"normale",r)+`</div></div>`;
- return h+`<div class="zw"><img alt="${isP?"Image pathologique":"Image normale"} : ${esc(r.dx)}" src="${src}" draggable="false">${isP?`<svg viewBox="0 0 ${s.w} ${s.h}" preserveAspectRatio="none" class="${hideArr?"hide":""}" aria-label="Annotations"></svg>`:""}</div></div></div>`;
+ const anatSvg=s&&s.w?`<svg class="anat" viewBox="0 0 ${s.w} ${s.h}" preserveAspectRatio="none" aria-label="Anatomie"></svg>`:"";
+ const ann=isP?`<svg class="ann ${hideArr?"hide":""}" viewBox="0 0 ${s.w} ${s.h}" preserveAspectRatio="none" aria-label="Annotations"></svg>`:"";
+ return h+`<div class="zw"><img alt="${isP?"Image pathologique":"Image normale"} : ${esc(r.dx)}" src="${src}" draggable="false">${anatSvg}${ann}</div></div></div>`;
+}
+const ANAT={"paroi":"#00E5FF","poumon-droit":"#7CFF4F","poumon-gauche":"#4DFFDF","coeur":"#FF4DFF","diaphragme":"#FF9F1C"};
+function anatColor(st){return st.couleur||ANAT[st.id]||"#FFFFFF";}
+function drawAnat(svg,side){
+ if(!svg||!side)return;
+ svg.innerHTML="";
+ const NS="http://www.w3.org/2000/svg";
+ (side.anatomie||[]).filter(st=>(+st.ordre||0)<=anatStep).forEach(st=>{
+  const g=document.createElementNS(NS,"g");
+  g.dataset.sid=st.id||st.nom||"";
+  g.dataset.nom=st.nom||"";
+  g.dataset.desc=st.description||"À vérifier";
+  const open=st.id==="diaphragme"||st.id==="paroi";
+  const pts=(st.contour||[]).map(pt=>`${pt[0]*side.w},${pt[1]*side.h}`).join(" ");
+  const halo=document.createElementNS(NS,open?"polyline":"polygon");
+  halo.setAttribute("class","halo");halo.setAttribute("points",pts);
+  const pl=document.createElementNS(NS,open?"polyline":"polygon");
+  pl.setAttribute("class","ln");pl.setAttribute("points",pts);
+  pl.setAttribute("stroke",anatColor(st));
+  pl.setAttribute("fill",open?"none":anatColor(st));
+  g.appendChild(halo);g.appendChild(pl);svg.appendChild(g);
+ });
+}
+function aspectScale(mod){
+ const m=(mod||"").toLowerCase();
+ if(/rx|radio/.test(m)) return "Radiographie : l'aspect attendu se dit opaque ou clair.";
+ if(/tdm|scanner|\bct\b/.test(m)) return "Scanner : l'aspect attendu se dit hypodense, isodense ou hyperdense.";
+ if(/irm|\bmr\b/.test(m)) return "IRM : l'aspect attendu précise le signal en T1, en T2 et dans les autres séquences du cliché.";
+ if(/echo|échograph|ultras|\bus\b/.test(m)) return "Échographie : l'aspect attendu se dit anéchogène, hypoéchogène ou hyperéchogène.";
+ return "Technique non précisée.";
+}
+function aspectOf(item){
+ const src=((item&&(item.aspect_source||item.source))||"").trim();
+ const texte=((item&&item.aspect)||"").trim();
+ const unver=!src||/^à vérifier$/i.test(src)||/^a verifier$/i.test(src);
+ if(!texte||unver) return {texte:"À vérifier", src:src||"À vérifier"};
+ return {texte, src};
+}
+function codeLegend(n,p){
+ const mod=(n&&n.modality)||(p&&p.modality)||"";
+ const seen=new Map();
+ [n,p].forEach(side=>((side&&side.anatomie)||[]).forEach(st=>{
+  const id=st.id||st.nom;
+  if(id&&!seen.has(id)) seen.set(id,st);
+ }));
+ const rows=[...seen.values()].sort((a,b)=>(+a.ordre||0)-(+b.ordre||0)).map(st=>{
+  const col=anatColor(st), asp=aspectOf(st);
+  return `<li><i style="background:${col}"></i><span><b>${esc(st.nom)}</b> — trait plein ${esc(col)}<br>Aspect : ${esc(asp.texte)}<br>Source : ${esc(asp.src)}</span></li>`;
+ }).join("");
+ const LESION=["#FF1744","#651FFF","#2962FF","#FF6D00","#C51162","#00B8D4","#AA00FF","#DD2C00"];
+ const lesions=((p&&p.arrows)||[]).map((a,i)=>{
+  const col=a.couleur||LESION[i%LESION.length], asp=aspectOf(a);
+  return `<li><i class="dot" style="border-color:${col}"></i><span><b>${esc(a.label||"Lésion")}</b> — pointillé ${esc(col)}<br>Aspect : ${esc(asp.texte)}<br>Source : ${esc(asp.src)}</span></li>`;
+ }).join("");
+ return `<section id="codeLegend" class="codeLegend"${codeOpen?"":" hidden"}><h3>Code couleur — aspect</h3><p>${esc(aspectScale(mod))} Sans source lue, l'aspect reste « À vérifier ».</p><ul>${rows||"<li>Aucune structure anatomique.</li>"}</ul><h4>Lésions</h4><ul>${lesions||"<li>Aucune lésion annotée.</li>"}</ul></section>`;
+}
+function lightStruct(id){
+ document.querySelectorAll("#db .anat g").forEach(g=>g.classList.toggle("on",!!id&&g.dataset.sid===id));
+ const g=id&&document.querySelector(`#db .anat g[data-sid="${CSS.escape(id)}"]`);
+ const html=g?`<b>${esc(g.dataset.nom)}</b> — ${esc(g.dataset.desc)}`:"";
+ document.querySelectorAll("#db .atip").forEach(t=>{t.textContent="";t.innerHTML=html;});
+ const tip=document.querySelector("#structTip");
+ if(tip){tip.hidden=!g;tip.innerHTML=html;}
+}
+function paintHint(p){
+ const el=document.querySelector("#db .step");if(!el||!p)return;
+ const ix=p.indices||{};
+ const nAr=(p.arrows||[]).length;
+ if(hintStep<=0)el.textContent=ix.diagnostic?`Diagnostic : ${ix.diagnostic}`:"";
+ else if(hintStep===1)el.textContent=`Région : ${ix.region||"À vérifier"}`;
+ else if(hintStep===2)el.textContent=`Signe : ${ix.signe||"À vérifier"}`;
+ else {const left=nAr-Math.min(nAr,hintStep-2);el.textContent=left>0?"Il reste d'autres anomalies.":"Lésion révélée.";}
 }
 let ro=null;
+let anatStep=0,hintStep=0;
 function show(){
  const r=view[cur];if(!r)return;
  const m=r.m||{},n=m.normal,p=m.patho;
- $("#dT").innerHTML=`${esc(r.dx)} <span class="badge ${STC[r.st]}">${STL[r.st]}</span>${m.test?'<span class="badge test">TEST</span>':""}<span class="meta">${esc(r.id)} · ${esc(r.region)} · ${esc(r.systeme)} · Cliché demandé : ${esc(r.cliche)} · ${cur+1}/${view.length}</span>`;
+ anatStep=0;hintStep=0;
+ $("#dT").innerHTML=`${esc(r.dx)} <span class="badge ${STC[r.st]}">${STL[r.st]}</span>${m.test?'<span class="badge test">TEST</span>':""}`;
  const arrows=p&&srcOf(p)?p.arrows:[];
  const legRoles=[...new Set(arrows.map(a=>a.role))];
- $("#db").innerHTML=`<div class="pair">${panel("normal",n,r)}${panel("pathologique",p,r)}</div>`+
-  (arrows.length?`<div class="leg" aria-label="Légende des rôles">${Object.keys(ROLES).map(k=>`<span style="${legRoles.includes(k)?"":"opacity:.45"}"><i style="background:var(--c-${k})"></i>${ROLES[k]}</span>`).join("")}<span class="muted">· Clic, toucher ou Entrée sur une flèche ou son numéro : nom de la lésion</span></div>
-<ul class="les" aria-label="Lésions annotées">${arrows.map((a,i)=>`<li><button type="button" data-a="${i}" aria-label="Lésion ${i+1}, ${esc(ROLES[a.role]||a.role)}"><span class="num" style="background:var(--c-${a.role})">${i+1}</span><span><span class="muted">${esc(ROLES[a.role]||a.role)} · confiance ${esc(a.confidence)}${a.confidence==="basse"?" · <span class='av'>À vérifier</span>":""}</span><span class="detail" hidden><b>${esc(a.label)}</b><br>Définition : ${esc(a.definition||"À vérifier")}${a.definition_source?`<br><span class="muted">Source : ${esc(a.definition_source)}</span>`:""}</span></span></button></li>`).join("")}</ul>`:"");
- $("#df").innerHTML=`<div class="cr">${credit("Normal",n)}${credit("Pathologique",p)}</div>`+
-  (m.pair_match?`<div><b>Appariement :</b> ${esc(m.pair_match)}</div>`:"")+
-  (m.a_verifier&&m.a_verifier.length?`<div class="av"><b>À vérifier :</b> ${m.a_verifier.map(esc).join(" · ")}</div>`:"")+
-  (m.errors&&m.errors.length?`<div class="err"><b>Non validé (contrôle automatique) :</b> ${m.errors.map(esc).join(" · ")}</div>`:"")+
-  (!r.m?`<div class="muted">Aucun manifeste pour ce diagnostic.</div>`:"");
+ const g=defi&&!hideArr&&arrows.length?grade(arrows,p.w||1,p.h||1):null;
+ const sh=$("#scoreHead");
+ if(g){sh.hidden=false;sh.textContent=`Score ${g.hits.length}/${arrows.length} · hors lésion ${g.falsePos}`;}
+ else sh.hidden=true;
+ const scoreBlock=()=>{
+  if(!defi||!arrows.length)return "";
+  if(!g)return `<div class="score" id="score"><b>Mode défi</b> — ${proposals.length} proposition${proposals.length>1?"s":""}. La normale est à gauche. Cliquez chaque lésion élémentaire à droite, puis révélez.</div>`;
+  const lines=arrows.map((a,i)=>{const ok=g.hits.includes(i);return `<div class="${ok?"":"miss"}">${ok?"Trouvée":"Manquée"} : <b>${esc(a.label)}</b></div>`;}).join("");
+  return `<div class="score" id="score"><b>Score ${g.hits.length}/${arrows.length}</b> · clics ${proposals.length} · hors lésion ${g.falsePos}${lines}</div>`;
+ };
+ const liste=defi
+  ? `<div class="leg">Regardez la normale à gauche. Cliquez sur l'image de droite là où vous voyez une lésion élémentaire (${arrows.length}), puis « Révéler et noter ».</div>${scoreBlock()}`
+  : `<div class="leg" aria-label="Légende des rôles">${Object.keys(ROLES).map(k=>`<span><i style="background:var(--c-${k})"></i>${ROLES[k]}</span>`).join("")}<span>· Le numéro ouvre la bande pointillée, le nom et la définition</span></div>
+<ul class="les" aria-label="Lésions annotées">${arrows.map((a,i)=>`<li><button type="button" data-a="${i}" aria-label="Lésion ${i+1}, ${esc(ROLES[a.role]||a.role)}"><span class="num" style="background:var(--c-${a.role})">${i+1}</span><span><span class="muted">${esc(ROLES[a.role]||a.role)} · confiance ${esc(a.confidence)}${a.confidence==="basse"?" · <span class='av'>À vérifier</span>":""}</span><span class="detail" hidden><b>${esc(a.label)}</b><br>Définition : ${esc(a.definition||"À vérifier")}${a.definition_source?`<br><span class="muted">Source : ${esc(a.definition_source)}</span>`:""}</span></span></button></li>`).join("")}</ul>`;
+ $("#db").innerHTML=`<div class="pair">${panel("normal",n,r)}${panel("pathologique",p,r)}</div><div id="structTip" class="structTip" hidden></div>${codeLegend(n,p)}`+(arrows.length?`<details class="more"><summary>Lésions</summary>${liste}</details>`:"");
+ const detail=[credit("Normal",n),credit("Pathologique",p),
+  m.pair_match?`<div><b>Appariement :</b> ${esc(m.pair_match)}</div>`:"",
+  (m.a_verifier&&m.a_verifier.length)?`<div class="av"><b>À vérifier :</b> ${m.a_verifier.map(esc).join(" · ")}</div>`:"",
+  (m.errors&&m.errors.length)?`<div class="err"><b>Non validé (contrôle automatique) :</b> ${m.errors.map(esc).join(" · ")}</div>`:"",
+  !r.m?`<div class="muted">Aucun manifeste pour ce diagnostic.</div>`:""].filter(Boolean).join("");
+ $("#df").innerHTML=detail?`<details class="more"><summary>Détails</summary>${detail}</details>`:"";
+ paintHint(p);
  $("#bPrev").disabled=cur<=0;$("#bNext").disabled=cur>=view.length-1;
- $("#bNames").disabled=$("#bHide").disabled=!arrows.length;
+ $("#bNames").disabled=defi||!arrows.length;
+ $("#bHide").disabled=defi||!arrows.length;
+ $("#bHide").setAttribute("aria-pressed",hideArr?"false":"true");
+ $("#bHide").textContent=hideArr?"Révéler les flèches":"Masquer les flèches";
+ $("#bNames").setAttribute("aria-pressed",showAll?"true":"false");
+ $("#bNames").textContent=showAll?"Masquer les noms":"Afficher tous les noms";
+ $("#bDefi").disabled=!arrows.length;
+ $("#bDefi").setAttribute("aria-pressed",defi?"true":"false");
+ $("#bDefi").textContent=defi?"Quitter le défi":"Mode défi";
+ $("#bCode").setAttribute("aria-pressed",codeOpen?"true":"false");
+ $("#bNote").hidden=!defi;
+ $("#bNote").disabled=!defi||!hideArr;
+ zooms=[];
  document.querySelectorAll("#db .fig").forEach(f=>{const zw=f.querySelector(".zw");if(zw)zoomable(f,zw);});
- const pf=document.querySelector("#db .panel.p .fig"),zw=pf&&pf.querySelector(".zw"),svg=zw&&zw.querySelector("svg");
+ const pf=document.querySelector("#db .panel.p .fig"),zw=pf&&pf.querySelector(".zw"),svg=zw&&zw.querySelector("svg.ann");
  if(ro){ro.disconnect();ro=null;}
+ const bAnat=$("#bAnat");
+ if(bAnat&&n)bAnat.onclick=()=>{
+  const layers=[...(n.anatomie||[]),...((p&&p.anatomie)||[])];
+  const max=layers.reduce((m,s)=>Math.max(m,+s.ordre||0),0);
+  anatStep=anatStep>=max?0:anatStep+1;
+  document.querySelectorAll("#db .anat").forEach(svg=>{
+   const side=svg.closest(".panel").classList.contains("n")?n:p;
+   drawAnat(svg,side);
+  });
+  lightStruct("");
+  bAnat.setAttribute("aria-pressed",anatStep>0?"true":"false");
+ };
+ document.querySelectorAll("#db .anat").forEach(svg=>{
+  svg.onpointermove=e=>{const g=e.target.closest("g[data-sid]");lightStruct(g?g.dataset.sid:"");};
+  svg.onpointerleave=()=>lightStruct("");
+ });
  if(svg){
   zw._side=p;
-  const draw=()=>{arrowSVG(p,svg);zw.querySelectorAll(".bub").forEach(b=>place(zw,b,p.arrows[+b.dataset.a]));};
+  const draw=()=>{
+   const nShow=hideArr?0:(hintStep>=3?Math.min((p.arrows||[]).length,hintStep-2):(p.arrows||[]).length);
+   const cut=Object.assign({},p,{arrows:(p.arrows||[]).slice(0,nShow)});
+   arrowSVG(cut,svg);zw.querySelectorAll(".bub").forEach(b=>place(zw,b,cut.arrows[+b.dataset.a]));
+  };
   const img=zw.querySelector("img");
   const go=()=>{draw();applyAll(zw,p);};
+  const bHint=$("#bHint");
+  if(bHint)bHint.onclick=()=>{
+   const nAr=(p.arrows||[]).length;
+   const max=2+Math.max(1,nAr);
+   hintStep=hintStep>=max?0:hintStep+1;
+   if(hintStep>=3){hideArr=false;showAll=false;}
+   else hideArr=true;
+   paintHint(p);
+   svg.classList.toggle("hide",hideArr);
+   go();
+   $("#bHide").setAttribute("aria-pressed",hideArr?"false":"true");
+   $("#bHide").textContent=hideArr?"Révéler les flèches":"Masquer les flèches";
+  };
   if(img.complete)go();else img.addEventListener("load",go,{once:true});
   ro=new ResizeObserver(()=>draw());ro.observe(img);
   const setDetail=(i,on)=>{document.querySelectorAll("#db .les button").forEach(b=>{const d=b.querySelector(".detail");if(d)d.hidden=!(on&&+b.dataset.a===i);});};
-  const toggle=i=>{const ex=zw.querySelector(`.bub[data-a="${i}"]:not(.compact)`);if(ex){ex.remove();if(showAll)bubble(zw,p,i,true);setDetail(i,false);}else{clearBubbles(zw,true);const c=zw.querySelector(`.bub.compact[data-a="${i}"]`);if(c)c.remove();bubble(zw,p,i,false);setDetail(i,true);}};
+  const toggle=i=>{
+   const panel=zw.closest(".panel");
+   const ex=panel&&panel.querySelector(`.bub.sheet[data-a="${i}"]`);
+   if(ex){ex.remove();opened.delete(i);draw();if(showAll&&!hideArr)bubble(zw,p,i,true);setDetail(i,false);}
+   else{clearBubbles(zw,true);opened.clear();opened.add(i);draw();bubble(zw,p,i,false);setDetail(i,true);}
+  };
   svg.addEventListener("click",e=>{const g=e.target.closest(".arw");if(g){e.stopPropagation();toggle(+g.dataset.a);}});
   svg.addEventListener("keydown",e=>{const g=e.target.closest(".arw");if(g&&(e.key==="Enter"||e.key===" ")){e.preventDefault();toggle(+g.dataset.a);}});
-  pf.addEventListener("click",e=>{if(pf.dataset.dragged)return;if(!e.target.closest(".arw,.bub,.zctl")){clearBubbles(zw,true);}});
-  document.querySelectorAll("#db .les button").forEach(b=>b.addEventListener("click",()=>{if(hideArr)return;toggle(+b.dataset.a);}));
+  pf.addEventListener("click",e=>{
+   if(pf.dataset.dragged)return;
+   if(e.target.closest(".zctl,.bub"))return;
+   if(defi&&hideArr&&!e.target.closest(".arw")){
+    const rct=img.getBoundingClientRect();
+    const x=(e.clientX-rct.left)/rct.width,y=(e.clientY-rct.top)/rct.height;
+    if(x>=0&&x<=1&&y>=0&&y<=1){
+     proposals.push([Math.round(x*10000)/10000,Math.round(y*10000)/10000]);
+     draw();
+     const sc=document.querySelector("#score");
+     if(sc)sc.innerHTML=`<b>Mode défi</b> — ${proposals.length} proposition${proposals.length>1?"s":""}. La normale est à gauche. Cliquez chaque lésion élémentaire à droite, puis révélez.`;
+     return;
+    }
+   }
+   if(!e.target.closest(".arw,.bub,.zctl")){opened.clear();draw();clearBubbles(zw,true);document.querySelectorAll("#db .les .detail").forEach(d=>d.hidden=true);}
+  });
+  document.querySelectorAll("#db .les button").forEach(b=>b.addEventListener("click",()=>toggle(+b.dataset.a)));
  }
 }
-function openAt(i,from){cur=i;lastFocus=from||document.activeElement;$("#ov").classList.add("on");$("#ov").setAttribute("aria-hidden","false");document.body.style.overflow="hidden";show();$("#dT").focus();}
+function resetCase(){hideArr=true;showAll=false;defi=false;proposals=[];opened=new Set();}
+function openAt(i,from){cur=i;resetCase();lastFocus=from||document.activeElement;$("#ov").classList.add("on");$("#ov").setAttribute("aria-hidden","false");document.body.style.overflow="hidden";show();$("#dT").focus();}
 function close(){$("#ov").classList.remove("on");$("#ov").setAttribute("aria-hidden","true");document.body.style.overflow="";if(ro){ro.disconnect();ro=null;}const r=view[cur];const b=r&&document.querySelector(`#tb button[data-i="${cur}"]`);(b||lastFocus||document.body).focus&&(b||lastFocus).focus();}
-function step(d){const j=cur+d;if(j>=0&&j<view.length){cur=j;show();}}
+function step(d){const j=cur+d;if(j>=0&&j<view.length){cur=j;resetCase();show();}}
 $("#bX").onclick=close;$("#bPrev").onclick=()=>step(-1);$("#bNext").onclick=()=>step(1);
 $("#ov").addEventListener("click",e=>{if(e.target.id==="ov")close();});
-$("#bNames").onclick=()=>{showAll=!showAll;$("#bNames").setAttribute("aria-pressed",showAll);$("#bNames").textContent=showAll?"Masquer les noms":"Afficher tous les noms";const zw=document.querySelector("#db .panel.p .zw");const p=view[cur].m&&view[cur].m.patho;if(zw&&p)applyAll(zw,p);};
-$("#bHide").onclick=()=>{hideArr=!hideArr;$("#bHide").setAttribute("aria-pressed",hideArr);$("#bHide").textContent=hideArr?"Afficher les flèches":"Masquer les flèches";const svg=document.querySelector("#db .panel.p svg");if(svg)svg.classList.toggle("hide",hideArr);const zw=document.querySelector("#db .panel.p .zw");const p=view[cur].m&&view[cur].m.patho;if(zw){clearBubbles(zw,false);if(!hideArr&&p)applyAll(zw,p);}};
+$("#bNames").onclick=()=>{if(defi)return;showAll=!showAll;show();};
+$("#bHide").onclick=()=>{hideArr=!hideArr;if(hideArr){opened.clear();showAll=false;}show();};
+$("#bLink").onclick=()=>{linkZoom=!linkZoom;$("#bLink").setAttribute("aria-pressed",linkZoom?"true":"false");if(linkZoom&&zooms[0])zooms.slice(1).forEach(z=>z.write(zooms[0].read()));};
+$("#bCode").onclick=()=>{codeOpen=!codeOpen;$("#bCode").setAttribute("aria-pressed",codeOpen?"true":"false");const el=document.querySelector("#codeLegend");if(el)el.hidden=!codeOpen;};
+$("#bDefi").onclick=()=>{defi=!defi;proposals=[];opened=new Set();showAll=false;if(defi)hideArr=true;show();};
+$("#bNote").onclick=()=>{if(!defi||!hideArr)return;hideArr=false;const p=view[cur].m&&view[cur].m.patho;opened=new Set(((p&&p.arrows)||[]).map((_,i)=>i));show();};
 document.addEventListener("keydown",e=>{
  if(!$("#ov").classList.contains("on"))return;
- if(e.key==="Escape"){e.preventDefault();const zw=document.querySelector("#db .panel.p .zw");if(zw&&zw.querySelector(".bub:not(.compact)")){clearBubbles(zw,true);return;}close();return;}
+ if(e.key==="Escape"){e.preventDefault();const zw=document.querySelector("#db .panel.p .zw");if(zw&&zw.closest(".panel").querySelector(".bub.sheet")){clearBubbles(zw,true);opened.clear();const svg=zw.querySelector("svg.ann");const pp=view[cur]&&view[cur].m&&view[cur].m.patho;if(svg&&pp)arrowSVG(pp,svg);document.querySelectorAll("#db .les .detail").forEach(d=>d.hidden=true);return;}close();return;}
  if(e.target.closest&&e.target.closest("input,select,textarea"))return;
  if(e.key==="ArrowLeft"){e.preventDefault();step(-1);}else if(e.key==="ArrowRight"){e.preventDefault();step(1);}
  else if(e.key==="Tab"){const f=[...$("#dlg").querySelectorAll('button:not([disabled]),a[href],[tabindex="0"],h2[tabindex]')].filter(x=>x.offsetParent!==null||x.closest("svg"));if(!f.length)return;const a=f[0],z=f[f.length-1];if(e.shiftKey&&document.activeElement===a){e.preventDefault();z.focus();}else if(!e.shiftKey&&document.activeElement===z){e.preventDefault();a.focus();}}
