@@ -9,7 +9,7 @@
 - IMG-243 relu après segmentation : le contour suit le champ parenchymateux (bord du secteur et ligne cutanée), le point rouge est dedans, ce n'est plus un décagone. Capture `captures-interface/segment/IMG-243.png`. Reste partiel (sexe du testicule non écrit).
 - Essais non retenus à l'œil : IMG-023 (tout le cerveau), IMG-061 (la moitié de la mandibule), IMG-064 (la flèche incrustée). Ils ne sont pas écrits dans les manifestes.
 - Lots 1, 2 et 4 ont rendu (0, 0 et 2 complets annoncés). Le lot 3 a ensuite posé IMG-235 en complet. Relus : IMG-235, IMG-257 et IMG-267 sont des polygones réguliers, pas le bord de la lésion. Les trois sont repassés en partiel.
-- [Contrôle à l'œil des preuves d'adulte](bc-4f77b9e3-02f6-5e6e-b53f-3ec179f6a4f1) a rejeté les signes non conclusifs. IMG-136 patho et IMG-250 patho sont donc « À vérifier ». IMG-001 normal, IMG-134 et IMG-250 normal restent adultes par la légende (âge écrit).
+- Contrôle à l'œil des preuves d'adulte (`bc-4f77b9e3-02f6-5e6e-b53f-3ec179f6a4f1`) : les signes non conclusifs sont rejetés. IMG-136 patho et IMG-250 patho sont donc « À vérifier ». IMG-001 normal, IMG-134 et IMG-250 normal restent adultes par la légende (âge écrit).
 
 ## Faits (précédent)
 
