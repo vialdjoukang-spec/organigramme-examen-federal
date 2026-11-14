@@ -31,3 +31,8 @@ Périmètre EXP-076 → EXP-039, ordre décroissant. Rien n'est inventé. Repris
 - EXP-049 partiel. Mobitz II, Rosengarten : PR stable autour de l'onde P non conduite. La photo Heilman ne montrait pas assez clairement l'onde bloquée.
 - EXP-048 partiel. Tachycardie à QRS larges, Ksheka, CC BY-SA 2.5. Pas de capture ni de fusion.
 - EXP-047 partiel. Onde delta, Ksheka, CC BY-SA 3.0. Pas de crise ni d'étude électrophysiologique. Open-i hors licence.
+- EXP-046 partiel. Ondes F en dents de scie, ECGpedia, flèches de la source, conduction 2:1 et 3:1.
+- EXP-045 partiel. Fibrillation auriculaire, ECGpedia : QRS irréguliers sans onde P. Pas de Holter.
+- EXP-044 introuvable. Pas de chute d'amplitude de PES ou de PEM peropératoire libre.
+- EXP-043 introuvable. Pas de PES ni de PEM avec latence centrale allongée.
+- EXP-042 introuvable. Le tilt libre est un POTS (fréquence à 147/min) ou des photos de manœuvre, pas une hypotension sans accélération.
