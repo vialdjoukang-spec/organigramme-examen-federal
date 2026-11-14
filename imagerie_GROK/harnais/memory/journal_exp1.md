@@ -34,7 +34,7 @@ Open-i, pour ces cinq requêtes, renvoie le titre « There seems to be an error 
 
 ## EXP-138 à EXP-134
 
-- EXP-138 introuvable. HGPO Powner 2014 relue : à 120 min les glycémies sont vers 6 mmol/L, pas un diabète. Pas d'autre courbe.
+- EXP-138 introuvable. HGPO de Powner et Jeffery relue : à 120 min les glycémies sont vers 6 mmol/L, pas un diabète. Pas d'autre courbe.
 - EXP-137 introuvable. Freinage, cortisol salivaire, cortisol libre : rien. DST Global.png est un logo.
 - EXP-136 introuvable. Synacthène et stimulation à l'ACTH : rien.
 - EXP-135 introuvable. Oxymètres et courbe de dissociation, pas une oxymétrie de nuit.
