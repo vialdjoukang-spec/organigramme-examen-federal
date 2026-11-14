@@ -75,3 +75,8 @@ IMG-188 | introuvable | pas de TDM artérielle de tumeur neuroendocrine sous lic
 IMG-187 | partiel | Hellerhoff 2012, TIPMP des canaux secondaires en bili-IRM | pas de flèche, divisum associé
 IMG-186 | partiel | Hellerhoff 2010, adénocarcinome pancréatique hypodense | une seule phase
 IMG-185 | partiel | Heilman 2016, calculs canalaires calcifiés | mention « sans injection » absente de la légende
+IMG-184 | partiel | Hellerhoff 2023, pancréatite exsudative fléchée, sans nécrose | délai de 72 heures non inscrit
+IMG-183 | introuvable | pas de bili-IRM hépatospécifique de fuite biliaire
+IMG-182 | introuvable | pas d'échographie d'atrésie ni de kyste du cholédoque
+IMG-181 | partiel | Sumiya 2021, polype de 10 mm du collet vésiculaire | cancer non inscrit sur l'image
+IMG-180 | introuvable | pas de bili-IRM ; cholangiographie et MRCP hors licence écartées

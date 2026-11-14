@@ -59,3 +59,7 @@ Cinq diagnostics : appendicite, gaz veineux hépatique, deux infarctus spléniqu
 ## Passage IMG-189 à IMG-185
 
 Cinq diagnostics : pancréatite auto-immune fléchée, TIPMP en bili-IRM, adénocarcinome hypodense et calculs canalaires en partiel ; tumeur neuroendocrine introuvable. Relectures pour inclure la flèche de la glande et le foyer liquidien de la MIP. Durée approximative : 25 minutes (estimation). Open-i a répondu ; les figures de tumeur neuroendocrine étaient hors licence (estimation).
+
+## Passage IMG-184 à IMG-180
+
+Cinq diagnostics : pancréatite exsudative et polype vésiculaire en partiel ; fuite biliaire, atrésie ou kyste du cholédoque, et cholangite sclérosante introuvables. Relecture pour tenir la coulée hors de l'estomac et le polype dans le panneau mode B. Durée approximative : 25 minutes (estimation). Open-i a répondu ; les MRCP de cholangite sclérosante étaient hors licence (estimation).
