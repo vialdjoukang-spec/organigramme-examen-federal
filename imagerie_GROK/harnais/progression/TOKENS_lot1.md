@@ -10,3 +10,12 @@ Estimation, pas une mesure d'horloge.
 - Épargné par les scripts (estimation) : les requêtes Commons, le cache disque, la mise au format JPEG et `validate.py` ont évité de réécrire la licence, la taille et le polygone à la main. Open-i est tombé en page d'erreur après IMG-344 ; le contournement par Europe PMC (texte et figure CC BY) a été lu, pas deviné. Le gain chiffré n'est pas mesuré.
 
 Reprise : IMG-340.
+
+## Passe suivante, IMG-340 à IMG-336
+
+- Éléments traités : 5 diagnostics. Quatre partiels, un introuvable. Aucun complet.
+- Appels de jugement visuel : environ 20 lectures (clichés, en-têtes, aperçus de contour). Estimation.
+- Durée : une passe, non chronométrée. Estimation.
+- Épargné par les scripts (estimation) : métadonnées Commons, JPEG et validation. Open-i a de nouveau renvoyé une page d'erreur sur l'eFAST. Le gain chiffré n'est pas mesuré.
+
+Reprise : IMG-335.
