@@ -331,6 +331,7 @@ def check(m, dx, errs, warns):
     if st == "complet" and not any(a.get("role") == "principale" for a in arrows):
         errs.append("complet sans flèche role=principale")
     av = " ".join(m.get("a_verifier") or []).lower()
+    colors = []
     for i, a in enumerate(arrows, 1):
         t = f"flèche {i}"
         if not inunit(a.get("tip")): errs.append(f"{t}: tip hors [0,1] ou absent")
@@ -366,6 +367,19 @@ def check(m, dx, errs, warns):
             errs.append(f"{t}: polygone trop régulier (rayons et angles quasi constants)")
         if c == "basse" and (a.get("label") or "").strip().lower() not in av:
             errs.append(f"{t}: confiance basse mais «{a.get('label')}» absent de a_verifier")
+        col = str(a.get("couleur") or "").strip().upper()
+        if col:
+            colors.append(col)
+    if len(colors) != len(set(colors)):
+        errs.append("couleurs de lésion en double sur la même image")
+    anat_cols = set()
+    for side in (n, p):
+        for stc in (side or {}).get("anatomie") or []:
+            if isinstance(stc, dict) and stc.get("couleur"):
+                anat_cols.add(str(stc["couleur"]).strip().upper())
+    for col in colors:
+        if col in anat_cols:
+            errs.append(f"couleur de lésion {col} identique à une structure anatomique")
     if st == "partiel" and not (m.get("pair_match") or m.get("a_verifier")):
         warns.append("partiel sans explication (pair_match/a_verifier)")
 

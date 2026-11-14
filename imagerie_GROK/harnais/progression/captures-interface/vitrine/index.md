@@ -1,0 +1,26 @@
+# Vitrine IMG-134 — pneumothorax, relue le 14.11.2026
+
+- `01-vue-initiale.png` — Bureau. Âges 30 et 23 ans, Source, diagnostic, zoom visible, aucune ligne.
+- `02-anatomie-paroi.png` — Étape 1, paroi cyan des deux côtés.
+- `03-anatomie-poumons.png` — Étape 2, poumons vert et turquoise, même couleur à gauche et à droite.
+- `04-anatomie-coeur.png` — Étape 3, silhouette cardiaque magenta. Le contour suit le médiastin, un peu anguleux à la pointe.
+- `05-anatomie-diaphragme.png` — Étape 4, coupoles orange sur les bases.
+- `06-survol-poumon-droit-gauche.png` — Survol à gauche : les deux poumons droits s'allument, bulle blanche sur fond opaque.
+- `07-survol-poumon-gauche-droite.png` — Survol à droite : l'homologue gauche s'allume aussi.
+- `08-survol-coeur.png` — Survol du cœur, remplissage magenta des deux côtés, description lisible.
+- `09-survol-paroi.png` — Survol de la paroi, remplissage cyan des deux côtés.
+- `10-survol-diaphragme-droite.png` — Survol du diaphragme depuis la pathologique, trait orange plus marqué, description complète.
+- `11-defi-indice-1-diagnostic.png` — Mode défi, indice 1 : Pneumothorax, flèches cachées.
+- `12-defi-indice-2-region.png` — Indice 2 : champ pulmonaire droit.
+- `13-defi-indice-3-signe.png` — Indice 3 : ligne pleurale, sans vaisseau au-delà.
+- `14-revelation.png` — Flèche rouge révélée, numéro blanc sur pastille sombre. Une seule lésion.
+- `15-bulle-lesion.png` — Bande pointillée rouge avec halo sombre, définition entière jusqu'à « Confiance : haute ».
+- `16-autres-lesions.png` — « Lésion révélée. » Aucune autre lésion n'est visible sur ce cliché.
+- `17-zoom-plus.png` — Zoom + sur la pathologique seule. Le trait pointillé suit l'image.
+- `18-zoom-lie.png` — Zoom lié : les deux côtés grandissent ensemble, le contour reste sur la lésion.
+- `19-survol-source.png` — Bulle Source opaque : auteur, CC0, URL et légende entiers.
+- `20-mobile-initiale.png` — Mobile. Âge, sexe, Source, zoom. La pathologique est sous la normale.
+- `21-mobile-anatomie.png` — Mobile, les quatre couches, mêmes couleurs des deux côtés.
+- `22-mobile-survol.png` — Mobile, poumon droit allumé des deux côtés.
+- `23-mobile-bulle.png` — Mobile, bande rouge et définition entière, plus la bulle du poumon droit.
+- `24-mobile-source.png` — Mobile, bulle Source entière, sans déborder.
