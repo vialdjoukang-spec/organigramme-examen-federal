@@ -28,3 +28,11 @@ Normale absente (recherche libre sans paire de même sexe) : IMG-142, IMG-143, I
 ## Contours
 
 Les polygones d'au plus 6 sommets ont été redessinés (≥ 8 sommets distincts) et relus sur `progression/captures-interface/lot3/IMG-*.png`. IMG-229, IMG-149, IMG-150, IMG-152, IMG-163, IMG-170, IMG-171, IMG-179 avaient déjà une silhouette ≥ 8 sommets, relue, laissée en place.
+
+## Adulte — règle du 14.11.2026 10:48
+
+Le même sexe n'est exigé que pour le bassin, le sein et les organes génitaux. Ailleurs, adulte des deux côtés suffit. Silhouettes non redessinées.
+
+`adulte` = oui si la légende donne un âge ≥ 18 ou le mot adulte, ou si un signe de maturité est visible (os sans cartilage de croissance, calibre aortique adulte). Sinon les deux champs valent « À vérifier ». Un rein de 9,34 cm recoupe une taille d'adolescent : IMG-228, IMG-230 et IMG-231 normales restent « À vérifier ».
+
+Complet : IMG-235 (78 ans et lumière aortique 1,88 cm, coupe relue). IMG-167 et IMG-168 sont adultes des deux côtés mais restent partiels (phase différente, définition non sourcée).
