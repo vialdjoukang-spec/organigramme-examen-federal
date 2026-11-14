@@ -163,6 +163,8 @@ _remplacements_rail = [
      '#vue{position:fixed;top:var(--ht);right:0;bottom:0;left:var(--mw);z-index:20;background:#fff;display:none;flex-direction:column}'),
     ('#fen{position:fixed;top:0;right:0;bottom:0;left:var(--mw);z-index:30;background:rgba(10,12,16,.62);display:none;align-items:flex-start;justify-content:center;padding:4vh 12px;overflow:auto}',
      '#fen{position:fixed;top:var(--ht);right:0;bottom:0;left:var(--mw);z-index:30;background:rgba(10,12,16,.62);display:none;align-items:flex-start;justify-content:center;padding:4vh 12px;overflow:auto}'),
+    ('@media(max-width:520px){main{padding:10px}.grille{grid-template-columns:1fr}.sous{font-size:.76rem;line-height:1.3}h1{font-size:1rem}#theme .tx{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}nav.on button{padding:6px 10px}}',
+     '@media(max-width:520px){main{padding:10px}.grille{grid-template-columns:1fr}.sous{font-size:.76rem;line-height:1.3}h1{font-size:1rem}#theme .tx{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}.hl{flex-direction:column;align-items:stretch;gap:4px}#theme{align-self:flex-end;margin-bottom:0}nav.on{flex:none;width:100%;max-width:100%;overflow:visible;flex-wrap:wrap}nav.on button{flex:1 1 45%;white-space:normal;text-align:center;padding:6px 8px;line-height:1.15}}'),
 ]
 for _ancien, _nouveau in _remplacements_rail:
     _tete = remplacer_une_fois(_tete, _ancien, _nouveau, 'luxe ' + _ancien[:48])
