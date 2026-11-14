@@ -2,6 +2,16 @@
 
 ## Faits
 
+- Audit vitrine IMG-134, 14.11.2026, 24 captures. Rien n'est complet.
+- Couleurs identiques des deux côtés : paroi cyan, poumon droit vert, poumon gauche turquoise, cœur magenta, diaphragme orange.
+- Survol bureau : poumon droit, poumon gauche et cœur s'allument des deux côtés, bulles entières. Le diaphragme reste sans remplissage. La paroi est le cadre du cliché : le survol teinte toute l'image.
+- Lésion en pointillé rouge, distincte de l'anatomie, une seule. Le trait entoure l'hémithorax et passe à côté de la ligne pleurale.
+- Zoom lié : les deux côtés grandissent et le pointillé reste sur la lésion. Le zoom + seul fait sortir le trait du cadre. Le marqueur R est coupé par le zoom lié.
+- Textes entiers : survols bureau, indices 2 et 3, « Lésion révélée. », définition jusqu'à « Confiance : haute », bulles Source (auteur, CC0, URL, légende).
+- À reprendre : l'indice 1 n'affiche pas « Pneumothorax ». Sur la bulle de lésion, la ligne d'âge sort du cadre.
+- Le survol mobile allume les poumons sans bulle. Le cliché pathologique mobile est coupé en bas (20, 21, 22, 24).
+- 14.11.2026 11:17, vitrine IMG-134. Anatomie segmentée par `segment.py` (scikit-image, SAM absent), recalée puis ressegmentée. Mêmes identifiants et mêmes couleurs des deux côtés. Survol lié. Lésion en pointillé rouge, distincte. Zoom lié. 24 captures relues dans `progression/captures-interface/vitrine/`, index joint. Le gril costal automatique était trop fragmenté : il n'est pas affiché. Le cœur suit le médiastin, un peu anguleux à la pointe. Une seule lésion visible.
+- 14.11.2026 11:03, contraste. Le texte courant est blanc (#FFFFFF) ou #F2F4F7, les liens sont #A8DCFF, les bulles sont opaques. `scripts/contraste.py` refuse un texte sous 7:1 et un petit libellé sous 4,5:1. `build_app.py` ne génère plus la page si ce contrôle échoue. Captures relues : `captures-interface/IMG-001_desktop_anatomie.png`, `IMG-001_desktop_indice.png`, `IMG-001_desktop_source.png`, et les trois vues mobiles.
 - Audit 14.11.2026, six captures relues à l'œil. Rien n'est complet.
 - IMG-001 anatomie bureau : globes en ellipses qui débordent ; ethmoïde qui sort des cellules ; voûte et cerveau qui coupent l'os et le parenchyme. Survol « Globe droit… (À vérifier) » entier. « 18 ans · homme · Source » ; pathologique « À vérifier · Source », sans âge. En permanence : « AVC ischémique hyperaigu », cartouche « Right dense MCA sign », flèche blanche. Pas de nom, de date ni d'établissement (cache noir).
 - IMG-001 indice bureau : mêmes couches. « Lésion révélée. » entier. Définition entière jusqu'à « Confiance : haute ». La ligne d'âge et de sexe est hors cadre. Le cartouche reste.
