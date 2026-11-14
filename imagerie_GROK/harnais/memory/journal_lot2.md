@@ -21,4 +21,5 @@ Périmètre réel de ce worktree (lot3, IMG-172 → IMG-087). Ordre décroissant
 - IMG-159 | partiel | James Heilman, CC BY-SA 3.0, thrombose cave supérieure sur cathéter, flèche d'auteur ; normale Häggström CC0 coupe 24 | piège : niveau du cœur, pas l'orifice thoracique. Fichier avec date gravée rejeté.
 - IMG-158 | partiel | Takeishi 2018, J Nucl Cardiol, PMC7031167, CC BY 4.0, FDG de la racine aortique (Takayasu) ; normale Opoka-Winiarska 2020, PMC7316673 | piège : TEP-IRM contre TEP-TDM ; artérite gigantocellulaire absente.
 - IMG-157 | partiel | Hsu 2014, J Cardiothorac Surg, PMC4234843, CC BY 4.0, hématome de l'aorte descendante ; normale Häggström | piège : pas de série sans injection ; ulcère pénétrant absent ; confiance basse.
-- IMG-156 | introuvable | Commons vide ; Open-i en CC BY-NC-ND, rejeté | piège : licence non blanche. Reprise à IMG-155.
+- IMG-156 | introuvable | Commons vide ; Open-i en CC BY-NC-ND, rejeté | piège : licence non blanche.
+- IMG-155 | partiel | James Heilman, CC BY-SA 3.0, anévrisme thoracique mesuré 73 mm ; normale Häggström coupe 24 | piège : niveau différent, phase non nommée. Reprise à IMG-154.

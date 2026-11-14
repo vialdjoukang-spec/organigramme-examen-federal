@@ -36,3 +36,10 @@ Les durées et les appels évités sont des estimations, marquées comme telles.
 - Appels de jugement visuel : environ 10 lectures (mammographies CC et MLO, deux TDM caves dont une rejetée pour date, TEP pathologique et normale, hématome et son contour déplacé). Estimation.
 - Durée : une passe. Estimation : les catégories Commons et une recherche Open-i ont suffi ; pas de second tour sur IMG-156.
 - Épargné par les scripts (estimation) : `fetch_openi.py` a marqué d'un `!` les licences NC-ND de la lésion traumatique de l'aorte, sans téléchargement. `validate.py` a contrôlé les cinq manifestes en une commande.
+
+## IMG-155
+
+- Éléments traités : 1 diagnostic, partiel. Le sac mesuré 73 mm a été revu sur l'aperçu après resserrement du contour.
+- Appels de jugement visuel : 2 lectures. Estimation.
+- Durée : courte, l'image était déjà téléchargée. Estimation.
+- Épargné par les scripts (estimation) : la recherche de pixels jaunes de la mesure « 73 mm » a placé le contour sans nouvelle requête.
