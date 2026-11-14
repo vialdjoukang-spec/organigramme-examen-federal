@@ -38,4 +38,9 @@ Périmètre réel de ce worktree (lot3, IMG-172 → IMG-087). Ordre décroissant
 - IMG-142 | partiel | Eckert 2015, IJMS, CC BY 4.0, sténose serrée de l'IVA au coroscanner | piège : marque HNCV ; pas de normale.
 - IMG-141 | partiel | Hellerhoff, CC BY-SA 3.0, hernie diaphragmatique gauche du nouveau-né | piège : pas de thorax néonatal normal.
 - IMG-140 | partiel | Jto410, CC BY-SA 3.0, TDM sagittale, rupture de l'œsophage distal | piège : pas d'opacification orale hydrosoluble.
-- IMG-139 | partiel | Pota 2018, J Med Case Rep, PMC5834850, CC BY 4.0, médiastinite nécrosante | piège : la collection vue est surtout pleurale ; confiance basse. Reprise à IMG-138.
+- IMG-139 | partiel | Pota 2018, J Med Case Rep, PMC5834850, CC BY 4.0, médiastinite nécrosante | piège : la collection vue est surtout pleurale ; confiance basse.
+- IMG-138 | partiel | Kurukumbi 2008, J Med Case Rep, CC BY 2.0, thymome nécrotique du médiastin antérieur ; normale Häggström coupe 24 | piège : lymphome, tératome et goitre absents.
+- IMG-137 | partiel | Yale Rosen, CC BY-SA 2.0, plaques pleurales calcifiées et cryptococcose | piège : le nodule pulmonaire n'est pas une plaque ; injection non écrite.
+- IMG-136 | partiel | Hellerhoff, CC BY-SA 3.0, mésothéliome pleural droit en manchon ; normale Häggström | piège : métastases pleurales absentes.
+- IMG-135 | partiel | Cevik, CC BY 3.0, hémothorax droit sous warfarine | piège : injection non visible. Le chiffre 114 n'est pas un nom.
+- IMG-133 | partiel | Hellerhoff, CC BY-SA 4.0, empyème gauche avec gaz, TDM injectée | piège : la normale n'est pas à la base. Reprise à IMG-131 (IMG-134 et IMG-132 déjà faits).

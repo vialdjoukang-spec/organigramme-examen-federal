@@ -71,3 +71,10 @@ Les durées et les appels évités sont des estimations, marquées comme telles.
 - Appels de jugement visuel : environ 10 lectures (rehaussement tardif, sténose de l'IVA, hernie néonatale, deux TDM de Boerhaave, médiastinite et contour resserré deux fois). Estimation.
 - Durée : une passe. Estimation : Open-i a donné des licences NC pour l'infarctus et une page d'erreur pour la médiastinite.
 - Épargné par les scripts (estimation) : `fetch_commons.py` a trouvé le fichier « 4CH IR infarct » et la catégorie Boerhaave ; `validate.py` a contrôlé les cinq manifestes sans erreur.
+
+## IMG-138, IMG-137, IMG-136, IMG-135, IMG-133
+
+- Éléments traités : 5 diagnostics, tous partiels. IMG-134 était déjà fait.
+- Appels de jugement visuel : environ 12 lectures (thymome et son contour remonté, plaques et recadrage, mésothéliome ramené sur la paroi, hémothorax, empyème avec gaz). Estimation.
+- Durée : une passe. Estimation : Open-i a surtout renvoyé des licences non blanches.
+- Épargné par les scripts (estimation) : `fetch_commons.py cat` a listé les thymomes et les empyèmes ; `validate.py` a accepté les écarts de phase sans erreur.
