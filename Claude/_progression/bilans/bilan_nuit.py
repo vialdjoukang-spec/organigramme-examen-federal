@@ -16,7 +16,7 @@ CAP = [('Imagerie : vrai cliché, repères numérotés', 'recensement/captures_v
 LIGNES = [  # bloc, fiches, état, détail
  ('Imagerie : textes (examen de référence, autres, syndrome, traitement)', '344', 'audit-ok', '5 lots, 2 tours chacun'),
  ('Imagerie : clichés réels repérés', '314 pathologiques, dont 194 paires', 'audit-ok', '30 introuvables en libre, déclarés'),
- ('Explorations fonctionnelles : textes (lecture, valeurs normales, calculs)', '153', 'audit-ok', 'tracés réels : 84 posés (72 paires), 26 introuvables ; audit des tracés en cours'),
+ ('Explorations fonctionnelles : textes (lecture, valeurs normales, calculs)', '153', 'audit-ok', 'tracés réels : 82 posés (70 paires), audit-ok ; 28 introuvables en libre, déclarés'),
  ('Sémiologie : Status (examen par temps, manœuvres, version CS)', '35', 'audit-ok', '56 images réelles ; gestes manquants à photographier'),
  ('Sémiologie : Syndromes cliniques', '81', 'audit-ok', 'doses AIPS mot pour mot'),
  ('Sémiologie : Anamnèse (trame, spéciales, 60 motifs)', '68', 'audit-ok', 'axes ASSM, drapeaux rouges, ICE'),
@@ -49,7 +49,7 @@ figure{{margin:14px 0}}figure img{{max-width:100%;border:1px solid #999}}figcapt
 <li><b>Images intimes</b> (S-11 seins, S-14, S-16, lividités) : masquées par une fenêtre occultante ; à garder ou remplacer par une figurante habillée ?</li>
 <li><b>Gestes à photographier</b> : 13 gestes neurologiques et une vingtaine de manœuvres n'existent pas en image libre (liste dans <code>recensement/BESOINS_IMAGES.html</code> et dans chaque fiche Status).</li>
 <li><b>Anatomie</b> : seul sous-onglet non commencé (riche en images) ; je propose de l'ouvrir après ton feu vert.</li></ul>
-<h2>Ce qui tourne encore</h2><ul><li>Audit des 84 tracés réels posés cette nuit.</li><li>Recherche Commons complémentaire (script gratuit, lent).</li></ul>
+<h2>Ce qui tourne encore</h2><ul><li>Recherche Commons complémentaire (script gratuit, lent).</li><li>Recherche Commons complémentaire (script gratuit, lent).</li></ul>
 <h2>Captures</h2>{caps}"""
 open('bilans/BILAN_NUIT_14_11.html', 'w', encoding='utf-8').write(page)
 print('ok')
