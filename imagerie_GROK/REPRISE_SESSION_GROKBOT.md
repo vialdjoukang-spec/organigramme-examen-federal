@@ -1,6 +1,6 @@
 # Reprise de session — imagerie_GROK
 
-**Dernière mise à jour :** samedi 14 novembre 2026, 14:17 (Europe/Zurich). Utilisation de la session précédente : 81,8 %. Ce fichier est sur `main`, dans le dossier de travail `imagerie_GROK/`. Il sert à relancer une nouvelle session Grok Bot si la précédente s’arrête sans prévenir.
+**Dernière mise à jour :** samedi 14 novembre 2026, 18:20 (Europe/Zurich). Utilisation : 93,3 % (limite hebdomadaire). **VERSION FINALE (FINALE)** : seuil de 90 % dépassé. Ce fichier est sur `main`, dans `imagerie_GROK/`. Il sert à relancer une nouvelle session Grok Bot.
 
 ---
 
@@ -151,6 +151,18 @@ Statut : tous les agents vitrine sont terminés. Les agents vitrine ne font pas 
 
 ---
 
+## FedMed (état au 14 novembre 2026, 18:20, Europe/Zurich) — FINALE
+
+Projet : fusionner les 396 fenêtres d’imagerie du fichier Drive de Vial `PROGRESSION__FedMed.html` (id `1mEge7gsd_47rtEgmXyYNYWcWuSB9-XEw`, sha256 d’origine `92efecc2…`). Agent cloud `bc-63255fd4-e7f1-5dac-9d52-54a8b84fbd3d`, branche `leona/fedmed-fenetres`, dossier `imagerie_GROK/fedmed/` (écriture uniquement là ; pas de PR ni de fusion par cet agent). Journal : `imagerie_GROK/fedmed/JOURNAL.md` ; contrôle : `CONTROLE.md` ; résumé : `PROGRESSION.md`.
+- Dernier commit de la branche : `c157ab74` (14 nov, 16:49 UTC) « armée d’éclaireurs et porte d’âge assouplie ».
+- 396 / 396 fenêtres fusionnées ; sortie `fedmed/sortie/PROGRESSION__FedMed.html` (59 770 730 octets, sha256 `c0ce0886…950b`), console vide, Atkinson Hyperlegible, cartes #F3FAFD / bordure #87CEEB.
+- Normales : 110 conservées (adulte attesté), 4 remplacées (femme de 21 ans, CC0), 146 d’aspect adulte restaurées (« âge non documenté (adulte d’aspect) »), 10 de moins de 18 ans retirées. IMG-134 retracée ; IMG-157 : voile rogné au thorax.
+- 60 manifestes partiels injectés ; 100 introuvables listés ; 129 fenêtres encore sans normale.
+- Décision de Vial (14 nov, 17:12) : garder les 156 normales avec la mention d’âge non documenté, retirer seulement les non adultes avérés.
+- **À faire :** remplacer le fichier Drive. Le remplacement en place est impossible (`update_file_content` limité à 1 Mo). Plan : renommer l’original en `PROGRESSION__FedMed__original_20261114.html`, téléverser la sortie avec UploadFile à la racine sous `PROGRESSION__FedMed.html`, puis donner le nouveau lien à Vial (partage inchangé).
+- Captures FedMed : `imagerie_GROK/fedmed/captures/` (IMG-134, IMG-136, IMG-001, IMG-267, IMG-166, IMG-168, IMG-157, IMG-159, IMG-209, IMG-219, IMG-220, EXP-001, EXP-002, EXP-024, EXP-032).
+
+
 ## 5. Prochaines étapes (dans l’ordre)
 
 0. Attendre la fin de bc-ccc3189a (legion.py, entrant/, récepteur), puis relire son résultat.
@@ -160,7 +172,10 @@ Statut : tous les agents vitrine sont terminés. Les agents vitrine ne font pas 
 4. Refaire les contours par segmentation pour le reste des paires.
 5. Traiter les FTE, puis les EXP.
 6. Intégrer les images que Vial trouvera pour les « introuvables ».
+7. FedMed : remplacer le fichier Drive (voir section FedMed), poursuivre la recherche de normales (129 manquantes).
+8. Au 14 nov 18:20 : PR #726 ouverte, mergeable, 76 commits, 863 fichiers ; CI non confirmée verte.
 
 Tenir ce fichier à jour sur `main` à chaque avancée notable, et automatiquement quand l’utilisation de la session approche 90 %.
 
-**Dernière mise à jour :** samedi 14 novembre 2026, 14:17 (Europe/Zurich). Utilisation de la session précédente : 81,8 %.
+
+**Dernière mise à jour :** samedi 14 novembre 2026, 18:20 (Europe/Zurich). Utilisation : 93,3 %. FINALE.
