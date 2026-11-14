@@ -1,6 +1,6 @@
 # IMG-136 — notes de correctif, 14.11.2026
 
-Le cœur (`build_app.py`, `app_template.html`, `segment.py`) n'a pas été modifié. La vitrine tourne avec le gabarit déjà en place. Deux limites viennent du cœur.
+Le correctif 1 ci-dessous est intégré dans `build_app.py` le 14.11.2026. La légende d'IMG-136 affiche l'aspect et la source HAS du manteau. La normale a été remplacée par une coupe axiale unique (Häggström, 37 ans, CC0) : l'ancien fichier était un montage.
 
 ## 1. L'aspect sourcé de la lésion n'arrive pas à l'écran
 
