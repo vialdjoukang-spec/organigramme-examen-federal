@@ -5,10 +5,12 @@ CLI: python3 scripts/build_app.py [--external] [--include-test] [--out app/Radio
   --external   : référence ../images/... (fichier léger, dossier images/ requis à côté)
   --include-test : manifests TEST-*.json appliqués à leur diagnostic (champ test_of), badge TEST
 Le statut affiché est le statut VALIDÉ par validate.py (un manifest en erreur n'est jamais « complet »).
+Avant d'écrire la page, contraste.py refuse un texte sous 7:1 ou un petit libellé sous 4,5:1.
 """
 import base64, glob, json, os, sys, html, datetime
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import validate as V
+import contraste as C
 ROOT = V.ROOT
 
 def main():
@@ -79,7 +81,12 @@ def main():
                       "queries": m.get("queries") or [], "errors": errs, "test": m["_test"]}
         rows.append(r)
     data = {"rows": rows, "built": datetime.datetime.now().strftime("%d.%m.%Y %H:%M"), "test": inc}
-    tpl = open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "app_template.html"), encoding="utf-8").read()
+    tpl_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "app_template.html")
+    ecarts = C.check(tpl_path)
+    if ecarts:
+        print("CONTRASTE refusé :", *ecarts, sep="\n - ")
+        sys.exit(1)
+    tpl = open(tpl_path, encoding="utf-8").read()
     js = json.dumps(data, ensure_ascii=False).replace("</", "<\\/")
     page = tpl.replace("/*__DATA__*/null", js).replace("/*__IMGS__*/null", json.dumps(imgs))
     os.makedirs(os.path.dirname(out), exist_ok=True)
