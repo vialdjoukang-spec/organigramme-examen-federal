@@ -11,7 +11,7 @@ fond #F3FAFD (#87CEEB mêlé à 90 % de blanc), bordure #87CEEB, texte #0B2540, 
 La police Atkinson Hyperlegible (OFL) est incorporée dans la page.
 La page est refusée sinon.
 """
-import base64, glob, json, os, sys, html, datetime
+import base64, glob, json, os, re, sys, html, datetime
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import validate as V
 import contraste as C
@@ -64,6 +64,46 @@ FONTS = (
     ("../fonts/AtkinsonHyperlegible-BoldItalic.ttf", "AtkinsonHyperlegible-BoldItalic.ttf"),
 )
 
+def lire_interface():
+    """Paramètres écrits par recepteur.py. Absent : le gabarit reste seul maître."""
+    p = os.path.join(ROOT, "config", "interface.json")
+    if not os.path.isfile(p):
+        return None
+    try:
+        return json.load(open(p, encoding="utf-8"))
+    except Exception as e:
+        print("interface.json illisible :", e)
+        sys.exit(1)
+
+
+def appliquer_interface(tpl, cfg):
+    """Injecte couleur, police, palette et côté. Le contraste sous 7:1 est refusé."""
+    if not cfg:
+        return tpl
+    cartes = cfg.get("cartes") or {}
+    fond = str(cartes.get("fond") or CARTE_FOND)
+    bord = str(cartes.get("bordure") or CARTE_BORD)
+    texte = str(cartes.get("texte") or CARTE_TEXTE)
+    if C.ratio(texte, fond) + 1e-9 < 7:
+        print(f"CONTRASTE refusé : consignes {texte} sur {fond}")
+        sys.exit(1)
+    tpl = re.sub(r"--carte:#[0-9A-Fa-f]{3,6}", "--carte:" + fond, tpl, count=1)
+    tpl = re.sub(r"--carte-bord:#[0-9A-Fa-f]{3,6}", "--carte-bord:" + bord, tpl, count=1)
+    tpl = re.sub(r"--carte-tx:#[0-9A-Fa-f]{3,6}", "--carte-tx:" + texte, tpl, count=1)
+    police = cfg.get("police") or "Atkinson Hyperlegible"
+    if police != "Atkinson Hyperlegible":
+        tpl = tpl.replace('"Atkinson Hyperlegible"', '"' + police + '"')
+    pal = cfg.get("palette")
+    if isinstance(pal, dict) and pal:
+        bloc = "const ANAT=" + json.dumps(pal, ensure_ascii=False, separators=(",", ":")) + ";"
+        tpl = re.sub(r"const ANAT=\{.*?\};", bloc, tpl, count=1)
+    normale = ((cfg.get("disposition") or {}).get("normale") or "gauche")
+    note = (f"<!-- consignes: cartes {fond} / {bord} / {texte} ; "
+            f"police {police} ; normale à {normale} -->")
+    tpl = tpl.replace("<body>", "<body>\n" + note, 1)
+    return tpl
+
+
 def embarquer_police(tpl):
     """Incorpore Atkinson Hyperlegible (OFL) pour que la page reste lisible hors ligne."""
     dossier = os.path.join(ROOT, "fonts")
@@ -87,6 +127,9 @@ def embarquer_police(tpl):
 def main():
     a = sys.argv[1:]
     ext, inc = "--external" in a, "--include-test" in a
+    only = set()
+    if "--only" in a:
+        only = {x.strip() for x in a[a.index("--only") + 1].split(",") if x.strip()}
     out = a[a.index("--out") + 1] if "--out" in a else os.path.join(ROOT, "app", "Radio_Paires.html")
     out = os.path.abspath(out)
     dxs = json.load(open(os.path.join(ROOT, "diagnostics.json")))
@@ -139,6 +182,8 @@ def main():
             "aspect", "aspect_source")} for x in s.get("arrows") or []]
         return o
     for d in dxs:
+        if only and d["id"] not in only:
+            continue
         r = dict(d)
         r["mod"] = d["cliche"].split(" — ")[0].strip()
         m = mans.get(d["id"])
@@ -159,6 +204,7 @@ def main():
         print("CONTRASTE refusé :", *ecarts, sep="\n - ")
         sys.exit(1)
     tpl = embarquer_police(open(tpl_path, encoding="utf-8").read())
+    tpl = appliquer_interface(tpl, lire_interface())
     js = json.dumps(data, ensure_ascii=False).replace("</", "<\\/")
     page = tpl.replace("/*__DATA__*/null", js).replace("/*__IMGS__*/null", json.dumps(imgs))
     os.makedirs(os.path.dirname(out), exist_ok=True)

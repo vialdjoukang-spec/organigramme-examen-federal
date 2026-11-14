@@ -9,6 +9,21 @@ import os, sys, json, time
 from playwright.sync_api import sync_playwright
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+def lancer(p):
+    """Chromium Playwright, sinon Chrome du système (bac à sable souvent absent)."""
+    exe = os.environ.get("RADIO_PAIRES_CHROME", "")
+    args = ["--no-sandbox", "--disable-dev-shm-usage"]
+    if exe:
+        return p.chromium.launch(executable_path=exe, args=args)
+    try:
+        return p.chromium.launch()
+    except Exception:
+        chrome = "/usr/bin/google-chrome"
+        if os.path.isfile(chrome):
+            return p.chromium.launch(executable_path=chrome, args=args)
+        raise
+
+
 def main():
     a = sys.argv[1:]
     opt = lambda k, d=None: a[a.index(k) + 1] if k in a else d
@@ -19,7 +34,7 @@ def main():
     url = "file://" + html
     errors, made = [], []
     with sync_playwright() as p:
-        b = p.chromium.launch()
+        b = lancer(p)
         pg = b.new_page(viewport={"width": 1440, "height": 900}, device_scale_factor=1)
         pg.on("console", lambda m: errors.append(f"console.{m.type}: {m.text}") if m.type in ("error", "warning") else None)
         pg.on("pageerror", lambda e: errors.append(f"pageerror: {e}"))

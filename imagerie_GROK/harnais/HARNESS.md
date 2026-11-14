@@ -63,6 +63,23 @@ Requêtes API en anglais (terminologie radiologique), limitées ; légende lue e
 - `python3 scripts/screenshot.py` → captures `shots/*.png` + contrôle console sans erreur.
 - Manifests de test : `manifest/TEST-*.json` (ignorés par défaut, `--include-test` pour les voir) — à supprimer après essai.
 
+## Légion (scripts/legion/legion.py)
+
+Un seul orchestrateur, reprenable. Il appelle les scripts ci-dessus ; il ne les réécrit pas.
+La légion ne pose jamais le statut `complet`.
+
+```
+python3 scripts/legion/legion.py run --limit 10
+python3 scripts/legion/legion.py fetch|gate|normalize|pair|segment|build|capture|validate|report
+python3 scripts/legion/legion.py entrant
+python3 scripts/legion/legion.py consigne
+```
+
+Dépôt d'une image : `entrant/<nom>.jpg` + `entrant/<nom>.json`
+(id IMG/EXP/FTE ou TEST- fantôme, côté, source, licence, auteur, âge, sexe).
+Un refus écrit `entrant/<nom>.refus.md`.
+Les paramètres d'interface viennent de `../../CONSIGNES_VIAL.md`, via `recepteur.py`, vers `config/interface.json`.
+
 ## Consigne Vial 2026-11-14 01:02 : ordre INVERSE (fin → début) dans chaque lot ; cadres de noms fermés par défaut, ouverts au clic sur le numéro.
 
 ## REPRISE — ordre impératif (MAJ 2026-11-14 01:35)
