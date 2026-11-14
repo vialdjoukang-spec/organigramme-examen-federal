@@ -15,3 +15,5 @@ Second lot, EXP-148 à EXP-144. Un partiel, quatre introuvables. Le prick-test a
 Quatrième lot, EXP-138 à EXP-134. Cinq introuvables. Une HGPO a été ouverte puis écartée : la glycémie à 120 minutes n'était pas celle d'un diabète. Estimation.
 
 Cinquième lot, EXP-133 à EXP-129. Quatre introuvables, un partiel. Le cadre vert cA 42 s était déjà sur le tracé ; le polygone a été élargi pour le couvrir. Un compte rendu avec numéro de dossier a été écarté. Estimation. Reprise : EXP-128.
+
+Sixième lot, EXP-128 à EXP-124. Deux partiels, trois introuvables. Le cadre rouge oA a été mesuré sur les pixels du fichier, puis revu sur l'aperçu. La conduction fibulaire normale a été lue (52 m/s). Estimation. Reprise : EXP-123.

@@ -48,4 +48,12 @@ Open-i, pour ces cinq requêtes, renvoie le titre « There seems to be an error 
 - EXP-130 introuvable. Tests itératifs de latence : rien.
 - EXP-129 partiel. Normale : stade N3, débit régulier, saturation 96-97 (NascarEd, CC BY-SA 3.0). Pathologique : cadre cA 42 s déjà tracé (Eumetaxas, CC BY-SA 3.0). La légende dit apnée obstructive. Cheyne-Stokes absent. Le compte rendu polygraphique Guy Courtois est rejeté : numéro de dossier 05220UEM.
 
-Prochain id : EXP-128.
+## EXP-128 à EXP-124
+
+- EXP-128 partiel. Même époque N3 que EXP-129. Pathologique : cadre rouge déjà tracé « oA 28 s » (Eumetaxas, CC BY-SA 3.0). Le même extrait contient des apnées centrales.
+- EXP-127 partiel. Conduction motrice normale du fibulaire droit, cheville et sous la fibula, 52 m/s, amplitudes stables (Medicus of Borg, CC BY-SA 4.0). Pas de tracé de bloc au col. L'âge 58 ans est dans la légende, pas sur l'image.
+- EXP-126 introuvable. Plateforme et photo d'équilibre, pas de stabilogramme.
+- EXP-125 introuvable. Dynamomètre de Jamar photographié au repos, aiguille à zéro. Pas de lever de chaise.
+- EXP-124 introuvable. Timed Up and Go, Tinetti, vitesse de marche : rien.
+
+Prochain id : EXP-123.
