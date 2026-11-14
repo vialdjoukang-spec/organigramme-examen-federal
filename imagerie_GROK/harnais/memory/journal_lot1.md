@@ -7,3 +7,8 @@ IMG-084 | partiel | Brain&Spineman9, CC BY-SA 4.0, hernie C5–C6 comprimant la 
 IMG-083 | partiel | Hellerhoff, CC BY-SA 3.0, T2 axial, sténose L5 et spondylarthrose | pas de coupe normale ; ligament jaune non séparé de la facette
 IMG-082 | introuvable | — | cliché T1 : seuls des T2 libres (Edave, Tremblay), rejetés
 IMG-081 | partiel | JasonRobertYoungMD, CC BY-SA 4.0, Doppler pulsé vertébral gauche inversé | pas de spectre normal ; panneau axillaire étiqueté alors que la légende dit sous-clavière ; INVERT seulement sur l'axillaire
+IMG-080 | partiel | Hellerhoff, CC BY-SA 4.0, épaississement pariétal de l'artère temporale | pas d'axillaire, Doppler couleur pauvre, pas d'histologie, pas de normal
+IMG-079 | partiel | Hellerhoff, CC BY-SA 4.0, T carotidien droit, angio-TDM MIP | montage avec scanner sans injection ; thrombectomie absente ; pas de normal
+IMG-078 | partiel | Hellerhoff, CC BY-SA 3.0, sac sylvien en rendu volumique | rupture non dite, fichier classé SAH ; côté légende versus image ; confiance basse
+IMG-077 | introuvable | — | pas de T1 avec suppression de graisse ; angio-IRM gadolinium sans auteur, échographie hors cliché
+IMG-076 | partiel | Nevit Dilmen, CC BY-SA 3.0, Doppler couleur et pulsé, ACI droite, PS 146 cm/s | pas de normal ; seuils de vitesse non relus ; spectre inversé à l'écran
