@@ -8,6 +8,10 @@ Rules:
   E  (complet|partiel) normal+patho files exist, are JPEG, long side <= 1024
   E  licence in whitelist (CC0, Public domain/PD, CC BY x.y, CC BY-SA x.y); author + source_url present
   E  complet => modality, plane (and sequence when given) identical normal vs patho; modality matches cliché
+  E  complet => image normale présente
+  E  complet => sexe établi par le champ sex (M ou F) et identique des deux côtés ; « À vérifier » ou champ vide interdit
+  E  sexe établi des deux côtés et discordant => erreur, quel que soit le statut
+  E  complet => contour rectangulaire de ≤ 5 points interdit
   E  complet => >= 1 arrow role=principale
   E  every arrow: tip/from in [0,1], label, role in whitelist, evidence, confidence in haute|moyenne|basse
   E  every arrow: contour = polygone fermé (dernier point = premier, ≥ 3 sommets distincts, chaque point dans [0,1])
@@ -16,7 +20,7 @@ Rules:
   E  introuvable => queries non-empty
   W  partiel without pair_match explanation; pixel identical normal/patho; caption_source missing
 """
-import json, os, re, sys, glob
+import json, math, os, re, sys, glob
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 WL = re.compile(r"^(cc0( 1\.0)?|public domain|pd(-[\w-]+)?|cc[ -]by(-sa)?[ -]\d\.\d( [a-z]{2,})?|cc[ -]by(-sa)?)$", re.I)
 ROLES = {"principale", "associee", "secondaire", "complication"}
@@ -67,6 +71,52 @@ def _pt(v):
         return None
     return (float(v[0]), float(v[1]))
 
+def sex_code(v):
+    """M, F, '' si absent ou « À vérifier », None si la valeur n'est pas reconnue."""
+    s = norm(v)
+    if s in ("m", "h", "homme", "masculin", "male", "man"):
+        return "M"
+    if s in ("f", "femme", "feminin", "féminin", "female", "woman"):
+        return "F"
+    if not s or s in ("à vérifier", "a vérifier", "a verifier"):
+        return ""
+    return None
+
+def coarse_rectangle(contour):
+    """Rectangle (4 coins, angles droits) stocké en 5 points ou moins, fermeture comprise."""
+    if not isinstance(contour, list) or not (4 <= len(contour) <= 5):
+        return False
+    pts = []
+    for p in contour:
+        q = _pt(p)
+        if q is None:
+            return False
+        pts.append(q)
+    if math.hypot(pts[0][0] - pts[-1][0], pts[0][1] - pts[-1][1]) <= 0.015:
+        verts = pts[:-1]
+    else:
+        verts = pts[:]
+    uniq = []
+    for x, y in verts:
+        if not any(abs(x - a) < 1e-4 and abs(y - b) < 1e-4 for a, b in uniq):
+            uniq.append((x, y))
+    if len(uniq) != 4:
+        return False
+    cx = sum(p[0] for p in uniq) / 4
+    cy = sum(p[1] for p in uniq) / 4
+    uniq.sort(key=lambda p: math.atan2(p[1] - cy, p[0] - cx))
+    for i in range(4):
+        ax = uniq[i][0] - uniq[i - 1][0]
+        ay = uniq[i][1] - uniq[i - 1][1]
+        bx = uniq[(i + 1) % 4][0] - uniq[i][0]
+        by = uniq[(i + 1) % 4][1] - uniq[i][1]
+        na, nb = math.hypot(ax, ay), math.hypot(bx, by)
+        if na < 1e-6 or nb < 1e-6:
+            return False
+        if abs((ax * bx + ay * by) / (na * nb)) > 0.25:
+            return False
+    return True
+
 def contour_ok(contour, errs, tag):
     """Polygone fermé, ≥ 3 sommets distincts, chaque point dans l'image (0–1)."""
     if not isinstance(contour, list) or len(contour) < 4:
@@ -103,7 +153,10 @@ def check(m, dx, errs, warns):
         if not side:
             if st == "partiel":
                 warns.append(f"{tag}: absent (partiel)"); continue
-            errs.append(f"{tag}: bloc absent"); continue
+            errs.append(f"{tag}: bloc absent")
+            if st == "complet" and tag == "normal":
+                errs.append("complet sans image normale")
+            continue
         img_check(side.get("file"), errs, tag)
         lic = (side.get("license") or "").strip()
         if not WL.match(lic):
@@ -124,6 +177,15 @@ def check(m, dx, errs, warns):
         fa, fb = os.path.join(ROOT, n.get("file", "")), os.path.join(ROOT, p.get("file", ""))
         if os.path.isfile(fa) and os.path.isfile(fb) and open(fa, "rb").read() == open(fb, "rb").read():
             errs.append("normal et patho identiques (même fichier)")
+    sn, sp = sex_code(n.get("sex")), sex_code(p.get("sex"))
+    if sn is None or sp is None:
+        errs.append("sexe illisible (attendu : M, F ou « À vérifier »)")
+    elif sn and sp and sn != sp:
+        errs.append(f"sexe discordant : normal {sn} ≠ patho {sp}")
+    elif st == "complet" and (not sn or not sp):
+        errs.append("complet : sexe non établi par la légende")
+    elif st == "partiel" and (n or p) and (not sn or not sp):
+        warns.append("sexe non établi par la légende")
     if p and not p.get("caption_source"):
         warns.append("patho: caption_source absent")
     arrows = (p or {}).get("arrows") or []
@@ -153,6 +215,8 @@ def check(m, dx, errs, warns):
         elif st == "complet" and norm(dsrc) in ("à vérifier", "a vérifier", "visuel"):
             errs.append(f"{t}: définition non sourcée (complet)")
         contour_ok(a.get("contour"), errs, t)
+        if st == "complet" and coarse_rectangle(a.get("contour")):
+            errs.append(f"{t}: contour rectangulaire (≤ 5 points)")
         if c == "basse" and (a.get("label") or "").strip().lower() not in av:
             errs.append(f"{t}: confiance basse mais «{a.get('label')}» absent de a_verifier")
     if st == "partiel" and not (m.get("pair_match") or m.get("a_verifier")):

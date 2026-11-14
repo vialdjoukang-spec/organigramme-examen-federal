@@ -49,6 +49,10 @@ Requêtes API en anglais (terminologie radiologique), limitées ; légende lue e
   tip/from dans [0,1], label/role/evidence/confidence présents, confiance `basse` ⇒ label cité dans `a_verifier`,
   contour fermé (≥ 3 sommets, dernier point = premier, chaque point dans l'image), définition et source présentes
   (un complet refuse « À vérifier » comme définition ou comme source).
+  Un complet refuse aussi : image normale absente, sexe non établi (champ `sex` = M ou F, identique des deux côtés ; sinon « À vérifier »),
+  sexe discordant (erreur même en partiel), contour rectangulaire de 5 points ou moins.
+  Interface : flèches cachées par défaut (bouton « Révéler les flèches ») ; le clic sur le numéro ouvre la bande pointillée
+  qui suit le contour, le nom et la définition ; « Mode défi » puis « Révéler et noter » donnent le score.
   Lancer après CHAQUE manifest ; un manifest en erreur s'affiche « non validé » dans l'app (jamais « complet »).
 - `python3 scripts/overlay.py manifest/IMG-xxx.json /tmp/IMG-xxx_overlay.png` → flèche et contour dessinés sur la patho, pour relecture visuelle.
 - `python3 scripts/essai_harnais.py` → essai synthétique (aucun patient) : contrôles négatifs, capture, effacement de la paire.

@@ -61,6 +61,14 @@ td.dx button:hover{text-decoration:underline}
 .zw img{display:block;max-height:var(--figh);max-width:100%;user-select:none;-webkit-user-drag:none}
 .zw svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
 .zw svg.hide .arw{display:none}
+.zw svg.hide .arw.on{display:block}
+.zw svg .band{display:none}
+.zw svg .arw.on .band{display:block}
+.fig.defi,.fig.defi .zw{cursor:crosshair}
+.score{margin:8px 0 0;padding:10px 12px;border:2px solid #7dffa8;border-radius:8px;background:#102116;line-height:1.4;font-size:16px}
+.score b{color:#b6ffcf}
+#scoreHead{font-size:15px;font-weight:800;color:#b6ffcf;background:#102116;border:2px solid #7dffa8;border-radius:8px;padding:4px 8px}
+.score .miss{color:#ffb4b4}
 .arw{cursor:pointer;outline:none}
 .arw .hit{stroke:transparent;fill:none;pointer-events:stroke}
 .arw:focus-visible .ring{stroke:#fff;stroke-dasharray:4 3}
@@ -140,7 +148,10 @@ td.dx button:hover{text-decoration:underline}
   <div class="dh">
    <h2 id="dT" tabindex="-1"></h2>
    <button class="btn" id="bNames" aria-pressed="false">Afficher tous les noms</button>
-   <button class="btn" id="bHide" aria-pressed="false">Masquer les flèches</button>
+   <button class="btn" id="bHide" aria-pressed="false">Révéler les flèches</button>
+   <button class="btn" id="bDefi" aria-pressed="false">Mode défi</button>
+   <button class="btn" id="bNote" hidden>Révéler et noter</button>
+   <span id="scoreHead" hidden></span>
    <button class="btn" id="bPrev" aria-label="Diagnostic précédent">◀ Préc.</button>
    <button class="btn" id="bNext" aria-label="Diagnostic suivant">Suiv. ▶</button>
    <button class="btn" id="bX" aria-label="Fermer (Échap)">✕</button>
@@ -162,7 +173,8 @@ const STL={"complet":"Complet","partiel":"Partiel","introuvable":"Introuvable","
 const esc=s=>String(s==null?"":s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const srcOf=s=>s&&(s.src||(s.ref&&IMGS[s.ref]))||null;
 const norm=s=>String(s||"").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"");
-let view=[], cur=-1, lastFocus=null, showAll=false, hideArr=false;
+let view=[], cur=-1, lastFocus=null, showAll=false, hideArr=true, defi=false, proposals=[], opened=new Set();
+const SEXL={M:"homme",F:"femme","À vérifier":"À vérifier"};
 
 // --- list
 function fill(sel,vals){vals.forEach(v=>{const o=document.createElement("option");o.value=v;o.textContent=v;sel.appendChild(o);});}
@@ -175,7 +187,7 @@ function counts(){
  $("#cnt").innerHTML=`Trouvés : <b>${c["complet"]||0} / ${R.length}</b> · partiels ${c["partiel"]||0} · introuvables ${c["introuvable"]||0}`+(c["non validé"]?` · non validés ${c["non validé"]}`:"")+` · en recherche ${c["en recherche"]||0}`+(DATA.test?` <span class="badge test">MODE TEST</span>`:"");
  const col={"complet":"#2fbf62","partiel":"#d6a821","non validé":"#c04fb0","introuvable":"#c04646"};
  $("#prog").innerHTML=Object.keys(col).map(k=>`<i style="width:${100*(c[k]||0)/R.length}%;background:${col[k]}"></i>`).join("");
- $("#foot").textContent=`Généré le ${DATA.built} · Statut = statut validé automatiquement (validate.py) · Clic ou Entrée sur une ligne : fenêtre Normal / Pathologique · ← → : précédent / suivant · Échap : fermer.`;
+ $("#foot").textContent=`Généré le ${DATA.built} · Statut = statut validé automatiquement (validate.py) · Clic ou Entrée : fenêtre Normal à gauche / Pathologique à droite · Flèches cachées, bouton « Révéler les flèches » · Mode défi : cliquer les lésions à droite, puis révéler · ← → · Échap.`;
 }
 function render(){
  const fr=$("#fReg").value,fm=$("#fMod").value,fs=$("#fSt").value,q=norm($("#q").value.trim());
@@ -206,12 +218,25 @@ function arrowSVG(side,svg){
   const lab=`${i+1}. ${a.label} (${ROLES[a.role]||a.role})`;
   let contour="";
   if(Array.isArray(a.contour)&&a.contour.length>=3){
-   const pts=a.contour.map(p=>`${p[0]*W},${p[1]*H}`).join(" ");
-   const dash=`${7*k} ${4.2*k}`;
-   contour=`<polyline points="${pts}" fill="none" stroke="#061018" stroke-width="${rim}" stroke-dasharray="${dash}" stroke-linejoin="round" stroke-linecap="round"/>
-<polyline points="${pts}" fill="none" stroke="${col}" stroke-width="${sw+0.35*k}" stroke-dasharray="${dash}" stroke-linejoin="round" stroke-linecap="round"/>`;
+   const raw=a.contour;
+   const closed=Math.hypot(raw[0][0]-raw[raw.length-1][0], raw[0][1]-raw[raw.length-1][1])<0.02;
+   const n=closed?raw.length-1:raw.length;
+   let cx=0,cy=0;
+   for(let i=0;i<n;i++){cx+=raw[i][0];cy+=raw[i][1];}
+   cx/=n; cy/=n;
+   const svgH=disp*H/W;
+   let rad=0;
+   for(let i=0;i<n;i++) rad=Math.max(rad, Math.hypot((raw[i][0]-cx)*disp, (raw[i][1]-cy)*svgH));
+   const sc=Math.max(1, 18/Math.max(rad, 0.8));
+   const seq=[];
+   for(let i=0;i<n;i++) seq.push([cx+(raw[i][0]-cx)*sc, cy+(raw[i][1]-cy)*sc]);
+   seq.push(seq[0]);
+   const pts=seq.map(p=>`${p[0]*W},${p[1]*H}`).join(" ");
+   const dash=`${3.2*k} ${2.6*k}`;
+   contour=`<polyline class="band" points="${pts}" fill="none" stroke="#061018" stroke-width="${4.2*k}" stroke-dasharray="${dash}" stroke-linejoin="round" stroke-linecap="round"/>
+<polyline class="band" points="${pts}" fill="none" stroke="#FFE14A" stroke-width="${2.4*k}" stroke-dasharray="${dash}" stroke-linejoin="round" stroke-linecap="round"/>`;
   }
-  out+=`<g class="arw" data-a="${i}" tabindex="0" role="button" aria-label="${esc(lab)}">
+  out+=`<g class="arw${opened.has(i)?" on":""}" data-a="${i}" tabindex="0" role="button" aria-label="${esc(lab)}">
 ${contour}
 <line class="hit" x1="${fx}" y1="${fy}" x2="${tx}" y2="${ty}" stroke-width="${18*k}"/>
 <line x1="${sx}" y1="${sy}" x2="${bx}" y2="${by}" stroke="#061018" stroke-width="${rim}" stroke-linecap="round"/>
@@ -223,7 +248,47 @@ ${contour}
 <text x="${fx}" y="${fy}" dy="${4.4*k}" text-anchor="middle" font-size="${12*k}" font-weight="800" fill="#061018" font-family="system-ui,sans-serif">${i+1}</text>
 </g>`;
  });
+ proposals.forEach(pt=>{
+  out+=`<circle class="mark" cx="${pt[0]*W}" cy="${pt[1]*H}" r="${8*k}" fill="none" stroke="#061018" stroke-width="${3*k}"/>
+<circle class="mark" cx="${pt[0]*W}" cy="${pt[1]*H}" r="${8*k}" fill="none" stroke="#FF3B6B" stroke-width="${1.8*k}"/>`;
+ });
  svg.innerHTML=out;
+}
+function inside(poly,x,y){
+ let c=false;
+ for(let i=0,j=poly.length-1;i<poly.length;j=i++){
+  const xi=poly[i][0],yi=poly[i][1],xj=poly[j][0],yj=poly[j][1];
+  if((yi>y)!==(yj>y)&&(x<(xj-xi)*(y-yi)/(yj-yi+0.0000001)+xi))c=!c;
+ }
+ return c;
+}
+function segDist(x,y,a,b){
+ const dx=b[0]-a[0],dy=b[1]-a[1],l=dx*dx+dy*dy||1e-9;
+ let t=((x-a[0])*dx+(y-a[1])*dy)/l; t=Math.max(0,Math.min(1,t));
+ return Math.hypot(x-(a[0]+t*dx), y-(a[1]+t*dy));
+}
+function matches(a,pt,W,H){
+ const tol=0.04*Math.min(W,H);
+ const poly=Array.isArray(a.contour)?a.contour:[];
+ if(poly.length>=3&&inside(poly,pt[0],pt[1]))return true;
+ if(Math.hypot((pt[0]-a.tip[0])*W,(pt[1]-a.tip[1])*H)<tol)return true;
+ for(let i=0;i<poly.length-1;i++){
+  if(segDist(pt[0]*W,pt[1]*H,[poly[i][0]*W,poly[i][1]*H],[poly[i+1][0]*W,poly[i+1][1]*H])<tol)return true;
+ }
+ return false;
+}
+function grade(arrows,W,H){
+ const used=new Set(); const hits=[];
+ proposals.forEach(pt=>{
+  let best=null,bd=1e9;
+  arrows.forEach((a,i)=>{
+   if(used.has(i)||!matches(a,pt,W,H))return;
+   const d=Math.hypot((pt[0]-a.tip[0])*W,(pt[1]-a.tip[1])*H);
+   if(d<bd){bd=d;best=i;}
+  });
+  if(best!=null){used.add(best);hits.push(best);}
+ });
+ return {hits, falsePos:proposals.length-hits.length};
 }
 function place(zw,b,a){
  // choose the bubble position that stays inside the image and covers neither the arrow nor the lesion tip
@@ -234,14 +299,19 @@ function place(zw,b,a){
  const side=(zw._side&&zw._side.arrows)||[];
  const badges=side.filter(x=>x!==a).flatMap(x=>[[x.from[0]*W,x.from[1]*H],[x.tip[0]*W,x.tip[1]*H]]);
  const fx=a.from[0]*W,fy=a.from[1]*H,tx=a.tip[0]*W,ty=a.tip[1]*H,g=16;
- const C=[[g,-h/2],[-w-g,-h/2],[-w/2,-h-g],[-w/2,g],[g,-h+8],[g,-8],[-w-g,-h+8],[-w-g,-8]];
+ const C=[[g,-h/2],[-w-g,-h/2],[-w/2,-h-g],[-w/2,g],[g,-h+8],[g,-8],[-w-g,-h+8],[-w-g,-8],
+  [g-fx,g-fy],[W-w-g-fx,g-fy],[g-fx,H-h-g-fy],[W-w-g-fx,H-h-g-fy]];
+ const poly=(a.contour||[]).map(p=>[p[0]*W,p[1]*H]);
  let best=null,bs=1e18;
  for(const[ox,oy]of C){
   const L=fx+ox,T=fy+oy,Rr=L+w,B=T+h;
   let sc=(Math.max(0,X0-L)+Math.max(0,Rr-X1)+Math.max(0,Y0-T)+Math.max(0,B-Y1))*250;
   for(const o of others){const ix=Math.max(0,Math.min(Rr,o[2])-Math.max(L,o[0])),iy=Math.max(0,Math.min(B,o[3])-Math.max(T,o[1]));sc+=ix*iy*0.5;}
   for(const[qx,qy]of badges){if(qx>L-12&&qx<Rr+12&&qy>T-12&&qy<B+12)sc+=600;}
-  for(let k=0;k<=12;k++){const px=fx+(tx-fx)*k/12,py=fy+(ty-fy)*k/12;if(px>L-6&&px<Rr+6&&py>T-6&&py<B+6)sc+=k===12?5000:(k>=9?600:120);}
+  for(let k=0;k<=12;k++){const px=fx+(tx-fx)*k/12,py=fy+(ty-fy)*k/12;if(px>L-6&&px<Rr+6&&py>T-6&&py<B+6)sc+=k===12?8000:(k>=9?600:120);}
+  for(const[qx,qy] of poly){if(qx>L-10&&qx<Rr+10&&qy>T-10&&qy<B+10)sc+=8000;}
+  const nx=Math.max(L,Math.min(tx,Rr)), ny=Math.max(T,Math.min(ty,B));
+  if(Math.hypot(tx-nx,ty-ny)<26) sc+=9000;
   const cx=L+w/2,cy=T+h/2;if(Math.hypot(cx-tx,cy-ty)<Math.max(w,h)*0.6)sc+=800;
   if(sc<bs){bs=sc;best=[L,T];}
  }
@@ -285,7 +355,8 @@ function credit(lbl,s){
  if(!s)return `<div><b>${lbl} :</b> <span class="muted">aucune image</span></div>`;
  const lic=s.license_url?`<a href="${esc(s.license_url)}" target="_blank" rel="noopener">${esc(s.license)}</a>`:esc(s.license);
  const tech=[s.modality,s.sequence,s.plane,s.region].filter(Boolean).map(esc).join(" · ");
- return `<div><b>${lbl} :</b> ${esc(s.author)} · ${lic} · <a href="${esc(s.source_url)}" target="_blank" rel="noopener">source</a><br><span class="muted">${tech}${s.note?" — "+esc(s.note):""}</span>${s.caption_source?`<br><span class="muted">Légende source : « ${esc(s.caption_source)} »</span>`:""}</div>`;
+ const sx=s.sex?` · sexe ${esc(SEXL[s.sex]||s.sex)}`:"";
+ return `<div><b>${lbl} :</b> ${esc(s.author)} · ${lic}${sx} · <a href="${esc(s.source_url)}" target="_blank" rel="noopener">source</a><br><span class="muted">${tech}${s.note?" — "+esc(s.note):""}</span>${s.caption_source?`<br><span class="muted">Légende source : « ${esc(s.caption_source)} »</span>`:""}</div>`;
 }
 function placeholder(kind,r){
  const m=r.m;
@@ -296,7 +367,7 @@ function placeholder(kind,r){
 function panel(kind,s,r){
  const isP=kind==="pathologique",src=srcOf(s);
  const tech=s?[s.modality,s.sequence,s.plane].filter(Boolean).map(esc).join(" · "):"";
- const h=`<div class="panel ${isP?"p":"n"}"><h3>${isP?"Pathologique":"Normal"} <small>${tech}</small></h3><div class="fig">`;
+ const h=`<div class="panel ${isP?"p":"n"}"><h3>${isP?"Pathologique":"Normal"} <small>${tech}</small></h3><div class="fig${isP&&defi?" defi":""}">`;
  if(!src)return h+placeholder(isP?"pathologique":"normale",r)+`</div></div>`;
  return h+`<div class="zw"><img alt="${isP?"Image pathologique":"Image normale"} : ${esc(r.dx)}" src="${src}" draggable="false">${isP?`<svg viewBox="0 0 ${s.w} ${s.h}" preserveAspectRatio="none" class="${hideArr?"hide":""}" aria-label="Annotations"></svg>`:""}</div></div></div>`;
 }
@@ -307,16 +378,38 @@ function show(){
  $("#dT").innerHTML=`${esc(r.dx)} <span class="badge ${STC[r.st]}">${STL[r.st]}</span>${m.test?'<span class="badge test">TEST</span>':""}<span class="meta">${esc(r.id)} · ${esc(r.region)} · ${esc(r.systeme)} · Cliché demandé : ${esc(r.cliche)} · ${cur+1}/${view.length}</span>`;
  const arrows=p&&srcOf(p)?p.arrows:[];
  const legRoles=[...new Set(arrows.map(a=>a.role))];
- $("#db").innerHTML=`<div class="pair">${panel("normal",n,r)}${panel("pathologique",p,r)}</div>`+
-  (arrows.length?`<div class="leg" aria-label="Légende des rôles">${Object.keys(ROLES).map(k=>`<span style="${legRoles.includes(k)?"":"opacity:.45"}"><i style="background:var(--c-${k})"></i>${ROLES[k]}</span>`).join("")}<span class="muted">· Clic, toucher ou Entrée sur une flèche ou son numéro : nom de la lésion</span></div>
-<ul class="les" aria-label="Lésions annotées">${arrows.map((a,i)=>`<li><button type="button" data-a="${i}" aria-label="Lésion ${i+1}, ${esc(ROLES[a.role]||a.role)}"><span class="num" style="background:var(--c-${a.role})">${i+1}</span><span><span class="muted">${esc(ROLES[a.role]||a.role)} · confiance ${esc(a.confidence)}${a.confidence==="basse"?" · <span class='av'>À vérifier</span>":""}</span><span class="detail" hidden><b>${esc(a.label)}</b><br>Définition : ${esc(a.definition||"À vérifier")}${a.definition_source?`<br><span class="muted">Source : ${esc(a.definition_source)}</span>`:""}</span></span></button></li>`).join("")}</ul>`:"");
+ const g=defi&&!hideArr&&arrows.length?grade(arrows,p.w||1,p.h||1):null;
+ const sh=$("#scoreHead");
+ if(g){sh.hidden=false;sh.textContent=`Score ${g.hits.length}/${arrows.length} · hors lésion ${g.falsePos}`;}
+ else sh.hidden=true;
+ const scoreBlock=()=>{
+  if(!defi||!arrows.length)return "";
+  if(!g)return `<div class="score" id="score"><b>Mode défi</b> — ${proposals.length} proposition${proposals.length>1?"s":""}. La normale est à gauche. Cliquez chaque lésion élémentaire à droite, puis révélez.</div>`;
+  const lines=arrows.map((a,i)=>{const ok=g.hits.includes(i);return `<div class="${ok?"":"miss"}">${ok?"Trouvée":"Manquée"} : <b>${esc(a.label)}</b></div>`;}).join("");
+  return `<div class="score" id="score"><b>Score ${g.hits.length}/${arrows.length}</b> · clics ${proposals.length} · hors lésion ${g.falsePos}${lines}</div>`;
+ };
+ const liste=defi
+  ? `<div class="leg">Regardez la normale à gauche. Cliquez sur l'image de droite là où vous voyez une lésion élémentaire (${arrows.length}), puis « Révéler et noter ».</div>${scoreBlock()}`
+  : `<div class="leg" aria-label="Légende des rôles">${Object.keys(ROLES).map(k=>`<span style="${legRoles.includes(k)?"":"opacity:.45"}"><i style="background:var(--c-${k})"></i>${ROLES[k]}</span>`).join("")}<span class="muted">· Le numéro ouvre la bande pointillée, le nom et la définition</span></div>
+<ul class="les" aria-label="Lésions annotées">${arrows.map((a,i)=>`<li><button type="button" data-a="${i}" aria-label="Lésion ${i+1}, ${esc(ROLES[a.role]||a.role)}"><span class="num" style="background:var(--c-${a.role})">${i+1}</span><span><span class="muted">${esc(ROLES[a.role]||a.role)} · confiance ${esc(a.confidence)}${a.confidence==="basse"?" · <span class='av'>À vérifier</span>":""}</span><span class="detail" hidden><b>${esc(a.label)}</b><br>Définition : ${esc(a.definition||"À vérifier")}${a.definition_source?`<br><span class="muted">Source : ${esc(a.definition_source)}</span>`:""}</span></span></button></li>`).join("")}</ul>`;
+ $("#db").innerHTML=`<div class="pair">${panel("normal",n,r)}${panel("pathologique",p,r)}</div>`+(arrows.length?liste:"");
  $("#df").innerHTML=`<div class="cr">${credit("Normal",n)}${credit("Pathologique",p)}</div>`+
   (m.pair_match?`<div><b>Appariement :</b> ${esc(m.pair_match)}</div>`:"")+
   (m.a_verifier&&m.a_verifier.length?`<div class="av"><b>À vérifier :</b> ${m.a_verifier.map(esc).join(" · ")}</div>`:"")+
   (m.errors&&m.errors.length?`<div class="err"><b>Non validé (contrôle automatique) :</b> ${m.errors.map(esc).join(" · ")}</div>`:"")+
   (!r.m?`<div class="muted">Aucun manifeste pour ce diagnostic.</div>`:"");
  $("#bPrev").disabled=cur<=0;$("#bNext").disabled=cur>=view.length-1;
- $("#bNames").disabled=$("#bHide").disabled=!arrows.length;
+ $("#bNames").disabled=defi||!arrows.length;
+ $("#bHide").disabled=defi||!arrows.length;
+ $("#bHide").setAttribute("aria-pressed",hideArr?"false":"true");
+ $("#bHide").textContent=hideArr?"Révéler les flèches":"Masquer les flèches";
+ $("#bNames").setAttribute("aria-pressed",showAll?"true":"false");
+ $("#bNames").textContent=showAll?"Masquer les noms":"Afficher tous les noms";
+ $("#bDefi").disabled=!arrows.length;
+ $("#bDefi").setAttribute("aria-pressed",defi?"true":"false");
+ $("#bDefi").textContent=defi?"Quitter le défi":"Mode défi";
+ $("#bNote").hidden=!defi;
+ $("#bNote").disabled=!defi||!hideArr;
  document.querySelectorAll("#db .fig").forEach(f=>{const zw=f.querySelector(".zw");if(zw)zoomable(f,zw);});
  const pf=document.querySelector("#db .panel.p .fig"),zw=pf&&pf.querySelector(".zw"),svg=zw&&zw.querySelector("svg");
  if(ro){ro.disconnect();ro=null;}
@@ -328,23 +421,45 @@ function show(){
   if(img.complete)go();else img.addEventListener("load",go,{once:true});
   ro=new ResizeObserver(()=>draw());ro.observe(img);
   const setDetail=(i,on)=>{document.querySelectorAll("#db .les button").forEach(b=>{const d=b.querySelector(".detail");if(d)d.hidden=!(on&&+b.dataset.a===i);});};
-  const toggle=i=>{const ex=zw.querySelector(`.bub[data-a="${i}"]:not(.compact)`);if(ex){ex.remove();if(showAll)bubble(zw,p,i,true);setDetail(i,false);}else{clearBubbles(zw,true);const c=zw.querySelector(`.bub.compact[data-a="${i}"]`);if(c)c.remove();bubble(zw,p,i,false);setDetail(i,true);}};
+  const toggle=i=>{
+   const ex=zw.querySelector(`.bub[data-a="${i}"]:not(.compact)`);
+   if(ex){ex.remove();opened.delete(i);draw();if(showAll&&!hideArr)bubble(zw,p,i,true);setDetail(i,false);}
+   else{clearBubbles(zw,true);opened.clear();opened.add(i);draw();bubble(zw,p,i,false);setDetail(i,true);}
+  };
   svg.addEventListener("click",e=>{const g=e.target.closest(".arw");if(g){e.stopPropagation();toggle(+g.dataset.a);}});
   svg.addEventListener("keydown",e=>{const g=e.target.closest(".arw");if(g&&(e.key==="Enter"||e.key===" ")){e.preventDefault();toggle(+g.dataset.a);}});
-  pf.addEventListener("click",e=>{if(pf.dataset.dragged)return;if(!e.target.closest(".arw,.bub,.zctl")){clearBubbles(zw,true);}});
-  document.querySelectorAll("#db .les button").forEach(b=>b.addEventListener("click",()=>{if(hideArr)return;toggle(+b.dataset.a);}));
+  pf.addEventListener("click",e=>{
+   if(pf.dataset.dragged)return;
+   if(e.target.closest(".zctl,.bub"))return;
+   if(defi&&hideArr&&!e.target.closest(".arw")){
+    const rct=img.getBoundingClientRect();
+    const x=(e.clientX-rct.left)/rct.width,y=(e.clientY-rct.top)/rct.height;
+    if(x>=0&&x<=1&&y>=0&&y<=1){
+     proposals.push([Math.round(x*10000)/10000,Math.round(y*10000)/10000]);
+     draw();
+     const sc=document.querySelector("#score");
+     if(sc)sc.innerHTML=`<b>Mode défi</b> — ${proposals.length} proposition${proposals.length>1?"s":""}. La normale est à gauche. Cliquez chaque lésion élémentaire à droite, puis révélez.`;
+     return;
+    }
+   }
+   if(!e.target.closest(".arw,.bub,.zctl")){opened.clear();draw();clearBubbles(zw,true);document.querySelectorAll("#db .les .detail").forEach(d=>d.hidden=true);}
+  });
+  document.querySelectorAll("#db .les button").forEach(b=>b.addEventListener("click",()=>toggle(+b.dataset.a)));
  }
 }
-function openAt(i,from){cur=i;lastFocus=from||document.activeElement;$("#ov").classList.add("on");$("#ov").setAttribute("aria-hidden","false");document.body.style.overflow="hidden";show();$("#dT").focus();}
+function resetCase(){hideArr=true;showAll=false;defi=false;proposals=[];opened=new Set();}
+function openAt(i,from){cur=i;resetCase();lastFocus=from||document.activeElement;$("#ov").classList.add("on");$("#ov").setAttribute("aria-hidden","false");document.body.style.overflow="hidden";show();$("#dT").focus();}
 function close(){$("#ov").classList.remove("on");$("#ov").setAttribute("aria-hidden","true");document.body.style.overflow="";if(ro){ro.disconnect();ro=null;}const r=view[cur];const b=r&&document.querySelector(`#tb button[data-i="${cur}"]`);(b||lastFocus||document.body).focus&&(b||lastFocus).focus();}
-function step(d){const j=cur+d;if(j>=0&&j<view.length){cur=j;show();}}
+function step(d){const j=cur+d;if(j>=0&&j<view.length){cur=j;resetCase();show();}}
 $("#bX").onclick=close;$("#bPrev").onclick=()=>step(-1);$("#bNext").onclick=()=>step(1);
 $("#ov").addEventListener("click",e=>{if(e.target.id==="ov")close();});
-$("#bNames").onclick=()=>{showAll=!showAll;$("#bNames").setAttribute("aria-pressed",showAll);$("#bNames").textContent=showAll?"Masquer les noms":"Afficher tous les noms";const zw=document.querySelector("#db .panel.p .zw");const p=view[cur].m&&view[cur].m.patho;if(zw&&p)applyAll(zw,p);};
-$("#bHide").onclick=()=>{hideArr=!hideArr;$("#bHide").setAttribute("aria-pressed",hideArr);$("#bHide").textContent=hideArr?"Afficher les flèches":"Masquer les flèches";const svg=document.querySelector("#db .panel.p svg");if(svg)svg.classList.toggle("hide",hideArr);const zw=document.querySelector("#db .panel.p .zw");const p=view[cur].m&&view[cur].m.patho;if(zw){clearBubbles(zw,false);if(!hideArr&&p)applyAll(zw,p);}};
+$("#bNames").onclick=()=>{if(defi)return;showAll=!showAll;show();};
+$("#bHide").onclick=()=>{hideArr=!hideArr;if(hideArr){opened.clear();showAll=false;}show();};
+$("#bDefi").onclick=()=>{defi=!defi;proposals=[];opened=new Set();showAll=false;if(defi)hideArr=true;show();};
+$("#bNote").onclick=()=>{if(!defi||!hideArr)return;hideArr=false;const p=view[cur].m&&view[cur].m.patho;opened=new Set(((p&&p.arrows)||[]).map((_,i)=>i));show();};
 document.addEventListener("keydown",e=>{
  if(!$("#ov").classList.contains("on"))return;
- if(e.key==="Escape"){e.preventDefault();const zw=document.querySelector("#db .panel.p .zw");if(zw&&zw.querySelector(".bub:not(.compact)")){clearBubbles(zw,true);return;}close();return;}
+ if(e.key==="Escape"){e.preventDefault();const zw=document.querySelector("#db .panel.p .zw");if(zw&&zw.querySelector(".bub:not(.compact)")){clearBubbles(zw,true);opened.clear();const svg=zw.querySelector("svg");const pp=view[cur]&&view[cur].m&&view[cur].m.patho;if(svg&&pp)arrowSVG(pp,svg);document.querySelectorAll("#db .les .detail").forEach(d=>d.hidden=true);return;}close();return;}
  if(e.target.closest&&e.target.closest("input,select,textarea"))return;
  if(e.key==="ArrowLeft"){e.preventDefault();step(-1);}else if(e.key==="ArrowRight"){e.preventDefault();step(1);}
  else if(e.key==="Tab"){const f=[...$("#dlg").querySelectorAll('button:not([disabled]),a[href],[tabindex="0"],h2[tabindex]')].filter(x=>x.offsetParent!==null||x.closest("svg"));if(!f.length)return;const a=f[0],z=f[f.length-1];if(e.shiftKey&&document.activeElement===a){e.preventDefault();z.focus();}else if(!e.shiftKey&&document.activeElement===z){e.preventDefault();a.focus();}}

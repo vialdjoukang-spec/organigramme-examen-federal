@@ -50,7 +50,7 @@ def main():
     def side(s):
         if not s:
             return None
-        o = {k: s.get(k, "") for k in ("source_url", "license", "license_url", "author", "modality", "sequence", "plane", "region", "note", "caption_source")}
+        o = {k: s.get(k, "") for k in ("source_url", "license", "license_url", "author", "sex", "modality", "sequence", "plane", "region", "note", "caption_source")}
         im = img(s.get("file"))
         if im:
             with Image.open(os.path.join(ROOT, s["file"])) as I:

@@ -36,6 +36,10 @@ def main():
                 errors.append(f"id introuvable dans la vue: {mid}"); continue
             pg.wait_for_timeout(350)
             snap(mid)
+            reveal = pg.locator("#bHide")
+            if reveal.count() and reveal.is_enabled() and "Révéler" in reveal.inner_text():
+                reveal.click()
+                pg.wait_for_timeout(200)
             if pg.locator("#db .arw").count():
                 # Le centre du groupe tombe souvent dans le vide du contour : on clique le numéro.
                 num = pg.locator("#db .arw text")
@@ -55,11 +59,38 @@ def main():
                 det = pg.locator("#db .les .detail:not([hidden])")
                 if det.count() < 1 or "Définition" not in det.first.inner_text():
                     errors.append(f"{mid}: le numéro n'ouvre ni le nom ni la définition")
-                if i == 0:
-                    pg.click("#bNames"); pg.wait_for_timeout(150)
+                # Bande et définition ouvertes, avant le mode « tous les noms ».
                 snap(mid + "_bulles")
-                if i == 0:
-                    pg.click("#bNames")
+                if i == 0 and pg.locator("#bNames").is_enabled():
+                    pg.click("#bNames"); pg.wait_for_timeout(150)
+                    snap(mid + "_noms")
+                if i == 0 and pg.locator("#bDefi").is_enabled():
+                    pg.click("#bDefi")
+                    pg.wait_for_timeout(200)
+                    pt = pg.evaluate(
+                        """(id) => {
+                          const row = DATA.rows.find(r => r.id === id);
+                          const a = row && row.m && row.m.patho && row.m.patho.arrows && row.m.patho.arrows[0];
+                          const img = document.querySelector('#db .panel.p img');
+                          if (!a || !img) return null;
+                          const b = img.getBoundingClientRect();
+                          return {x: b.left + a.tip[0] * b.width, y: b.top + a.tip[1] * b.height};
+                        }""",
+                        mid,
+                    )
+                    if not pt:
+                        errors.append(f"{mid}: défi sans pointe cliquable")
+                    else:
+                        pg.mouse.click(pt["x"], pt["y"])
+                        pg.wait_for_timeout(150)
+                        pg.click("#bNote")
+                        pg.wait_for_timeout(250)
+                        sc = pg.locator("#score").inner_text() if pg.locator("#score").count() else ""
+                        if "Score" not in sc:
+                            errors.append(f"{mid}: mode défi sans score ({sc!r})")
+                        elif sc.startswith("Score 0"):
+                            errors.append(f"{mid}: clic sur la lésion non compté ({sc!r})")
+                        snap(mid + "_defi")
                 pg.mouse.click(5, 5)  # overlay click closes? -> no, it's header area of dlg/ov
             pg.keyboard.press("Escape"); pg.keyboard.press("Escape"); pg.wait_for_timeout(100)
             if pg.evaluate("document.querySelector('#ov').classList.contains('on')"):
@@ -78,6 +109,10 @@ def main():
             m.evaluate(f"RP.open('{ids[0]}')"); m.wait_for_timeout(400)
             ow = m.evaluate("document.documentElement.scrollWidth")
             if ow > 392: errors.append(f"mobile: débordement horizontal {ow}px")
+            mr = m.locator("#bHide")
+            if mr.count() and mr.is_enabled() and "Révéler" in mr.inner_text():
+                mr.tap()
+                m.wait_for_timeout(200)
             if m.locator("#db .arw").count():
                 m.locator("#db .arw").first.tap(force=True); m.wait_for_timeout(150)
             f = os.path.join(shots, f"{tag}_mobile_{ids[0]}.png"); m.screenshot(path=f, full_page=False); made.append(f)
