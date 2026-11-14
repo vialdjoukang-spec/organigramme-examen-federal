@@ -11,3 +11,8 @@ EXP-147 | confirmé | Introuvable, aucun fichier. Six requêtes. « DXA osteopor
 EXP-146 | confirmé | Introuvable, aucun fichier. Trois requêtes. « whole body DXA scan » ne renvoie rien. Le rejet des relevés qui portent un nom ou une date de naissance est maintenu.
 EXP-145 | confirmé | Introuvable, aucun fichier. Les fichiers Commons sont des photos de canopy ou de masque, ou une ergospirométrie, pas une paire de calorimétries de repos.
 EXP-144 | confirmé | Introuvable, aucun fichier. Deux requêtes. « hypercalcemia PTH graph » ne renvoie rien.
+EXP-143 | confirmé | Introuvable, aucun fichier. Deux requêtes. « GnRH stimulation test graph » ne renvoie rien.
+EXP-142 | confirmé | Introuvable, aucun fichier. Deux requêtes. « plasma urine osmolality SIADH » ne renvoie rien.
+EXP-141 | confirmé | Introuvable, aucun fichier. Deux requêtes. « growth hormone stimulation test » ne renvoie rien.
+EXP-140 | confirmé | Introuvable, aucun fichier. Deux requêtes. « oral glucose tolerance growth hormone acromegaly » ne renvoie rien.
+EXP-139 | confirmé | Introuvable, aucun fichier. « 72 hour fast insulinoma » ramène un test social et des autotests COVID, pas une épreuve de jeûne.
