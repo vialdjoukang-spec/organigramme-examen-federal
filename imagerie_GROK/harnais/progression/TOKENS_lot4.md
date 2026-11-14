@@ -7,3 +7,5 @@ IMG-063 à IMG-059 (estimation). Cinq partiels. L'abcès a été sorti de la voi
 IMG-058 à IMG-054 (estimation). Cinq partiels. Le contour du massif facial a été déplacé sur l'orbite gauche du patient, après un premier cadre sur les fosses nasales. Le sphénoïde a été séparé du rocher. Le cholestéatome suit la tache rouge de l'attique. L'otospongiose est un cercle source sur une coupe floue. Open-i n'a pas renvoyé de JSON. Les scripts ont validé sans erreur. Reprise : IMG-053.
 
 IMG-053 à IMG-049 (estimation). Quatre partiels et un introuvable. Les flèches d'origine ont placé le sinus et la cellulite. L'ange volant tient dans le cadre. Le rétinoblastome a été étendu vers le bas. Le nerf optique a été remonté hors du lobe temporal. L'orbitopathie n'existe qu'en IRM. Les scripts ont validé sans erreur. Reprise : IMG-048.
+
+IMG-048 à IMG-044 (estimation). Trois partiels, deux introuvables. Le plancher orbitaire a été recalé dans le cercle source, hors du globe. La selle a été descendue puis remontée jusqu'au niveau liquide du T1. La cellulite suit les flèches déjà présentes. Open-i n'a pas renvoyé de JSON. Les scripts ont validé sans erreur. Reprise : IMG-043.

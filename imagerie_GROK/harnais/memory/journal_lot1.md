@@ -39,3 +39,8 @@ IMG-052 | partiel | Chaustanley, CC BY-SA 4.0, décollement, signe de l'ange | m
 IMG-051 | partiel | Natebw, domaine public, masse intraoculaire, rétinoblastome | pas de mélanome choroïdien
 IMG-050 | partiel | ICON2022, CC BY-SA 4.0, nerf optique droit plus brillant | séquence non nommée
 IMG-049 | introuvable | — | seulement des IRM de Graves, le cliché demandé est une TDM
+IMG-048 | introuvable | — | pas de TDM ; photos cliniques ou planches hors licence
+IMG-047 | partiel | James Heilman, CC BY-SA 3.0, TDM coronale, blow-out gauche, cercle d'origine | pas d'orbite normale
+IMG-046 | partiel | James Heilman, CC BY-SA 3.0, épaississement préseptal et sinus comblé, flèches d'origine | injection non écrite ; rétroseptal non isolé
+IMG-045 | introuvable | — | pas d'IRM injectée d'hypophysite
+IMG-044 | partiel | Hellerhoff, CC BY-SA 4.0, T1 sagittal, masse sellaire hémorragique | montage ; niveau liquide mieux vu ailleurs
