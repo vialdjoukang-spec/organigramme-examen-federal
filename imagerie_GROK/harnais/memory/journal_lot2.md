@@ -59,3 +59,8 @@ Périmètre réel de ce worktree (lot3, IMG-172 → IMG-087). Ordre décroissant
 - IMG-119 | partiel | Mluisamtz11, CC BY-SA 3.0, verre dépoli basal d'une PINS | piège : connectivite non nommée ; coupe non libellée haute résolution.
 - IMG-118 | partiel | Hellerhoff, CC BY-SA 3.0, sarcoïdose au stade de fibrose ; normale Häggström PA | piège : stades ganglionnaires absents.
 - IMG-117 | partiel | Hellerhoff, CC BY-SA 3.0, bronchectasies kystiques des bases | piège : mucoviscidose non indiquée ; coupe non libellée haute résolution. Reprise à IMG-116.
+- IMG-116 | partiel | Gumersindorego, CC BY-SA 3.0, signe du décollement, TDM classée silicose | piège : la légende ne dit pas silicose ; asbestose absente.
+- IMG-115 | partiel | Darel Heitkamp, CC BY-SA 2.0, rayon de miel d'une PIC | piège : le caractère idiopathique n'est pas établi.
+- IMG-114 | partiel | Hellerhoff, CC BY-SA 4.0, distension emphysémateuse asymétrique ; normale Häggström PA | piège : le fichier dit PA, la légende dit AP ; BPCO non établie.
+- IMG-113 | partiel | Yale Rosen, CC BY-SA 2.0, métastases pulmonaires d'un carcinome rénal | piège : injection non visible ; lymphangite absente.
+- IMG-112 | partiel | Ptrump16, CC BY-SA 4.0, nodule calcifié cerclé sur TDM faible dose | piège : pas un cancer ; le dépistage n'est pas nommé. Reprise à IMG-111.

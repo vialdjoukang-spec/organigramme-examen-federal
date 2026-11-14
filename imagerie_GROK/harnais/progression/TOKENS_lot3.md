@@ -99,3 +99,10 @@ Les durées et les appels évités sont des estimations, marquées comme telles.
 - Appels de jugement visuel : environ 9 lectures (deux TDM de Wegener, hypersensibilité, PINS avec l'opacité ronde laissée hors du contour, fibrose de sarcoïdose, bronchectasies kystiques). Estimation.
 - Durée : une passe. Estimation : Open-i a renvoyé des licences inconnues ou NC.
 - Épargné par les scripts (estimation) : la recherche Commons a trouvé les fichiers de Yale Rosen, Mluisamtz11 et Hellerhoff ; `validate.py` a accepté les cinq partiels sans erreur.
+
+## IMG-116, IMG-115, IMG-114, IMG-113, IMG-112
+
+- Éléments traités : 5 diagnostics, tous partiels.
+- Appels de jugement visuel : environ 10 lectures (signe du décollement, rayon de miel ramené hors du cœur, radiographie d'emphysème, métastases, nodule calcifié dont la pointe a été mise dans le cercle). Estimation.
+- Durée : une passe. Estimation : Open-i renvoyait une page HTML.
+- Épargné par les scripts (estimation) : les catégories Commons ont donné la silicose et l'emphysème ; le pixel le plus blanc a placé le nodule faible dose ; `validate.py` a accepté les cinq partiels sans erreur.
