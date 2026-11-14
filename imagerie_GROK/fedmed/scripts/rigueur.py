@@ -158,7 +158,12 @@ def masque_corps(im):
     gris = im.convert("L")
     gris.thumbnail((240, 240))
     g = np.asarray(gris)
-    fond = (g < 24) | (g > 244)
+    bord = np.concatenate([g[0], g[-1], g[:, 0], g[:, -1]])
+    med = float(np.median(bord))
+    if 28 < med < 232:
+        fond = np.abs(g.astype(np.int16) - med) < 16
+    else:
+        fond = (g < 24) | (g > 244)
     labels, n = ndimage.label(fond)
     if n == 0:
         return None

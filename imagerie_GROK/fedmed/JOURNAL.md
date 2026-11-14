@@ -18,7 +18,8 @@ Branche `leona/fedmed-fenetres`, créée depuis `origin/main` (`65244131a`). Éc
 - Contours : 467 conservés, 102 masqués (aire, position, proportions, symétrie, cohérence avec l'autre côté). Le poumon droit pathologique d'IMG-134 est masqué.
 - Normales adultes : 110 conservées (âge ≥ 18 attesté). 4 remplacées par la radiographie de face d'une femme de 21 ans, CC0 (IMG-118, IMG-123, IMG-134, IMG-153). 156 retirées, âge adulte non attesté ou non adulte. Détail : `CONTROLE.md`.
 - Contours hors du corps : 49 masqués, 30 rognés à l'enveloppe. IMG-157 : le voile beige est rogné au thorax. Contrôle restant : 0.
-- Sortie : sha256 `e2dd57c980c6582b7f69404d42d3255e2b4d237cf2e92bd269d270bc676ed5a5`, 37 200 833 octets.
+- Sortie : sha256 `c0ce0886238282e02e78fce81475fd67cdabe8242e469e5b0a130d52c6b5950c`, 59 770 730 octets.
+- 146 normales d'aspect adulte restaurées. 10 normales d'âge inférieur à 18 ans restent retirées. 60 manifestes partiels injectés. 100 introuvables listés, sans fenêtre. Résumé : `PROGRESSION.md`.
 - Contrôle navigateur des 396 : hauteurs égales, console vide, Atkinson chargée.
 - La recherche a lu Commons et Europe PMC. Une normale n'est gardée que si la légende atteste un cliché normal, adulte, avec âge et sexe, licence libre, même modalité, même incidence et même région. Les autres candidats sont retirés.
 - Le dossier leona/ n'était pas présent à la régénération. Aucun fichier n'y a été écrit.

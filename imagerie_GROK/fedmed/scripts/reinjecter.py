@@ -174,8 +174,111 @@ def patch_rendu(page):
     return page
 
 
+def ajouter_complements(obj):
+    for chemin in sorted(C.FUSION.glob("*.json")):
+        fusion = C.lire_json(chemin)
+        if not fusion.get("complement"):
+            continue
+        ident = fusion["id"]
+        fiche = charger_fenetre(ident)
+        corps, mime = appliquer_fusion(fiche)
+        existant = obj["enr"].get(ident)
+        for cle in ("syndrome", "traitement", "sources", "lecture", "valeurs_normales", "calculs"):
+            corps.setdefault(cle, [])
+        if isinstance(existant, dict) and not existant.get("__fenetre__"):
+            images = (corps.get("images") or {})
+            base_images = existant.setdefault("images", {})
+            for cote in ("normal", "patho"):
+                nouveau = images.get(cote) if isinstance(images.get(cote), dict) else None
+                ancien = base_images.get(cote) if isinstance(base_images.get(cote), dict) else None
+                if nouveau and not (isinstance(ancien, dict) and str(ancien.get("fichier") or "").startswith("data:")):
+                    base_images[cote] = nouveau
+            if any(isinstance(base_images.get(c), dict) and str(base_images[c].get("fichier") or "").startswith(("data:", "images/")) for c in ("normal", "patho")):
+                base_images.pop("manque", None)
+                base_images.pop("manque_normal", None)
+            existant["gabarit"] = corps.get("gabarit") or {}
+            for cle in ("syndrome", "traitement", "sources", "lecture", "valeurs_normales", "calculs"):
+                existant.setdefault(cle, [])
+            obj["enr"][ident] = remplir_fichiers(existant, mime)
+        else:
+            obj["enr"][ident] = remplir_fichiers(corps, mime)
+        famille = fusion.get("famille") or "exp"
+        lignes = obj["lignes"].setdefault(famille, [])
+        if not any(isinstance(r, dict) and r.get("id") == ident for r in lignes):
+            lignes.append(fusion["ligne"])
+    return obj
+
+
+def placer_situations(sortie, obj):
+    import html as htmlmod
+    import re
+    import unicodedata
+
+    def norm(texte):
+        texte = unicodedata.normalize("NFKD", texte or "")
+        texte = "".join(c for c in texte if not unicodedata.combining(c))
+        return re.sub(r"\s+", " ", re.sub(r"[^a-z0-9]+", " ", texte.lower())).strip()
+
+    articles = []
+    for m in re.finditer(r'<article id="(ssp-\d+)"', sortie):
+        fin = sortie.find("</article>", m.start())
+        if fin < 0:
+            continue
+        articles.append((m.group(1), fin, norm(sortie[m.start():fin])))
+    groupes = {}
+    ailleurs = []
+    for chemin in sorted(C.FUSION.glob("*.json")):
+        fusion = C.lire_json(chemin)
+        if not fusion.get("complement"):
+            continue
+        ident = fusion["id"]
+        enr = obj["enr"].get(ident)
+        if not enr:
+            continue
+        payload = C.dumps_donnees(enr)
+        bloc = (
+            f'<div class="fedmed-plus" id="plus-{ident}">'
+            f'<div class="gm" id="gm-{ident}" data-gm="1"></div>'
+            f'<script type="application/json" id="gm-data-{ident}">{payload}</script></div>'
+        )
+        phrase = norm(fusion.get("placement_dx") or "")
+        cible = ""
+        if len(phrase) >= 8:
+            candidats = [a for a in articles if phrase in a[2]]
+            if candidats:
+                cible = min(candidats, key=lambda a: len(a[2]))[0]
+        if cible:
+            groupes.setdefault(cible, []).append(bloc)
+        else:
+            ailleurs.append(bloc)
+    inserts = [(fin, "".join(groupes[art])) for art, fin, _ in articles if art in groupes]
+    for fin, bloc in sorted(inserts, reverse=True):
+        sortie = sortie[:fin] + bloc + sortie[fin:]
+    if ailleurs:
+        section = (
+            '<article id="imagerie-complementaire" class="c"><h2>Imagerie complémentaire</h2>'
+            + "".join(ailleurs) + "</article>"
+        )
+        ancre = '</div></section>\n<section class="p" id="p-examens">'
+        if ancre in sortie and 'id="imagerie-complementaire"' not in sortie:
+            sortie = sortie.replace(ancre, section + ancre, 1)
+    if 'id="gm-css"' not in sortie.split("<body", 1)[0]:
+        sortie = sortie.replace("</head>", '<style id="gm-css">' + G.CSS + "</style></head>", 1)
+    if 'id="gm-viewer"' not in sortie.split("<body", 1)[0]:
+        sortie = sortie.replace("</head>", '<script id="gm-viewer">' + G.JS + "</script></head>", 1)
+    amorce = (
+        '<script id="gm-amorcer">document.querySelectorAll("script[id^=gm-data-]").forEach(function(s){'
+        'var root=document.getElementById("gm-"+s.id.slice(8));'
+        'if(root&&window.GM)window.GM.render(root,JSON.parse(s.textContent));});</script>'
+    )
+    if 'id="gm-amorcer"' not in sortie:
+        sortie = sortie.replace("</body>", amorce + "</body>", 1)
+    return sortie
+
+
 def reconstruire_sortie():
     data, m, page, d, obj = pages_depuis_squelette(True)
+    ajouter_complements(obj)
     # On épissure les données avant d'injecter le gabarit : les index du squelette
     # ne restent justes que tant que la page n'a pas encore grandi.
     page = page[: d.start(2)] + C.dumps_donnees(obj) + page[d.end(2) :]
@@ -193,9 +296,12 @@ def reconstruire_sortie():
 
     sortie = EMB_SAFE(sortie, une)
     sortie = embarquer_polices_page(sortie, faces)
+    sortie = placer_situations(sortie, obj)
     C.SORTIE.parent.mkdir(parents=True, exist_ok=True)
     C.SORTIE.write_text(sortie, encoding="utf-8")
     print(f"sortie {C.SORTIE} ({len(sortie)} caractères)")
+    import resumer
+    resumer.ecrire()
     return sortie
 
 

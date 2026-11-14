@@ -10,10 +10,19 @@ function srcDe(en,cote){
 }
 function demo(info){
  info=info||{};
+ if(info.aspect_adulte && !info.age){
+  return "âge non documenté (adulte d'aspect)"+(info.sexe?" · "+esc(info.sexe):"");
+ }
  if(info.age&&info.sexe)return esc(info.age)+" · "+esc(info.sexe);
  if(info.age)return esc(info.age)+" · sexe non documenté";
  if(info.sexe)return "âge non documenté · "+esc(info.sexe);
  return "âge/sexe non documentés";
+}
+function ecartAge(g){
+ function n(s){var m=/(\d{1,3})/.exec(s||"");return m?parseInt(m[1],10):0;}
+ var a=n((g.normal||{}).age),b=n((g.patho||{}).age);
+ if(a>=18&&b>=18&&Math.abs(a-b)>20)return "tranche d'âge non appariée";
+ return "";
 }
 function metaLigne(info){
  info=info||{};
@@ -143,7 +152,8 @@ function render(root,en){
  var cartes=(g.cartes||[]).map(function(c){return '<article class="gm-carte"><h3>'+esc(c.titre)+"</h3><p>"+esc(c.texte)+"</p></article>";}).join("");
  var sig=(g.signaux&&g.signaux.length)?'<article class="gm-carte gm-signal"><h3>Images signalées</h3><p>'+g.signaux.map(esc).join(" ")+"</p></article>":"";
  root.classList.add("fleches-off");
- root.innerHTML='<div class="gm-barre"><button type="button" class="gm-btn" data-act="fleches" aria-pressed="false">Révéler les flèches</button><button type="button" class="gm-btn" data-act="lie" aria-pressed="false">Zoom lié</button><button type="button" class="gm-btn" data-act="code" aria-pressed="false">Rappel du code couleur structure – aspect</button><button type="button" class="gm-btn" data-act="defi" aria-pressed="false">Mode défi</button></div><div class="gm-pair">'+panneau("normal",g.normal,false,srcN)+panneau("patho",g.patho,true,srcP)+'</div><section class="gm-code" hidden><h3>Code couleur — structure et aspect</h3><div class="gm-code-corps"></div></section>'+cartes+sig+'<p class="gm-indice" aria-live="polite"></p>';
+ var ecart=ecartAge(g);
+ root.innerHTML='<div class="gm-barre"><button type="button" class="gm-btn" data-act="fleches" aria-pressed="false">Révéler les flèches</button><button type="button" class="gm-btn" data-act="lie" aria-pressed="false">Zoom lié</button><button type="button" class="gm-btn" data-act="code" aria-pressed="false">Rappel du code couleur structure – aspect</button><button type="button" class="gm-btn" data-act="defi" aria-pressed="false">Mode défi</button></div><div class="gm-pair">'+panneau("normal",g.normal,false,srcN)+panneau("patho",g.patho,true,srcP)+'</div>'+(ecart?'<p class="gm-ecart">'+esc(ecart)+'</p>':'')+'<section class="gm-code" hidden><h3>Code couleur — structure et aspect</h3><div class="gm-code-corps"></div></section>'+cartes+sig+'<p class="gm-indice" aria-live="polite"></p>';
  root.querySelector(".gm-code-corps").innerHTML=legende(g);
  var etat={lie:false,defi:false,hint:0,step:0,revele:false,actif:-1};
  var zooms=[];
