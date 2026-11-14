@@ -55,3 +55,7 @@ Cinq diagnostics : GIST fléchée, carcinome œsophagien, colite à Clostridioid
 ## Passage IMG-194 à IMG-190
 
 Cinq diagnostics : appendicite, gaz veineux hépatique, deux infarctus spléniques et rupture portale en partiel ; splénomégalie introuvable. Relectures pour tenir le gaz dans le foie, les flèches sur la rate et la lacération hors du pôle homogène. Durée approximative : 30 minutes (estimation). Open-i a répondu ; les figures utiles étaient hors licence (estimation).
+
+## Passage IMG-189 à IMG-185
+
+Cinq diagnostics : pancréatite auto-immune fléchée, TIPMP en bili-IRM, adénocarcinome hypodense et calculs canalaires en partiel ; tumeur neuroendocrine introuvable. Relectures pour inclure la flèche de la glande et le foyer liquidien de la MIP. Durée approximative : 25 minutes (estimation). Open-i a répondu ; les figures de tumeur neuroendocrine étaient hors licence (estimation).

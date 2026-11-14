@@ -70,3 +70,8 @@ IMG-193 | partiel | Hellerhoff 2023, gaz des veines hépatiques et pneumatose | 
 IMG-192 | introuvable | la seule échographie de la catégorie ne montre pas la rate
 IMG-191 | partiel | Atzmony 2009, deux infarctus spléniques déjà fléchés | phase non nommée, pas de normale
 IMG-190 | partiel | Hellerhoff 2017, rupture splénique en phase portale | phase artérielle absente
+IMG-189 | partiel | Patel 2024, pancréatite auto-immune, glande élargie fléchée en phase parenchymateuse | pas de TDM normale
+IMG-188 | introuvable | pas de TDM artérielle de tumeur neuroendocrine sous licence blanche
+IMG-187 | partiel | Hellerhoff 2012, TIPMP des canaux secondaires en bili-IRM | pas de flèche, divisum associé
+IMG-186 | partiel | Hellerhoff 2010, adénocarcinome pancréatique hypodense | une seule phase
+IMG-185 | partiel | Heilman 2016, calculs canalaires calcifiés | mention « sans injection » absente de la légende
