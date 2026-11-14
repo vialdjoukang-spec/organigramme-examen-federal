@@ -45,4 +45,9 @@ IMG-304 | partiel | Kennedy et al., CC BY 2.0, Salter-Harris III du tibia distal
 IMG-303 | introuvable | pas d'IRM de luxation de rotule | la catégorie est radiographique
 IMG-302 | partiel | nomen49, CC BY-SA 3.0 de, ostéochondrite en place, genou droit en charge | pas de profil
 IMG-301 | partiel | Intermedichbo, CC BY-SA 3.0, kyste poplité intact | la rupture n'est pas sur le cliché
+IMG-300 | partiel | Gkouvas, CC BY-SA 3.0, gonarthrose stades II et III, flèches source | pas un schuss
+IMG-299 | partiel | LottieLattes, CC BY-SA 4.0, enfoncement du plateau tibial latéral gauche | une incidence
+IMG-298 | partiel | Hellerhoff, CC BY-SA 3.0, rupture du croisé antérieur en DP | suppression de graisse non écrite ; ménisque non indiqué
+IMG-297 | partiel | Hellerhoff, CC BY-SA 4.0, came de la hanche gauche sur bassin de face | pas un profil de Dunn
+IMG-296 | partiel | Ruiz Santiago et al., CC BY 4.0, épanchement de synovite transitoire | arthrite septique non montrée
 

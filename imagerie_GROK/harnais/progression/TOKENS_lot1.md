@@ -82,3 +82,12 @@ Reprise : IMG-305.
 - Épargné par les scripts (estimation) : les catégories ont donné la légende et la licence avant la lecture. Le gain chiffré n'est pas mesuré.
 
 Reprise : IMG-300.
+
+## Passe IMG-300 à IMG-296
+
+- Éléments traités : 5 diagnostics. Cinq partiels. Aucun complet.
+- Appels de jugement visuel : environ 12 lectures. Le plateau tibial a été déplacé du condyle vers le plateau, et les flèches de la gonarthrose ont été recouvertes. Estimation.
+- Durée : une passe, non chronométrée. Estimation.
+- Épargné par les scripts (estimation) : les catégories ont fourni la légende et la licence. Le cliché en flexion sans arthrose visible a été écarté. Le gain chiffré n'est pas mesuré.
+
+Reprise : IMG-295.
