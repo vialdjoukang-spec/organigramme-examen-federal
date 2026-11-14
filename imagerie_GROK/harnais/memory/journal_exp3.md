@@ -49,3 +49,7 @@ Périmètre EXP-076 → EXP-039, ordre décroissant. Rien n'est inventé. Repris
 - FTE-07 partiel. Cardiotocogramme réel, rythme fœtal et tocométrie. La source ne le classe pas.
 - FTE-06 introuvable. Pas de potentiel évoqué humain libre. Le schéma lisse et l'ABR de souris sont écartés.
 - FTE-05 partiel. Conduction sensitive normale du sural, 3,1 ms, 8,2 µV, 42,8 m/s.
+- FTE-04 partiel. EEG d'adulte éveillé, blocage à la fermeture des yeux. Pas un enregistrement de psychiatrie.
+- FTE-03 partiel. Même EEG, rythme alpha occipital. Il manque l'enfant et le nouveau-né.
+- FTE-02 introuvable. Les Holter libres portent un nom, une date de naissance ou des extrasystoles et une pause.
+- FTE-01 partiel. ECG 12 dérivations, rythme sinusal normal imprimé, P-QRS-T en DII.

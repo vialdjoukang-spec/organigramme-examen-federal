@@ -16,3 +16,5 @@ EXP-041 à EXP-039. Deux introuvables, un partiel. L'onde positive aiguë est re
 FTE-14 à FTE-10. Quatre introuvables, un partiel. L'ergospirométrie garde la courbe VO2 sans seuil anaérobie. Reprise : FTE-09.
 
 FTE-09 à FTE-05. Quatre partiels, un introuvable. Effort, QT, cardiotocogramme et sural lus sur l'image. Reprise : FTE-04.
+
+FTE-04 à FTE-01. Trois partiels, un introuvable. Alpha occipital, blocage à la fermeture des yeux, ECG normal en DII. Le Holter normal reste introuvable. La plage demandée s'arrête à FTE-01.
