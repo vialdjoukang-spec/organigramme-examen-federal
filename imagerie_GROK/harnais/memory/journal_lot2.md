@@ -74,3 +74,8 @@ Périmètre réel de ce worktree (lot3, IMG-172 → IMG-087). Ordre décroissant
 - IMG-104 | partiel | Chan et Oh, Int J Emerg Med 2016, CC BY 4.0, compression de la queue de cheval en T2 | piège : pas d'IRM normale.
 - IMG-103 | partiel | Cyborg Ninja, flèche de User:SUM1, CC BY 4.0, cavité cervicale en T2 | piège : la pondération demandée est T1. Le T1 trouvé était en NC.
 - IMG-102 | partiel | Lucien Monfils, CC BY-SA 3.0, épendymome cervical entouré en rouge | piège : gadolinium non indiqué. Reprise à IMG-101.
+- IMG-101 | partiel | Briani et al., PMC3847746, CC BY-SA 3.0, hypersignal postérieur fléché | piège : le contour est sur le T2 sagittal ; les axiales sont présentes.
+- IMG-100 | partiel | Frank Gaillard, CC BY-SA 3.0, long hypersignal de myélite transverse | piège : pas de coupe axiale ; SEP et NMO absentes.
+- IMG-099 | introuvable | recherches Commons vides, Open-i en CC BY-NC | piège : pas de vides de flux en licence blanche.
+- IMG-098 | partiel | Kobayashi, BMC Neurology 2022, CC BY 4.0, hypersignal de diffusion en crayon | piège : pas d'IRM de diffusion normale. Le schéma des yeux de hibou n'est pas une IRM.
+- IMG-097 | introuvable | recherches Commons vides, Open-i à licence inconnue | piège : pas de gadolinium de fibrose ou de récidive. Reprise à IMG-096.

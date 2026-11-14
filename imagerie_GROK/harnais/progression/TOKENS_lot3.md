@@ -120,3 +120,10 @@ Les durées et les appels évités sont des estimations, marquées comme telles.
 - Appels de jugement visuel : environ 10 lectures (caverne tuberculeuse, profil de pneumonie, compression lombaire, seringomyélie ramenée sur la flèche, épendymome et sa pointe dans le tracé rouge). Estimation.
 - Durée : une passe. Estimation : Open-i a renvoyé des licences NC ou inconnues.
 - Épargné par les scripts (estimation) : la catégorie des radiographies de tuberculose a donné la caverne en CC0 ; `validate.py` a accepté les cinq partiels sans erreur.
+
+## IMG-101, IMG-100, IMG-099, IMG-098, IMG-097
+
+- Éléments traités : 5 diagnostics, 3 partiels et 2 introuvables.
+- Appels de jugement visuel : environ 9 lectures (sclérose combinée ramenée sur les flèches, myélite dans la moelle, infarctus sur le segment fléché en diffusion). Estimation.
+- Durée : une passe. Estimation : Open-i a fourni la diffusion de l'infarctus en CC BY et a écarté la fistule en NC.
+- Épargné par les scripts (estimation) : `fetch_commons.py` a écarté le schéma des yeux de hibou ; `validate.py` a accepté les cinq fichiers sans erreur.
