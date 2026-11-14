@@ -21,3 +21,8 @@ Périmètre EXP-076 → EXP-039, ordre décroissant. Rien n'est inventé. Repris
 - EXP-059 partiel. ECG de Wellens sans douleur, James Heilman : ondes T négatives en V2-V3. Pas de série d'ECG, pas de sous-décalage nommé par la légende.
 - EXP-058 partiel. STEMI antérieur, domaine public, Displaced : sus-décalage en V2-V4. Pas de 18 dérivations, amplitude non chiffrée. ECG 001 écarté : le sus-décalage annoncé n'est pas visible.
 - EXP-057 partiel. Onde J d'Osborn, WikiSysop, CC BY 3.0, encoche au point J en V4-V6. Pas de tracé de tricycliques libre. Open-i en licence NC.
+- EXP-056 partiel. Seuil de stimulation auriculaire, Rosengarten : perte de capture après le second spike de 1,5 V. Pas de défibrillateur.
+- EXP-055 partiel. Enregistreur d'événements, Rosengarten : flutter puis asystole. L'ECG normal apparié est un 12 dérivations de repos.
+- EXP-054 partiel. Hyperkaliémie 8,2 mmol/L, Agbayani et Gonzales, CC BY 4.0 : ondes T pointues. Pas d'onde U. En-tête masqué.
+- EXP-053 partiel. Brugada type 1, Postema, CC BY-SA 3.0, en V1 et dérivations hautes. Pas d'ajmaline.
+- EXP-052 partiel. QT nettement allongé, Adadi 2017, Jervell et Lange-Nielsen. Ce n'est pas un QT acquis, et 500 ms n'est pas imprimé.
