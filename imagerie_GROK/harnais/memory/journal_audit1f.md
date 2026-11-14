@@ -1,0 +1,14 @@
+# Journal audit 1f
+Audit indépendant du 14.11.2026. Images ouvertes avant tout verdict. Ordre IMG-269 → IMG-259. Ces manifestes n'ont pas été rédigés par l'auditeur.
+
+IMG-269 | corrigé | Le rectangle prenait le tendon et la corticale, le polygone reste sur l'interruption sous la flèche blanche du volet gauche avec la pointe au bout de cette flèche, le volet droit montre la même interruption, pas de côté, le passage jusqu'à l'os n'est pas isolé, partiel et définition « À vérifier » tenus, licence CC BY-SA 3.0.
+IMG-268 | corrigé | Le rectangle couvrait la clavicule, le polygone reste sur le décalage avec la pointe sur le bord supérieur du foyer, repère L en haut à droite donc clavicule gauche, humérus proximal intact, partiel et définition « À vérifier » tenus, licence CC BY-SA 3.0.
+IMG-267 | corrigé | Le rectangle coupait la tête et la pointe tombait dans les parties molles, le polygone suit la tête luxée avec la pointe sur son pôle supérieur, aucune lettre de côté, Hill-Sachs et Bankart non vus, partiel et définition « À vérifier » tenus, licence CC BY-SA 3.0.
+IMG-266 | corrigé | Le rectangle prenait le rectum et la ligne PCL, la pointe tombait à côté de la flèche verte, le polygone reste sur le bombement qu'elle désigne avec la pointe sur sa tête, coupe sagittale médiane, définition ramenée à la paroi postérieure, partiel et « À vérifier » tenus, licence CC BY 4.0.
+IMG-265 | corrigé | Le rectangle prenait le canal anal et la pointe était sous le trajet, le polygone reste sur le trajet du volet axial T2 avec la pointe au bout de la flèche orange, pas de côté ni d'abcès, partiel et définition « À vérifier » tenus, licence CC BY 4.0.
+IMG-264 | confirmé | Introuvable, pas d'image : aucun Doppler de rétention placentaire n'est au dossier.
+IMG-263 | corrigé | Le rectangle prenait le liquide amniotique et la pointe y tombait, le polygone suit la tête et le corps du fœtus en mode B avec la pointe sur le crâne, pas de côté ni de pathologie nommée, partiel et définition « À vérifier » tenus, domaine public.
+IMG-262 | confirmé | Introuvable, pas d'image : aucun Doppler ombilical de retard de croissance n'est au dossier.
+IMG-261 | confirmé | Introuvable, pas d'image : aucune échographie endovaginale de placenta prævia n'est au dossier.
+IMG-260 | corrigé | Le rectangle dépassait les calipers, le polygone reste sur l'espace anéchogène entre les deux croix avec la pointe sur le caliper inférieur, cote 4,2 mm, pas de côté, premier trimestre seulement, partiel et définition « À vérifier » tenus, domaine public.
+IMG-259 | corrigé | Le rectangle prenait le myomètre et la pointe était sur la vésicule vitelline, le polygone suit le sac anéchogène avec la pointe sur le bord supérieur vide, pas de caliper ni de côté, partiel et définition « À vérifier » tenus, licence CC0.
