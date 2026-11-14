@@ -309,7 +309,7 @@ button.sc::after{content:" ⓘ";font-size:.8em}button.sc:focus-visible{outline:2
 @media(max-width:1180px){.mod{grid-template-columns:minmax(0,1fr);gap:8px}
  .rail{position:static;max-height:none;flex-direction:row;overflow-x:auto}.rail button{white-space:nowrap}}
 @media(max-width:900px){:root{--mw:0px}.cadre{grid-template-columns:minmax(0,1fr)}
- #menu{position:fixed;top:0;left:0;bottom:0;height:auto;width:min(84vw,320px);z-index:45;transform:translateX(-102%);transition:transform .2s;box-shadow:0 0 0 100vmax rgba(0,0,0,0)}
+ #menu{position:fixed;top:0;left:0;bottom:0;height:auto;width:min(84vw,320px);z-index:60;transform:translateX(-102%);transition:transform .2s;box-shadow:0 0 0 100vmax rgba(0,0,0,0)}
  #menu.ouvert{transform:none;box-shadow:0 0 0 100vmax rgba(10,12,16,.45)}
  #menu .x{display:block;font:inherit;font-weight:700;border:2px solid #111;background:#fff;border-radius:8px;padding:3px 10px;margin:0 0 8px auto;cursor:pointer}
  #planbtn{display:block;position:fixed;left:10px;bottom:12px;z-index:44;font:inherit;font-weight:700;background:var(--t-menu);border:2px solid #111;border-radius:99px;padding:8px 14px;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.25)}
