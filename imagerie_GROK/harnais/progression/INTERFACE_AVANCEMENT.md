@@ -21,13 +21,15 @@
 - Lot 2 `bc-8f34385d-cb6c-53e4-ad71-fdd28d1deedb` : IMG-132 à IMG-166 (15), puis IMG-071 à IMG-141.
 - Lot 3 `bc-4e45b5d2-c132-5c1d-bc8e-97181bfc32aa` : IMG-167 à IMG-244 (15), puis IMG-142 à IMG-260.
 - Lot 4 `bc-2a7ab1bc-6808-5d9e-a189-7eca3f3eda49` : IMG-245 à IMG-344 (15), puis IMG-263 à IMG-338.
-- Auditeur distinct `bc-4f77b9e3-02f6-5e6e-b53f-3ec179f6a4f1` : relecture des 61 contours et des sexes, sans écrire dans les manifestes.
+- Audit contours des 61 paires (`bc-4f77b9e3-02f6-5e6e-b53f-3ec179f6a4f1`) a fini : 56 contours grossiers, 1 absent (IMG-161), 4 silhouettes (IMG-001, IMG-134, IMG-136, IMG-250), 0 complet possible. Aucune silhouette n'a le même sexe des deux côtés.
 - Le dépôt a 61 paires avec les deux fichiers, pas 112.
 
 ## Bloquants
 
 - IMG-001 ne peut pas être complet : sexe pathologique À vérifier, séquence non écrite, flèche et cartouche déjà incrustés (le défi est éventé par cette flèche).
-- Aucune paire n'a le même sexe explicite des deux côtés. Complets retirés pour légende muette sur le sexe : IMG-250, IMG-257, EXP-112.
+- 56 contours des 61 paires sont grossiers (rectangle, hexagone ou trop peu de points). Seules silhouettes : IMG-001, IMG-134, IMG-136, IMG-250. Elles n'ont pas le même sexe des deux côtés.
+- IMG-161 : les deux légendes disent « 40 F » (femme de 40 ans). Sexe posé à F des deux côtés. Reste partiel : deux incidences d'un dépistage sans lésion, aucun contour.
+- Complets retirés pour légende muette sur le sexe : IMG-250, IMG-257, EXP-112.
 - Sexe explicite d'un seul côté (l'autre absent ou À vérifier), non relus image par image : EXP-052 M, EXP-148 M, FTE-05 M, FTE-41 M, IMG-011 F, IMG-051 M, IMG-055 F, IMG-061 M, IMG-100 F, IMG-108 M, IMG-111 F, IMG-153 M, IMG-158 M, IMG-191 F, IMG-205 M, IMG-224 M, IMG-235 F, IMG-249 F, IMG-285 F, IMG-312 F, IMG-331 F, IMG-344 F.
 - Tous les autres côtés : sexe À vérifier. Contours hors IMG-001 non relus à l'œil dans ce passage.
 
