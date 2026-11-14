@@ -7,9 +7,9 @@ Branche `leona/fedmed-fenetres`, créée depuis `origin/main` (`65244131a`). Éc
 <!-- ETAT:DEBUT -->
 - Découpage fait : 396 fenêtres, dont 132 sans normale. Réinjection brute : octet identique.
 - Échantillon capturé : IMG-134, IMG-001, IMG-136, IMG-267, EXP-001, EXP-002, EXP-024, EXP-032, IMG-166, IMG-168.
-- Fenêtres fusionnées : 374 / 396.
-- Normales ajoutées : 1.
-- Signalements : 613. Détail : signaux/images_signalees.json.
+- Fenêtres fusionnées : 396 / 396.
+- Normales ajoutées : 4.
+- Signalements : 646. Détail : signaux/images_signalees.json.
 - Reprise : python3 imagerie_GROK/fedmed/scripts/fusionner.py --limite 30
 <!-- ETAT:FIN -->
 
