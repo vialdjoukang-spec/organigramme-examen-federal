@@ -43,6 +43,23 @@ for (const id of ids) {
     bouton.click();
   }, id);
   await frame.waitForSelector(".gm", { timeout: 8000 });
+  const police = await frame.evaluate(async () => {
+    await document.fonts.load('16px "Atkinson Hyperlegible"');
+    const famille = (sel) => {
+      const el = document.querySelector(sel);
+      return el ? getComputedStyle(el).fontFamily : "";
+    };
+    return {
+      check: document.fonts.check('16px "Atkinson Hyperlegible"'),
+      titre: famille("#fen-t"),
+      carte: famille(".gm-carte p"),
+      meta: famille(".gm-meta"),
+    };
+  });
+  if (!police.check || !/Atkinson/.test(police.titre + police.carte + police.meta)) {
+    console.error("fonte non chargée", JSON.stringify(police));
+    process.exit(1);
+  }
   await frame.waitForTimeout(200);
   await frame.locator("#voile .fen").screenshot({ path: resolve(outDir, `${id}.png`), animations: "disabled", timeout: 20000 });
   if (id === "IMG-158") {

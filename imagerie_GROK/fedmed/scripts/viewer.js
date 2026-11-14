@@ -101,6 +101,14 @@ function numeros(zw,lesions){
   zw.appendChild(b);
  });
 }
+function libelle(st){
+ var nom=st.nom||"Structure";
+ var aspect=(st.aspect||"").replace(/\(?\s*contour approximatif[\s\S]*$/i,"").replace(/\s+/g," ").trim();
+ var html="<b>"+esc(nom)+"</b>";
+ if(aspect)html+=" — "+esc(aspect);
+ if(st.approximatif)html+=' <i class="gm-approx">contour automatique approximatif</i>';
+ return html;
+}
 function legende(g){
  var vus={},rows="";
  ["normal","patho"].forEach(function(cote){
@@ -108,8 +116,7 @@ function legende(g){
  });
  Object.keys(vus).forEach(function(id){
   var st=vus[id];
-  var src=st.aspect_source||"Interprétation de l'image (non sourcée)";
-  rows+='<li><i style="background:'+esc(st.couleur)+'"></i><span><b>'+esc(st.nom||id)+"</b> — "+esc(st.aspect||"aspect non décrit")+" ("+esc(src)+")</span></li>";
+  rows+='<li><i style="background:'+esc(st.couleur)+'"></i><span>'+libelle(st)+"</span></li>";
  });
  var les="";
  (((g.patho||{}).lesions)||[]).forEach(function(L,i){
@@ -174,7 +181,7 @@ function render(root,en){
    if(!p)return;
    if(!st){if(!id)p.hidden=true;return;}
    p.hidden=false;
-   p.textContent=st.nom+" — "+(st.aspect||"aspect non décrit")+" ("+(st.aspect_source||"Interprétation de l'image (non sourcée)")+")";
+   p.innerHTML=libelle(st);
   });
  }
  root.querySelectorAll(".st").forEach(function(el){

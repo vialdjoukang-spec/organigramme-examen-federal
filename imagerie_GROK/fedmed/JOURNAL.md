@@ -15,7 +15,8 @@ Branche `leona/fedmed-fenetres`, créée depuis `origin/main` (`65244131a`). Éc
 - Âge et sexe : attestés pour 143 clichés pathologiques (crédit, Europe PMC ou Commons). Sinon la ligne affiche « âge/sexe non documentés ».
 - En-têtes de fenêtre et de cartes : fond #F3FAFD, bordure #87CEEB, police Atkinson Hyperlegible, y compris le titre.
 - Captures poussées : IMG-134 (vue, flèches, survol, légende), IMG-136, EXP-001, IMG-157 (normale ajoutée), IMG-159, IMG-001, IMG-267, IMG-166, IMG-168, EXP-002, EXP-024, EXP-032.
-- Normales ajoutées et gardées : 8 (IMG-157, IMG-159, IMG-209, IMG-216, IMG-219, IMG-220, IMG-221, IMG-257). Fenêtres encore sans normale : 124.
+- Contours : 467 conservés, 102 masqués (aire, position, proportions, symétrie, cohérence avec l'autre côté). Le poumon droit pathologique d'IMG-134 est masqué.
+- Normales : IMG-157 recadrée sur la seule coupe axiale, au niveau de l'aorte. IMG-257 gardée (vue unique). IMG-159, IMG-209, IMG-216, IMG-219, IMG-220 et IMG-221 retirées (montage ou niveau différent). Fenêtres encore sans normale : 130.
 - La recherche a lu Commons et Europe PMC. Une normale n'est gardée que si la légende atteste un cliché normal, adulte, avec âge et sexe, licence libre, même modalité, même incidence et même région. Les autres candidats sont retirés.
 - Le dossier leona/ n'était pas présent à la régénération. Aucun fichier n'y a été écrit.
 - Dernières captures poussées : IMG-134 (survol), IMG-136, EXP-001, IMG-209 et IMG-220 (normales nouvelles), IMG-157, IMG-219, IMG-001, IMG-267, IMG-166, IMG-168, EXP-002. Console sans erreur.
