@@ -10,3 +10,5 @@ EXP-056 à EXP-052. Cinq partiels. Lectures du seuil de pacemaker, de l'asystole
 EXP-051 à EXP-047. Cinq partiels. Lectures des pauses sinusales, du bloc de branche cerclé, du Mobitz II, de la tachycardie ventriculaire et de l'onde delta. Reprise : EXP-046.
 
 EXP-046 à EXP-042. Deux partiels, trois introuvables. Lectures du flutter fléché, de la fibrillation et du rejet du tilt POTS. Reprise : EXP-041.
+
+EXP-041 à EXP-039. Deux introuvables, un partiel. L'onde positive aiguë est retenue sans myotome. Reprise des fiches : FTE-14.

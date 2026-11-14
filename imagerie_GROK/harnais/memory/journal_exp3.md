@@ -36,3 +36,6 @@ Périmètre EXP-076 → EXP-039, ordre décroissant. Rien n'est inventé. Repris
 - EXP-044 introuvable. Pas de chute d'amplitude de PES ou de PEM peropératoire libre.
 - EXP-043 introuvable. Pas de PES ni de PEM avec latence centrale allongée.
 - EXP-042 introuvable. Le tilt libre est un POTS (fréquence à 147/min) ou des photos de manœuvre, pas une hypotension sans accélération.
+- EXP-041 introuvable. Pas d'ENMG à trois semaines qui distingue neurapraxie, axonotmésis et neurotmésis.
+- EXP-040 introuvable. Pas de tracé myogène libre.
+- EXP-039 partiel. Onde positive aiguë, Medicus of Borg, CC BY-SA 4.0, 18,1 ms et 146 µV. Pas de racine, pas d'EMG normal de détection.
