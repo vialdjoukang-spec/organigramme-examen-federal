@@ -39,3 +39,8 @@ Périmètre EXP-076 → EXP-039, ordre décroissant. Rien n'est inventé. Repris
 - EXP-041 introuvable. Pas d'ENMG à trois semaines qui distingue neurapraxie, axonotmésis et neurotmésis.
 - EXP-040 introuvable. Pas de tracé myogène libre.
 - EXP-039 partiel. Onde positive aiguë, Medicus of Borg, CC BY-SA 4.0, 18,1 ms et 146 µV. Pas de racine, pas d'EMG normal de détection.
+- FTE-14 introuvable. Le seul tilt libre est un POTS, pas un tracé normal. Pas de massage sinocarotidien.
+- FTE-13 introuvable. La photo COSMED montre le matériel, pas une distance ni une saturation.
+- FTE-12 introuvable. Les fichiers d'index cheville-bras sont des schémas du geste, pas une onde.
+- FTE-11 introuvable. La seule MAPA libre est une hypertension nocturne.
+- FTE-10 partiel. VO2 et VCO2 d'une épreuve maximale, protocole 60 W puis +35 W. Pas de seuil marqué.
