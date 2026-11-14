@@ -31,8 +31,28 @@ _MANIFESTES = {}
 _OCTETS = {}
 
 
+VERBES = re.compile(
+    r"^(ne |n['’]|montre|caractérise|détecte|detecte|distingue|irradie|mesure|reste|manque|"
+    r"date|explore|dépend|depend|voit|signe|permet|évite|evite|confirme|exclut|localise|"
+    r"quantifie|différencie|differencie|se |sous-type|met|donne|apporte|guide|classe|"
+    r"précise|precise|visualise|objective|retrouve|identifie|élimine|elimine|limite|"
+    r"couvre|suit|repose|exige|nécessite|necessite|décrit|decrit|compare|grade)",
+    re.I,
+)
+
+
 def net(s):
-    return re.sub(r"\s+", " ", (s or "").replace("\xa0", " ")).strip()
+    s = re.sub(r"\s+", " ", (s or "").replace("\xa0", " ")).strip()
+    return re.sub(r"\s+,", ",", s)
+
+
+def verbaliser(fragment):
+    f = net(fragment).rstrip(".")
+    if not f:
+        return ""
+    if VERBES.match(f):
+        return "elle " + f[0].lower() + f[1:]
+    return f
 
 
 def joindre(items):
@@ -238,18 +258,18 @@ def carte_reference(gold):
     examen = net(gold.get("examen"))
     if examen:
         morceaux.append(examen if examen.endswith(".") else examen + ".")
-    pourquoi = joindre(gold.get("pourquoi") or [])
+    pourquoi = joindre(verbaliser(x) for x in (gold.get("pourquoi") or []))
     if pourquoi:
         morceaux.append("C'est l'examen de référence : " + minuscule(pourquoi))
     premiere = net(gold.get("premiere_intention"))
     if premiere:
-        morceaux.append("En première intention, " + minuscule(premiere if premiere.endswith(".") else premiere + "."))
+        morceaux.append("En première intention : " + premiere.rstrip(".") + ".")
     quand = joindre(gold.get("quand") or [])
     if quand:
-        morceaux.append("On la réalise dans ces situations : " + minuscule(quand))
-    montre = joindre(gold.get("montre") or [])
+        morceaux.append("On la demande dans ces situations : " + minuscule(quand))
+    montre = joindre(verbaliser(x) for x in (gold.get("montre") or []))
     if montre:
-        morceaux.append("Elle montre " + minuscule(montre))
+        morceaux.append(minuscule(montre) if montre.lower().startswith("elle ") else "Elle montre " + minuscule(montre))
     return " ".join(morceaux)
 
 
@@ -262,15 +282,15 @@ def carte_autres(autres):
         if not nom:
             continue
         phrase = nom.rstrip(".") + "."
-        pourquoi = joindre(autre.get("pourquoi_pas_gold") or [])
+        pourquoi = joindre(verbaliser(x) for x in (autre.get("pourquoi_pas_gold") or []))
         if pourquoi:
             phrase += " Ce n'est pas la référence : " + minuscule(pourquoi)
         quand = joindre(autre.get("quand") or [])
         if quand:
-            phrase += " On y recourt quand " + minuscule(quand)
+            phrase += " On la demande quand même dans ces situations : " + minuscule(quand)
         montre = joindre(autre.get("montre") or [])
         if montre:
-            phrase += " On y voit " + minuscule(montre)
+            phrase += " On y voit : " + minuscule(montre)
         lignes.append(phrase)
     return " ".join(lignes)
 
@@ -366,21 +386,21 @@ def controler_local(man, blob):
 
 def echantillon(index):
     ids = index["ids"]
+    present = set(ids)
     sans = set(index["sans_normale"])
-    preferes = [i for i in ("IMG-134", "IMG-001", "IMG-136", "IMG-250", "IMG-267", "IMG-132") if i in ids]
     choix = []
-    for groupe in (
-        preferes,
-        [i for i in ids if i in sans],
-        [i for i in ids if i.startswith("EXP-")],
-        [i for i in ids if i not in sans],
-    ):
-        for ident in groupe:
-            if ident not in choix:
+
+    def add(seq):
+        for ident in seq:
+            if ident in present and ident not in choix:
                 choix.append(ident)
-            if len(choix) >= 10:
-                return choix
-    return choix
+
+    add(["IMG-134", "IMG-001", "IMG-136", "IMG-267"])
+    exp = [i for i in ids if i.startswith("EXP-")]
+    add([i for i in exp if i not in sans][:2])
+    add([i for i in exp if i in sans][:2])
+    add([i for i in ids if i in sans and i.startswith("IMG-")][:2])
+    return choix[:10]
 
 
 def fusionner_une(fiche):

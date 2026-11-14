@@ -176,11 +176,13 @@ def patch_rendu(page):
 
 def reconstruire_sortie():
     data, m, page, d, obj = pages_depuis_squelette(True)
+    # On épissure les données avant d'injecter le gabarit : les index du squelette
+    # ne restent justes que tant que la page n'a pas encore grandi.
+    page = page[: d.start(2)] + C.dumps_donnees(obj) + page[d.end(2) :]
     faces = polices_css()
     page = injecter_police_html(page, faces)
     page = patch_rendu(page)
-    # Les pages sf et semio reçoivent la même police embarquée.
-    sortie = C.refermer(data, m, page, d, obj)
+    sortie = data[: m.start(2)] + C.dumps_html(page) + data[m.end(2) :]
     def une(morceau):
         ouvert, nom, corps, ferme = morceau.group(1), morceau.group(2), morceau.group(3), morceau.group(4)
         if nom == "rts":

@@ -5,11 +5,13 @@ Branche `leona/fedmed-fenetres`, créée depuis `origin/main` (`65244131a`). Éc
 ## État
 
 <!-- ETAT:DEBUT -->
-- Découpage fait : 396 fenêtres, dont 132 sans normale. Réinjection brute : octet identique (40 196 713 caractères).
-- Fenêtres fusionnées : 0 / 396.
+- Découpage fait : 396 fenêtres, dont 132 sans normale. Réinjection brute : octet identique.
+- Échantillon de bout en bout : IMG-134, IMG-001, IMG-136, IMG-267, EXP-001, EXP-002, EXP-024, EXP-032, IMG-166, IMG-168. Captures dans `captures/`, console sans erreur.
+- Fenêtres fusionnées : 14 / 396 (l'échantillon plus quatre fenêtres d'essai).
 - Normales ajoutées : 0.
 - Fenêtres encore sans normale : 132.
-- Images signalées : 0.
+- Images signalées : âge ou sexe absent sur les clichés du fichier ; aucune image retirée pour licence ou données patient dans l'échantillon.
+- Reprise : `python3 imagerie_GROK/fedmed/scripts/fusionner.py --limite 30`, puis commit. À la fin, `reinjecter.py`.
 <!-- ETAT:FIN -->
 
 ## Original
