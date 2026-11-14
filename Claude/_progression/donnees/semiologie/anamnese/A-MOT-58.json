@@ -1,0 +1,181 @@
+{
+ "id": "A-MOT-58",
+ "titre": "Patient âgé polymédiqué, déclin fonctionnel",
+ "systeme": "T",
+ "niveau": "m",
+ "ssp": "199, 197",
+ "ouverture": "Racontez-moi comment se passe votre vie de tous les jours en ce moment.",
+ "questions": [
+  {
+   "axe": "Temps",
+   "items": [
+    "Depuis quand avez-vous plus de difficultés ?",
+    "Est-ce arrivé d'un coup, après une maladie ou une hospitalisation, ou petit à petit ?"
+   ]
+  },
+  {
+   "axe": "Autonomie",
+   "items": [
+    "Arrivez-vous à vous laver, vous habiller, aller aux toilettes, manger seul ?",
+    "Faites-vous seul vos courses, votre ménage, vos repas, vos paiements ?",
+    "Qui prépare vos médicaments ?",
+    "Avez-vous de l'aide à domicile ?"
+   ]
+  },
+  {
+   "axe": "Chutes et mobilité (HUG)",
+   "items": [
+    "Êtes-vous tombé au cours des douze derniers mois ?",
+    "Vous sentez-vous instable debout ou en marchant ?",
+    "Avez-vous peur de tomber ?",
+    "Avez-vous du mal à vous relever d'une chaise ou à monter les escaliers ?"
+   ]
+  },
+  {
+   "axe": "Revue des médicaments",
+   "items": [
+    "Pouvez-vous me montrer tous vos médicaments, y compris ceux sans ordonnance, les gouttes, les crèmes et les plantes ?",
+    "Pour chaque médicament : savez-vous pourquoi vous le prenez ?",
+    "Vous arrive-t-il d'oublier des prises, ou d'en prendre en double ?",
+    "Avez-vous des vertiges en vous levant, de la somnolence, de la constipation, une bouche sèche ?",
+    "Qui vous a prescrit chaque médicament ?"
+   ]
+  },
+  {
+   "axe": "Fonctions (HUG)",
+   "items": [
+    "Comment est votre mémoire ?",
+    "Comment est votre moral ?",
+    "Mangez-vous bien ? Avez-vous perdu du poids ?",
+    "Voyez-vous et entendez-vous bien ?",
+    "Avez-vous des fuites d'urine ?"
+   ]
+  },
+  {
+   "axe": "Contexte (ATCD, médicaments, habitudes, famille, social)",
+   "items": [
+    "Vivez-vous seul ? Qui peut vous aider ?",
+    "Votre logement a-t-il des escaliers, des tapis ? Avez-vous un système d'alarme ?",
+    "Conduisez-vous encore ?",
+    "Avez-vous rédigé des directives anticipées, désigné un représentant ?",
+    "Quelqu'un vous a-t-il déjà fait du mal ou pris votre argent ?"
+   ]
+  }
+ ],
+ "drapeaux_rouges": [
+  {
+   "question": "Êtes-vous tombé plusieurs fois, ou êtes-vous resté longtemps au sol sans pouvoir vous relever ?",
+   "si_oui": "Chutes à répétition : rechercher fracture, rhabdomyolyse, hématome sous-dural ; évaluation multifactorielle du risque de chute."
+  },
+  {
+   "question": "Êtes-vous devenu confus ces derniers jours ?",
+   "si_oui": "Délirium : urgence diagnostique, souvent iatrogène ou infectieux (A-MOT-54)."
+  },
+  {
+   "question": "Avez-vous perdu votre autonomie en quelques jours ?",
+   "si_oui": "Déclin rapide : chercher une cause aiguë (infection, AVC, médicament, fracture)."
+  },
+  {
+   "question": "Prenez-vous un anticoagulant et êtes-vous tombé ?",
+   "si_oui": "Risque d'hémorragie intracrânienne : examen clinique et imagerie au moindre doute."
+  },
+  {
+   "question": "Quelqu'un vous maltraite-t-il ou profite-t-il de vous ?",
+   "si_oui": "Maltraitance de la personne âgée : protéger, documenter, orienter (S-35)."
+  }
+ ],
+ "hypotheses": [
+  {
+   "lettre": "I (iatrogène)",
+   "diagnostics": [
+    "chute sur hypotension orthostatique médicamenteuse",
+    "confusion sur anticholinergiques ou benzodiazépines",
+    "hyponatrémie aux diurétiques ou antidépresseurs",
+    "hypoglycémie aux sulfonylurées",
+    "saignement sous anticoagulant"
+   ],
+   "question_discriminante": "Avez-vous commencé ou changé un médicament récemment ?"
+  },
+  {
+   "lettre": "V (vasculaire)",
+   "diagnostics": [
+    "AVC",
+    "insuffisance cardiaque",
+    "arythmie, syncope"
+   ],
+   "question_discriminante": "Avez-vous perdu connaissance avant de tomber ?"
+  },
+  {
+   "lettre": "I (infectieux)",
+   "diagnostics": [
+    "infection urinaire",
+    "pneumonie"
+   ],
+   "question_discriminante": "Avez-vous de la fièvre ou des brûlures en urinant ?"
+  },
+  {
+   "lettre": "D (dégénératif)",
+   "diagnostics": [
+    "trouble neurocognitif",
+    "maladie de Parkinson",
+    "arthrose",
+    "sarcopénie, fragilité",
+    "baisse de la vue ou de l'ouïe"
+   ],
+   "question_discriminante": "Avez-vous du mal à vous relever d'une chaise sans les bras ?"
+  },
+  {
+   "lettre": "F (psychiatrique, social)",
+   "diagnostics": [
+    "dépression",
+    "isolement",
+    "épuisement de l'aidant"
+   ],
+   "question_discriminante": "Vous sentez-vous seul ou découragé ?"
+  },
+  {
+   "lettre": "T (traumatique)",
+   "diagnostics": [
+    "fracture du col fémoral",
+    "hématome sous-dural chronique"
+   ],
+   "question_discriminante": "Avez-vous mal à la hanche depuis votre chute ?"
+  }
+ ],
+ "idees_craintes_attentes": [
+  "Qu'est-ce qui compte le plus pour vous dans votre vie de tous les jours ?",
+  "Qu'est-ce qui vous fait peur : tomber, perdre votre indépendance, aller en EMS ?",
+  "Qu'attendez-vous de cette consultation ?"
+ ],
+ "liens": {
+  "status": [
+   "S-01",
+   "S-27",
+   "S-30",
+   "S-34"
+  ],
+  "syndromes": [
+   "SY-55",
+   "SY-57",
+   "SY-71"
+  ],
+  "imagerie": [
+   "IMG-025",
+   "IMG-289",
+   "IMG-331"
+  ]
+ },
+ "synthese_cs": "Exemple : femme de 86 ans, 11 médicaments, deux chutes en 3 mois, hypotension orthostatique, prend une benzodiazépine et un anticholinergique. Je retiens un risque de chute élevé d'origine surtout iatrogène ; je fais une revue avec STOPP/START et j'évalue mobilité, cognition et environnement.",
+ "pieges": [
+  "Trois questions de repérage des chutes : chute en 12 mois, instabilité, peur de tomber (HUG 2026).",
+  "Revoir chaque médicament avec les critères STOPP (prescriptions inappropriées) et START (traitements manquants) (HUG 2026).",
+  "Évaluer mobilité, cognition, thymie, nutrition, vision, audition, polymédication, fragilité, autonomie, environnement social (HUG 2026).",
+  "Faire apporter tous les médicaments (« sac de médicaments ») plutôt que se fier à la liste."
+ ],
+ "sources": [
+  "ASSM, « La communication dans la médecine au quotidien », 3e éd. 2022, § 3.2 Anamnèse (axes Temps, Lieu, Caractéristiques, Facteurs d'influence) et § 2.2-2.3 (ARRR, NURSE), CC BY 4.0, DOI 10.5281/zenodo.7148494 (lu, texte intégral)",
+  "PROFILES 2017, SSP 199, 197 et EPA 1.1-1.3 (lu, texte intégral)",
+  "HUG, Service de médecine de premier recours, stratégie « Personnes âgées » 2026, DOI 10.53738/REVMED.2026.22.976.e49143 (lu : points à retenir, § 4.3 mobilité et chutes, § 4.10 polymédication)",
+  "Éléments cliniques non couverts par les textes ci-dessus : déduction d'expert (non vérifié CH), à confronter à une source suisse"
+ ]
+}

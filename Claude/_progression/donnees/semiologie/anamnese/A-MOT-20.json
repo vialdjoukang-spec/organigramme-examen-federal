@@ -1,0 +1,175 @@
+{
+  "id": "A-MOT-20",
+  "titre": "Douleur pelvienne",
+  "systeme": "S7 — Reproduction, gynéco-obstétrique et sénologie",
+  "niveau": "m",
+  "ssp": "68 (et 67)",
+  "ouverture": "Racontez-moi cette douleur dans le bas du ventre.",
+  "questions": [
+    {
+      "axe": "Temps",
+      "items": [
+        "Quelle est la date du premier jour de vos dernières règles ? Vos cycles sont-ils réguliers ?",
+        "Quand la douleur a-t-elle commencé ?",
+        "Est-elle venue d'un coup, par exemple pendant un effort ou un rapport, ou progressivement ?",
+        "Est-elle liée aux règles, au milieu du cycle, ou présente depuis plus de 6 mois ?"
+      ]
+    },
+    {
+      "axe": "Lieu",
+      "items": [
+        "Montrez-moi où : à droite, à gauche, au milieu ?",
+        "La douleur part-elle dans le dos, l'épaule, les jambes ?"
+      ]
+    },
+    {
+      "axe": "Caractéristiques",
+      "items": [
+        "Comment est la douleur : crampe, coup de poignard, pesanteur ?",
+        "Combien sur 10 ?",
+        "Avez-vous des nausées, des vomissements ?",
+        "Avez-vous de la fièvre ?",
+        "Avez-vous des pertes inhabituelles, des saignements ?",
+        "Avez-vous mal pendant les rapports, en profondeur ?",
+        "Avez-vous mal en urinant ou en allant à selle ?"
+      ]
+    },
+    {
+      "axe": "Facteurs d'influence",
+      "items": [
+        "Qu'est-ce qui aggrave : bouger, marcher, les rapports, les règles ?",
+        "Les antidouleurs vous soulagent-ils ?"
+      ]
+    },
+    {
+      "axe": "Contexte (ATCD, médicaments, habitudes, famille, social)",
+      "items": [
+        "Pouvez-vous être enceinte ? Avez-vous fait un test ?",
+        "Quelle contraception utilisez-vous ? Avez-vous un stérilet ?",
+        "Avez-vous eu un nouveau partenaire ou une infection sexuellement transmissible ?",
+        "Avez-vous déjà eu une grossesse extra-utérine, une infection des trompes, une opération du ventre ?",
+        "Avez-vous de l'endométriose ou un kyste de l'ovaire connu ?",
+        "Avez-vous des difficultés à être enceinte ?"
+      ]
+    }
+  ],
+  "drapeaux_rouges": [
+    {
+      "question": "Pouvez-vous être enceinte, ou avez-vous un test positif ?",
+      "si_oui": "Grossesse extra-utérine (SY-46, IMG-258) jusqu'à preuve du contraire : β-hCG et échographie endovaginale immédiates."
+    },
+    {
+      "question": "La douleur est-elle venue d'un coup, très forte, avec des vomissements ?",
+      "si_oui": "Torsion d'annexe (IMG-252) : échographie et chirurgie urgente pour sauver l'ovaire."
+    },
+    {
+      "question": "Vous sentez-vous faible, étourdie, avez-vous mal à l'épaule ?",
+      "si_oui": "Hémopéritoine (GEU rompue, kyste hémorragique) : choc (SY-21), urgence chirurgicale."
+    },
+    {
+      "question": "Avez-vous de la fièvre avec des pertes et mal pendant les rapports ?",
+      "si_oui": "Infection génitale haute (SY-49) ou abcès tubo-ovarien (IMG-253) : antibiotiques, imagerie."
+    },
+    {
+      "question": "Avez-vous mal en bas à droite avec de la fièvre et sans appétit ?",
+      "si_oui": "Appendicite (SY-34) : diagnostic différentiel principal."
+    }
+  ],
+  "hypotheses": [
+    {
+      "lettre": "Grossesse",
+      "diagnostics": [
+        "grossesse extra-utérine",
+        "fausse couche"
+      ],
+      "question_discriminante": "Pouvez-vous être enceinte ?"
+    },
+    {
+      "lettre": "V — Vasculaire et mécanique",
+      "diagnostics": [
+        "torsion d'annexe",
+        "kyste ovarien hémorragique ou rompu",
+        "syndrome de congestion pelvienne"
+      ],
+      "question_discriminante": "La douleur a-t-elle commencé brutalement pendant un effort ?"
+    },
+    {
+      "lettre": "I — Infectieux",
+      "diagnostics": [
+        "infection génitale haute",
+        "abcès tubo-ovarien",
+        "appendicite",
+        "pyélonéphrite, cystite",
+        "diverticulite"
+      ],
+      "question_discriminante": "Avez-vous de la fièvre et des pertes inhabituelles ?"
+    },
+    {
+      "lettre": "A/D — Inflammatoire et chronique",
+      "diagnostics": [
+        "endométriose (IMG-254)",
+        "adénomyose",
+        "adhérences"
+      ],
+      "question_discriminante": "La douleur est-elle pire pendant les règles et en profondeur lors des rapports ?"
+    },
+    {
+      "lettre": "T — Tumoral",
+      "diagnostics": [
+        "masse annexielle (IMG-249)",
+        "fibrome en nécrobiose (IMG-250)"
+      ],
+      "question_discriminante": "Le ventre a-t-il grossi, avec une sensation de pesanteur ?"
+    },
+    {
+      "lettre": "F — Fonctionnel",
+      "diagnostics": [
+        "dysménorrhée primaire",
+        "douleur d'ovulation",
+        "syndrome de l'intestin irritable",
+        "syndrome douloureux pelvien chronique"
+      ],
+      "question_discriminante": "La douleur survient-elle au milieu du cycle et dure-t-elle moins de 48 heures ?"
+    }
+  ],
+  "idees_craintes_attentes": [
+    "Qu'est-ce qui vous inquiète le plus, par exemple pour une future grossesse ?",
+    "Avez-vous une idée de la cause ?",
+    "Qu'attendez-vous de nous ?"
+  ],
+  "liens": {
+    "status": [
+      "S-01",
+      "S-12",
+      "S-16",
+      "S-13"
+    ],
+    "syndromes": [
+      "SY-46",
+      "SY-49",
+      "SY-34",
+      "SY-45",
+      "SY-21"
+    ],
+    "imagerie": [
+      "IMG-258",
+      "IMG-252",
+      "IMG-253",
+      "IMG-249",
+      "IMG-254",
+      "IMG-194"
+    ]
+  },
+  "synthese_cs": "Madame X, 27 ans, présente depuis 3 heures une douleur pelvienne droite brutale avec vomissements, sans fièvre, et ses dernières règles datent de 3 semaines. J'évoque une torsion d'annexe ou une grossesse extra-utérine ; je demande un test de grossesse, une échographie endovaginale et un avis gynécologique urgent.",
+  "pieges": [
+    "Oublier le test de grossesse : c'est le premier examen.",
+    "Se rassurer par un test urinaire négatif tardif sans tenir compte du contexte : doser la β-hCG sanguine en cas de doute.",
+    "Examen gynécologique : à nommer en CS, jamais à effectuer."
+  ],
+  "sources": [
+    "ASSM, « La communication dans la médecine au quotidien », guide pratique, 3e éd. 2022 (texte inchangé depuis 2019), § 2.2 ARRR et § 3.2 Anamnèse (axes Temps, Lieu, Caractéristiques, Facteurs d'influence), CC BY 4.0, DOI 10.5281/zenodo.7148494 — lu (texte intégral, 14.11.2026)",
+    "PROFILES 2017, Joint Commission of the Swiss Medical Schools : EPA 1 (1.1 à 1.13, 1a à 1g) et liste des situations SSP — lu (texte intégral, 14.11.2026)",
+    "MEBEKO/OFSP, Exigences, Directives et Informations MED 2026 (édictées le 3.3.2026) : 11 stations de 13 min ; examen intime nommé à l'examinateur, jamais effectué — lu (14.11.2026)",
+    "Gynécologie suisse (SSGO/SGGG), avis d'experts sur la contraception, la ménopause et les saignements du 1er trimestre — non lu (à vérifier)"
+  ]
+}
