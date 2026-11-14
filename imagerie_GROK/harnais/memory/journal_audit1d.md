@@ -1,0 +1,18 @@
+# Journal audit 1d
+Audit indépendant du 14.11.2026. Images ouvertes avant tout verdict. Ordre IMG-299 → IMG-285. Ces manifestes n'ont pas été rédigés par l'auditeur.
+
+IMG-299 | corrigé | Le rectangle prenait le condyle, le noir près du L et la métaphyse ; le polygone reste sur le plateau tibial latéral enfoncé, pointe sur le rebord. Marqueur L à droite, genou gauche. Partiel tenu (une incidence, pas de genou sain). Définition « À vérifier ». CC BY-SA 4.0.
+IMG-298 | corrigé | Le rectangle prenait l'échancrure vide et les parties molles postérieures ; le polygone suit le signal du croisé rompu, pointe dedans. Le liquide blanc reste en dessous. Partiel tenu (suppression de graisse non écrite, pas de ménisque, pas de genou sain). Définition « À vérifier ». CC BY-SA 3.0.
+IMG-297 | corrigé | Le rectangle couvrait la tête, le cotyle et le col ; le polygone est sur le bec tête-col, hanche gauche à droite de l'image, pointe sur le cortex. Partiel tenu (face, pas un Dunn, pas de hanche saine). Définition « À vérifier ». CC BY-SA 4.0.
+IMG-296 | corrigé | Le rectangle prenait le muscle et l'os ; le polygone suit la bande anéchogène le long du col, pointe dedans. Pas de côté. Partiel tenu (pas d'arthrite septique, pas de hanche sans épanchement). Définition « À vérifier ». CC BY 4.0.
+IMG-295 | corrigé | Le rectangle prenait le toit du cotyle et le col ; le polygone suit la tête droite fragmentée, à gauche de l'image, pointe dessus. Partiel tenu (pas de profil, pas de bassin sain séparé). Définition « À vérifier ». CC BY-SA 4.0.
+IMG-294 | corrigé | Le rectangle prenait le cotyle et le col ; le polygone suit l'épiphyse du cliché, pas le schéma rouge, pointe au bord inférieur. Pas de côté. Partiel tenu (pas de Lauenstein nommé, pas de hanche saine). Définition « À vérifier ». CC0.
+IMG-293 | confirmé | Introuvable, pas d'image. Le seul Graf cité est un type Ia, donc une hanche normale, pas une dysplasie.
+IMG-292 | corrigé | Le rectangle prenait le cotyle et le col du volet gauche ; le polygone suit le liseré dans la tête, à l'endroit du masque rouge, pointe dedans. Partiel tenu (T1 non écrit, pas de hanche saine). Définition « À vérifier ». CC BY-SA 3.0.
+IMG-291 | corrigé | Le rectangle allait dans le noir et le col ; le polygone reste sur l'interligne pincé, la sclérose et les géodes, pointe dans l'interligne. Pas de marqueur. Partiel tenu (pas un bassin debout, pas de hanche saine). Définition « À vérifier ». CC0.
+IMG-290 | corrigé | Le rectangle prenait le muscle et le noir ; le polygone entoure l'acetabulum comminutif à droite de l'image, pointe sur le fragment postérieur. L'autre hanche est plus continue. Partiel tenu (injection non écrite, pas de bassin sain). Définition « À vérifier ». CC BY-SA 3.0.
+IMG-289 | corrigé | Le rectangle descendait dans les parties molles ; le polygone reste sur le col, à droite de l'image, donc le côté gauche de la légende, pointe sur le col. Le trait reste peu lisible, confiance basse tenue. Partiel tenu (pas de profil). Définition « À vérifier ». CC BY-SA 3.0.
+IMG-288 | confirmé | Introuvable, pas d'image. Aucun Doppler dynamique de défilé thoraco-brachial retenu.
+IMG-287 | confirmé | Introuvable, pas d'image. La catégorie Cimino ne montre pas un Doppler de fistule.
+IMG-286 | corrigé | Le rectangle couvrait tout le cliché ; le polygone suit le flux Doppler rouge, pointe dedans. Partiel tenu (pas de compression, pas de veine saine). Définition « À vérifier ». CC BY 2.0.
+IMG-285 | corrigé | Le rectangle prenait le noir et le texte BoneXpert ; le polygone suit la main, pointe sur le carpe. Le pouce est à droite. La légende ne dit pas que c'est la main gauche. Partiel tenu (pas d'atlas séparé). Définition « À vérifier ». CC0.
