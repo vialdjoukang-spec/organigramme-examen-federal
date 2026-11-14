@@ -28,6 +28,36 @@ MOD = {"TDM": {"tdm", "ct", "scanner", "angio-tdm", "coroscanner", "uro-tdm", "e
        "MN": {"mn", "scintigraphie", "tep", "tep-tdm", "pet", "pet-ct", "spect", "tep-scanner"},
        "INT": {"int", "angiographie", "artériographie", "dsa", "phlébographie"}}
 
+SEX_REG = re.compile(
+    r"\b(seins?|mammaire|mammographie|breast|utérus|uterus|utérin\w*|uterin\w*|ovaires?|"
+    r"prostate|testicules?|pénis|penis|vagin\w*|vulve|scrotum|endomètre|endometre|"
+    r"génitaux|genitaux|cervix|grossesse|placenta)\b|bassin(?!\s+versant)",
+    re.I,
+)
+
+
+def sexe_requis(m, dx):
+    """Le même sexe n'est exigé que pour le bassin, le sein et les organes génitaux."""
+    if (dx or {}).get("region") == "Pelvis":
+        return True
+    blob = " ".join([
+        (dx or {}).get("dx") or "", (dx or {}).get("cliche") or "",
+        (m or {}).get("dx") or "", (m or {}).get("cliche") or "",
+    ])
+    return bool(SEX_REG.search(blob))
+
+
+def sex_code(v):
+    s = norm(v)
+    if s in ("m", "h", "homme", "masculin", "male", "man"):
+        return "M"
+    if s in ("f", "femme", "feminin", "féminin", "female", "woman"):
+        return "F"
+    if not s or s in ("à vérifier", "a vérifier", "a verifier", "aspect"):
+        return ""
+    return None
+
+
 def norm(s):
     return re.sub(r"\s+", " ", (s or "").strip().lower())
 
