@@ -11,7 +11,7 @@ const browser = await chromium.launch({
   executablePath: "/usr/bin/google-chrome",
   args: ["--no-sandbox", "--disable-dev-shm-usage"],
 });
-const page = await browser.newPage({ viewport: { width: 1440, height: 900 } });
+const page = await browser.newPage({ viewport: { width: 1440, height: 1200 } });
 const erreurs = [];
 page.on("console", (msg) => {
   if (msg.type() === "error") erreurs.push(msg.text());

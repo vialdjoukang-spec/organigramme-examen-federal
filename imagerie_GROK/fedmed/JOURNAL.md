@@ -16,7 +16,10 @@ Branche `leona/fedmed-fenetres`, créée depuis `origin/main` (`65244131a`). Éc
 - En-têtes de fenêtre et de cartes : fond #F3FAFD, bordure #87CEEB, police Atkinson Hyperlegible, y compris le titre.
 - Captures poussées : IMG-134 (vue, flèches, survol, légende), IMG-136, EXP-001, IMG-157 (normale ajoutée), IMG-159, IMG-001, IMG-267, IMG-166, IMG-168, EXP-002, EXP-024, EXP-032.
 - Contours : 467 conservés, 102 masqués (aire, position, proportions, symétrie, cohérence avec l'autre côté). Le poumon droit pathologique d'IMG-134 est masqué.
-- Normales : IMG-157 recadrée sur la seule coupe axiale, au niveau de l'aorte. IMG-257 gardée (vue unique). IMG-159, IMG-209, IMG-216, IMG-219, IMG-220 et IMG-221 retirées (montage ou niveau différent). Fenêtres encore sans normale : 130.
+- Normales adultes : 110 conservées (âge ≥ 18 attesté). 4 remplacées par la radiographie de face d'une femme de 21 ans, CC0 (IMG-118, IMG-123, IMG-134, IMG-153). 156 retirées, âge adulte non attesté ou non adulte. Détail : `CONTROLE.md`.
+- Contours hors du corps : 49 masqués, 30 rognés à l'enveloppe. IMG-157 : le voile beige est rogné au thorax. Contrôle restant : 0.
+- Sortie : sha256 `e2dd57c980c6582b7f69404d42d3255e2b4d237cf2e92bd269d270bc676ed5a5`, 37 200 833 octets.
+- Contrôle navigateur des 396 : hauteurs égales, console vide, Atkinson chargée.
 - La recherche a lu Commons et Europe PMC. Une normale n'est gardée que si la légende atteste un cliché normal, adulte, avec âge et sexe, licence libre, même modalité, même incidence et même région. Les autres candidats sont retirés.
 - Le dossier leona/ n'était pas présent à la régénération. Aucun fichier n'y a été écrit.
 - Dernières captures poussées : IMG-134 (survol), IMG-136, EXP-001, IMG-209 et IMG-220 (normales nouvelles), IMG-157, IMG-219, IMG-001, IMG-267, IMG-166, IMG-168, EXP-002. Console sans erreur.

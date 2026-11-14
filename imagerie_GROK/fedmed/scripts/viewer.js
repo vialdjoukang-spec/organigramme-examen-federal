@@ -124,6 +124,18 @@ function legende(g){
  });
  return (rows||"<p>Aucune structure anatomique tracée sur ce cliché.</p>")+(les?'<h3>Lésions</h3><ul>'+les+"</ul>":"");
 }
+function caler(zw){
+ if(!zw)return;
+ var img=zw.querySelector("img"),svg=zw.querySelector("svg");
+ if(!img||!svg||!img.naturalWidth||!img.naturalHeight)return;
+ var r=img.getBoundingClientRect(),z=zw.getBoundingClientRect();
+ var echelle=Math.min(r.width/img.naturalWidth,r.height/img.naturalHeight);
+ var dw=img.naturalWidth*echelle,dh=img.naturalHeight*echelle;
+ svg.style.left=((r.width-dw)/2+(r.left-z.left))+"px";
+ svg.style.top=((r.height-dh)/2+(r.top-z.top))+"px";
+ svg.style.width=dw+"px";
+ svg.style.height=dh+"px";
+}
 function render(root,en){
  if(!root||!en||!en.gabarit)return;
  var g=en.gabarit;
@@ -142,9 +154,11 @@ function render(root,en){
   var img=pan.querySelector(".gm-img");
   var zw=pan.querySelector(".gm-zw");
   if(img){
+   img.addEventListener("load",function(){caler(zw);});
    img.src=cote==="patho"?srcP:srcN;
    dessiner(svg,info,cote==="patho"?((g.patho||{}).lesions||[]):[]);
    if(zw&&cote==="patho")numeros(zw,(g.patho||{}).lesions||[]);
+   if(img.complete)caler(zw);
   }
   var z=1;
   function apply(){if(zw)zw.style.transform="scale("+z+")";}
