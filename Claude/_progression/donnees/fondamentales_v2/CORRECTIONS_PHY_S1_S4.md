@@ -38,3 +38,11 @@ Rédacteur, 14.11.2026, en réponse à `AUDIT_PHY_S1_S4.md`. J'ai régénéré l
   - Les mnémotechniques commencent par « On retient ».
 - **Reprise des conventions PP :** `classe` devient `cible`, `affection` devient `titre`. Dans chaque valeur, l'étiquette de source quitte `unite` et passe dans un champ `sources`.
 - **Reste :** les 22 phrases restantes sont 22 des 32 titres `fonction` repris du recensement. Ce sont des intitulés, mais `verbal.py` ne les exempte pas, contrairement à `titre`. Décision attendue : exempter `fonction` dans `verbal.py`, ou garder le défaut. Les fiches PHY-S5 à S12 présentent le même cas.
+
+## Tour 2 (AUDIT_PHY_S1_S4_V2.md)
+J'ai appliqué les quatre corrections mot pour mot, dans les JSON et dans le script de génération (`verbal_fix.py`, `s4.py`), pour qu'une régénération ne les écrase pas.
+- **N1 (PHY-S2-6)** : « L'atteinte du VII abolit le goût des deux tiers antérieurs (agueusie) ; la sensibilité générale de la langue, portée par le V3 (nerf lingual), persiste. » La formule fausse « ils deviennent insensibles » disparaît.
+- **N2 (PHY-S1-8)** : « L'inflammation corticale altère le contenu de la conscience ; elle provoque confusion, troubles du langage et crises. »
+- **N3 (PHY-S4-2)** : la phrase porte désormais « la réversibilité est significative selon le critère GINA ».
+- **N4 (PHY-S4-2)** : la source de VEMS/CVF devient « (source internationale : GOLD, non relue, À vérifier ; ERS/ATS 2022 préfère la LIN, z < −1,645 — lu en résumé) ».
+- **Validation** : JSON valides, aucun lien mort, aucune dose. `verbal.py` donne 0 phrase nominale sur 766 (le champ `fonction` est désormais exempté).
