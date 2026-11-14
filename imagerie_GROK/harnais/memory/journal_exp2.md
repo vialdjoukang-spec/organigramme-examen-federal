@@ -16,3 +16,11 @@ Prochain id : EXP-109.
 - EXP-105 partiel. Warbeck, domaine public. Pression-débit légendé « Possible Dyssynergia », sans EMG et sans tracé normal. Champ Patient vide. Cystométries de rat rejetées.
 
 Prochain id : EXP-104.
+
+- EXP-104 introuvable. Pas de tracé de toux libre. Open-i : photos opératoires, licences NC ou absentes.
+- EXP-103 introuvable. Pas de cystomanométrie d'hyperactivité détrusorienne. Open-i vide.
+- EXP-102 partiel. Jmarchn, CC BY-SA 3.0. Débitmétrie normale 20,8 ml/s en cloche contre obstructive 5,1 ml/s aplatie, 48 s. Résidu post-mictionnel absent. Pas de nom.
+- EXP-101 introuvable. Pas de rapport aldostérone/rénine. Open-i : imagerie surrénalienne NC.
+- EXP-100 partiel. Tisljar 2020, PMC7515856, CC BY 4.0. Images MAG3, rétention du bassinet droit, sans furosémide écrit et sans courbe normale.
+
+Prochain id : EXP-099.
