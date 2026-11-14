@@ -57,3 +57,10 @@ Les durées et les appels évités sont des estimations, marquées comme telles.
 - Appels de jugement visuel : 2 lectures. Estimation.
 - Durée : courte. Estimation.
 - Épargné par les scripts (estimation) : la recherche Commons a écarté les animations ; `validate.py` a signalé l'absence de normale sans erreur.
+
+## IMG-148, IMG-147, IMG-146, IMG-145, IMG-144
+
+- Éléments traités : 5 diagnostics. Partiels : 148, 145, 144. Introuvables : 147, 146.
+- Appels de jugement visuel : environ 12 lectures (Doppler aortique, échos de péricarde rejetés pour identifiant ou espèce, végétation et son contour abaissé, deux coronarographies). Estimation.
+- Durée : une passe. Estimation : Open-i répondait tantôt par une page HTML, tantôt par des licences NC-ND.
+- Épargné par les scripts (estimation) : `fetch_commons.py` a listé les catégories vides de myocardite en IRM et a marqué les vidéos ; `validate.py` a accepté les introuvables et les partiels sans normale.

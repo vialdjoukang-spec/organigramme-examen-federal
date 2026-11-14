@@ -28,4 +28,9 @@ Périmètre réel de ce worktree (lot3, IMG-172 → IMG-087). Ordre décroissant
 - IMG-152 | partiel | Ciernik, CC BY-SA 4.0, myxome de l'oreillette gauche, flèches orange | piège : pas d'échocardiographie normale (schémas seulement) ; thrombus absent.
 - IMG-151 | introuvable | CIA et CIV de Kjetil Lenes ont une date d'examen gravée ; CAVC a un nom ; coarctation = schémas | piège : identifiants. Open-i en erreur HTML.
 - IMG-150 | partiel | Treibel et al., JCMR 2016, CC BY 4.0, fixation cardiaque du DPD | piège : pas de scintigraphie normale ; grade de Perugini non indiqué.
-- IMG-149 | partiel | Nowell M. Fine, CC BY-SA 4.0, ventricule droit dilaté, cœur pulmonaire | piège : pas de normale ; cardiomyopathie du ventricule gauche absente. Reprise à IMG-148.
+- IMG-149 | partiel | Nowell M. Fine, CC BY-SA 4.0, ventricule droit dilaté, cœur pulmonaire | piège : pas de normale ; cardiomyopathie du ventricule gauche absente.
+- IMG-148 | partiel | CardioNetworks, CC BY-SA 3.0, Doppler continu, gradient aortique 184 mmHg | piège : insuffisance mitrale absente ; pas de Doppler normal.
+- IMG-147 | introuvable | Commons : histologie et schéma, pas d'IRM T2 ; Open-i en erreur HTML | piège : rien en T2 cardiaque.
+- IMG-146 | introuvable | épanchement avec numéro d'examen, écho de chien, tamponnade avec prénom MATEJ | piège : identifiants.
+- IMG-145 | partiel | Koya 2004, BMC Nephrology, CC BY 2.0, végétation tricuspide fléchée | piège : pas de voie transœsophagienne. Open-i en NC-ND.
+- IMG-144 | partiel | Pantaleo 2012, BMC Cancer, CC BY 2.0, subocclusions du tronc commun et de la circonflexe, flèches | piège : angioplastie absente. Reprise à IMG-143.
