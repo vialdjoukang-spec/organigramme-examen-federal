@@ -45,6 +45,11 @@ for (const id of ids) {
   await frame.waitForSelector(".gm", { timeout: 8000 });
   await frame.waitForTimeout(200);
   await frame.locator("#voile .fen").screenshot({ path: resolve(outDir, `${id}.png`), animations: "disabled", timeout: 20000 });
+  if (id === "IMG-158") {
+    await frame.evaluate(() => { const b = document.querySelector('[data-act="anat"]'); if (b) b.click(); });
+    await frame.waitForTimeout(150);
+    await frame.locator("#voile .fen").screenshot({ path: resolve(outDir, "IMG-158-anatomie.png"), animations: "disabled", timeout: 20000 });
+  }
   if (id === "IMG-134") {
     await frame.evaluate(() => document.querySelector('[data-act="fleches"]').click());
     await frame.waitForTimeout(150);

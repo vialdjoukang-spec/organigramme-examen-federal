@@ -5,12 +5,12 @@ Branche `leona/fedmed-fenetres`, créée depuis `origin/main` (`65244131a`). Éc
 ## État
 
 <!-- ETAT:DEBUT -->
-- Découpage fait : 396 fenêtres, dont 132 sans normale. Réinjection brute : octet identique.
-- Échantillon capturé : IMG-134, IMG-001, IMG-136, IMG-267, EXP-001, EXP-002, EXP-024, EXP-032, IMG-166, IMG-168.
-- Fenêtres fusionnées : 396 / 396.
-- Normales ajoutées : 4.
-- Signalements : 646. Détail : signaux/images_signalees.json.
-- Reprise : python3 imagerie_GROK/fedmed/scripts/fusionner.py --limite 30
+- Découpage : 396 fenêtres, dont 132 sans normale au départ. Réinjection brute : octet identique au fichier Drive.
+- Fenêtres fusionnées : 396 / 396. Sortie : `sortie/PROGRESSION__FedMed.html`.
+- Normales ajoutées : 3 (IMG-157, IMG-159, IMG-257). Fenêtres encore sans normale : 129.
+- Images retirées (licence hors liste blanche ou données patient) : 0.
+- Signalements : 646, dont 628 « âge ou sexe absent » (cliché conservé), 15 normales locales non ajoutées, 3 normales ajoutées. Détail : `signaux/images_signalees.json`.
+- Captures, console sans erreur : `captures/` (IMG-134, IMG-001, IMG-136, IMG-267, EXP-001, EXP-002, EXP-024, EXP-032, IMG-166, IMG-168, plus flèches et légende d'IMG-134).
 <!-- ETAT:FIN -->
 
 ## Original
@@ -31,10 +31,17 @@ Branche `leona/fedmed-fenetres`, créée depuis `origin/main` (`65244131a`). Éc
 
 ## Reprise
 
-1. `python3 imagerie_GROK/fedmed/scripts/decouper.py`
-2. `python3 imagerie_GROK/fedmed/scripts/test_roundtrip.py`
-3. `python3 imagerie_GROK/fedmed/scripts/fusionner.py --limite 10`
-4. `python3 imagerie_GROK/fedmed/scripts/reinjecter.py`
-5. `python3 imagerie_GROK/fedmed/scripts/capturer.py`
+Les 396 fenêtres sont fusionnées et la sortie est construite. Pour reprendre :
 
-Les scripts sont idempotents. `fusion/etat.json` liste les identifiants déjà écrits. Relancer `fusionner.py` reprend les manquants.
+1. `python3 imagerie_GROK/fedmed/scripts/decouper.py` puis `scripts/test_roundtrip.py` si le squelette a changé.
+2. `python3 imagerie_GROK/fedmed/scripts/fusionner.py --limite 30` (les identifiants déjà dans `fusion/etat.json` sont sautés).
+3. `python3 imagerie_GROK/fedmed/scripts/reinjecter.py`
+4. Captures : `scripts/capturer.mjs` avec Playwright et Chrome (`--no-sandbox`).
+
+## Limites
+
+- Une image du fichier Drive n'est retirée que si sa licence sort de la liste blanche ou si l'EXIF/XMP porte un marqueur patient. L'absence d'âge ou de sexe est signalée sur la carte ; le cliché reste, car ce n'est pas un champ du JSON source.
+- Aucune inscription incrustée n'a été lue par OCR.
+- Une normale locale n'est ajoutée que si la licence, l'âge, le sexe et l'auteur sont là, si le cliché est adulte, si la modalité est compatible et si l'écart d'âge connu ne dépasse pas 15 ans. IMG-158 a été refusée : 15 ans, `adulte` = non.
+- Les contours locaux ne sont dessinés que sur les mêmes octets. IMG-159 et IMG-257 portent des couches sur la normale ajoutée. IMG-157 est ajoutée sans contour. Aucun contour de lésion du manifeste ne coïncidait avec le cliché du fichier : les repères du fichier sont conservés, et la bande est un cercle pointillé autour de la pointe quand il n'y a pas de polygone.
+- Le texte des cartes condense les champs du fichier. Il n'ajoute pas de source nouvelle. Un aspect sans source lue porte « Interprétation de l'image (non sourcée) ».

@@ -168,9 +168,13 @@ def structures_de(cote, identique):
         if not sid:
             continue
         aspect = net(st.get("aspect") or st.get("description") or "")
+        if aspect.lower() in {"à vérifier", "a vérifier"}:
+            desc = net(st.get("description") or "")
+            aspect = "" if desc.lower() in {"", "à vérifier", "a vérifier"} else desc
         src = source_aspect(st.get("aspect_source") or st.get("source"))
-        if aspect and src == C.PHRASE_NON_SOURCEE and not net(st.get("aspect")):
-            aspect = net(st.get("description"))
+        if not aspect:
+            aspect = "Couche dessinée de dehors en dedans, sans description chiffrée"
+            src = C.PHRASE_NON_SOURCEE
         out.append({
             "id": sid,
             "nom": net(st.get("nom") or sid),
@@ -450,6 +454,10 @@ def fusionner_une(fiche):
             signaux.append("Normale signalée : " + " ; ".join(alerte_n) + ".")
     if not a_normal and normal_rel:
         raisons = controler_local(normal_m, normal_blob_local)
+        age_local = C.age_sexe_manifeste(normal_m)[0]
+        age_num = re.search(r"\d+", age_local or "")
+        if str(normal_m.get("adulte") or "").lower() == "non" or (age_num and int(age_num.group(0)) < 18):
+            raisons.append("cliché non adulte")
         technique = patho.get("technique") or ""
         if raisons:
             signaux.append("Normale locale non ajoutée (" + " ; ".join(raisons) + ").")
