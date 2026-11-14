@@ -16,7 +16,13 @@
 
 ## En cours
 
-- Quatre lots disjoints sur les 61 paires qui ont déjà les deux images (le dépôt n'en a pas 112), puis les partiels qui n'ont que la pathologique. Chaque lot remplace la normale pour le même sexe explicite et redessine les contours grossiers. L'auditeur distinct relit ensuite contours et captures.
+- Quatre agents sur VM séparées, base `cursor/interface-didactique-ffbc`, fichiers disjoints. Ils n'ont pas encore poussé : pas de PR de lot tant qu'il n'y a pas de commit.
+- Lot 1 `bc-3c7f04cb-b49c-5f3b-9c92-3af7023e9930` : paires IMG-001 à IMG-129 (16), puis pathologiques IMG-002 à IMG-070.
+- Lot 2 `bc-8f34385d-cb6c-53e4-ad71-fdd28d1deedb` : IMG-132 à IMG-166 (15), puis IMG-071 à IMG-141.
+- Lot 3 `bc-4e45b5d2-c132-5c1d-bc8e-97181bfc32aa` : IMG-167 à IMG-244 (15), puis IMG-142 à IMG-260.
+- Lot 4 `bc-2a7ab1bc-6808-5d9e-a189-7eca3f3eda49` : IMG-245 à IMG-344 (15), puis IMG-263 à IMG-338.
+- Auditeur distinct `bc-4f77b9e3-02f6-5e6e-b53f-3ec179f6a4f1` : relecture des 61 contours et des sexes, sans écrire dans les manifestes.
+- Le dépôt a 61 paires avec les deux fichiers, pas 112.
 
 ## Bloquants
 
