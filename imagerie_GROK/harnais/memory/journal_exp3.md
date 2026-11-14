@@ -26,3 +26,8 @@ Périmètre EXP-076 → EXP-039, ordre décroissant. Rien n'est inventé. Repris
 - EXP-054 partiel. Hyperkaliémie 8,2 mmol/L, Agbayani et Gonzales, CC BY 4.0 : ondes T pointues. Pas d'onde U. En-tête masqué.
 - EXP-053 partiel. Brugada type 1, Postema, CC BY-SA 3.0, en V1 et dérivations hautes. Pas d'ajmaline.
 - EXP-052 partiel. QT nettement allongé, Adadi 2017, Jervell et Lange-Nielsen. Ce n'est pas un QT acquis, et 500 ms n'est pas imprimé.
+- EXP-051 partiel. Pauses sinusales, ECGpedia, R.W. Koster. Pas de Holter ni d'épreuve d'effort.
+- EXP-050 partiel. Bloc de branche gauche, Ciernik, CC BY-SA 4.0 : QRS cerclés, durée marquée sans chiffre de 120 ms.
+- EXP-049 partiel. Mobitz II, Rosengarten : PR stable autour de l'onde P non conduite. La photo Heilman ne montrait pas assez clairement l'onde bloquée.
+- EXP-048 partiel. Tachycardie à QRS larges, Ksheka, CC BY-SA 2.5. Pas de capture ni de fusion.
+- EXP-047 partiel. Onde delta, Ksheka, CC BY-SA 3.0. Pas de crise ni d'étude électrophysiologique. Open-i hors licence.
