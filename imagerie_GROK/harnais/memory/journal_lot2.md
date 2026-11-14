@@ -14,4 +14,6 @@ Périmètre réel de ce worktree (lot3, IMG-172 → IMG-087). Ordre décroissant
 - IMG-164 | partiel | Sjoehest, Commons, CC BY-SA 4.0, série costale gauche ; normale Häggström, CC0, thorax PA sans lésion | piège : incidence PA ou AP non précisée ; volet non affirmé.
 - IMG-163 | partiel | Nevit Dilmen, Commons, CC BY-SA 3.0, abcès du sein | piège : pas d'échographie mammaire normale libre ; mastite non isolée.
 - IMG-162 | partiel | schomynv, domaine public, deux kystes anéchogènes | piège : fibroadénome absent ; pas de normale mammaire libre. Légende d'un mot.
-- IMG-160 | partiel | SCiardullo, Commons, CC BY-SA 4.0, masse spiculée CC D ; normale = sein CC I du même cliché | piège : la légende dit « axillaire », les étiquettes disent CC. BI-RADS non relu. Reprise à IMG-161, puis IMG-159.
+- IMG-160 | partiel | SCiardullo, Commons, CC BY-SA 4.0, masse spiculée CC D ; normale = sein CC I du même cliché | piège : la légende dit « axillaire », les étiquettes disent CC. BI-RADS non relu.
+- IMG-134 | partiel | Hellerhoff, Commons, CC BY-SA 3.0, trait rouge sur la ligne pleurale gauche ; normale Häggström, CC0 | piège : pneumothorax compressif non montré. Confiance haute sur le trait de l'auteur.
+- IMG-132 | partiel | Hellerhoff, Commons, CC BY-SA 3.0, épanchement debout à la base ; même normale | piège : le côté n'est pas dans la légende. Définition non relue. Reprise : IMG-161, puis IMG-159 (IMG-160 déjà fait ; IMG-134 et IMG-132 déjà faits).

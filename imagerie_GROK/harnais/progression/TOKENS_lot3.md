@@ -22,3 +22,10 @@ Les durées et les appels évités sont des estimations, marquées comme telles.
 - Appels de jugement visuel : environ 15 lectures (hémangiome et ses recadrages, côtes des deux côtés, mammographie et son contour corrigé deux fois, kystes, abcès, implant explanté rejeté). Estimation.
 - Durée : une passe de recherche Commons par catégories. Estimation : plus courte que le premier groupe, les catégories de thorax et de sein sont directes.
 - Épargné par les scripts (estimation) : `fetch_commons.py cat` a listé les côtes, le pneumothorax, l'épanchement et les BI-RADS sans ouvrir les pages. `validate.py` a accepté un partiel sans image normale (avertissement seulement).
+
+## IMG-134 et IMG-132
+
+- Éléments traités : 2 diagnostics, tous deux partiels. La même radiographie normale de Häggström sert de témoin.
+- Appels de jugement visuel : 4 lectures (clichés et aperçus corrigés). Estimation.
+- Durée : courte, les fichiers étaient déjà dans les catégories listées plus tôt. Estimation.
+- Épargné par les scripts (estimation) : le second téléchargement de la normale est sorti du cache ; `validate.py` a signalé l'écart d'incidence sans bloquer le statut partiel.
