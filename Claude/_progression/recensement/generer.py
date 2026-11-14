@@ -144,8 +144,17 @@ def charger_enrichi():
         v["autres"] = [{"examen": str(a["examen"]), "rang": a.get("rang"), "quand": _liste(a.get("quand")),
                         "pourquoi_pas_gold": _liste(a.get("pourquoi_pas_gold")), "montre": _liste(a.get("montre"))}
                        for a in autres]
-        for c in ("syndrome", "traitement", "sources"):
+        for c in ("syndrome", "traitement", "sources", "lecture"):
             v[c] = _liste(v.get(c))
+        v["valeurs_normales"] = [{k: str(x.get(k) or "") for k in ("parametre", "valeur", "unite", "source")}
+                                 for x in (v.get("valeurs_normales") or []) if isinstance(x, dict) and x.get("parametre")]
+        v["calculs"] = [{k: str(x.get(k) or "") for k in ("nom", "formule", "a_quoi_ca_sert", "exemple")}
+                        for x in (v.get("calculs") or []) if isinstance(x, dict) and x.get("nom")]
+        # Explorations fonctionnelles : « traces » joue le rôle d'« images » (tracés au lieu de clichés)
+        v["tr"] = not isinstance(v.get("images"), dict) and isinstance(v.get("traces"), dict)
+        if v["tr"]:
+            v["images"] = v["traces"]
+        v.pop("traces", None)
         if not isinstance(v.get("images"), dict):
             v["images"] = {"manque": "Aucune image n'est encore référencée pour ce diagnostic."}
     return enr
@@ -344,7 +353,8 @@ tech_leg = "".join(f'<li>{pastille_tech(c, TI)} <span class="muted">{E(t["physiq
 # --- Feuille de style du tableau principal, de la fenêtre centrale et du popover (chaîne brute, hors f-string) ----
 CSS2 = r"""
 /* Couleurs à rôle unique (EYE SPOT) : --or = examen de référence seulement ; --rep = numéros et flèches des repères seulement. */
-:root{--or:#d4af37;--rep:#00c8ff}
+:root{--or:#d4af37;--rep:#00c8ff;--calc:#e2d4fb}
+/* --calc = encadrés de calcul seulement (bande de titre lavande, corps blanc). */
 /* Tableau principal : grille géométrique fixe, défilement horizontal et vertical internes, colonne Diagnostic collante */
 .tmain{max-height:82vh;overflow:auto;border:1px solid #111;border-radius:8px;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain}
 table.main{table-layout:fixed;width:1574px;border-collapse:separate;border-spacing:0;font-size:.93rem}
@@ -417,6 +427,14 @@ html.fige,html.fige body{overflow:hidden}
 .fig figcaption{font-size:.88rem;margin-top:6px}
 .lesion{border:2px solid #000;border-radius:8px;padding:8px 12px;margin:10px 0 0}
 .lesion p{margin:4px 0} .lesion .aide{font-style:italic}
+ol.lect{margin:0;padding-left:1.8em} ol.lect li{margin:3px 0}
+.manque ul.enum{margin:4px 0 0}
+table.vn{font-size:.9rem} table.vn td.val{font-variant-numeric:tabular-nums;white-space:nowrap} table.vn td.src{font-size:.8rem}
+.calcs{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:10px}
+.calc{border:2px solid #000;border-radius:8px;background:#fff;overflow:hidden;min-width:0}
+.calc h4{margin:0;padding:5px 10px;background:var(--calc);color:#000;border-bottom:2px solid #000;font-size:.95rem}
+.calc dl{margin:0;padding:6px 10px 8px} .calc dt{font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;margin-top:6px}
+.calc dd{margin:0;overflow-wrap:anywhere} .calc dd.form{font-weight:700;font-variant-numeric:tabular-nums}
 .cred{font-size:.78rem;margin:4px 0;overflow-wrap:anywhere}
 .cred a{color:#000;text-decoration:underline}
 @media (max-width:760px){
@@ -426,6 +444,7 @@ html.fige,html.fige body{overflow:hidden}
  table.main col.c-ex{width:300px} table.main col.c-sg{width:300px} table.main col.c-exi{width:180px} table.main col.c-fct{width:180px}
  .tmain{max-height:75vh}
  .fen{padding:12px 12px 16px} .voile{padding:12px}
+ table.vn td.val{white-space:normal} .calcs{grid-template-columns:1fr}
 }
 """
 
@@ -552,14 +571,19 @@ JS = r"""
   if(!en){
    h+='<p class="manque">Enrichissement en cours : le cliché, le regroupement syndromique et le traitement de ce diagnostic ne sont pas encore rédigés.</p><h3>Examens</h3>'+r.c.ex+'<h3>Signe clé</h3><p>'+r.c.sg+'</p>';
   }else{
-   var im=en.images||{};
-   if(im.manque)h+='<p class="manque"><strong>Aucune image libre fiable.</strong> '+esc(im.manque)+'</p>';
-   else if(!(im.normal||im.patho)){var ac=im.a_chercher||{};h+='<p class="manque"><strong>Clichés en cours de recherche.</strong></p>'+(ac.patho?'<ul><li><strong>Normal attendu :</strong> '+esc(ac.normal||'')+'</li><li><strong>Pathologique attendu :</strong> '+esc(ac.patho)+'</li></ul>':'');}
+   var im=en.images||{},mot=en.tr?['Tracés','Tracé','Aucun tracé libre fiable.']:['Clichés','Cliché','Aucune image libre fiable.'];
+   if(im.manque)h+='<p class="manque"><strong>'+mot[2]+'</strong> '+esc(im.manque)+'</p>';
+   else if(!(im.normal||im.patho)){var ac=im.a_chercher||{};h+='<div class="manque"><p><strong>'+mot[0]+' en cours de recherche.</strong></p>'+(ac.patho||ac.normal?'<ul class="enum"><li><strong>'+mot[1]+' normal attendu :</strong> '+tx(ac.normal||'')+'</li><li><strong>'+mot[1]+' pathologique attendu :</strong> '+tx(ac.patho||'')+'</li></ul>':'')+'</div>';}
    else h+=(im.normal&&im.patho?'<button type="button" class="bascule" aria-pressed="false">Voir la pathologie</button>':'')
      +'<figure class="fig"><div class="cadre"><img alt=""><svg viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"></svg></div><figcaption></figcaption></figure><div class="lesion" aria-live="polite" hidden></div>';
+   if(en.lecture&&en.lecture.length)h+='<h3>Lecture systématique</h3><ol class="lect">'+en.lecture.map(function(x){return '<li>'+tx(x)+'</li>';}).join('')+'</ol>';
+   if(en.valeurs_normales&&en.valeurs_normales.length)h+='<h3>Valeurs normales</h3><div class="tw"><table class="t vn"><thead><tr><th>Paramètre</th><th>Valeur</th><th>Unité</th><th>Source</th></tr></thead><tbody>'
+     +en.valeurs_normales.map(function(v){return '<tr><td data-label="Paramètre"><strong>'+tx(v.parametre)+'</strong></td><td data-label="Valeur" class="val">'+tx(v.valeur)+'</td><td data-label="Unité">'+tx(v.unite)+'</td><td data-label="Source" class="src">'+tx(v.source)+'</td></tr>';}).join('')+'</tbody></table></div>';
+   if(en.calculs&&en.calculs.length)h+='<h3>Calculs</h3><div class="calcs">'+en.calculs.map(function(c){return '<section class="calc"><h4>'+tx(c.nom)+'</h4><dl>'
+     +(c.formule?'<dt>Formule</dt><dd class="form">'+tx(c.formule)+'</dd>':'')+(c.a_quoi_ca_sert?'<dt>Usage</dt><dd>'+tx(c.a_quoi_ca_sert)+'</dd>':'')+(c.exemple?'<dt>Exemple résolu</dt><dd>'+tx(c.exemple)+'</dd>':'')+'</dl></section>';}).join('')+'</div>';
    if(en.syndrome.length)h+='<h3>Regroupement syndromique</h3>'+liste(en.syndrome);
    if(en.traitement.length)h+='<h3>Traitement</h3>'+liste(en.traitement);
-   if(!im.manque)h+=credit('Cliché normal',im.normal)+credit('Cliché pathologique',im.patho);
+   if(!im.manque)h+=credit(mot[1]+' normal',im.normal)+credit(mot[1]+' pathologique',im.patho);
    if(en.sources.length)h+='<div class="cred"><strong>Sources</strong>'+liste(en.sources)+'</div>';
   }
   fenC.innerHTML=h;voile.hidden=false;document.documentElement.classList.add('fige');voile.scrollTop=0;fen.focus({preventScroll:true});
@@ -695,7 +719,7 @@ footer{{max-width:1500px;margin:0 auto;padding:0 16px 40px}}
  table.s{{font-size:.85rem}} table.s th,table.s td{{padding:5px 4px}}
 }}
 /* EYE SPOT strict (Vial 13.11.2026) : 3 couleurs au plus, aucun mélange ni dégradé ; la couleur ne sert qu'à discriminer les niveaux de titres.
-   N1 = bandeau, titres d'onglet et onglet actif ; N2 = titres de section (h2, h3) ; N3 = bandes de région (colonne Région fusionnée). Rôles uniques ajoutés : OR = examen de référence ; cyan = numéros et flèches des repères. Tout le reste : noir sur blanc. */
+   N1 = bandeau, titres d'onglet et onglet actif ; N2 = titres de section (h2, h3) ; N3 = bandes de région (colonne Région fusionnée). Rôles uniques ajoutés : OR = examen de référence ; cyan = numéros et flèches des repères ; lavande = encadrés de calcul. Tout le reste : noir sur blanc. */
 :root{{--n1:#bcd0f7;--n2:#f9dcae;--n3:#cfeedd}}
 header.top{{background:var(--n1)!important;color:#000!important}} header.top *,header.top abbr{{color:#000!important}}
 .band2,#p-exp .band2{{background:var(--n1)!important;color:#000!important}}
