@@ -1,0 +1,1 @@
+EXP-114 à EXP-110. Cinq diagnostics : un complet (EXP-112), deux partiels (EXP-114, EXP-111), deux introuvables (EXP-113, EXP-110). Lectures visuelles des clichés retenus, des coins d'image et des aperçus de contour. Le code machine CA1421 du Doppler normal a été masqué. Commons puis Open-i, légendes lues dans le texte Europe PMC. Reprise : EXP-109.
