@@ -1,0 +1,167 @@
+#!/usr/bin/env python3
+"""validate.py — deterministic, zero-token checks on every manifest/IMG-*.json.
+CLI:  python3 scripts/validate.py [--only IMG-001,IMG-002] [--quiet] [--include-test]
+Out:  table on stdout (id | statut déclaré | statut validé | erreurs | avertissements) + validate_report.json
+Exit code 1 if any ERROR.
+Rules:
+  E  manifest JSON valid; id in diagnostics.json; statut in complet|partiel|introuvable
+  E  (complet|partiel) normal+patho files exist, are JPEG, long side <= 1024
+  E  licence in whitelist (CC0, Public domain/PD, CC BY x.y, CC BY-SA x.y); author + source_url present
+  E  complet => modality, plane (and sequence when given) identical normal vs patho; modality matches cliché
+  E  complet => >= 1 arrow role=principale
+  E  every arrow: tip/from in [0,1], label, role in whitelist, evidence, confidence in haute|moyenne|basse
+  E  confidence basse => arrow label quoted in a_verifier
+  E  introuvable => queries non-empty
+  W  partiel without pair_match explanation; pixel identical normal/patho; caption_source missing
+"""
+import json, os, re, sys, glob
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+WL = re.compile(r"^(cc0( 1\.0)?|public domain|pd(-[\w-]+)?|cc[ -]by(-sa)?[ -]\d\.\d( [a-z]{2,})?|cc[ -]by(-sa)?)$", re.I)
+ROLES = {"principale", "associee", "secondaire", "complication"}
+CONF = {"haute", "moyenne", "basse"}
+MOD = {"TDM": {"tdm", "ct", "scanner", "angio-tdm", "coroscanner", "uro-tdm", "entéro-tdm"},
+       "IRM": {"irm", "mri", "arm", "angio-irm", "entéro-irm", "cholangio-irm"},
+       "RX": {"rx", "radiographie", "x-ray", "radiograph", "mammographie", "transit", "opacification"},
+       "US": {"us", "échographie", "echographie", "doppler", "ultrasound", "écho"},
+       "MN": {"mn", "scintigraphie", "tep", "tep-tdm", "pet", "pet-ct", "spect", "tep-scanner"},
+       "INT": {"int", "angiographie", "artériographie", "dsa", "phlébographie"}}
+
+def norm(s):
+    return re.sub(r"\s+", " ", (s or "").strip().lower())
+
+def mod_ok(cliche, m):
+    pref = cliche.split(" — ")[0].strip()
+    allowed = MOD.get(pref)
+    if not allowed:
+        return True
+    m = norm(m)
+    return m in allowed or any(m.startswith(a) for a in allowed) or m == pref.lower()
+
+def img_check(path, errs, tag):
+    p = os.path.join(ROOT, path or "")
+    if not path or not os.path.isfile(p):
+        errs.append(f"{tag}: fichier absent ({path})"); return None
+    with open(p, "rb") as f:
+        head = f.read(3)
+    if head != b"\xff\xd8\xff":
+        errs.append(f"{tag}: pas un JPEG")
+    try:
+        from PIL import Image
+        with Image.open(p) as im:
+            if max(im.size) > 1024:
+                errs.append(f"{tag}: {im.size} > 1024 px")
+            if "exif" in im.info:
+                errs.append(f"{tag}: EXIF présent (passer normalize.py)")
+            return im.size
+    except Exception as e:
+        errs.append(f"{tag}: illisible {e}")
+
+def inunit(v):
+    return isinstance(v, (list, tuple)) and len(v) == 2 and all(isinstance(c, (int, float)) and 0 <= c <= 1 for c in v)
+
+def check(m, dx, errs, warns):
+    st = m.get("statut")
+    if st not in ("complet", "partiel", "introuvable"):
+        errs.append(f"statut invalide: {st}"); return
+    if dx and norm(m.get("dx")) != norm(dx["dx"]):
+        warns.append(f"dx diffère de diagnostics.json ({dx['dx']})")
+    if st == "introuvable":
+        if not m.get("queries"):
+            errs.append("introuvable sans 'queries' tentées")
+        return
+    n, p = m.get("normal") or {}, m.get("patho") or {}
+    for tag, side in (("normal", n), ("patho", p)):
+        if not side:
+            if st == "partiel":
+                warns.append(f"{tag}: absent (partiel)"); continue
+            errs.append(f"{tag}: bloc absent"); continue
+        img_check(side.get("file"), errs, tag)
+        lic = (side.get("license") or "").strip()
+        if not WL.match(lic):
+            errs.append(f"{tag}: licence hors liste blanche «{lic}»")
+        if not (side.get("author") or "").strip():
+            errs.append(f"{tag}: auteur absent")
+        if not (side.get("source_url") or "").startswith("http"):
+            errs.append(f"{tag}: source_url absente")
+        if dx and side.get("modality") and not mod_ok(dx["cliche"], side["modality"]):
+            (errs if st == "complet" else warns).append(f"{tag}: modalité «{side.get('modality')}» ≠ cliché «{dx['cliche']}»")
+    if n and p:
+        for k in ("modality", "plane", "sequence"):
+            a, b = norm(n.get(k)), norm(p.get(k))
+            if k == "sequence" and not a and not b:
+                continue
+            if a != b or (k != "sequence" and not a):
+                (errs if st == "complet" else warns).append(f"{k}: normal «{n.get(k)}» ≠ patho «{p.get(k)}»")
+        fa, fb = os.path.join(ROOT, n.get("file", "")), os.path.join(ROOT, p.get("file", ""))
+        if os.path.isfile(fa) and os.path.isfile(fb) and open(fa, "rb").read() == open(fb, "rb").read():
+            errs.append("normal et patho identiques (même fichier)")
+    if p and not p.get("caption_source"):
+        warns.append("patho: caption_source absent")
+    arrows = (p or {}).get("arrows") or []
+    if st == "complet" and not any(a.get("role") == "principale" for a in arrows):
+        errs.append("complet sans flèche role=principale")
+    av = " ".join(m.get("a_verifier") or []).lower()
+    for i, a in enumerate(arrows, 1):
+        t = f"flèche {i}"
+        if not inunit(a.get("tip")): errs.append(f"{t}: tip hors [0,1] ou absent")
+        if not inunit(a.get("from")): errs.append(f"{t}: from hors [0,1] ou absent")
+        if inunit(a.get("tip")) and inunit(a.get("from")) and \
+           ((a["tip"][0] - a["from"][0]) ** 2 + (a["tip"][1] - a["from"][1]) ** 2) ** .5 < 0.04:
+            warns.append(f"{t}: flèche très courte (<4 % de l'image)")
+        if not (a.get("label") or "").strip(): errs.append(f"{t}: label absent")
+        if a.get("role") not in ROLES: errs.append(f"{t}: role «{a.get('role')}» invalide")
+        if not (a.get("evidence") or "").strip(): errs.append(f"{t}: evidence absente")
+        c = a.get("confidence")
+        if c not in CONF: errs.append(f"{t}: confidence «{c}» invalide")
+        if c == "basse" and (a.get("label") or "").strip().lower() not in av:
+            errs.append(f"{t}: confiance basse mais «{a.get('label')}» absent de a_verifier")
+    if st == "partiel" and not (m.get("pair_match") or m.get("a_verifier")):
+        warns.append("partiel sans explication (pair_match/a_verifier)")
+
+def main():
+    a = sys.argv[1:]
+    only = set()
+    if "--only" in a:
+        only = set(a[a.index("--only") + 1].split(","))
+    quiet, inc_test = "--quiet" in a, "--include-test" in a
+    dxs = {d["id"]: d for d in json.load(open(os.path.join(ROOT, "diagnostics.json")))}
+    rep, nerr = [], 0
+    for f in sorted(glob.glob(os.path.join(ROOT, "manifest", "*.json"))):
+        b = os.path.basename(f)
+        if b == "SCHEMA.json" or (b.startswith("TEST-") and not inc_test):
+            continue
+        errs, warns = [], []
+        try:
+            m = json.load(open(f))
+        except Exception as e:
+            rep.append({"file": b, "id": b, "declared": "?", "valid": "erreur", "errors": [f"JSON invalide: {e}"], "warnings": []}); nerr += 1; continue
+        mid = m.get("id") or b[:-5]
+        if only and mid not in only:
+            continue
+        dx = dxs.get(mid) or dxs.get(m.get("dx_id", ""))
+        if not dx and not b.startswith("TEST-"):
+            errs.append("id absent de diagnostics.json")
+        if b.startswith("TEST-") and not dx:
+            dx = dxs.get(m.get("test_of", ""))
+        check(m, dx, errs, warns)
+        valid = "erreur" if errs else m.get("statut")
+        nerr += bool(errs)
+        rep.append({"file": b, "id": mid, "declared": m.get("statut"), "valid": valid, "errors": errs, "warnings": warns})
+    cnt = {}
+    for r in rep:
+        cnt[r["valid"]] = cnt.get(r["valid"], 0) + 1
+    summary = {"manifests": len(rep), "par_statut_valide": cnt, "avec_erreurs": nerr,
+               "diagnostics_total": len(dxs), "complets_valides": cnt.get("complet", 0)}
+    json.dump({"summary": summary, "items": rep}, open(os.path.join(ROOT, "validate_report.json"), "w"), ensure_ascii=False, indent=1)
+    w = max([10] + [len(r["id"]) for r in rep])
+    print(f"{'id':<{w}} | déclaré     | validé      | E | W | 1re erreur / avertissement")
+    for r in rep:
+        if quiet and not r["errors"]:
+            continue
+        first = (r["errors"] or r["warnings"] or [""])[0]
+        print(f"{r['id']:<{w}} | {str(r['declared']):<11} | {str(r['valid']):<11} | {len(r['errors'])} | {len(r['warnings'])} | {first[:110]}")
+    print("RÉSUMÉ", json.dumps(summary, ensure_ascii=False))
+    sys.exit(1 if nerr else 0)
+
+if __name__ == "__main__":
+    main()
