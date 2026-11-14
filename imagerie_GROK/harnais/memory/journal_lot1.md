@@ -12,3 +12,8 @@ IMG-079 | partiel | Hellerhoff, CC BY-SA 4.0, T carotidien droit, angio-TDM MIP 
 IMG-078 | partiel | Hellerhoff, CC BY-SA 3.0, sac sylvien en rendu volumique | rupture non dite, fichier classé SAH ; côté légende versus image ; confiance basse
 IMG-077 | introuvable | — | pas de T1 avec suppression de graisse ; angio-IRM gadolinium sans auteur, échographie hors cliché
 IMG-076 | partiel | Nevit Dilmen, CC BY-SA 3.0, Doppler couleur et pulsé, ACI droite, PS 146 cm/s | pas de normal ; seuils de vitesse non relus ; spectre inversé à l'écran
+IMG-075 | partiel | Bin Saeedan et al., CC BY 4.0, scintigraphie, fixation linguale fléchée | isotope non écrit (99mTc demandé) ; montage avec scanner ; pas de normal
+IMG-074 | partiel | Nevit Dilmen, CC BY-SA 3.0, kyste médian anéchogène | pas de kyste branchial ; niveau hyoïdien non écrit ; pas de normal
+IMG-073 | partiel | Nevit Dilmen, CC BY-SA 3.0, calcul de Wharton fléché | sialadénite non vue ; pas de normal
+IMG-072 | partiel | Schomynv, CC BY-SA 3.0, adénome pléomorphe parotidien, PAROTID TRV | cytologie non revue ; pas de normal
+IMG-071 | partiel | Mme Mim, CC BY-SA 4.0, ganglion rond sans hile, métastase de mélanome | siège cervical non écrit ; pas de normal
