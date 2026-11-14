@@ -49,3 +49,8 @@ IMG-042 | partiel | S Bhimji, CC BY 4.0, prolactinome sagittal déjà entouré |
 IMG-041 | partiel | Mirza et Gokhale, CC BY 4.0, hémorragie des noyaux gris, marques d'origine | anticoagulant non établi
 IMG-040 | partiel | Morabito et al., CC BY 4.0, carte rCBV, foyer frontal droit | liseré de radionécrose non séparé ; pseudo-progression non démontrée
 IMG-039 | partiel | Uhomachinky, CC BY-SA 4.0, hippocampe gauche déjà entouré | protocole épilepsie non nommé
+IMG-038 | introuvable | — | pas de diffusion ; schéma ou IRM injectée d'un autre diagnostic
+IMG-037 | partiel | Jto410, CC BY-SA 3.0, T2, hypersignal central du pont | forme extrapontique absente
+IMG-036 | partiel | Jto410, CC BY-SA 3.0, FLAIR, thalamus dorsaux médiaux | mamillaires et périaqueduc non sur la coupe
+IMG-035 | introuvable | — | pas de diffusion ; le seul cliché est un T1 injecté
+IMG-034 | introuvable | — | pas de FLAIR limbique ; schéma et EEG seulement
