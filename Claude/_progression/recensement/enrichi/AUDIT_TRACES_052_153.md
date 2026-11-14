@@ -35,3 +35,6 @@ Méthode : les 43 copies `_verif` porteuses d'un tracé ont été regardées par
 - Identité : aucune n'est visible. Le cartouche de 068 est masqué par les auteurs ; 123 ne montre que la date de l'appareil.
 - Licences : toutes CC BY (2.0 à 4.0) dans le XML, aucune NC ; 087 et 089 sont en CC BY-SA 3.0 (Wikimedia).
 - Tracés conformes à l'anomalie annoncée, repères justes : 053, 054, 055, 056, 057, 058, 060, 062, 063, 065, 067, 068, 069, 087, 088, 089, 090, 107, 108, 109, 111, 112, 115, 118, 123, 128, 130, 131, 132, 133, 151.
+
+## Clôture
+Majeur 103 (repère « fuite » retiré) et mineurs appliqués par les deux correcteurs (CORRECTIONS_TRACES_052_102.md, _103_153.md) ; 152 passé en manque : **audit-ok** pour les tracés EXP-052 à 153.
