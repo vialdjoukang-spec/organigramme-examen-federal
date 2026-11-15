@@ -5,3 +5,4 @@
 - Audit P3 indépendant non fait dans cette passe.
 - 2026-11-15 : Phase A L1 sur `grok/lot-114-l1`. Liste DX révisée, non gelée. Paquet des passages mis à jour. Corticoïdes sans milligramme.
 - 2026-11-15 : correction 2 après contre-audit 214eea28. Définitions non lues retirées du point 1. Luxation facettaire dans les dix, isthme retiré. E1 limité à la ventilation ou à l’aggravation. Liste non gelée.
+- 2026-11-15 : point 1 rempli par quatre phrases sourcées (RMS 2005, HUG 2023, AOSpine 2017). Les quatorze points ont un contenu. Liste non gelée.
