@@ -569,7 +569,7 @@ if(window.ResizeObserver)new ResizeObserver(hauteur).observe($('header.h'));
 let IO=null;
 function menu(titre,items,racine){const m=$('#menu');if(IO){IO.disconnect();IO=null}if(window.EYE_OK)eye();
   m.querySelector('.mt').textContent=titre;
-  m.querySelector('ol').innerHTML=items.length?items.map(x=>x.g?'<li class="g">'+esc(x.g)+'</li>':x.id?'<li class="n"><a href="#'+esc(x.id)+'" data-m="'+esc(x.id)+'"'+(x.c?' data-c="'+esc(x.c)+'"':'')+(x.a?' class="a"':'')+'>'+esc(x.t)+'</a></li>':'<li class="n"><span class="v">'+esc(x.t)+'</span></li>').join(''):'<li class="n"><span class="v">—</span></li>';
+  m.querySelector('ol').innerHTML=items.length?items.map(x=>x.g?'<li class="g">'+esc(x.g)+'</li>':x.id?'<li class="n"><a href="#'+esc(x.id)+'" data-m="'+esc(x.id)+'"'+(x.c?' data-c="'+esc(x.c)+'"':'')+(x.a?' class="a"':'')+'>'+esc(x.t)+'</a></li>':'<li class="n"><span class="v">'+esc(x.t)+'</span></li>').join(''):'';
   const liens=$$('a[data-m]',m).filter(a=>!a.dataset.c);const cibles=liens.map(a=>document.getElementById(a.dataset.m)).filter(Boolean);
   if(!cibles.length||!window.IntersectionObserver)return;
   const vus=new Set();
@@ -578,7 +578,9 @@ function menu(titre,items,racine){const m=$('#menu');if(IO){IO.disconnect();IO=n
     {root:racine||null,rootMargin:racine?'0px 0px -55% 0px':'-'+($('header.h').offsetHeight)+'px 0px -55% 0px'});
   cibles.forEach(c=>IO.observe(c));}
 $('#menu').addEventListener('click',e=>{const a=e.target.closest('a[data-m]');if(a&&!a.dataset.c){e.preventDefault();const c=document.getElementById(a.dataset.m);
-  if(c){const d=c.closest('details');if(d)d.open=true;c.scrollIntoView({block:'start'})}$('#menu').classList.remove('ouvert')}
+  if(c){const d=c.closest('details');if(d)d.open=true;c.scrollIntoView({block:'start'})}
+  else document.querySelectorAll('.emb iframe').forEach(fr=>{let t;try{t=fr.contentDocument&&fr.contentDocument.getElementById(a.dataset.m)}catch(err){}if(t)t.scrollIntoView({block:'start'})});
+  $('#menu').classList.remove('ouvert')}
   if(e.target.closest('#menu .x'))$('#menu').classList.remove('ouvert');});
 $('#planbtn').onclick=()=>$('#menu').classList.add('ouvert');
 document.addEventListener('keydown',e=>{if(e.key==='Escape')$('#menu').classList.remove('ouvert')});
@@ -803,7 +805,15 @@ function corpsPh(i,o){const sy=S.pharmaco[i];let h='<h2>'+esc(sy.code)+' · '+es
     h+=classesMol(sy,s,2);}
   return {h,s};}
 /* Sciences fondamentales : par système, trame : cadre → entités → liens → ponts cliniques. */
-function corpsSF(i){const sy=S.fondamentales[i];if(sy.emb)return {h:'',s:[],emb:sy.emb};return {h:'<h2>'+esc(sy.code)+' · '+esc(sy.nom)+'</h2><p class="meta">Trame : cadre d\'ensemble → entités → liens logiques → ponts cliniques</p>'+
+function planEmbarque(em){try{const html=JSON.parse(EMB[em.p].textContent);const doc=new DOMParser().parseFromString(html,'text/html');
+  const nom=em.o&&em.o.indexOf('onglet-')===0?em.o.slice(7):'';
+  const nav=nom?doc.querySelector('nav.menu[data-onglet="'+nom+'"]'):doc.querySelector('nav.menu');
+  if(!nav)return [];const items=[];
+  nav.querySelectorAll('h2').forEach(h=>{const a=h.querySelector('a[href^="#"]');const t=(a?a.textContent:h.textContent).replace(/\s+/g,' ').trim();if(!t)return;
+    if(a)items.push({id:a.getAttribute('href').slice(1),t});
+    else{items.push({g:t});const ul=h.nextElementSibling;if(ul&&ul.tagName==='UL')ul.querySelectorAll('a[href^="#"]').forEach(x=>{const id=x.getAttribute('href').slice(1);const n=x.textContent.replace(/\s+/g,' ').trim();if(id&&n)items.push({id,t:n})})}});
+  return items}catch(e){return []}}
+function corpsSF(i){const sy=S.fondamentales[i];if(sy.emb)return {h:'',s:planEmbarque(sy.emb),emb:sy.emb};return {h:'<h2>'+esc(sy.code)+' · '+esc(sy.nom)+'</h2><p class="meta">Trame : cadre d\'ensemble → entités → liens logiques → ponts cliniques</p>'+
   sy.fiches.map((id,j)=>'<h3 id="sf-'+j+'"><span class="num">'+(j+1)+'</span>'+esc(fi(id).titre)+'</h3>'+listeF([id])).join(''),s:sy.fiches.map((id,j)=>['sf-'+j,fi(id).titre])};}
 /* Rangs EYE SPOT entrelacés (cours, puis examens:i, pharmaco:i, fondamentales:i) : pas d'angle d'or de 137,5° ; voisins de rail
    et premières pages des onglets écartés d'au moins 52° de teinte. */
@@ -969,13 +979,22 @@ function nettoyerDoc(doc){
   });
   if(doc.title)doc.title=nettoyerChaine(doc.title);
 }
-function nettoyerCadre(fr){try{nettoyerDoc(fr.contentDocument);}catch(e){}}
+function masquerMeta(fr){if(!fr||!fr.closest||!fr.closest('.emb'))return;let doc;try{doc=fr.contentDocument}catch(e){return}if(!doc||!doc.body)return;
+  const run=()=>{doc.querySelectorAll('dl.meta > div').forEach(div=>{if(div.hidden)return;const dt=div.querySelector('dt');if(!dt)return;const n=dt.textContent.replace(/\s+/g,' ').trim().toLowerCase();
+    if(n==='niveau'||n==='statut'||n==='date')div.hidden=true;});};
+  run();
+  if(!doc.documentElement.dataset.metaArme){doc.documentElement.dataset.metaArme='1';new MutationObserver(run).observe(doc.body,{childList:true,subtree:true});}}
+function nettoyerCadre(fr){try{nettoyerDoc(fr.contentDocument);}catch(e){}masquerMeta(fr);}
+function appliquerMeta(){document.querySelectorAll('.emb iframe').forEach(masquerMeta);}
 document.addEventListener("load",function(e){
   const t=e.target;
   if(!t||t.tagName!=="IFRAME")return;
   nettoyerCadre(t);
   setTimeout(function(){nettoyerCadre(t);},500);
 },true);
+appliquerMeta();
+setTimeout(appliquerMeta, 600);
+document.addEventListener('click',function(){setTimeout(appliquerMeta, 300);});
 })();
 </script>
 </body></html>
