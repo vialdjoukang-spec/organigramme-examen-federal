@@ -12,3 +12,4 @@
 - Les scripts `gen_phase_a.py` et `phrases_suite.py` sont retirés. Le « car » mécanique ne sert plus de connecteur.
 - Correction 2 après l'audit médical 2 (c0a2a8f2, 75/100, 0 C, 3 G, 5 m). Le rapport est versé tel quel dans `audits/AUDIT_PHASE_A_2.md`. Liste non gelée. Pas de PR. Le rédacteur ne s'auto-audite pas.
 - Correction 3 après l'audit médical 3 (23fe9596, 68/100, 0 C, 5 G, 4 m). Le rapport est versé tel quel dans `audits/AUDIT_PHASE_A_3.md`. Liste non gelée. Pas de PR. Le quatrième audit doit être fait par un auditeur neuf.
+- Correction 4 après l'audit médical 4 (0efce002, 82/100, 0 C, 3 G, 5 m). Le rapport est versé tel quel dans `audits/AUDIT_PHASE_A_4.md`. Liste non gelée. Pas de PR. Le rédacteur ne s'auto-audite pas.

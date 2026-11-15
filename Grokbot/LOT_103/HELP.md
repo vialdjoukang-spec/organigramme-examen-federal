@@ -3,7 +3,9 @@
 - Liste révisée après l'audit 3, non gelée. Rang 1 = canal carpien (seule prévalence de population lue). Rang 2 = part des polyneuropathies. Rang 3 = radiculopathie cervicale vraie, 3,3/1 000 (Revue médicale suisse 2015). Les rangs 3 à 10 n'ont pas de cohorte commune et ne recopient pas l'ordre étiologique de la revue de 2019.
 - La sclérose en plaques est dans les dix (Du Pasquier, 28.01.2015). Le stock de 18 000 personnes n'est pas un rang devant les 22 517 cas annuels d'attaque. La neuropathie des chimiothérapies n'est pas dans les dix.
 - La lombalgie irradiée néerlandaise (incidence 9,4 et prévalence 17,2 pour 1 000 personnes-année ; 53 diagnostics de radiculopathie sur 103 dossiers) ne mesure pas la radiculopathie et n'a pas de numéro.
-- Rangs E : E1 attaque, E2 Guillain-Barré, E3 compression médullaire à l'étage du signe (queue de cheval comprise), E4 vasculite, provisoire faute de létalité lue.
+- Rangs E : E1 attaque, E2 Guillain-Barré, E3 myélopathie cervicale compressive, E4 vasculite, provisoire faute de létalité lue.
+- Schaller, Revue médicale suisse du 25.11.2015, décrit la hernie et la myélopathie cervicales, dont les troubles de la miction. Il ne décrit ni la queue de cheval ni un niveau thoracique : ces deux formulations ont été retirées de toute phrase qui cite cet article.
+- Le décompte OFS de 22 517 cas en 2023, la létalité Obsan de 12,2 % et les 2 580 décès de 2023 sont trois mesures distinctes. Les deux premières portent sur toutes les attaques, pas sur la seule forme sensitive.
 - Retirés du cours, parce qu'absents de la page citée : attaques 2022 (21 797, 11 821, 9 976, 2 535) ; fourchette SEP 2016 de 14 650 à 15 700 et taux 174 à 187/100 000 ; 73 % et 27 % ; 83,2/100 000 ; rapport 1,6 pour 1.
 - 15,4 % est le taux de diabète de l'ensemble des 75 ans et plus, pas le taux masculin.
 - 15 % par an et 23,1/1 000 personnes-année sont deux mesures juxtaposées par la revue, pas une égalité.
