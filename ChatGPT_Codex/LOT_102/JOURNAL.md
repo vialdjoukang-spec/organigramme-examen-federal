@@ -1,0 +1,3 @@
+- 2026-11-15 · liste proposée, non gelée : dix maladies, ordre d'incidence quand une incidence a été lue, létalité chiffrée seulement pour les deux accidents vasculaires genevois.
+- 2026-11-15 · monographie rédigée à neuf. Le glucose dosé est celui de l'information professionnelle 29550, en voie veineuse centrale, à partir de 15 ans pour les maxima.
+- 2026-11-15 · deux images retenues après lecture : voie corticospinale (CC BY 3.0) et scanner d'hémorragie ventriculaire (domaine public).
