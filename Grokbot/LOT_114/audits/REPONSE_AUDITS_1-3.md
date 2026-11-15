@@ -1,4 +1,22 @@
-# Réponse aux audits 1 à 8 — LOT_114
+# Réponse aux audits 1 à 9 — LOT_114
+
+## Audit 8 (4d98e40e, 80/100)
+
+| Défaut | Correction | Où |
+|---|---|---|
+| G1. Carré 2 au centre du corps. | Carré de 24 px, centre x=478, y=138, sur la ligne corticale postérieure qui bombe vers le canal. Le centre du corps reste à gauche, hors du carré. | `images/burst-annotee.webp`, capture `audits/capture-burst-scanner-c9.png` |
+| m2. Carrés 1 et 4. | Texte cité : canal derrière un disque ; ciment, pas le diagnostic initial. « reste » remplace « siège », que la porte nominale refuse. | Point 9 |
+| m3. JSON E5–E7. | `E` null, note « même bande, sans ordre de létalité lu ». Le tableau ne les reprend pas. | `LISTE_DX.audit.json` |
+| m4. Cellules DX.2 et DX.6. | « L’éclatement recule le fragment du corps vers le canal. » Au cou, la même idée est formulée à part. | Point 4 |
+| m5. Gaudin. | « est supérieur à 12 degrés. » | Point 8 |
+| m6. Poletti. | « devrait » ; lecture par coupes axiales et reformatages, sans mesure du canal prescrite. | Point 9 |
+| m7. 16 ans et 65 ans. | Les deux citations restent. La phrase de 43 mots est coupée pour rester entre 12 et 28 mots. | Point 8 |
+| m8. Critères de sortie. | Aucun critère ajouté. | Point 11 |
+| m9. Organisme suisse. | Aucun organisme inventé. | HELP |
+
+La capture zoomée du scanner montre le carré 2 sur le cortex postérieur du corps cunéiforme, côté canal. Le centre du corps est à gauche du carré. L’arc postérieur est plus à droite.
+
+
 
 ## Correction 8 — option A (image relue)
 
