@@ -1,0 +1,1 @@
+2026-11-15 — Renfort L1 de la Phase A et du DX.1 seulement : fenêtres :target, bibliographie ramenée à une entrée par document, point 1 limité à la définition, fiches par molécule recopiées des AIPS, images réelles. Liste gelée non modifiée. Arrêt avant les DX.2 à DX.10. Prompt L1 lu et appliqué.
