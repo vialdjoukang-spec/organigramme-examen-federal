@@ -1,6 +1,6 @@
 # Liste DX canonique — LOT_114 S8.10
 
-Brouillon du 2026-11-15, non gelé. Règle unique : conduite à ne pas manquer selon la Revue médicale suisse de 2005 (réduire ou fixer), pas un rang de fréquence. Les numéros servent au fichier. DX.1 et DX.2 partagent le type A (63,3 % dans la cohorte germanophone) sans ordre interne. DX.6, DX.7 et DX.8 n’ont pas de taux lu et ne sont pas ordonnés entre eux. Les distractions de type B comptent 20,9 % et les rotations de type C 15,7 % : ce sont des parts du même dénominateur, pas un classement des lésions cervicales.
+Brouillon du 2026-11-15, non gelé. L’ordre des familles est la fréquence lue : type A, puis type B, puis type C, puis les lésions cervicales sans taux, puis la lésion médullaire, puis la dissociation. DX.1 et DX.2 restent ex æquo. Les numéros servent au fichier. DX.1 et DX.2 partagent le type A (63,3 % dans la cohorte germanophone) sans ordre interne. DX.6, DX.7 et DX.8 n’ont pas de taux lu et ne sont pas ordonnés entre eux. Les distractions de type B comptent 20,9 % et les rotations de type C 15,7 % : ce sont des parts du même dénominateur, pas un classement des lésions cervicales.
 
 L’isthme de C2 sort des dix : la chirurgie dépend de clichés dynamiques après la phase aiguë. Le seuil reste au point 8. Jefferson est nommé à côté de l’écart de 7 mm, sans onzième diagnostic. L’artère vertébrale reste une conduite d’angio-IRM.
 
