@@ -21,7 +21,7 @@ def _face(weight, path):
 
 def css():
     return r"""
-/* Libellés entiers et icônes. Aucune couleur n'est modifiée. */
+/* Libellés entiers, icônes, et bandes de titres. Le reste reste blanc. Les fenêtres .gm ne sont pas visées. */
 .glyphe{display:inline-flex;flex:none;align-items:center;justify-content:center;color:currentColor}
 .glyphe svg{width:22px;height:22px;display:block}
 .rail button{align-items:flex-start;white-space:normal;height:auto;hyphens:auto}
@@ -34,6 +34,30 @@ def css():
   .rail button{flex:1 1 46%;width:auto;max-width:100%;min-width:0;white-space:normal}
   .rail button span{white-space:normal;overflow-wrap:break-word}
 }
+#menu,#menu .mt,#menu li.g,.rail,.rail button,.rail button.a,nav.on button,nav.on button.a,#theme,#themes,#themes button,
+.c,.bande,.lf button,.lien,.ls a,.ch>div,.ch>.eh,.pu,.pu.a,.etq,.mot,.sn,.num,.defile,.barre input,.vdc b{
+  background:#fff!important;box-shadow:none!important}
+.k-bleu,.k-rouge,.k-vert,.k-violet,.k-ocre,.k-orange,.c-bleu,.c-rouge,.c-vert,.c-violet,.c-ocre,.c-orange,
+.lf button,.ls a,.rail button.a,#menu a.a{box-shadow:none!important}
+.lf button,.ls a,.bande,.c,.defile,.rail,.col h2,.col h3,.col h4,.c h2,h1,#vue .tete{
+  border:1px solid #c8c8c8!important;border-radius:12px!important;box-sizing:border-box!important}
+.col>h2,.col>h3,.col>h4,.col>.bande,.col>.lf,.col>.defile,.lf,.lf button,.c>h2,.c .ls,.c .ls a{
+  width:100%!important;max-width:100%!important;margin-left:0!important;margin-right:0!important}
+.c{padding:0 0 10px!important;overflow:hidden}
+.c>*{margin-left:0!important;margin-right:0!important}
+"""
+
+
+COURS_CSS = r"""
+#fm-bandeau,body>header,main,footer{max-width:none!important;width:100%!important;margin-left:0!important;margin-right:0!important;padding-left:0!important;padding-right:0!important;box-sizing:border-box!important}
+#fm-bandeau,h2,h3,.u,.w,.k,.bloc,.monograph,main>section{width:100%!important;max-width:none!important;margin-left:0!important;margin-right:0!important;box-sizing:border-box!important;border-radius:12px!important}
+.u,.w,.k,.bloc,.monograph,blockquote,main>section{background:#fff!important;border:1px solid #c8c8c8!important;box-shadow:none!important;color:#111!important;padding:0!important}
+.monograph>h2,.bloc>h2,.monograph>h3,.bloc>h3{width:calc(100% + 2px)!important;margin-left:-1px!important;margin-right:-1px!important}
+.monograph>:not(h2):not(h3),.bloc>:not(h2):not(h3){margin-left:16px!important;margin-right:16px!important}
+#brain-barre14,#brain-barre14 a,#brain-barre14 a b{background:#fff!important;box-shadow:none!important;color:#111!important}
+#brain-barre14 a b{border:1px solid #c8c8c8!important}
+#fm-bandeau{border:none!important;box-shadow:none!important}
+h2,h3{border:none!important;box-shadow:none!important}
 """
 
 
@@ -68,18 +92,42 @@ function ornerPlan(){const el=document.getElementById('planbtn');if(!el||el.quer
   el.textContent='';
   const s=document.createElement('span');s.className='glyphe';s.innerHTML=glyphe('menu');el.appendChild(s);
   el.appendChild(document.createTextNode(' Plan'));el.setAttribute('aria-label','Ouvrir le plan');}
+const PALETTE=%s;
+const COURS_CSS=%s;
+function teintes(){const i=+(document.documentElement.dataset.theme||0);const n=((i%%7)+7)%%7;return PALETTE.map((_,k)=>PALETTE[(k+n)%%7]);}
+function peindre(doc,sel){if(!doc)return;const cols=teintes();let k=0;
+  doc.querySelectorAll(sel).forEach(el=>{if(el.closest('.gm,#voile,.fenetre,[popover]')||el.classList.contains('fm-double'))return;
+    if(!el.getClientRects().length)return;
+    const c=cols[k%%7];k++;
+    el.style.setProperty('background',c,'important');
+    el.style.setProperty('color','#000','important');
+    el.style.setProperty('border-radius','12px','important');
+    el.style.setProperty('box-shadow','none','important');});}
+function peindreCours(frame){if(!frame||frame.id!=='vf')return;let doc;try{doc=frame.contentDocument}catch(e){return}
+  if(!doc||!doc.head||!doc.getElementById('fm-bandeau'))return;
+  if(!doc.getElementById('luxe-bandes')){const st=doc.createElement('style');st.id='luxe-bandes';st.textContent=COURS_CSS;doc.head.appendChild(st);}
+  peindre(doc,'#fm-bandeau, h2, h3');}
 function parer(){document.querySelectorAll('.rail button').forEach(ornerRail);
   ornerTheme();
   ornerPlan();
+  peindre(document,'h1, .col h2, .col h3, .col h4, .c h2, #vue .tete');
+  peindreCours(document.getElementById('vf'));
   ornerSeul(document.getElementById('vr'),'chevron-left');
   ornerSeul(document.getElementById('vp'),'chevron-left');
   ornerSeul(document.getElementById('vs'),'chevron-right');
   ornerSeul(document.getElementById('vn'),'arrow-up-right');
   document.querySelectorAll('#menu .x,#fen .x,#sco .x').forEach(el=>ornerSeul(el,'x'));}
 parer();
-if(window.MutationObserver) new MutationObserver(parer).observe(document.body,{childList:true,subtree:true});
+document.addEventListener('load',function(e){if(e.target&&e.target.id==='vf')peindreCours(e.target);},true);
+document.addEventListener('click',function(){requestAnimationFrame(parer);});
+if(window.MutationObserver){
+  new MutationObserver(parer).observe(document.body,{childList:true,subtree:true});
+  new MutationObserver(parer).observe(document.documentElement,{attributes:true,attributeFilter:['data-theme']});
+}
 </script>
-""" % json.dumps(glyphs, ensure_ascii=False, separators=(',', ':'))
+""" % (json.dumps(glyphs, ensure_ascii=False, separators=(',', ':')),
+       json.dumps(['#dcab09', '#1bdc09', '#23a9f6', '#f0850a', '#f970b9', '#eab8b8', '#09dccb']),
+       json.dumps(COURS_CSS))
 
 
 def injecter(html):

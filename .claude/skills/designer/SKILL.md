@@ -5,7 +5,7 @@ description: Règles de forme de la plateforme FedMed (ordre de Vial). À appliq
 
 # Designer
 
-Décision de Vial du 15.11.2026 : les couleurs restent celles de `main` (vingt thèmes, de Léman à Tilleul, atténuation d'origine, bande EYE SPOT avec sa rotation). On ne les retouche pas.
+Décision de Vial du 15.11.2026, 01:50 : seule la bande des titres porte une couleur. Le reste est blanc, avec un filet neutre fin. Les titres d'une même page alternent or, chlorophylle, ciel, orange, rose, rouge pâle et turquoise.
 
 Tu dessines l'interface pour qu'elle se lise d'un coup.
 
