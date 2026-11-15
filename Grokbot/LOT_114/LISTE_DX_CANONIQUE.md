@@ -1,18 +1,18 @@
 # Liste DX canonique — LOT_114 S8.10
 
-Brouillon E3, non gelé. Aucune série suisse ou européenne unique ne classe ces dix maladies sur le même dénominateur. L’ordre suit d’abord les fractures thoraco-lombaires (Revue médicale suisse 2005 ; comité spinal WFNS 2021, environ 30/100 000 en comptant l’ostéoporose ; cohorte germanophone : type A 63,3 %, type B 20,9 %, type C 15,7 %), puis l’odontoïde, plus fréquente que C1 dans la revue de 2005. Les rangs 6 à 8 et 10 restent indicatifs. Les rangs E suivent la létalité ou le risque de perte neurologique, pas la fréquence.
+Brouillon corrigé le 2026-11-15, non gelé. Aucune série unique ne classe les dix maladies. Le type A de Magerl vaut 63,3 % de la cohorte germanophone et mêle compression à mur continu et burst : leur ordre interne n’est pas mesuré. Le type B (20,9 %) précède le type C (15,7 %). L’odontoïde de type II est plus fréquente que l’atlas (RMS 2005), sans taux suisse. Burst cervical, tear-drop et isthme instable de C2 n’ont pas de taux lu. La lésion médullaire vaut 18,0 par million (SwiSCI). La dissociation occipito-cervicale est dite plutôt rare.
 
-La liste V0 est corrigée : lésion complète et lésion incomplète sont deux degrés d’une même lésion médullaire ; le traumatisme pénétrant est un mécanisme ; la cervicalgie sans lésion osseuse est un symptôme. L’entorse cervicale, la flexion-distraction et la lésion de l’artère vertébrale les remplacent.
+Sortent des dix, faute de fréquence lue : entorse cervicale (la moins pertinente), fracture de Jefferson, luxation facettaire, lésion de l’artère vertébrale. L’angio-IRM du foramen reste une conduite, pas un diagnostic du lot.
 
 1. Fracture thoraco-lombaire par compression
 2. Fracture burst thoraco-lombaire
-3. Fracture thoraco-lombaire par flexion-distraction
-4. Fracture-luxation thoraco-lombaire — 🚩 E2
+3. Fracture thoraco-lombaire par flexion-distraction — 🚩 E4
+4. Fracture-luxation thoraco-lombaire — 🚩 E3
 5. Fracture de l’odontoïde de type II
-6. Luxation facettaire cervicale
-7. Fracture de Jefferson
-8. Entorse cervicale
+6. Fracture burst cervicale — 🚩 E5
+7. Fracture tear-drop cervicale — 🚩 E6
+8. Fracture instable de l’isthme de C2 — 🚩 E7
 9. Lésion médullaire traumatique — 🚩 E1
-10. Lésion traumatique de l’artère vertébrale — 🚩 E3
+10. Dissociation occipito-cervicale — 🚩 E2
 
-Les titres des `<h2>` de Phase B reprendront ces noms, apostrophe typographique comprise pour l’odontoïde et l’artère.
+E1 est la ventilation, pas le rapport de mortalité 2,32. Les titres des futurs `<h2>` reprennent ces noms.
