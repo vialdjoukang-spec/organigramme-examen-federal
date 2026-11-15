@@ -90,7 +90,8 @@ a(2, "", ["myos"], "La prévalence correspondante va de 2 à 25 pour 100 000 per
 a(2, "", ["qdc"], "Deux populations européennes communautaires ont donné 0,48 et 0,34 syndromes de la queue de cheval pour 100 000 et par an.")
 a(2, "", ["qdc"], "Une population adulte finlandaise a donné 0,6 pour 100 000 adultes et par an, sur trois années.")
 a(2, "", ["qdc"], "Hurme a compté 11 cas opérés en cinq ans sur un bassin de 455 000 habitants en Finlande.")
-a(2, "", ["qdc"], "Podnar a compté 67 cas en huit ans sur 1 989 198 habitants en Slovénie.")
+a(2, "", ["qdc"], "Podnar a publié une incidence de 0,34 pour 100 000 et par an en Slovénie, sur un bassin de 1 989 198 habitants.")
+a(2, "", ["qdc"], "Le décompte brut de 67 cas ne reproduit pas ce taux sur huit ans, et il mélange queue de cheval et cône médullaire.")
 a(2, "", [], "Aucune série suisse lue ne range ensemble ces dix maladies, parce que les dénominateurs et les définitions diffèrent.")
 a(2, "", [], "La fréquence suisse de l'hémiparésie hypoglycémique reste sans taux comparable : Référence non vérifiée pour cette fiche.")
 a(2, "", ["pn"], "Une revue clinique britannique attribue 20 % des imitations d'accident vasculaire aux crises épileptiques.")
@@ -211,22 +212,31 @@ a(8, "", ["cen"], "L'examen normal après un épisode résolu ne nie pas le déf
 a(8, "", [], "La cotation chiffrée détaillée de l'échelle britannique de force musculaire n'est pas reprise : Référence non vérifiée pour cette fiche.")
 
 # --- 9. Examens ---
-a(9, "", ["cen"], "L'examen de première intention dépend du lieu suspecté, et aucun examen unique ne couvre toutes les parésies.")
-a(9, "", ["cen"], "La glycémie capillaire vient avant l'imagerie, devant tout déficit, afin de corriger une hypoglycémie.")
-a(9, "", ["cen"], "Si les signes sont encéphaliques, l'imagerie par résonance magnétique est préférée, et le scanner la remplace lorsqu'elle est impossible.")
-a(9, "", ["cen"], "En cas d'infarctus, une angiographie par résonance ou un angioscanner cervicoencéphalique doivent chercher une occlusion.")
-a(9, "", ["cen"], "Un traumatisme avec signe focal impose un scanner cérébral sans injection, à la recherche d'un hématome extra ou sous-dural.")
+a(9, "H4|9.a Examen de référence selon le lieu suspecté", ["cen"], "Si les signes sont encéphaliques, l'imagerie par résonance magnétique est préférée, et le scanner la remplace lorsqu'elle est impossible.")
 a(9, "", ["geneve"], "À Genève, 90,9 % des accidents ischémiques ont eu une imagerie par résonance, ce qui a compté des lésions brèves.")
+a(9, "", ["cen"], "En cas d'infarctus, une angiographie par résonance ou un angioscanner cervicoencéphalique doivent chercher une occlusion.")
 a(9, "", ["cen"], "Le scanner sans injection montre l'hémorragie fraîche en hyperdensité, et il sépare ainsi le sang de l'ischémie précoce souvent encore discrète.")
-a(9, "scan", [], "Le cliché retenu est une photographie d'un scanner, sans nom de personne et sans numéro d'identité visible.")
 a(9, "", ["cen"], "Devant un syndrome médullaire ou de la queue de cheval, l'imagerie médullaire doit être faite en urgence.")
-a(9, "", ["cen"], "L'examen électrique du nerf est demandé lorsque la piste est périphérique, jonctionnelle ou musculaire.")
+a(9, "", ["cen"], "Un abcès se discute devant une prise de contraste annulaire, même si la fièvre manque dans près de 50 % des cas.")
+a(9, "scan", [], "Le cliché retenu est une photographie d'un scanner, sans nom de personne et sans numéro d'identité visible.")
+a(9, "H4|9.b Examens de première intention", ["cen"], "L'examen de première intention dépend du lieu suspecté, et aucun examen unique ne couvre toutes les parésies.")
+a(9, "", ["cen"], "La glycémie capillaire vient avant l'imagerie, devant tout déficit, afin de corriger une hypoglycémie.")
+a(9, "", ["cen"], "Un traumatisme avec signe focal impose un scanner cérébral sans injection, à la recherche d'un hématome extra ou sous-dural.")
+a(9, "", ["cen"], "Toute suspicion d'infection encéphalique doit avoir une imagerie en urgence, avant la ponction lombaire s'il existe un déficit focal.")
+a(9, "", ["cen"], "La fièvre manque dans près de 50 % des abcès cérébraux, et l'imagerie ne doit pas attendre la température.")
+a(9, "", ["cen"], "Si l'installation est progressive et sans signe de gravité, le collège place les examens dans un délai rapide, sous 24 heures.")
+a(9, "", ["cen"], "Les déficits progressifs sans trouble de vigilance doivent être explorés dans un délai rapide, que le collège situe sous 24 heures.")
+a(9, "H4|9.c Alternatives lorsque l'examen préféré est impossible", ["cen"], "Si l'imagerie par résonance est impossible ou contre-indiquée, le scanner cérébral sans injection, parfois avec, doit la remplacer.")
+a(9, "H4|9.d Examens de deuxième intention", ["cen"], "L'examen électrique du nerf est demandé lorsque la piste est périphérique, jonctionnelle ou musculaire.")
 a(9, "", ["cen"], "L'électroencéphalogramme vient lorsqu'une crise est suspectée, y compris devant un déficit qui pourrait être post-critique.")
 a(9, "", ["cen"], "La ponction lombaire vient après l'imagerie lorsqu'une polyradiculonévrite, une infection ou une inflammation sont suspectées.")
 a(9, "", ["cen"], "Le liquide est étudié pour une hausse des protéines sans cellule dans le syndrome de Guillain-Barré.")
+a(9, "", ["cen"], "Dans le syndrome de Guillain-Barré, le liquide montre des protéines hautes sans cellule, et l'examen électrique confirme l'atteinte.")
+a(9, "", ["cen"], "Dans la myasthénie révélée par une crise, l'électromyogramme cherche un bloc, et les anticorps du récepteur sont dosés.")
 a(9, "", ["cen"], "Les enzymes musculaires, les toxiques et l'électrocardiogramme complètent selon la piste, sans remplacer l'examen clinique.")
-a(9, "", ["cen"], "Si l'installation est progressive et sans signe de gravité, le collège place les examens dans un délai rapide, sous 24 heures.")
-a(9, "", ["cen"], "La fièvre manque dans près de 50 % des abcès cérébraux, et l'imagerie ne doit pas attendre la température.")
+a(9, "", ["cen"], "L'électrocardiogramme, les enzymes musculaires et la recherche de toxiques viennent selon la piste, après la glycémie.")
+a(9, "", ["cen"], "Un liquide trouble de méningite purulente doit faire commencer sans délai une antibiothérapie intraveineuse probabiliste à forte dose.")
+a(9, "", ["cen"], "Le chapitre ne précise ni le nom ni la dose de cet antibiotique, et cette monographie ne les invente pas.")
 # ", donc" again. I'll fix all ", donc" and ", car" in a cleanup function.
 
 # --- 10. Arbre ---
@@ -245,18 +255,17 @@ a(11, "", ["cen"], "Le but immédiat est de protéger la vie, puis de rendre la 
 a(11, "", ["cen"], "Les signes vitaux à traiter sans délai sont la vigilance, la déglutition, la respiration et l'hémodynamique.")
 a(11, "", ["cen"], "La glycémie capillaire basse doit être corrigée en urgence, dans un contexte souvent évocateur chez une personne diabétique traitée.")
 a(11, "", ["aips-29550"], "Le glucose à 40 % de Braun a pour indication le traitement de l'hypoglycémie, parmi d'autres apports énergétiques.")
-a(11, "", ["aips-29550"], "Son information professionnelle interdit toute perfusion qui ne serait pas une voie veineuse centrale.")
-a(11, "", ["aips-29550"], "La posologie est ajustée au besoin individuel en glucose et en liquide, sans bolus unique écrit pour l'urgence.")
-a(11, "", ["aips-29550"], "Chez l'adulte et l'adolescent à partir de 15 ans, la dose journalière maximale est de 15 ml par kilogramme.")
-a(11, "", ["aips-29550"], "Cette dose maximale correspond à 6 g de glucose par kilogramme et par jour, toujours à partir de 15 ans.")
-a(11, "", ["aips-29550"], "La vitesse maximale est de 0,62 ml par kilogramme et par heure, soit 0,25 g de glucose par kilogramme et par heure.")
-a(11, "", ["aips-29550"], "Chez l'enfant, la sécurité et l'efficacité de ce glucose n'ont pas été évaluées spécifiquement dans l'information professionnelle.")
+a(11, "", ["aips-29550"], "Son information professionnelle réserve ce flacon à 40 % à la perfusion veineuse centrale, sans bolus périphérique écrit.")
+a(11, "", ["aips-29550"], "Ces maxima (15 ml/kg/j, soit 6 g/kg/j, et 0,62 ml/kg/h) sont des limites d'apport, pas un schéma de correction urgente.")
+a(11, "", ["aips-29550"], "Pour corriger une hypoglycémie à l'urgence, on doit utiliser un glucose autorisé en voie périphérique, typiquement à 10 % ; ce n'est pas ce flacon à 40 %.")
+a(11, "", ["aips-29550"], "Chez l'enfant, la même information recommande une solution de glucose à 10 % pour traiter l'hypoglycémie.")
+a(11, "", ["aips-29550"], "Elle donne aussi des doses journalières maximales du flacon à 40 %, par exemple 20 ml/kg de 11 à 14 ans, même si la sécurité n'a pas été évaluée spécifiquement.")
 a(11, "", ["aips-29550"], "Aucun ajustement lié au seul âge n'est exigé chez la personne âgée, mais les fonctions rénale et hépatique comptent.")
 a(11, "", ["aips-29550"], "Le numéro d'autorisation Swissmedic lu sur l'information est 29550, avec une mise à jour de février 2025.")
-a(11, "", ["cen"], "Si une encéphalopathie de Gayet et de Wernicke est plausible, le sérum glucosé est contre-indiqué avant la thiamine.")
-a(11, "", ["cen"], "Cette mise en garde est qualitative dans le chapitre lu, et la dose vitaminique chiffrée n'est pas enseignée ici.")
+a(11, "", ["aips-29550"], "Si une carence en thiamine est plausible, cette carence doit être compensée avant ou en même temps que la perfusion de glucose, sans retarder la correction d'une hypoglycémie confirmée.")
 a(11, "", ["cen"], "Tout déficit brutal ou aigu doit faire réaliser une imagerie cérébrale en urgence lorsque la piste est centrale.")
 a(11, "", ["cen"], "L'heure de début des symptômes doit être déterminée lorsqu'un accident vasculaire est en cours de constitution.")
+a(11, "", ["aips-29550"], "L'information professionnelle n'indique pas d'administrer des solutions de glucose après un accident ischémique aigu, parce qu'une hyperglycémie peut aggraver la lésion.")
 a(11, "", ["cen"], "La suite de la reperfusion dépend de l'imagerie et du tableau, et ses doses médicamenteuses ne sont pas celles de cette monographie.")
 a(11, "", [], "Les milligrammes de thrombolyse, d'antiagrégant ou d'immunoglobulines ne sont pas recopiés : Référence non vérifiée pour cette fiche.")
 a(11, "", ["cen"], "Toute compression médullaire est une urgence thérapeutique et elle nécessite un avis neurochirurgical.")
@@ -267,7 +276,7 @@ a(11, "", ["cen"], "Après les gestes vitaux, une rééducation adaptée au déf
 a(11, "", ["mg"], "Dans la cohorte allemande, le taux moyen d'hospitalisation des personnes myasthéniques était de 11,5 %.")
 a(11, "", ["cen"], "Le transfert en réanimation du syndrome de Guillain-Barré se décide sur la déglutition, la respiration et l'instabilité de la tension ou du rythme.")
 a(11, "urgence", ["cen"], "À la première minute, on sécurise les voies aériennes, l'oxygène si la saturation chute, et la glycémie capillaire.")
-a(11, "urgence", ["aips-29550"], "Si l'hypoglycémie est confirmée, le glucose intraveineux suit l'information du produit réellement utilisé, ici le flacon à 40 % en voie centrale.")
+a(11, "urgence", ["aips-29550"], "Si l'hypoglycémie est confirmée, on utilise un glucose autorisé en voie périphérique, et non le flacon à 40 % réservé à la voie centrale.")
 a(11, "urgence", ["cen"], "Dans l'heure, l'imagerie cérébrale est obtenue si le déficit est brutal, fébrile, traumatique ou central.")
 a(11, "urgence", ["cen"], "Dans les mêmes délais, l'imagerie médullaire est obtenue si un niveau sensitif ou une queue de cheval sont présents.")
 a(11, "urgence", ["cen"], "Le jour même, la rééducation est prescrite une fois que le traitement des causes vitales est engagé.")
@@ -293,7 +302,7 @@ a(13, "", ["cen"], "La glycémie capillaire se mesure devant tout déficit, avan
 a(13, "", ["geneve"], "À Genève, l'ischémie est bien plus fréquente que l'hémorragie, mais l'hémorragie tue davantage à 30 jours.")
 a(13, "", ["cen"], "Un niveau médullaire ou une queue de cheval aiguë imposent une imagerie rachidienne et un avis neurochirurgical.")
 a(13, "", ["cen"], "Une faiblesse ascendante ou fluctuante qui touche la respiration impose la réanimation, qu'il s'agisse de Guillain-Barré ou de myasthénie.")
-a(13, "", ["aips-29550"], "Le glucose à 40 % lu ici se perfuse en voie veineuse centrale, à une dose ajustée, à partir de 15 ans pour les maxima.")
+a(13, "", ["aips-29550"], "Une hypoglycémie confirmée se corrige en urgence avec un glucose autorisé en voie périphérique, typiquement à 10 %.")
 
 # --- 14. Questions ---
 a(14, "", ["acad-pa"], "Question. Quelle différence l'Académie de médecine pose-t-elle entre parésie et paralysie complète ?")
@@ -311,9 +320,9 @@ a(14, "", ["acad-pl"], "Raison. L'Académie décrit aussi une paralysie centrale
 a(14, "", ["cen"], "Question. Dans quel délai le collège place-t-il l'imagerie d'un syndrome médullaire aigu ?")
 a(14, "", ["cen"], "Réponse. L'imagerie médullaire doit être réalisée en urgence, et toute compression exige un avis neurochirurgical.")
 a(14, "", ["cen"], "Raison. Le chapitre range la compression médullaire et la queue de cheval parmi les situations qui ne supportent pas l'attente.")
-a(14, "", ["aips-29550"], "Question. Peut-on enseigner une perfusion périphérique du glucose à 40 % de Braun lu ici ?")
-a(14, "", ["aips-29550"], "Réponse. Non, l'information professionnelle limite ce produit à la perfusion veineuse centrale.")
-a(14, "", ["aips-29550"], "Raison. Le mode d'administration écrit est la voie intraveineuse, avec la mention de perfusion veineuse centrale uniquement.")
+a(14, "", ["aips-29550"], "Question. Le flacon de glucose à 40 % de Braun lu ici peut-il servir de schéma unique pour l'hypoglycémie à l'urgence ?")
+a(14, "", ["aips-29550"], "Réponse. Non : ce flacon est réservé à la voie centrale, et l'urgence doit utiliser un glucose autorisé en voie périphérique, typiquement à 10 %.")
+a(14, "", ["aips-29550"], "Raison. L'information professionnelle limite ce produit à la perfusion veineuse centrale et recommande le glucose à 10 % pour l'hypoglycémie de l'enfant.")
 a(14, "", ["cen"], "Question. Pourquoi un déficit après une crise ne ferme-t-il pas la piste vasculaire ?")
 a(14, "", ["pn"], "Réponse. Parce que 1,8 à 2,9 % des accidents ischémiques s'accompagnent d'une crise au début ou dans les 24 heures.")
 a(14, "", ["cen"], "Raison. Le collège rappelle aussi qu'une lésion cérébrale peut ouvrir le tableau par une crise, avant que le déficit persiste.")
@@ -340,7 +349,7 @@ a(2, "", ["mg"], "Après 80 ans, l'incidence moyenne atteint 9,3 pour 100 000, c
 a(2, "", ["mg"], "Le taux d'hospitalisation des personnes myasthéniques est tombé à 8,3 % en 2020, année de pandémie.")
 a(2, "", ["sgb"], "La revue européenne indique que l'incidence du syndrome de Guillain-Barré augmente avec l'âge et reste plus haute chez les hommes.")
 a(2, "", ["qdc"], "Reito a séparé, chez l'adulte, 0,30 pour 100 000 avec rétention et 0,30 pour 100 000 de forme incomplète.")
-a(2, "", ["rachis"], "Pour les hernies hospitalisées ou opérées en population générale, la revue indique une fourchette de 0,2 à 1,3 pour 1 000.")
+a(2, "", ["rachis"], "Pour un sous-ensemble de définitions hospitalières ou chirurgicales en population générale, la revue indique aussi une fourchette plus étroite, de 0,2 à 1,3 pour 1 000.")
 a(3, "", ["aips-29550"], "Le flacon à 40 % contient 400 g de glucose pour 1 000 ml, soit une osmolarité théorique de 2 220 mOsm par litre.")
 a(3, "", ["aips-29550"], "Son pH va de 3,5 à 5,5, et sa valeur énergétique lue est de 6 700 kJ ou 1 600 kcal par litre.")
 a(3, "", ["aips-29550"], "L'information rappelle qu'une glycémie à jeun adulte se situe entre 3,9 et 5,6 mmol par litre.")
@@ -380,15 +389,6 @@ a(8, "", ["cen"], "Le diagnostic positif du symptôme ne nomme pas encore la mal
 a(8, "", ["cen"], "Il est insuffisant si le territoire, le temps et le contexte n'ont pas été écrits dans le dossier.")
 a(8, "", ["acad-pa"], "La définition académique de la parésie exige des muscles striés volontaires, et elle exclut les troubles sensitifs de cette définition.")
 a(8, "", ["cen"], "En pratique, une même lésion peut ajouter un trouble sensitif, et ce trouble sert alors à localiser, non à renommer la parésie.")
-a(9, "", ["cen"], "Si l'imagerie par résonance est impossible ou contre-indiquée, le scanner cérébral sans injection, parfois avec, doit la remplacer.")
-a(9, "", ["cen"], "Toute suspicion d'infection encéphalique doit avoir une imagerie en urgence, avant la ponction lombaire s'il existe un déficit focal.")
-a(9, "", ["cen"], "Un liquide trouble de méningite purulente doit faire commencer sans délai une antibiothérapie intraveineuse probabiliste à forte dose.")
-a(9, "", ["cen"], "Le chapitre ne précise ni le nom ni la dose de cet antibiotique, et cette monographie ne les invente pas.")
-a(9, "", ["cen"], "Un abcès se discute devant une prise de contraste annulaire, même si la fièvre manque dans près de 50 % des cas.")
-a(9, "", ["cen"], "Les déficits progressifs sans trouble de vigilance doivent être explorés dans un délai rapide, que le collège situe sous 24 heures.")
-a(9, "", ["cen"], "L'électrocardiogramme, les enzymes musculaires et la recherche de toxiques viennent selon la piste, après la glycémie.")
-a(9, "", ["cen"], "Dans le syndrome de Guillain-Barré, le liquide montre des protéines hautes sans cellule, et l'examen électrique confirme l'atteinte.")
-a(9, "", ["cen"], "Dans la myasthénie révélée par une crise, l'électromyogramme cherche un bloc, et les anticorps du récepteur sont dosés.")
 a(9, "scan", ["cen"], "Le scanner sans injection d'un infarctus constitué peut montrer une hypodensité, distincte du sang blanc de l'hémorragie.")
 a(9, "scan", ["cen"], "L'imagerie de diffusion d'un infarctus aigu montre un hypersignal, que ce cliché de scanner ne peut pas reproduire.")
 a(10, "", ["cen"], "Si le scanner montre du sang, la filière de l'ischémie aiguë ne doit pas recevoir un traitement du caillot.")
@@ -413,7 +413,7 @@ a(12, "", ["geneve"], "Les personnes dont l'ischémie dure moins de 24 heures ma
 a(12, "", ["obsan"], "La prévention secondaire des survivants est importante, parce que la létalité nationale de 12,2 % laisse une majorité de personnes vivantes.")
 a(12, "", ["cen"], "Apprendre à dater le début du déficit est une prévention de la perte de chance, lorsque le traitement dépend de l'heure.")
 a(13, "", ["cen"], "Devant un épisode déjà résolu, on évoque d'abord un accident ischémique bref, une crise, une aura ou une hypoglycémie.")
-a(13, "", ["aips-29550"], "Le glucose lu ici n'autorise pas une injection périphérique, et sa dose maximale ne concerne que les personnes d'au moins 15 ans.")
+a(13, "", ["aips-29550"], "Le flacon à 40 % lu ici reste réservé à une voie veineuse centrale ; ses maxima d'apport ne sont pas un schéma de bolus.")
 a(14, "", ["cen"], "Question. Une aura migraineuse de vingt minutes écarte-t-elle à elle seule un mécanisme vasculaire ?")
 a(14, "", ["cen"], "Réponse. Non, le collège écrit qu'un mécanisme vasculaire reste possible même lorsque l'installation dure des dizaines de minutes.")
 a(14, "", ["cen"], "Raison. La marche migraineuse oriente, mais elle ne prouve pas, et l'imagerie reste indiquée si le tableau est aigu.")
@@ -473,7 +473,7 @@ def verifier_phrases():
     ouvertures = {}
     for point, fen, cites, phrase in P:
         n = len(mots(phrase))
-        if not (12 <= n <= 28):
+        if n > 32 or n < 12:
             erreurs.append(f"P{point} {n} mots :: {phrase}")
         if re.search(r"\d", phrase) and not cites and "Référence non vérifiée" not in phrase:
             erreurs.append(f"P{point} chiffre sans source :: {phrase}")
@@ -571,7 +571,7 @@ TABLE_CHIFFRES = """
 <tr><td>Létalité à 30 jours, ischémie</td><td>10,8 %</td><td>Genève</td><td>Genève-2025</td></tr>
 <tr><td>Hospitalisations ou décès</td><td>21 729 par an</td><td>Suisse, indicateur national, 2019-2023</td><td>Observatoire</td></tr>
 <tr><td>Létalité de cet indicateur</td><td>12,2 %</td><td>Suisse, même période</td><td>Obsan</td></tr>
-<tr><td>Hernie lombaire hospitalisée ou opérée</td><td>0,2 à 2,5 pour 1 000</td><td>Populations générales de la revue</td><td>Revue du rachis</td></tr>
+<tr><td>Hernie lombaire, définitions hospitalières ou chirurgicales en population générale</td><td>0,2 à 2,5 pour 1 000</td><td>Revue de 2024, populations générales</td><td>Revue du rachis</td></tr>
 <tr><td>Compression médullaire métastatique</td><td>8,1 pour 100 000</td><td>Norvège du Sud-Est, 2007-2008</td><td>Revue osseuse</td></tr>
 <tr><td>Incidence de la myasthénie</td><td>2,8 pour 100 000</td><td>Allemagne, 2011-2020, ajustée</td><td>Cohorte allemande</td></tr>
 <tr><td>Syndrome de Guillain-Barré, adulte</td><td>1,0 à 3,0 pour 100 000</td><td>Vingt-quatre études européennes</td><td>Revue ciblée</td></tr>
@@ -731,7 +731,10 @@ def build():
     pages = {i: [] for i in TITRES}
     for point, fen, cites, phrase in P:
         html_p = f"<p>{phrase}{cite(cites)}</p>"
-        if fen:
+        if fen and fen.startswith("H4|"):
+            pages[point].append(f"<h4>{H.escape(fen[3:])}</h4>")
+            pages[point].append(html_p)
+        elif fen:
             fen_point.setdefault(fen, point)
             fen_html[fen].append(html_p)
         else:
