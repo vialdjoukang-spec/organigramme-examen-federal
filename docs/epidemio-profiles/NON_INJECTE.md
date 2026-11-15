@@ -1,0 +1,212 @@
+# Valeurs non injectées et motif
+
+202 valeurs restent hors injection : discordantes ou non vérifiables.
+
+## discordant (67)
+
+- #4 G1.4 · **Hyperhidrose focale primaire** : 2,8 % (Cours PROFILES / Littérature) · le cours donne un autre chiffre du même genre pour la même population
+- #5 G1.5 · **Symptômes vasomoteurs de la ménopause** : 31 % (Cours PROFILES (G7.1)) · le cours donne un autre chiffre du même genre pour la même population
+- #6 G1.5 · **Symptômes vasomoteurs de la ménopause** : 5 à 10 % (Cours PROFILES (S4.12.1)) · revue : le cours donne 5 à 10 % pour la ménopause anticipée, pas pour les formes sévères · [source](https://www.sggg.ch/fileadmin/user_upload/Dokumente/3_Fachinformationen/1_Expertenbriefe/FR/90_Aktuelle_Empfehlungen_zur_systemischen_Menopausalen_Hormontherapie__MHT__fr_2026-01-12_korrigiert.pdf)
+- #7 G1.6 · **Alcoolisme chronique, sevrage alcoolique** : 55,4 % (OFS — ESS 2022) · le cours donne un autre chiffre du même genre pour la même population
+- #8 G1.6 · **Alcoolisme chronique, sevrage alcoolique** : 19 % (OFS — ESS 2022) · le cours donne un autre chiffre du même genre pour la même population
+- #14 G1.8 · **Infection par le VIH** : ~17 690 personnes (Aide Suisse contre le Sida) · le cours donne un autre chiffre du même genre pour la même population
+- #18 G3.1 / G4.4 · **Diabète sucré** : 5 % (OFS — ESS 2022) · le cours donne un autre chiffre du même genre pour la même population
+- #21 G4.1 · **Dépression** : 8 % (OFS — ESS 2022) · le cours donne un autre chiffre du même genre pour la même population
+- #23 G4.3 / G11.1 · **Troubles du sommeil (insomnie)** : 30,8 % (OFS — ESS 2022) · le cours donne un autre chiffre du même genre pour la même population
+- #24 G4.3 / G11.1 · **Troubles du sommeil (insomnie)** : 44,4 % (OFS — ESS 2022) · le cours donne un autre chiffre du même genre pour la même population
+- #25 G4.8 / G11.3 · **Troubles anxieux** : 10 % (OFS — ESS 2022) · revue : le cours cite une enquête allemande (10 % des hommes, 20 % des femmes), pas l'ESS 2022 · [source](https://www.obsan.admin.ch/sites/default/files/2024-11/obsan_bulletin_2024_11_f.pdf)
+- #28 G5.7 · **Pathologie somatique chronique (toutes causes)** : 34 % (OFS — ESS 2022) · le cours donne un autre chiffre du même genre pour la même population
+- #29 G5.7 · **Pathologie somatique chronique (toutes causes)** : 38 % (OFS — ESS 2022) · le cours donne un autre chiffre du même genre pour la même population
+- #32 G6.6 · **Paludisme (fièvre au retour de voyage)** : ~150 à 300 cas / an (OFSP — Maladies infectieuses) · le cours donne un autre chiffre du même genre pour la même population
+- #38 G8.10 · **Sepsis** : 21 001 hospitalisations / an (Swiss Sepsis Report 2025) · le cours donne un autre chiffre du même genre pour la même population
+- #40 G8.10 · **Sepsis** : ~230 / 100 000 hab./an (Swiss Sepsis Report 2025) · le cours donne un autre chiffre du même genre pour la même population
+- #41 G9.5 · **Prurit psychogène** : 7 % (Cours PROFILES) · revue : le cours donne 7 % pour le prurit chronique en général, pas pour le prurit psychogène · [source](https://www.ebi.ac.uk/europepmc/webservices/rest/PMC12529596/fullTextXML)
+- #42 G9.8 · **Diabète sucré (associé au prurit)** : 25 % (Cours PROFILES) · le cours donne un autre chiffre du même genre pour la même population
+- #44 G10.1 · **Lombalgie / douleurs dorsales** : 40,1 % (OFS — ESS 2022) · le cours donne un autre chiffre du même genre pour la même population
+- #45 G10.1 · **Lombalgie / douleurs dorsales** : 49,9 % (OFS — ESS 2022) · le cours donne un autre chiffre du même genre pour la même population
+- #46 G10.2 · **Cervicalgie, douleurs épaules-nuque-bras** : 34,2 % (OFS — ESS 2022) · le cours donne un autre chiffre du même genre pour la même population
+- #47 G10.2 · **Cervicalgie, douleurs épaules-nuque-bras** : 5,3 % (OFS — ESS 2022) · le cours donne un autre chiffre du même genre pour la même population
+- #49 G10.7 · **Arthrose** : 7,6 % (Cours PROFILES) · le cours donne un autre chiffre du même genre pour la même population
+- #56 G15.1 · **Excès de poids total (IMC >= 25)** : 43 % (OFS — ESS 2022) · le cours donne un autre chiffre du même genre pour la même population
+- #57 G16.1 · **Cancer (toutes localisations confondues)** : 48 140 nouveaux cas / an (OFS / ONEC 2025) · le cours donne un autre chiffre du même genre pour la même population
+- #58 G16.1 · **Cancer (mortalité annuelle)** : 17 116 décès / an (OFS / ONEC 2025) · le cours donne un autre chiffre du même genre pour la même population
+- #63 S1.1.10 · **Anévrisme intracrânien (non rompu)** : 2 à 3 % (Cours PROFILES / Neurochirurgie) · revue : le cours écrit « jusqu'à 3 % », la borne 2 % manque · [source](https://pmc.ncbi.nlm.nih.gov/articles/PMC13151661/)
+- #68 S1.4.1 · **Paralysie faciale idiopathique de Bell** : 50 / 100 000 hab./an (Cours PROFILES) · revue : le cours donne 50 à 70 % (part idiopathique), pas une incidence de 50 / 100 000 · [source](https://www.revmed.ch/revue-medicale-suisse/2011/revue-medicale-suisse-311/paralysie-faciale-mise-a-jour-pour-le-praticien)
+- #69 S1.4.4 · **Borréliose de Lyme** : 145,4 / 100 000 hab./an (OFSP — Portail IDD) · le cours donne un autre chiffre du même genre pour la même population
+- #72 S1.7.6 · **Cancer de l'œsophage** : 610 nouveaux cas / an (OFS / ONEC 2025) · le cours donne un autre chiffre du même genre pour la même population
+- #73 S1.7.6 · **Cancer de l'œsophage** : 4,8 / 100 000 hab./an (OFS / ONEC 2025) · le cours donne un autre chiffre du même genre pour la même population
+- #74 S1.7.6 · **Cancer de l'œsophage** : 1,27 % (OFS / ONEC 2025) · le cours donne un autre chiffre du même genre pour la même population
+- #75 S1.7.7 · **Achalasie** : 1 à 2 / 100 000 hab./an (Cours PROFILES / Gastro-entérologie) · revue : le cours donne environ 1 et 1,07 à 2,2 / 100 000 : approximation, pas identité · [source](https://www.usz.ch/en/?p=273371)
+- #82 S1.13.4 · **Hématome sous-dural du nourrisson** : 20 à 25 / 100 000 enfants/an (Cours PROFILES) · revue : le cours vise l'enfant, le référentiel le nourrisson de moins d'un an · [source](https://www.paediatrieschweiz.ch/fr/traumatisme-cranien-non-accidentel/)
+- #84 S1.13.8 · **Infection congénitale à cytomégalovirus (CMV)** : 0,4 à 0,6 % (Cours PROFILES) · le cours donne un autre chiffre du même genre pour la même population
+- #87 S1.14.3 · **Rhinite non allergique** : 27 % (Cours PROFILES) · revue : le cours donne 27 % en population générale, le référentiel une part parmi les rhinites chroniques · [source](https://pmc.ncbi.nlm.nih.gov/articles/PMC9322075/)
+- #89 S1.15.3 · **Rhinite médicamenteuse** : 18 % (Cours PROFILES) · revue : le cours donne 18 % pour la rhinite non allergique, pas pour la rhinite médicamenteuse · [source](https://pubmed.ncbi.nlm.nih.gov/42507205/)
+- #91 S1.16.2 · **Radiculopathie cervicale dégénérative** : 83,2 / 100 000 hab./an (Cours PROFILES) · revue : le cours parle de prévalence, le référentiel d'incidence · [source](https://www.revmed.ch/view/537270/4338595/RMS_492_2023.pdf)
+- #95 S1.16.7 · **Dissection artérielle cervicale** : 1,0 à 1,5 / 100 000 hab./an (Cours PROFILES) · le cours donne un autre chiffre du même genre pour la même population
+- #97 S1.16.10 · **Subluxation atlanto-axoïdienne rhumatoïde** : 0,5 à 1,0 % (Cours PROFILES) · le cours donne un autre chiffre du même genre pour la même population
+- #98 S2.1.2 · **Syndrome d'obésité-hypoventilation** : 0,4 % (Cours PROFILES) · le cours donne un autre chiffre du même genre pour la même population
+- #100 S2.3.1 · **Carcinome mammaire invasif (femme)** : 114,6 / 100 000 femmes/an (OFS / ONEC 2025) · le cours donne un autre chiffre du même genre pour la même population
+- #101 S2.3.5 · **Carcinome du sein chez l'homme** : 59 nouveaux cas / an (OFS / ONEC 2025) · le cours donne un autre chiffre du même genre pour la même population
+- #108 S4.6.10 · **Cancer de l'ovaire (C56)** : 662 nouveaux cas / an (OFS / ONEC 2025) · le cours donne un autre chiffre du même genre pour la même population
+- #112 S4.12.3 / S4.17.4 · **Cancer de l'endomètre (corps utérin, C54–C55)** : 959 nouveaux cas / an (OFS / ONEC 2025) · le cours donne un autre chiffre du même genre pour la même population
+- #113 S4.12.3 / S4.17.4 · **Cancer de l'endomètre (risque cumulé)** : 0,95 % (OFS / ONEC 2025) · le cours donne un autre chiffre du même genre pour la même population
+- #118 S4.17.7 · **Grossesse môlaire** : 0,57 à 2,0 / 1 000 grossesses (Cours PROFILES) · le cours donne un autre chiffre du même genre pour la même population
+- #125 S7.7.3 / F1.9.6 · **Démence / Maladie d'Alzheimer** : ~150 000 personnes (OFSP / Alzheimer Suisse 2025) · le cours donne un autre chiffre du même genre pour la même population
+- #127 S7.9.1 · **Polyneuropathie diabétique distale symétrique** : 20 % (Cours PROFILES) · revue : le cours donne 20 % pour la douleur neuropathique, pas pour la polyneuropathie · [source](https://www.revmed.ch/revue-medicale-suisse/2019/revue-medicale-suisse-670/prise-en-charge-des-polyneuropathies-sensitives-chez-la-personne-agee)
+- #136 S9.4.1 / O6.2.1 · **Anorexie mentale** : 1,2 % (OFSP — Troubles alimentaires) · le cours donne un autre chiffre du même genre pour la même population
+- #137 S9.4.2 / O6.2.2 · **Boulimie nerveuse** : 2,4 % (OFSP — Troubles alimentaires) · le cours donne un autre chiffre du même genre pour la même population
+- #140 S9.12.8 / O7.26 · **Intoxication aiguë (appels Tox Info Suisse)** : 42 782 consultations / an (Tox Info Suisse — Rapport 2024) · le cours donne un autre chiffre du même genre pour la même population
+- #151 F1.18.6 · **Tamponnade cardiaque (dans l'arrêt cardiaque)** : 0,2 à 0,5 % (Cours PROFILES) · le cours donne un autre chiffre du même genre pour la même population
+- #152 F1.18.7 · **Pneumothorax sous tension (dans l'arrêt cardiaque)** : ~0,5 % (Cours PROFILES) · le cours donne un autre chiffre du même genre pour la même population
+- #153 F1.19.2 · **Hypotension orthostatique (dans la syncope)** : 26,6 % (Cours PROFILES) · le cours donne un autre chiffre du même genre pour la même population
+- #158 F2.8.5 · **Campylobactériose** : 8 716 cas / an (OFSP — Portail IDD) · le cours donne un autre chiffre du même genre pour la même population
+- #162 F2.10.5 · **Mélanome cutané (C43)** : 3 514 nouveaux cas / an (OFS / ONEC 2025) · le cours donne un autre chiffre du même genre pour la même population
+- #169 F2.22.9 · **Thromboses splanchniques ou atypiques (Vaquez)** : 0,8 à 7,8 % (Cours PROFILES) · le cours donne un autre chiffre du même genre pour la même population
+- #186 O4.7.1 / O4.3.1 · **Tabagisme** : 24 % (OFS — ESS 2022) · le cours donne un autre chiffre du même genre pour la même population
+- #192 O5.4.6 · **Douleur neuropathique ou mixte d'origine cancéreuse** : 20 à 40 % (Littérature soins palliatifs) · le cours donne un autre chiffre du même genre pour la même population
+- #193 O5.4.8 · **Hypercalcémie tumorale** : 0,2 à 9 % (Cours PROFILES) · le cours donne un autre chiffre du même genre pour la même population
+- #197 O6.4.1 · **Mobbing (harcèlement psychologique au travail)** : 6,8 % (Cours PROFILES / SECO / ESS) · le cours donne un autre chiffre du même genre pour la même population
+- #199 O6.4.9 · **TSPT après harcèlement grave** : ~8 % (Cours PROFILES) · le cours donne un autre chiffre du même genre pour la même population
+- #208 O7.9.8 · **Candidémie nosocomiale (densité d'incidence)** : 0,99 / 10 000 jours-patients (Swissnoso / FUNGINOS) · le cours donne un autre chiffre du même genre pour la même population
+- #212 O7.13.6 · **Diagnostic tardif du VIH (migrants)** : ~50 % (OFSP / Étude SHCS) · le cours donne un autre chiffre du même genre pour la même population
+- #220 O7.22.4 · **Allergie déclarée aux bêta-lactamines** : 1,0 à 10,2 % (Cours PROFILES) · le cours donne un autre chiffre du même genre pour la même population
+- #221 O7.22.5 · **Syndrome sérotoninergique (surdosage ou interaction ISRS)** : 7,1 % (Cours PROFILES) · le cours donne un autre chiffre du même genre pour la même population
+
+## non_verifiable (135)
+
+- #1 G1.1 · **Syndrome coronarien aigu** : ~150 à 200 / 100 000 hab./an (OFS / Registre AMIS Plus) · chiffre absent du cours ; aucune source primaire liée
+- #3 G1.3 · **Endocardite infectieuse** : 3 à 10 / 100 000 hab./an (Littérature épidémiologique européenne) · chiffre absent du cours ; aucune source primaire liée
+- #9 G1.6 · **Alcoolisme chronique, sevrage alcoolique** : 11 % (OFS — ESS 2022) · chiffre présent dans le cours, mais la page source ne le montre pas (absent) · [source](https://www.hug.ch/sites/interhug/files/structures/medecine_de_premier_recours/strategie-alcool-smpr_2021.pdf)
+- #15 G2.2 · **Néoplasie (lymphome non hodgkinien)** : 1 690 nouveaux cas / an (OFS / ONEC 2025) · chiffre absent du cours ; aucune source primaire liée
+- #16 G2.2 · **Néoplasie (lymphome non hodgkinien)** : 13,8 / 100 000 hab./an (OFS / ONEC 2025) · chiffre absent du cours ; aucune source primaire liée
+- #19 G3.1 / G4.4 · **Diabète sucré** : 12 % (OFS — ESS 2022) · chiffre absent du cours ; aucune source primaire liée
+- #20 G3.1 / G4.4 · **Diabète sucré** : 15 % (OFS — ESS 2022) · chiffre absent du cours ; aucune source primaire liée
+- #22 G4.1 · **Dépression** : 20 à 40 % (Obsan — Rapport national sur la santé 2025) · chiffre présent dans le cours, source citée sans URL
+- #26 G4.8 / G11.3 · **Troubles anxieux** : 14,0 % (Cours PROFILES) · chiffre absent du cours ; aucune source primaire liée
+- #27 G5.7 · **Pathologie somatique chronique (toutes causes)** : 36,0 % (OFS — ESS 2022 / Obsan) · chiffre absent du cours ; aucune source primaire liée
+- #30 G5.10 · **Anémie, hypothyroïdie, diabète déséquilibré** : 3,97 % (Cours PROFILES) · chiffre absent du cours ; aucune source primaire liée
+- #31 G6.1 · **Pneumonie communautaire** : 27,2 % (Cours PROFILES) · chiffre présent dans le cours, source citée sans URL
+- #34 G6.9 · **Grippe saisonnière (consultations)** : ~100 à 300 / 100 000 hab. (OFSP — Portail IDD) · chiffre absent du cours ; aucune source primaire liée
+- #35 G7.1 · **Bouffées de chaleur de la ménopause** : 31 % (Cours PROFILES) · chiffre présent dans le cours, source citée sans URL
+- #36 G7.8 · **Urticaire aiguë / Anaphylaxie** : 7,9 à 9,6 / 100 000 hab./an (Cours PROFILES) · chiffre présent dans le cours, mais la page source ne le montre pas (absent) · [source](https://doi.org/10.1111/j.1365-2222.2004.01882.x)
+- #37 G7.10 · **Phéochromocytome** : 0,46 / 100 000 hab./an (Cours PROFILES) · chiffre absent du cours ; aucune source primaire liée
+- #39 G8.10 · **Sepsis** : 1,6 % (Swiss Sepsis Report 2025) · chiffre absent du cours ; aucune source primaire liée
+- #43 G9.9 · **Insuffisance rénale chronique (prurit urémique)** : ~20 % (Cours PROFILES) · chiffre présent dans le cours, source citée sans URL
+- #48 G10.7 · **Arthrose** : 13,5 % (OFS — ESS 2022) · chiffre absent du cours ; aucune source primaire liée
+- #50 G10.9 · **Douleur chronique à composante neuropathique** : 7 à 10 % (Littérature épidémiologique) · chiffre absent du cours ; aucune source primaire liée
+- #51 G12.4 · **Insuffisance cardiaque** : 2 % (Cours PROFILES / ESC) · chiffre présent dans le cours, source citée sans URL
+- #52 G13.1 · **Suicide assisté** : 1 774 cas / an (OFS / Obsan 2025) · chiffre présent dans le cours, mais la page source ne le montre pas (absent) · [source](https://www.bfs.admin.ch/bfs/fr/home/statistiques/sante/etat-sante/mortalite-causes-deces.html)
+- #53 G13.3 · **Suicide non assisté** : 996 décès / an (OFS / Obsan 2025) · chiffre présent dans le cours, mais la page source ne le montre pas (absent) · [source](https://www.bfs.admin.ch/bfs/fr/home/statistiques/sante/etat-sante/mortalite-causes-deces.html)
+- #59 G16.4 · **Hyperthyroïdie (perte de poids)** : 44 % (Cours PROFILES) · chiffre absent du cours ; aucune source primaire liée
+- #60 G16.4 · **Hyperthyroïdie (thyrotoxicose)** : 0,5 à 1,3 % (Littérature endocrinologique) · chiffre absent du cours ; aucune source primaire liée
+- #61 G16.5 · **Maladie cœliaque** : ~1 % (Cours PROFILES (O7.3.10)) · chiffre absent du cours ; aucune source primaire liée
+- #64 S1.2.4 · **Glaucome primitif à angle ouvert** : ~2 % (Cours PROFILES / Ophtalmologie) · chiffre absent du cours ; aucune source primaire liée
+- #65 S1.2.8 · **Névrite optique** : 1 à 5 / 100 000 hab./an (Cours PROFILES) · chiffre absent du cours ; aucune source primaire liée
+- #66 S1.3.8 · **Dystonie laryngée** : 5,9 / 100 000 hab. (Cours PROFILES) · chiffre absent du cours ; aucune source primaire liée
+- #67 S1.3.10 · **Cancer du larynx** : ~270 nouveaux cas / an (OFS / ONEC 2025) · chiffre absent du cours ; aucune source primaire liée
+- #70 S1.6.5 · **Corps étranger ou abrasion cornéenne** : 88 / 100 000 hab./an (Cours PROFILES) · chiffre absent du cours ; aucune source primaire liée
+- #71 S1.7.1 · **Accident vasculaire cérébral (et dysphagie post-AVC)** : 127,0 / 100 000 hab./an (Cours PROFILES / OFS) · chiffre présent dans le cours, mais la page source ne le montre pas (absent) · [source](https://doi.org/10.1212/WNL.0000000000213353)
+- #76 S1.8.3 · **Otite moyenne chronique suppurée** : 3,8 % (Cours PROFILES) · chiffre présent dans le cours, mais la page source ne le montre pas (absent) · [source](https://pmc.ncbi.nlm.nih.gov/articles/PMC3340347/)
+- #77 S1.9.2 · **Xérostomie médicamenteuse** : 21 % (Cours PROFILES) · chiffre présent dans le cours, mais la page source ne le montre pas (absent) · [source](https://doi.org/10.1111/ger.70076)
+- #78 S1.9.9 · **Cancer de la cavité buccale et du pharynx (C00–C14)** : 1 286 nouveaux cas / an (OFS / ONEC 2025) · chiffre absent du cours ; aucune source primaire liée
+- #79 S1.9.9 · **Cancer de la cavité buccale et du pharynx (C00–C14)** : 11,3 / 100 000 hab./an (OFS / ONEC 2025) · chiffre absent du cours ; aucune source primaire liée
+- #81 S1.12.7 · **Maladie de Ménière** : 0,2 à 0,7 % (Cours PROFILES) · chiffre absent du cours ; aucune source primaire liée
+- #83 S1.13.5 · **Tumeur intracrânienne (SNC, C70–C72)** : 695 nouveaux cas / an (OFS / ONEC 2025) · chiffre absent du cours ; aucune source primaire liée
+- #86 S1.14.2 · **Rhinite allergique** : ~20 % (aha! Centre d'Allergie Suisse) · chiffre absent du cours ; aucune source primaire liée
+- #92 S1.16.3 · **Myélopathie cervicale dégénérative** : 1,6 / 100 000 hab./an (Cours PROFILES) · chiffre présent dans le cours, mais la page source ne le montre pas (absent) · [source](https://pmc.ncbi.nlm.nih.gov/articles/PMC6074604)
+- #93 S1.16.5 · **Méningite bactérienne aiguë** : 0,6 à 4,0 / 100 000 adultes/an (Cours PROFILES) · chiffre absent du cours ; aucune source primaire liée
+- #94 S1.16.6 · **Hémorragie sous-arachnoïdienne** : 3,7 / 100 000 hab./an (Cours PROFILES) · chiffre présent dans le cours, mais la page source ne le montre pas (absent) · [source](https://doi.org/10.1161/STROKEAHA.120.029538)
+- #99 S2.3.1 · **Carcinome mammaire invasif (femme)** : 6 758 nouveaux cas / an (OFS / ONEC 2025) · chiffre présent dans le cours, source citée sans URL
+- #102 S3.1.1 · **Douleur abdominale non spécifique** : 17,9 % (Cours PROFILES) · chiffre absent du cours ; aucune source primaire liée
+- #103 S3.1.6 · **Cholécystite aiguë** : 5,1 % (Cours PROFILES) · chiffre absent du cours ; aucune source primaire liée
+- #104 S3.4.1 · **Incontinence anale (gaz / selles)** : 2 % (Cours PROFILES) · chiffre absent du cours ; aucune source primaire liée
+- #105 S3.7.1 · **Constipation fonctionnelle chronique** : 14 % (Cours PROFILES) · chiffre absent du cours ; aucune source primaire liée
+- #106 S4.3.9 · **Cancer de la vessie (C67)** : 1 365 nouveaux cas / an (OFS / ONEC 2025) · chiffre absent du cours ; aucune source primaire liée
+- #107 S4.3.9 · **Cancer du rein (C64)** : 1 171 nouveaux cas / an (OFS / ONEC 2025) · chiffre absent du cours ; aucune source primaire liée
+- #109 S4.7.1 · **Endométriose (dans la douleur pelvienne chronique)** : 33 % (Cours PROFILES) · chiffre absent du cours ; aucune source primaire liée
+- #110 S4.9.6 · **Tumeur testiculaire (C62)** : 469 nouveaux cas / an (OFS / ONEC 2025) · chiffre absent du cours ; aucune source primaire liée
+- #111 S4.11.10 · **Testicule non descendu (cryptorchidie)** : 1,0 à 4,6 % (Cours PROFILES) · chiffre présent dans le cours, source citée sans URL
+- #116 S4.17.1 · **Grossesse extra-utérine** : ~11 / 1 000 grossesses (Cours PROFILES) · chiffre présent dans le cours, source citée sans URL
+- #117 S4.17.5 · **Cancer du col de l'utérus (C53)** : 218 nouveaux cas / an (OFS / ONEC 2025) · chiffre présent dans le cours, source citée sans URL
+- #119 S5.2.1 · **Lombalgie commune non spécifique** : 30 à 40 % (Cours PROFILES / OFS) · chiffre absent du cours ; aucune source primaire liée
+- #120 S5.2.3 · **Sténose lombaire dégénérative symptomatique** : 5 / 100 000 hab./an (Cours PROFILES) · chiffre absent du cours ; aucune source primaire liée
+- #121 S5.2.4 · **Fracture vertébrale ostéoporotique** : 486 / 100 000 hab./an (Cours PROFILES) · chiffre absent du cours ; aucune source primaire liée
+- #122 S5.2.8 · **Spondyloarthrite axiale** : 1 à 2 % (Cours PROFILES) · chiffre absent du cours ; aucune source primaire liée
+- #123 S5.3.7 · **Scoliose idiopathique de l'adolescent** : 0,93 à 12 % (Cours PROFILES) · chiffre absent du cours ; aucune source primaire liée
+- #124 S5.3.9 · **Pied de Charcot (neuro-ostéoarthropathie)** : 0,04 % (Cours PROFILES) · chiffre absent du cours ; aucune source primaire liée
+- #126 S7.7.3 / F1.9.6 · **Démence / Maladie d'Alzheimer** : ~32 200 nouveaux cas / an (OFSP / Alzheimer Suisse 2025) · chiffre absent du cours ; aucune source primaire liée
+- #130 S7.10.5 · **Crise épileptique aiguë symptomatique** : 6,6 % (Cours PROFILES) · chiffre présent dans le cours, source citée sans URL
+- #131 S7.10.6 · **Syncope convulsivante** : 41 % (Cours PROFILES) · chiffre absent du cours ; aucune source primaire liée
+- #132 S8.1.5 · **Lésions rénales et des voies urinaires (trauma)** : Jusqu'à 5 % (Cours PROFILES) · chiffre absent du cours ; aucune source primaire liée
+- #133 S8.2.8 · **Brûlures non accidentelles de l'enfant** : 39 / 100 000 enfants/an (Cours PROFILES) · chiffre absent du cours ; aucune source primaire liée
+- #134 S8.3.6 · **Ecchymoses non accidentelles de l'enfant** : 14 / 100 000 enfants/an (Cours PROFILES) · chiffre présent dans le cours, source citée sans URL
+- #135 S8.4.1 · **Luxation antérieure de l'épaule** : 23 / 100 000 hab./an (Cours PROFILES) · chiffre absent du cours ; aucune source primaire liée
+- #138 S9.5.2 · **Trouble bipolaire de type I** : ~1 % (Cours PROFILES) · chiffre absent du cours ; aucune source primaire liée
+- #139 S9.11.2 · **État de stress post-traumatique (TSPT)** : 11,8 % (Cours PROFILES) · chiffre présent dans le cours, source citée sans URL
+- #141 F1.1.1 · **Hypertension artérielle** : 19,5 % (OFS — ESS 2022) · chiffre présent dans le cours, source citée sans URL
+- #142 F1.2.4 · **Hypospadias** : 18,6 / 10 000 naissances (Cours PROFILES) · chiffre présent dans le cours, source citée sans URL
+- #143 F1.3.4 · **Asthme** : 6 à 8 % (OFS / Ligue pulmonaire suisse) · chiffre absent du cours ; aucune source primaire liée
+- #144 F1.3.5 · **Prolapsus valvulaire mitral** : 1 à 2 % (Cours PROFILES) · chiffre absent du cours ; aucune source primaire liée
+- #145 F1.4.10 · **Cancer bronchopulmonaire (C33–C34)** : 5 061 nouveaux cas / an (OFS / ONEC 2025) · chiffre absent du cours ; aucune source primaire liée
+- #146 F1.4.10 · **Cancer bronchopulmonaire (C33–C34)** : 38,8 / 100 000 hab./an (OFS / ONEC 2025) · chiffre absent du cours ; aucune source primaire liée
+- #147 F1.5.4 · **Appendicite aiguë** : ~90 à 100 / 100 000 hab./an (Littérature chirurgicale / OFS) · chiffre absent du cours ; aucune source primaire liée
+- #148 F1.5.9 · **Ischémie mésentérique aiguë** : 50 à 70 % (Littérature chirurgicale) · chiffre présent dans le cours, source citée sans URL
+- #149 F1.6.4 · **Ascite (cause maligne ou non cirrhotique)** : 5 % (Cours PROFILES) · chiffre présent dans le cours, source citée sans URL
+- #150 F1.18.5 · **Arrêt cardiaque extrahospitalier (toutes causes)** : 81 / 100 000 hab./an (Cours PROFILES) · chiffre présent dans le cours, source citée sans URL
+- #154 F2.1.4 · **Acidose métabolique (en soins intensifs)** : 64 % (Cours PROFILES) · chiffre absent du cours ; aucune source primaire liée
+- #155 F2.5.3 / F2.5.6 · **Leucémies (C91–C95)** : 1 367 nouveaux cas / an (OFS / ONEC 2025) · chiffre absent du cours ; aucune source primaire liée
+- #156 F2.8.1 · **Cancer colorectal (C18–C20)** : 4 563 nouveaux cas / an (OFS / ONEC 2025) · chiffre absent du cours ; aucune source primaire liée
+- #157 F2.8.1 · **Cancer colorectal (C18–C20)** : 36,1 / 100 000 hab./an (OFS / ONEC 2025) · chiffre absent du cours ; aucune source primaire liée
+- #159 F2.10.3 · **Cancer de la thyroïde (C73)** : 910 nouveaux cas / an (OFS / ONEC 2025) · chiffre absent du cours ; aucune source primaire liée
+- #160 F2.10.4 · **Carcinome prostatique (C61)** : 8 291 nouveaux cas / an (OFS / ONEC 2025) · chiffre absent du cours ; aucune source primaire liée
+- #161 F2.10.4 · **Carcinome prostatique (C61)** : 138,8 / 100 000 hommes/an (OFS / ONEC 2025) · chiffre absent du cours ; aucune source primaire liée
+- #163 F2.11.3 · **Hépatite B (déclarations)** : 13,5 / 100 000 hab./an (OFSP — Bulletin IST 2024) · chiffre absent du cours ; aucune source primaire liée
+- #164 F2.11.5 · **Cancer du foie (C22)** : 990 nouveaux cas / an (OFS / ONEC 2025) · chiffre absent du cours ; aucune source primaire liée
+- #165 F2.11.5 · **Cancer du pancréas (C25)** : 1 780 nouveaux cas / an (OFS / ONEC 2025) · chiffre absent du cours ; aucune source primaire liée
+- #166 F2.13.1 · **Hypercholestérolémie** : 15 % (OFS — ESS 2022) · chiffre absent du cours ; aucune source primaire liée
+- #167 F2.20.1 · **Ostéoporose** : 4,1 % (OFS — ESS 2022) · chiffre absent du cours ; aucune source primaire liée
+- #168 F2.20.9 / F2.23.6 · **Myélome multiple (C90)** : 788 nouveaux cas / an (OFS / ONEC 2025) · chiffre absent du cours ; aucune source primaire liée
+- #170 O1.1.1 · **Prématurité (< 37 SA)** : 4 681 naissances vivantes / an (OFS — Santé périnatale 2026) · chiffre absent du cours ; aucune source primaire liée
+- #171 O1.4.5 · **Prééclampsie** : 2,5 % (Cours PROFILES) · chiffre absent du cours ; aucune source primaire liée
+- #172 O1.5.1 · **Accouchement par césarienne** : 33,5 % (Obsan / OFS 2025) · chiffre absent du cours ; aucune source primaire liée
+- #173 O1.6.10 · **Masse mammaire pendant l'allaitement (bénigne)** : 95 % (Cours PROFILES) · chiffre absent du cours ; aucune source primaire liée
+- #174 O1.8.1 · **Interruption volontaire de grossesse (IVG)** : 12 301 interruptions / an (OFS — Statistique IVG 2026) · chiffre présent dans le cours, source citée sans URL
+- #175 O2.7.10 · **Mort fœtale in utero (mort-nés >= 22 SA)** : 4,6 / 1 000 naissances (OFS — Mouvement de la population 2026) · chiffre absent du cours ; aucune source primaire liée
+- #176 O2.8.1 · **Mortalité infantile (< 1 an)** : 274 décès / an (OFS — Causes de décès 2026) · chiffre présent dans le cours, source citée sans URL
+- #177 O2.10.1 · **Trouble spécifique du langage écrit (dyslexie)** : 5 à 17 % (Cours PROFILES) · chiffre présent dans le cours, source citée sans URL
+- #178 O2.10.2 · **Trouble spécifique du calcul (dyscalculie)** : 6 à 7 % (Cours PROFILES) · chiffre présent dans le cours, source citée sans URL
+- #179 O3.2.1 · **Presbyacousie (perte auditive liée à l'âge)** : 25 % (Cours PROFILES) · chiffre présent dans le cours, source citée sans URL
+- #180 O3.3.2 · **Dénutrition du sujet âgé** : 10 % (Cours PROFILES) · chiffre absent du cours ; aucune source primaire liée
+- #181 O3.7.1 · **Incontinence urinaire (sujet âgé)** : 10 à 20 % (Cours PROFILES) · chiffre absent du cours ; aucune source primaire liée
+- #182 O3.7.5 · **Incontinence fécale (sujet âgé)** : 0,4 à 18 % (Cours PROFILES) · chiffre absent du cours ; aucune source primaire liée
+- #183 O4.1.1 · **Accidents liés à la pratique d'un sport** : 449 000 blessés / an (Observatoire Sport et activité physique) · chiffre absent du cours ; aucune source primaire liée
+- #184 O4.2.8 · **Méningo-encéphalite à tiques (FSME)** : 502 cas / an (OFSP — Bulletin 2026) · chiffre absent du cours ; aucune source primaire liée
+- #185 O4.3.6 · **Sédentarité (position assise >= 8 h/jour)** : 28 % (OFS — ESS 2022) · chiffre absent du cours ; aucune source primaire liée
+- #187 O5.3.1 · **Douleur en phase terminale** : 60 à 80 % (Cours PROFILES) · chiffre présent dans le cours, source citée sans URL
+- #188 O5.3.3 · **Dyspnée terminale** : Jusqu'à 77 % (Cours PROFILES) · chiffre présent dans le cours, source citée sans URL
+- #189 O5.3.8 · **Râle agonique (râle du mourant)** : 35 % (Cours PROFILES) · chiffre présent dans le cours, source citée sans URL
+- #190 O5.4.1 · **Douleur cancéreuse** : 40 à 80 % (Cours PROFILES) · chiffre présent dans le cours, source citée sans URL
+- #191 O5.4.3 · **Constipation induite par les opioïdes** : ~50 % (Cours PROFILES) · chiffre présent dans le cours, source citée sans URL
+- #194 O5.5.1 · **Risque suicidaire chez le patient gravement malade** : 7,9 % (Cours PROFILES / Obsan) · chiffre présent dans le cours, source citée sans URL
+- #195 O5.5.2 · **Trouble de l'adaptation à une maladie grave** : 33 à 55 % (Cours PROFILES) · chiffre présent dans le cours, source citée sans URL
+- #196 O6.2.6 · **Dermatose visible avec retentissement psychique** : 38,0 % (Cours PROFILES) · chiffre présent dans le cours, source citée sans URL
+- #198 O6.4.8 · **Harcèlement obsessionnel (stalking)** : 15 à 18 % (Cours PROFILES) · chiffre présent dans le cours, source citée sans URL
+- #200 O6.5.2 · **Prévalence du VIH chez les HSH en Suisse** : ~8 % (Cours PROFILES) · chiffre présent dans le cours, source citée sans URL
+- #201 O6.5.3 · **Discriminations ou violences envers personnes LGBTQIA+** : 67,6 % (Cours PROFILES) · chiffre présent dans le cours, source citée sans URL
+- #202 O6.6.9 · **Enfant exposé à la violence dans le couple** : 31,6 % (Cours PROFILES) · chiffre absent du cours ; aucune source primaire liée
+- #203 O6.8.1 · **Détresse psychologique moyenne ou élevée** : 17,8 % (OFS — ESS 2022 / Obsan) · chiffre absent du cours ; aucune source primaire liée
+- #204 O7.3.10 · **Maladie cœliaque** : ~1 % (Cours PROFILES) · chiffre absent du cours ; aucune source primaire liée
+- #205 O7.5.8 · **Harcèlement sexuel ou comportement irrespectueux entre soignants** : 19,0 % (Cours PROFILES) · chiffre présent dans le cours, source citée sans URL
+- #206 O7.6.6 · **Zona chez le patient immunodéprimé** : 12 à 14 / 1 000 patients/an (Cours PROFILES) · chiffre présent dans le cours, source citée sans URL
+- #207 O7.9.1 · **Infections associées aux soins (IAS / nosocomiales)** : 5,3 % (Swissnoso / OFSP 2026) · aucun cours pour ce DX
+- #209 O7.9.8 · **Candidémie nosocomiale (incidence populationnelle)** : 4,20 / 100 000 hab./an (Swissnoso / FUNGINOS) · chiffre absent du cours ; aucune source primaire liée
+- #210 O7.11.3 · **Placement à des fins d'assistance (PAFA)** : 1,7 / 1 000 hab./an (Obsan / Cours PROFILES) · chiffre présent dans le cours, source citée sans URL
+- #211 O7.12.3 · **Syphilis** : 11,6 / 100 000 hab./an (OFSP — Bulletin IST 2024) · aucun cours pour ce DX
+- #213 O7.16.6 · **Risque de complications pulmonaires postopératoires (SAOS/BPCO)** : 65,2 % (Cours PROFILES) · chiffre absent du cours ; aucune source primaire liée
+- #214 O7.17.2 / O6.1.7 · **Accidents professionnels et non professionnels (LAA)** : 936 965 cas / an (Suva / SSAA 2024) · chiffre présent dans le cours, source citée sans URL
+- #215 O7.19.3 · **Drépanocytose / bêta-thalassémie** : 4,4 / 100 000 hab. (Cours PROFILES) · chiffre absent du cours ; aucune source primaire liée
+- #216 O7.19.7 · **Dystrophie musculaire de Duchenne** : 19,8 / 100 000 naissances M (Cours PROFILES) · chiffre présent dans le cours, source citée sans URL
+- #217 O7.20.1 · **Transplantation d'organes solides** : 643 personnes greffées / an (Swisstransplant — Rapport 2025) · aucun cours pour ce DX
+- #218 O7.21.5 · **Usage de la phytothérapie pendant la grossesse** : 28,9 % (Cours PROFILES) · chiffre présent dans le cours, source citée sans URL
+- #219 O7.21.9 · **Dissection cervicale associée à une manipulation** : 9,5 % (Cours PROFILES) · chiffre absent du cours ; aucune source primaire liée
+
