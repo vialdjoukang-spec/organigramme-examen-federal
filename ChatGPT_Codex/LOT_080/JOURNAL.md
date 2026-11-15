@@ -1,0 +1,5 @@
+- 2026-11-15 · reprise du LOT depuis codex/lot-080 (6e8a3372), branche grok/redaction-lot-080, sans gel de la liste.
+- 2026-11-15 · fenêtres popover converties en fenêtres :target ; bibliographie regroupée par adresse ; question interne retirée.
+- 2026-11-15 · point 1 ramené à la définition ; les distinctions de nommage passent au point 8 (monographie) ou au point 4 (DX.1).
+- 2026-11-15 · gravité proposée : DX.6 E1, DX.10 E2, DX.9 E3 ; les sept autres sans drapeau. Sources lues : Paediatrica 2017 et 2023, SOSORT 2016, HUG lombalgie aiguë 2022.
+- 2026-11-15 · images : colonne Blausen CC BY 3.0 ; planche SOSORT du dos, du test d’Adams et des radiographies, CC BY 2.0. Pas de cliché de fracture ni d’IRM de syrinx retenu.
