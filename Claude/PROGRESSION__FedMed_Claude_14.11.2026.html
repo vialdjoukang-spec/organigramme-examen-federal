@@ -908,8 +908,18 @@ nav.on button[data-o="pharmaco"]{border-color:#6eb6ef!important;box-shadow:0 0 0
 .lieu-f{display:block;width:100%;height:min(52vh,480px);border:1px solid #c8c8c8;border-radius:12px;background:#fff}
 .ls a.choisi{border-color:#111!important;font-weight:700}
 #p-cours .c:has(details[open]){grid-column:1/-1}
-.rail .glyphe,header.h .glyphe,#vue .tete .glyphe,#menu .glyphe,#planbtn .glyphe{padding:1px}
-header.h .glyphe svg,#vue .tete .glyphe svg,#planbtn .glyphe svg,#menu .glyphe svg,.rail .glyphe svg{overflow:visible}
+.rail button,.rail button b,.rail button span{word-break:normal;overflow-wrap:normal;hyphens:manual;-webkit-hyphens:manual}
+.rail button{font-size:13px}
+.rail button span:not(.glyphe){min-width:min-content;white-space:normal}
+@media(min-width:1181px){.mod,.mod.embv{grid-template-columns:360px minmax(0,1fr)}}
+:root{--icone-lueur:#e02335}
+html:has(nav.on button.a[data-o="fondamentales"]){--icone-lueur:#2fbe58}
+html:has(nav.on button.a[data-o="cours"]){--icone-lueur:#e02335}
+html:has(nav.on button.a[data-o="examens"]){--icone-lueur:#d4b15a}
+html:has(nav.on button.a[data-o="pharmaco"]){--icone-lueur:#6eb6ef}
+header.h .glyphe svg,#vue .tete .glyphe svg,#planbtn .glyphe svg,#menu .glyphe svg,.rail .glyphe svg{
+  overflow:visible;
+  filter:drop-shadow(0 1px 0 rgba(255,255,255,.9)) drop-shadow(0 2px 2px rgba(0,0,0,.35)) drop-shadow(0 0 1.5px var(--icone-lueur)) drop-shadow(0 0 3px var(--icone-lueur))}
 @media (prefers-reduced-motion:reduce){
   .j .f,.j .f::after{animation:none}
   .j .f{width:var(--p)}
@@ -919,36 +929,6 @@ header.h .glyphe svg,#vue .tete .glyphe svg,#planbtn .glyphe svg,#menu .glyphe s
 <script id="relief-frontend-js">
 (function(){
 "use strict";
-let seq=0;
-function zone(el){return el.closest("header.h, #vue .tete, #planbtn, #menu, .rail");}
-function interdit(el){return el.closest("#fen, #sco, .gm, .col, .ls, .lieu, iframe");}
-function embellir(svg){
-  if(!svg||svg.dataset.relief==="1")return;
-  const host=svg.closest(".glyphe");
-  if(!host||interdit(host)||!zone(host))return;
-  svg.dataset.relief="1";
-  const id="rf"+(++seq);
-  svg.insertAdjacentHTML("afterbegin",
-    '<defs><linearGradient id="'+id+'f" x1="0" y1="0" x2="0" y2="1">'
-    +'<stop offset="0" stop-color="#c8c8c8"/><stop offset="46%" stop-color="#3a3a3a"/><stop offset="100%" stop-color="#141414"/>'
-    +'</linearGradient><filter id="'+id+'" x="-90%" y="-90%" width="280%" height="280%" color-interpolation-filters="sRGB">'
-    +'<feGaussianBlur in="SourceAlpha" stdDeviation="0.8" result="soft"/>'
-    +'<feOffset in="soft" dx="0" dy="1.2" result="off"/>'
-    +'<feFlood flood-color="#1a1a1a" flood-opacity="0.3" result="ink"/>'
-    +'<feComposite in="ink" in2="off" operator="in" result="ombre"/>'
-    +'<feGaussianBlur in="SourceAlpha" stdDeviation="0.55" result="c1"/>'
-    +'<feGaussianBlur in="SourceAlpha" stdDeviation="0.9" result="c2"/>'
-    +'<feFlood flood-color="#7ec8ff" flood-opacity="1" result="k1"/>'
-    +'<feFlood flood-color="#fff4c4" flood-opacity="0.7" result="k2"/>'
-    +'<feComposite in="k1" in2="c1" operator="in" result="g1"/>'
-    +'<feComposite in="k2" in2="c2" operator="in" result="g2"/>'
-    +'<feMerge><feMergeNode in="ombre"/><feMergeNode in="g2"/><feMergeNode in="g1"/><feMergeNode in="SourceGraphic"/></feMerge>'
-    +'</filter></defs>');
-  svg.setAttribute("stroke","url(#"+id+"f)");
-  svg.setAttribute("filter","url(#"+id+")");
-  svg.style.overflow="visible";
-}
-function passe(){document.querySelectorAll(".glyphe svg").forEach(embellir);}
 function nettoyerChaine(s){
   let t=String(s);
   t=t.replace(/\bLOT_\d+\s*[—–\-·]\s*Phase\s*A\s*V0\b/gi,"Monographie");
@@ -994,8 +974,6 @@ document.addEventListener("load",function(e){
   nettoyerCadre(t);
   setTimeout(function(){nettoyerCadre(t);},500);
 },true);
-passe();
-if(window.MutationObserver)new MutationObserver(passe).observe(document.body,{childList:true,subtree:true});
 })();
 </script>
 </body></html>
