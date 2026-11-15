@@ -10,3 +10,4 @@
 - Corpus AIPS absent : aucune dose en milligrammes.
 - Contrôle après correction 1 (audit médical 1, 9c87e815) : `controle3.py --script-ok` VERT ; `verif_aips.py` OK ; `aips_fiche.py verifier` 0 ; `abreviations.py` 0 ; `restaurer_fond.py --verifier` 0. Liste non gelée.
 - Les scripts `gen_phase_a.py` et `phrases_suite.py` sont retirés. Le « car » mécanique ne sert plus de connecteur.
+- Correction 2 après l'audit médical 2 (c0a2a8f2, 75/100, 0 C, 3 G, 5 m). Le rapport est versé tel quel dans `audits/AUDIT_PHASE_A_2.md`. Liste non gelée. Pas de PR. Le rédacteur ne s'auto-audite pas.
