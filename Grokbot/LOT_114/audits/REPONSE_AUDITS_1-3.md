@@ -1,4 +1,21 @@
-# Réponse aux audits 1 à 3 — LOT_114
+# Réponse aux audits 1 à 5 — LOT_114
+
+## Audit 5 (f8c5deba, 73/100)
+
+| Défaut | Correction | Où |
+|---|---|---|
+| G1. Le point 1 n’est pas une définition. | Phrase retirée. Définition lue : EUROSPINE, dictionnaire approuvé le 1 juillet 2020, « fracture / trauma : Fracture or discoligamentous injury as sequelae of trauma. » Traduction fidèle, ancre `eurospine-2020`, lecture du 15 novembre 2026. NICE NG41 ne définit pas (usually involves) : non retenue. | Point 1, HELP |
+| G2. « Seule » une lésion C3-C5. | « une lésion à ce niveau ou au-dessus peut supprimer la ventilation. » Les parenthèses « racine cervicale » restent, car la porte des sigles exige le développement à la première occurrence. | Point 3 |
+| G3. Repère 1 trop bas. | Carré 1 déplacé sur la moelle cervicale haute, sous la base du crâne, au-dessus de la base du cou. Phrase conservée. Image relue. | `images/moelle-annotee.webp` |
+| G4. IRM rendue obligatoire. | Phrase de Schizas : rôle discuté, hernie chez près de la moitié, faible risque. | Point 9 |
+| m5. « Après la phase aiguë ». | Retiré de la phrase opératoire de l’isthme. | Point 8 |
+| m6. Tear-drop et burst cervical absents de l’arbre. | Nœud ajouté. Point 13 : drapeau sans rang de létalité lu. | Points 10 et 13 |
+| m7. Pronostic devenu critère de sortie. | Phrase de mauvais pronostic moteur, revue de 2005. | Point 11.D |
+| m8. Deux phrases sur l’absence de taux. | Première supprimée, seconde gardée. | Point 4 |
+| m9. Corticoïdes sans le consensus 2024. | Phrase 2024 séparée : la phrase unique de l’audit compte 34 mots, au-delà des 32 de la porte. NASCIS développé. | Point 13 |
+| m10. Cellules courtes. | Mur postérieur continu ; rétrécissement du canal. | Tableau du point 4 |
+
+La phrase du point 4 qui dit encore « après la phase aiguë » pour expliquer l’absence de l’isthme dans les dix n’était pas dans la correction demandée. Elle reste.
 
 Base corrigée : `21c904bcd`. Rapport 3 : `d7049c02`, fichier `audits/AUDIT_PHASE_A_3.md`. Liste non gelée.
 
