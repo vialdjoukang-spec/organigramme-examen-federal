@@ -7,6 +7,7 @@ chacune avec son contexte complet. Hors Europe, on s'arrête.
 - `completude.sh` : chaîne complète, idempotente (SQLite WAL, checkpoints, cache disque). Lancée par `<IA>/completude_epidemio.sh`.
 - `scripts/connecteurs.py`, `pipeline.py` : valeurs suisses (OFS, OFSP-IDD, ONEC, Obsan/MonAM).
 - `scripts/applicabilite.py` : classes A/B/C/N.
+- `scripts/eurostat_cod.py`, `eurostat_ehis.py` : Eurostat (causes de décès UE-27 et Suisse ; enquête EHIS 2019 UE-27), valeurs vérifiées automatiquement avec contexte complet.
 - `scripts/recherche.py` : Europe + Suisse en parallèle (Orphanet/Orphadata CC BY 4.0, Europe PMC/PubMed, Wikidata pour le nom anglais) ; candidats + phrases chiffrées des résumés.
 - `scripts/valider.py` : enregistre une valeur lue à la source ; refuse un contexte incomplet ou un territoire hors Europe.
 - `scripts/plan.py` : `PLAN_COMPLETUDE_EPIDEMIO.{html,md}` (cases rouges, compteur t / n) + `taches.jsonl`.
