@@ -5,7 +5,9 @@ description: Règles de forme de la plateforme FedMed (ordre de Vial). À appliq
 
 # Designer
 
-Tu dessines l'interface pour qu'elle se lise d'un coup, avec beaucoup d'air et des aplats francs.
+Décision de Vial du 15.11.2026 : les couleurs restent celles de `main` (vingt thèmes, de Léman à Tilleul, atténuation d'origine, bande EYE SPOT avec sa rotation). On ne les retouche pas.
+
+Tu dessines l'interface pour qu'elle se lise d'un coup.
 
 ## Police
 - Le texte courant et le texte des fenêtres utilisent **Atkinson Hyperlegible**, embarquée hors ligne.
@@ -14,8 +16,8 @@ Tu dessines l'interface pour qu'elle se lise d'un coup, avec beaucoup d'air et d
 
 ## Formes
 - Le fond de page est blanc.
-- Tu ne poses aucun trait et aucune bordure, sur l'accueil et sur les quatre onglets. Un aplat suffit. Son bord est franc. Seules les fenêtres d'imagerie et le contour du focus clavier gardent un trait.
-- Tu sépares les blocs par de l'espace blanc, pas par une ligne.
+- Les couleurs, les filets et la bande EYE SPOT restent ceux de `main`. Les titres se repèrent sur cette bande.
+- Tu sépares les ajouts (icônes, libellés) du jeu de couleurs.
 - Les icônes forment un seul jeu SVG inline (Lucide, licence ISC) : trait fin, bouts arrondis, 22 px, couleur `currentColor` du thème. Tu ne génères aucune image.
 
 ## Effets
@@ -29,4 +31,4 @@ Tu dessines l'interface pour qu'elle se lise d'un coup, avec beaucoup d'air et d
 
 ## Contraste
 - Le texte sur un aplat atteint un contraste d'au moins 7:1. Il reste `#111` ou `#000`. Une couleur sombre est atténuée de 65 % vers le blanc, une couleur claire de 0 %.
-- Dans le cours ouvert, la bande, les titres et les encadrés prennent ces aplats par CSS. Le texte médical ne change pas. L'encadré d'alerte peut rester rouge s'il tient le contraste. Le rail montre chaque mot en entier. Le menu Thème est un panneau défilant, refermable, au nom lisible.
+- Le rail montre chaque mot en entier. Le bouton Thème reste en place. Les onglets du téléphone tiennent sur deux lignes. La police Atkinson est hors ligne.

@@ -116,50 +116,15 @@ assert page.count("cadre.src=D.base+l.f;vieux.replaceWith(cadre);$('#vn').href=D
 assert page.count('</body>') == 1
 
 # ---------------------------------------------------------------------------------------------------
-# 3. Plateforme aux couleurs de luxe (14.11.2026). Le document de Grok fournit la page ; on remplace
-#    seulement les 20 thèmes, le rail et la propagation du bouton Thème. Les fenêtres .gm gardent
-#    leurs couleurs : aucune règle ci-dessous ne les cible.
+# 3. Décision de Vial, 15.11.2026 : les couleurs du document (20 thèmes, bande EYE SPOT et sa
+#    rotation) ne sont pas touchées. On ne change que la place du tiroir et les onglets du téléphone.
 # ---------------------------------------------------------------------------------------------------
-_spec = importlib.util.spec_from_file_location('receptacle', os.path.join(os.path.dirname(os.path.abspath(__file__)), 'receptacle.py'))
-_receptacle = importlib.util.module_from_spec(_spec)
-_spec.loader.exec_module(_receptacle)
-_themes, _css_themes = _receptacle.themes(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'Claude/_progression/themes.json'))
-assert len(_themes) >= 1 and _css_themes.count(':root[data-theme=') == len(_themes)
-_pages_eye = ('examens:0', 'pharmaco:0', 'fondamentales:0')
-_css_themes += ''.join(
-    f':root[data-theme="{i}"][data-page="{pg}"]{{--eye:{th["eye"]["fixe"]}}}'
-    for i, th in enumerate(_themes) for pg in _pages_eye)
-
 _coupure = page.index('data-emb="rts"')
 _tete, _queue = page[:_coupure], page[_coupure:]
-_n_themes = len(re.findall(r':root\[data-theme="\d+"\]\{[^}]*\}', _tete))
-assert _n_themes >= 1, 'aucun bloc data-theme dans la page'
-_tete = re.sub(r':root\[data-theme="\d+"\]\[data-page="[^"]+"\]\{--eye:#[0-9a-fA-F]+\}', '', _tete)
-_tete = re.sub(r':root\[data-theme="\d+"\]\{[^}]*\}', '', _tete)
-_ancre_theme = ':root{--encre:'
-assert _tete.count(_ancre_theme) == 1
-_tete = _tete.replace(_ancre_theme, _css_themes + _ancre_theme, 1)
-_tete = _tete.replace(
-    'au plus 3 teintes atténuées de 60 à 80 % (EYE SPOT comprise), texte #111/#222 >= 7:1,\n'
-    '   fond de page blanc. EYE SPOT : tous les titres et sous-titres de la page active sur une seule bande --eye (teinte propre à la page\n'
-    '   et au thème, calculée par eye() dans le JS), texte #000 >= 7:1',
-    'au plus 3 teintes, chacune atténuée selon sa famille (claire 0 %, sombre 65 %), texte #111/#000 >= 7:1,\n'
-    '   fond de page blanc. EYE SPOT : la troisième couleur du thème, atténuée selon sa famille, sur une seule bande --eye (eye.fixe, sans rotation de teinte), texte #000/#111 >= 7:1',
-    1)
 
 _remplacements_rail = [
     ('header.h{position:sticky;top:0;z-index:12;background:#fff;border-bottom:1px solid var(--trait);padding:8px 14px 0}',
      'header.h{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid var(--trait);padding:8px 14px 0}'),
-    ('.mod{display:grid;grid-template-columns:172px minmax(0,760px);gap:16px;justify-content:start;align-items:start}',
-     '.mod{display:grid;grid-template-columns:140px minmax(0,760px);gap:10px;justify-content:start;align-items:start}'),
-    ('.rail{position:sticky;top:calc(var(--ht) + 10px);max-height:calc(100vh - var(--ht) - 20px);overflow:auto;display:flex;flex-direction:column;gap:2px;background:var(--t-rail);border:1px solid var(--b-rail);border-radius:12px;padding:6px}',
-     '.rail{position:sticky;top:calc(var(--ht) + 10px);max-height:calc(100vh - var(--ht) - 20px);overflow:auto;display:flex;flex-direction:column;gap:1px;background:var(--t-rail);border:1px solid var(--b-rail);border-radius:12px;padding:4px}'),
-    ('.rail button{font:inherit;font-size:.9rem;text-align:left;border:0;background:transparent;padding:6px 7px;cursor:pointer;display:flex;gap:7px;align-items:baseline;border-radius:8px;line-height:1.2}',
-     '.rail button{font:inherit;font-size:13px;text-align:left;border:0;background:transparent;padding:4px 5px;cursor:pointer;display:flex;gap:5px;align-items:baseline;border-radius:8px;line-height:1.2}'),
-    ('.rail button b{flex:0 0 auto;min-width:2.5em;text-align:center;font-size:.78rem;background:#fff;border:1px solid var(--neutre);border-radius:6px;padding:0 3px}',
-     '.rail button b{flex:0 0 auto;min-width:1.88em;text-align:center;font-size:13px;background:#fff;border:1px solid var(--neutre);border-radius:6px;padding:0 2px}'),
-    ('@media(min-width:1181px){.mod.embv{grid-template-columns:172px minmax(0,1fr)}}',
-     '@media(min-width:1181px){.mod.embv{grid-template-columns:140px minmax(0,1fr)}}'),
     ('#vue{position:fixed;top:0;right:0;bottom:0;left:var(--mw);z-index:20;background:#fff;display:none;flex-direction:column}',
      '#vue{position:fixed;top:var(--ht);right:0;bottom:0;left:var(--mw);z-index:20;background:#fff;display:none;flex-direction:column}'),
     ('#fen{position:fixed;top:0;right:0;bottom:0;left:var(--mw);z-index:30;background:rgba(10,12,16,.62);display:none;align-items:flex-start;justify-content:center;padding:4vh 12px;overflow:auto}',
@@ -172,99 +137,9 @@ _remplacements_rail = [
 for _ancien, _nouveau in _remplacements_rail:
     _tete = remplacer_une_fois(_tete, _ancien, _nouveau, 'luxe ' + _ancien[:48])
 
-_m_donnees = re.search(r'<script type="application/json" id="donnees">(.*?)</script>', _tete)
-assert _m_donnees, 'bloc donnees introuvable'
-_donnees = json.loads(_m_donnees.group(1))
-_donnees['themes'] = _themes
-_donnees_txt = json.dumps(_donnees, ensure_ascii=False, separators=(',', ':')).replace('</', '<\\/')
-_tete = _tete[:_m_donnees.start(1)] + _donnees_txt + _tete[_m_donnees.end(1):]
-
-_SCRIPT_THEME = (
-    '<script id="theme-propagation">/* corriger_fedmed.py — le bouton Thème reste dans l\'en-tête et peint les pages embarquées, jamais les cours. */'
-    '(function(){var ROLES=["menu","rail","tableau","mot","bande","encadre"];'
-    'function paquet(){var cs=getComputedStyle(document.documentElement),o={type:"fedmed-theme",theme:document.documentElement.dataset.theme||"0",eye:(cs.getPropertyValue("--eye")||"").trim()};'
-    'ROLES.forEach(function(r){o["t-"+r]=(cs.getPropertyValue("--t-"+r)||"").trim();o["b-"+r]=(cs.getPropertyValue("--b-"+r)||"").trim();});return o;}'
-    'function vers(f){if(!f||!f.dataset||!f.dataset.p)return;try{f.contentWindow.postMessage(paquet(),"*")}catch(e){}}'
-    'function tous(){document.querySelectorAll("iframe[data-p]").forEach(vers)}'
-    'addEventListener("message",function(e){var d=e.data;if(!d||d.type!=="fedmed-theme-demande")return;'
-    'document.querySelectorAll("iframe[data-p]").forEach(function(f){if(f.contentWindow===e.source)vers(f);});});'
-    'document.addEventListener("load",function(e){var t=e.target;if(t&&t.tagName==="IFRAME")vers(t);},true);'
-    'function brancher(){tous();if(window.MutationObserver)new MutationObserver(tous).observe(document.documentElement,{attributes:true,attributeFilter:["data-theme","data-eye","style"]});}'
-    'if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",brancher);else brancher();})();</script>'
-)
 page = _tete + _queue
-page = remplacer_une_fois(
-    page,
-    "function eyeHex(cle,e){const [s,l]=e.p[cle.split(/[:|]/)[0]]||e.p.cours;return '#'+hsl(eyeTeinte(cle),s,l).map(v=>Math.floor(v*(1-e.a)+255*e.a+.5).toString(16).padStart(2,'0')).join('')}",
-    "function eyeHex(cle,e){if(e.fixe)return e.fixe;const [s,l]=e.p[cle.split(/[:|]/)[0]]||e.p.cours;return '#'+hsl(eyeTeinte(cle),s,l).map(v=>Math.floor(v*(1-e.a)+255*e.a+.5).toString(16).padStart(2,'0')).join('')}",
-    'eyeHex fixe')
-page = remplacer_une_fois(page, 'if(!(t>=0&&t<20))t=0', f'if(!(t>=0&&t<{len(_themes)}))t=0', 'borne des thèmes')
-page = remplacer_une_fois(page, '#themes.a{display:grid}',
-    '#themes.a{display:grid}#themes .famille{grid-column:1/-1;margin:8px 2px 0;padding-top:4px;font-size:13px;font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:#111}',
-    'groupes du menu Thème')
-_MENU = (
-    "function familleTheme(t){if(t.famille)return t.famille;if(t.dominante)return t.dominante;"
-    "const c=(t.teintes&&(t.teintes[2]||t.teintes[0]))||'#888888';"
-    "const r=parseInt(c.slice(1,3),16)||0,g=parseInt(c.slice(3,5),16)||0,b=parseInt(c.slice(5,7),16)||0;"
-    "const max=Math.max(r,g,b),min=Math.min(r,g,b);if(max-min<22)return 'Neutres';"
-    "const d=max-min;let h=max===r?((g-b)/d)%6:max===g?(b-r)/d+2:(r-g)/d+4;h=Math.round(((h*60)%360+360)%360);"
-    "if(h<15||h>=350)return 'Rouges';if(h<70)return 'Ors et cuivres';if(h<170)return 'Verts';if(h<200)return 'Lagons';if(h<255)return 'Bleus';if(h<320)return 'Violets';return 'Roses';}"
-    "const ORDRE_FAMILLE=['Neutres','Ors et cuivres','Rouges','Roses','Verts','Lagons','Bleus','Violets'];"
-    "function menuThemes(){const groupes={};TH.forEach((t,i)=>{const f=familleTheme(t);(groupes[f]||(groupes[f]=[])).push(i);});"
-    "const cles=ORDRE_FAMILLE.filter(k=>groupes[k]).concat(Object.keys(groupes).filter(k=>ORDRE_FAMILLE.indexOf(k)<0));"
-    "$('#themes').innerHTML=cles.map(f=>'<p class=\"famille\">'+esc(f)+'</p>'+groupes[f].map(i=>{const t=TH[i];return '<button type=\"button\" data-t=\"'+i+'\" aria-pressed=\"false\"><span class=\"pal\">'+t.teintes.map(c=>'<i style=\"background:'+c+'\"></i>').join('')+'</span>'+(i+1)+' · '+esc(t.nom)+'</button>';}).join('')).join('');}"
-    "menuThemes();"
-)
-page = remplacer_une_fois(
-    page,
-    """$('#themes').innerHTML=TH.map((t,i)=>'<button type="button" data-t="'+i+'" aria-pressed="false"><span class="pal">'+t.teintes.map(c=>'<i style="background:'+c+'"></i>').join('')+'</span>'+(i+1)+' · '+esc(t.nom)+'</button>').join('');""",
-    _MENU,
-    'menu Thème groupé')
-assert page.count('<head>') >= 1
-# Le script part dans l'en-tête, avant la création des iframes : il entend la demande et il repousse le thème quand eye() change.
-page = page.replace('<head>', '<head>' + _SCRIPT_THEME, 1)
-
-_EMB_THEME = (
-    '<style id="theme-luxe">'
-    'html,body{background:#fff;color:#111}'
-    'header.top{background:var(--fed-t-menu,#fff);color:#111}'
-    'header.top h1{background:var(--fed-eye,#e8e8e8);color:#000}'
-    'header.top p,header.top abbr{color:#111}'
-    '.menus{background:var(--fed-t-menu,#fff);color:#111}'
-    '.menus .marque,nav.menu h2{background:var(--fed-eye,#e8e8e8);color:#000;font-size:13px}'
-    'nav.menu a{font-size:13px;color:#111}'
-    '.panneau>h1,h2.groupe,.bandeau h2,.onglets button[aria-selected=true]{background:var(--fed-eye,#e8e8e8);color:#000}'
-    '.onglets{background:#fff}'
-    '</style>'
-    '<script id="theme-luxe-js">'
-    'addEventListener("message",function(e){var d=e.data;if(!d||d.type!=="fedmed-theme")return;var r=document.documentElement;'
-    'if(d.eye)r.style.setProperty("--fed-eye",d.eye);'
-    '["menu","rail","tableau","mot","bande","encadre"].forEach(function(k){if(d["t-"+k])r.style.setProperty("--fed-t-"+k,d["t-"+k]);});'
-    'r.dataset.theme=d.theme||"";});'
-    'function demande(){try{parent.postMessage({type:"fedmed-theme-demande"},"*")}catch(e){}}'
-    'demande();addEventListener("load",demande);setTimeout(demande,300);'
-    '</script>'
-)
-
-def _appliquer_theme_embarque(html, nom):
-    assert 'id="theme-luxe"' not in html, nom
-    assert html.count('</head>') >= 1, nom
-    # Le script écoute le parent. Les sélecteurs épargnent .gm, .voile et #voile : Grok garde ses couleurs.
-    return html.replace('</head>', _EMB_THEME + '</head>', 1)
-
-for _nom in ('rts', 'sf', 'semio'):
-    _cle = f'data-emb="{_nom}">'
-    assert page.count(_cle) == 1, _nom
-    _i = page.index(_cle) + len(_cle)
-    _j = page.index('</script>', _i)
-    _brut = page[_i:_j]
-    _html = json.loads(_brut)
-    assert encode(_html) == _brut, f'encodage inattendu ({_nom})'
-    _html = _appliquer_theme_embarque(_html, _nom)
-    page = page[:_i] + encode(_html) + page[_j:]
-
-assert page.count('id="theme-propagation"') == 1
-assert page.count('id="gm-correctif-css"') == 1  # document principal ; le recensement porte la même ancre, échappée dans son JSON
+assert 'if(e.fixe)return e.fixe' not in page
+assert page.count('id="gm-correctif-css"') == 1
 assert page.count('id=\\"gm-correctif-css\\"') == 1
 assert '.gm{color:#0B2540}' in page
 assert page.count("cadre.src=D.base+l.f;vieux.replaceWith(cadre);$('#vn').href=D.base+l.f;") == 1
@@ -280,4 +155,4 @@ if _luxe is None:
 page = _luxe.injecter(page)
 assert page.count('id="luxe-designer"') == 1
 open(SORTIE, 'w', encoding='utf-8').write(page)
-print(f'8 correctifs appliqués (C1–C8) et thèmes de luxe, sortie {SORTIE} : {len(page.encode("utf-8")) / 1e6:.1f} Mo')
+print(f'8 correctifs appliqués (C1–C8), couleurs de main restaurées, sortie {SORTIE} : {len(page.encode("utf-8")) / 1e6:.1f} Mo')
