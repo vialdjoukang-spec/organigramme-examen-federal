@@ -45,15 +45,16 @@ def css():
   width:100%!important;max-width:100%!important;margin-left:0!important;margin-right:0!important}
 .c{padding:0 0 10px!important;overflow:hidden}
 .c>*{margin-left:0!important;margin-right:0!important}
+.c .code,#menu .mt,#menu li.g{background:#fff!important;color:#111!important;border:none!important;box-shadow:none!important}
 """
 
 
 COURS_CSS = r"""
 #fm-bandeau,body>header,main,footer{max-width:none!important;width:100%!important;margin-left:0!important;margin-right:0!important;padding-left:0!important;padding-right:0!important;box-sizing:border-box!important}
 #fm-bandeau,h2,h3,.u,.w,.k,.bloc,.monograph,main>section{width:100%!important;max-width:none!important;margin-left:0!important;margin-right:0!important;box-sizing:border-box!important;border-radius:12px!important}
-.u,.w,.k,.bloc,.monograph,blockquote,main>section{background:#fff!important;border:1px solid #c8c8c8!important;box-shadow:none!important;color:#111!important;padding:0!important}
-.monograph>h2,.bloc>h2,.monograph>h3,.bloc>h3{width:calc(100% + 2px)!important;margin-left:-1px!important;margin-right:-1px!important}
-.monograph>:not(h2):not(h3),.bloc>:not(h2):not(h3){margin-left:16px!important;margin-right:16px!important}
+.u,.w,.k,.bloc,.monograph,blockquote,main>section{background:#fff!important;border:1px solid #c8c8c8!important;box-shadow:none!important;color:#111!important}
+.monograph,.bloc{padding:12px!important}
+.monograph>h2,.bloc>h2,.monograph>h3,.bloc>h3{width:100%!important;max-width:100%!important;margin-left:0!important;margin-right:0!important;box-sizing:border-box!important}
 #brain-barre14,#brain-barre14 a,#brain-barre14 a b{background:#fff!important;box-shadow:none!important;color:#111!important}
 #brain-barre14 a b{border:1px solid #c8c8c8!important}
 #fm-bandeau{border:none!important;box-shadow:none!important}
@@ -103,6 +104,16 @@ function peindre(doc,sel){if(!doc)return;const cols=teintes();let k=0;
     el.style.setProperty('color','#000','important');
     el.style.setProperty('border-radius','12px','important');
     el.style.setProperty('box-shadow','none','important');});}
+function pastilles(){document.querySelectorAll('#theme .pal, #themes button .pal').forEach(pal=>{
+  const b=pal.closest('[data-t]');
+  const i=b?+b.dataset.t:+(document.documentElement.dataset.theme||0);
+  const n=((i%%7)+7)%%7;
+  const cols=PALETTE.map((_,k)=>PALETTE[(k+n)%%7]);
+  const sig=cols.join(',');
+  if(pal.dataset.sig===sig)return;
+  pal.dataset.sig=sig;
+  pal.innerHTML=cols.map(c=>'<i style="background:'+c+'"></i>').join('');
+});}
 function peindreCours(frame){if(!frame||frame.id!=='vf')return;let doc;try{doc=frame.contentDocument}catch(e){return}
   if(!doc||!doc.head||!doc.getElementById('fm-bandeau'))return;
   if(!doc.getElementById('luxe-bandes')){const st=doc.createElement('style');st.id='luxe-bandes';st.textContent=COURS_CSS;doc.head.appendChild(st);}
@@ -111,6 +122,7 @@ function parer(){document.querySelectorAll('.rail button').forEach(ornerRail);
   ornerTheme();
   ornerPlan();
   peindre(document,'h1, .col h2, .col h3, .col h4, .c h2, #vue .tete');
+  pastilles();
   peindreCours(document.getElementById('vf'));
   ornerSeul(document.getElementById('vr'),'chevron-left');
   ornerSeul(document.getElementById('vp'),'chevron-left');
@@ -126,7 +138,7 @@ if(window.MutationObserver){
 }
 </script>
 """ % (json.dumps(glyphs, ensure_ascii=False, separators=(',', ':')),
-       json.dumps(['#dcab09', '#1bdc09', '#23a9f6', '#f0850a', '#f970b9', '#eab8b8', '#09dccb']),
+       json.dumps(['#dcab09', '#8fdc6a', '#87cefa', '#ffc48a', '#ff8ec8', '#f6c9c9', '#8ee8df']),
        json.dumps(COURS_CSS))
 
 

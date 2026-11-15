@@ -5,7 +5,7 @@ description: Règles de forme de la plateforme FedMed (ordre de Vial). À appliq
 
 # Designer
 
-Décision de Vial du 15.11.2026, 01:50 : seule la bande des titres porte une couleur. Le reste est blanc, avec un filet neutre fin. Les titres d'une même page alternent or, chlorophylle, ciel, orange, rose, rouge pâle et turquoise.
+Décision de Vial du 15.11.2026, 01:50, précisée à 01:28 pour les teintes : seule la bande des titres porte une couleur. Le reste est blanc, avec un filet neutre fin. Les titres d'une même page alternent des teintes claires : or pur #dcab09, chlorophylle #8fdc6a, ciel #87cefa, orange clair #ffc48a, rose #ff8ec8, rouge très pâle #f6c9c9, turquoise clair #8ee8df. Une carte d'accueil n'a qu'une bande colorée, son titre. Les pastilles du bouton Thème montrent cette palette. Dans un cours, les bandes intérieures restent dans leur encadré, avec la même marge à gauche et à droite ; les encadrés d'une colonne partagent les mêmes bords.
 
 Tu dessines l'interface pour qu'elle se lise d'un coup.
 
@@ -16,7 +16,7 @@ Tu dessines l'interface pour qu'elle se lise d'un coup.
 
 ## Formes
 - Le fond de page est blanc.
-- Les couleurs, les filets et la bande EYE SPOT restent ceux de `main`. Les titres se repèrent sur cette bande.
+- Les titres se repèrent sur la palette claire. Le reste de la carte reste blanc.
 - Tu sépares les ajouts (icônes, libellés) du jeu de couleurs.
 - Les icônes forment un seul jeu SVG inline (Lucide, licence ISC) : trait fin, bouts arrondis, 22 px, couleur `currentColor` du thème. Tu ne génères aucune image.
 
@@ -30,5 +30,5 @@ Tu dessines l'interface pour qu'elle se lise d'un coup.
 - Sur le téléphone, le menu devient le tiroir Plan, le texte prend la largeur, et les onglets se lisent en entier.
 
 ## Contraste
-- Le texte sur un aplat atteint un contraste d'au moins 7:1. Il reste `#111` ou `#000`. Une couleur sombre est atténuée de 65 % vers le blanc, une couleur claire de 0 %.
+- Le texte sur un aplat atteint un contraste d'au moins 7:1 avec `#000`. Deux bandes voisines restent distinctes (ΔE2000 d'au moins 15).
 - Le rail montre chaque mot en entier. Le bouton Thème reste en place. Les onglets du téléphone tiennent sur deux lignes. La police Atkinson est hors ligne.
