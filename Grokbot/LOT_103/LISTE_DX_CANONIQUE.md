@@ -1,20 +1,20 @@
 # Liste DX — LOT_103 S7.9 Troubles de la sensibilité
 
-Brouillon du 15.11.2026. Non gelée : l'audit médical neuf puis le contre-audit restent à faire.
+Brouillon révisé le 15.11.2026 après l'audit médical 1. Non gelée.
 
-Critère d'ordre : aucune série suisse ne classe les causes d'un trouble de la sensibilité dans une même cohorte. L'ordre suit les prévalences mesurées quand elles existent, puis l'ordre étiologique des deux articles de la Revue médicale suisse 2019 pour les polyneuropathies, et place les maladies graves à leur rang de fréquence. Les mesures (prévalence ponctuelle, incidence annuelle, part parmi les polyneuropathies) ne sont pas interchangeables ; le rang est un argument, pas une série commune.
+Dénominateur : aucune série suisse ne classe les causes d'un trouble de la sensibilité. Le rang 1 est la seule prévalence de population lue. Le rang 2 est une part des polyneuropathies, pas une prévalence du motif. Les rangs 3 à 10 sans prévalence de population suivent l'ordre étiologique de la Revue médicale suisse 2019, pas une cohorte.
 
-1. Polyneuropathie diabétique distale symétrique — le diabète est de loin la cause la plus commune des polyneuropathies (30 à 40 % des cas ; 30 à 50 % des diabétiques de type 2). Les polyneuropathies sensitives concernent environ 30 % des personnes âgées.
-2. Syndrome du canal carpien — neuropathie tronculaire focale la plus fréquente ; prévalence clinique 3,8 % (2,7 % si l'électricité confirme) chez les 25-74 ans du sud de la Suède, 1997-1999 ; fourchette 3 à 5 % dans le cours de Liège.
-3. Radiculopathie cervicale par hernie discale — prévalence de la radiculopathie vraie 3,3/1 000, au-dessus du taux 2016 de la sclérose en plaques (174 à 187/100 000).
-4. Polyneuropathie alcoolique — les causes toxiques suivent le diabète ; seuil > 30 g/jour. Pas de prévalence de population lue.
-5. Sclérose combinée de la moelle par carence en cobalamine — cause métabolique majeure, signes neurologiques possibles sans anémie. Pas de prévalence suisse lue. La liste V0 disait « atteinte cordonale » : le nom vise maintenant cette maladie, pas un symptôme.
-6. Sclérose en plaques — 18 000 personnes en Suisse en 2021 (17 400 à 18 700) ; 2,7 femmes pour 1 homme.
-7. Infarctus cérébral ou accident ischémique transitoire sensitif — 🚩 E1. Incidence de toutes les attaques : 249,4/100 000 (2019-2023), 22 517 cas en 2023, létalité 12,2 %. La fraction seulement sensitive n'est pas isolée : le rang est un rang d'enveloppe, l'exclusion est première à cause du délai.
-8. Myélopathie cervicale compressive — 🚩 E2. Moins banale que l'image (85 % de modifications radiologiques dans la septième décennie, souvent asymptomatiques). La forme symptomatique indique la chirurgie.
-9. Syndrome de Guillain-Barré — 🚩 E3. Incidence moyenne espagnole 1,67/100 000 (2018-2021) ; 1,65 à 1,88/100 000 au Royaume-Uni (2016-2019) ; 11 % de ventilation.
-10. Mononévrite multiple des vasculites — 🚩 E4. Dernier rang faute de prévalence de population lue. 77 % de ces vasculites touchent le nerf ; les investigations sont rapides. La létalité chiffrée n'a pas été lue : le rang E suit le délai (après l'attaque, la moelle et la ventilation).
+Rangs E, selon la létalité et le délai lus : E1 attaque cérébrale ; E2 Guillain-Barré (ventilation) ; E3 compression médullaire à l'étage du signe, y compris la queue de cheval ; E4 vasculite du nerf. Le rang E ne déplace pas le rang de fréquence.
 
-Écarts avec la liste V0, et pourquoi : le canal carpien et la neuropathie diabétique restent ; l'alcool est séparé de la chimiothérapie ; la cobalamine est nommée comme sclérose combinée ; la SEP, l'ischémie cérébrale sensitive et le Guillain-Barré entrent, car le motif dépasse la polyneuropathie ; la vasculite passe de E1 à E4 ; la neuropathie urémique, le couple VIH-lèpre et la gammapathie sortent de la liste des dix (dénominateurs restreints ou taux de monoclonalité qui n'est pas un taux de neuropathie). Ils restent dans le bilan et dans la Phase A.
+1. Syndrome du canal carpien — prévalence clinique 3,8 % (2,7 % si l'électricité confirme) chez les 25-74 ans du sud de la Suède, 1997-1999. Seule prévalence de population lue pour ce motif.
+2. Polyneuropathie diabétique distale symétrique — le diabète explique 30 à 40 % des polyneuropathies (Revue médicale suisse 2019). Ce n'est pas une prévalence de population lue au-dessus de 3,8 %.
+3. Radiculopathie cervicale par hernie discale — prévalence de la radiculopathie vraie 3,3/1 000 (Revue médicale suisse 2015). Ordre étiologique ensuite, pas une cohorte commune.
+4. Polyneuropathie alcoolique — les causes toxiques suivent le diabète ; seuil supérieur à 30 grammes par jour. Pas de prévalence de population lue.
+5. Sclérose combinée de la moelle par carence en cobalamine — signes neurologiques possibles sans anémie. Pas de prévalence suisse lue.
+6. Sclérose en plaques — 18 000 personnes en Suisse en 2021 (17 400 à 18 700) ; 2,7 femmes pour 1 homme. Page de la Société suisse, 27.01.2024.
+7. Infarctus cérébral ou accident ischémique transitoire sensitif — 🚩 E1. Incidence de toutes les attaques : 249,4/100 000 (2019-2023) ; 22 517 cas et 2 580 décès en 2023. La fraction seulement sensitive n'est pas isolée.
+8. Compression médullaire, étage compris, et syndrome de la queue de cheval — 🚩 E3. La myélopathie cervicale compressive en est la forme fréquente dans la revue de 2015 : chirurgie lorsqu'elle est avancée et concordante avec le rétrécissement. Le rang de fréquence ne passe pas devant la ventilation.
+9. Syndrome de Guillain-Barré — 🚩 E2. Incidence moyenne espagnole 1,67/100 000 (2018-2021) ; 11 % de ventilation. L'insuffisance respiratoire peut emporter le patient dans les heures ou les jours, donc le rang E précède la compression médullaire.
+10. Mononévrite multiple des vasculites — 🚩 E4. Dernier rang : pas de prévalence de population lue. 77 % de ces vasculites touchent le nerf. Létalité chiffrée non lue.
 
-Gel : non. Les titres `<h2>` de la Phase B V0 ne sont pas encore réalignés.
+Gel : non. Les titres de la Phase B V0 ne sont pas réalignés.

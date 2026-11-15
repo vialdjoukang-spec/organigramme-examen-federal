@@ -1,11 +1,11 @@
 # HELP — LOT_103, hors du cours
 
-- Aucune série suisse ne classe les causes d'un trouble de la sensibilité. L'ordre des dix DX est un argument, pas une cohorte.
-- La fraction des attaques cérébrales qui ne s'expriment que par un trouble sensitif n'est pas isolée par l'OFS ni par l'Obsan.
-- Pas de prévalence de population lue pour la neuropathie alcoolique, la sclérose combinée par manque de cobalamine, ni la mononévrite des vasculites. La létalité chiffrée de la vasculite n'a pas été lue.
-- Deux articles suisses de 2019 divergent sur l'insuffisance rénale terminale : jusqu'à 90 % (médecine interne) et jusqu'à 70 % (sujet âgé). Les deux chiffres sont dans la leçon, sans moyenne inventée.
-- Le livret de l'Enquête suisse sur la santé 2022 arrondit le diabète à 5 %. L'indicateur MonAM, même enquête, donne 6,2 % (5,8 à 6,6). La leçon cite MonAM.
-- Polyneuropathies après 55 ans : 3 à 4 % (médecine interne) et environ 8 % en cabinet (sujet âgé). Les deux sont cités.
-- Corpus AIPS hors ligne absent de la session. Aucun milligramme. Grossesse et allaitement non recopiés mot pour mot. Les doses de prégabaline et de gabapentine citées par la Revue médicale suisse (dès 150 mg/j, > 1 200 mg/j) restent hors du cours.
-- Pas de cliché IRM libre (CC BY) séparant l'ischémie cérébrale de la compression médullaire. La coupe OpenStax (CC BY 4.0) montre les cordons. Pas de repères SVG : le brief interdit le SVG.
-- Les dix fichiers de Phase B V0 (17 à 23 Ko, ancienne liste, point 1 « Définition et sémantique ») ne sont pas réalignés. À reprendre après gel de la liste.
+- Liste révisée après l'audit 1, non gelée. Rang 1 = canal carpien (seule prévalence de population lue). Rang 2 = part des polyneuropathies, pas une prévalence du motif. Rangs 3 à 10 : ordre étiologique de la Revue médicale suisse, pas une cohorte.
+- Rangs E : E1 attaque, E2 Guillain-Barré, E3 compression médullaire à l'étage du signe (queue de cheval comprise), E4 vasculite.
+- Retirés du cours, parce qu'absents de la page citée : attaques 2022 (21 797, 11 821, 9 976, 2 535) ; fourchette SEP 2016 de 14 650 à 15 700 et taux 174 à 187/100 000 (Kaufmann, non cité) ; 73 % et 27 % (la page donne 2,7 pour 1) ; 83,2/100 000 (incidence américaine, pas une prévalence suisse).
+- 15,4 % est le taux de diabète de l'ensemble des 75 ans et plus, pas le taux masculin.
+- 15 % par an et 23,1/1 000 personnes-année sont deux mesures juxtaposées par la revue, pas une égalité.
+- Hernie, métastase, abcès et hématome sont nommés comme compressions possibles à l'étage du niveau. Aucune prévalence suisse de ces causes n'est lue.
+- La myélopathie cervicale indique la chirurgie lorsqu'elle est avancée et concordante avec le rétrécissement, pas par le seul mot « symptomatique ».
+- Corpus AIPS absent : aucun milligramme. Échelle DN4 non nommée, sa cotation n'étant pas dans l'extrait lu.
+- Phase B V0 non réalignée sur les nouveaux titres.
