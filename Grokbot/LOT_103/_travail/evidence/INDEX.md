@@ -13,6 +13,8 @@ Les extraits antérieurs (RMS 2019 neuropathies, RMS 2019 sujet âgé, RMS 2015 
 | gbses | Étude nationale espagnole, Eur J Neurol 2024 | https://onlinelibrary.wiley.com/doi/full/10.1111/ene.16439 | 2026-11-15 |
 | gbsuk | EAN, incidence britannique 2016-2019 | https://www.ean.org/research/resources/knowledge-distillery/detail/epidemiological-and-cohort-study-finds-no-association-between-covid-19-and-guillain-barre-syndrome | 2026-11-15 |
 | nhsig | NHS England, immunoglobuline 2025 | https://www.england.nhs.uk/wp-content/uploads/2021/12/ccp-for-the-use-of-therapeutic-immunoglobulin-england-2025.pdf | 2026-11-15 |
+| dcml | StatPearls, cordons postérieurs | https://www.ncbi.nlm.nih.gov/books/NBK507888/ | 2026-11-15 |
+| stt | StatPearls, spinothalamique | https://www.ncbi.nlm.nih.gov/books/NBK507824/ | 2026-11-15 |
 | openstax | OpenStax, CC BY 4.0, Wikimedia | https://commons.wikimedia.org/wiki/File:1313_Spinal_Cord_Cross_Section.jpg | 2026-11-15 |
 | euroradavc | Eurorad cas 18806, lien seul | https://www.eurorad.org/case/18806 | 2026-11-15 |
 | euroradgbs | Eurorad cas 18552, lien seul | https://www.eurorad.org/case/18552 | 2026-11-15 |
