@@ -1,4 +1,21 @@
-# Réponse aux audits 1 à 5 — LOT_114
+# Réponse aux audits 1 à 6 — LOT_114
+
+## Audit 6 (9fc6e173, 80/100)
+
+| Défaut | Correction | Où |
+|---|---|---|
+| G1. « Après la phase aiguë » n’est pas dans Schizas. | Retiré au point 4 et dans la liste. « L’isthme de C2 (axis) ne reste pas dans les dix, et il est opéré si les clichés dynamiques montrent une instabilité. » La parenthèse « axis » reste : première occurrence du sigle. | Point 4, `LISTE_DX_CANONIQUE.md` |
+| m2. « Séquelles » décale la définition. | « résultant d’un traumatisme », phrase de l’audit. | Point 1 |
+| m3. E5, E6 et E7 comme létalité. | Liste : « même bande E, sans ordre de létalité lu ». Les trois drapeaux restent. | Liste |
+| m4. Étiquette Scholz. | « Gaudin G et al., stratégies des burst incomplets A3, Brain and Spine, 12 décembre 2025 ». URL gardée. | Bibliographie |
+| m5. Point 13 à sept phrases. | Les deux phrases de corticoïdes sont réunies dans la phrase de l’audit. Elle compte 40 mots avec le développement de NASCIS, 34 sans lui. La porte s’arrête à 32 : verdict ORANGE, texte non raccourci. | Point 13 |
+| m6. Cellules sous 12 mots. | Allongées sans fait nouveau. Phrases AIPS non touchées. | Tableau du point 4 |
+| m7. Pas d’organisme suisse de prévention. | Aucun texte BPA ni OFSP inventé. Le point reste partiel. | HELP |
+| m8. Méta-commentaires. | « la conduite retenue » ; « hors AIPS, et aucune dose de corticoïde n’est écrite », avec le développement déjà exigé du sigle. | Points 8 et 11 |
+| m9. E5 avant E4. | Le nœud E4 suit E3, puis les nœuds cervicaux. | Point 10 |
+| m10. Deux heures avant le geste. | « En chirurgie générale à risque modéré, la première injection de 20 mg… » | Fenêtre Clexane |
+
+
 
 ## Audit 5 (f8c5deba, 73/100)
 
