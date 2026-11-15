@@ -1,4 +1,17 @@
-# Réponse aux audits 1 à 9 — LOT_114
+# Réponse aux audits 1 à 10 — LOT_114
+
+## Audit 9 (92546ebc, 87/100, 0 C, 0 G)
+
+| Défaut | Correction | Où |
+|---|---|---|
+| m1. Le tonus ne protège pas « mieux » que la minerve. | Phrase citée, coupée en 13 et 21 mots : le patient conscient, calme et ambulant peut rester sans minerve rigide ; la revue de 2021 n’a pas lu d’étude sur la mortalité ou les complications neurologiques. | Point 6 |
+| m2. Pas de critères de sortie. | Rien ajouté. | Point 11 |
+| m3. Pas d’organisme suisse de prévention. | Rien inventé. | HELP |
+| m4. Finale non. | Réponse inchangée. Section « Hors des dix » : ligamentaire pure, ligament transverse (7 mm), isthme de C2. | HELP, point 14 |
+
+Liste gelée sans changer les dix titres. La finale reste non : Schizas nomme plus de dix lésions.
+
+
 
 ## Audit 8 (4d98e40e, 80/100)
 
