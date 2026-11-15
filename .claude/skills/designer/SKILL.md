@@ -29,3 +29,4 @@ Tu dessines l'interface pour qu'elle se lise d'un coup, avec beaucoup d'air et d
 
 ## Contraste
 - Le texte sur un aplat atteint un contraste d'au moins 7:1. Il reste `#111` ou `#000`. Une couleur sombre est atténuée de 65 % vers le blanc, une couleur claire de 0 %.
+- Dans le cours ouvert, la bande, les titres et les encadrés prennent ces aplats par CSS. Le texte médical ne change pas. L'encadré d'alerte peut rester rouge s'il tient le contraste. Le rail montre chaque mot en entier. Le menu Thème est un panneau défilant, refermable, au nom lisible.
