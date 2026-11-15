@@ -931,6 +931,10 @@ header.h .glyphe svg,#vue .tete .glyphe svg,#planbtn .glyphe svg,#menu .glyphe s
 "use strict";
 function nettoyerChaine(s){
   let t=String(s);
+  t=t.replace(/\bClaude\/LOT_\d+\/LOT_\d+_Phase_A_V0(?:_DX\.\d+)?\.html\b/g,"Monographie");
+  t=t.replace(/\bClaude\/LOT_\d+\/LOT_\d+_Phase_B_V0(?:_DX\.\d+)?\.html\b/g,"Situation");
+  t=t.replace(/\bLOT_\d+_Phase_A_V0(?:_DX\.\d+)?\b/gi,"Monographie");
+  t=t.replace(/\bLOT_\d+_Phase_B_V0(?:_DX\.\d+)?\b/gi,"Situation");
   t=t.replace(/\bLOT_\d+\s*[—–\-·]\s*Phase\s*A\s*V0\b/gi,"Monographie");
   t=t.replace(/\bLOT_\d+\s*[—–\-·]\s*Phase\s*B\s*V0\b/gi,"Situation");
   t=t.replace(/\bLOT_\d+\b/gi,"Monographie");
@@ -938,11 +942,9 @@ function nettoyerChaine(s){
   t=t.replace(/\bPhase\s*B\s*V0\b/gi,"Situation");
   t=t.replace(/\bPhase\s*A\b/gi,"Monographie");
   t=t.replace(/\bPhase\s*B\b/gi,"Situation");
-  t=t.replace(/\bV0\b/g,"");
-  t=t.replace(/\bV7\b/g,"");
-  t=t.replace(/rédigé,\s*à auditer/gi,"rédigé");
+  t=t.replace(/\(V7-Tunder\)/gi,"Situation");
+    t=t.replace(/rédigé,\s*à auditer/gi,"rédigé");
   t=t.replace(/\bGrokbot\b/gi,"");
-  t=t.replace(/\bClaude\b(?!\s+Bernard)/g,"");
   t=t.replace(/Monographie(?:\s*[—–\-·]\s*Monographie)+/g,"Monographie");
   t=t.replace(/\s{2,}/g," ").replace(/\s+([,.;:])/g,"$1");
   return t;
