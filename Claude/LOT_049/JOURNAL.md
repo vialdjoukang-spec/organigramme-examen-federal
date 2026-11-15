@@ -1,0 +1,1 @@
+2026-11-15 | Renforcement L1 de la monographie et de l’asthme en exacerbation : fenêtres centrales, bibliographie réunie par document, fiches AIPS relues, trois images libres. La monographie de l’asthme reste au-dessus de 150 Ko hors images. Prompt L1 lu et appliqué.
