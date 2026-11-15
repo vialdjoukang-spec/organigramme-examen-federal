@@ -1,6 +1,7 @@
 # HELP — LOT_114
 
-- Liste non gelée (2026-11-15). Pas de série commune. Ordre interne compression/burst non mesuré : 63,3 % = tout le type A.
+- Règle unique des dix (2026-11-15, non gelé) : conduite RMS 2005, pas un rang de fréquence. DX.1 et DX.2 = même type A, sans ordre. Luxation facettaire dans les dix. Isthme de C2 hors des dix, seuil dynamique au point 8. Jefferson nommé avec les 7 mm, sans onzième DX.
+- Point 1 : pas de définition fabriquée. Les phrases WFNS et RMS retirées ne sont pas dans les articles.
 - Corticoïdes : aucun milligramme. Hors AIPS.
 - Morphine : traumatisme crânien et hypertension intracrânienne = contre-indication, aucune dose. Nouveau-né ventilé : 10 µg/kg/h, maximum 15.
 - Énoxaparine : 8 femmes valvulaires, thrombose et décès mère et fœtus sous 1 mg/kg × 2. Prophylaxie prolongée = 3 semaines en plus du traitement initial. Blessé médullaire hors indication écrite : hors AIPS, sans dose.
