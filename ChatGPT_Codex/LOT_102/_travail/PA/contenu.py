@@ -259,10 +259,10 @@ a(11, "", ["aips-29550"], "Son information professionnelle réserve ce flacon à
 a(11, "", ["aips-29550"], "Ces maxima (15 ml/kg/j, soit 6 g/kg/j, et 0,62 ml/kg/h) sont des limites d'apport, pas un schéma de correction urgente.")
 a(11, "", ["aips-29550"], "Pour corriger une hypoglycémie à l'urgence, on doit utiliser un glucose autorisé en voie périphérique, typiquement à 10 % ; ce n'est pas ce flacon à 40 %.")
 a(11, "", ["aips-29550"], "Chez l'enfant, la même information recommande une solution de glucose à 10 % pour traiter l'hypoglycémie.")
-a(11, "", ["aips-29550"], "Elle donne aussi des doses journalières maximales du flacon à 40 %, par exemple 20 ml/kg de 11 à 14 ans, même si la sécurité n'a pas été évaluée spécifiquement.")
+a(11, "", ["aips-29550"], "Elle indique les doses maximales du flacon à 40 %, par exemple 20 ml/kg de 11 à 14 ans, même si cette sécurité reste non évaluée spécifiquement.")
 a(11, "", ["aips-29550"], "Aucun ajustement lié au seul âge n'est exigé chez la personne âgée, mais les fonctions rénale et hépatique comptent.")
 a(11, "", ["aips-29550"], "Le numéro d'autorisation Swissmedic lu sur l'information est 29550, avec une mise à jour de février 2025.")
-a(11, "", ["aips-29550"], "Si une carence en thiamine est plausible, cette carence doit être compensée avant ou en même temps que la perfusion de glucose, sans retarder la correction d'une hypoglycémie confirmée.")
+a(11, "", ["aips-29550"], "Si une carence en thiamine est plausible, cette carence doit être compensée avant ou avec le glucose, sans retarder la correction d'une hypoglycémie confirmée.")
 a(11, "", ["cen"], "Tout déficit brutal ou aigu doit faire réaliser une imagerie cérébrale en urgence lorsque la piste est centrale.")
 a(11, "", ["cen"], "L'heure de début des symptômes doit être déterminée lorsqu'un accident vasculaire est en cours de constitution.")
 a(11, "", ["aips-29550"], "L'information professionnelle n'indique pas d'administrer des solutions de glucose après un accident ischémique aigu, parce qu'une hyperglycémie peut aggraver la lésion.")
@@ -406,7 +406,7 @@ a(11, "", ["aips-29550"], "Le produit apporte de l'eau libre et peut provoquer o
 a(11, "", ["aips-29550"], "Les déficits hydriques et électrolytiques préexistants doivent être compensés avant de commencer la perfusion de glucose.")
 a(11, "", ["aips-29550"], "En insuffisance rénale, l'information exige une prudence particulière, sans dose chiffrée propre à cet organe.")
 a(11, "", ["aips-29550"], "Pendant l'accouchement, le produit doit être utilisé avec une prudence particulière, surtout si l'ocytocine est associée.")
-a(11, "", ["cen"], "Chez une personne dénutrie ou alcoolodépendante, le glucose ne doit pas précéder la thiamine si cette encéphalopathie est plausible.")
+a(11, "", ["cen"], "Chez une personne dénutrie ou alcoolodépendante, la thiamine est donnée avant ou avec le glucose si cette encéphalopathie est plausible, sans retarder la correction d'une hypoglycémie confirmée.")
 a(11, "", ["cen"], "Devant la fièvre, une méningo-encéphalite doit être évoquée, et l'imagerie doit précéder la ponction s'il existe un signe focal.")
 a(11, "", ["cen"], "Un hématome extradural ou sous-dural après traumatisme doit être évacué en neurochirurgie, après le scanner sans injection.")
 a(12, "", ["geneve"], "Les personnes dont l'ischémie dure moins de 24 heures mais laisse une lésion comptent désormais dans l'incidence, en hausse de 18,3 %.")
@@ -627,6 +627,7 @@ BIBLIO = """
 <li id="sb-myos">Khoo T, Lilleker JB, Thong BY, Leclair V, Lamb JA. Epidemiology of the idiopathic inflammatory myopathies. Nature Reviews Rheumatology. 2023. https://doi.org/10.1038/s41584-023-01033-0 (consulté le 15 novembre 2026).</li>
 <li id="sb-pn">Anathhanam S, Hassan A. Mimics and chameleons in stroke. Clinical Medicine. 2017;17(2):156-160. https://doi.org/10.7861/clinmedicine.17-2-156 (consulté le 15 novembre 2026).</li>
 <li id="sb-aips-29550">Information professionnelle Swissmedic, Glucose 40 % B. Braun, autorisation 29550, mise à jour février 2025. https://files.refdata.ch/simis-public-prod/MedicinalDocuments/2acbcc46a2914016a8c1a3aecf8b58bc-fr.html (consulté le 15 novembre 2026).</li>
+<li id="sb-aips-29550b">Information professionnelle Swissmedic, Glucose 10 % B. Braun, même autorisation 29550, mise à jour février 2025. https://files.refdata.ch/simis-public-prod/MedicinalDocuments/16354d5f32394a209f415195e13b842e-fr.html (consulté le 15 novembre 2026).</li>
 </ol>
 <p>Le contenu reprend les sources citées. Aucun médecin ne l'a validé cliniquement.</p>
 </section>

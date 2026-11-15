@@ -2,7 +2,8 @@
 
 - Année d'édition du chapitre en ligne du Collège des enseignants de neurologie (item 91) non imprimée sur la page consultée le 15.11.2026.
 - Aucune incidence de population, suisse ou européenne, lue pour l'hémiparésie hypoglycémique ni pour le déficit post-critique. Les rangs 9 et 10 ne sont pas des fréquences.
-- L'information professionnelle du glucose à 40 % B. Braun (autorisation 29550, mise à jour février 2025) ne donne pas de bolus périphérique d'urgence et réserve ce flacon à la voie veineuse centrale. La sécurité et l'efficacité chez l'enfant n'ont pas été évaluées spécifiquement, mais le texte donne des doses journalières maximales par âge et recommande le glucose à 10 % pour l'hypoglycémie de l'enfant. Aucun conditionnement périphérique n'a encore été retenu dans la monographie ; c'est une lacune à combler, pas une absence dans l'AIPS.
+- L'information professionnelle du glucose à 40 % B. Braun (autorisation 29550, mise à jour février 2025) ne donne pas de bolus périphérique d'urgence et réserve ce flacon à la voie veineuse centrale. La sécurité et l'efficacité chez l'enfant n'ont pas été évaluées spécifiquement, mais le texte donne des doses journalières maximales par âge et recommande le glucose à 10 % pour l'hypoglycémie de l'enfant.
+- Le Glucose 10 % B. Braun relève de la même autorisation 29550 (mise à jour février 2025) et peut être injecté dans une grosse veine périphérique. L'information professionnelle n'écrit aucun volume de bolus : aucun n'est enseigné.
 - La compression médullaire métastatique est chiffrée en Norvège du Sud-Est (Zaikova, 2007-2008), pas en Suisse.
 - Le syndrome de Guillain-Barré est chiffré par une revue ciblée d'études européennes (Value in Health, 2021), pas par un registre suisse.
 - L'étude genevoise publiée dans Neurology (2025) signale une correction. Les chiffres retenus sont ceux du résumé affiché le 15.11.2026.
