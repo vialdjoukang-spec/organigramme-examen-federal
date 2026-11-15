@@ -14,7 +14,7 @@ Tu dessines l'interface pour qu'elle se lise d'un coup, avec beaucoup d'air et d
 
 ## Formes
 - Le fond de page est blanc.
-- Tu ne poses aucun trait et aucune bordure. Un aplat suffit. Son bord est franc.
+- Tu ne poses aucun trait et aucune bordure, sur l'accueil et sur les quatre onglets. Un aplat suffit. Son bord est franc. Seules les fenêtres d'imagerie et le contour du focus clavier gardent un trait.
 - Tu sépares les blocs par de l'espace blanc, pas par une ligne.
 - Les icônes forment un seul jeu SVG inline (Lucide, licence ISC) : trait fin, bouts arrondis, 22 px, couleur `currentColor` du thème. Tu ne génères aucune image.
 

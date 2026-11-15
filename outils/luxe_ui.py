@@ -74,6 +74,17 @@ nav.on button.a,#theme{background:var(--eye)}
 @media(prefers-reduced-motion:reduce){
   nav.on button,.rail button,#theme,#themes button,.c{transition:none}
 }
+/* Aucun trait hors fenêtres d'imagerie. Le focus clavier garde son contour. */
+html body :is(*):not(.gm,.gm *,#voile,#voile *,.gm-btn,.gm-carte,.gm-carte *,.gm-code,.gm-code *,.gm-signal,.gm-signal *,.gm-pan,.gm-pan *,.gm-fig,.gm-fig *,.gm-zw,.gm-zw *,.gm-meta,.gm-meta *,.fedmed-plus,.fedmed-plus *),
+html body :is(*):not(.gm,.gm *,#voile,#voile *,.gm-btn,.gm-carte,.gm-carte *,.gm-code,.gm-code *,.gm-signal,.gm-signal *,.gm-pan,.gm-pan *,.gm-fig,.gm-fig *,.gm-zw,.gm-zw *,.gm-meta,.gm-meta *,.fedmed-plus,.fedmed-plus *)::before,
+html body :is(*):not(.gm,.gm *,#voile,#voile *,.gm-btn,.gm-carte,.gm-carte *,.gm-code,.gm-code *,.gm-signal,.gm-signal *,.gm-pan,.gm-pan *,.gm-fig,.gm-fig *,.gm-zw,.gm-zw *,.gm-meta,.gm-meta *,.fedmed-plus,.fedmed-plus *)::after{
+  border:none!important;outline:none!important;box-shadow:none!important;text-decoration-line:none!important}
+html body :is(*):not(.gm,.gm *,#voile,#voile *,.gm-btn,.gm-carte,.gm-carte *,.gm-code,.gm-code *,.gm-signal,.gm-signal *,.gm-pan,.gm-pan *,.gm-fig,.gm-fig *,.gm-zw,.gm-zw *,.gm-meta,.gm-meta *,.fedmed-plus,.fedmed-plus *):focus-visible{
+  outline:2px solid #111!important;outline-offset:2px}
+.lf{gap:8px}
+.lf button,.lien,.barre-t>*,.ls a,.ch details span{background:var(--t-encadre)!important}
+.ch{row-gap:14px}
+.bande,.defile,.c{margin-top:16px;margin-bottom:16px}
 """
 
 
@@ -94,6 +105,11 @@ table,th,td{border:none!important;box-shadow:none!important}
 th{background:var(--t-tableau)!important;color:#000!important}
 hr,nav a{border:none!important;box-shadow:none!important;border-radius:0!important}
 [popover].fenetre,.mb:target:not(.fenetre){border:none!important;box-shadow:none!important;border-radius:0!important}
+#__ID__ :is(*):not(.gm,.gm *,#voile,#voile *),
+#__ID__ :is(*):not(.gm,.gm *,#voile,#voile *)::before,
+#__ID__ :is(*):not(.gm,.gm *,#voile,#voile *)::after{
+  border:none!important;outline:none!important;box-shadow:none!important;text-decoration-line:none!important}
+#__ID__ :is(*):not(.gm,.gm *,#voile,#voile *):focus-visible{outline:2px solid #111!important;outline-offset:2px}
 """
 
 
@@ -134,12 +150,14 @@ function ornerMenu(){const m=document.getElementById('themes');if(!m||m.querySel
   b.addEventListener('click',function(e){e.stopPropagation();m.classList.remove('a');});
   m.insertBefore(b,m.firstChild);}
 const COURS_CSS=%s;
-function peindreCours(frame){frame=frame||document.getElementById('vf');if(!frame)return;
+function imagerie(frame){if(!frame)return true;if(frame.closest&&frame.closest('.gm,#voile'))return true;if(frame.dataset&&frame.dataset.p==='rts')return true;return false;}
+function peindreCours(frame){frame=frame||document.getElementById('vf');if(!frame||imagerie(frame))return;
   let doc;try{doc=frame.contentDocument}catch(e){return}
   if(!doc||!doc.documentElement||!doc.body)return;
-  if(!doc.getElementById('fm-bandeau')&&!doc.querySelector('h2'))return;
+  if(!doc.getElementById('fm-bandeau')&&!doc.querySelector('h2,.ch,.lf,main'))return;
+  if(!doc.documentElement.id)doc.documentElement.id='luxe-racine';
   let st=doc.getElementById('luxe-cours');
-  if(!st){st=doc.createElement('style');st.id='luxe-cours';st.textContent=COURS_CSS;(doc.head||doc.documentElement).appendChild(st);}
+  if(!st){st=doc.createElement('style');st.id='luxe-cours';st.textContent=COURS_CSS.replaceAll('__ID__',doc.documentElement.id);(doc.head||doc.documentElement).appendChild(st);}
   const cs=getComputedStyle(document.documentElement),root=doc.documentElement;
   ['--eye','--t-menu','--t-rail','--t-tableau','--t-mot','--t-bande','--t-encadre'].forEach(function(v){
     root.style.setProperty(v,(cs.getPropertyValue(v)||'').trim());});}
@@ -147,13 +165,14 @@ function parer(){document.querySelectorAll('.rail button').forEach(ornerRail);
   ornerTheme();ornerMenu();
   ornerPlan();
   peindreCours();
+  document.querySelectorAll('iframe').forEach(peindreCours);
   ornerSeul(document.getElementById('vr'),'chevron-left');
   ornerSeul(document.getElementById('vp'),'chevron-left');
   ornerSeul(document.getElementById('vs'),'chevron-right');
   ornerSeul(document.getElementById('vn'),'arrow-up-right');
   document.querySelectorAll('#menu .x,#fen .x,#sco .x').forEach(el=>ornerSeul(el,'x'));}
 parer();
-document.addEventListener('load',function(e){const t=e.target;if(t&&t.id==='vf')peindreCours(t);},true);
+document.addEventListener('load',function(e){const t=e.target;if(t&&t.tagName==='IFRAME')peindreCours(t);},true);
 if(window.MutationObserver){
   new MutationObserver(parer).observe(document.body,{childList:true,subtree:true});
   new MutationObserver(function(){peindreCours();}).observe(document.documentElement,{attributes:true,attributeFilter:['data-theme','style']});
