@@ -1,4 +1,17 @@
-# Réponse aux audits 1 à 6 — LOT_114
+# Réponse aux audits 1 à 7 — LOT_114
+
+## Audit 7 (00cbcab4, 77/100)
+
+| Défaut | Correction | Où |
+|---|---|---|
+| G1. Repères 2 et 3 hors du conflit. | Carré 2 déplacé sur le mur postérieur du corps fracturé qui recule. Carré 3 déplacé dans le sac dural clair, au même étage. Image relue. | `images/burst-annotee.webp` |
+| m2. Point 13 à sept phrases. | La fusion des deux phrases de corticoïdes dépasse 28 mots. Phrase redondante retirée : l’ordre E1-E2-E3 est déjà dans la démarche et dans l’arbre. Six phrases restent. | Point 13 |
+| m3. E5, E6, E7 dans le tableau et l’arbre. | Remplacés par « même bande E, sans ordre ». | Points 4 et 10 |
+| m4. Cause fausse de l’heure du traumatisme. | « On date l’heure du traumatisme pour suivre l’évolution du déficit au cours du temps. » La cause proposée par l’audit n’est pas reprise : aucune source lue ne la dit. | Point 5 |
+| m5. Pas d’organisme suisse de prévention. | Aucun texte inventé. La limite reste dans HELP. | HELP |
+| m6. Rotation décrite par la douleur. | « Si le patient ne peut pas tourner activement la tête à 45 degrés de chaque côté… », fiche HAS de novembre 2020. | Point 8 |
+
+
 
 ## Audit 6 (9fc6e173, 80/100)
 
