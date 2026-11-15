@@ -11,7 +11,9 @@
 - 15 % par an et 23,1/1 000 personnes-année sont deux mesures juxtaposées par la revue, pas une égalité.
 - La hernie discale est la compression que la revue de 2015 décrit à l'étage cervical. Métastase, abcès et hématome ne sont pas lus dans cet article et ne sont pas affirmés dans le cours.
 - Le cours de Liège décrit l'attelle nocturne pendant trois mois et une ou deux infiltrations. Il ne fixe pas le seuil opératoire. Ce seuil est dans le cours, ailleurs : mediX suisse (échec du traitement conservateur, déficit moteur ou atrophie thénarienne, texte lu le 15.11.2026) et Haute Autorité de santé, septembre 2012 (perte axonale à l'ENMG).
-- La coupe OpenStax montre la moelle thoracique. Elle ne montre ni le cerveau ni les racines, donc elle ne sépare pas l'ischémie cérébrale (E1) du Guillain-Barré (E2). Aucun autre cliché n'a été ajouté.
+- La coupe OpenStax montre la moelle thoracique. Elle ne montre ni le cerveau ni les racines. Aucun dessin nouveau. Deux liens de cas, sans copie : Eurorad 18806 (ischémie cérébrale, lu le 15.11.2026) et Eurorad 18552 (rehaussement des racines, Guillain-Barré, lu le 15.11.2026).
+- Keddie, Brain 2021, archive d'Oxford lue le 15.11.2026 : l'immunoglobuline britannique est autorisée si le grade de Hughes dépasse 4, ou si la ventilation approche. Le texte dit « Hughes Grade >4 », pas « à partir du grade 4 », et pas « toute forme hospitalisée ». Campylobacter reste sous cet article. Blanco-Ruiz porte l'incidence et les 11 % de ventilation, pas l'infection déclenchante.
+- Schaller 2015 : miction troublée et signe de moelle cervicale, puis IRM cervicale. La revue ne décrit pas un niveau sous le cou. Aucun protocole thoracique n'a été inventé.
 - La myélopathie cervicale indique la chirurgie lorsqu'elle est avancée et concordante avec le rétrécissement.
 - Corpus AIPS absent : aucun milligramme, y compris la dose d'immunoglobulines de la ligne directrice européenne.
 - Phase B V0 non réalignée sur les nouveaux titres.

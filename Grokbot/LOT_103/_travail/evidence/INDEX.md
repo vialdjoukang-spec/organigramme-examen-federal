@@ -13,5 +13,7 @@ Les extraits antérieurs (RMS 2019 neuropathies, RMS 2019 sujet âgé, RMS 2015 
 | gbses | Étude nationale espagnole, Eur J Neurol 2024 | https://onlinelibrary.wiley.com/doi/full/10.1111/ene.16439 | 2026-11-15 |
 | gbsuk | EAN, incidence britannique 2016-2019 | https://www.ean.org/research/resources/knowledge-distillery/detail/epidemiological-and-cohort-study-finds-no-association-between-covid-19-and-guillain-barre-syndrome | 2026-11-15 |
 | openstax | OpenStax, CC BY 4.0, Wikimedia | https://commons.wikimedia.org/wiki/File:1313_Spinal_Cord_Cross_Section.jpg | 2026-11-15 |
+| euroradavc | Eurorad cas 18806, lien seul | https://www.eurorad.org/case/18806 | 2026-11-15 |
+| euroradgbs | Eurorad cas 18552, lien seul | https://www.eurorad.org/case/18552 | 2026-11-15 |
 
 Les passages cités dans la leçon sont dans `gen_phase_a.py` (dictionnaire `P`).
