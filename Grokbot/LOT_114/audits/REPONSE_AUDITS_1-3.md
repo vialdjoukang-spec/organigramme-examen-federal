@@ -1,4 +1,19 @@
-# Réponse aux audits 1 à 7 — LOT_114
+# Réponse aux audits 1 à 8 — LOT_114
+
+## Correction 8 — option A (image relue)
+
+Le carré 2 était sur le corps intact sous la fracture. Il est maintenant sur le bord droit, côté canal, du corps cunéiforme du scanner. Le carré 3 est dans le sac clair de l’IRM, à l’étage fracturé de ce panneau seulement. Les deux panneaux restent distincts : aucune phrase ne dit que l’os du repère 2 rejoint le sac du repère 3.
+
+![Planche burst, carrés relus](capture-burst-c8.jpg)
+
+Carré par carré, capture du 15 novembre 2026 :
+
+1. Radiographie de profil, panneau de gauche : carré 1 sur un corps vertébral, avant la fixation.
+2. Scanner sagittal, panneau du milieu en haut : carré 2 sur le bord postérieur du corps cunéiforme fragmenté, côté canal, et non plus sur le corps intact du dessous.
+3. IRM, panneau du milieu en bas : carré 3 dans la colonne claire du sac, à la hauteur de la vertèbre fracturée de ce cliché.
+4. Contrôle après vissage, panneau de droite : carré 4 sur le montage, hors du diagnostic initial.
+
+
 
 ## Audit 7 (00cbcab4, 77/100)
 
