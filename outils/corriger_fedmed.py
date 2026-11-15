@@ -10,7 +10,7 @@ Le mécanisme des cours (cadre.src=D.base+l.f…) n'est pas modifié : outils/in
 Usage : python3 outils/corriger_fedmed.py ENTREE.html SORTIE.html
 Détail des problèmes et des preuves : Claude/_progression/livraison/CORRECTIONS_FEDMED.md
 """
-import sys, json
+import sys, json, os, re, importlib.util
 
 if len(sys.argv) != 3:
     sys.exit(__doc__)
@@ -115,5 +115,44 @@ assert len(page) > len(page_avant)
 assert page.count("cadre.src=D.base+l.f;vieux.replaceWith(cadre);$('#vn').href=D.base+l.f;") == 1
 assert page.count('</body>') == 1
 
+# ---------------------------------------------------------------------------------------------------
+# 3. Décision de Vial, 15.11.2026 : les couleurs du document (20 thèmes, bande EYE SPOT et sa
+#    rotation) ne sont pas touchées. On ne change que la place du tiroir et les onglets du téléphone.
+# ---------------------------------------------------------------------------------------------------
+_coupure = page.index('data-emb="rts"')
+_tete, _queue = page[:_coupure], page[_coupure:]
+
+_remplacements_rail = [
+    ('header.h{position:sticky;top:0;z-index:12;background:#fff;border-bottom:1px solid var(--trait);padding:8px 14px 0}',
+     'header.h{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid var(--trait);padding:8px 14px 0}'),
+    ('#vue{position:fixed;top:0;right:0;bottom:0;left:var(--mw);z-index:20;background:#fff;display:none;flex-direction:column}',
+     '#vue{position:fixed;top:var(--ht);right:0;bottom:0;left:var(--mw);z-index:20;background:#fff;display:none;flex-direction:column}'),
+    ('#fen{position:fixed;top:0;right:0;bottom:0;left:var(--mw);z-index:30;background:rgba(10,12,16,.62);display:none;align-items:flex-start;justify-content:center;padding:4vh 12px;overflow:auto}',
+     '#fen{position:fixed;top:var(--ht);right:0;bottom:0;left:var(--mw);z-index:30;background:rgba(10,12,16,.62);display:none;align-items:flex-start;justify-content:center;padding:4vh 12px;overflow:auto}'),
+    ('#menu{position:fixed;top:0;left:0;bottom:0;height:auto;width:min(84vw,320px);z-index:45;transform:translateX(-102%);transition:transform .2s;box-shadow:0 0 0 100vmax rgba(0,0,0,0)}',
+     '#menu{position:fixed;top:0;left:0;bottom:0;height:auto;width:min(84vw,320px);z-index:60;transform:translateX(-102%);transition:transform .2s;box-shadow:0 0 0 100vmax rgba(0,0,0,0)}'),
+    ('@media(max-width:520px){main{padding:10px}.grille{grid-template-columns:1fr}.sous{font-size:.76rem;line-height:1.3}h1{font-size:1rem}#theme .tx{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}nav.on button{padding:6px 10px}}',
+     '@media(max-width:520px){main{padding:10px}.grille{grid-template-columns:1fr}.sous{font-size:.76rem;line-height:1.3}h1{font-size:1rem}#theme .tx{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}.hl{flex-direction:column;align-items:stretch;gap:4px}#theme{align-self:flex-end;margin-bottom:0}nav.on{flex:none;width:100%;max-width:100%;overflow:visible;flex-wrap:wrap}nav.on button{flex:1 1 45%;white-space:normal;text-align:center;padding:6px 8px;line-height:1.15}}'),
+]
+for _ancien, _nouveau in _remplacements_rail:
+    _tete = remplacer_une_fois(_tete, _ancien, _nouveau, 'luxe ' + _ancien[:48])
+
+page = _tete + _queue
+assert 'if(e.fixe)return e.fixe' not in page
+assert page.count('id="gm-correctif-css"') == 1
+assert page.count('id=\\"gm-correctif-css\\"') == 1
+assert '.gm{color:#0B2540}' in page
+assert page.count("cadre.src=D.base+l.f;vieux.replaceWith(cadre);$('#vn').href=D.base+l.f;") == 1
+assert page.count('</body>') == 1
+
+import importlib
+_luxe = importlib.import_module('luxe_ui') if __package__ else None
+if _luxe is None:
+    import importlib.util as _iu
+    _sp = _iu.spec_from_file_location('luxe_ui', os.path.join(os.path.dirname(os.path.abspath(__file__)), 'luxe_ui.py'))
+    _luxe = _iu.module_from_spec(_sp)
+    _sp.loader.exec_module(_luxe)
+page = _luxe.injecter(page)
+assert page.count('id="luxe-designer"') == 1
 open(SORTIE, 'w', encoding='utf-8').write(page)
-print(f'8 correctifs appliqués (C1–C8), sortie {SORTIE} : {len(page.encode("utf-8")) / 1e6:.1f} Mo')
+print(f'8 correctifs appliqués (C1–C8), couleurs de main restaurées, sortie {SORTIE} : {len(page.encode("utf-8")) / 1e6:.1f} Mo')
