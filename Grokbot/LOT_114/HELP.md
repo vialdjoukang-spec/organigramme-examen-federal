@@ -18,3 +18,7 @@ La finale du point 14 reste non. Schizas, Revue médicale suisse, 21 décembre 2
 - Lésion ligamentaire pure. Conduite : indication absolue de la revue, nommée au point 14. Pas de seuil chiffré dans le cours. Exclusion : pas de rang dans une série lue, et les dix places sont prises. Source : ancre `rms2005-ind`.
 - Ligament transverse de C1. Conduite et seuil : écart des masses latérales au-delà de 7 mm, point 8, tableau du point 8, arbre du point 10, question du point 14. Exclusion : nommé à côté de Jefferson, sans onzième diagnostic et sans rang de fréquence. Source : ancre `rms2005-c1`.
 - Isthme instable de C2. Conduite et seuil : opéré seulement si les clichés dynamiques montrent une instabilité, points 4 et 8. Exclusion : pas un des dix, pas de rang de fréquence. Source : ancre `rms2005-cx`.
+
+## Lacunes DX.7 et DX.8 (15 novembre 2026)
+
+Aucune série suisse lue ne donne l’incidence de la fracture tear-drop cervicale ni celle de la luxation facettaire. Les deux cours répondent non à la question finale. Les corticoïdes restent sans milligramme. La séquence de traction en kilogrammes est celle du comité WFNS 2020, pas une dose AIPS.
