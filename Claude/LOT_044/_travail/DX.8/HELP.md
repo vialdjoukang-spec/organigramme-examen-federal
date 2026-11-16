@@ -1,0 +1,14 @@
+# HELP — LOT_044 DX.8 « Péricardite aiguë »
+
+- Ibuprofène et acide acétylsalicylique par voie orale : aucune information professionnelle AIPS lisible dans le paquet pour l'indication péricardite (seuls une aspirine injectable et l'association Algifor Dolo Duo ont été trouvés). Le texte donne la classe, la conduite (dose anti-inflammatoire pleine, durée guidée par la CRP, protection gastrique) mais aucun milligramme. À compléter par une spécialité suisse (ibuprofène et acide acétylsalicylique per os) si le chef de production le souhaite ; les posologies de la littérature (revues PMC 2026) existent mais n'ont pas d'AIPS.
+- Prednisone : l'AIPS (Prednisone Stada, Swissmedic 66994 ; Galepharm 69640) ne cite pas la péricardite ; dose de la littérature (faible à modérée, au kilo) donnée sans milligramme.
+- Anakinra, canakinumab, rilonacept : statut suisse tiré de la Revue médicale suisse 2022 (anakinra non homologué, importé ; Ilaris autorisé mais hors indication ; rilonacept indisponible). Statut 2026 non vérifié dans le paquet (Swissmedic / Compendium AIPS à relire).
+- Recommandation ESC 2025 (Eur Heart J 2025;46:3952, doi 10.1093/eurheartj/ehaf192) : texte intégral inaccessible (academic.oup.com 403). Contenu relayé par l'éditorial de la Revista Española de Cardiología (REC 2026), un résumé ESC (esanum), deux revues (Trends Cardiovasc Med 2026, Tn Med Glas 2026). Les classes de recommandation citées viennent de ces relais.
+- Épidémiologie suisse spécifique (Obsan/OFS) : aucune donnée trouvée ; chiffres d'Europe de l'Ouest et série genevoise (RMS 2022).
+- Valeurs normales SI (CRP, troponine hs) : non reprises, les intervalles dépendent de la méthode du laboratoire.
+- Pas de source suisse lue pour : frottement (technique d'auscultation), irradiation, pouls paradoxal (technique du brassard) : textes didactiques sans chiffre, à contrôler par le relecteur.
+
+## Après audit P3 (correction)
+- AIPS Brufen 45031 et ASA-Tabs 49494 versées : aucune ne cite la péricardite ; seules les doses générales, contre-indications et grossesse (3e trimestre) sont recopiées. Aucune dose péricardite AINS/aspirine sous AIPS.
+- AIPS Ilaris 66191 versée : indications = fièvres périodiques, pas la péricardite.
+- Non traités faute de source lue : tableau 8.d « Aiguë : moins de 4 à 6 semaines » (à aligner sur ESC 2025 ≤ 4 semaines) ; datation 30.09.2026 du statut anakinra (liste Swissmedic non versée) ; critères de sortie 11.D sans citation propre.
