@@ -1,0 +1,11 @@
+# HELP — DX.10 Inhalation de corps étranger (LOT_049)
+
+Lacunes à traiter par le chef de production ou l'auditeur (aucune formule de lacune n'a été laissée dans le HTML) :
+
+1. **Médicaments sans dose enseignée.** Oxygène, salbutamol inhalé, adrénaline inhalée, corticoïde systémique et antibiotique après extraction sont cités par classe (fiche Inselspital 2017, revue ERS 2026, revue JTD) sans milligramme. Aucune monopréparation AIPS n'a été choisie, car aucune source lue ne fixe une posologie pour cette indication. Le paquet contient Dexamethason Zentiva (41074) et d'autres AIPS récupérés par `--dci` ; non utilisés. Si l'auditeur veut une dose, il doit la lire dans l'AIPS (n° Swissmedic 5 chiffres) et la citer par un extrait `aips-…`. Aucun `--autorisation` n'a été passé.
+2. **Recommandations ERC 2025 de réanimation pédiatrique** : texte intégral lu sur erc.edu (PDF, 8,6 Mo, injecté dans le cache car le téléchargeur coupe à 8 Mo). Les extraits PDF sont à deux colonnes mélangées ; les citations P48/P50/P129 pointent les passages concernés.
+3. **Source suisse spécifique** : une seule fiche suisse sur le corps étranger (Inselspital Berne, version 2 de 2017, fondée sur l'ERC 2015, en allemand). HUG : fiche « Problèmes respiratoires » (2015). Aucune statistique suisse nationale (BFU, OFS) n'a pu être lue ; la thèse de Genève (archive-ouverte.unige.ch) et l'étude bernoise (boris.unibe.ch) ont répondu par erreur serveur ou page d'abstract seule.
+4. **Assurances et aspects sociaux (11.B.7)** : aucun extrait lu sur la prise en charge assurantielle (LAMal, LAA) ; le texte se limite à l'information de la famille, l'éducation et la documentation de l'objet.
+5. **Grossesse, allaitement, valeurs normales de laboratoire (SI)** : sans objet ou sans source ; seule la saturation cible (94–98 %, 88–92 % en BPCO) est enseignée.
+6. **Critères de sortie et durée d'observation après extraction** : aucune source lue ne fixe de durée ; le texte se limite à la vérification endoscopique de l'absence de fragment résiduel.
+7. Les corps étrangers adultes reposent sur des séries non européennes (Inde, Turquie, Chine) et des revues ; aucune recommandation européenne spécifique à l'adulte n'a été trouvée.
