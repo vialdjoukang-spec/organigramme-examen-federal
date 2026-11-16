@@ -322,22 +322,25 @@
     /* --- FULL-PAGE RÉPONSES OVERLAY --- */
     .answer-overlay { position: fixed; inset: 0; z-index: 100; background: var(--paper); display: none; flex-direction: column; overflow-y: auto; }
     .answer-overlay.open { display: flex; }
-    .answer-topbar { background: #14532d; color: #fff; padding: 12px 24px; display: flex; align-items: center; justify-content: space-between; gap: 12px; position: sticky; top: 0; z-index: 5; }
-    .answer-page-body { max-width: 1180px; width: 100%; margin: 0 auto; padding: 18px 24px; display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 18px; align-items: start; }
-    @media (max-width: 900px) { .answer-page-body { grid-template-columns: 1fr; } }
-    .ans-panel { background: #fff; border: 1.5px solid var(--border-soft); border-radius: 18px; padding: 18px 20px; box-shadow: 0 6px 18px rgba(0,0,0,0.04); }
-    .ans-panel h3 { margin: 0 0 10px; font-size: 0.98rem; color: #0f172a; border-bottom: 1.5px solid #e2e8f0; padding-bottom: 6px; }
-    .verdict-banner { border-radius: 12px; padding: 10px 14px; font-weight: 800; font-size: 0.94rem; margin-bottom: 12px; }
+    .answer-topbar { background: #14532d; color: #fff; padding: 10px 22px; display: flex; align-items: center; justify-content: space-between; gap: 12px; position: sticky; top: 0; z-index: 5; }
+    .answer-page-body { max-width: 1260px; width: 100%; margin: 0 auto; padding: 14px 20px; display: grid; grid-template-columns: 0.96fr 1.04fr; gap: 16px; align-items: start; }
+    @media (max-width: 960px) { .answer-page-body { grid-template-columns: 1fr; } }
+    .ans-panel { background: #fff; border: 1.5px solid var(--border-soft); border-radius: 16px; padding: 14px 16px; box-shadow: 0 6px 18px rgba(0,0,0,0.04); }
+    .ans-panel h3 { margin: 0 0 8px; font-size: 0.94rem; color: #0f172a; border-bottom: 1.5px solid #e2e8f0; padding-bottom: 5px; }
+    .verdict-banner { border-radius: 10px; padding: 8px 12px; font-weight: 800; font-size: 0.88rem; margin-bottom: 8px; }
     .verdict-ok { background: #dcfce7; color: #14532d; border: 1.5px solid #16a34a; }
     .verdict-ko { background: #fee2e2; color: #7f1d1d; border: 1.5px solid #dc2626; }
     .verdict-neutral { background: #eff6ff; color: #1e3a8a; border: 1.5px solid #3b82f6; }
 
-    .justif-item { padding: 8px 11px; border-radius: 10px; margin-bottom: 7px; font-size: 0.86rem; line-height: 1.4; background: #f8fafc; border-left: 4px solid #94a3b8; }
+    .justif-item { padding: 6px 10px; border-radius: 9px; margin-bottom: 6px; font-size: 0.82rem; line-height: 1.35; background: #f8fafc; border-left: 4px solid #94a3b8; }
     .justif-item.is-true { background: #f0fdf4; border-left-color: #16a34a; }
     .justif-item.is-false { background: #fef2f2; border-left-color: #ef4444; }
-    .rappel-box { background: #eff6ff; border: 1.5px solid #bfdbfe; border-radius: 14px; padding: 14px 16px; margin-bottom: 14px; font-size: 0.88rem; }
-    .spec-box { background: #f0fdf4; border: 1.5px solid #bbf7d0; border-radius: 14px; padding: 14px 16px; margin-bottom: 12px; font-size: 0.89rem; }
-    .source-line { font-size: 0.78rem; color: var(--ink-muted); font-weight: 600; }
+    .rappel-box { background: #eff6ff; border: 1.5px solid #bfdbfe; border-radius: 12px; padding: 10px 13px; margin-bottom: 10px; font-size: 0.84rem; line-height: 1.38; }
+    .spec-box { background: #f0fdf4; border: 1.5px solid #bbf7d0; border-radius: 12px; padding: 10px 13px; margin-bottom: 8px; font-size: 0.84rem; line-height: 1.38; }
+    .source-line { font-size: 0.76rem; color: var(--ink-muted); font-weight: 600; }
+    .reseau-pills { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+    .reseau-pill { background: #fff; border: 1.5px solid var(--border-soft); border-radius: 999px; padding: 6px 13px; font-size: 0.8rem; font-weight: 700; color: #0f766e; text-decoration: none; box-shadow: 0 2px 6px rgba(0,0,0,0.03); }
+    .reseau-pill:hover { border-color: #0f766e; background: #f0fdfa; }
 
     /* --- VEILLE 2027 --- */
     .veille-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 18px; }
@@ -376,7 +379,7 @@
       <div class="brand-crest">+</div>
       <div class="brand-title">
         <h1>Arène QCM · Examen Fédéral 2027</h1>
-        <span>Médecine humaine Suisse · 248 SSP PROFILES · 2'587+ Diagnostics</span>
+        <span>Médecine humaine Suisse · 248 SSP PROFILES · 2'477 Diagnostics</span>
       </div>
     </div>
     <nav class="tabs" id="mainTabs">
@@ -397,7 +400,7 @@
           <div class="arena-kicker">🇨🇭 Session Visée : Août / Septembre 2027 · CK &amp; CS</div>
           <h2>L'Arène d'entraînement absolu aux QCM suisses</h2>
           <p>
-            Maîtrisez les <strong>248 situations de départ (SSP)</strong> et leurs <strong>2'587 diagnostics différentiels</strong>
+            Maîtrisez les <strong>248 situations de départ (SSP)</strong> et leurs <strong>2'477 diagnostics différentiels</strong>
             à travers plus de <strong>100'000 QCMs</strong> (≥ 400 QCMs par SSP, répartis en milliers de pages) de
             <strong>Type A</strong>, <strong>Type K'</strong> et <strong>Menu Long</strong>, avec justifications option par option et sciences fondamentales.
           </p>
@@ -474,8 +477,10 @@
     <!-- VEILLE 2027 TAB -->
     <section id="view-VEILLE" class="hidden">
       <h2 style="margin:0 0 6px;">Veille Examen fédéral de médecine humaine · Session 2027</h2>
-      <p style="color:var(--ink-muted);margin:0 0 20px;">Informations officielles vérifiées (OFSP, MEBEKO, IML Berne, UNIGE, Fedlex RS 811.113.3).</p>
+      <p style="color:var(--ink-muted);margin:0 0 20px;">Informations officielles vérifiées (OFSP, MEBEKO, IML Berne, SSMIG, Smarter Medicine, SSI, Compendium/AIPS, Hôpitaux universitaires &amp; Facultés suisses).</p>
       <div class="veille-grid" id="fullVeilleGrid"></div>
+      <h3 style="margin:24px 0 8px;font-size:1.05rem;">Réseau officiel suisse · Sociétés savantes, Hôpitaux &amp; Facultés</h3>
+      <div class="reseau-pills" id="reseauSuissePills"></div>
     </section>
 
     <!-- COMBAT / SSP QCM VIEW -->
@@ -510,6 +515,7 @@
         <div id="combatPageInfo" style="font-size:0.86rem;font-weight:700;color:var(--ink-muted);"></div>
       </div>
 
+      <div id="combatPanoramique"></div>
       <div class="pager" id="pagerTop"></div>
       <div id="qcmList"></div>
       <div class="pager" id="pagerBottom"></div>
@@ -533,20 +539,21 @@
       <div class="ans-panel">
         <h3>1. Réponse exacte &amp; Analyse option par option</h3>
         <div id="ansVerdict" class="verdict-banner verdict-neutral"></div>
-        <p id="ansStemRecap" style="font-size:0.87rem;color:var(--ink-muted);margin:0 0 12px;"></p>
+        <p id="ansStemRecap" style="font-size:0.83rem;color:var(--ink-muted);margin:0 0 8px;"></p>
         <div id="ansOptionsJustif"></div>
       </div>
       <div class="ans-panel">
-        <h3>2. Compréhension fondamentale &amp; clinique</h3>
+        <h3>2. Sciences fondamentales, Pratique suisse &amp; Illustrations</h3>
         <div class="rappel-box">
           <strong>🧬 Rappel de base (sciences fondamentales) :</strong>
-          <div id="ansRappel" style="margin-top:5px;"></div>
+          <div id="ansRappel" style="margin-top:4px;"></div>
         </div>
         <div class="spec-box">
           <strong>🩺 Explication plus spécifique :</strong>
-          <div id="ansSpecifique" style="margin-top:5px;"></div>
+          <div id="ansSpecifique" style="margin-top:4px;"></div>
         </div>
         <div class="source-line" id="ansSource"></div>
+        <div id="ansVisuals"></div>
       </div>
     </div>
   </div>
@@ -554,6 +561,7 @@
   <!-- CORE LIGHTWEIGHT DATA (instant load, works offline file:// and HTTP) -->
   <script src="data/veille_2027.js"></script>
   <script src="data/catalog.js"></script>
+  <script src="assets/visuals.js"></script>
 
   <script>
     window.QCM_SSP = window.QCM_SSP || {};
@@ -669,6 +677,12 @@
       `).join('');
       document.getElementById('homeVeillePreview').innerHTML = makeCards(arts.slice(0, 3));
       document.getElementById('fullVeilleGrid').innerHTML = makeCards(arts);
+      const resEl = document.getElementById('reseauSuissePills');
+      if (resEl && window.VEILLE_2027.reseau_suisse) {
+        resEl.innerHTML = window.VEILLE_2027.reseau_suisse.map(r =>
+          `<a class="reseau-pill" href="${r.url}" target="_blank" rel="noopener">${r.nom} ↗</a>`
+        ).join('');
+      }
     }
 
     /* --- TAB SWITCHING --- */
@@ -778,6 +792,7 @@
       ['HOME', 'CAT', 'VEILLE'].forEach(v => document.getElementById('view-' + v).classList.add('hidden'));
       document.getElementById('view-COMBAT').classList.remove('hidden');
       document.getElementById('combatTitle').textContent = STATE.combatTitle;
+      document.getElementById('combatPanoramique').innerHTML = '';
       document.getElementById('qcmList').innerHTML = '<div class="loading-pill">Chargement des QCMs Type Examen…</div>';
       document.getElementById('pagerTop').innerHTML = '';
       document.getElementById('pagerBottom').innerHTML = '';
@@ -790,6 +805,14 @@
       document.getElementById('cntA').textContent = STATE.activeQuestions.filter(q => q.t === 'A').length;
       document.getElementById('cntK').textContent = STATE.activeQuestions.filter(q => q.t === 'K').length;
       document.getElementById('cntM').textContent = STATE.activeQuestions.filter(q => q.t === 'M').length;
+
+      const panoEl = document.getElementById('combatPanoramique');
+      if (panoEl && STATE.activeSSPCode && window.QCM_SSP[STATE.activeSSPCode] && window.MEDICAL_VISUALS) {
+        const ssp = window.QCM_SSP[STATE.activeSSPCode];
+        panoEl.innerHTML = window.MEDICAL_VISUALS.renderCombatPanoramique(ssp.code, ssp.title, ssp.mastery);
+      } else if (panoEl) {
+        panoEl.innerHTML = '';
+      }
 
       // Populate theme dropdown
       const themes = Array.from(new Set(STATE.activeQuestions.map(q => q.th))).sort();
@@ -1000,7 +1023,7 @@
       }
 
       document.getElementById('ansOptionsJustif').innerHTML = q.ju.map((j) => {
-        const isPos = j.includes('Exacte') || j.includes('+ Vrai');
+        const isPos = j.includes('Exacte') || j.includes('Option exacte') || j.includes('+ Vrai');
         return `<div class="justif-item ${isPos ? 'is-true' : 'is-false'}">${j}</div>`;
       }).join('');
 
@@ -1010,7 +1033,14 @@
       document.getElementById('ansSpecifique').textContent = q.ex;
       document.getElementById('ansSource').textContent = 'Source : ' + source;
 
-      document.getElementById('answerOverlay').classList.add('open');
+      const visEl = document.getElementById('ansVisuals');
+      if (visEl && window.MEDICAL_VISUALS) {
+        visEl.innerHTML = window.MEDICAL_VISUALS.renderVisualBlock(q._sspCode || ssp.code || '', ssp.title || q.th, ssp.mastery);
+      }
+
+      const ov = document.getElementById('answerOverlay');
+      ov.classList.add('open');
+      ov.scrollTop = 0;
       document.body.style.overflow = 'hidden';
     }
 

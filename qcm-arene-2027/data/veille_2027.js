@@ -88,6 +88,46 @@ window.VEILLE_2027 = {
       detail: "OFSP, MEBEKO, Schwarzenburgstrasse 157, 3003 Berne · Courriel : office@mebeko.admin.ch · Tél. : +41 58 462 94 83 (vendredi 8h–12h / 13h–16h). Toujours conserver une copie des pièces envoyées.",
       source: "OFSP · Examen fédéral en médecine humaine",
       url: "https://www.bag.admin.ch/fr/examen-federal-en-medecine-humaine"
+    },
+    {
+      categorie: "Pratiques suisses",
+      statut: "SSMIG / Smarter Medicine",
+      titre: "Smarter Medicine · Top 5 Hospitalier & Ambulatoire",
+      detail: "Recommandations suisses contre la surmédication : SpO2 cible 90–94 % (BPCO 88–92 %), éviter neuroleptiques à la sortie pour insomnie, score de Genève avant thromboprophylaxie, fer PO avant IV en ambulatoire, pas d'antibiotiques sur CRP/PCT isolée.",
+      source: "Smarter Medicine · SGAIM / SSMIG",
+      url: "https://www.smartermedicine.ch/fr/liste-top-5/medecine-interne-generale-hospitaliere-2023"
+    },
+    {
+      categorie: "Infectiologie & Médicaments",
+      statut: "SSI & Swissmedic",
+      titre: "Guidelines SSI & Compendium.ch (AIPS Suisse)",
+      detail: "Antibiothérapie empirique et ciblée selon les directives suisses de la Société Suisse d'Infectiologie (SSI). Posologies, adaptations rénales/hépatiques et interactions exclusivement vérifiées sur Swissmedic AIPS / Compendium.ch.",
+      source: "SSI Guidelines & Compendium.ch",
+      url: "https://ssi.guidelines.ch/"
+    },
+    {
+      categorie: "Hôpitaux universitaires & Facultés",
+      statut: "HUG · CHUV · Insel · USZ · USB",
+      titre: "Protocoles cliniques suisses & Référentiel PROFILES (UNIGE/UNIL/UNIBE/UZH/UNIBAS/UNIFR)",
+      detail: "Intégration des stratégies diagnostiques, urgences, critères de sortie et continuité médecin traitant inspirés des protocoles HUG (Stratégies SMPR), CHUV, Inselspital, USZ, USB et du catalogue fédéral PROFILES 2.0.",
+      source: "HUG Stratégies SMPR & PROFILES",
+      url: "https://www.hug.ch/medecine-premier-recours/strategies-smpr"
     }
+  ],
+  reseau_suisse: [
+    { nom: "OFSP · Examen fédéral", url: "https://www.bag.admin.ch/fr/examen-federal-en-medecine-humaine" },
+    { nom: "Compendium.ch / AIPS", url: "https://compendium.ch/" },
+    { nom: "Swissmedicinfo (AIPS)", url: "https://www.swissmedicinfo.ch/" },
+    { nom: "IML Berne (CK/CS)", url: "https://www.iml.unibe.ch/fr/offres/assessment/organisation-examens/self-assessment" },
+    { nom: "SSMIG / SGAIM", url: "https://www.sgaim.ch/fr/" },
+    { nom: "Smarter Medicine CH", url: "https://www.smartermedicine.ch/fr/" },
+    { nom: "SSI Guidelines (Infectio)", url: "https://ssi.guidelines.ch/" },
+    { nom: "Revue Médicale Suisse", url: "https://www.revmed.ch/" },
+    { nom: "HUG · Stratégies SMPR", url: "https://www.hug.ch/medecine-premier-recours/strategies-smpr" },
+    { nom: "CHUV Lausanne", url: "https://www.chuv.ch/fr/" },
+    { nom: "Inselspital Berne", url: "https://www.insel.ch/de/" },
+    { nom: "USZ Zurich / USB Bâle", url: "https://www.usz.ch/" },
+    { nom: "Facultés (UNIGE·UNIL·UNIBE·UZH·UNIBAS·UNIFR·USI)", url: "https://www.profilesmed.ch/" }
   ]
 };
+
