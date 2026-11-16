@@ -14,9 +14,8 @@
       --green-btn: #16a34a;
       --green-btn-dark: #15803d;
       --red-bad: #dc2626;
-      --gold: #d97706;
 
-      /* Category Palettes (Cells are NEVER white!) */
+      /* Palettes par catégorie (les cellules ne sont JAMAIS blanches) */
       --g-bg: linear-gradient(145deg, #e8f0fe 0%, #d4e4fc 100%);
       --g-border: #3b82f6;
       --g-glow: rgba(59, 130, 246, 0.28);
@@ -74,257 +73,106 @@
       text-transform: uppercase;
       box-shadow: 0 2px 6px rgba(15, 118, 110, 0.25);
     }
-    .ticker-content {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      flex: 1;
-      min-width: 0;
-    }
-    .ticker-tag {
-      font-weight: 700;
-      color: #1e40af;
-      white-space: nowrap;
-    }
-    .ticker-text {
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      color: var(--ink);
-    }
-    .ticker-link {
-      flex-shrink: 0;
-      color: #0f766e;
-      font-weight: 600;
-      text-decoration: none;
-      border-bottom: 1px dashed #0f766e;
-    }
-    .ticker-controls {
-      display: flex; gap: 4px; flex-shrink: 0;
-    }
+    .ticker-content { display: flex; align-items: center; gap: 10px; flex: 1; min-width: 0; }
+    .ticker-tag { font-weight: 700; color: #1e40af; white-space: nowrap; }
+    .ticker-text { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: var(--ink); }
+    .ticker-link { flex-shrink: 0; color: #0f766e; font-weight: 600; text-decoration: none; border-bottom: 1px dashed #0f766e; }
+    .ticker-controls { display: flex; gap: 4px; flex-shrink: 0; }
     .ticker-controls button {
-      background: #fff;
-      border: 1px solid var(--border-soft);
-      border-radius: 6px;
-      padding: 2px 8px;
-      cursor: pointer;
-      font-size: 0.8rem;
-      color: var(--ink);
+      background: #fff; border: 1px solid var(--border-soft); border-radius: 6px;
+      padding: 2px 8px; cursor: pointer; font-size: 0.8rem; color: var(--ink);
     }
 
     /* --- HEADER & NAVIGATION --- */
     header.top-nav {
-      position: sticky;
-      top: 0;
-      z-index: 40;
+      position: sticky; top: 0; z-index: 40;
       background: rgba(252, 251, 247, 0.94);
       backdrop-filter: blur(10px);
       border-bottom: 1px solid var(--border-soft);
       padding: 12px 24px;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      gap: 14px;
+      display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px;
     }
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      cursor: pointer;
-    }
+    .brand { display: flex; align-items: center; gap: 12px; cursor: pointer; }
     .brand-crest {
-      width: 42px; height: 42px;
-      border-radius: 12px;
+      width: 42px; height: 42px; border-radius: 12px;
       background: linear-gradient(135deg, #b91c1c, #dc2626);
-      color: #fff;
-      display: grid;
-      place-items: center;
-      font-weight: 900;
-      font-size: 1.25rem;
+      color: #fff; display: grid; place-items: center;
+      font-weight: 900; font-size: 1.25rem;
       box-shadow: 0 4px 12px rgba(185, 28, 28, 0.30), inset 0 1px 0 rgba(255,255,255,0.4);
     }
-    .brand-title h1 {
-      margin: 0;
-      font-size: 1.08rem;
-      font-weight: 800;
-      letter-spacing: -0.01em;
-    }
-    .brand-title span {
-      font-size: 0.78rem;
-      color: var(--ink-muted);
-      font-weight: 500;
-    }
+    .brand-title h1 { margin: 0; font-size: 1.08rem; font-weight: 800; letter-spacing: -0.01em; }
+    .brand-title span { font-size: 0.78rem; color: var(--ink-muted); font-weight: 500; }
 
-    nav.tabs {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
+    nav.tabs { display: flex; flex-wrap: wrap; gap: 8px; }
     .tab-btn {
-      border: 1.5px solid var(--border-soft);
-      background: #fff;
-      color: var(--ink);
-      padding: 8px 15px;
-      border-radius: 12px;
-      font-weight: 700;
-      font-size: 0.88rem;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.04);
+      border: 1.5px solid var(--border-soft); background: #fff; color: var(--ink);
+      padding: 8px 15px; border-radius: 12px; font-weight: 700; font-size: 0.88rem;
+      cursor: pointer; transition: all 0.2s ease; box-shadow: 0 2px 5px rgba(0,0,0,0.04);
     }
     .tab-btn:hover { transform: translateY(-2px); box-shadow: 0 4px 10px rgba(0,0,0,0.08); }
-    .tab-btn.active {
-      background: #172030;
-      color: #fff;
-      border-color: #172030;
-      box-shadow: 0 4px 14px rgba(23, 32, 48, 0.28);
-    }
+    .tab-btn.active { background: #172030; color: #fff; border-color: #172030; box-shadow: 0 4px 14px rgba(23, 32, 48, 0.28); }
     .tab-btn[data-cat="G"].active { background: #1d4ed8; border-color: #1d4ed8; box-shadow: 0 4px 14px var(--g-glow); }
     .tab-btn[data-cat="S"].active { background: #047857; border-color: #047857; box-shadow: 0 4px 14px var(--s-glow); }
     .tab-btn[data-cat="F"].active { background: #b45309; border-color: #b45309; box-shadow: 0 4px 14px var(--f-glow); }
     .tab-btn[data-cat="O"].active { background: #6d28d9; border-color: #6d28d9; box-shadow: 0 4px 14px var(--o-glow); }
 
-    /* --- MAIN CONTAINER --- */
-    main {
-      max-width: 1360px;
-      margin: 0 auto;
-      padding: 26px 24px 64px;
-    }
+    main { max-width: 1360px; margin: 0 auto; padding: 26px 24px 64px; }
 
     /* --- ARENA HOME --- */
     .arena-hero {
       background: linear-gradient(135deg, #ffffff 0%, #f4f7fb 55%, #eefaf4 100%);
-      border: 1.5px solid #dbe4f0;
-      border-radius: 24px;
-      padding: 32px;
+      border: 1.5px solid #dbe4f0; border-radius: 24px; padding: 32px;
       box-shadow: 0 14px 36px rgba(15, 23, 42, 0.06), inset 0 1px 0 #fff;
-      display: grid;
-      grid-template-columns: 1.35fr 1fr;
-      gap: 28px;
-      align-items: center;
-      margin-bottom: 28px;
+      display: grid; grid-template-columns: 1.35fr 1fr; gap: 28px; align-items: center; margin-bottom: 28px;
     }
-    @media (max-width: 900px) {
-      .arena-hero { grid-template-columns: 1fr; padding: 22px; }
-    }
+    @media (max-width: 900px) { .arena-hero { grid-template-columns: 1fr; padding: 22px; } }
     .arena-kicker {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: #e0f2fe;
-      color: #0369a1;
-      font-weight: 700;
-      font-size: 0.78rem;
-      padding: 5px 12px;
-      border-radius: 999px;
-      margin-bottom: 12px;
+      display: inline-flex; align-items: center; gap: 8px;
+      background: #e0f2fe; color: #0369a1; font-weight: 700; font-size: 0.78rem;
+      padding: 5px 12px; border-radius: 999px; margin-bottom: 12px;
     }
-    .arena-hero h2 {
-      margin: 0 0 10px;
-      font-size: 2rem;
-      line-height: 1.18;
-      letter-spacing: -0.02em;
-    }
-    .arena-hero p {
-      margin: 0 0 18px;
-      color: var(--ink-muted);
-      font-size: 0.98rem;
-    }
+    .arena-hero h2 { margin: 0 0 10px; font-size: 2rem; line-height: 1.18; letter-spacing: -0.02em; }
+    .arena-hero p { margin: 0 0 18px; color: var(--ink-muted); font-size: 0.98rem; }
     .formula-pill {
-      display: inline-flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      align-items: center;
-      background: #fff;
-      border: 1.5px solid #cbd5e1;
-      border-radius: 14px;
-      padding: 10px 16px;
-      font-size: 0.88rem;
-      font-weight: 700;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.04);
-      margin-bottom: 20px;
+      display: inline-flex; flex-wrap: wrap; gap: 10px; align-items: center;
+      background: #fff; border: 1.5px solid #cbd5e1; border-radius: 14px;
+      padding: 10px 16px; font-size: 0.88rem; font-weight: 700;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.04); margin-bottom: 20px;
     }
     .formula-pill code {
-      background: #f1f5f9;
-      padding: 3px 8px;
-      border-radius: 6px;
-      color: #0f172a;
-      font-family: ui-monospace, SFMono-Regular, monospace;
+      background: #f1f5f9; padding: 3px 8px; border-radius: 6px;
+      color: #0f172a; font-family: ui-monospace, SFMono-Regular, monospace;
     }
-    .arena-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
+    .arena-actions { display: flex; flex-wrap: wrap; gap: 12px; }
     .btn-primary {
-      background: linear-gradient(135deg, #1d4ed8, #1e40af);
-      color: #fff;
-      border: none;
-      padding: 12px 20px;
-      border-radius: 12px;
-      font-weight: 700;
-      font-size: 0.92rem;
-      cursor: pointer;
-      box-shadow: 0 6px 18px rgba(29, 78, 216, 0.30);
-      transition: transform 0.18s ease, box-shadow 0.18s ease;
+      background: linear-gradient(135deg, #1d4ed8, #1e40af); color: #fff; border: none;
+      padding: 12px 20px; border-radius: 12px; font-weight: 700; font-size: 0.92rem; cursor: pointer;
+      box-shadow: 0 6px 18px rgba(29, 78, 216, 0.30); transition: transform 0.18s ease, box-shadow 0.18s ease;
     }
     .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 22px rgba(29, 78, 216, 0.36); }
     .btn-secondary {
-      background: #fff;
-      color: var(--ink);
-      border: 1.5px solid #cbd5e1;
-      padding: 12px 18px;
-      border-radius: 12px;
-      font-weight: 700;
-      font-size: 0.92rem;
-      cursor: pointer;
+      background: #fff; color: var(--ink); border: 1.5px solid #cbd5e1;
+      padding: 12px 18px; border-radius: 12px; font-weight: 700; font-size: 0.92rem; cursor: pointer;
       transition: all 0.18s ease;
     }
     .btn-secondary:hover { border-color: #64748b; transform: translateY(-2px); }
 
-    .arena-stats-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 14px;
-    }
+    .arena-stats-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
     .stat-card {
-      background: #fff;
-      border: 1.5px solid var(--border-soft);
-      border-radius: 16px;
-      padding: 16px;
-      box-shadow: 0 6px 16px rgba(0,0,0,0.04);
+      background: #fff; border: 1.5px solid var(--border-soft); border-radius: 16px;
+      padding: 16px; box-shadow: 0 6px 16px rgba(0,0,0,0.04);
     }
-    .stat-card .val {
-      font-size: 1.65rem;
-      font-weight: 800;
-      color: #0f172a;
-      line-height: 1.1;
-    }
-    .stat-card .lbl {
-      font-size: 0.78rem;
-      color: var(--ink-muted);
-      font-weight: 600;
-      margin-top: 4px;
-    }
+    .stat-card .val { font-size: 1.55rem; font-weight: 800; color: #0f172a; line-height: 1.1; }
+    .stat-card .lbl { font-size: 0.78rem; color: var(--ink-muted); font-weight: 600; margin-top: 4px; }
 
-    /* 4 Category Portal Cards on Home */
-    .cat-portals {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
-      margin-bottom: 30px;
-    }
+    .cat-portals { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-bottom: 30px; }
     @media (max-width: 1000px) { .cat-portals { grid-template-columns: repeat(2, 1fr); } }
     @media (max-width: 560px) { .cat-portals { grid-template-columns: 1fr; } }
 
     .portal-card {
-      border-radius: 20px;
-      padding: 22px;
-      cursor: pointer;
+      border-radius: 20px; padding: 22px; cursor: pointer;
       transition: transform 0.24s cubic-bezier(.22,.61,.36,1), box-shadow 0.24s ease;
-      position: relative;
-      overflow: hidden;
+      position: relative; overflow: hidden;
     }
     .portal-card:hover { transform: translateY(-6px); }
     .portal-card.cat-G { background: var(--g-bg); border: 2px solid var(--g-border); box-shadow: 0 10px 24px var(--g-glow), inset 0 1px 0 rgba(255,255,255,0.8); color: var(--g-ink); }
@@ -336,37 +184,22 @@
     .portal-card p { margin: 0; font-size: 0.84rem; opacity: 0.88; font-weight: 600; }
 
     /* --- SSP GRID (G, S, F, O) --- */
-    /* Identical-size cells, rounded corners, NEVER touching, 3D & luminescent, NEVER white! */
-    .cat-toolbar {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      gap: 14px;
-      margin-bottom: 22px;
-    }
+    .cat-toolbar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px; margin-bottom: 22px; }
     .search-box {
-      flex: 1;
-      min-width: 240px;
-      max-width: 440px;
-      padding: 11px 16px;
-      border-radius: 12px;
-      border: 1.5px solid #cbd5e1;
-      background: #fff;
-      font-size: 0.94rem;
-      color: var(--ink);
-      outline: none;
+      flex: 1; min-width: 240px; max-width: 440px; padding: 11px 16px;
+      border-radius: 12px; border: 1.5px solid #cbd5e1; background: #fff;
+      font-size: 0.94rem; color: var(--ink); outline: none;
     }
     .search-box:focus { border-color: #2563eb; box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.14); }
 
     .ssp-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-      gap: 22px; /* Cells never touch each other */
+      grid-template-columns: repeat(auto-fill, minmax(265px, 1fr));
+      gap: 24px; /* Cellules jamais collées */
       perspective: 1100px;
     }
     .ssp-cell {
-      height: 168px; /* Strictly identical size */
+      height: 176px; /* Taille strictement identique */
       border-radius: 18px;
       padding: 18px;
       display: flex;
@@ -378,444 +211,145 @@
       transition: transform 0.25s cubic-bezier(.22,.61,.36,1), box-shadow 0.25s ease;
     }
     .ssp-cell::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      border-radius: 16px;
+      content: ""; position: absolute; inset: 0; border-radius: 16px;
       background: linear-gradient(180deg, rgba(255,255,255,0.55) 0%, rgba(255,255,255,0) 45%);
       pointer-events: none;
     }
-    .ssp-cell.cat-G {
-      background: var(--g-bg);
-      border: 2px solid var(--g-border);
-      box-shadow: 0 8px 0 rgba(37, 99, 235, 0.22), 0 12px 24px var(--g-glow);
-      color: var(--g-ink);
-    }
-    .ssp-cell.cat-S {
-      background: var(--s-bg);
-      border: 2px solid var(--s-border);
-      box-shadow: 0 8px 0 rgba(5, 150, 105, 0.22), 0 12px 24px var(--s-glow);
-      color: var(--s-ink);
-    }
-    .ssp-cell.cat-F {
-      background: var(--f-bg);
-      border: 2px solid var(--f-border);
-      box-shadow: 0 8px 0 rgba(217, 119, 6, 0.22), 0 12px 24px var(--f-glow);
-      color: var(--f-ink);
-    }
-    .ssp-cell.cat-O {
-      background: var(--o-bg);
-      border: 2px solid var(--o-border);
-      box-shadow: 0 8px 0 rgba(109, 40, 217, 0.22), 0 12px 24px var(--o-glow);
-      color: var(--o-ink);
-    }
-    .ssp-cell:hover {
-      transform: translateY(-6px) rotateX(3deg);
-    }
+    .ssp-cell.cat-G { background: var(--g-bg); border: 2px solid var(--g-border); box-shadow: 0 8px 0 rgba(37, 99, 235, 0.22), 0 12px 24px var(--g-glow); color: var(--g-ink); }
+    .ssp-cell.cat-S { background: var(--s-bg); border: 2px solid var(--s-border); box-shadow: 0 8px 0 rgba(5, 150, 105, 0.22), 0 12px 24px var(--s-glow); color: var(--s-ink); }
+    .ssp-cell.cat-F { background: var(--f-bg); border: 2px solid var(--f-border); box-shadow: 0 8px 0 rgba(217, 119, 6, 0.22), 0 12px 24px var(--f-glow); color: var(--f-ink); }
+    .ssp-cell.cat-O { background: var(--o-bg); border: 2px solid var(--o-border); box-shadow: 0 8px 0 rgba(109, 40, 217, 0.22), 0 12px 24px var(--o-glow); color: var(--o-ink); }
+    .ssp-cell:hover { transform: translateY(-6px) rotateX(3deg); }
     .ssp-cell.cat-G:hover { box-shadow: 0 12px 0 rgba(37,99,235,0.28), 0 18px 34px rgba(59,130,246,0.45); }
     .ssp-cell.cat-S:hover { box-shadow: 0 12px 0 rgba(5,150,105,0.28), 0 18px 34px rgba(16,185,129,0.45); }
     .ssp-cell.cat-F:hover { box-shadow: 0 12px 0 rgba(217,119,6,0.28), 0 18px 34px rgba(245,158,11,0.45); }
     .ssp-cell.cat-O:hover { box-shadow: 0 12px 0 rgba(109,40,217,0.28), 0 18px 34px rgba(139,92,246,0.45); }
 
     .ssp-cell-title {
-      font-weight: 800;
-      font-size: 0.97rem;
-      line-height: 1.3;
-      display: -webkit-box;
-      -webkit-line-clamp: 3;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
-      z-index: 1;
+      font-weight: 800; font-size: 0.96rem; line-height: 1.3;
+      display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; z-index: 1;
     }
-    .ssp-cell-meta {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      font-size: 0.77rem;
-      font-weight: 700;
-      z-index: 1;
-    }
-    .ssp-badge {
-      background: rgba(255, 255, 255, 0.72);
-      padding: 3px 9px;
-      border-radius: 999px;
-      border: 1px solid rgba(0,0,0,0.08);
-    }
-    .mini-bar {
-      height: 6px;
-      background: rgba(255,255,255,0.65);
-      border-radius: 999px;
-      overflow: hidden;
-      margin-top: 6px;
-    }
-    .mini-bar-fill {
-      height: 100%;
-      background: currentColor;
-      border-radius: 999px;
-      transition: width 0.3s ease;
-    }
+    .ssp-cell-meta { display: flex; align-items: center; justify-content: space-between; font-size: 0.75rem; font-weight: 700; z-index: 1; gap: 6px; }
+    .ssp-badge { background: rgba(255, 255, 255, 0.76); padding: 3px 8px; border-radius: 999px; border: 1px solid rgba(0,0,0,0.08); }
+    .mini-bar { height: 6px; background: rgba(255,255,255,0.65); border-radius: 999px; overflow: hidden; margin-top: 6px; }
+    .mini-bar-fill { height: 100%; background: currentColor; border-radius: 999px; transition: width 0.3s ease; }
 
     /* --- COMBAT / QCM VIEW --- */
     .combat-header {
-      background: #fff;
-      border: 1.5px solid var(--border-soft);
-      border-radius: 18px;
-      padding: 16px 20px;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      gap: 14px;
-      margin-bottom: 22px;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.04);
-      position: sticky;
-      top: 72px;
-      z-index: 30;
+      background: #fff; border: 1.5px solid var(--border-soft); border-radius: 18px;
+      padding: 14px 18px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+      gap: 12px; margin-bottom: 18px; box-shadow: 0 6px 20px rgba(0,0,0,0.04);
+      position: sticky; top: 70px; z-index: 30;
+    }
+    .combat-filters-bar {
+      display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+      gap: 12px; margin-bottom: 18px;
+      background: #fff; border: 1.5px solid var(--border-soft); border-radius: 14px; padding: 12px 16px;
+    }
+    .theme-select {
+      padding: 7px 12px; border-radius: 10px; border: 1.5px solid #cbd5e1;
+      background: #f8fafc; font-size: 0.85rem; font-weight: 600; max-width: 320px;
     }
     .chrono-box {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      background: #f8fafc;
-      border: 1.5px solid #cbd5e1;
-      border-radius: 12px;
-      padding: 6px 12px;
+      display: flex; align-items: center; gap: 8px;
+      background: #f8fafc; border: 1.5px solid #cbd5e1; border-radius: 12px; padding: 6px 12px;
     }
-    .chrono-time {
-      font-family: ui-monospace, SFMono-Regular, monospace;
-      font-size: 1.15rem;
-      font-weight: 800;
-      color: #0f172a;
-      min-width: 64px;
-      text-align: center;
+    .chrono-time { font-family: ui-monospace, SFMono-Regular, monospace; font-size: 1.15rem; font-weight: 800; color: #0f172a; min-width: 64px; text-align: center; }
+    .chrono-box button { border: 1px solid #cbd5e1; background: #fff; border-radius: 8px; padding: 4px 9px; font-size: 0.78rem; font-weight: 700; cursor: pointer; }
+    .filter-pills { display: flex; flex-wrap: wrap; gap: 6px; }
+    .filter-pill { padding: 6px 12px; border-radius: 999px; border: 1.5px solid var(--border-soft); background: #fff; font-size: 0.8rem; font-weight: 700; cursor: pointer; }
+    .filter-pill.active { background: #0f172a; color: #fff; border-color: #0f172a; }
+
+    /* Pagination */
+    .pager {
+      display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 6px;
+      margin: 18px 0;
     }
-    .chrono-box button {
-      border: 1px solid #cbd5e1;
-      background: #fff;
-      border-radius: 8px;
-      padding: 4px 9px;
-      font-size: 0.78rem;
-      font-weight: 700;
-      cursor: pointer;
+    .pager button {
+      min-width: 36px; height: 36px; padding: 0 10px;
+      border-radius: 10px; border: 1.5px solid #cbd5e1; background: #fff;
+      font-weight: 700; font-size: 0.84rem; cursor: pointer;
     }
-    .filter-pills {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-    }
-    .filter-pill {
-      padding: 6px 12px;
-      border-radius: 999px;
-      border: 1.5px solid var(--border-soft);
-      background: #fff;
-      font-size: 0.8rem;
-      font-weight: 700;
-      cursor: pointer;
-    }
-    .filter-pill.active {
-      background: #0f172a;
-      color: #fff;
-      border-color: #0f172a;
-    }
+    .pager button.active { background: #1d4ed8; color: #fff; border-color: #1d4ed8; }
+    .pager button:disabled { opacity: 0.45; cursor: not-allowed; }
 
     .qcm-card {
-      background: #fff;
-      border: 1.5px solid var(--border-soft);
-      border-radius: 20px;
-      padding: 24px;
-      margin-bottom: 22px;
-      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.04);
+      background: #fff; border: 1.5px solid var(--border-soft); border-radius: 20px;
+      padding: 24px; margin-bottom: 20px; box-shadow: 0 8px 24px rgba(15, 23, 42, 0.04);
     }
-    .qcm-top {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      gap: 10px;
-      margin-bottom: 12px;
-    }
-    .qcm-type-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 4px 11px;
-      border-radius: 999px;
-      font-size: 0.77rem;
-      font-weight: 800;
-    }
+    .qcm-top { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 12px; }
+    .qcm-type-badge { display: inline-flex; align-items: center; gap: 6px; padding: 4px 11px; border-radius: 999px; font-size: 0.77rem; font-weight: 800; }
     .type-A { background: #dbeafe; color: #1e40af; }
     .type-K { background: #fef3c7; color: #92400e; }
     .type-M { background: #ede9fe; color: #5b21b6; }
-    .qcm-consigne {
-      font-size: 0.78rem;
-      color: var(--ink-muted);
-      font-style: italic;
-    }
-    .qcm-stem {
-      font-size: 1.03rem;
-      font-weight: 600;
-      margin: 0 0 16px;
-      color: #0f172a;
-    }
+    .qcm-consigne { font-size: 0.78rem; color: var(--ink-muted); font-style: italic; }
+    .qcm-stem { font-size: 1.03rem; font-weight: 600; margin: 0 0 16px; color: #0f172a; }
 
-    /* Type A options */
-    .opt-list {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      margin-bottom: 18px;
-    }
+    .opt-list { display: flex; flex-direction: column; gap: 10px; margin-bottom: 18px; }
     .opt-btn {
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      text-align: left;
-      background: #f8fafc;
-      border: 1.5px solid #cbd5e1;
-      border-radius: 12px;
-      padding: 12px 15px;
-      cursor: pointer;
-      font-size: 0.93rem;
-      color: var(--ink);
-      transition: all 0.16s ease;
+      display: flex; align-items: flex-start; gap: 12px; text-align: left;
+      background: #f8fafc; border: 1.5px solid #cbd5e1; border-radius: 12px;
+      padding: 12px 15px; cursor: pointer; font-size: 0.93rem; color: var(--ink); transition: all 0.16s ease;
     }
     .opt-btn:hover { background: #eff6ff; border-color: #60a5fa; }
-    .opt-btn.selected { background: #dbeafe; border-color: #2563eb; font-weight: 600; }
     .opt-btn.correct { background: #dcfce7; border-color: #16a34a; }
     .opt-btn.wrong { background: #fee2e2; border-color: #dc2626; }
-    .opt-letter {
-      flex-shrink: 0;
-      width: 26px; height: 26px;
-      border-radius: 8px;
-      background: #fff;
-      border: 1px solid #cbd5e1;
-      display: grid;
-      place-items: center;
-      font-weight: 800;
-      font-size: 0.82rem;
-    }
+    .opt-letter { flex-shrink: 0; width: 26px; height: 26px; border-radius: 8px; background: #fff; border: 1px solid #cbd5e1; display: grid; place-items: center; font-weight: 800; font-size: 0.82rem; }
 
-    /* Type K' rows */
-    .k-table {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      margin-bottom: 18px;
-    }
-    .k-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 14px;
-      background: #f8fafc;
-      border: 1.5px solid #cbd5e1;
-      border-radius: 12px;
-      padding: 11px 14px;
-    }
+    .k-table { display: flex; flex-direction: column; gap: 10px; margin-bottom: 18px; }
+    .k-row { display: flex; align-items: center; justify-content: space-between; gap: 14px; background: #f8fafc; border: 1.5px solid #cbd5e1; border-radius: 12px; padding: 11px 14px; }
     .k-text { font-size: 0.92rem; flex: 1; }
     .k-toggles { display: flex; gap: 6px; flex-shrink: 0; }
-    .k-toggle {
-      padding: 6px 12px;
-      border-radius: 8px;
-      border: 1.5px solid #cbd5e1;
-      background: #fff;
-      font-weight: 800;
-      font-size: 0.82rem;
-      cursor: pointer;
-    }
+    .k-toggle { padding: 6px 12px; border-radius: 8px; border: 1.5px solid #cbd5e1; background: #fff; font-weight: 800; font-size: 0.82rem; cursor: pointer; }
     .k-toggle.active-true { background: #16a34a; color: #fff; border-color: #16a34a; }
     .k-toggle.active-false { background: #dc2626; color: #fff; border-color: #dc2626; }
 
-    /* Menu Long */
-    .menu-long-box {
-      border: 1.5px solid #cbd5e1;
-      border-radius: 14px;
-      background: #f8fafc;
-      padding: 12px;
-      margin-bottom: 18px;
-    }
-    .menu-long-search {
-      width: 100%;
-      padding: 8px 12px;
-      border-radius: 8px;
-      border: 1px solid #cbd5e1;
-      margin-bottom: 10px;
-      font-size: 0.88rem;
-    }
-    .menu-long-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-      gap: 8px;
-      max-height: 230px;
-      overflow-y: auto;
-    }
-    .ml-opt {
-      text-align: left;
-      padding: 8px 11px;
-      border-radius: 9px;
-      border: 1.5px solid #cbd5e1;
-      background: #fff;
-      font-size: 0.84rem;
-      cursor: pointer;
-    }
-    .ml-opt.selected { background: #ede9fe; border-color: #7c3aed; font-weight: 700; color: #4c1d95; }
+    .menu-long-box { border: 1.5px solid #cbd5e1; border-radius: 14px; background: #f8fafc; padding: 12px; margin-bottom: 18px; }
+    .menu-long-search { width: 100%; padding: 8px 12px; border-radius: 8px; border: 1px solid #cbd5e1; margin-bottom: 10px; font-size: 0.88rem; }
+    .menu-long-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 8px; max-height: 230px; overflow-y: auto; }
+    .ml-opt { text-align: left; padding: 8px 11px; border-radius: 9px; border: 1.5px solid #cbd5e1; background: #fff; font-size: 0.84rem; cursor: pointer; }
     .ml-opt.correct { background: #dcfce7; border-color: #16a34a; }
     .ml-opt.wrong { background: #fee2e2; border-color: #dc2626; }
 
-    .qcm-footer {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-    }
+    .qcm-footer { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; }
     .btn-reponses {
-      background: linear-gradient(135deg, #16a34a, #15803d);
-      color: #fff;
-      border: none;
-      border-radius: 12px;
-      padding: 11px 22px;
-      font-weight: 800;
-      font-size: 0.94rem;
-      cursor: pointer;
-      box-shadow: 0 6px 16px rgba(22, 163, 74, 0.30);
-      transition: transform 0.16s ease, box-shadow 0.16s ease;
+      background: linear-gradient(135deg, #16a34a, #15803d); color: #fff; border: none; border-radius: 12px;
+      padding: 11px 22px; font-weight: 800; font-size: 0.94rem; cursor: pointer;
+      box-shadow: 0 6px 16px rgba(22, 163, 74, 0.30); transition: transform 0.16s ease, box-shadow 0.16s ease;
     }
     .btn-reponses:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(22, 163, 74, 0.40); }
 
-    /* --- FULL-PAGE RÉPONSES OVERLAY (fits cleanly within 1 page) --- */
-    .answer-overlay {
-      position: fixed;
-      inset: 0;
-      z-index: 100;
-      background: var(--paper);
-      display: none;
-      flex-direction: column;
-      overflow-y: auto;
-    }
+    /* --- FULL-PAGE RÉPONSES OVERLAY --- */
+    .answer-overlay { position: fixed; inset: 0; z-index: 100; background: var(--paper); display: none; flex-direction: column; overflow-y: auto; }
     .answer-overlay.open { display: flex; }
-    .answer-topbar {
-      background: #14532d;
-      color: #fff;
-      padding: 12px 24px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      position: sticky;
-      top: 0;
-      z-index: 5;
-    }
-    .answer-page-body {
-      max-width: 1180px;
-      width: 100%;
-      margin: 0 auto;
-      padding: 20px 24px;
-      display: grid;
-      grid-template-columns: 1.05fr 0.95fr;
-      gap: 20px;
-      align-items: start;
-    }
-    @media (max-width: 900px) {
-      .answer-page-body { grid-template-columns: 1fr; }
-    }
-    .ans-panel {
-      background: #fff;
-      border: 1.5px solid var(--border-soft);
-      border-radius: 18px;
-      padding: 18px 20px;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.04);
-    }
-    .ans-panel h3 {
-      margin: 0 0 10px;
-      font-size: 0.98rem;
-      color: #0f172a;
-      border-bottom: 1.5px solid #e2e8f0;
-      padding-bottom: 6px;
-    }
-    .verdict-banner {
-      border-radius: 12px;
-      padding: 10px 14px;
-      font-weight: 800;
-      font-size: 0.94rem;
-      margin-bottom: 12px;
-    }
+    .answer-topbar { background: #14532d; color: #fff; padding: 12px 24px; display: flex; align-items: center; justify-content: space-between; gap: 12px; position: sticky; top: 0; z-index: 5; }
+    .answer-page-body { max-width: 1180px; width: 100%; margin: 0 auto; padding: 18px 24px; display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 18px; align-items: start; }
+    @media (max-width: 900px) { .answer-page-body { grid-template-columns: 1fr; } }
+    .ans-panel { background: #fff; border: 1.5px solid var(--border-soft); border-radius: 18px; padding: 18px 20px; box-shadow: 0 6px 18px rgba(0,0,0,0.04); }
+    .ans-panel h3 { margin: 0 0 10px; font-size: 0.98rem; color: #0f172a; border-bottom: 1.5px solid #e2e8f0; padding-bottom: 6px; }
+    .verdict-banner { border-radius: 12px; padding: 10px 14px; font-weight: 800; font-size: 0.94rem; margin-bottom: 12px; }
     .verdict-ok { background: #dcfce7; color: #14532d; border: 1.5px solid #16a34a; }
     .verdict-ko { background: #fee2e2; color: #7f1d1d; border: 1.5px solid #dc2626; }
     .verdict-neutral { background: #eff6ff; color: #1e3a8a; border: 1.5px solid #3b82f6; }
 
-    .justif-item {
-      padding: 8px 11px;
-      border-radius: 10px;
-      margin-bottom: 7px;
-      font-size: 0.87rem;
-      line-height: 1.42;
-      background: #f8fafc;
-      border-left: 4px solid #94a3b8;
-    }
-    .justif-item.is-true {
-      background: #f0fdf4;
-      border-left-color: #16a34a;
-    }
-    .justif-item.is-false {
-      background: #fef2f2;
-      border-left-color: #ef4444;
-    }
-    .rappel-box {
-      background: #eff6ff;
-      border: 1.5px solid #bfdbfe;
-      border-radius: 14px;
-      padding: 14px 16px;
-      margin-bottom: 14px;
-      font-size: 0.89rem;
-    }
-    .spec-box {
-      background: #f0fdf4;
-      border: 1.5px solid #bbf7d0;
-      border-radius: 14px;
-      padding: 14px 16px;
-      margin-bottom: 12px;
-      font-size: 0.9rem;
-    }
-    .source-line {
-      font-size: 0.78rem;
-      color: var(--ink-muted);
-      font-weight: 600;
-    }
+    .justif-item { padding: 8px 11px; border-radius: 10px; margin-bottom: 7px; font-size: 0.86rem; line-height: 1.4; background: #f8fafc; border-left: 4px solid #94a3b8; }
+    .justif-item.is-true { background: #f0fdf4; border-left-color: #16a34a; }
+    .justif-item.is-false { background: #fef2f2; border-left-color: #ef4444; }
+    .rappel-box { background: #eff6ff; border: 1.5px solid #bfdbfe; border-radius: 14px; padding: 14px 16px; margin-bottom: 14px; font-size: 0.88rem; }
+    .spec-box { background: #f0fdf4; border: 1.5px solid #bbf7d0; border-radius: 14px; padding: 14px 16px; margin-bottom: 12px; font-size: 0.89rem; }
+    .source-line { font-size: 0.78rem; color: var(--ink-muted); font-weight: 600; }
 
-    /* --- VEILLE 2027 CARDS --- */
-    .veille-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-      gap: 18px;
-    }
-    .veille-card {
-      background: #fff;
-      border: 1.5px solid var(--border-soft);
-      border-radius: 18px;
-      padding: 20px;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.04);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      gap: 10px;
-    }
-    .veille-cat {
-      display: inline-block;
-      font-size: 0.75rem;
-      font-weight: 800;
-      padding: 3px 10px;
-      border-radius: 999px;
-      background: #e0f2fe;
-      color: #0369a1;
-    }
+    /* --- VEILLE 2027 --- */
+    .veille-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 18px; }
+    .veille-card { background: #fff; border: 1.5px solid var(--border-soft); border-radius: 18px; padding: 20px; box-shadow: 0 6px 18px rgba(0,0,0,0.04); display: flex; flex-direction: column; justify-content: space-between; gap: 10px; }
+    .veille-cat { display: inline-block; font-size: 0.75rem; font-weight: 800; padding: 3px 10px; border-radius: 999px; background: #e0f2fe; color: #0369a1; }
     .veille-card h3 { margin: 6px 0; font-size: 1rem; }
     .veille-card p { margin: 0; font-size: 0.88rem; color: var(--ink-muted); }
-    .veille-card a {
-      color: #0f766e;
-      font-weight: 700;
-      font-size: 0.84rem;
-      text-decoration: none;
+    .veille-card a { color: #0f766e; font-weight: 700; font-size: 0.84rem; text-decoration: none; }
+
+    .loading-pill {
+      display: inline-block; padding: 16px 24px; background: #eff6ff; border: 1.5px solid #93c5fd;
+      border-radius: 14px; font-weight: 700; color: #1e3a8a;
     }
     .hidden { display: none !important; }
   </style>
@@ -842,7 +376,7 @@
       <div class="brand-crest">+</div>
       <div class="brand-title">
         <h1>Arène QCM · Examen Fédéral 2027</h1>
-        <span>Médecine humaine Suisse · 248 SSP PROFILES</span>
+        <span>Médecine humaine Suisse · 248 SSP PROFILES · 2'587+ Diagnostics</span>
       </div>
     </div>
     <nav class="tabs" id="mainTabs">
@@ -863,36 +397,36 @@
           <div class="arena-kicker">🇨🇭 Session Visée : Août / Septembre 2027 · CK &amp; CS</div>
           <h2>L'Arène d'entraînement absolu aux QCM suisses</h2>
           <p>
-            Maîtrisez les <strong>248 situations de départ (SSP)</strong> du référentiel PROFILES à travers une base
-            massive de questions de <strong>Type A</strong>, <strong>Type K'</strong> et <strong>Menu Long</strong>, avec
-            justifications complètes option par option et rappels de sciences fondamentales.
+            Maîtrisez les <strong>248 situations de départ (SSP)</strong> et leurs <strong>2'587 diagnostics différentiels</strong>
+            à travers plus de <strong>100'000 QCMs</strong> (≥ 400 QCMs par SSP, répartis en milliers de pages) de
+            <strong>Type A</strong>, <strong>Type K'</strong> et <strong>Menu Long</strong>, avec justifications option par option et sciences fondamentales.
           </p>
           <div class="formula-pill">
             <span>Répartition :</span>
-            <code id="propFormula">0.57·A + 0.29·K' + 0.14·M</code>
+            <code id="propFormula">0.55·A + 0.30·K' + 0.15·M</code>
             <span style="color:#16a34a;">✓ a, k', m &gt; 0</span>
           </div>
           <div class="arena-actions">
-            <button class="btn-primary" onclick="startArenaChallenge(10, false)">⚔️ Défi rapide (10 QCMs aléatoires)</button>
-            <button class="btn-secondary" onclick="startArenaChallenge(20, true)">⏱️ Examen blanc chronométré (20 QCMs · 30 min)</button>
+            <button class="btn-primary" onclick="startArenaChallenge(15, false)">⚔️ Défi rapide (15 QCMs multi-SSP)</button>
+            <button class="btn-secondary" onclick="startArenaChallenge(30, true)">⏱️ Examen blanc chronométré (30 QCMs · 45 min)</button>
           </div>
         </div>
         <div class="arena-stats-grid">
           <div class="stat-card">
             <div class="val" id="statTotalQ">—</div>
-            <div class="lbl">Questions Type Examen</div>
+            <div class="lbl">QCMs Type Examen (400+/SSP)</div>
+          </div>
+          <div class="stat-card">
+            <div class="val" id="statTotalPages">—</div>
+            <div class="lbl">Pages d'entraînement (20/page)</div>
+          </div>
+          <div class="stat-card">
+            <div class="val" id="statAnswered">0</div>
+            <div class="lbl">QCMs combattus (<span id="statAccuracy">—</span> réussite)</div>
           </div>
           <div class="stat-card">
             <div class="val" id="statCountdown">—</div>
             <div class="lbl">Jours avant CK 2027 (10.08)</div>
-          </div>
-          <div class="stat-card">
-            <div class="val" id="statAnswered">0</div>
-            <div class="lbl">QCMs combattus</div>
-          </div>
-          <div class="stat-card">
-            <div class="val" id="statAccuracy">—</div>
-            <div class="lbl">Taux de réussite</div>
           </div>
         </div>
       </div>
@@ -902,22 +436,22 @@
         <div class="portal-card cat-G" onclick="switchTab('G')">
           <div class="big-letter">G</div>
           <h3>Situations générales</h3>
-          <p>16 SSP · G1 à G16</p>
+          <p id="portalStatsG">16 SSP · G1 à G16</p>
         </div>
         <div class="portal-card cat-S" onclick="switchTab('S')">
           <div class="big-letter">S</div>
           <h3>Symptômes spécifiques</h3>
-          <p>113 SSP · S1.1 à S9.x</p>
+          <p id="portalStatsS">113 SSP · S1.1 à S9.x</p>
         </div>
         <div class="portal-card cat-F" onclick="switchTab('F')">
           <div class="big-letter">F</div>
           <h3>Findings &amp; Résultats</h3>
-          <p>44 SSP · F1.1 à F2.x</p>
+          <p id="portalStatsF">44 SSP · F1.1 à F2.x</p>
         </div>
         <div class="portal-card cat-O" onclick="switchTab('O')">
           <div class="big-letter">O</div>
           <h3>Autres situations</h3>
-          <p>75 SSP · O1.1 à O7.x</p>
+          <p id="portalStatsO">75 SSP · O1.1 à O7.x</p>
         </div>
       </div>
 
@@ -952,10 +486,10 @@
           <strong id="combatTitle" style="margin-left:10px;font-size:1.05rem;">SSP</strong>
         </div>
         <div class="filter-pills">
-          <button class="filter-pill active" data-qf="ALL" onclick="setQFilter('ALL')">Tous</button>
-          <button class="filter-pill" data-qf="A" onclick="setQFilter('A')">Type A</button>
-          <button class="filter-pill" data-qf="K" onclick="setQFilter('K')">Type K'</button>
-          <button class="filter-pill" data-qf="M" onclick="setQFilter('M')">Menu Long</button>
+          <button class="filter-pill active" data-qf="ALL" onclick="setQFilter('ALL')">Tous (<span id="cntAll">0</span>)</button>
+          <button class="filter-pill" data-qf="A" onclick="setQFilter('A')">Type A (<span id="cntA">0</span>)</button>
+          <button class="filter-pill" data-qf="K" onclick="setQFilter('K')">Type K' (<span id="cntK">0</span>)</button>
+          <button class="filter-pill" data-qf="M" onclick="setQFilter('M')">Menu Long (<span id="cntM">0</span>)</button>
         </div>
         <div class="chrono-box">
           <span>⏱️</span>
@@ -964,7 +498,21 @@
           <button type="button" onclick="resetChrono()">Reset</button>
         </div>
       </div>
+
+      <div class="combat-filters-bar">
+        <div style="display:flex;flex-wrap:wrap;gap:10px;align-items:center;">
+          <label style="font-size:0.84rem;font-weight:700;">Thème / DD :</label>
+          <select id="themeFilter" class="theme-select" onchange="onThemeChange()">
+            <option value="ALL">Tous les thèmes &amp; diagnostics</option>
+          </select>
+          <input type="search" id="qSearchBox" class="search-box" style="max-width:260px;padding:7px 12px;font-size:0.85rem;" placeholder="Chercher dans ces QCMs..." oninput="onThemeChange()" />
+        </div>
+        <div id="combatPageInfo" style="font-size:0.86rem;font-weight:700;color:var(--ink-muted);"></div>
+      </div>
+
+      <div class="pager" id="pagerTop"></div>
       <div id="qcmList"></div>
+      <div class="pager" id="pagerBottom"></div>
     </section>
   </main>
 
@@ -1003,23 +551,28 @@
     </div>
   </div>
 
-  <!-- DATA SCRIPTS (work in both file:// and HTTP) -->
+  <!-- CORE LIGHTWEIGHT DATA (instant load, works offline file:// and HTTP) -->
   <script src="data/veille_2027.js"></script>
   <script src="data/catalog.js"></script>
-  <script src="data/qcm_G.js"></script>
-  <script src="data/qcm_S.js"></script>
-  <script src="data/qcm_F.js"></script>
-  <script src="data/qcm_O.js"></script>
 
   <script>
+    window.QCM_SSP = window.QCM_SSP || {};
+    const PAGE_SIZE = 20;
+
     const STATE = {
       tab: 'HOME',
       lastCat: 'G',
+      activeSSPCode: null,
       activeQuestions: [],
+      filteredQuestions: [],
       qFilter: 'ALL',
+      themeFilter: 'ALL',
+      qSearch: '',
+      page: 1,
       combatTitle: '',
       currentAnswerIdx: 0,
       userAnswers: JSON.parse(localStorage.getItem('arene_2027_answers') || '{}'),
+      sspProgress: JSON.parse(localStorage.getItem('arene_2027_ssp_prog') || '{}'),
       chronoSec: 0,
       chronoRunning: false,
       chronoCountdown: false,
@@ -1034,8 +587,29 @@
       O: { name: 'O · Autres situations cliniques', desc: '75 situations spécialisées (O1 à O7)' }
     };
 
-    function saveProgress() {
+    /* --- DYNAMIC LAZY LOADER (file:// + HTTP compatible) --- */
+    function loadSSP(code) {
+      if (window.QCM_SSP[code]) return Promise.resolve(window.QCM_SSP[code]);
+      return new Promise((resolve, reject) => {
+        const s = document.createElement('script');
+        s.src = 'data/ssp/' + encodeURIComponent(code) + '.js';
+        s.onload = () => {
+          if (window.QCM_SSP[code]) resolve(window.QCM_SSP[code]);
+          else reject(new Error('SSP non chargé: ' + code));
+        };
+        s.onerror = () => reject(new Error('Erreur de chargement: ' + s.src));
+        document.head.appendChild(s);
+      });
+    }
+
+    function saveProgress(sspCode) {
       localStorage.setItem('arene_2027_answers', JSON.stringify(STATE.userAnswers));
+      if (sspCode && window.QCM_SSP[sspCode]) {
+        const qs = window.QCM_SSP[sspCode].questions;
+        const done = qs.filter(q => STATE.userAnswers[q.id] !== undefined).length;
+        STATE.sspProgress[sspCode] = done;
+        localStorage.setItem('arene_2027_ssp_prog', JSON.stringify(STATE.sspProgress));
+      }
       updateHomeStats();
     }
 
@@ -1055,6 +629,8 @@
     function updateHomeStats() {
       const cat = window.QCM_CATALOG;
       document.getElementById('statTotalQ').textContent = cat.total_questions.toLocaleString('fr-CH');
+      const totalPages = cat.catalog.reduce((acc, x) => acc + Math.ceil(x.total / PAGE_SIZE), 0);
+      document.getElementById('statTotalPages').textContent = totalPages.toLocaleString('fr-CH');
       const p = cat.proportions;
       document.getElementById('propFormula').textContent = `${p.a}·A + ${p.k_prime}·K' + ${p.m}·M`;
 
@@ -1063,13 +639,20 @@
       document.getElementById('statCountdown').textContent = days;
 
       const entries = Object.values(STATE.userAnswers);
-      document.getElementById('statAnswered').textContent = entries.length;
+      document.getElementById('statAnswered').textContent = entries.length.toLocaleString('fr-CH');
       if (entries.length > 0) {
         const sum = entries.reduce((acc, e) => acc + (e.score || 0), 0);
         document.getElementById('statAccuracy').textContent = Math.round((sum / entries.length) * 100) + '%';
       } else {
         document.getElementById('statAccuracy').textContent = '—';
       }
+
+      ['G', 'S', 'F', 'O'].forEach(c => {
+        const items = cat.catalog.filter(x => x.cat === c);
+        const totQ = items.reduce((a, b) => a + b.total, 0);
+        const el = document.getElementById('portalStats' + c);
+        if (el) el.textContent = `${items.length} SSP · ${totQ.toLocaleString('fr-CH')} QCMs`;
+      });
     }
 
     function renderVeille() {
@@ -1118,18 +701,17 @@
         x.cat === cat && (!q || x.code.toLowerCase().includes(q) || x.title.toLowerCase().includes(q))
       );
 
-      const dataMap = window.QCM_DATA[cat];
       document.getElementById('sspGrid').innerHTML = list.map(item => {
-        const qs = dataMap[item.code]?.questions || [];
-        const done = qs.filter(qu => STATE.userAnswers[qu.id] !== undefined).length;
-        const pct = qs.length ? Math.round((done / qs.length) * 100) : 0;
+        const done = STATE.sspProgress[item.code] || 0;
+        const pct = item.total ? Math.round((done / item.total) * 100) : 0;
+        const pages = Math.ceil(item.total / PAGE_SIZE);
         return `
           <div class="ssp-cell cat-${cat}" onclick="openSSP('${cat}', '${item.code}')">
             <div class="ssp-cell-title">${item.code} : ${item.title}</div>
             <div>
               <div class="ssp-cell-meta">
-                <span class="ssp-badge">${item.total} QCM · ${item.A}A / ${item.K}K' / ${item.M}M</span>
-                <span>${done}/${item.total}</span>
+                <span class="ssp-badge">${item.total} QCM · ${pages} pages</span>
+                <span>${item.dds} DD · ${done}/${item.total}</span>
               </div>
               <div class="mini-bar"><div class="mini-bar-fill" style="width:${pct}%"></div></div>
             </div>
@@ -1139,48 +721,84 @@
     }
 
     /* --- COMBAT VIEW --- */
-    function openSSP(cat, code) {
-      const ssp = window.QCM_DATA[cat][code];
-      STATE.activeQuestions = ssp.questions;
-      STATE.combatTitle = `${code} : ${ssp.title}`;
-      STATE.qFilter = 'ALL';
-      STATE.chronoCountdown = false;
-      resetChrono();
-      enterCombatView();
+    async function openSSP(cat, code) {
+      STATE.activeSSPCode = code;
+      STATE.combatTitle = `${code} · Chargement…`;
+      enterCombatLoading();
+      try {
+        const ssp = await loadSSP(code);
+        STATE.activeQuestions = ssp.questions.map(q => ({ ...q, _sspCode: code }));
+        STATE.combatTitle = `${code} : ${ssp.title}`;
+        STATE.qFilter = 'ALL';
+        STATE.themeFilter = 'ALL';
+        STATE.qSearch = '';
+        STATE.page = 1;
+        STATE.chronoCountdown = false;
+        resetChrono();
+        populateCombatUI();
+      } catch (err) {
+        document.getElementById('qcmList').innerHTML = `<div class="loading-pill" style="background:#fee2e2;color:#991b1b;border-color:#ef4444;">${err.message}</div>`;
+      }
     }
 
-    function startArenaChallenge(count, timed) {
-      const allQ = [];
-      ['G', 'S', 'F', 'O'].forEach(c => {
-        Object.values(window.QCM_DATA[c]).forEach(ssp => allQ.push(...ssp.questions));
-      });
-      // Fisher-Yates sample
-      for (let i = allQ.length - 1; i > 0; i--) {
+    async function startArenaChallenge(count, timed) {
+      STATE.activeSSPCode = null;
+      STATE.combatTitle = 'Préparation du défi multi-SSP…';
+      enterCombatLoading();
+      const pool = [...window.QCM_CATALOG.catalog];
+      for (let i = pool.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
-        [allQ[i], allQ[j]] = [allQ[j], allQ[i]];
+        [pool[i], pool[j]] = [pool[j], pool[i]];
       }
-      STATE.activeQuestions = allQ.slice(0, count);
-      STATE.combatTitle = timed ? `Examen Blanc Chronométré (${count} QCMs)` : `Défi de l'Arène (${count} QCMs aléatoires)`;
+      const chosenSSPs = pool.slice(0, count);
+      const loaded = await Promise.all(chosenSSPs.map(x => loadSSP(x.code)));
+      const sampled = loaded.map(ssp => {
+        const q = ssp.questions[Math.floor(Math.random() * ssp.questions.length)];
+        return { ...q, _sspCode: ssp.code };
+      });
+      STATE.activeQuestions = sampled;
+      STATE.combatTitle = timed ? `Examen Blanc Chronométré (${count} QCMs)` : `Défi de l'Arène (${count} QCMs multi-SSP)`;
       STATE.qFilter = 'ALL';
+      STATE.themeFilter = 'ALL';
+      STATE.qSearch = '';
+      STATE.page = 1;
       resetChrono();
       if (timed) {
         STATE.chronoCountdown = true;
-        STATE.chronoSec = 30 * 60;
+        STATE.chronoSec = 45 * 60;
         updateChronoDisplay();
         toggleChrono();
       } else {
         STATE.chronoCountdown = false;
       }
-      enterCombatView();
+      populateCombatUI();
     }
 
-    function enterCombatView() {
+    function enterCombatLoading() {
       ['HOME', 'CAT', 'VEILLE'].forEach(v => document.getElementById('view-' + v).classList.add('hidden'));
       document.getElementById('view-COMBAT').classList.remove('hidden');
       document.getElementById('combatTitle').textContent = STATE.combatTitle;
-      document.querySelectorAll('.filter-pill').forEach(p => p.classList.toggle('active', p.dataset.qf === STATE.qFilter));
-      renderQCMList();
+      document.getElementById('qcmList').innerHTML = '<div class="loading-pill">Chargement des QCMs Type Examen…</div>';
+      document.getElementById('pagerTop').innerHTML = '';
+      document.getElementById('pagerBottom').innerHTML = '';
       window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function populateCombatUI() {
+      document.getElementById('combatTitle').textContent = STATE.combatTitle;
+      document.getElementById('cntAll').textContent = STATE.activeQuestions.length;
+      document.getElementById('cntA').textContent = STATE.activeQuestions.filter(q => q.t === 'A').length;
+      document.getElementById('cntK').textContent = STATE.activeQuestions.filter(q => q.t === 'K').length;
+      document.getElementById('cntM').textContent = STATE.activeQuestions.filter(q => q.t === 'M').length;
+
+      // Populate theme dropdown
+      const themes = Array.from(new Set(STATE.activeQuestions.map(q => q.th))).sort();
+      const sel = document.getElementById('themeFilter');
+      sel.innerHTML = '<option value="ALL">Tous les thèmes &amp; diagnostics (' + themes.length + ')</option>' +
+        themes.map(th => `<option value="${th.replace(/"/g, '&quot;')}">${th}</option>`).join('');
+      document.getElementById('qSearchBox').value = '';
+      document.querySelectorAll('.filter-pill').forEach(p => p.classList.toggle('active', p.dataset.qf === STATE.qFilter));
+      applyFiltersAndRender();
     }
 
     function exitCombat() {
@@ -1190,60 +808,110 @@
 
     function setQFilter(qf) {
       STATE.qFilter = qf;
+      STATE.page = 1;
       document.querySelectorAll('.filter-pill').forEach(p => p.classList.toggle('active', p.dataset.qf === qf));
-      renderQCMList();
+      applyFiltersAndRender();
     }
 
-    function renderQCMList() {
-      const filtered = STATE.activeQuestions.filter(q => STATE.qFilter === 'ALL' || q.type === STATE.qFilter);
+    function onThemeChange() {
+      STATE.themeFilter = document.getElementById('themeFilter').value;
+      STATE.qSearch = document.getElementById('qSearchBox').value.trim().toLowerCase();
+      STATE.page = 1;
+      applyFiltersAndRender();
+    }
+
+    function applyFiltersAndRender() {
+      STATE.filteredQuestions = STATE.activeQuestions.filter(q => {
+        if (STATE.qFilter !== 'ALL' && q.t !== STATE.qFilter) return false;
+        if (STATE.themeFilter !== 'ALL' && q.th !== STATE.themeFilter) return false;
+        if (STATE.qSearch && !(q.st.toLowerCase().includes(STATE.qSearch) || q.th.toLowerCase().includes(STATE.qSearch) || q.id.toLowerCase().includes(STATE.qSearch))) return false;
+        return true;
+      });
+      renderQCMPage();
+    }
+
+    function goPage(p) {
+      STATE.page = p;
+      renderQCMPage();
+      window.scrollTo({ top: 120, behavior: 'smooth' });
+    }
+
+    function renderPager(totalPages) {
+      if (totalPages <= 1) return '';
+      let html = `<button ${STATE.page === 1 ? 'disabled' : ''} onclick="goPage(${STATE.page - 1})">‹ Préc.</button>`;
+      const start = Math.max(1, STATE.page - 3);
+      const end = Math.min(totalPages, STATE.page + 3);
+      if (start > 1) html += `<button onclick="goPage(1)">1</button>${start > 2 ? '<span>…</span>' : ''}`;
+      for (let i = start; i <= end; i++) {
+        html += `<button class="${i === STATE.page ? 'active' : ''}" onclick="goPage(${i})">${i}</button>`;
+      }
+      if (end < totalPages) html += `${end < totalPages - 1 ? '<span>…</span>' : ''}<button onclick="goPage(${totalPages})">${totalPages}</button>`;
+      html += `<button ${STATE.page === totalPages ? 'disabled' : ''} onclick="goPage(${STATE.page + 1})">Suiv. ›</button>`;
+      return html;
+    }
+
+    function renderQCMPage() {
+      const total = STATE.filteredQuestions.length;
+      const totalPages = Math.max(1, Math.ceil(total / PAGE_SIZE));
+      if (STATE.page > totalPages) STATE.page = totalPages;
+
+      const startIdx = (STATE.page - 1) * PAGE_SIZE;
+      const pageItems = STATE.filteredQuestions.slice(startIdx, startIdx + PAGE_SIZE);
+
+      document.getElementById('combatPageInfo').textContent =
+        `${total} QCMs · Page ${STATE.page} / ${totalPages}`;
+      const pagerHtml = renderPager(totalPages);
+      document.getElementById('pagerTop').innerHTML = pagerHtml;
+      document.getElementById('pagerBottom').innerHTML = pagerHtml;
+
       const letters = ['A', 'B', 'C', 'D', 'E'];
       const lettersK = ['a', 'b', 'c', 'd'];
 
-      document.getElementById('qcmList').innerHTML = filtered.map((q) => {
-        const globalIdx = STATE.activeQuestions.indexOf(q);
+      document.getElementById('qcmList').innerHTML = pageItems.map((q) => {
+        const fIdx = STATE.filteredQuestions.indexOf(q);
         const saved = STATE.userAnswers[q.id];
-        const typeLabel = q.type === 'A' ? 'Type A · Choix simple' : q.type === 'K' ? "Type K' · 4 items Vrai/Faux" : 'Menu Long · Liste étendue';
-        const consigne = q.type === 'A'
+        const typeLabel = q.t === 'A' ? 'Type A · Choix simple' : q.t === 'K' ? "Type K' · 4 items Vrai/Faux" : 'Menu Long · Liste étendue';
+        const consigne = q.t === 'A'
           ? 'Sélectionnez la seule meilleure réponse.'
-          : q.type === 'K'
+          : q.t === 'K'
           ? 'Indiquez Vrai (+) ou Faux (-) pour chaque proposition (4/4 = 1 pt, 3/4 = 0.5 pt).'
           : 'Sélectionnez la correspondance exacte dans le menu étendu.';
 
         let bodyHtml = '';
-        if (q.type === 'A') {
-          bodyHtml = `<div class="opt-list">` + q.options.map((opt, idx) => {
+        if (q.t === 'A') {
+          bodyHtml = `<div class="opt-list">` + q.op.map((opt, idx) => {
             let cls = 'opt-btn';
             if (saved) {
-              if (idx === q.answer) cls += ' correct';
+              if (idx === q.an) cls += ' correct';
               else if (saved.val === idx) cls += ' wrong';
             }
-            return `<button class="${cls}" onclick="answerA(${globalIdx}, ${idx})">
+            return `<button class="${cls}" onclick="answerA(${fIdx}, ${idx})">
               <span class="opt-letter">${letters[idx]}</span>
               <span>${opt}</span>
             </button>`;
           }).join('') + `</div>`;
-        } else if (q.type === 'K') {
+        } else if (q.t === 'K') {
           const curArr = saved ? saved.val : [null, null, null, null];
-          bodyHtml = `<div class="k-table">` + q.options.map((opt, idx) => {
+          bodyHtml = `<div class="k-table">` + q.op.map((opt, idx) => {
             const v = curArr[idx];
             return `<div class="k-row">
               <div class="k-text"><strong>${lettersK[idx]})</strong> ${opt}</div>
               <div class="k-toggles">
-                <button class="k-toggle ${v === true ? 'active-true' : ''}" onclick="answerK(${globalIdx}, ${idx}, true)">+ Vrai</button>
-                <button class="k-toggle ${v === false ? 'active-false' : ''}" onclick="answerK(${globalIdx}, ${idx}, false)">- Faux</button>
+                <button class="k-toggle ${v === true ? 'active-true' : ''}" onclick="answerK(${fIdx}, ${idx}, true)">+ Vrai</button>
+                <button class="k-toggle ${v === false ? 'active-false' : ''}" onclick="answerK(${fIdx}, ${idx}, false)">- Faux</button>
               </div>
             </div>`;
           }).join('') + `</div>`;
         } else {
           bodyHtml = `<div class="menu-long-box">
-            <input type="search" class="menu-long-search" placeholder="Rechercher dans le Menu Long..." oninput="filterMenuLong(this, 'ml-${globalIdx}')" />
-            <div class="menu-long-grid" id="ml-${globalIdx}">` + q.options.map((opt, idx) => {
+            <input type="search" class="menu-long-search" placeholder="Rechercher dans le Menu Long..." oninput="filterMenuLong(this, 'ml-${fIdx}')" />
+            <div class="menu-long-grid" id="ml-${fIdx}">` + q.op.map((opt, idx) => {
               let cls = 'ml-opt';
               if (saved) {
-                if (idx === q.answer) cls += ' correct';
+                if (idx === q.an) cls += ' correct';
                 else if (saved.val === idx) cls += ' wrong';
               }
-              return `<button class="${cls}" onclick="answerM(${globalIdx}, ${idx})">${opt}</button>`;
+              return `<button class="${cls}" onclick="answerM(${fIdx}, ${idx})">${opt}</button>`;
             }).join('') + `</div></div>`;
         }
 
@@ -1252,16 +920,16 @@
           scorePill = `<span style="font-weight:800;font-size:0.85rem;color:${saved.score >= 0.5 ? '#16a34a' : '#dc2626'};">Score : ${saved.score} / 1 pt</span>`;
         }
 
-        return `<article class="qcm-card" id="qcard-${globalIdx}">
+        return `<article class="qcm-card" id="qcard-${fIdx}">
           <div class="qcm-top">
-            <span class="qcm-type-badge type-${q.type}">${typeLabel} · ${q.id}</span>
+            <span class="qcm-type-badge type-${q.t}">${typeLabel} · ${q.id}</span>
             <span class="qcm-consigne">${consigne}</span>
           </div>
-          <p class="qcm-stem">${q.stem}</p>
+          <p class="qcm-stem">${q.st}</p>
           ${bodyHtml}
           <div class="qcm-footer">
             <div>${scorePill}</div>
-            <button class="btn-reponses" onclick="openAnswer(${globalIdx})">Réponses</button>
+            <button class="btn-reponses" onclick="openAnswer(${fIdx})">Réponses</button>
           </div>
         </article>`;
       }).join('');
@@ -1274,45 +942,46 @@
       });
     }
 
-    function answerA(gIdx, optIdx) {
-      const q = STATE.activeQuestions[gIdx];
-      STATE.userAnswers[q.id] = { type: 'A', val: optIdx, score: optIdx === q.answer ? 1 : 0, complete: true };
-      saveProgress();
-      renderQCMList();
+    function answerA(fIdx, optIdx) {
+      const q = STATE.filteredQuestions[fIdx];
+      STATE.userAnswers[q.id] = { type: 'A', val: optIdx, score: optIdx === q.an ? 1 : 0, complete: true };
+      saveProgress(q._sspCode);
+      renderQCMPage();
     }
 
-    function answerM(gIdx, optIdx) {
-      const q = STATE.activeQuestions[gIdx];
-      STATE.userAnswers[q.id] = { type: 'M', val: optIdx, score: optIdx === q.answer ? 1 : 0, complete: true };
-      saveProgress();
-      renderQCMList();
+    function answerM(fIdx, optIdx) {
+      const q = STATE.filteredQuestions[fIdx];
+      STATE.userAnswers[q.id] = { type: 'M', val: optIdx, score: optIdx === q.an ? 1 : 0, complete: true };
+      saveProgress(q._sspCode);
+      renderQCMPage();
     }
 
-    function answerK(gIdx, rowIdx, boolVal) {
-      const q = STATE.activeQuestions[gIdx];
+    function answerK(fIdx, rowIdx, boolVal) {
+      const q = STATE.filteredQuestions[fIdx];
       const prev = STATE.userAnswers[q.id]?.val || [null, null, null, null];
       const next = [...prev];
       next[rowIdx] = boolVal;
       const allSet = next.every(v => v !== null);
       let score = 0;
       if (allSet) {
-        const correctCount = next.filter((v, i) => v === q.answer[i]).length;
+        const correctCount = next.filter((v, i) => v === q.an[i]).length;
         score = correctCount === 4 ? 1 : correctCount === 3 ? 0.5 : 0;
       }
       STATE.userAnswers[q.id] = { type: 'K', val: next, score, complete: allSet };
-      saveProgress();
-      renderQCMList();
+      saveProgress(q._sspCode);
+      renderQCMPage();
     }
 
     /* --- FULL-PAGE RÉPONSES --- */
-    function openAnswer(gIdx) {
-      STATE.currentAnswerIdx = gIdx;
-      const q = STATE.activeQuestions[gIdx];
+    function openAnswer(fIdx) {
+      STATE.currentAnswerIdx = fIdx;
+      const q = STATE.filteredQuestions[fIdx];
+      const ssp = window.QCM_SSP[q._sspCode] || {};
       const saved = STATE.userAnswers[q.id];
 
-      document.getElementById('ansHeaderTitle').textContent = `Réponses · ${q.id} (${q.theme})`;
-      document.getElementById('ansHeaderSub').textContent = `${gIdx + 1} / ${STATE.activeQuestions.length}`;
-      document.getElementById('ansStemRecap').textContent = q.stem;
+      document.getElementById('ansHeaderTitle').textContent = `Réponses · ${q.id} (${q.th})`;
+      document.getElementById('ansHeaderSub').textContent = `${fIdx + 1} / ${STATE.filteredQuestions.length}`;
+      document.getElementById('ansStemRecap').textContent = q.st;
 
       const verdictEl = document.getElementById('ansVerdict');
       if (saved && saved.complete) {
@@ -1325,19 +994,21 @@
       } else {
         verdictEl.className = 'verdict-banner verdict-neutral';
         const letters = ['A', 'B', 'C', 'D', 'E'];
-        if (q.type === 'A') verdictEl.textContent = `Réponse attendue : Option ${letters[q.answer]} — ${q.options[q.answer]}`;
-        else if (q.type === 'M') verdictEl.textContent = `Réponse attendue : ${q.options[q.answer]}`;
-        else verdictEl.textContent = `Réponse attendue (Type K') : ${q.answer.map((v, i) => `${['a','b','c','d'][i]}:${v ? '+' : '-'}`).join(' · ')}`;
+        if (q.t === 'A') verdictEl.textContent = `Réponse attendue : Option ${letters[q.an]} — ${q.op[q.an]}`;
+        else if (q.t === 'M') verdictEl.textContent = `Réponse attendue : ${q.op[q.an]}`;
+        else verdictEl.textContent = `Réponse attendue (Type K') : ${q.an.map((v, i) => `${['a','b','c','d'][i]}:${v ? '+' : '-'}`).join(' · ')}`;
       }
 
-      document.getElementById('ansOptionsJustif').innerHTML = q.justification_options.map((j, idx) => {
+      document.getElementById('ansOptionsJustif').innerHTML = q.ju.map((j) => {
         const isPos = j.includes('Exacte') || j.includes('+ Vrai');
         return `<div class="justif-item ${isPos ? 'is-true' : 'is-false'}">${j}</div>`;
       }).join('');
 
-      document.getElementById('ansRappel').textContent = q.rappel_base;
-      document.getElementById('ansSpecifique').textContent = q.explication_specifique;
-      document.getElementById('ansSource').textContent = 'Source : ' + q.source;
+      const rappel = typeof q.fi === 'number' ? (ssp.fond?.[q.fi] || '') : q.fi;
+      const source = typeof q.si === 'number' ? (ssp.refs?.[q.si] || '') : q.si;
+      document.getElementById('ansRappel').textContent = rappel;
+      document.getElementById('ansSpecifique').textContent = q.ex;
+      document.getElementById('ansSource').textContent = 'Source : ' + source;
 
       document.getElementById('answerOverlay').classList.add('open');
       document.body.style.overflow = 'hidden';
@@ -1350,7 +1021,7 @@
 
     function navAnswer(delta) {
       const next = STATE.currentAnswerIdx + delta;
-      if (next >= 0 && next < STATE.activeQuestions.length) openAnswer(next);
+      if (next >= 0 && next < STATE.filteredQuestions.length) openAnswer(next);
     }
 
     /* --- CHRONOMÈTRE --- */
