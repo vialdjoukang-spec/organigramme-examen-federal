@@ -1,4 +1,4 @@
 # HELP — LOT_053
 
-- Aucune posologie chiffrée.
-- Bande 100–200 Ko non atteinte.
+- RMS 2017 et 2016.
+- Pas de dose.

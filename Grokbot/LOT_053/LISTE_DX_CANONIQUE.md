@@ -1,3 +1,3 @@
 # Liste DX — LOT_053
 
-Voir les titres des fichiers DX. Les rangs E sont dans les titres lorsqu’ils sont marqués dans la liste canonique du générateur.
+DX.1 ballonnement. DX.2 légère. DX.3 modérée. DX.4 volumineuse. DX.5 matité. DX.6 portale. DX.7 paracentèse. DX.8 voussure. DX.9 anévrisme. DX.10 tympanisme.
