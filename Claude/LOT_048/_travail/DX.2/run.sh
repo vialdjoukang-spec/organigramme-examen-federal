@@ -1,0 +1,22 @@
+#!/bin/bash
+cd /home/user/wt/lot-048
+export PAQUET_CACHE=/tmp/claude_paquet_cache
+python3 Claude/LOT_048/_travail/DX.2/build.py
+python3 /home/user/organigramme-examen-federal/Claude/_outils/lecon.py finir --lot 048 --cible DX.2 --titre "DX.2 — Dysphagie oropharyngée après accident vasculaire cérébral" >/dev/null 2>&1
+python3 /home/user/organigramme-examen-federal/Claude/_outils/controle3.py Claude/LOT_048/LOT_048_Phase_B_V0_DX.2.html --paquet Claude/LOT_048/_travail/DX.2/paquet.json --ex ${1:-40} | python3 -c "
+import json,sys
+r=json.load(sys.stdin)[0]
+print(r['verdict'],r['octets'],'conn%',r['connecteur%'],'sansconn',r['paragraphes_sans_connecteur'])
+for k,v in r['defauts'].items():
+    print(k,v['n'])
+    for e in v['ex']: print('   ',e[:230])
+"
+python3 - <<'P'
+import re,sys
+sys.path.insert(0,'/home/user/organigramme-examen-federal/Claude/_outils')
+import controle3 as c
+h=open('/home/user/wt/lot-048/Claude/LOT_048/LOT_048_Phase_B_V0_DX.2.html').read()
+for p in re.findall(r'<(?:p|div class="p")(?:\s[^>]*)?>(.*?)</(?:p|div)>',h,re.S):
+    t=c.texte(p)
+    if len(t.split())>40 and not c.CONNECT.search(t): print('SANSCONN:',t[:90])
+P

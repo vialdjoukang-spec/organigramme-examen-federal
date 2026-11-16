@@ -1,0 +1,25 @@
+import re,glob
+def sub(f,a,b):
+    t=open(f).read()
+    assert a in t,(f,a[:60])
+    open(f,'w').write(t.replace(a,b))
+# --- numéros/années
+sub('p02.txt',"selon la Fondation Suisse de Cardiologie en septembre 2020[[H3,H4]]","selon la Fondation Suisse de Cardiologie[[H3]]")
+sub('p02.txt',"Fondation Suisse de Cardiologie, 2020 [[H1,H4]]","Fondation Suisse de Cardiologie [[H1]]")
+sub('p02.txt',"450 et 144 par an|Cancer de l'œsophage, hommes et femmes, Suisse|OFS 2021 [[O126]]","450 et 140 par an|Cancer de l'œsophage, hommes et femmes, Suisse|OFS 2021 [[O116,O126]]")
+sub('p02.txt',"791 et 372 par an|Cancer cavité buccale et pharynx, hommes et femmes, Suisse|OFS 2021 [[O110]]","790 et 370 par an|Cancer cavité buccale et pharynx, hommes et femmes, Suisse|OFS 2021 [[O98,O110]]")
+sub('p02.txt',"Le cancer de l'œsophage touche environ 450 hommes et 140 femmes par an[[O116]]","Le cancer de l'œsophage touche environ 450 hommes et 140 femmes par an[[O116]]")
+sub('p04.txt',"environ 450 cas masculins et 144 cas féminins par an, avec une survie relative à cinq ans de 24 % chez l'homme[[O123,O126]]","environ 450 hommes et 140 femmes par an. La survie relative à cinq ans atteint 24 % chez l'homme[[O116,O123]]")
+sub('p04.txt',"Cancer de l'œsophage (carcinome épidermoïde et adénocarcinome) 🚩 E2 : il occupe le rang 7. La Suisse enregistre","Cancer de l'œsophage (carcinome épidermoïde et adénocarcinome) 🚩 E2 : il occupe le rang 7. La Suisse enregistre")
+sub('p04.txt',"Jeûne oral, filière attaque cérébrale par le 144 [[H5]]","Jeûne oral, filière attaque cérébrale par le 144 [[H1,H5]]")
+sub('p05.txt',"Appel du 144, jeûne oral, filière attaque cérébrale [[H5]]","Appel du 144, jeûne oral, filière attaque cérébrale [[H1,H5]]")
+sub('p05.txt',"Une anxiété au moment des repas touche 41 % des patients dysphagiques d'une série[[U122]]","Dans une série, quarante et un pour cent des patients dysphagiques ressentent panique ou anxiété pendant les repas[[U122]]")
+sub('p08.txt',"Selon les recommandations UEG/ESNM de 2020, l'achalasie","Selon les recommandations européennes UEG/ESNM, l'achalasie")
+sub('p08.txt',"[[I1,I18]]","[[I18]]")
+sub('p12.txt',"selon l'European Stroke Organisation et l'European Society for Swallowing Disorders en 2021[[K9,K11]]","selon l'European Stroke Organisation et l'European Society for Swallowing Disorders[[K10,K11]]")
+sub('p12.txt',"Le seuil d'action est un appel immédiat au 144.","Le seuil d'action est un appel immédiat au 144[[H1]].")
+sub('p14.txt',"les 450 hommes et 144 femmes atteints d'un cancer de l'œsophage","les 450 hommes et 140 femmes atteints d'un cancer de l'œsophage")
+sub('p14.txt',"[[O98,O126]]","[[O98,O116]]")
+sub('p02.txt',"UEG/ESNM 2020 [[I1,A6]]","UEG/ESNM [[A6]]")
+for f in glob.glob('p*.txt'):
+    t=open(f).read(); t=t.replace("1 fois par jour","une fois par jour"); open(f,'w').write(t)
