@@ -1,4 +1,4 @@
-/* Moteur d'illustrations médicales, planches anatomiques et courbes physiologiques annotées */
+/* Moteur d'illustrations médicales, planches anatomiques et courbes physiologiques annotées — Édition Haute Horlogerie Suisse */
 window.MEDICAL_VISUALS = (function () {
   const CS_PLATES = {
     peau: { img: "assets/cs/ex-peau.webp", title: "Coupe anatomique de la peau & glandes sudoripares", note: "Épiderme, derme, glande eccrine (ACh/M3) et follicule pilo-sébacé (Gray)." },
@@ -49,14 +49,14 @@ window.MEDICAL_VISUALS = (function () {
 
   function svgECG() {
     return `
-    <svg viewBox="0 0 460 175" width="100%" style="background:#fff;border-radius:12px;border:1px solid #cbd5e1">
+    <svg viewBox="0 0 460 175" width="100%" style="background:#fff;border-radius:12px;border:1px solid #cbd5e1;box-shadow:inset 0 1px 3px rgba(15,23,42,0.04);">
       <defs>
         <pattern id="ecgGrid" width="20" height="20" patternUnits="userSpaceOnUse">
           <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#fee2e2" stroke-width="1"/>
         </pattern>
       </defs>
       <rect width="460" height="175" fill="url(#ecgGrid)"/>
-      <text x="12" y="18" font-size="11" font-weight="800" fill="#0f172a">Tracé ECG annoté : Rythme sinusal normal (bleu) vs Sus-décalage ST / STEMI (rouge)</text>
+      <text x="12" y="18" font-size="10.8" font-weight="800" fill="#0f172a">Tracé ECG annoté : Rythme sinusal normal (bleu) vs Sus-décalage ST / STEMI (rouge)</text>
       <!-- Normal PQRST -->
       <path d="M 18 115 L 45 115 Q 55 98 65 115 L 82 115 L 88 125 L 98 48 L 108 134 L 116 115 L 145 115 Q 165 88 185 115 L 220 115" fill="none" stroke="#1d4ed8" stroke-width="2.6"/>
       <!-- STEMI PQRST -->
@@ -66,15 +66,15 @@ window.MEDICAL_VISUALS = (function () {
       <text x="162" y="88" font-size="10" font-weight="700" fill="#1d4ed8">T</text>
       <text x="122" y="133" font-size="9" fill="#1e40af">ST isoélectrique</text>
       <circle cx="348" cy="81" r="4" fill="#dc2626"/>
-      <text x="322" y="65" font-size="10" font-weight="800" fill="#b91c1c">Sus-décalage ST (onde de Pardee)</text>
-      <text x="242" y="156" font-size="9.5" font-weight="700" fill="#7f1d1d">Urgence : ECG &lt; 10 min dès le 1er contact · Coronarographie si STEMI</text>
+      <text x="298" y="65" font-size="9.4" font-weight="800" fill="#b91c1c">Sus-décalage ST (onde de Pardee)</text>
+      <text x="206" y="156" font-size="8.6" font-weight="700" fill="#7f1d1d">Urgence : ECG &lt; 10 min dès le 1er contact · Coronarographie si STEMI</text>
     </svg>`;
   }
 
   function svgSpiro() {
     return `
-    <svg viewBox="0 0 460 175" width="100%" style="background:#fff;border-radius:12px;border:1px solid #cbd5e1">
-      <text x="12" y="18" font-size="11" font-weight="800" fill="#0f172a">Courbe Débit-Volume (Spirométrie) : Normal vs Obstructif vs Restrictif</text>
+    <svg viewBox="0 0 460 175" width="100%" style="background:#fff;border-radius:12px;border:1px solid #cbd5e1;box-shadow:inset 0 1px 3px rgba(15,23,42,0.04);">
+      <text x="12" y="18" font-size="10.8" font-weight="800" fill="#0f172a">Courbe Débit-Volume (Spirométrie) : Normal vs Obstructif vs Restrictif</text>
       <line x1="50" y1="138" x2="430" y2="138" stroke="#475569" stroke-width="1.5"/>
       <line x1="50" y1="30" x2="50" y2="155" stroke="#475569" stroke-width="1.5"/>
       <text x="14" y="42" font-size="9.5" fill="#475569">Débit</text>
@@ -88,14 +88,14 @@ window.MEDICAL_VISUALS = (function () {
       <text x="120" y="46" font-size="9.5" font-weight="700" fill="#15803d">Normal (VEMS/CVF ≥ 0.70)</text>
       <text x="180" y="106" font-size="9.5" font-weight="700" fill="#b91c1c">Obstructif (aspect concave · VEMS/CVF &lt; 0.70)</text>
       <text x="268" y="88" font-size="9.5" font-weight="700" fill="#1d4ed8">Restrictif (CPT &lt; 80 %)</text>
-      <text x="58" y="166" font-size="9" fill="#334155">Asthme : réversibilité ≥ +12 % et +200 mL après bronchodilatateur · BPCO : persistance post-BD</text>
+      <text x="58" y="166" font-size="8.8" fill="#334155">Asthme : réversibilité ≥ +12 % et +200 mL après bronchodilatateur · BPCO : persistance post-BD</text>
     </svg>`;
   }
 
   function svgDavenport() {
     return `
-    <svg viewBox="0 0 460 175" width="100%" style="background:#fff;border-radius:12px;border:1px solid #cbd5e1">
-      <text x="12" y="18" font-size="11" font-weight="800" fill="#0f172a">Diagramme de Davenport (Gazométrie : pH / HCO₃⁻ / PaCO₂)</text>
+    <svg viewBox="0 0 460 175" width="100%" style="background:#fff;border-radius:12px;border:1px solid #cbd5e1;box-shadow:inset 0 1px 3px rgba(15,23,42,0.04);">
+      <text x="12" y="18" font-size="10.8" font-weight="800" fill="#0f172a">Diagramme de Davenport (Gazométrie : pH / HCO₃⁻ / PaCO₂)</text>
       <line x1="55" y1="145" x2="425" y2="145" stroke="#334155" stroke-width="1.5"/>
       <line x1="55" y1="30" x2="55" y2="145" stroke="#334155" stroke-width="1.5"/>
       <!-- Isobars PaCO2 -->
@@ -114,14 +114,14 @@ window.MEDICAL_VISUALS = (function () {
       <rect x="292" y="106" width="128" height="32" rx="6" fill="#dbeafe" stroke="#93c5fd"/>
       <text x="298" y="120" font-size="9" font-weight="700" fill="#1e40af">Alcalose respiratoire</text>
       <text x="298" y="132" font-size="8.5" fill="#1e3a8a">PaCO₂ ↓, hyperventilation</text>
-      <text x="58" y="164" font-size="9" fill="#334155">Axe X : pH (7.10 → 7.60) · Axe Y : Bicarbonates [HCO₃⁻] (mmol/L) · Courbe centrale = isobare PaCO₂ 40 mmHg</text>
+      <text x="58" y="164" font-size="8.8" fill="#334155">Axe X : pH (7.10 → 7.60) · Axe Y : Bicarbonates [HCO₃⁻] (mmol/L) · Courbe centrale = isobare PaCO₂ 40 mmHg</text>
     </svg>`;
   }
 
   function svgOxy() {
     return `
-    <svg viewBox="0 0 460 175" width="100%" style="background:#fff;border-radius:12px;border:1px solid #cbd5e1">
-      <text x="12" y="18" font-size="11" font-weight="800" fill="#0f172a">Courbe de dissociation Hb-O₂ (Effet Bohr) &amp; Cibles SpO₂ (Smarter Medicine CH)</text>
+    <svg viewBox="0 0 460 175" width="100%" style="background:#fff;border-radius:12px;border:1px solid #cbd5e1;box-shadow:inset 0 1px 3px rgba(15,23,42,0.04);">
+      <text x="12" y="18" font-size="10.8" font-weight="800" fill="#0f172a">Courbe de dissociation Hb-O₂ (Effet Bohr) &amp; Cibles SpO₂ (Smarter Medicine CH)</text>
       <line x1="55" y1="142" x2="430" y2="142" stroke="#334155" stroke-width="1.5"/>
       <line x1="55" y1="28" x2="55" y2="142" stroke="#334155" stroke-width="1.5"/>
       <!-- Plateau target highlight -->
@@ -141,8 +141,8 @@ window.MEDICAL_VISUALS = (function () {
 
   function svgAutonome() {
     return `
-    <svg viewBox="0 0 460 175" width="100%" style="background:#fff;border-radius:12px;border:1px solid #cbd5e1">
-      <text x="12" y="18" font-size="11" font-weight="800" fill="#0f172a">Système nerveux autonome, neurotransmetteurs &amp; cibles pharmacologiques (AIPS)</text>
+    <svg viewBox="0 0 460 175" width="100%" style="background:#fff;border-radius:12px;border:1px solid #cbd5e1;box-shadow:inset 0 1px 3px rgba(15,23,42,0.04);">
+      <text x="12" y="18" font-size="10.8" font-weight="800" fill="#0f172a">Système nerveux autonome, neurotransmetteurs &amp; cibles pharmacologiques (AIPS)</text>
       <rect x="16" y="34" width="114" height="44" rx="10" fill="#dbeafe" stroke="#3b82f6"/>
       <text x="24" y="53" font-size="9.2" font-weight="800" fill="#1e3a8a">Hypothalamus / SNC</text>
       <text x="24" y="67" font-size="8.2" fill="#1e40af">Thermostat &amp; stress</text>
@@ -170,8 +170,8 @@ window.MEDICAL_VISUALS = (function () {
 
   function svgParcours() {
     return `
-    <svg viewBox="0 0 460 175" width="100%" style="background:#fff;border-radius:12px;border:1px solid #cbd5e1">
-      <text x="12" y="18" font-size="11" font-weight="800" fill="#0f172a">Parcours clinique suisse complet : Urgence → Bilan ciblé → Traitement → Sortie</text>
+    <svg viewBox="0 0 460 175" width="100%" style="background:#fff;border-radius:12px;border:1px solid #cbd5e1;box-shadow:inset 0 1px 3px rgba(15,23,42,0.04);">
+      <text x="12" y="18" font-size="10.8" font-weight="800" fill="#0f172a">Parcours clinique suisse complet : Urgence → Bilan ciblé → Traitement → Sortie</text>
       <rect x="14" y="36" width="98" height="62" rx="10" fill="#fee2e2" stroke="#dc2626" stroke-width="1.8"/>
       <text x="22" y="54" font-size="9.5" font-weight="800" fill="#991b1b">1. Tri &amp; ABCDE</text>
       <text x="22" y="68" font-size="8.2" fill="#7f1d1d">Drapeaux rouges</text>
@@ -214,18 +214,31 @@ window.MEDICAL_VISUALS = (function () {
     if (!mastery || !mastery.causes || !mastery.causes.length) return "";
     const urg = mastery.causes.filter(c => c.urg);
     const tiers = ["Très fréquente", "Fréquente", "Peu fréquente", "Moins fréquente", "Rare"];
+    const tierColors = {
+      "Très fréquente": { bg: "#ecfdf5", bd: "#a7f3d0", tx: "#065f46" },
+      "Fréquente": { bg: "#eff6ff", bd: "#bfdbfe", tx: "#1e40af" },
+      "Peu fréquente": { bg: "#fefce8", bd: "#fde68a", tx: "#92400e" },
+      "Moins fréquente": { bg: "#f8fafc", bd: "#cbd5e1", tx: "#334155" },
+      "Rare": { bg: "#f5f3ff", bd: "#ddd6fe", tx: "#5b21b6" }
+    };
     const tierLines = tiers.map(t => {
       const items = mastery.causes.filter(c => !c.urg && (c.tier || "Fréquente") === t);
       if (!items.length) return "";
-      const names = items.map(c => typeof c.pct === "number" ? `${c.n} (${c.pct}%)` : c.n).join(" · ");
-      return `<div style="margin-top:2px;"><strong>${t} :</strong> ${names}</div>`;
+      const st = tierColors[t] || tierColors["Fréquente"];
+      const names = items.map(c => typeof c.pct === "number" ? `${c.n} <b>(${c.pct}%)</b>` : c.n).join(" · ");
+      return `<div style="margin-top:4px;line-height:1.42;">
+        <span style="display:inline-block;background:${st.bg};border:1px solid ${st.bd};color:${st.tx};font-weight:800;font-size:0.67rem;padding:1px 7px;border-radius:999px;margin-right:6px;vertical-align:baseline;">${t}</span><span style="color:#1e293b;">${names}</span>
+      </div>`;
     }).filter(Boolean).join("");
-    const urgStr = urg.map(c => typeof c.pct === "number" ? `${c.n} (${c.pct}%)` : c.n).join(" · ");
+    const urgStr = urg.map(c => typeof c.pct === "number" ? `${c.n} <b>(${c.pct}%)</b>` : c.n).join(" · ");
     return `
-      <div style="background:#f8fafc;border:1px solid #cbd5e1;border-radius:10px;padding:8px 10px;margin-top:8px;font-size:0.75rem;line-height:1.35;">
-        <div style="font-weight:800;color:#0f172a;margin-bottom:2px;">🗺️ Stratification panoramique des causes (${mastery.causes.length} DD répertoriés)</div>
-        ${urg.length ? `<div style="color:#b91c1c;"><strong>🚨 À ne pas manquer :</strong> ${urgStr}</div>` : ""}
-        <div style="color:#334155;">${tierLines}</div>
+      <div style="background:linear-gradient(145deg,#ffffff,#f8fafc);border:1.5px solid #cbd5e1;border-radius:14px;padding:9px 12px;margin-top:8px;font-size:0.75rem;line-height:1.38;box-shadow:0 4px 12px rgba(15,23,42,0.03);">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px;">
+          <span style="font-weight:800;color:#0f172a;font-size:0.78rem;letter-spacing:-0.01em;">🗺️ Stratification panoramique des causes</span>
+          <span style="background:#0f172a;color:#fff;font-size:0.66rem;font-weight:800;padding:1px 8px;border-radius:999px;">${mastery.causes.length} DD répertoriés</span>
+        </div>
+        ${urg.length ? `<div style="background:#fef2f2;border:1px solid #fecaca;border-radius:8px;padding:4px 8px;color:#991b1b;margin-bottom:4px;"><strong style="color:#b91c1c;">🚨 À ne pas manquer :</strong> ${urgStr}</div>` : ""}
+        <div>${tierLines}</div>
       </div>`;
   }
 
@@ -236,10 +249,10 @@ window.MEDICAL_VISUALS = (function () {
     const causesHtml = formatCausesByTier(mastery);
 
     return `
-      <div style="display:grid;grid-template-columns:116px 1fr;gap:10px;align-items:center;background:#fff;border:1.5px solid #e2e8f0;border-radius:12px;padding:8px;margin-top:8px;">
-        <div style="text-align:center;">
-          <img src="${plate.img}" alt="${plate.title}" style="width:108px;height:94px;object-fit:contain;background:#fff;border-radius:8px;border:1px solid #e2e8f0;padding:3px;" />
-          <div style="font-size:0.68rem;font-weight:700;color:#475569;margin-top:3px;line-height:1.15;">${plate.title}</div>
+      <div style="display:grid;grid-template-columns:122px 1fr;gap:10px;align-items:center;background:linear-gradient(145deg,#ffffff,#f8fafc);border:1.5px solid #cbd5e1;border-radius:14px;padding:8px 10px;margin-top:8px;box-shadow:0 4px 14px rgba(15,23,42,0.04);">
+        <div style="text-align:center;background:#fff;border:1px solid #e2e8f0;border-radius:10px;padding:6px 4px;box-shadow:inset 0 1px 2px rgba(0,0,0,0.02);">
+          <img src="${plate.img}" alt="${plate.title}" style="width:108px;height:90px;object-fit:contain;display:block;margin:0 auto;" />
+          <div style="font-size:0.66rem;font-weight:800;color:#334155;margin-top:4px;line-height:1.15;">${plate.title}</div>
         </div>
         <div>
           ${svgFn()}
@@ -254,14 +267,16 @@ window.MEDICAL_VISUALS = (function () {
     const plate = CS_PLATES[dom.plate] || CS_PLATES.thorax;
     const causesHtml = formatCausesByTier(mastery);
     return `
-      <details style="background:#fff;border:1.5px solid #cbd5e1;border-radius:14px;padding:10px 14px;margin-bottom:16px;box-shadow:0 4px 12px rgba(0,0,0,0.03);">
-        <summary style="cursor:pointer;font-weight:800;font-size:0.9rem;color:#0f172a;">
-          🩺 Panoramique clinique ${code} : Causes par fréquence (Très fréquentes → Rares), Urgences « À ne pas manquer » &amp; Repères anatomiques
+      <details style="background:linear-gradient(145deg,#ffffff,#f8fafc);border:1.5px solid #cbd5e1;border-radius:16px;padding:12px 16px;margin-bottom:18px;box-shadow:0 8px 24px rgba(15,23,42,0.04);">
+        <summary style="cursor:pointer;font-weight:800;font-size:0.92rem;color:#0f172a;display:flex;align-items:center;justify-content:space-between;gap:10px;">
+          <span>🩺 Panoramique clinique ${code} : Causes par fréquence (Très fréquentes → Rares), Urgences « À ne pas manquer » &amp; Repères anatomiques</span>
+          <span style="font-size:0.74rem;font-weight:700;color:#2563eb;background:#eff6ff;border:1px solid #bfdbfe;padding:3px 10px;border-radius:999px;flex-shrink:0;">Déployer l'atlas ▾</span>
         </summary>
-        <div style="display:grid;grid-template-columns:140px 1fr;gap:14px;align-items:start;margin-top:10px;">
-          <div style="text-align:center;">
-            <img src="${plate.img}" alt="${plate.title}" style="width:130px;height:110px;object-fit:contain;background:#fff;border-radius:10px;border:1px solid #e2e8f0;padding:4px;" />
-            <div style="font-size:0.72rem;font-weight:700;color:#475569;margin-top:4px;">${plate.title}</div>
+        <div style="display:grid;grid-template-columns:150px 1fr;gap:16px;align-items:start;margin-top:12px;padding-top:10px;border-top:1px solid #e2e8f0;">
+          <div style="text-align:center;background:#fff;border:1px solid #cbd5e1;border-radius:12px;padding:8px;">
+            <img src="${plate.img}" alt="${plate.title}" style="width:132px;height:112px;object-fit:contain;display:block;margin:0 auto;" />
+            <div style="font-size:0.72rem;font-weight:800;color:#334155;margin-top:6px;line-height:1.2;">${plate.title}</div>
+            <div style="font-size:0.65rem;color:#64748b;margin-top:3px;line-height:1.2;">${plate.note}</div>
           </div>
           <div>
             ${svgParcours()}
