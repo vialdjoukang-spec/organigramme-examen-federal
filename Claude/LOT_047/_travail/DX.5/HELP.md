@@ -1,0 +1,10 @@
+# HELP — lacunes de sources (LOT_047, DX.5 Cardiopathie ischémique)
+- ESC 2023 (syndromes coronariens aigus) et ESC 2024 (syndromes coronariens chroniques) : seules les références PubMed (sans résumé), la fiche de la plateforme suisse des guides de pratique et des revues secondaires ont été lues ; aucun seuil ECG, aucun score ni aucune classe de recommandation ESC n'est écrit comme tel. La conduite suit la NICE (CG95, CG126, NG185), l'AIPS et la revue 2025 du J Clin Med.
+- Épidémiologie suisse de l'incidence du syndrome coronarien aigu et de la prévalence de l'angor : aucun chiffre lu (seuls l'OFSP, AMIS Plus et la NICE britannique sont cités).
+- Fibrinolyse : liste des contre-indications absolues et relatives, choix et doses du fibrinolytique : aucun extrait lu ; seule la phrase « sans contre-indication » est écrite. Doses AIPS de la morphine, du fondaparinux, du prasugrel et du clopidogrel rapatriées (51039, 55937, 59136, 54509) ; dose de morphine propre au STEMI absente de l'AIPS (dose générale intraveineuse citée).
+- Examen physique : techniques de palpation et d'auscultation, signes de dissection aortique, comparaison tensionnelle aux deux bras : aucun extrait lu ; le point 6 se limite aux gestes cités par la NICE.
+- Grossesse, enfant, allergie à l'iode, DFGe inférieure à 30 : seules les limites du scanner (contraste iodé) et de la résonance magnétique ont été lues ; aucune conduite spécifique pour la grossesse ou l'enfant pour les examens.
+- Assurances sociales suisses (LAMal, AI, réadaptation cardiaque remboursée) : aucun extrait lu ; seule l'équité d'accès (AMIS Plus) et les recommandations NICE sur les besoins sociaux sont citées.
+- Sortis : indication suisse limitée à l'hypercholestérolémie ; la statine post-infarctus repose sur la NICE.
+- Brilique n'a pas été lu ; le ticagrélor repose sur Ticagrelor axapharm 69596.
+- ESC 2023/2024 : seuls des commentaires secondaires lisibles (revue J Clin Med, revue imagerie PMC12448739) soutiennent les délais de coronarographie et la stratégie du scanner ; texte intégral ESC non lu. Seuil d'oxygène : NICE (94 %) nommé ; l'ESC (hypoxémie, SaO2 < 90 %) non lu.

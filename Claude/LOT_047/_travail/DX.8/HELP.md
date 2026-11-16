@@ -1,0 +1,11 @@
+# HELP DX.8 — lacunes de sources (LOT_047, S2.8, cancer de l'œsophage)
+- ESMO 2022 (Obermannová, Ann Oncol 33:992) : seule la notice PubMed sans résumé est lue ; aucune recommandation chiffrée n'en est citée.
+- Fluorouracile : aucune monopréparation AIPS lisible ; classe et place décrites sans milligramme (les doses d'essai figurent seulement via l'AIPS Opdivo).
+- Oxaliplatine, docétaxel, paclitaxel, carboplatine : AIPS lus (Sandoz, Zentiva, Labatec, Sandoz) ; l'indication œsophage n'y figure pas (cisplatine : palliatif seulement) ; FLOT et CROSS cités comme données d'essais, hors indication AIPS.
+- Keytruda (AIPS 66231) : aucune indication œsophage lue (indication gastrique/jonction seulement) ; KEYNOTE-590 cité comme essai.
+- Examen physique : aucun signe clinique propre au cancer de l'œsophage ni technique de palpation n'est décrit par les sources lues ; point 6 fondé sur le retentissement et l'endoscopie.
+- Allergie à l'iode, IRM impossible, enfant : aucune source lue pour la stadification.
+- Données suisses d'incidence récentes (OFS/NICER après 2011) : non lues ; registres 1982-2011 et projection jusqu'en 2029 seulement.
+- Recommandation suisse officielle (HUG, Revue Médicale Suisse) sur le cancer de l'œsophage : non trouvée ; Krebsliga lue mais page sans contenu extractible.
+- Prévention : aucune recommandation suisse de dépistage du carcinome épidermoïde ou de l'adénocarcinome lue.
+- Soutien nutritionnel, stent, dilatation, radiothérapie palliative : aucune source lue.

@@ -1,0 +1,11 @@
+# HELP — DX.9 Achalasie (LOT_047)
+- Aucune source suisse de prévalence ou d'incidence lue : chiffres mondiaux (méta-analyse UEG J) et européens (Angleterre, Pays-Bas, Italie). Ther Umsch 2022 : résumé PubMed seul.
+- Aucune recommandation suisse propre à l'achalasie lue ; la conduite suit UEG/ESNM 2020 (PMC7005998) et Chicago 4.0. À compléter par HUG ou Revue Médicale Suisse si accessible.
+- Toxine botulique : aucune notice AIPS retrouvée (DCI « botulinum »), donc classe et rôle sans dose ni numéro Swissmedic. Nifédipine et dinitrate d'isosorbide : AIPS sans indication achalasie ; aucune posologie achalasie écrite (la dose 80 mg rappelée est celle de l'hypertension).
+- Point 6 (examen physique) : aucune source lue ne décrit de signe physique de l'achalasie ni de technique de geste ; contenu limité aux conséquences sourcées (poids, aspiration, exclusion cardiaque). À compléter.
+- Point 4 : première phrase « cardiopathie ischémique à exclure devant toute douleur thoracique » non sourcée explicitement (appui indirect : UEG parle de douleur « non cardiaque »).
+- Point 9.c : grossesse, DFGe < 30, allergie à l'iode, IRM : aucune source lue ; l'absence de produit iodé du baryum est une connaissance générale non citée. UEG 2020 limité à l'adulte (enfant non couvert).
+- Point 11.B : « Urgence — conduite chronologique » limitée à ce que les sources donnent (perforation après dilatation, aspiration) ; pas de protocole d'urgence sourcé.
+- Aspects social et assurances (11.B) : aucune source lue ; non rédigés. Critères de sortie : aucun critère formel dans les sources, suivi sans terme.
+- Chicago 4.0 : texte intégral PMC8034247 lu en extraits ; l'essai européen POEM vs myotomie (5 ans, Lancet Gastroenterol Hepatol 2025) : résumé PubMed seul.
+- Les valeurs à virgule médiane (« 70·8 % ») de l'abstract Lancet 5 ans n'ont pas été reprises (contrôle numérique).

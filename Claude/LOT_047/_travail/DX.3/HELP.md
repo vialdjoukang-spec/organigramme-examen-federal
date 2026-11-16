@@ -1,0 +1,11 @@
+# HELP — DX.3 Hypersensibilité œsophagienne au reflux (LOT_047)
+- Épidémiologie suisse : aucune prévalence suisse lue ; chiffres de Londres (Voulgaris 2023), Yamasaki et Fass 2017, Sawada 2023. Histoire naturelle et mortalité : aucune source lue.
+- Rome V : seuls l'article UEG J (tableau des changements) et le résumé PubMed de Gyawali 2026 sont lus ; critères complets de Rome V non lus. Lyon 2.0 lu en texte intégral (PMC10846564).
+- Point 6 (examen physique) : aucune source ne décrit la technique ni la valeur des gestes ; contenu limité aux rôles sourcés (poids, exclusion cardiaque, signes d'alerte).
+- Point 9 : grossesse, enfant, DFGe < 30, allergie à l'iode : aucune source lue pour la pH-impédancemétrie, la manométrie ou l'endoscopie ; aucune conduite écrite.
+- Grille de triage Unisanté/pharmaJournal 5/2024 : texte du tableau 1 en colonnes mélangées ; l'attribution urgence/consultation de chaque signe est lue avec ce risque.
+- Œsophagite médicamenteuse (DX.10), ulcère (DX.6) : aucune source dédiée lue dans ce dossier ; différentiel limité à la grille suisse.
+- Citalopram (58593) et amitriptyline (Saroten 66978) : aucune indication AIPS en hypersensibilité au reflux ; aucune dose écrite hors résultat d'essai. Divergence : la littérature (Sawada 2023) propose un inhibiteur à double dose ; l'AIPS (Esomeprazol-Mepha 62581) donne 20 mg une fois par jour et des examens après 4 semaines ; l'AIPS est suivi.
+- Vonoprazan : non commercialisé en Suisse selon aucune source lue ; non enseigné. Omeprazol : aucune monopréparation AIPS rapatriée ; non cité.
+- Durées « deux heures », « cinq ans » transcrites en lettres car les sources les écrivent ainsi.
+- Social et assurances : seul le rapport OFSP d'ETS (17 juin 2020) est lu ; aucune limitation de prise en charge de l'hypersensibilité n'est documentée.
