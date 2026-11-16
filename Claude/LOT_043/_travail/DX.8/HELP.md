@@ -1,0 +1,11 @@
+# HELP — DX.8 Péricardite aiguë et myopéricardite (LOT_043)
+- Acide acétylsalicylique : AIPS Aspirine 49526 lue (indications douleurs légères à modérées, dose journalière maximale 6 comprimés) ; la péricardite est hors indication de l'AIPS, aucune dose anti-inflammatoire de péricardite sourcée.
+- Anakinra : aucune AIPS suisse (non homologué selon la Revue Médicale Suisse, avril 2022 ; statut actuel à revérifier) ; rilonacept : AIPS non lue.
+- IPP : pantoprazole 40 mg (AIPS 59079) écrit ; lansoprazole exclu avec COLCTAB.
+- Niveau de recommandation des inhibiteurs de l'IL-1 : classe I, niveau A selon Imazio, Trends Cardiovasc Med 2026 (lu) ; texte intégral ESC 2025 (doi 10.1093/eurheartj/ehaf192) toujours non lu.
+- Le texte intégral de la recommandation ESC 2025 n'a pu être lu ; les critères et recommandations sont rapportés via des revues PMC (PMC12869867, PMC13485469, PMC13339194, PMC13109608, PMC12985884) et le résumé PubMed du Lakartidningen (PMID42026924).
+- Aucune recommandation suisse spécifique à la péricardite (HUG, RMS, FMS) trouvée en texte intégral ; l'étude suisse de 2022 sur 1,9 % / 1,1 % est citée de seconde main (via PMC13109608). Source primaire à retrouver.
+- Contradiction grossesse/allaitement : colchicine contre-indiquée selon l'AIPS COLCTAB (67974) mais jugée compatible par une revue (PMC13264112) ; signalé dans le cours.
+- Volets sans source lue : technique du geste du pouls paradoxal et de la recherche du frottement (décrits sans citation), volet « assurances » (LAMal / liste des spécialités pour anakinra, certificat de travail) non sourcé.
+- Le 1,1 % préhospitalier (cohorte suédoise BMJ Open 2021, PMC8055143) regroupe myocardite, péricardite et endocardite : signalé dans le tableau, le texte et la question d'examen huit.
+- Gadolinium / DFGe < 30 et allergie à l'iode : alternatives non sourcées, non écrites.
