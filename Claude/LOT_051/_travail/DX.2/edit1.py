@@ -1,0 +1,60 @@
+import glob
+R={
+"Le trouble anxieux généralisé occupe la deuxième place parmi les maladies psychiatriques observées chez ces patients":"Le trouble anxieux généralisé est la deuxième maladie psychiatrique observée chez ces patients",
+"Ensuite, la formule « douleur thoracique fonctionnelle » ne vaut qu'après l'exclusion des causes organiques.":"Ensuite, la formule « douleur thoracique fonctionnelle » est valable seulement après l'exclusion des causes organiques.",
+"Une revue systématique des études de médecine de famille chiffre la part psychogène entre 9,5 % et 18,2 % selon les travaux":"Une revue systématique des études de médecine de famille indique que la part psychogène est de 9,5 % à 18,2 % selon les travaux",
+"La sensibilité à l'anxiété désigne la crainte des sensations corporelles d'anxiété, interprétées comme dangereuses.":"La sensibilité à l'anxiété est la crainte des sensations corporelles d'anxiété, que le patient interprète comme dangereuses.",
+"Le stress lié aux événements de vie y contribue, avec un rapport de cotes de 1,14":"Le stress lié aux événements de vie est un autre prédicteur, avec un rapport de cotes de 1,14",
+"Piège d'examen : la sensibilité à l'anxiété n'est pas l'anxiété elle-même.":"Piège d'examen : la sensibilité à l'anxiété n'est pas l'anxiété elle-même, car elle désigne la peur des symptômes.",
+"Cette observation éclaire le lien entre anxiété et sensibilité à la palpation.":"Cette observation explique le lien entre anxiété et sensibilité à la palpation.",
+"Ensuite, l'œsophage participe au tableau.":"Ensuite, l'œsophage peut participer au tableau.",
+"Le syndrome coronarien aigu 🚩 (E1) passe en premier.":"Le syndrome coronarien aigu 🚩 (E1) est le premier diagnostic à écarter.",
+"Par ailleurs, la douleur reproductible n'est pas spécifique du syndrome de la paroi thoracique.":"Par ailleurs, la douleur reproductible est non spécifique du syndrome de la paroi thoracique.",
+"De même, la reproductibilité à la palpation n'est pas pathognomonique du syndrome de la paroi thoracique":"De même, la reproductibilité à la palpation est non pathognomonique du syndrome de la paroi thoracique",
+"La maladie coronarienne chronique, enfin, couvre entre 6,6 % et 11,2 % des consultations pour douleur thoracique en médecine de famille":"La maladie coronarienne chronique est la cause de 6,6 % à 11,2 % des consultations pour douleur thoracique en médecine de famille",
+"L'anamnèse sert à deux buts : exclure l'origine ischémique et reconnaître le profil anxieux.":"L'anamnèse a deux buts : exclure l'origine ischémique et reconnaître le profil anxieux.",
+"Le Conseil scientifique luxembourgeois énumère les éléments à rechercher : le début des douleurs, leur caractère et leur irradiation, leur persistance à l'admission, les circonstances de survenue, les antécédents et les facteurs de risque":"Le Conseil scientifique luxembourgeois précise les éléments à rechercher : le début, le caractère et l'irradiation de la douleur, sa persistance, ses circonstances de survenue, les antécédents et les facteurs de risque",
+"Zéro ou une réponse positive désigne une douleur non angineuse, deux réponses un angor atypique et trois un angor typique":"Zéro ou une réponse positive indique une douleur non angineuse, deux réponses indiquent un angor atypique et trois un angor typique",
+"Un exemple chiffré illustre cette grille.":"Un exemple chiffré montre comment cette grille s'applique.",
+"Le début rapide, avec un pic en moins de 10 minutes et des symptômes végétatifs, évoque une attaque de panique":"Un début rapide, avec un pic en moins de 10 minutes et des symptômes végétatifs, doit évoquer une attaque de panique",
+"La dépression multiplie le risque d'anxiété sévère par 2,7":"La dépression est associée à une anxiété sévère, avec un rapport de cotes de 2,7",
+"Le tableau suivant relie chaque signal à son action.":"Le tableau suivant relie chaque signal à son action, de sorte que la décision est immédiate.",
+"L'inspection note la respiration.":"L'inspection doit aussi noter la respiration.",
+"La douleur reproductible n'est donc pas réservée à la paroi.":"La douleur reproductible n'est donc pas réservée à la paroi, ce qui limite sa valeur.",
+"Toute anomalie nouvelle sort du cadre.":"Toute anomalie nouvelle est hors du cadre de la douleur psychogène.",
+"Mécanisme : la pression sollicite une insertion musculaire ou tendineuse, ou une articulation chondrocostale":"Mécanisme : la pression sollicite une insertion musculaire ou tendineuse, ou une articulation chondrocostale, qui devient douloureuse",
+"Le score HEART combine l'histoire, l'électrocardiogramme, l'âge, les facteurs de risque et la troponine.":"Le score HEART combine l'histoire, l'électrocardiogramme, l'âge, les facteurs de risque et la troponine, ce qui donne une estimation du risque.",
+"Piège d'examen : un score HEART bas n'exclut pas toute maladie cardiaque.":"Piège d'examen : un score HEART bas n'exclut pas toute maladie cardiaque, car il estime seulement un risque.",
+"Une règle de prédiction suisse du syndrome de la paroi thoracique aide à éviter des examens inutiles.":"Une règle de prédiction suisse du syndrome de la paroi thoracique peut aider à éviter des examens inutiles.",
+"Pour la composante digestive, le bilan œsophagien ne débute qu'après l'exclusion des maladies cardiaques et pulmonaires":"Pour la composante digestive, le bilan œsophagien doit débuter après l'exclusion des maladies cardiaques et pulmonaires",
+"Arrivée : mesurer la saturation et la tension artérielle, puis interroger sur le début, le caractère et l'irradiation de la douleur":"À l'arrivée, il faut mesurer la saturation et la tension artérielle, puis interroger sur le début, le caractère et l'irradiation de la douleur",
+"Dès l'admission : doser la hs-cTn, avec un deuxième dosage 1 heure plus tard selon l'algorithme 0 h/1 h":"Dès l'admission, il faut doser la hs-cTn, puis la doser une deuxième fois 1 heure plus tard selon l'algorithme 0 h/1 h",
+"Après l'exclusion de l'urgence : expliquer le mécanisme de la douleur, documenter le trouble anxieux et orienter.":"Après l'exclusion de l'urgence, on explique le mécanisme de la douleur, on documente le trouble anxieux et l'on oriente le patient.",
+"Un diagnostic précis rassure davantage que la seule exclusion d'une maladie grave":"Un diagnostic précis est plus rassurant que la seule exclusion d'une maladie grave",
+"Cette recommandation internationale s'appuie sur l'évaluation de 1007 essais randomisés par 33 experts de 22 pays":"Cette recommandation internationale résulte de l'évaluation de 1007 essais randomisés par 33 experts de 22 pays",
+"Classe : inhibiteur sélectif de la recapture de la sérotonine. L'effet dans le trouble panique repose":"Classe : cette molécule est un inhibiteur sélectif de la recapture de la sérotonine. L'effet dans le trouble panique repose",
+"Classe : inhibiteur sélectif de la recapture de la sérotonine, qui n'induit":"Classe : cette molécule est un inhibiteur sélectif de la recapture de la sérotonine, qui n'induit",
+"Classe : inhibiteur sélectif de la recapture de la sérotonine. Son efficacité":"Classe : ce médicament est un inhibiteur sélectif de la recapture de la sérotonine. Son efficacité",
+"Effets indésirables à annoncer : vertiges et tremblements fréquents":"Les effets indésirables à annoncer sont les vertiges et les tremblements, qui sont fréquents",
+"Contre-indications : hypersensibilité, association aux inhibiteurs de la monoamine-oxydase, pimozide, épilepsie instable et insuffisance hépatique sévère de classe Child Pugh C":"Les contre-indications sont l'hypersensibilité, l'association aux inhibiteurs de la monoamine-oxydase, le pimozide, l'épilepsie instable et l'insuffisance hépatique sévère de classe Child Pugh C",
+"Effets indésirables les plus fréquents : insomnie, céphalées et nausées":"Les effets indésirables les plus fréquents sont l'insomnie, les céphalées et les nausées",
+"Grossesse : à n'utiliser qu'en cas d'indication impérative, avec une contraception appropriée":"Pendant la grossesse, la sertraline est à utiliser seulement en cas d'indication impérative, avec une contraception appropriée",
+"Contre-indications : hypersensibilité, myasthénie grave, insuffisance respiratoire sévère, apnée du sommeil, insuffisance rénale ou hépatique grave, dépendance à l'alcool ou aux médicaments, et enfant de moins de 12 ans":"Les contre-indications sont l'hypersensibilité, la myasthénie grave, l'insuffisance respiratoire sévère, l'apnée du sommeil, l'insuffisance rénale ou hépatique grave, la dépendance à l'alcool ou aux médicaments, et l'âge inférieur à 12 ans",
+"La place de la thérapie cognitivo-comportementale dans ces troubles mérite d'être explorée":"La place de la thérapie cognitivo-comportementale dans ces troubles reste à explorer, selon les auteurs",
+"Chez le sujet âgé, le lorazépam expose à des réactions paradoxales":"Chez le sujet âgé, le lorazépam peut provoquer des réactions paradoxales",
+"En cas d'insuffisance rénale, la sertraline appelle à la prudence malgré une élimination urinaire négligeable":"En cas d'insuffisance rénale, la prudence est de mise avec la sertraline, malgré une élimination urinaire négligeable",
+"Dans une étude d'une année contrôlée par placebo, l'efficacité de la paroxétine s'est maintenue au long cours dans le trouble panique":"Dans une étude d'une année contrôlée par placebo, l'efficacité de la paroxétine est restée stable au long cours dans le trouble panique",
+"Chaque piège prend la forme d'une question suivie de la bonne réponse et de sa raison.":"Chaque piège est une question d'examen, suivie de la bonne réponse et de sa raison.",
+"Sixième question : quelle dose initiale pour la sertraline dans le trouble panique ?":"Sixième question : quelle est la dose initiale de la sertraline dans le trouble panique ?",
+"Septième question : quelle dose initiale de paroxétine dans le trouble panique ?":"Septième question : quelle est la dose initiale de la paroxétine dans le trouble panique ?",
+"Huitième question : quelle benzodiazépine et quelle durée en cas d'anxiété ?":"Huitième question : quelle benzodiazépine est utilisée en cas d'anxiété, et pour quelle durée ?",
+"L'escitalopram (Escitalopram Sandoz®, Swissmedic 62641) débute":"L'escitalopram (Escitalopram Sandoz®, Swissmedic 62641) est débuté",
+}
+tot=0
+for f in sorted(glob.glob('p*.html')):
+    s=open(f).read();o=s
+    for a,b in R.items(): s=s.replace(a,b)
+    if s!=o: open(f,'w').write(s)
+import re
+for a in R:
+    if not any(a in open(f).read() for f in glob.glob('p*.html')): pass
