@@ -1,0 +1,42 @@
+{
+ "porte": "P1",
+ "lot": "046",
+ "ssp": "S2.7 Dyspnée | dyspnea",
+ "fichier_audite": "_travail/PA/liste_dx.json (4000 octets)",
+ "verdict": "CORRIGER",
+ "finale": "non",
+ "motif_finale": "Liste soumise non gelable : rangs 5-10 sans série commune alors que le paquet en contient une (Transition Project, w43678b-27/-28) ; DX.5 mal nommé ; citations de prévalence utilisées comme fréquence de cause. La liste_finale ci-dessous est gelable une fois les sources complémentaires lues et datées.",
+ "liste_finale": [
+  {"rang": 1, "nom": "Pneumonie communautaire", "grave": true, "E": "E5"},
+  {"rang": 2, "nom": "Insuffisance cardiaque décompensée (œdème pulmonaire cardiogénique)", "grave": true, "E": "E4"},
+  {"rang": 3, "nom": "Exacerbation de bronchopneumopathie chronique obstructive", "grave": false, "E": null},
+  {"rang": 4, "nom": "Crise d'asthme", "grave": false, "E": null},
+  {"rang": 5, "nom": "Syndrome d'hyperventilation (trouble anxieux, trouble panique)", "grave": false, "E": null},
+  {"rang": 6, "nom": "Syndrome coronarien aigu", "grave": true, "E": "E1"},
+  {"rang": 7, "nom": "Fibrillation auriculaire", "grave": false, "E": null},
+  {"rang": 8, "nom": "Embolie pulmonaire", "grave": true, "E": "E2"},
+  {"rang": 9, "nom": "Anémie", "grave": false, "E": null},
+  {"rang": 10, "nom": "Pneumothorax spontané", "grave": true, "E": "E3"}
+ ],
+ "arbitrages": {
+  "1_bronchite": "Refusé comme contenu fusionné du DX.1 : ce serait un fourre-tout « IVRI ». La bronchite aiguë reste hors liste et apparaît seulement comme diagnostic discriminant du DX.1 (point 4 : radiographie thoracique) et dans l'épidémiologie de la monographie (24,5-24,7 % des dyspnées de premier recours, w43678b-27). Le rang 1 de la pneumonie repose sur la série des urgences (IVRI 24,9 %, wcd388c-8) et sur la série gériatrique française (PAC 35 % des IRA, w7dab30-13), non sur le chiffre global des IVRI.",
+  "2_rangs_5_10": "Ordre défendable seulement après correction : la série commune existe dans le paquet (Transition Project, Pays-Bas, n = 3743 dyspnées nouvelles, w43678b-27/-28) : hyperventilation 7,56 %, cardiopathie ischémique 1,23 %, FA 0,49 %, EP 0,35 %, anémie ferriprive 0,20 %, pneumothorax absent. Le SCA monte donc de 9 à 6, l'anémie descend de 6 à 9. Les rangs 1-4 gardent EuroDEM (urgences) ; le critère d'ordre doit le dire.",
+  "3_sca": "Accepté pour la fréquence : SESAM 2 (Allemagne) et Transition Project (Pays-Bas) sont européens (IDM 1,08 %, cardiopathie ischémique 1,23-2,15 %). Le statut 🚩 E1 et la conduite exigent la recommandation ESC 2023 sur les SCA dans le paquet de la Phase B.",
+  "4_ep": "Insuffisant : le passage HUG TVP (wa70cb5-7) donne la fréquence de l'EP dans la TVP, pas parmi les dyspnées. Garder w7dab30-13 (EP 18 % des IRA du sujet âgé) et w43678b-28 (0,35 %) ; ajouter ESC/ERS 2019 (version en vigueur selon ma recherche ; à confirmer sur escardio.org).",
+  "5_graves_oublies": "Tamponnade, anaphylaxie/obstruction des voies aériennes supérieures et acidose métabolique n'ont aucune fréquence dans les séries du paquet : ils n'entrent pas dans la liste de fréquence. Ils doivent figurer dans la monographie SSP (points 4, 5 et 10) comme urgences à exclure d'emblée, avec source européenne lue."
+ },
+ "corrections": [
+  {"gravite": "Grave", "objet": "Rangs 5-10 (ordre)", "correction": "Réordonner selon la seule série commune du paquet : 5 hyperventilation (7,56 %), 6 SCA (1,23 %), 7 FA (0,49 %), 8 EP (0,35 %), 9 anémie (0,20 %), 10 pneumothorax (absent des séries). Réécrire critere_ordre : « rangs 1-4 EuroDEM (urgences européennes), rangs 5-10 Transition Project (premier recours néerlandais) ».", "source": "w43678b-27, w43678b-28"},
+  {"gravite": "Grave", "objet": "DX.5 nom et citations", "correction": "Nommer « Syndrome d'hyperventilation (trouble anxieux, trouble panique) » : la série code l'hyperventilation à 7,56 % et le trouble anxieux à 0,15 % seulement. Remplacer we22718-7 (prévalence annuelle des troubles anxieux, 14 %, qui n'est pas une fréquence de cause de dyspnée) par w43678b-27 ; garder we22718-17 pour le mécanisme.", "source": "w43678b-27, w43678b-28, we22718-17"},
+  {"gravite": "Grave", "objet": "DX.6 Anémie (rang et citations)", "correction": "Descendre au rang 9. Les extraits w87388a-7/-13/-14 décrivent la prévalence et les symptômes de l'anémie, pas sa fréquence parmi les dyspnées ; citer w43678b-28 (anémie ferriprive 0,20 %).", "source": "w43678b-28"},
+  {"gravite": "Moyen", "objet": "DX.1 justification", "correction": "Écrire que les IVRI, dont la pneumonie, sont le premier diagnostic aux urgences (24,9 %), et ajouter que la PAC explique 35 % des insuffisances respiratoires aiguës du sujet âgé. Ne pas attribuer les 24,9 % à la seule pneumonie.", "source": "wcd388c-8, w7dab30-13"},
+  {"gravite": "Moyen", "objet": "DX.1 marquage 🚩", "correction": "Marquer la pneumonie 🚩 E5 : sa mortalité hospitalière (8,7 %) dépasse celle de l'IC (7,6 %), elle-même marquée E4 ; sans ce marquage, les rangs E sont incohérents.", "source": "wcd388c-8"},
+  {"gravite": "Moyen", "objet": "DX.9→6 SCA, source de recommandation", "correction": "Ajouter la recommandation européenne des SCA au paquet de la Phase B (dyspnée équivalent angineux, ECG < 10 min, troponine hs).", "source": "https://doi.org/10.1093/eurheartj/ehad191 (ESC 2023, à lire et dater)"},
+  {"gravite": "Moyen", "objet": "DX.8 EP, source", "correction": "Retirer wa70cb5-7 comme justification de rang (fréquence de l'EP dans la TVP, non parmi les dyspnées) ; citer w7dab30-13 et w43678b-28 ; ajouter ESC/ERS 2019 au paquet de la Phase B.", "source": "https://doi.org/10.1093/eurheartj/ehz405 (ESC/ERS 2019, à lire et dater)"},
+  {"gravite": "Moyen", "objet": "DX.7 FA, citation de rang", "correction": "Ajouter w43678b-28 (FA 0,49 % ; 1,08 % dans SESAM 2) ; wfef614-3 donne la prévalence de la FA, pas sa fréquence parmi les dyspnées.", "source": "w43678b-28"},
+  {"gravite": "Moyen", "objet": "DX.10 Pneumothorax, justification", "correction": "Citer w43678b-27/-28 (absent des deux séries de premier recours) pour justifier le rang 10. w43678b-35 ne mentionne pas le pneumothorax.", "source": "w43678b-27, w43678b-28, wb1b10e-6"},
+  {"gravite": "Moyen", "objet": "Graves hors liste (monographie SSP)", "correction": "Inscrire tamponnade, anaphylaxie et obstruction des voies aériennes supérieures, ainsi qu'acidose métabolique (respiration de Kussmaul), comme urgences à exclure aux points 4, 5 et 10 de la monographie, chacune avec une source européenne lue.", "source": "https://doi.org/10.1111/all.15032 (EAACI 2021, anaphylaxie) ; https://www.escardio.org/Guidelines (ESC 2025, péricarde) ; à lire et dater"},
+  {"gravite": "Léger", "objet": "DX.9 SCA, justification", "correction": "Remplacer « rare parmi les dyspnées vues au cabinet » par les chiffres : IDM 1,08 % (SESAM 2), cardiopathie ischémique 1,23 % (Transition Project).", "source": "w43678b-27, w43678b-28"}
+ ],
+ "limites": "Audit fondé sur les passages du paquet cités et sur la table 5 de PMC3279485. Les URL ESC 2023, ESC/ERS 2019 et EAACI 2021 sont désignées, mais l'auditeur ne les a pas lues : le rédacteur doit les lire et les dater. Une seule recherche web a vérifié l'absence d'une version de l'EP plus récente que 2019, sans consulter escardio.org."
+}

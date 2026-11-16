@@ -1,0 +1,82 @@
+import re,glob
+R=[
+("La pneumonie suspectée réunit","En effet, la pneumonie suspectée réunit"),
+("Cette définition par le lieu de prise en charge explique","Ainsi, cette définition par le lieu de prise en charge explique"),
+("Le terme « pneumonie sévère » désigne, dans","En revanche, le terme « pneumonie sévère » désigne, dans"),
+("Parmi 478 patients, 97,7 %","En effet, parmi 478 patients, 97,7 %"),
+("Les soins intensifs ont été nécessaires","Cependant, les soins intensifs ont été nécessaires"),
+("Les infections bactériennes isolées dominent","En outre, les infections bactériennes isolées dominent"),
+("Le pneumocoque, ou Streptococcus pneumoniae, est le germe","Ainsi, le pneumocoque, ou Streptococcus pneumoniae, est le germe"),
+("Les principales raisons de non-vaccination","En effet, les principales raisons de non-vaccination"),
+("Une hypoxémie constitue une indication","Ainsi, une hypoxémie constitue une indication"),
+("Cette association explique pourquoi une dyspnée avec pneumonie peut cacher","Ainsi, une dyspnée avec pneumonie peut cacher"),
+("En Suisse, une prednisone","Ainsi, en Suisse, une prednisone"),
+("La mortalité était de 6·6 %","Ainsi, la mortalité était de 6·6 %"),
+("Trois situations demandent","Ainsi, trois situations demandent"),
+("Les trois critères d'Anthonisen","En outre, les trois critères d'Anthonisen"),
+("Un contact avec des bovins","Ensuite, un contact avec des bovins"),
+("Ces facteurs justifient","Ainsi, ces facteurs justifient"),
+("Une hospitalisation ou un traitement antibiotique dans les 3 mois","En outre, une hospitalisation ou un traitement antibiotique dans les 3 mois"),
+("La pneumonie reste une pathologie qui peut conduire","En effet, la pneumonie reste une pathologie qui peut conduire"),
+("Un patient obtenant 3 ou 4 points","Ainsi, un patient obtenant 3 ou 4 points"),
+("Dans la pneumonie, la prise de tous","En revanche, dans la pneumonie, la prise de tous"),
+("La saturation en oxygène se mesure par","Ensuite, la saturation en oxygène se mesure par"),
+("Une confusion récente, une chute ou la décompensation d'une maladie chronique peuvent","Ainsi, une confusion récente, une chute ou la décompensation d'une maladie chronique peuvent"),
+("Ces seuils plus sensibles","Cependant, ces seuils plus sensibles"),
+("Normalement, le son est clair, sonore et symétrique.","Normalement, le son est clair et symétrique, car l'air remplit les alvéoles."),
+("Une matité à la percussion augmente","Ainsi, une matité à la percussion augmente"),
+("Le diagnostic clinique posé par trois examinateurs","Cependant, le diagnostic clinique posé par trois examinateurs"),
+("Les critères pleuraux comprennent l'atténuation","Ensuite, les critères pleuraux comprennent l'atténuation"),
+("Chaque syndrome se définit","En effet, chaque syndrome se définit"),
+("Chez le sujet âgé, il se manifeste","En revanche, chez le sujet âgé, il se manifeste"),
+("Ses signes physiques sont","En outre, ses signes physiques sont"),
+("Le mécanisme est le shunt intrapulmonaire par persistance","Ainsi, le mécanisme est le shunt intrapulmonaire par persistance"),
+("Un score de 3 à 4 impose l'hospitalisation.","Ainsi, un score de 3 à 4 impose l'hospitalisation."),
+("Les scores de gravité, eux, ne posent pas","En revanche, les scores de gravité, eux, ne posent pas"),
+("La pneumonie avérée ajoute une nouvelle image radiologique compatible avec un foyer. {{w1147a0-7}}</div>\n<div class=\"p\">Ces critères sont","Enfin, la pneumonie avérée ajoute une nouvelle image radiologique compatible avec un foyer. {{w1147a0-7}}</div>\n<div class=\"p\">Ces critères sont"),
+("Un score de 3 à 4 correspond à un patient hospitalisé.","Enfin, un score de 3 à 4 correspond à un patient hospitalisé."),
+("Le Pneumonia Severity Index classe","En revanche, le Pneumonia Severity Index classe"),
+("Chaque réponse correcte vaut un point.","Ainsi, chaque réponse correcte vaut un point."),
+("Sa sensibilité atteint 74 %","Cependant, sa sensibilité atteint 74 %"),
+("Elle évite l'irradiation","En outre, elle évite l'irradiation"),
+("La culture d'expectorations avec","Ainsi, la culture d'expectorations avec"),
+("Ces deux tests sont recommandés seulement","Cependant, ces deux tests sont recommandés seulement"),
+("Le test VIH est recommandé","Enfin, le test VIH est recommandé"),
+("Les critères vasculaires utilisent","Enfin, les critères vasculaires utilisent"),
+("Elle se prescrit à la dose de 1 g","Ainsi, elle se prescrit à la dose de 1 g"),
+("En cas d'allergie sévère aux bêtalactamines, la stratégie propose","Si l'allergie aux bêtalactamines est sévère, la stratégie propose"),
+("Le délai de stabilité clinique est plus long","Ainsi, le délai de stabilité clinique est plus long"),
+("La posologie usuelle de l'adulte est de 3 x 625","En outre, la posologie usuelle de l'adulte est de 3 x 625"),
+("Il est recommandé de prendre Augmentin","Ensuite, il est recommandé de prendre Augmentin"),
+("Chez un patient sous anticoagulant oral","Ensuite, chez un patient sous anticoagulant oral"),
+("Pendant la grossesse, Augmentin","En revanche, pendant la grossesse, Augmentin"),
+("Les expériences en grossesse sont insuffisantes","En outre, les expériences en grossesse sont insuffisantes"),
+("en injection, et la flucloxacilline vise","en injection, alors que la flucloxacilline vise"),
+("Pour Coxiella burnetii, la durée","Enfin, pour Coxiella burnetii, la durée"),
+("Les recommandations internationales placent","En outre, les recommandations internationales placent"),
+("L'oseltamivir est indiqué dans la grippe","Ainsi, l'oseltamivir est indiqué dans la grippe"),
+("Il n'y a pas de bénéfice à traiter","En effet, il n'y a pas de bénéfice à traiter"),
+("L'oxygène est donné à tout patient","Ainsi, l'oxygène est donné à tout patient"),
+("À l'hôpital, la prednisone","En revanche, à l'hôpital, la prednisone"),
+("La légionellose et la fièvre Q","Par ailleurs, la légionellose et la fièvre Q"),
+("La mortalité à 28 jours est de 2,9 % dans la cohorte suisse, et","Ainsi, la mortalité à 28 jours est de 2,9 % dans la cohorte suisse, et"),
+("Les recommandations de référence sont","Ainsi, les recommandations de référence sont"),
+("Contre la grippe saisonnière, elle","Ensuite, contre la grippe saisonnière, elle"),
+("Un vaccin à dose élevée","En outre, un vaccin à dose élevée"),
+("Chez le patient âgé, le contrôle des comorbidités","Par ailleurs, chez le patient âgé, le contrôle des comorbidités"),
+("Chaque piège devient","Ainsi, chaque piège devient"),
+("La réponse est non : il désigne toutes les infections respiratoires basses, qui sont","La réponse est non, car il désigne toutes les infections respiratoires basses, qui sont"),
+("Il ne remplace ni","Cependant, il ne remplace ni"),
+]
+for f in glob.glob('src/p*.txt'):
+    open(f+'.bak','w').write(open(f).read())
+miss=[]
+for a,b in R:
+    n=0
+    for f in glob.glob('src/p*.txt'):
+        s=open(f).read()
+        if a in s and b not in s:
+            s=s.replace(a,b,1) if a.startswith(('Un score de 3 à 4','Chaque réponse','Le Pneumonia')) and False else s.replace(a,b)
+            open(f,'w').write(s); n+=1
+    if not n: miss.append(a[:40])
+print('missing',miss)
