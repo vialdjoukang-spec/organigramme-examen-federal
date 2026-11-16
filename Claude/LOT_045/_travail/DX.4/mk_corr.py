@@ -1,0 +1,20 @@
+import json
+def s(i): return f'<sup class="r"><a href="#sb-{i}">{i}</a></sup>'
+C=[]
+def c(a,b): C.append({"avant":a,"apres":b})
+c("Pour Symbicort, l'information suisse indique qu'il ne devrait être administré pendant la grossesse que si le bénéfice potentiel justifie le risque pour le fœtus, avec prudence au premier trimestre"+s('aips-55568-37')+".",
+  "Pour Symbicort, l'information suisse indique qu'il ne devrait être administré pendant la grossesse que si le bénéfice potentiel justifie le risque potentiel pour le fœtus ; en particulier pendant le premier trimestre et juste avant la naissance, il ne doit être utilisé qu'en présence de raisons impératives"+s('aips-55568-37')+".")
+c("L'allaitement par Symbicort n'est pas attendu poser de problème aux doses thérapeutiques, mais les mères n'utilisent le médicament que si nécessaire"+s('aips-55568-38')+".",
+  "Pendant l'allaitement, les mères qui allaitent ne doivent utiliser Symbicort que si ce traitement est absolument nécessaire, bien que la concentration plasmatique du budésonide chez l'enfant atteigne moins de 0,17 % de la concentration maternelle"+s('aips-55568-38')+".")
+c("Enfin, le salbutamol, bronchodilatateur de courte durée d'action, sert de secours ; la classe et la conduite suffisent ici, sans milligramme.",
+  "Enfin, le salbutamol, bronchodilatateur de courte durée d'action, sert de secours. Ventolin nébuliseur-doseur porte le numéro Swissmedic 37397"+s('aips-37397-0')+". Chez l'adulte et l'adolescent de plus de 12 ans, l'information suisse prévoit 1 à 2 inhalations en cas de bronchospasme aigu"+s('aips-37397-3')+". En revanche, le salbutamol ne remplace pas les corticostéroïdes, car il ne traite pas l'inflammation"+s('aips-37397-2')+".")
+c("Ensuite, on propose un essai de corticostéroïdes inhalés de 2 à 4 semaines, avec une réponse conditionnelle et une qualité de preuve faible selon l'ERS"+s('wd8e55d-24')+".",
+  "Ensuite, on propose un essai de corticostéroïdes inhalés de 2 à 4 semaines, avec une réponse conditionnelle et une qualité de preuve faible selon l'ERS"+s('wd8e55d-24')+". Pulmicort Turbuhaler (budésonide) porte le numéro Swissmedic 50192"+s('aips-50192-0')+". Chez l'adulte, l'information suisse prévoit 100 à 400 µg deux fois par jour, ou 200 à 400 µg une fois par jour"+s('aips-50192-6')+". Axotide (propionate de fluticasone) porte le numéro Swissmedic 53390"+s('aips-53390-0')+". Chez l'adulte de plus de 16 ans, la dose initiale est de 100 à 250 µg 2 fois par jour dans l'asthme léger"+s('aips-53390-3')+".")
+c("<li>Administrer un bronchodilatateur d'action rapide ; le patient doit toujours l'avoir sur lui"+s('aips-66747-22')+".</li>",
+  "<li>Administrer un bronchodilatateur d'action rapide, par exemple 1 à 2 inhalations de Ventolin chez l'adulte en cas de bronchospasme aigu"+s('aips-37397-3')+". Le patient doit toujours disposer d'un bronchodilatateur d'action rapide"+s('aips-66747-22')+".</li>")
+c("l'état de mal asthmatique exige une administration intraveineuse rapide d'un corticostéroïde"+s('aips-69640-6')+".</li>",
+  "l'état de mal asthmatique exige une administration intraveineuse rapide d'un corticostéroïde"+s('aips-69640-6')+". Dans les états aigus sévères qui permettent la voie orale, l'information suisse de la prednisone prévoit une dose initiale de 100 à 200 mg par jour, en 4 prises au moins"+s('aips-69640-8')+".</li>")
+c("Selon le rapport GINA de 2022, un test à la méthacholine est positif lorsque le VEMS chute de 20 % ou plus"+s('w4f25d2-35')+s('w4f25d2-36')+". ","")
+c("Les sociétés européennes sont proches, mais elles retiennent une variabilité du débit de pointe de 20 % ou plus comme diagnostique"+s('w522ffd-10')+".",
+  "Les sociétés européennes retiennent une variabilité du débit de pointe de 20 % ou plus, et l'ERS avec l'ATS définit désormais la réversibilité par une variation du VEMS ou de la CVF de plus de 10 % de la valeur prédite"+s('w522ffd-10')+".")
+json.dump(C,open('Claude/LOT_045/_travail/DX.4/corrections.json','w'),ensure_ascii=False,indent=1)

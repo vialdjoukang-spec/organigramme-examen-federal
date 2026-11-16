@@ -1,0 +1,24 @@
+import json
+def s(i): return f'<sup class="r"><a href="#sb-{i}">{i}</a></sup>'
+C=[]
+def c(a,b): C.append({"avant":a,"apres":b})
+c("Non recommandé pendant la grossesse ; allaitement déconseillé"+s('aips-55689-11')+s('aips-55689-12'),
+  "La desloratadine ne doit pas être utilisée pendant la grossesse ; il est conseillé de ne pas allaiter durant un traitement par Aerius"+s('aips-55689-11')+s('aips-55689-12'))
+c("<tr><td>Décongestionnant nasal (xylométazoline)</td><td>Sans dose, pas d'information lisible</td><td>Pas plus de 5 jours selon ARIA"+s('wdba780-196')+"</td><td>À éviter, surtout au premier trimestre"+s('wdba780-195')+"</td></tr>",
+  "<tr><td>Otrivin Rhume (xylométazoline), Swissmedic 58857</td><td>Dès 12 ans : 1 pulvérisation dans chaque narine, à répéter si besoin, au plus 3 applications par jour"+s('aips-58857-2')+"</td><td>Pas plus d'une semaine selon l'information suisse"+s('aips-58857-2')+" ; pas plus de 5 jours selon ARIA"+s('wdba780-196')+"</td><td>Ne doit pas être utilisé par précaution pendant la grossesse"+s('aips-58857-13')+" ; pendant l'allaitement, uniquement sur prescription médicale"+s('aips-58857-14')+"</td></tr>\n"
+  "<tr><td>Fluticason-Mepha (furoate de fluticasone nasal), Swissmedic 69312</td><td>Dès 12 ans : deux pulvérisations par narine, une fois par jour, soit 110 µg par jour"+s('aips-69312-4')+"</td><td>Entretien : une pulvérisation par narine, soit 55 µg par jour"+s('aips-69312-4')+"</td><td>Pas pendant la grossesse sauf nécessité absolue"+s('aips-69312-17')+" ; allaitement non recommandé"+s('aips-69312-18')+"</td></tr>")
+c(" Les molécules sans information professionnelle lisible, comme les décongestionnants nasaux ou les autres corticoïdes nasaux, sont présentées par classe, sans milligramme.","")
+c("Ils sont évités chez la femme enceinte, l'enfant de moins de 12 ans et le sujet âgé"+s('wdba780-195')+".",
+  "Ils sont évités chez la femme enceinte, l'enfant de moins de 12 ans et le sujet âgé"+s('wdba780-195')+". Otrivin Rhume, à base de xylométazoline, porte le numéro Swissmedic 58857"+s('aips-58857-0')+". Dès 12 ans, l'information suisse prévoit 1 pulvérisation dans chaque narine, à répéter si besoin, sans dépasser 3 applications par jour"+s('aips-58857-2')+". En effet, un emploi de plus d'une semaine n'est pas indiqué, car il peut provoquer une rhinite médicamenteuse"+s('aips-58857-2')+". Fluticason-Mepha, à base de furoate de fluticasone, porte le numéro Swissmedic 69312"+s('aips-69312-0')+". Chez l'adulte et l'adolescent dès 12 ans, la dose initiale est de deux pulvérisations par narine, une fois par jour, soit 110 µg par jour"+s('aips-69312-4')+". Ensuite, une pulvérisation par narine une fois par jour, soit 55 µg par jour, peut suffire en entretien"+s('aips-69312-4')+". Fluticason-Mepha ne doit pas être administré pendant la grossesse, sauf en cas de nécessité absolue"+s('aips-69312-17')+".")
+c("Par ailleurs, l'ERS indique qu'un nombre d'éosinophiles supérieur à 0,3 cellule par microlitre peut traduire une inflammation éosinophilique des voies aériennes"+s('wd8e55d-56')+".",
+  "Par ailleurs, l'ERS indique qu'un nombre d'éosinophiles sanguins supérieur à 0,3 G/L peut traduire une inflammation éosinophilique des voies aériennes"+s('wd8e55d-56')+".")
+c("La seule urgence fréquente à connaître est l'hémoptysie massive, car elle engage le pronostic vital"+s('wb9ff23-2')+".",
+  "L'hémoptysie massive, rare mais vitale, est l'urgence à reconnaître lors d'une consultation pour toux"+s('wb9ff23-2')+".")
+c("Cependant, la Revue Médicale Suisse la décrit comme représentant moins d'un cas sur vingt"+s('wb9ff23-2')+".",
+  "La Revue Médicale Suisse précise qu'elle représente moins de 5 % des hémoptysies"+s('wb9ff23-2')+".")
+c("<td>Rhinosinusite aiguë non compliquée</td><td>Information professionnelle suisse</td><td>Plus de 1 semaine, moins de 4 semaines</td><td>Distingue de la forme chronique</td>",
+  "<td>Rhinosinusite aiguë non compliquée</td><td>Information professionnelle suisse (indication de Rhinisone)</td><td>Symptômes de plus de 1 semaine et de moins de 4 semaines"+s('aips-68335-2')+"</td><td>Fenêtre d'indication du spray, non définition de la maladie</td>")
+c("<div class=\"p\">Le seuil d'hémoptysie massive retenu dans la revue de Singapour est une perte d'au moins 200 mL de sang en 24 heures, ou de 50 mL par épisode"+s('w91b1da-7')+". Par ailleurs, cette forme représente seulement 5 % des hémoptysies, mais sa mortalité dépasse 50 %"+s('w91b1da-7')+".</div>","")
+c("La toux est alors dite réfractaire, et l'ERS recommande un essai de morphine à faible dose à libération prolongée, de gabapentine ou de pregabaline"+s('wd8e55d-100')+".",
+  "La toux est alors dite réfractaire, et l'ERS recommande un essai de morphine à faible dose à libération prolongée, 5 à 10 mg deux fois par jour"+s('wd8e55d-100')+".")
+json.dump(C,open('Claude/LOT_045/_travail/DX.3/corrections.json','w'),ensure_ascii=False,indent=1)
