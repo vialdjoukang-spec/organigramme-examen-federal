@@ -41,7 +41,7 @@ Le syndrome cave supérieur Q5, le sarcome profond Q6, la maladie de Kawasaki Q1
 
 ## Vérification après le lot 020
 
-L’index d’empreinte `e5a79f5ab314a91904e5d6218241ed063d4b0b1b` contient 160 questions G2 consécutives. Les quatre décisions urgentes ou oncologiques proposées plus haut sont désormais traitées dans le HTML par Q141 (compression médullaire), Q143 (anévrisme rompu), Q144 (torsion testiculaire) et Q158 (discordance radiopathologique). La conduite après exérèse imprévue d’un sarcome figure dans le lot 022, Q191, contre-lue sur le texte du Swiss Sarcoma Network. [Recommandation pour l’exérèse imprévue](https://www.swiss-sarcoma.net/pdf/GCP_5_whoops.pdf)
+L’index d’empreinte `e5a79f5ab314a91904e5d6218241ed063d4b0b1b` contient 160 questions G2 consécutives. Les quatre décisions urgentes ou oncologiques proposées plus haut sont désormais traitées dans le HTML par Q141 (compression médullaire), Q143 (anévrisme rompu), Q144 (torsion testiculaire) et Q158 (discordance radiopathologique). La conduite après exérèse imprévue d’un sarcome figure dans le lot 022 publié, Q191, contre-lue sur le texte du Swiss Sarcoma Network. [Recommandation pour l’exérèse imprévue](https://www.swiss-sarcoma.net/pdf/GCP_5_whoops.pdf)
 
 | Q121–160 | Compléments observés |
 |---|---|
@@ -54,7 +54,7 @@ Le suivi d’un fibroadénome concordant, stable et asymptomatique est désormai
 
 ## Contre-relecture des lots 021–022
 
-La banque prépare Q161–200. Les compétences ci-dessous ont été identifiées à la lecture des fichiers de production. Leur publication doit être confrontée à l’index définitif.
+L’index après lot 022 (empreinte `f47e4e33871650d7e701dd86dc147d06b344b9d4`) contient 200 identifiants G2 distincts et 22 entrées d’audit pour la banque entière. Q184 et Q185 y figurent dans leurs versions retenues.
 
 | Segment | Décisions ajoutées |
 |---|---|
@@ -68,4 +68,6 @@ Les deux lacunes repérées ont été comblées par Q184 et Q185. Leurs binômes
 
 ## Verdict clinique après Q200
 
-Les décisions proposées dans ce registre ont toutes une question de rattachement. La revue des 200 décisions n’a identifié aucune lacune prioritaire qui justifierait un lot G2 supplémentaire. G3 peut démarrer. Le registre des audits décrit la contre-lecture documentaire assistée par IA. Le dossier facultaire et la publication de la version finale sont vérifiables séparément.
+Les décisions proposées dans ce registre ont toutes une question de rattachement. La revue des 200 décisions n’a identifié aucune lacune prioritaire qui justifierait un lot G2 supplémentaire. Le dernier point de sécurité soumis à arbitrage porte sur une hémorragie intranodulaire devant une augmentation thyroïdienne douloureuse et brutale. La recommandation est d’intégrer la consigne de tri à Q102, qui porte déjà sur le degré d’urgence d’un goitre compressif. La version ici vérifiée confirme la publication de Q184 et Q185 ; l’intégration de cet enrichissement de Q102 reste à contrôler. [HUG, atelier nodules thyroïdiens](https://www.hug.ch/sites/interhug/files/atelier_mpr/nodules_thyroidiens.pdf)
+
+Le registre des audits décrit la contre-lecture documentaire assistée par IA. Le dossier facultaire et la publication de la version finale sont vérifiables séparément.
