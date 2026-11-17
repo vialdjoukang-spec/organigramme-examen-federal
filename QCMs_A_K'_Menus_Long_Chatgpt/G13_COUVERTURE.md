@@ -30,3 +30,7 @@ Les facultés de Genève, Zurich et Bâle enseignent respectivement l’évaluat
 ## Renvois au corpus
 
 G4-119 évalue le suivi d’une fatigue pendant un deuil récent. G8-153 porte sur les prérequis thermiques au diagnostic de décès neurologique. La conduite après décès non naturel, l’annonce de la suite judiciaire et le soutien immédiat aux proches forment des décisions distinctes. Les rapprochements seront contrôlés à mesure que les manuscrits seront disponibles.
+
+## Lot 124 · questions 001 à 040
+
+Les huit manuscrits des lots 123 et 124 couvrent les premières constatations personnelles, les qualifications incertaines, les écrits médicaux et leurs destinataires cantonaux. Les décès après un traumatisme permettent de différencier le lien causal, la définition statistique routière et la notification de l’accident professionnel à la Suva. G13-023 et 025 appliquent deux dispositions distinctes de la directive genevoise C.13, les §§4 et 8. G13-031 applique le guide vaudois lorsque subsiste une divergence sur la nature de la mort. G13-036 à 040 traitent l’annonce aux proches, l’accompagnement spirituel, la réponse à l’enfant, l’interprétariat et le choix individuel de voir le corps. L’enseignement bâlois cite expressément l’entretien avec les proches après un décès. [Bâle, communication médicale, 4e année](https://medizinstudium.unibas.ch/de/lehrkonzept/aufbau-des-curriculums/longitudinale-fach-und-themenbereiche/) · [Ministère public genevois, directive C.13](https://justice.ge.ch/media/2021-06/directive-c.13-levee-de-corps.pdf).
