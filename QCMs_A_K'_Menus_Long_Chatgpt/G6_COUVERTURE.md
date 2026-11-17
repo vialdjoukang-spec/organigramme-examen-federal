@@ -52,3 +52,14 @@ La Q037 oriente vers une infection sternale profonde après sternotomie. Elle a 
 | 071–080 | Décider du lieu des soins suivant la profondeur et la durée d’une aplasie, reconnaître entérocolite et risque fongique, et interpréter une fièvre pendant ou après un produit transfusé ou perfusé. |
 
 G6-063 choisit l’imagerie non irradiante initiale d’une obstruction suspectée pendant la grossesse. G1-061 reconnaît l’obstruction comme cause d’échec apparent d’une antibiothérapie et G5-194 choisit la décompression d’un calcul infecté après confirmation. G6-065 échantillonne les urines du bassinet durant une dérivation déjà décidée. Les informations à obtenir sont différentes à chacune de ces étapes.
+
+## Décisions contrôlées, lots 057 et 058
+
+| Questions | Domaine évalué |
+|---|---|
+| 081–090 | Rechercher une cause osseuse, articulaire ou microcristalline d’une fièvre, examiner une porte d’entrée cutanée et adapter la conduite devant un exanthème selon l’âge et l’existence d’une grossesse. |
+| 091–100 | Anticiper les complications d’endocardite et guider les examens de suivi. Lors d’une fièvre prolongée, interpréter un examen métabolique, une réaction au naproxène et des anomalies hématologiques en fonction du contexte. |
+| 101–110 | Répéter l’examen si un foyer se précise, reprendre la chronologie médicamenteuse et confronter les signes aux expositions alimentaires, au pays et au jour de la maladie. |
+| 111–120 | En EMS, interpréter la variation thermique par rapport à la valeur habituelle, les signes de dysphagie ou d’infection abdominale et les limites d’un prélèvement superficiel. Après intervention, rechercher les complications liées au dispositif ou au site opératoire et déterminer les soins utiles. |
+
+G6-102 porte sur l’alerte concernant le métamizole, y compris après des expositions antérieures bien tolérées. G6-106 choisit la confirmation virologique précoce d’une dengue, G6-109 la prévention des piqûres autour d’un cas virémique au Tessin, G4-152 la reconnaissance d’une aggravation au moment de la défervescence et G5-047 l’antalgie initiale. [Alerte de Swissmedic](https://www.swissmedic.ch/swissmedic/fr/home/medicaments-a-usage-humain/surveillance-du-marche/health-professional-communication--hpc-/dhpc-metamizolum.html) · [Plan d’action fédéral pour les arboviroses](https://www.bag.admin.ch/dam/fr/sd-web/0guPUMgqCYOT/Massnahmenplan_Dengue-Chikungunya-Zika_2025_FR.pdf)
