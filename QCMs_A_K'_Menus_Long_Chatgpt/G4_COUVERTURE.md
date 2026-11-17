@@ -63,3 +63,20 @@ L’essai romand de Verdon et coll. porte sur le fer oral chez des femmes fatigu
 
 - **Adolescents scolarisés de 11 à 15 ans.** Dans l’enquête suisse HBSC 2022, 50,1 % disent ressentir de la fatigue plusieurs fois par semaine ou chaque jour au cours des six mois précédents. Il s’agit d’un symptôme autodéclaré. L’entretien explore sommeil, santé mentale, retentissement scolaire, alimentation et signes d’alarme. [OFSP et Obsan, indicateur HBSC 2022](https://ind.obsan.admin.ch/fr/indicator/monam/_341)
 - **Adultes consultant en Suisse romande et alémanique.** Dans l’essai pilote multicentrique 2017–2020, 37 praticiens ont recruté 93 patients sélectionnés présentant une fatigue inexpliquée. Une carence en fer représentait 44,4 % des diagnostics posés par les praticiens à l’inclusion, avec des exclusions importantes et une taille moindre que prévu. Cette proportion décrit les diagnostics proposés dans cet échantillon, sans mesurer la prévalence nationale des causes de fatigue. [Étude prospective suisse en soins primaires](https://pmc.ncbi.nlm.nih.gov/articles/PMC12102925/)
+
+## Bloc intermédiaire 101–160
+
+| Questions | Population et décision |
+|---|---|
+| 101–105 | Anomalies sanguines, douleurs osseuses ou détérioration fébrile. Orienter l’imagerie et le bilan hématologique, apprécier la causalité d’un pic monoclonal, adresser une suspicion de syndrome hémophagocytaire. |
+| 106–110 | Avec le patient, reconstituer les prises et les arrêts d’alcool, de cannabis, de benzodiazépines, de caféine ou de varénicline et adapter la conduite au risque. |
+| 111–115 | Chez le sportif, apprécier la récupération et la disponibilité énergétique. Interpréter une épreuve sous-maximale ou laryngée et ajuster l’effort en cas de modification du traitement. |
+| 116–120 | Rechercher et traiter une exposition collective au CO, l’épuisement de l’aidant, les violences au domicile, les difficultés du deuil ou les complications de purges. |
+| 121–130 | En dénutrition ou malabsorption, individualiser le soutien et les analyses. Devant une somnolence, différencier privation, narcolepsie et insomnie et choisir évaluation ou thérapie adaptée. |
+| 131–140 | En médecine du travail et du handicap, discuter accès aux mesures de protection, retour au poste, horaires, adaptation des outils d’évaluation et des activités quotidiennes. |
+| 141–145 | Voyage ou exposition infectieuse, immunosuppression prévue ou hépatite. Choisir le prélèvement urinaire dans une bilharziose urogénitale tardive, évaluer giardiase et anguillulose, fenêtre VIH ou chronicité du VHB. |
+| 146–150 | Après maladie ou transplantation cardiaque, choisir le cadre de réadaptation ; chez l’insuffisant cardiaque connu, attribuer au gain pondéral rapide et aux œdèmes la priorité qu’impose une possible décompensation. |
+| 151–155 | Chez le voyageur, la forme fébrile précoce de bilharziose de Q151 diffère de la forme urinaire tardive Q141. Reconnaître une dengue en phase critique, rechercher le VHE en contexte d’immunosuppression et différencier les effets tardifs du chikungunya ou immédiats de l’altitude. |
+| 156–160 | En gynécologie et obstétrique, explorer un phénotype hémorragique, des douleurs cycliques, un prurit gravidique ou un traitement hormonal. Repérer un syndrome d’hyperstimulation ovarienne avec oligurie. |
+
+**Fenêtre VIH.** G4-144 concerne une personne sans syndrome aigu caractéristique et sans PrEP/PEP qui présente un autotest négatif trop précoce. G1-009 évalue l’association immédiate d’un test combiné et d’une recherche moléculaire en cas de suspicion clinique de primo-infection.
