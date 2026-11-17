@@ -27,3 +27,16 @@ La couverture clinique sera réévaluée sur les manuscrits validés par lots de
 **Iatrogénie en gériatrie.** Dans une analyse bâloise de 633 patients ayant une plainte non spécifique, d’âge médian 81 ans, 77 (12,2 %) présentaient un problème lié au traitement médicamenteux. Quarante pour cent de ces problèmes ont été identifiés dès la première évaluation. La réconciliation des traitements porte aussi sur l’automédication, les interruptions et les changements de dose. [Cohorte du service des urgences de Bâle](https://pubmed.ncbi.nlm.nih.gov/23497667/)
 
 **Pédiatrie.** Devant une description imprécise ou un appel des parents, vérifier la modification du jeu et des interactions, les apports, la respiration et les urines ; anticiper les conditions de réévaluation. [Enseignement clinique pédiatrique du CHUV](https://www.chuv.ch/fileadmin/formation/hel_Fievre_Primarycare2012.pdf)
+
+## Décisions vérifiées, Q001–040
+
+| Questions | Décision ou situation discriminante |
+|---|---|
+| 001–005 | Clarifier ce que le patient désigne comme une maladie, reconnaître l’obstruction haute et une détérioration en salle d’attente, mesurer la vigilance, puis transmettre une demande d’aide explicite. |
+| 006–010 | Infection sans foyer clair : repérer une atteinte d’organe malgré un dépistage initial peu évocateur, traiter un choc probable, interpréter le lactate, adapter l’antibiothérapie et le support circulatoire. |
+| 011–015 | Reconnaître infarctus sans douleur typique, lésion myocardique sans preuve d’ischémie, tachyarythmie mal tolérée et tamponnade ; tenir compte du traitement réellement pris. |
+| 016–020 | Suspecter une toxicité médicamenteuse ou une interaction devant des symptômes peu spécifiques, puis choisir l’analyse selon l’exposition et sa chronologie. |
+| 021–025 | Pression conservée, pouls irrégulier, lactate ou polypnée trompeurs : préciser l’état de perfusion et la réponse à une intervention. |
+| 026–030 | Rechercher une infection urinaire haute, prostatique ou respiratoire selon les signes discrètement localisateurs. Utiliser la saturation, l’exposition commune et la persistance du foyer pour décider du niveau de soins et du suivi. |
+| 031–035 | Distinguer la correction de la glycémie de celle de l’acidocétose, identifier une décompensation métabolique pédiatrique sans hypoglycémie initiale, des signes de tétanie dépendants du pH et une détérioration neurologique pendant le traitement. |
+| 036–040 | Chez la personne fragile, rechercher impaction, modification de la forme d’administration et traumatisme non signalé ; protéger l’orientation et l’autonomie pendant l’évaluation urgente. |
