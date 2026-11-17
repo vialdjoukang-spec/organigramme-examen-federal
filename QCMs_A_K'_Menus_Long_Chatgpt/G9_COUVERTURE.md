@@ -20,7 +20,7 @@ Parmi 413 adultes en hémodialyse depuis au moins six mois, recrutés dans 15 ce
 
 L’enseignement genevois rattache la description des lésions élémentaires à la démarche diagnostique et aux examens complémentaires. À Bâle, le catalogue Master daté du 22 septembre 2026 décrit l’examen dermatologique et la recherche d’atteintes systémiques. Les correspondances détaillées et leurs limites sont inscrites au fur et à mesure dans G9_OBJECTIFS.json. [Genève, discipline Dermatologie](https://www.medecine.unige.ch/enseignement/etudes/curriculum/data/d30.htm) · [Bâle, formation pratique Master, dermatologie](https://medizinstudium.unibas.ch/fileadmin/user_upload/medizin/Dokumente/Master/26_27_Stoffkatalog_MA_MDT.pdf#page=12).
 
-## Couverture relue jusqu’au lot 090
+## Couverture des lots 083 à 092
 
 | Questions | Décisions couvertes |
 |---|---|
@@ -32,5 +32,13 @@ L’enseignement genevois rattache la description des lésions élémentaires à
 | 101–120 | Prurit anogénital, évaluation et traitement de l’urticaire chronique, prurit neuropathique, choix thérapeutiques et effets indésirables de l’eczéma atopique. |
 | 121–140 | Prurit fonctionnel et trouble d’excoriation, expositions saisonnières, prurit médicamenteux et cholestase retardée, biopsie ciblée et réévaluation du prurit initialement inexpliqué. |
 | 141–160 | Conditions des prélèvements cutanés et unguéaux, tests photoallergologiques, quantité et sécurité des traitements topiques, signes systémiques et paranéoplasiques, escalade thérapeutique du prurigo nodulaire. |
+| 161–180 | Prurit cholestatique réfractaire, résines et sécurité des traitements, dermatite professionnelle et déclaration LAA, prurit neuropathique, photothérapie et dermatoses du voyageur. |
+| 181–200 | Sites cutanés ou dispositifs localisés, dyschromie résiduelle, prurit péristomial et oculaire, mamelon et allaitement, carence martiale, prurit fantôme, cryoglobulines, pemphigoïde étendue, suivi post-scabieux et contagiosité. |
 
-Les numérations et la présence de plusieurs thèmes voisins ne suffisent pas à clore un domaine. Le contrôle final confronte les décisions de chaque cas aux situations de la grille ci-dessus et aux dix lots du SSP.
+## Contrôle terminal du 17 novembre 2026
+
+Les dix manifestes correspondent aux quarante empreintes Git des manuscrits relus. Les dix annexes rattachent à une source facultaire les 200 objectifs des questions G9-001 à G9-200. Le décompte donne 120 questions A, 40 K′ et 40 menus longs. Les contrôles successifs ont inclus la résolution indépendante sur énoncés masqués et la revue des décisions voisines entre lots. Deux cas initialement consacrés à la transplantation hépatique ont été ramenés à une seule indication en G9-165. Le prélèvement mycologique unguéal de G9-145 et l’infiltration spécialisée de G9-157 ont remplacé deux répétitions.
+
+Pour la réaction allergique aiguë, G9-026 et G9-029 distinguent une atteinte cutanée isolée. La reconnaissance de l’anaphylaxie avant l’hypotension se travaille en G7-021, la répétition de l’adrénaline intramusculaire en G7-023, les traitements adjuvants en G7-024 et la réanimation volémique en G7-025. Dans G9, l’orientation urgente devant une toxidermie avec atteinte muqueuse et celle devant un déficit neurologique progressif sont évaluées en G9-045 et G9-115. G9-196 complète la séquence gale en distinguant une amélioration avec prurit résiduel des éléments qui feraient reprendre l’enquête.
+
+Les sept situations de la matrice ont une décision repérable dans les séries relues ou les renvois ci-dessus. La revue des 200 questions n’a identifié aucune décision supplémentaire indispensable pour ces situations. La couverture de G9 peut être close à 200 questions. Les estimations épidémiologiques présentées en ouverture restent limitées aux populations et aux périodes étudiées.
