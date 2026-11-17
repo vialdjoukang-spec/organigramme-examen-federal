@@ -22,9 +22,10 @@ Les enseignements genevois précisent les objectifs relatifs aux insomnies et au
 
 ## Décisions déjà présentes dans la banque
 
-Les questions G4-006, 008–010, 126–130 et 180 couvrent respectivement la correction d’une dette de sommeil, le bilan après polygraphie négative, le diagnostic de jambes sans repos, la conduite dangereuse, la reconnaissance de la cataplexie, la préparation d’un test de latences multiples, l’indication générale de TCC-I, l’actigraphie et la vérification de la pression positive devant une somnolence résiduelle. G9-079 sépare le retentissement nocturne de la somnolence, et G10-128 analyse le lien réciproque entre douleur et sommeil. Les décisions nouvelles seront comparées à ces situations et au reste du corpus, y compris les effets médicamenteux en G7.
+Les questions G4-006–010, 126–130 et 180 couvrent respectivement la correction d’une dette de sommeil, la portée du score d’Epworth, le bilan après polygraphie négative, le diagnostic de jambes sans repos, la conduite dangereuse, la reconnaissance de la cataplexie, la préparation d’un test de latences multiples, l’indication générale de TCC-I, l’actigraphie et la vérification de la pression positive devant une somnolence résiduelle. G9-079 sépare le retentissement nocturne de la somnolence, et G10-128 analyse le lien réciproque entre douleur et sommeil. Les décisions nouvelles seront comparées à ces situations et au reste du corpus, y compris les effets médicamenteux en G7.
 
 ## Questions relues
 
 | Questions | Décisions travaillées |
 |---|---|
+| 001–020 | Clinophilie et besoin de sommeil individuel, caféine en soirée, caractérisation des siestes, agenda et sévérité de l’insomnie, NoSAS et mécanisme de la nycturie, sécurité de conduite et protection des travailleurs de nuit. |
