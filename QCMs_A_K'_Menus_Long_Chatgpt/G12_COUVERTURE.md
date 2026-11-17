@@ -29,4 +29,9 @@ Le CST de Berne enseigne l’examen veineux et lymphatique des membres et les si
 | G2-114, G3-095, G1-162, G1-164, G3-177 | Recherche de gammapathie devant protéinurie et macroglossie, limites de la FENa sous furosémide, adaptation des traitements à la chaleur, déplétion potassique et hyponatrémie liée à un thiazidique. |
 | G3-022, G6-085, G9-184 | Prééclampsie possible malgré une autre plainte, recherche d’une porte d’entrée après des dermohypodermites répétées, diagnostic clinique de dermite de stase. |
 
-Les identifiants des questions et leurs décisions seront ajoutés au fil des lots. La nécessité d’étendre la banque sera appréciée au regard d’actes cliniques encore absents au seuil prévu.
+## Questions relues
+
+| Questions | Décisions examinées |
+|---|---|
+| 001–020 | Godet et déclivité, mesure comparable, épanchements séreux et articulaire, CEAP et examen des varices, cartographie du reflux, TVP initiale ou récidivante, albuminurie, synthèse hépatique, calcium ionisé et portée du NT-proBNP. |
+| 021–040 | Signes de congestion droite et pulmonaire, insuffisance tricuspide et OAP, examen lymphatique et causes primaires ou secondaires, urgences et prévention des crises d’angio-œdème, complications et prévention dans le syndrome néphrotique. |
