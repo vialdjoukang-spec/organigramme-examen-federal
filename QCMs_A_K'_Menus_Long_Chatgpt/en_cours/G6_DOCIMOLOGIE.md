@@ -9,10 +9,10 @@ La banque compte 120 questions A, 40 K′ et 40 menus longs. Chaque A comporte q
 | Mesure sur les 120 A | Avant | Après |
 |---|---:|---:|
 | Clé seule la plus longue (caractères) | 28 | 25 |
-| Clé seule la plus courte (caractères) | 36 | 37 |
+| Clé seule la plus courte (caractères) | 37 | 38 |
 | Clé parmi les plus longues ex æquo (caractères) | 6 | 6 |
 | Bonnes réponses attendues en choisissant le libellé le plus long (caractères) | 30,25 | 27,25 |
-| Même stratégie en mots | 24,67 | 22,83 |
+| Même stratégie en mots | 24,17 | 22,33 |
 | Clé dépassant chaque distracteur d’au moins 40 % et quatre caractères | G6-014, G6-054, G6-063 | Aucune |
 
 Le seuil de 40 % sert à sélectionner des items à examiner ; les longueurs se mesurent après suppression des espaces externes, en points de code Unicode ou en groupes séparés par des espaces.
@@ -32,10 +32,10 @@ Repérage insensible à la casse de « toujours », « systématiqu… », « su
 
 | Format | Vraies avant | Fausses avant | Vraies après | Fausses après |
 |---|---:|---:|---:|---:|
-| A | 1 | 13 | 1 | 1 |
+| A | 0 | 12 | 0 | 0 |
 | K′ | 1 | 11 | 2 | 3 |
 
-Le correctif concerne 22 questions ; les formulations restantes sont relues dans leur contexte clinique. Les 22 corrections ont été soumises à une seconde lecture par un agent IA. Les données ne proviennent pas de passations auprès de candidats. Difficulté, discrimination et fidélité psychométrique restent à mesurer.
+Le correctif concerne 22 questions ; les formulations restantes sont relues dans leur contexte clinique. Les 22 corrections et leurs trois changements de vecteur de vérité ont été contre-résolus par un second agent IA ; manifeste indépendant `b99709416158211975702865333fc7e1960307f4`. Les données ne proviennent pas de passations auprès de candidats. Difficulté, discrimination et fidélité psychométrique restent à mesurer.
 
 ## Reproduction
 
