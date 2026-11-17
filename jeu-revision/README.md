@@ -8,6 +8,11 @@ Public visé : préparation de l’examen fédéral suisse de médecine humaine 
 >
 > **Relecture médicale** : la validation médicale du contenu relève de Dr Vial Djoukang, médecin, auteur et responsable du projet. Le prototype a été rédigé avec un assistant et attend cette relecture avant tout usage.
 
+## Catalogue et veille
+
+- **Catalogue des salles** : ouvre [`catalogue.html`](catalogue.html) (ou la [version publiée](https://vialdjoukang-spec.github.io/organigramme-examen-federal/jeu-revision/catalogue.html)). Il liste les 63 spécialités et disciplines du plan, indique celles qui sont déjà jouables, et propose un aperçu d'une minute avant d'entrer dans l'Arène. Ce catalogue se régénère par `python3 tools/progression.py render`.
+- **Veille** : ouvre la [page publique](https://vialdjoukang-spec.github.io/organigramme-examen-federal/veille/) (une copie locale se trouve dans [`veille/index.html`](veille/index.html)). Tu y trouves les pages officielles de l'examen fédéral, les actualités de santé publique suisse des 7 derniers jours, et un extrait par société savante. La mise à jour est quotidienne, gratuite, hébergée sur GitHub.
+
 ## Lancer le jeu
 
 - **Sans serveur** : ouvre `index.html` dans le navigateur (double-clic). Le jeu utilise des scripts classiques, donc il fonctionne en `file://`.
