@@ -116,7 +116,7 @@ def make_report(path, cutoff, current, prior, hour_prior=None):
     story.append(p("SSP ayant atteint le seuil individuel : " + (", ".join(threshold) if threshold else "aucun") + "."))
     classified = [q for q in items if q.get("objectifFacultaire") in bank["production"].get("objectifsFacultaires", {})]
     direct = sum(q.get("rattachement") == "directe" for q in classified)
-    inferred = sum(q.get("rattachement") in {"déduite", "inférée"} for q in classified)
+    inferred = sum(any(mot in q.get("rattachement", "").lower() for mot in ("déduite", "inférée")) for q in classified)
     story.append(p(f"{fmt(len(items))} décisions cliniques portent un objectif explicite dans la banque. {fmt(len(classified))} renvoient au registre facultaire embarqué, dont {fmt(direct)} correspondances directes et {fmt(inferred)} déduites. Le rattachement documentaire détaillé reste à intégrer pour {fmt(len(items)-len(classified))} questions."))
     themes = sum(len(bank.get("agenda", {}).get(c, [])) for c in codes if not closed(c))
     story.append(p(f"Le catalogue recense {fmt(themes)} thèmes de départ dans les SSP encore ouverts. Un thème peut déjà avoir donné lieu à plusieurs questions. Les décisions restant à spécifier et la couverture au-delà de {target} sont examinées dans la matrice clinique de chaque SSP."))
