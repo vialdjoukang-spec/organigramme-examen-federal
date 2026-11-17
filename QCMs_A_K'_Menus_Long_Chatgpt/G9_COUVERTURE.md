@@ -20,7 +20,7 @@ Parmi 413 adultes en hémodialyse depuis au moins six mois, recrutés dans 15 ce
 
 L’enseignement genevois rattache la description des lésions élémentaires à la démarche diagnostique et aux examens complémentaires. À Bâle, le catalogue Master daté du 22 septembre 2026 décrit l’examen dermatologique et la recherche d’atteintes systémiques. Les correspondances détaillées et leurs limites sont inscrites au fur et à mesure dans G9_OBJECTIFS.json. [Genève, discipline Dermatologie](https://www.medecine.unige.ch/enseignement/etudes/curriculum/data/d30.htm) · [Bâle, formation pratique Master, dermatologie](https://medizinstudium.unibas.ch/fileadmin/user_upload/medizin/Dokumente/Master/26_27_Stoffkatalog_MA_MDT.pdf#page=12).
 
-## Couverture relue jusqu’au lot 088
+## Couverture relue jusqu’au lot 090
 
 | Questions | Décisions couvertes |
 |---|---|
@@ -30,5 +30,7 @@ L’enseignement genevois rattache la description des lésions élémentaires à
 | 061–080 | Prurit gravidique, risque fœtal de la cholestase, prurit pédiatrique, pemphigoïdes, retentissement nocturne, social et professionnel. |
 | 081–100 | Pédiculose et teigne, psoriasis et lichen plan, érythrodermie et hémopathies, examen et sécurité de prescription en gériatrie. |
 | 101–120 | Prurit anogénital, évaluation et traitement de l’urticaire chronique, prurit neuropathique, choix thérapeutiques et effets indésirables de l’eczéma atopique. |
+| 121–140 | Prurit fonctionnel et trouble d’excoriation, expositions saisonnières, prurit médicamenteux et cholestase retardée, biopsie ciblée et réévaluation du prurit initialement inexpliqué. |
+| 141–160 | Conditions des prélèvements cutanés et unguéaux, tests photoallergologiques, quantité et sécurité des traitements topiques, signes systémiques et paranéoplasiques, escalade thérapeutique du prurigo nodulaire. |
 
 Les numérations et la présence de plusieurs thèmes voisins ne suffisent pas à clore un domaine. Le contrôle final confronte les décisions de chaque cas aux situations de la grille ci-dessus et aux dix lots du SSP.
