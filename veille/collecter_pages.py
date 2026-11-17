@@ -1135,7 +1135,11 @@ footer.pied a { color:var(--calme); }
 
   function esc(s){
     return String(s==null?"":s).replace(/[&<>"']/g,function(c){
-      return {"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c];
+      if(c==="&") return "&amp;";
+      if(c==="<") return "&lt;";
+      if(c===">") return "&gt;";
+      if(c==='"') return "&quot;";
+      return "&#39;";
     });
   }
   function dateCourte(iso){
