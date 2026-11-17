@@ -42,3 +42,12 @@ Le contre-audit vérifie la décision clinique, les propositions fausses, la sou
 | 056–060 | En péripartum, traiter l’anémie résistante au fer oral, distinguer atteinte hypophysaire, dépression, cardiomyopathie et thyroïdite. |
 
 L’essai romand de Verdon et coll. porte sur le fer oral chez des femmes fatiguées sans anémie. Cet objectif diffère de l’exploration étiologique d’une anémie ferriprive des Q021–025. [Essai de premier recours en Suisse romande](https://www.bmj.com/content/326/7399/1124)
+
+| Questions | Population et décisions |
+|---|---|
+| 061–065 | HFpEF, interprétation de l’effort et de l’IPS, protection embolique avant cardioversion. G4-062 examine l’essai de fer oral chez une femme fatiguée sans anémie à ferritine basse. |
+| 066–070 | En pneumologie, choisir le test selon le mécanisme suspecté : restriction, désaturation à la marche, limitation intégrée à l’effort, bronchoconstriction ou faiblesse inspiratoire. |
+| 071–075 | G4-071 examine la stimulation nerveuse répétitive après suspicion clinique de myasthénie. Les autres décisions portent sur la recherche de thymome, la myopathie auto-immune associée aux statines, le syndrome de Lambert–Eaton et la myopathie cortisonique. |
+| 076–080 | En gériatrie, identifier hypotension postprandiale, délirium hypoactif, exposition sédative cumulée, risque nutritionnel et sarcopénie probable. |
+| 081–090 | En endocrinologie et pharmacologie, interpréter la fatigue selon traitement en cours, rythme des contrôles, interactions, fonction rénale et voies d’administration. |
+| 091–100 | En rhumatologie, reconnaître inflammation et toxicité malgré une présentation ou une CRP trompeuse. En oncologie, traiter les symptômes qui limitent le sommeil et la fonction, individualiser transfusion, activité et objectifs de vie. |
