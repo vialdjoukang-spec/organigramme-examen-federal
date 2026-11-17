@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="fr-CH">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Internat · Urgences cardio — révision par cartes</title>
+  <meta name="description" content="Prototype de révision médicale ludique : duels de cartes, fiches sourcées (sources suisses), journal de progression.">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/cards.css">
+  <link rel="stylesheet" href="css/fiche.css">
+</head>
+<body data-vue="plateau">
+  <a class="lien-evitement" href="#contenu">Aller au contenu</a>
+
+  <header class="entete">
+    <div class="marque">
+      <span class="marque-logo" aria-hidden="true">+</span>
+      <span class="marque-nom">Internat</span>
+      <span class="marque-service">Urgences cardio</span>
+    </div>
+    <nav aria-label="Écrans">
+      <ul class="onglets">
+        <li><button type="button" id="onglet-plateau" class="onglet">Plateau</button></li>
+        <li><button type="button" id="onglet-collection" class="onglet">Collection</button></li>
+        <li><button type="button" id="onglet-journal" class="onglet">Journal</button></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="contenu" tabindex="-1">
+    <div id="vue-plateau" class="vue"></div>
+    <div id="vue-collection" class="vue" hidden></div>
+    <div id="vue-journal" class="vue" hidden></div>
+  </main>
+
+  <footer class="pied">
+    <p>Prototype pédagogique. Il ne remplace ni un protocole local ni l’avis d’un médecin. Les contenus marqués « À vérifier » attendent une source suisse lue. Aucune dose n’est affichée.</p>
+  </footer>
+
+  <!-- Écran 2 : fiche détaillée -->
+  <dialog id="fiche" class="fiche" aria-labelledby="fiche-titre">
+    <div class="fiche-barre">
+      <span class="fiche-barre-titre">Fiche</span>
+      <button type="button" id="fiche-fermer" class="btn btn-fermer" aria-label="Fermer la fiche">Fermer</button>
+    </div>
+    <div id="fiche-corps" class="fiche-corps"></div>
+  </dialog>
+
+  <!-- Confirmation de remise à zéro -->
+  <dialog id="confirm" class="confirm" aria-labelledby="confirm-titre">
+    <h2 id="confirm-titre">Effacer le journal ?</h2>
+    <p>Tu perds tes statistiques et ta liste d’erreurs.</p>
+    <div class="confirm-actions">
+      <button type="button" id="confirm-non" class="btn">Annuler</button>
+      <button type="button" id="confirm-oui" class="btn btn-danger">Effacer</button>
+    </div>
+  </dialog>
+
+  <!--
+    Scripts classiques (pas de modules ES) : le jeu s’ouvre aussi en file://.
+    Ordre : données → moteur → interface → démarrage.
+    Ajouter un service ou des cartes = ajouter une ligne <script> ici.
+  -->
+  <script src="data/sources.js"></script>
+  <script src="data/systems.js"></script>
+  <script src="data/cards/cardio.js"></script>
+  <script src="data/services/urgences-cardio.js"></script>
+  <script src="js/engine/registry.js"></script>
+  <script src="js/engine/journal.js"></script>
+  <script src="js/engine/duel.js"></script>
+  <script src="js/ui/dom.js"></script>
+  <script src="js/ui/card.js"></script>
+  <script src="js/ui/fiche.js"></script>
+  <script src="js/ui/board.js"></script>
+  <script src="js/ui/collection.js"></script>
+  <script src="js/ui/journal-ui.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

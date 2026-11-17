@@ -1,0 +1,72 @@
+/* Cartes : bandeau de type, nom, signe clé lisible en une seconde, rareté en pastilles. */
+.carte {
+  --w: 164px;
+  position: relative; width: var(--w); min-height: 214px; padding: 12px 12px 40px;
+  background: var(--papier); border: 1px solid var(--trait); border-radius: var(--r-m);
+  box-shadow: var(--ombre-1); display: flex; flex-direction: column; gap: 4px;
+  transition: transform var(--anim), box-shadow var(--anim), border-color var(--anim);
+  border-top: 5px solid var(--calme);
+}
+.carte--patho { border-top-color: var(--patho); background: linear-gradient(180deg, #f7f8fb 0, var(--papier) 60px); }
+.carte-entete { display: flex; justify-content: space-between; align-items: center; }
+.carte-type { font-size: .68rem; font-weight: 750; letter-spacing: .07em; text-transform: uppercase; color: var(--calme); }
+.carte--patho .carte-type { color: var(--patho); }
+.carte-nom { font-size: 1.18rem; font-weight: 780; letter-spacing: -.01em; line-height: 1.15; margin-top: 4px; }
+.carte-sous { font-size: .78rem; color: var(--encre-3); }
+.carte-cle { margin-top: auto; font-size: .84rem; font-weight: 650; color: var(--encre); padding: 6px 8px; border-radius: var(--r-s); background: var(--fond); border-left: 3px solid var(--calme); }
+.carte--patho .carte-cle { border-left-color: var(--urgence); }
+
+.pips { display: inline-flex; gap: 3px; }
+.pips i { width: 7px; height: 7px; border-radius: 50%; border: 1.5px solid var(--encre-3); display: inline-block; }
+.pips i.on { background: var(--encre-2); border-color: var(--encre-2); }
+
+.badge-verif { display: inline-block; font-size: .68rem; font-weight: 800; letter-spacing: .03em; color: var(--attention); background: var(--attention-fond); border: 1px solid #f0c48e; border-radius: 5px; padding: 1px 5px; margin-left: 4px; vertical-align: middle; }
+.carte > .badge-verif { position: absolute; top: -10px; right: 8px; }
+
+/* Bouton principal étiré sur toute la carte ; bouton Fiche au-dessus */
+.carte-action { position: absolute; inset: 0; border: 0; background: transparent; border-radius: var(--r-m); cursor: pointer; }
+.carte-fiche { position: absolute; left: 12px; bottom: 10px; z-index: 1; border: 1px solid var(--trait-fort); background: var(--papier); border-radius: 6px; font-size: .74rem; font-weight: 700; padding: 3px 8px; cursor: pointer; color: var(--calme); }
+.carte-fiche:hover { border-color: var(--calme); }
+.raccourci { position: absolute; right: 10px; bottom: 10px; font-family: var(--police-mono); font-size: .72rem; color: var(--encre-3); border: 1px solid var(--trait); border-radius: 4px; padding: 0 5px; }
+
+.main .carte:hover, .main .carte:focus-within { transform: translateY(-6px); box-shadow: var(--ombre-2); border-color: var(--trait-fort); }
+.collection-grille .carte:hover, .collection-grille .carte:focus-within { transform: translateY(-4px); box-shadow: var(--ombre-2); }
+.carte:focus-within { z-index: 2; }
+
+.carte--adversaire { --w: 200px; min-height: 250px; border-top-width: 6px; }
+.carte--adversaire .carte-nom { font-size: 1.4rem; }
+.carte--adversaire .carte-cle { font-size: .92rem; }
+
+/* Cartes jouées (miniatures) avec verdict */
+.carte.mini { --w: 132px; min-height: 150px; padding: 9px 9px 34px; }
+.carte.mini .carte-nom { font-size: 1rem; }
+.carte.mini .carte-sous { display: none; }
+.carte.mini .carte-cle { font-size: .74rem; }
+.carte.mini > .badge-verif { display: none; }
+.verdict--bon { border-color: #a6e3bd; border-top-color: var(--bon); }
+.verdict--erreur { border-color: #f4b7b1; border-top-color: var(--urgence); background: var(--urgence-fond); }
+.verdict--neutre { border-top-color: var(--calme); background: var(--calme-fond); }
+.verdict--bon::after, .verdict--erreur::after, .verdict--neutre::after {
+  position: absolute; bottom: 9px; right: 8px; font-size: .66rem; font-weight: 800; letter-spacing: .05em; text-transform: uppercase; padding: 1px 5px; border-radius: 4px; color: #fff;
+}
+.verdict--bon::after { content: "Bon"; background: var(--bon); }
+.verdict--erreur::after { content: "Erreur"; background: var(--urgence); }
+.verdict--neutre::after { content: "Info"; background: var(--calme); }
+.carte.mini .carte-rarete { visibility: hidden; }
+
+/* Animations : distribution des cartes, puis carte jouée retournée avec un bref flash
+   de couleur (vert = bon réflexe, rouge = erreur, bleu = info). */
+.anim-deal { animation: deal 420ms cubic-bezier(.2, .8, .2, 1) both; animation-delay: var(--delay, 0ms); }
+@keyframes deal { from { opacity: 0; transform: translateY(28px) rotate(-4deg) scale(.96); } to { opacity: 1; transform: none; } }
+.verdict--bon { --flash: rgba(14, 122, 59, .55); --flash-fond: #d3f3df; }
+.verdict--erreur { --flash: rgba(180, 35, 24, .55); --flash-fond: #fde0dc; }
+.verdict--neutre { --flash: rgba(29, 78, 137, .5); --flash-fond: #dbe8f7; }
+.anim-joue { animation: joue-flip 480ms cubic-bezier(.2, .8, .2, 1) both, joue-flash 900ms ease-out both; transform-origin: 50% 50%; backface-visibility: hidden; }
+@keyframes joue-flip { 0% { transform: perspective(700px) rotateY(-100deg); opacity: .2; } 60% { transform: perspective(700px) rotateY(8deg); opacity: 1; } 100% { transform: none; } }
+@keyframes joue-flash { 0%, 35% { box-shadow: 0 0 0 0 var(--flash); background-color: var(--flash-fond); } 70% { box-shadow: 0 0 0 9px transparent; } 100% { box-shadow: var(--ombre-1); } }
+
+@media (prefers-reduced-motion: reduce) {
+  /* Pas de retournement : seule la couleur statique du verdict reste. */
+  .anim-joue, .anim-deal { animation: none !important; }
+  .main .carte:hover, .main .carte:focus-within, .collection-grille .carte:hover { transform: none; }
+}
