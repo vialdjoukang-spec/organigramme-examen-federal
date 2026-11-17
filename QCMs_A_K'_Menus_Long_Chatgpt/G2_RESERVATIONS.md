@@ -14,5 +14,7 @@ Les numéros de question sont locaux. L’index HTML et le journal des audits fo
 | 018 | 101–120 | Nodules thyroïdiens et masses endocriniennes ; infections et hématomes profonds ; adénopathies systémiques ; masses rénales, spléniques et surrénaliennes |
 | 019 | 121–140 | Masses ORL ; masses des membres ; masses iatrogènes et postopératoires ; communication d’un résultat tumoral et suivi diagnostique |
 | 020 | 141–160 | Complications compressives ; masses maxillomandibulaires ; masses hépatiques ; discordance diagnostique et parcours sénologique |
+| 021 | 161–180 | Choix des prélèvements d’une masse ; main et doigts ; masses pédiatriques et pancréatiques ; masses gynécologiques pelviennes |
+| 022 | 181–200 | Masses et complications cervicofaciales ; tumeurs cutanées fréquentes et pièges ; parcours sarcome et tumeurs des tissus mous ; pathologies scrotales localisées et lacunes cliniques restantes |
 
 La suite est dimensionnée selon la relecture de la couverture. Réserver les décisions manquantes, vérifier leurs antériorités, leur fréquence dans la population annoncée et les sources avant rédaction. Le minimum de 200 ne vaut pas autorisation de clôture.
