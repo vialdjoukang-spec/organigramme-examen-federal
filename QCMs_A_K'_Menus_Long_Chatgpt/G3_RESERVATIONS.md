@@ -36,5 +36,13 @@ G3 — Soif excessive, consommation excessive de liquides (polydipsie). G2 a ét
 | 030 | 146–150 | Mesures d’entrées et sorties difficiles | en_cours/030-G3-146.json |
 | 030 | 151–155 | Soif physiologique et diagnostics différentiels fréquents | en_cours/030-G3-151.json |
 | 030 | 156–160 | Soif, habitudes de boisson et triage contextualisé | en_cours/030-G3-156.json |
+| 031 | 161–165 | Complications du diabète et persistance d’une polyurie sous traitement | en_cours/031-G3-161.json |
+| 031 | 166–170 | Nycturie, lithiase et indications réelles de boire davantage | en_cours/031-G3-166.json |
+| 031 | 171–175 | Résistance à la vasopressine et complications d’une forte diurèse | en_cours/031-G3-171.json |
+| 031 | 176–180 | Dysnatrémie et consommations inhabituelles en contexte médicamenteux ou toxique | en_cours/031-G3-176.json |
+| 032 | 181–185 | Réévaluation des causes métaboliques de la polydipsie | en_cours/032-G3-181.json |
+| 032 | 186–190 | Hyposialie après traitement oncologique | en_cours/032-G3-186.json |
+| 032 | 191–195 | Révision du diagnostic et du suivi d’une polyurie persistante | en_cours/032-G3-191.json |
+| 032 | 196–200 | Décisions de suivi et lacunes retenues pour la clôture | en_cours/032-G3-196.json |
 
 À la reprise, utiliser les manuscrits existants et vérifier les fichiers d’audit. Relire l’index du dernier commit avant d’attribuer ou de publier. Le premier SSP ouvert reste prioritaire.
