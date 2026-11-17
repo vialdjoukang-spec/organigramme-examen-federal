@@ -26,7 +26,7 @@ Le tirage de session applique Fisher–Yates avec un entier aléatoire uniforme 
 
 - `G10_OPTIONS_DOCIMOLOGIE.json`, blob `a0753ca144a43cf99d7b7fdea2e73c1d8e4ae45f`. Contrôler la concordance de la décision avant d’appliquer les options, la réponse et les justifications. G10-182 a été retirée du manifeste après remplacement de l’ancienne question.
 - `G10_INDICES_LEXICAUX.json`, blob `cbcc36b7a07a2db58da1cff4f7d967038107b2d7`. Appliquer ensuite chaque édition à la position indiquée en contrôlant le texte précédent et sa valeur de vérité.
-- La contrelecture documentaire indépendante par IA est consignée séparément dans `G10_OPTIONS_CONTRE_AUDIT.json`. L’intégrateur vérifie ces mesures sur la banque HTML après les deux corrections.
+- La contrelecture documentaire indépendante par IA est consignée séparément dans `G10_OPTIONS_CONTRE_AUDIT.json`, blob `810be2571064e7586c775ee804f8fa9240084f50` (commit `ecb315d766cab21493996733c9f8f4a4fe07673c`). L’intégrateur vérifie ces mesures sur la banque HTML après les deux corrections.
 
 ### Empreintes des manuscrits mesurés
 
