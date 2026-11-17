@@ -35,3 +35,5 @@ Le CST de Berne enseigne l’examen veineux et lymphatique des membres et les si
 |---|---|
 | 001–020 | Godet et déclivité, mesure comparable, épanchements séreux et articulaire, CEAP et examen des varices, cartographie du reflux, TVP initiale ou récidivante, albuminurie, synthèse hépatique, calcium ionisé et portée du NT-proBNP. |
 | 021–040 | Signes de congestion droite et pulmonaire, insuffisance tricuspide et OAP, examen lymphatique et causes primaires ou secondaires, urgences et prévention des crises d’angio-œdème, complications et prévention dans le syndrome néphrotique. |
+| 041–060 | Ascite cirrhotique et ponction, surveillance tensionnelle du post-partum, complications maternelles et relais anticoagulant, prélèvement et contrôle chirurgical d’une infection nécrosante, médicament responsable d’une rétention et adaptation raisonnée de l’ordonnance. |
+| 061–080 | Décongestion IV et relais oral, réponse natriurétique et rénale, choix et sécurité de la compression, veine cave supérieure, thrombose du membre supérieur et drainage de fistule, perte digestive de protéines et circulation de Fontan. |
