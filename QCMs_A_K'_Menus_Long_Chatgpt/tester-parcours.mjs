@@ -46,6 +46,15 @@ for(const code of actifs){
  const groupe=data.production.menusLongs?.[code];
  click('#tabs',{family:code[0]});click('#ssps',{code});let n=0;
  for(const q of data.items.filter(x=>x.code===code)){
+   if(q.type==='K'){
+     const rendered=el('#opts'+n).innerHTML;
+     const indices=Array.from(rendered.matchAll(/data-i="(\d+)" value="true"/g), match=>Number(match[1]));
+     assert.equal(indices.length,4,q.id);
+     const key=indices.map((i,j)=>(j+1)+'. '+(q.options[i][1]?'Vrai':'Faux')).join(' · ');
+     click('#body',{correct:String(n)});
+     assert(el('#corr').innerHTML.includes('Dans l’ordre affiché : '+key),q.id);
+     el('#close').onclick();
+   }
    if(q.type==='M'){
      const cle=q.options[0][0],aliases=groupe?.aliases?.[cle]||q.aliases||[];
      const [champ,res]=el('#opts'+n).children.slice(-2);

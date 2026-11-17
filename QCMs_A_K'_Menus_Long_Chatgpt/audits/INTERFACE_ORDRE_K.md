@@ -1,0 +1,3 @@
+# Corrigé K′ et ordre d’affichage
+
+La permutation des propositions pouvait laisser une suite vrai/faux dans l’ordre de rédaction. 22 corrigés de la banque à 920 questions commençaient par une telle suite. La synthèse présente dorénavant les quatre valeurs de vérité dans l’ordre effectivement affiché au candidat. Les commentaires cliniques sont conservés, tout comme les valeurs de vérité et le score. Le test de régression extrait les quatre positions du questionnaire affiché puis les compare à la clé du corrigé pour chaque K′. Deux permutations indépendantes sur la banque de contrôle ont réussi.
