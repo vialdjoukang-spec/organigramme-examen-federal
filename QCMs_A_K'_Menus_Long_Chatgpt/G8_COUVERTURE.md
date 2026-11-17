@@ -34,3 +34,21 @@ Aux urgences genevoises, une hypothermie était documentée chez 30 des 128 pati
 | Arrêt cardiaque hypothermique, Q081–105 | Transport vers l’assistance extracorporelle, sélection de candidats, emploi du score HOPE chez l’adulte, adaptation des chocs et de la pharmacothérapie. Q105 examine une équipe d’assistance immédiatement disponible. Le texte de l’ERC discute une dose unique d’adrénaline si l’accès est retardé. | Les algorithmes de l’adulte et de l’enfant ont des champs d’application distincts. [ERC, circonstances particulières](https://www.erc.edu/media/wwufbysp/gl2025-06-spec-circ-e.pdf) · [ERC, réanimation pédiatrique](https://www.erc.edu/media/03xnpjmj/gl2025-09-pls-e.pdf) |
 | Enfant après immersion, Q106–110 | Distinguer récupération asymptomatique, hypoxémie persistante et malaise précédant la submersion. La glycémie est recherchée si l’éveil demeure anormal après stabilisation. | L’état clinique et les caractéristiques de l’eau guident les examens et l’indication antibiotique. [Pédiatrie suisse](https://files.paediatrieschweiz.ch/production/uploads/2023/03/2023_Broschur_Vincent_Sophie_FR.pdf) |
 | Réanimation et surveillance pendant le réchauffement, Q111–120 | Interférences de perfusion et de température sur les prélèvements, lésions pulmonaires après arrêt, pression du ballonnet, réponse au remplissage, baisse thermique initiale et bilan des pertes. | Une mesure isolée dépend du site de prélèvement et du contexte circulatoire. [Mise au point avec participation suisse](https://www.mdpi.com/1660-4601/19/1/501) |
+
+
+## Stade clinique et température mesurée
+
+| Stade suisse révisé | Constat déterminant sur le terrain |
+|---|---|
+| I | Alerte et orienté, Glasgow 15. |
+| II | Répond à la voix ou présente une confusion, Glasgow 9–14. |
+| III | Répond à la douleur ou ne répond pas, avec signes de vie. |
+| IV | Aucun signe de vie détecté après recherche attentive de la respiration et du pouls, jusqu’à une minute. |
+
+Les températures mesurées se chevauchent entre les stades. Des frissons peuvent être présents ou absents à plusieurs stades. Traumatisme, asphyxie, intoxication et sédation peuvent diminuer la vigilance indépendamment du froid ; une curarisation rend la réponse motrice ininterprétable. Le score exprime un risque d’arrêt dans un contexte clinique donné. [ICAR MedCom, système suisse révisé, tableau 1](https://pubmed.ncbi.nlm.nih.gov/33675869/) · [ERC 2025](https://www.erc.edu/media/wwufbysp/gl2025-06-spec-circ-e.pdf).
+
+## Décisions 121–140
+
+- **Terrain et habitat, Q121–130.** Interposer une isolation contre le sol, gérer les vêtements humides et le vent, puis déterminer comment une personne vulnérable peut effectivement s’habiller, alerter, régler le chauffage ou se nourrir quand sa mobilité baisse. La température de référence d’un logement en saison froide doit se lire avec la vulnérabilité de ses occupants. [Lignes directrices de l’OMS sur le logement et la santé](https://www.who.int/publications/i/item/9789241550376).
+- **Pertes et régulation particulières, Q131–135.** Le mécanisme après lésion médullaire, les épisodes périodiques avec anomalie cérébrale médiane, le refroidissement du brûlé étendu et les pertes évaporatives d’un nouveau-né à barrière cutanée déficiente ont des prises en charge spécifiques. Le syndrome de Shapiro est une étiologie rare présentant des éléments d’orientation précis dans la vignette.
+- **Transfert, Q136–140.** Avant de refermer l’enveloppe du patient, préparer l’accès au visage et au défibrillateur, protéger la perfusion et transmettre une série de températures avec les sites de mesure. Le souffle du rotor représente une nouvelle exposition convective.
