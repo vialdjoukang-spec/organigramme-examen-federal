@@ -26,7 +26,7 @@ La page d’examen permute les positions selon Fisher–Yates avec tirage crypto
 
 - Correctif des options `G9_OPTIONS_DOCIMOLOGIE.json`, blob `60a28a6e748199b7bbec5c72d3c076eb710cdbb3`. Les profils modifiés concernent G9-009, 028, 048, 088, 149 et 168.
 - Correctif des indices lexicaux `G9_INDICES_LEXICAUX.json`, blob `8c3bdb47d0454c4920ec784633b97c44a84c2ba9`. Pour chaque édition, remplacer le texte et sa justification à la position indiquée après contrôle du texte initial et de la vérité.
-- Contre-audit indépendant des deux correctifs à consigner dans `G9_OPTIONS_CONTRE_AUDIT.json`. L’application au HTML et l’exécution de `verifier.mjs` sur la banque publiée relèvent de l’intégration.
+- Le contre-audit documentaire indépendant par IA a validé les deux correctifs. Son compte rendu `G9_OPTIONS_CONTRE_AUDIT.json` porte l’empreinte `79c659a27e9838e593863ff75e30455311307f5f`. L’application au HTML et l’exécution de `verifier.mjs` sur la banque publiée relèvent de l’intégration.
 
 ### Blobs des manuscrits utilisés pour les mesures
 
