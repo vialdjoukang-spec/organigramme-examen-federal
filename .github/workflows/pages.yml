@@ -9,7 +9,7 @@ name: Pages
 on:
   push:
     branches: [main]
-    paths: [app_v2.html, progres.html, 'assets/**', 'tools/coordination/**', .github/workflows/pages.yml, 'Claude/_reference/**', 'Claude/_polices/**', 'Claude/_progression/donnees/**', outils/receptacle.py, outils/publier_cours.py, 'Claude/LOT_*/audits/contre_audit.audit.json']
+    paths: ["QCMs_A_K'_Menus_Long_Chatgpt/index.html", app_v2.html, progres.html, 'assets/**', 'tools/coordination/**', .github/workflows/pages.yml, 'Claude/_reference/**', 'Claude/_polices/**', 'Claude/_progression/donnees/**', outils/receptacle.py, outils/publier_cours.py, 'Claude/LOT_*/audits/contre_audit.audit.json']
   workflow_dispatch:
 permissions:
   contents: read
@@ -35,6 +35,8 @@ jobs:
         run: python3 tools/coordination/calculer.py --output .etat_local/coordination
       - run: |
           mkdir _site
+          mkdir -p _site/banque-qcm
+          cp "QCMs_A_K'_Menus_Long_Chatgpt/index.html" _site/banque-qcm/index.html
           cp app_v2.html _site/index.html
           cp app_v2.html _site/app_v2.html
           cp progres.html _site/progres.html
