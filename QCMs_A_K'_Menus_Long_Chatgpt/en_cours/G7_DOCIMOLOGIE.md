@@ -20,4 +20,4 @@ Les caractères correspondent aux points de code après retrait des espaces pér
 
 Neuf K′ ont des vecteurs modifiés, avec justification de chaque proposition et références dans le manifeste. Quinze autres items conservent leur clé et reçoivent des ajustements de formulation. Les pourcentages décrivent les items rédigés. Les fréquences de position réellement affichées dépendent du tirage de la séance. La vérification des indices textuels ne mesure ni la difficulté, ni la discrimination auprès de candidats, et ne garantit pas l’absence de séquences fortuites.
 
-La validation clinique indépendante du manifeste est en cours. Le rapport sera actualisé après contrelecture.
+La contrelecture indépendante par IA des 24 items est consignée dans le commit `9f07ac8a2d98cd123084e6c5f5599c8090d24df3`. Elle porte sur le manifeste de blob `d7acf938b5c0b756600f5483caf023ef094c3d89`. Les indices ci-dessus ont été recalculés après ses cinq précisions de formulation.
