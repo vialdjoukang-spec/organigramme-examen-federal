@@ -1,6 +1,6 @@
 # Jauges fines de production — 248 LOTs & 2 728 cours
 
-**Source canonique** : `Antigravity_vialFMH/jauges_248_lots.json`, `Antigravity_vialFMH/jauges_2728_cours.csv` et `Antigravity_vialFMH/CHECKPOINT_ABSENTS.json` (générés par `python3 Antigravity_vialFMH/generer_jauges.py`, réf. `f63e202`).
+**Source canonique** : `Antigravity_vialFMH/jauges_248_lots.json`, `Antigravity_vialFMH/jauges_2728_cours.csv` et `Antigravity_vialFMH/CHECKPOINT_ABSENTS.json` (générés par `python3 Antigravity_vialFMH/generer_jauges.py`, réf. `4727a6e`).
 
 ## 1. Synthèse globale mesurée sur disque
 
@@ -8,13 +8,13 @@
 |---|---:|
 | LOTs PROFILES 2023 | **248** |
 | Cours totaux (`248 × 11`) | **2728** |
-| Cours physiquement présents sur `main` | **2534** (92.9 %) |
-| Cours absents sur `main` (priorité urgente) | **194** |
+| Cours physiquement présents sur `main` | **2622** (96.1 %) |
+| Cours absents sur `main` (priorité urgente) | **106** |
 | LOTs L1 audités (`T1 + T2a + T2b + T2c`) | **33 / 248** (13.3 %) |
-| Score composite moyen global (`G1–G8`) | **50.0 / 100** |
-| Maturité d'audit (`0 / 1 / 2 / 3 / 4`) | `0:212` · `1:3` · `2:24` · `3:9` · `4:0` |
-| `MANIFESTE.json` présents / SHA-256 exacts | `55 / 248` présents · `52 / 248` SHA-256 exacts |
-| Statuts cours (`2 728`) | `AUDITE_CONFORME:80` · `PRET_AUDIT:237` · `L1_MECANIQUE_PARTIEL:1766` · `HERITAGE_PRE_L1:275` · `EBAUCHE_STUB:176` · `ABSENT:194` |
+| Score composite moyen global (`G1–G8`) | **53.5 / 100** |
+| Maturité d'audit (`0 / 1 / 2 / 3 / 4`) | `0:201` · `1:4` · `2:34` · `3:9` · `4:0` |
+| `MANIFESTE.json` présents / SHA-256 exacts | `63 / 248` présents · `60 / 248` SHA-256 exacts |
+| Statuts cours (`2 728`) | `AUDITE_CONFORME:80` · `PRET_AUDIT:357` · `L1_MECANIQUE_PARTIEL:1767` · `HERITAGE_PRE_L1:275` · `EBAUCHE_STUB:143` · `ABSENT:106` |
 
 ## 2. Spécification des 8 axes par cours (`G1`–`G8`) et des 5 agrégats LOT
 
@@ -36,7 +36,7 @@
 | Groupe | LOTs | Cours présents / Total | L1 audités (`T1–T2`) | Maturité ≥ 3 | Cours `80–150 Ko` | Cours `forme.css/js` | Cours illustrés | Score moyen |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|
 | **G** | 16 | 176 / 176 | 16 | 2 | 173 | 176 | 89 | **92.6** |
-| **S** | 113 | 1119 / 1243 | 17 | 7 | 823 | 176 | 293 | **54.7** |
+| **S** | 113 | 1207 / 1243 | 17 | 7 | 944 | 297 | 296 | **62.3** |
 | **F** | 44 | 474 / 484 | 0 | 0 | 159 | 0 | 128 | **41.6** |
 | **O** | 75 | 765 / 825 | 0 | 0 | 147 | 0 | 448 | **38.8** |
 
@@ -48,7 +48,7 @@
 | **`T2a`** | Claude L1 Audité (`ACCEPTE`) | 6 | 66 |
 | **`T2b`** | Claude L1 + `audit2` (`001–016`) | 16 | 176 |
 | **`T2c`** | Claude L1 + `PLANCHE` (`023–032`) | 10 | 110 |
-| **`T3`** | Claude `fenetre` (sans `forme.css`/`cite`) | 8 | 88 |
+| **`T3`** | Claude `fenetre` (sans `forme.css`/`cite`) | 19 | 209 |
 | **`T4`** | Claude Héritage 11 HTML | 11 | 121 |
 | **`T5`** | Claude Partiel (<11 HTML) | 5 | 55 |
 | **`T6`** | Codex Pré-L1 Audité V0 | 3 | 33 |
@@ -57,15 +57,15 @@
 | **`T8b`** | Grokbot 11 HTML `80–150 Ko` (sans `fenetre`) | 39 | 429 |
 | **`T8c`** | Grokbot 11 HTML Tailles mixtes | 92 | 1012 |
 | **`T8d`** | Grokbot Partiel (<11 HTML) | 13 | 143 |
-| **`T8e`** | Grokbot Ébauches / Stubs (`<20 Ko`) | 16 | 176 |
-| **`T9`** | `MISSING` sur `main` (0 HTML) | 10 | 110 |
+| **`T8e`** | Grokbot Ébauches / Stubs (`<20 Ko`) | 13 | 143 |
+| **`T9`** | `MISSING` sur `main` (0 HTML) | 2 | 22 |
 
 | Vague | Périmètre & Stratégie | LOTs | Cours (×11) |
 |---|---|---:|---:|
 | **`DONE`** | Clôturé (`017–022` : `MANIFESTE.json` seul) | 6 | 66 |
-| **`W0`** | Clôture audits `001–016`/`023–032`, harmonisation `033`, PRs `#732–#740` | 36 | 396 |
-| **`W1`** | Renfort rapide `Claude` `T3/T4/T5` (`034–042`, `109`, `111`) | 11 | 121 |
-| **`W2`** | Orphelin `T9` (`045`) + `16` stubs `T8e` (`<20 Ko`) | 17 | 187 |
+| **`W0`** | Clôture audits `001–016`/`023–032`, harmonisation `033`, PRs `#732–#740` | 29 | 319 |
+| **`W1`** | Renfort rapide `Claude` `T3/T4/T5` (`034–042`, `109`, `111`) | 22 | 242 |
+| **`W2`** | Orphelin `T9` (`045`) + `16` stubs `T8e` (`<20 Ko`) | 13 | 143 |
 | **`W3`** | Rattrapage `Claude` héritage & partiels (`072–078`, `104–108`, `110`) | 13 | 143 |
 | **`W4`** | Reprise ouverte `ChatGPT_Codex` (`T6` + `T7`) | 20 | 220 |
 | **`W5`** | Reprise de masse `Grokbot` (`T8a`–`T8d`) | 145 | 1595 |
@@ -116,18 +116,18 @@
 | `040` | `S2.1` | S | `T4` | `W1` | `Claude` | 11/11 | 0/11 | ABSENT | 9/10 (391) | 1/11 | 0 | 69.7 | 72.1 | 8.8 | 2.3 | 68.5 | 15.9 | 10.9 | 15.0 | **37.6** | Apnée, apnée avec éveil |
 | `041` | `S2.2` | S | `T5` | `W1` | `Claude` | 10/11 | 0/11 | ABSENT | 9/10 (140) | 0/11 | 0 | 75.7 | 62.2 | 25.1 | 0.3 | 55.6 | 2.3 | 1.8 | 13.6 | **34.9** | Modification du rythme respiratoire |
 | `042` | `S2.3` | S | `T5` | `W1` | `Claude` | 9/11 | 0/11 | ABSENT | 8/10 (4710) | 0/11 | 0 | 61.4 | 49.8 | 2.7 | 2.3 | 32.3 | 1.4 | 1.8 | 15.0 | **24.9** | Masse mammaire, écoulement mamelonnaire, modificati… |
-| `043` | `S2.4` | S | `T9` | `W0` | `ABSENT` | 0/11 | 0/11 | ABSENT | 0/10 (0) | 0/11 | 0 | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 | **0.0** | Gêne thoracique |
-| `044` | `S2.5` | S | `T9` | `W0` | `ABSENT` | 0/11 | 0/11 | ABSENT | 0/10 (0) | 0/11 | 0 | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 | **0.0** | Douleur thoracique |
-| `045` | `S2.6` | S | `T9` | `W2` | `ABSENT` | 0/11 | 0/11 | ABSENT | 0/10 (0) | 0/11 | 0 | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 | **0.0** | Toux, expectorations, hémoptysie |
-| `046` | `S2.7` | S | `T9` | `W0` | `ABSENT` | 0/11 | 0/11 | ABSENT | 0/10 (0) | 0/11 | 0 | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 | **0.0** | Dyspnée |
-| `047` | `S2.8` | S | `T9` | `W0` | `ABSENT` | 0/11 | 0/11 | ABSENT | 0/10 (0) | 0/11 | 0 | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 | **0.0** | Brûlures rétrosternales (pyrosis) |
-| `048` | `S2.9` | S | `T9` | `W0` | `ABSENT` | 0/11 | 0/11 | ABSENT | 0/10 (0) | 0/11 | 0 | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 | **0.0** | Passage difficile ou douloureux des aliments, dysph… |
-| `049` | `S2.10` | S | `T9` | `W0` | `ABSENT` | 0/11 | 0/11 | ABSENT | 0/10 (0) | 0/11 | 0 | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 | **0.0** | Respiration douloureuse, sibilances, stridor |
-| `050` | `S2.11` | S | `T9` | `W0` | `ABSENT` | 0/11 | 0/11 | ABSENT | 0/10 (0) | 0/11 | 0 | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 | **0.0** | Palpitations |
-| `051` | `S2.12` | S | `T8e` | `W2` | `Grokbot` | 11/11 | 0/11 | NON_AUDITE | 0/10 (0) | 0/11 | 0 | 83.3 | 5.0 | 20.0 | 100.0 | 15.0 | 35.0 | 1.8 | 15.0 | **39.3** | Douleur de la paroi thoracique |
-| `052` | `S3.1` | S | `T8e` | `W2` | `Grokbot` | 11/11 | 0/11 | NON_AUDITE | 0/10 (0) | 0/11 | 0 | 83.3 | 5.0 | 20.0 | 100.0 | 15.0 | 35.0 | 1.8 | 15.0 | **39.3** | Douleur abdominale |
+| `043` | `S2.4` | S | `T3` | `W1` | `Claude` | 11/11 | 11/11 | CORRIGER | 10/10 (0) | 0/11 | 2 | 100.0 | 98.5 | 100.0 | 92.1 | 90.5 | 85.5 | 1.8 | 100.0 | **88.0** | Gêne thoracique |
+| `044` | `S2.5` | S | `T3` | `W1` | `Claude` | 11/11 | 11/11 | CORRIGER | 10/10 (0) | 0/11 | 2 | 100.0 | 98.5 | 100.0 | 91.2 | 90.9 | 86.4 | 1.8 | 100.0 | **88.1** | Douleur thoracique |
+| `045` | `S2.6` | S | `T3` | `W1` | `Claude` | 11/11 | 11/11 | CORRIGER | 10/10 (0) | 0/11 | 2 | 100.0 | 96.4 | 100.0 | 91.2 | 93.6 | 91.8 | 1.8 | 100.0 | **88.7** | Toux, expectorations, hémoptysie |
+| `046` | `S2.7` | S | `T3` | `W1` | `Claude` | 11/11 | 11/11 | CORRIGER | 10/10 (0) | 0/11 | 2 | 100.0 | 98.5 | 100.0 | 90.3 | 90.9 | 84.5 | 1.8 | 100.0 | **87.7** | Dyspnée |
+| `047` | `S2.8` | S | `T3` | `W1` | `Claude` | 11/11 | 11/11 | CORRIGER | 10/10 (0) | 2/11 | 2 | 100.0 | 98.5 | 100.0 | 94.3 | 91.8 | 80.9 | 18.2 | 100.0 | **89.4** | Brûlures rétrosternales (pyrosis) |
+| `048` | `S2.9` | S | `T3` | `W1` | `Claude` | 11/11 | 10/11 | CORRIGER | 10/10 (0) | 0/11 | 2 | 100.0 | 97.8 | 100.0 | 93.6 | 88.6 | 80.9 | 1.8 | 100.0 | **87.4** | Passage difficile ou douloureux des aliments, dysph… |
+| `049` | `S2.10` | S | `T3` | `W1` | `Claude` | 11/11 | 11/11 | CORRIGER | 10/10 (0) | 0/11 | 2 | 100.0 | 98.5 | 100.0 | 92.1 | 90.9 | 88.2 | 1.8 | 100.0 | **88.4** | Respiration douloureuse, sibilances, stridor |
+| `050` | `S2.11` | S | `T3` | `W1` | `Claude` | 11/11 | 11/11 | CORRIGER | 10/10 (0) | 1/11 | 2 | 100.0 | 96.4 | 100.0 | 92.9 | 90.9 | 86.8 | 9.1 | 100.0 | **88.6** | Palpitations |
+| `051` | `S2.12` | S | `T3` | `W1` | `Claude` | 11/11 | 11/11 | CORRIGER | 10/10 (0) | 0/11 | 2 | 100.0 | 99.3 | 100.0 | 92.7 | 90.9 | 83.2 | 1.8 | 100.0 | **88.1** | Douleur de la paroi thoracique |
+| `052` | `S3.1` | S | `T3` | `W1` | `Claude` | 11/11 | 11/11 | CORRIGER | 10/10 (0) | 0/11 | 2 | 100.0 | 99.3 | 100.0 | 94.3 | 90.5 | 83.2 | 1.8 | 100.0 | **88.2** | Douleur abdominale |
 | `053` | `S3.2` | S | `T8e` | `W2` | `Grokbot` | 11/11 | 0/11 | NON_AUDITE | 0/10 (0) | 0/11 | 0 | 83.3 | 5.0 | 20.0 | 90.0 | 15.0 | 35.0 | 1.8 | 15.0 | **37.9** | Distension abdominale |
-| `054` | `S3.3` | S | `T8e` | `W2` | `Grokbot` | 11/11 | 0/11 | NON_AUDITE | 0/10 (0) | 0/11 | 0 | 83.3 | 5.0 | 20.0 | 90.0 | 15.0 | 35.0 | 1.8 | 15.0 | **37.9** | Masse abdominale |
+| `054` | `S3.3` | S | `T3` | `W1` | `Claude` | 11/11 | 11/11 | CORRIGER | 10/10 (0) | 0/11 | 1 | 100.0 | 99.3 | 100.0 | 92.1 | 90.9 | 79.5 | 1.8 | 100.0 | **87.6** | Masse abdominale |
 | `055` | `S3.4` | S | `T8b` | `W5` | `Grokbot` | 11/11 | 0/11 | NON_AUDITE | 3/10 (0) | 0/11 | 0 | 83.3 | 100.0 | 90.0 | 100.0 | 62.7 | 35.0 | 1.8 | 15.0 | **67.7** | Modification du transit intestinal, incontinence an… |
 | `056` | `S3.5` | S | `T8b` | `W5` | `Grokbot` | 11/11 | 0/11 | NON_AUDITE | 2/10 (0) | 0/11 | 0 | 83.3 | 99.3 | 90.0 | 100.0 | 62.7 | 35.0 | 1.8 | 15.0 | **67.6** | Prurit anal, douleur anale, protrusion anale |
 | `057` | `S3.6` | S | `T8b` | `W5` | `Grokbot` | 11/11 | 0/11 | NON_AUDITE | 2/10 (0) | 0/11 | 0 | 83.3 | 92.0 | 90.0 | 90.0 | 62.7 | 35.0 | 1.8 | 15.0 | **65.2** | Hématémèse |
