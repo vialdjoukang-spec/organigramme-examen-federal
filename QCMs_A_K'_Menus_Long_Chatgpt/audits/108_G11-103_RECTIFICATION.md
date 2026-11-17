@@ -1,0 +1,3 @@
+# Rectification G11-103
+
+La sécurisation du trajet vers les toilettes la nuit avait déjà été évaluée en G3-058. Objectif précédent : « Sécuriser le trajet nocturne entre le lit et les toilettes lors de réveils fréquents ». Objectif relu : « Tenir compte de l’instabilité posturale lors du choix d’un traitement du trouble comportemental en sommeil paradoxal ». L’item conserve son numéro et le lot compte vingt questions. Le manuscrit final `01d854517107238643df47dc8964638b28100d56` a été relu et scellé, manifeste `c97d3aea63978150eac134d545fc14e217f5ac4c`. [Contre-audit](../en_cours/AUDIT-108-G11.json).
