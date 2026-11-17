@@ -41,3 +41,5 @@ Avant toute attribution, rechercher les blocs réservés dans en_cours/ (nom LOT
 
 
 Avant le contre-audit, exécuter `node rapprocher.mjs lot.json` contre le dernier index. Pour chaque proposition, le script classe les trois antériorités lexicalement les plus proches dans la banque et le lot. Comparer les décisions et les indices discriminants, y compris les synonymes médicaux absents du classement. Le score sert au repérage et ne prononce aucun verdict. Journaliser toute collision corrigée dans l’audit du lot.
+
+Lorsque la banque dépasse 1 Mio, l’API de contenu GitHub peut renvoyer un SHA et un contenu vide. Récupérer alors le blob Git de ce SHA (`github_fetch_blob`) pour lire l’intégralité de index.html. Cette même opération s’applique au bilan de 08 h 30 et à la veille. Ne jamais interpréter une réponse de contenu vide comme une banque vide. Publier banque et audit dans un même arbre Git en conservant l’arbre parent et en exigeant le SHA courant de main, puis relire les deux empreintes.
