@@ -8,11 +8,11 @@ Sur 200 questions, 120 sont de type A, 40 de type K′ et 40 des menus longs. Ch
 
 | Indicateur sur les 120 A | Avant | Après |
 |---|---:|---:|
-| Clé seule la plus longue, en caractères | 25 | 26 |
-| Clé seule la plus courte, en caractères | 38 | 37 |
+| Clé seule la plus longue, en caractères | 26 | 27 |
+| Clé seule la plus courte, en caractères | 37 | 36 |
 | Clé parmi les plus longues ex æquo | 3 | 3 |
-| Choix de la proposition la plus longue, bonnes réponses en espérance (caractères) | 26,25 | 27,25 |
-| Même stratégie avec la longueur en mots | 26,00 | 25,83 |
+| Choix de la proposition la plus longue, bonnes réponses en espérance (caractères) | 27,25 | 28,25 |
+| Même stratégie avec la longueur en mots | 27,00 | 26,83 |
 | Clé dépassant chaque distracteur de 40 % et d’au moins quatre caractères | 0 | 0 |
 
 Le hasard équiprobable donnerait 30 réponses justes en moyenne sur 120. Les libellés sont mesurés après retrait des espaces externes, en points de code Unicode ou en groupes séparés par des espaces. En cas d’ex æquo, la stratégie simulée choisit uniformément parmi les propositions à la longueur maximale.
@@ -31,10 +31,10 @@ Recherche insensible à la casse dans les seules propositions visibles. Le filtr
 
 | Format | Vraies avant | Fausses avant | Vraies après | Fausses après |
 |---|---:|---:|---:|---:|
-| A | 0 | 15 | 0 | 1 |
+| A | 0 | 14 | 0 | 0 |
 | K′ | 1 | 12 | 1 | 1 |
 
-Dans les K′, les deux dernières formulations repérées portent sur les limites d’une coloration de Gram (G5-173, vraie) et l’absence de douleur sous neuropathie (G5-192, fausse). Dans le dernier manuscrit A, G5-193 comporte encore « uniquement » dans un distracteur ; cette formulation a été signalée à son auditeur. Le doublon oculaire G5-191/G5-196 a été supprimé, le premier cas portant désormais sur une atteinte zostérienne. Le correctif de libellés a été contre-résolu par un second agent IA ; le manifeste correspondant est `19a10498f1cb5f27b8c51128a1baeb2aa7cdbded`. Aucune réponse réelle de candidat n’a été exploitée. Une mesure de difficulté et de discrimination exige des données de passation.
+Dans les K′, les deux dernières formulations repérées portent sur les limites d’une coloration de Gram (G5-173, vraie) et l’absence de douleur sous neuropathie (G5-192, fausse). Le dernier distracteur A repéré dans G5-193 a été reformulé avant la mesure. Le doublon oculaire G5-191/G5-196 a été supprimé, le premier cas portant désormais sur une atteinte zostérienne. Le correctif de libellés a été contre-résolu par un second agent IA ; le manifeste correspondant est `19a10498f1cb5f27b8c51128a1baeb2aa7cdbded`. Aucune réponse réelle de candidat n’a été exploitée. Une mesure de difficulté et de discrimination exige des données de passation.
 
 ## Reproduction
 
