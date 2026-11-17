@@ -40,3 +40,16 @@ La couverture clinique sera réévaluée sur les manuscrits validés par lots de
 | 026–030 | Rechercher une infection urinaire haute, prostatique ou respiratoire selon les signes discrètement localisateurs. Utiliser la saturation, l’exposition commune et la persistance du foyer pour décider du niveau de soins et du suivi. |
 | 031–035 | Distinguer la correction de la glycémie de celle de l’acidocétose, identifier une décompensation métabolique pédiatrique sans hypoglycémie initiale, des signes de tétanie dépendants du pH et une détérioration neurologique pendant le traitement. |
 | 036–040 | Chez la personne fragile, rechercher impaction, modification de la forme d’administration et traumatisme non signalé ; protéger l’orientation et l’autonomie pendant l’évaluation urgente. |
+
+## Domaines contrôlés jusqu’à Q120
+
+| Questions | Décision discriminante |
+|---|---|
+| 041–060 | À distance, établir l’endroit où se trouve la personne, les limites de l’examen et la possibilité de suivre l’orientation. Chez le voyageur ou le patient avec trouble métabolique, choisir le test ou l’action selon la chronologie. Lever les barrières linguistiques et reconnaître les situations qui requièrent un examen direct. |
+| 061–070 | Pendant la grossesse ou en post-partum, rechercher signes maternels et fœtaux même si la plainte est vague. En cas d’infection respiratoire, distinguer haut risque, détérioration secondaire, tableau pédiatrique peu sévère et apnée du nouveau-né. |
+| 071–080 | Identifier un risque hémorragique ou abdominal malgré des constantes ou analyses initiales rassurantes. En présence d’un médicament ou dispositif, reconstruire les expositions : chevauchement IEC–ARNI, akathisie, atteinte tendineuse, arrêt non relayé du dénosumab ou méthémoglobinémie. |
+| 081–100 | Replacer dans le temps un déficit neurologique, évaluer circulation et urgence, intégrer le statut immunitaire et les médicaments au diagnostic. Quand le patient dit se sentir malade dans certaines situations, distinguer peur du jugement, accès panique et comportements d’évitement sans méconnaître les signes d’alarme. |
+| 101–110 | Après intervention ou avec un matériel implanté, repérer symptômes retardés et signes focaux discrets. Un résultat de laboratoire nouveau peut imposer de rappeler un patient déjà rentré à domicile ; une fois le traitement engagé, vérifier son efficacité selon l’infection. |
+| 111–120 | En cas de défaillance respiratoire ou circulatoire, choisir le test ou le traitement qui respecte le terrain et le degré d’urgence. Rechercher une exposition commune, le rapport avec une tâche et les précautions du premier intervenant. |
+
+**Paires explicitement arbitrées.** G1-036 corrige une sonde pliée provoquant une dysréflexie autonome, tandis que G5-103 protège une anastomose récente après vérification de la tubulure. Pour la tétanie, G5-033 concerne le calcium ionisé au pH réel pendant une alcalose, G5-095 le traitement d’une hypocalcémie avec retentissement électrique et G5-104 l’interprétation étiologique d’une PTH après mise en sécurité. G5-106 traite un seul flacon de sang positif à *S. aureus* signalé au retour à domicile et G5-107 la documentation de la clairance après le début du traitement.
