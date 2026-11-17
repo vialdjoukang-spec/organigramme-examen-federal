@@ -1,0 +1,476 @@
+
+===== FICHIER: gen_lot.py =====
+#!/usr/bin/env python3
+"""gen_lot.py NNN CODE "Titre FR" "english title" PARENT_ID — crée lotNNN/ (SPEC tête, lint, prompts A/B2/B3/B2p/B3p)."""
+import sys,os,shutil,re
+S=os.path.dirname(os.path.abspath(__file__))
+n,code,fr,en,parent=sys.argv[1:6]
+L=f"LOT_{n}";D=f"{S}/lot{n}";os.makedirs(D,exist_ok=True)
+shutil.copy(f"{S}/v5_lint_master.py",f"{D}/v5_lint.py")
+head=open(f"{S}/SPEC_TEMPLATE_238.md").read().split("## Spécificités LOT_238")[0]
+head=head.replace("LOT_238",L).replace("lot238-appel",f"lot{n}-appel")
+head=head.replace("O7.16 « pre-intervention and pre-operative assessment »",f"{code} « {en} »").replace("O7.16 — Évaluation pré-interventionnelle et préopératoire",f"{code} — {fr}")
+if not os.path.exists(f"{D}/SPEC.md"): open(f"{D}/SPEC.md","w").write(head+f"## Spécificités {L}\n- (À compléter par l'agent de recherche.)\n")
+W=open(f"{S}/WRITER_PROMPT.md").read();A=open(f"{S}/AUDIT_DEPOSIT_PROMPT.md").read()
+EXTRA=("\nSEMIOLOGY WINDOW GAP: if evidence.json lacks a definition for a semiological term, find it in a primary source (Swiss/European), "
+"add it to the window with its [Sn], and never leave the term without a window.\n"
+"SOURCE NUMBERING: never reuse an id from evidence.json for another source. New sources you add get a file-scoped range: "
+"Appel A S500+, Partie 1 S100+, Partie 2 S200+, Partie 3 S300+, Partie 4 S400+.\n")
+ssp=f"{code} « {fr} »"
+F={"A":(f"{L}_Appel_A_V5_Ultra_Pedagogique_Plan_et_Liste.html","BLOC 1: the full monograph of the SSP itself; BLOC 2: ordered list DX.1–DX.10 with badges, comparative discriminating table and discriminating algorithm",1,"APPEL_A"),
+"B2":(f"{L}_Appel_B_V5_Ultra_Pedagogique_Partie_1_DX.1_a_DX.2.html","full monographs of DX.1 and DX.2 (names/badges from the audited Appel A)",2,"PARTIE_1"),
+"B3":(f"{L}_Appel_B_V5_Ultra_Pedagogique_Partie_2_DX.3_a_DX.5.html","full monographs of DX.3, DX.4 and DX.5 (names/badges from the audited Appel A)",3,"PARTIE_2"),
+"B2p":(f"{L}_Appel_B_V5_Ultra_Pedagogique_Partie_3_DX.6_a_DX.7.html","full monographs of DX.6 and DX.7 (names/badges from the audited Appel A)",2,"PARTIE_3"),
+"B3p":(f"{L}_Appel_B_V5_Ultra_Pedagogique_Partie_4_DX.8_a_DX.10.html","full monographs of DX.8, DX.9 and DX.10 (names/badges from the audited Appel A)",3,"PARTIE_4")}
+for k,(f,c,N,tag) in F.items():
+    w=W
+    for a,b in {"{W}":k,"{LOT}":L,"{SSP}":ssp,"{DIR}":D,"{FILE}":f,"{CONTENT}":c,"{N}":str(N)}.items(): w=w.replace(a,b)
+    w+=f"\nWrite the monographs ONE AFTER THE OTHER. Local file only; do not touch Google Drive. End with <!-- FIN_FICHIER {L}_{tag} -->. Final file ≤ 200 000 bytes.\n"+EXTRA
+    open(f"{D}/write_{k}.txt","w").write(w)
+    a_=A
+    for a,b in {"{DIR}":D,"{FILE}":f,"{N}":str(N),"{PARENT}":parent}.items(): a_=a_.replace(a,b)
+    open(f"{D}/audit_{k}.txt","w").write(a_+EXTRA.split("SOURCE NUMBERING")[0])
+print(D,"OK")
+
+===== FICHIER: v5_lint_master.py =====
+"""Contrôle de conformité V5 d'un fichier de lot. Usage: python3 v5_lint.py fichier.html [n_monographies]"""
+import re, sys
+from html.parser import HTMLParser
+
+class P(HTMLParser):
+    def __init__(s): super().__init__(); s.stack=[]; s.err=[]; s.text=[]
+    VOID={'br','meta','img','hr','input','link'}
+    def handle_starttag(s,t,a):
+        if t not in s.VOID: s.stack.append(t)
+        if t=='a' and dict(a).get('href')=='#': s.err.append('lien href="#" interdit')
+    def handle_endtag(s,t):
+        if t in s.VOID: return
+        if t in s.stack:
+            while s.stack and s.stack[-1]!=t: s.err.append(f'balise non fermée <{s.stack.pop()}>')
+            s.stack.pop()
+        else: s.err.append(f'fermeture orpheline </{t}>')
+    def handle_data(s,d): s.text.append(d)
+
+f=sys.argv[1]; n=int(sys.argv[2]) if len(sys.argv)>2 else None
+h=open(f,encoding='utf-8').read(); p=P(); p.feed(h); err=list(p.err)
+if p.stack: err.append(f'non fermés en fin: {p.stack}')
+for need in ('<!DOCTYPE html>','charset="UTF-8"','name="viewport"'):
+    if need not in h: err.append(f'manque {need}')
+mono=len(re.findall(r'<details open',h))
+if n and mono!=n: err.append(f'{mono} monographies au lieu de {n}')
+for k in range(1,15):
+    c=len(re.findall(rf'<strong>{k}\.\s',h))
+    if n and c<n and h.count('plan-academique')==0: err.append(f'point {k}: {c}/{n}')
+for sub in ('A- But','B- Moyens','C- Surveillance','D- Pronostic'):
+    c=h.count(sub)
+    if n and c<n and h.count('plan-academique')==0: err.append(f'11.{sub}: {c}/{n}')
+if 'title="' in re.sub(r'<title>.*?</title>','',h,flags=re.S) and '<a ' in h: err.append('infobulle title= détectée')
+if 'FIN_FICHIER' not in h: err.append('balise FIN_FICHIER absente')
+if 'non validé cliniquement' not in h: err.append('mention de non-validation absente')
+if not re.search(r'Sources',h): err.append('section Sources absente')
+txt=' '.join(p.text)
+pct=[m for m in re.findall(r'[^.]{0,60}\d+(?:[.,]\d+)?\s?%',txt) if not re.search(r'\[S\d+|S\d+\]|Source|source',m)]
+print(f'{f}: {mono} monographies, {len(h)//1024} Ko, {len(err)} erreur(s)')
+for e in err[:40]: print('  ERR', e)
+print(f'  info: {len(pct)} pourcentages à vérifier contre evidence.json')
+sys.exit(1 if err else 0)
+
+===== FICHIER: wrap_lines.py =====
+"""Coupe les lignes HTML trop longues après les balises de bloc (rendu inchangé)."""
+import re,sys
+for f in sys.argv[1:]:
+    h=open(f,encoding='utf-8').read()
+    out=[]
+    for line in h.split('\n'):
+        if len(line)>1500: line=re.sub(r'(</(?:p|div|details|summary|tr|li|ul|ol|table|thead|tbody|h[1-6])>)',r'\1\n',line)
+        out.append(line)
+    n='\n'.join(out); open(f,'w',encoding='utf-8').write(n)
+    print(f.split('/')[-1][:40], max(len(l) for l in n.split('\n')))
+
+===== FICHIER: facts_check.py =====
+"""Vérifie qu'une réécriture conserve les faits : nombres, sources [Sn], spécialités ®. Usage: facts_check.py avant.html apres.html"""
+import re,sys,html
+def facts(p):
+    t=html.unescape(re.sub(r'<[^>]+>',' ',open(p,encoding='utf-8').read()))
+    nums=set(re.findall(r'\d+(?:[.,]\d+)?',t)); src=set(re.findall(r'\bS\d+\b',t)); brands=set(re.findall(r'[\w-]+®',t))
+    return nums,src,brands
+a,b=facts(sys.argv[1]),facts(sys.argv[2])
+lost=[sorted(x-y) for x,y in zip(a,b)]
+print('nombres perdus:',lost[0][:60]); print('sources perdues:',lost[1]); print('spécialités perdues:',lost[2])
+sys.exit(1 if any(lost) else 0)
+
+===== FICHIER: render_check.py =====
+"""Rendu réel : python3 render_check.py fichier.html -> largeur 390 px, débordement horizontal, ouverture des <details>, capture."""
+import sys, pathlib, glob
+from playwright.sync_api import sync_playwright
+f=pathlib.Path(sys.argv[1]).resolve()
+exe=next(iter(glob.glob('/opt/pw-browsers/chromium-*/chrome-linux*/chrome')),None)
+with sync_playwright() as p:
+    b=p.chromium.launch(**({'executable_path':exe} if exe else {}))
+    pg=b.new_page(viewport={'width':390,'height':844}); errs=[]
+    pg.on('pageerror',lambda e: errs.append(str(e)))
+    pg.goto(f.as_uri())
+    over=pg.evaluate("document.documentElement.scrollWidth-window.innerWidth")
+    n=pg.evaluate("document.querySelectorAll('details').length")
+    pg.evaluate("document.querySelectorAll('details').forEach(d=>d.open=true)")
+    wide=pg.evaluate("[...document.querySelectorAll('body *')].filter(e=>e.getBoundingClientRect().right>window.innerWidth+2 && !e.closest('[style*=overflow]')).length")
+    pg.screenshot(path=str(f.with_suffix('.mobile.png')))
+    print(f'{f.name}: details={n} debordement_page={over}px elements_hors_cadre={wide} erreurs_js={len(errs)}')
+    b.close()
+
+===== FICHIER: WRITER_PROMPT.md =====
+You are writer {W} for {LOT} (PROFILES 2023 SSP {SSP}), Swiss federal medical exam encyclopedia, in French. Directory: {DIR}/. Read SPEC.md entirely (all rules and lot specifics are binding), then evidence.json (your ONLY factual source: "dx_list", "dx" → your DX keys, "ssp", "sources", "not_found", "uncertainties"). Fetch a primary source only to fill a gap; add it to your Sources list (URL + access date).
+Write exactly ONE file: {FILE}, containing {CONTENT}.
+Plan: 14 points (or the academic fallback plan of rule 11 with class "plan-academique" when it fits better). Discriminating differentials (rule 12); syndromes 7.x with sign→mechanism windows; criteria (8); gold standard / first line / alternatives (pregnancy, child, CKD) (9); decision tree (10); point 11 A/B/C/D with Swiss specialties ® only if verified in evidence, dose/route/rhythm/duration/renal-hepatic adaptation, monitoring calendar, cure criteria or 2026 research; 12 prevention; 13 key points; 14 exam pitfalls. Biomath windows only where natural; verify every number with Python. Transversal windows very rich (rule 13). Items in not_found → write « donnée non trouvée dans les sources consultées ».
+Template per SPEC: inline <details> for clickable terms, never <a href="#" title>; "<details open" only for monographs ({N}); tables inside <div style="overflow-x:auto;">; numbered Sources at end; "non validé cliniquement" mention. Conjugated verb in every sentence; elegant precise professional French; abbreviations expanded at first use in the file.
+Finally run: python3 {DIR}/v5_lint.py {DIR}/{FILE} {N} — fix to 0 errors. Reply ≤80 words: size, lint result, unresolved gaps.
+
+
+STYLE RULE (owner order, supersedes any richness rule above): ultra-pedagogical, clear, precise, exhaustive in INFORMATION but CONCISE IN FORMULATION. Each of the 14 points = 1 to 4 short dense verbal sentences; details, mechanisms, tables, calculations, legal texts, examples go into clickable <details> windows. No nominal sentences, no padding, no repetition.
+
+WINDOW RULE (owner order): exploit the clickable <details> windows for POWERFUL pedagogy. The main text stays concise (1-4 verbal sentences per point); each window explains in depth: step-by-step mechanism (cause -> effect -> sign), a concrete clinical example with numbers, a comparison table when it clarifies, the exam pitfall, and the source. Every key term, sign, test, drug and legal article should open such a window. Windows may nest. No padding inside windows either: dense, verbal, clear.
+
+OWNER ORDER (highest priority): ULTRA pedagogical, ULTRA precise, ULTRA clear, rich in explanatory windows and tables. Every lab/imaging test gets an interpretation table (normal value SI | threshold | what it means physiologically | what to do) and a window explaining the reasoning in plain, crystal-clear words. Main-text sentences: SHORT, CONCISE, essential only, always with a conjugated verb. Richness lives in the windows and tables, never in long sentences.
+
+MASTER SPEC: read /tmp/claude-0/-home-user/71010596-18b4-52f5-b74d-84c8082950a7/scratchpad/PROMPT_V6.md entirely first; it is the owner's master prompt and prevails over any conflicting line here (format .html strict with FIN_FICHIER marker, 14-point plan with 9.a-d and 11.A-D, concise verbal sentences, rich windows, interpretation table for every test, no title= tooltips).
+
+ABSOLUTE OWNER RULE: every semiological term (symptom, sign, clinical maneuver, syndrome name) MUST open a clickable explanatory window (definition, mechanism, how to elicit/recognise it, value, pitfall, source). Detail in concision: short verbal sentences, no useless long sentences, windows wherever the occasion arises.
+
+HARD SIZE LIMIT: the final file must be ≤ 200 000 bytes (Drive deposit limit for a single copy). Reach it by concision (shorter wording, no repetition, shared windows), never by dropping facts; verify with facts_check.py.
+
+VERBAL SENTENCES EVERYWHERE (owner order): the ban on nominal sentences applies INSIDE windows and tables too (except table cells that are single values/labels). Definitions must be written as short verbal sentences ("La dysurie désigne…"). Definitions come from medical/primary sources (ICD-11, European societies, Swiss texts, Académie nationale de médecine dictionary), never from general-language dictionaries.
+
+===== FICHIER: AUDIT_DEPOSIT_PROMPT.md =====
+You are the AUDIT agent (distinct from the writer) for one file of a Swiss federal medical exam encyclopedia (French). Lot directory: {DIR}. File: {FILE} ({N} monographs).
+Read {DIR}/SPEC.md (binding rules incl. arbitrations), then {DIR}/evidence.json, then the file. Audit adversarially and FIX the file in place (you are now its sole editor):
+1. Medical accuracy: every number, threshold, dose, route, interval, duration, Swiss brand ® must match evidence.json or a primary source you fetch now (add it to the file's Sources). Remove or correct anything unsupported; never add unsourced content. Doses: check against Swiss product information / Tox Info Suisse where cited. Flag any potentially dangerous error first.
+2. Recompute every worked calculation with Python; correct wrong results.
+3. Rules: 14 points (or justified academic plan with class plan-academique), point 11 A/B/C/D complete, discriminating differentials (rule 12), transversal windows very rich (rule 13), badges sourced, abbreviations expanded at first use, conjugated verb in every sentence, no <a href="#" title>, HTML valid, tables wrapped for mobile, Sources numbered, "non validé cliniquement" mention.
+4. French: elegant, precise, professional; remove repetitions and padding without losing information.
+Then run: python3 {DIR}/v5_lint.py {DIR}/{FILE} {N} until 0 errors.
+Write a short report {DIR}/AUDIT_{FILE}.md (corrections made, by severity; residual reservations). Reply ≤100 words: number of corrections by severity, any dangerous error found, lint result, residual reservations.
+
+
+STYLE RULE (owner order, supersedes any richness rule above): ultra-pedagogical, clear, precise, exhaustive in INFORMATION but CONCISE IN FORMULATION. Each of the 14 points = 1 to 4 short dense verbal sentences; details, mechanisms, tables, calculations, legal texts, examples go into clickable <details> windows. No nominal sentences, no padding, no repetition.
+
+Also check that the windows deliver real pedagogy (mechanism step by step, example, pitfall); enrich weak windows from evidence.json.
+
+OWNER ORDER (highest priority): ULTRA pedagogical, ULTRA precise, ULTRA clear, rich in explanatory windows and tables. Every lab/imaging test gets an interpretation table (normal value SI | threshold | what it means physiologically | what to do) and a window explaining the reasoning in plain, crystal-clear words. Main-text sentences: SHORT, CONCISE, essential only, always with a conjugated verb. Richness lives in the windows and tables, never in long sentences.
+
+DEPOSIT after the audit: deposit the HTML code in Google Drive folder {PARENT} with mcp__Google_Drive__create_file (load via ToolSearch): title {FILE}, contentMimeType text/html, disableConversionToGoogleType true, textContent = the exact file content (first run python3 /tmp/claude-0/-home-user/71010596-18b4-52f5-b74d-84c8082950a7/scratchpad/wrap_lines.py on the file, then read it with cat in sed -n ranges and copy faithfully; earlier agents did this successfully for 90-190 KB files). Check the returned fileSize equals the local byte size. Never trash. If a safety system blocks the upload, stop and report (do not retry or reword).
+
+MASTER SPEC: read /tmp/claude-0/-home-user/71010596-18b4-52f5-b74d-84c8082950a7/scratchpad/PROMPT_V6.md entirely first; it is the owner's master prompt and prevails over any conflicting line here (format .html strict with FIN_FICHIER marker, 14-point plan with 9.a-d and 11.A-D, concise verbal sentences, rich windows, interpretation table for every test, no title= tooltips).
+
+ABSOLUTE OWNER RULE: every semiological term (symptom, sign, clinical maneuver, syndrome name) MUST open a clickable explanatory window (definition, mechanism, how to elicit/recognise it, value, pitfall, source). Detail in concision: short verbal sentences, no useless long sentences, windows wherever the occasion arises.
+
+HARD SIZE LIMIT: the final file must be ≤ 200 000 bytes (Drive deposit limit for a single copy). Reach it by concision (shorter wording, no repetition, shared windows), never by dropping facts; verify with facts_check.py.
+
+SOURCE NUMBERING: never reuse an id from evidence.json for another source. New sources you add get a file-scoped range: Appel A S500+, Partie 1 S100+, Partie 2 S200+, Partie 3 S300+, Partie 4 S400+.
+
+===== FICHIER: UPLOAD_PROMPT.md =====
+You are the UPLOAD agent. Upload ONE local HTML file to Google Drive byte-exact, then verify.
+File: {DIR}/{FILE}. Target Drive folder id: {PARENT}. Drive title: {TITLE} (keep the .html extension).
+Steps:
+1. Load Drive tools with ToolSearch ("select:mcp__Google_Drive__create_file,mcp__Google_Drive__search_files,mcp__Google_Drive__get_file_metadata,mcp__Google_Drive__update_file").
+2. Check the folder for an existing file with the same title (search_files with parentId). If one exists, do NOT overwrite: move it to the quarantine folder CORBEILLE_DOUBLONS_OBSOLETES (find its id with search_files title = 'CORBEILLE_DOUBLONS_OBSOLETES' and mimeType folder; if absent, create it at My Drive root) via update_file parentId, and rename it with suffix _OBSOLETE_<UTC timestamp>.
+3. Compute sha256 of the local file (python3). Read the file with cat and call create_file with title {TITLE}, parentId {PARENT}, contentMimeType "text/html", disableConversionToGoogleType true, textContent = the EXACT full file content (copy faithfully, no edits, no truncation).
+4. Verify cheaply (no download): call get_file_metadata (excludeContentSnippets true) on the new file and compare fileSize with the local byte size (python3 os.path.getsize). If sizes differ, move the bad upload to the quarantine folder and retry once. If a safety system blocks the upload, do NOT retry or alter the content: report it.
+Reply ≤60 words: Drive file id, viewUrl, size, size match yes/no.
+
+===== FICHIER: RESEARCH_PROMPT.md =====
+You are the research agent (Arsenal {ARS}) for {LOT} (PROFILES 2023 SSP {CODE} « {FR} » / "{EN}").
+Scratchpad S=/tmp/claude-0/-home-user/71010596-18b4-52f5-b74d-84c8082950a7/scratchpad ; lot directory {DIR}.
+1. Read $S/PROMPT_V6.md entirely (master spec), then {DIR}/SPEC.md (common rules; its "## Spécificités {LOT}" section is a placeholder).
+2. Choose, on evidence, the 10 most relevant and discriminating DX (differential situations) for this SSP, ordered by Swiss frequency weighted by severity. For a transversal SSP, decide whether the Appel A uses the 14-point monograph plan or the academic/CanMEDS plan (class plan-academique).
+3. Research primary sources: Swiss first (OFSP/BAG, Swissmedic FI via swissmedicinfo/AmiKo, ASSM/SAMW, FMH, Swiss societies, Fedlex law texts, Swissnoso, Smarter Medicine, OFS), then European (ECDC, EMA, ESC, ERS, EAACI, ESCMID, EACS, WHO Europe, Cochrane). No US guideline as recommendation. Read full texts when possible; mark abstracts as such.
+4. Write {DIR}/evidence.json with the exact structure of $S/lot237/evidence.json (meta, sources [Sn] with url + access date, dx_list, ssp, dx with keys p1–p14 + discriminants + biomath + legal, not_found, uncertainties). Exact figures, doses, thresholds, Swiss ® brands verified in FI; gaps = « donnée non trouvée dans les sources consultées ». Validate with python3 -m json.tool.
+5. Replace the placeholder line of "## Spécificités {LOT}" in {DIR}/SPEC.md with binding arbitrations: the 10 DX (ordered), the plan chosen, source conflicts (Swiss FI first, then European), key thresholds, and known gaps.
+Local only; do not touch Google Drive. Return a 5-line summary: number of sources, the 10 DX, plan chosen, key figures, gaps.
+
+===== FICHIER: SPEC_TEMPLATE_238.md =====
+# LOT_238 — SPEC commune (PROFILES 2023, SSP O7.16 « pre-intervention and pre-operative assessment »)
+
+## Identité
+- LOT_238 = PROFILES 2023, SSP **O7.16 — Évaluation pré-interventionnelle et préopératoire** (source : https://smifk-cims.ch/profiles-2023/ssps, consulté 2026-10-21).
+- Public : candidats à l'examen fédéral suisse de médecine humaine (MEBEKO/OFSP). Niveau : futur médecin assistant.
+
+## Règles de fond (non négociables)
+1. Aucune affirmation de mémoire : chaque chiffre, seuil, posologie, critère vient du dossier de preuves `evidence.json` (ou d'une source lue et ajoutée avec URL + date d'accès). Sinon écrire « donnée suisse non trouvée » — ne jamais inventer.
+2. Hiérarchie : Suisse (Tox Info Suisse, Swissmedic/AIPS information professionnelle, compendium.ch, OFSP, OFS, sociétés suisses, ASSM, Fedlex) → Europe (ERC, EAPCCT, ESC, EASL, KDIGO, EMA) → international accepté en Suisse. Pas de recommandation exclusivement américaine (une position conjointe EAPCCT/AACT est acceptable).
+3. Médicaments : DCI + spécialité suisse ® réellement autorisée (vérifier AIPS/compendium) + posologie selon l'information professionnelle suisse ou protocole Tox Info Suisse. Si non commercialisé en Suisse : le dire (importation, pharmacie hospitalière, dépôt d'antidotes).
+4. Badges de fréquence : % seulement si sourcé (ex. rapport annuel Tox Info Suisse) ; sinon rang ordinal + « fréquence non quantifiée (Suisse) ».
+5. Chaque phrase du corps comporte un verbe conjugué. Français professionnel, élégant, sans métaphores ni remplissage. Normal avant pathologique. Exemples chiffrés.
+6. Toute abréviation développée à sa première apparition dans chaque fichier.
+7. Bio-mathématique uniquement quand la clinique l'exige (trou anionique, trou osmolaire, nomogramme paracétamol, COHb, QTc, etc.) : fenêtre <details> avec variables + unités SI, équation, exemple résolu pas à pas, tableau d'interprétation (Normal / Seuil / Signification / Conduite). Les calculs doivent être exacts.
+8. 14 points obligatoires par monographie ; point 11 en A-But / B-Moyens (non médicamenteux ; pharmacologiques : classe, DCI + mécanisme, spécialité suisse ®, posologie/voie/rythme + adaptation rénale/hépatique, durée) / C-Surveillance (clinique, biologique avec calendrier et seuils, radiologique) / D-Pronostic, critères de guérison ou recherche 2026.
+9. Point 7 : syndromes numérotés 7.1, 7.2… ; chaque titre de syndrome ouvre une fenêtre reliant chaque signe à son mécanisme.
+10. Point 9 : Gold standard (Se/Sp, seuil) → 1re intention (+ alternatives grossesse, DFGe < 30 mL/min, allergie au contraste, enfant) → 2e intention.
+
+## Gabarit HTML (fidèle au méta-prompt, avec une correction)
+- Fichier HTML5 complet autonome (<!DOCTYPE html>, <meta charset="UTF-8">, <meta name="viewport" content="width=device-width,initial-scale=1">).
+- Conteneur `<div id="lot238-appel[A|B]-v5" style="font-family: sans-serif; line-height: 1.65; max-width: 980px; margin: auto;">`, h2 bleu #1a5276 bordure #2980b9, sous-titre gris.
+- Chaque monographie = `<details open ...>` style du gabarit, `<summary>` « DX.n — Nom <span style="font-size:0.8em;color:#2e8b57;">badge</span> ».
+- Grands titres `<p><strong>1. …</strong><br>` ; sous-titres en `<em>` ou `<strong><em>`.
+- Fenêtres bio-mathématiques : `<details>` bordure gauche #2980b9 fond #ebf5fb, summary « 🔍 Fenêtre Interactive Bio-Mathématique N.k : … ».
+- **CORRECTION** : ne PAS utiliser `<a href="#" title="…">` (inaccessible au toucher, saute en haut de page). Pour un terme interactif, utiliser un `<details>` en ligne :
+  `<details class="t" style="display:inline;"><summary style="display:inline;cursor:pointer;color:#1f618d;text-decoration:underline dotted;">terme</summary><span style="display:block;margin:4px 0 8px;padding:8px;background:#f4f6f7;border-left:3px solid #1f618d;font-size:0.93em;">Définition / mécanisme. <em>Source : …</em></span></details>`
+- Tableaux : `border="1" cellpadding="7" cellspacing="0" style="width:100%;border-collapse:collapse;..."` thead #d4e6f1 ; envelopper chaque tableau dans `<div style="overflow-x:auto;">` (lecture mobile).
+- En fin de fichier : section « Sources » numérotée (titre, organisme, année, URL, date d'accès) et mention : « Contenu produit par IA à partir des sources citées ; non validé cliniquement par un médecin. »
+
+## Fichiers du lot
+1. LOT_238_Appel_A_V5_Ultra_Pedagogique_Plan_et_Liste.html — Bloc 1 monographie 14 points du SSP ; Bloc 2 liste DX.1–DX.10 ordonnée + badge + justification.
+2. LOT_238_Appel_B_V5_Ultra_Pedagogique_Partie_1_DX.1_a_DX.2.html
+3. LOT_238_Appel_B_V5_Ultra_Pedagogique_Partie_2_DX.3_a_DX.5.html
+4. LOT_238_Appel_B_V5_Ultra_Pedagogique_Partie_3_DX.6_a_DX.7.html
+5. LOT_238_Appel_B_V5_Ultra_Pedagogique_Partie_4_DX.8_a_DX.10.html
+
+## Consigne de Vial (2026-10-21) — plan académique de repli et qualité des différentiels
+11. **Plan de repli.** Quand le plan monographique en 14 points ne s'applique pas naturellement à une entité (SSP transversal, procédural, médico-légal, ou entité qui est une classe d'agents plutôt qu'une maladie), ne pas forcer : produire un **plan universitaire/académique** (I., II., III. ; A., B. ; 1., 2.) qui suit la logique propre du sujet, avec **de nombreuses fenêtres cliquables `<details>`** pour les détails (mécanismes, calculs, posologies, cadre légal, exemples). Annoncer en tête de la monographie, en une phrase, pourquoi ce plan est retenu. Les exigences de fond (sources, posologies suisses, bio-mathématique utile, guérison/recherche 2026, pièges d'examen) restent dues ; le lint accepte ce plan si la monographie contient la classe `plan-academique`.
+12. **Différentiels de haut niveau.** Chaque DX doit dire ce qui le **distingue des autres DX** et des simulateurs non toxiques :
+   - Appel A, Bloc 2 : outre la liste ordonnée, un **tableau comparatif des toxidromes/entités** (conscience, pupilles, FC/PA, FR, température, peau, péristaltisme, ECG, biologie clé, antidote) et un **algorithme discriminant** (quel signe ou examen fait basculer d'un DX à l'autre).
+   - Chaque monographie Appel B : rubrique « Diagnostics différentiels discriminants » au point 4 (ou section équivalente), avec les 3–4 confusions les plus dangereuses, le signe ou examen qui tranche, et le piège d'examen associé ; inclure les causes non toxiques qui miment l'intoxication (hypoglycémie, AVC, méningo-encéphalite, état de mal non convulsif, sepsis, hypothermie, traumatisme crânien, troubles métaboliques).
+   - Associations et co-ingestions (alcool + benzodiazépines + paracétamol) explicitement traitées : toujours doser paracétamol et éthanol dans l'ingestion volontaire inconnue si la source le soutient.
+13. **Fenêtres des thèmes transversaux : très riches et très précises.** Pour tout thème transversal (cadre légal, éthique, communication, organisation des soins, prévention, santé publique, évaluation du risque suicidaire, capacité de discernement, déclaration, Tox Info Suisse, médecine légale), chaque fenêtre `<details>` contient : définition exacte ; base légale ou déontologique précise (article et alinéa via Fedlex, directive ASSM ou code FMH avec année) ; conditions d'application et exceptions ; procédure pas à pas ; exemple clinique concret avec la décision correcte ; erreur fréquente ou piège d'examen ; source datée. Une fenêtre transversale ne se limite jamais à une phrase.
+
+
+
+
+
+
+
+
+
+
+
+## Spécificités LOT_238
+- (Candidats à VÉRIFIER.) ESC/ESAIC 2022 évaluation cardiovasculaire préopératoire (RCRI, capacité fonctionnelle METs/DASI, NT-proBNP, troponine), ESAIC (anémie, jeûne, BPCO, SAOS STOP-Bang), classification ASA, gestion péri-opératoire des anticoagulants/antiagrégants (Swiss/ESC/EHRA), diabète et insuline, corticoïdes (substitution), IEC/sartans, SGLT2 (arrêt 3 jours), fragilité, consentement éclairé, Smarter Medicine (pas de bilan systématique).
+- 10 DX = situations préopératoires fréquentes : patient sous AOD, sous AVK, sous double antiagrégation/stent, coronarien/insuffisant cardiaque, diabétique, BPCO/SAOS, insuffisant rénal, anémique, âgé fragile/délire, femme enceinte ou allergie (latex/curare) — à choisir sur preuves.
+- Arbitrages issus de la recherche (contraignants) : DX = AOD, AVK, stent/DAPT, risque cardiaque, diabète + corticothérapie, BPCO/SAOS/tabac, IRC/produit de contraste, anémie, fragilité/délire, allergie périopératoire ; grossesse traitée en alternative transversale (point 9). Conflits FI suisse vs ESC (arrêt clopidogrel/ticagrélor/prasugrel 7 j FI vs 5/3–5/7 j ESC ; metformine FI 48 h vs SFAR/ESUR ; halopéridol ESAIC vs FI) : présenter les deux, FI suisse d'abord. NT-proBNP ≥300 / BNP ≥92 pg/mL = seuils canadiens (CCS), à présenter comme tels. Smarter Medicine 2018 item 2 : seuil Hb à vérifier, écrire « > 70 g/L (à confirmer) ».
+
+===== FICHIER: ssp_restants.tsv (n, code, titre FR) =====
+226	O7.4	Aspects environnementaux et psychosociaux des maladies chroniques	environmental and psychosocial aspects of chronic conditions
+225	O7.3	Conseil diététique, alimentation saine et durable	dietary counselling including a healthy and sustainable nutrition
+224	O7.2	Détermination d'une incapacité de travail ou scolaire	determination of incapacity to work or to attend class/educational lessons
+223	O7.1	Consultation avant ou après un voyage en pays tropical	consultation before or after a trip to a foreign (tropical) country
+222	O6.9	Conditions de travail, burnout, chômage, difficultés financières	problems related to work conditions, burnout, unemployment, financial problems
+221	O6.8	Souffrance psychique ou spirituelle	mental or spiritual suffering
+220	O6.7	Perte, décès, deuil, maladie d'un proche	loss, death, grieving process, illness of someone close
+219	O6.6	Vie familiale : divorce, monoparentalité, famille recomposée	issues related to family life such as divorce, single parenthood and reconstructed family
+218	O6.5	Diversité de l'orientation affective et sexuelle, identité de genre	issues regarding diversity of affective and sexual orientation and gender identity
+217	O6.4	Harcèlement, mobbing	harassment, bullying, mobbing
+216	O6.3	Violence domestique, abus sexuel, viol	domestic violence, sexual abuse, rape
+215	O6.2	Préoccupation concernant l'apparence, image du corps	concern about appearance, body image
+214	O6.1	Absentéisme scolaire ou professionnel	absenteeism (school, work)
+213	O5.5	Besoin de soutien psychosocial ou spirituel	need for psychosocial or other kind of support (e.g. spiritual)
+212	O5.4	Prise en charge des symptômes réfractaires : douleur, nausées	management of refractory symptoms (pain, nausea)
+211	O5.3	Prise en charge globale du patient mourant	holistic care of the dying patient
+210	O5.2	Réorientation des objectifs de soins, décisions de fin de vie	change in treatment goals and end-of-life decisions
+209	O5.1	Épuisement des proches aidants	caregivers’ fatigue, loss of energy
+208	O4.7	Évaluation partagée des facteurs de risque et de protection des maladies fréquentes engageant le pronostic vital	shared assessment of risks and protective factors for frequent life-compromising diseases
+207	O4.6	Évaluation partagée des bénéfices et risques du dépistage et du traitement des affections asymptomatiques	shared assessment of risks and benefits of screening and treating asymptomatic conditions
+206	O4.5	Promotion de la santé sexuelle et de la fertilité	promotion of sexual health and fertility
+205	O4.4	Demande et gestion des bilans de santé, examens radiologiques et de laboratoire	request for and managing check-ups, health examinations, radiological and laboratory procedures
+204	O4.3	Promotion d'un mode de vie sain	promotion of a healthy lifestyle
+203	O4.2	Plan de vaccination	immunization plan
+202	O4.1	Consultation avant activité sportive ou après lésion sportive	consultation before engaging in sports activities or after a sport injury
+201	O3.7	Incontinence urinaire et fécale	urinary and fecal incontinence
+200	O3.6	Perte d'autonomie progressive	progressively dependent patient
+199	O3.5	Escarres	pressure ulcers
+198	O3.4	Patient polymorbide et polymédiqué	polymorbid, polymedicated patient
+197	O3.3	Dénutrition et sarcopénie	malnutrition and sarcopenia
+196	O3.2	Atteinte fonctionnelle : cognitive, sensorielle, motrice	functional impairment (cognition, sensory and motor)
+195	O3.1	Maltraitance et négligence de la personne âgée	elder abuse and neglect
+194	O2.12	Consultations de suivi du nourrisson, de l'enfant et de l'adolescent	well-baby visit, well-child visit, and well-adolescent visit
+193	O2.11	Hypotonie musculaire	low muscle tone and hypotonia
+192	O2.10	Difficultés d'apprentissage et scolaires	learning and school problems in childhood and adolescence
+191	O2.9	Nourrisson irritable, pleurs	irritable, crying infant
+190	O2.8	Décès du nourrisson	infant death
+189	O2.7	Problèmes fœtaux durant la grossesse	fetal problems during pregnancy
+188	O2.6	Troubles alimentaires du nourrisson, de l'enfant et de l'adolescent	feeding and eating issues during infancy, childhood and adolescence
+187	O2.5	Retard de développement	developmental delay
+186	O2.4	Vaccination de l'enfant	child immunization
+185	O2.3	Maltraitance et négligence de l'enfant	child abuse and neglect
+184	O2.2	Troubles du comportement de l'enfant et de l'adolescent	behavioural issues in childhood and adolescence
+183	O2.1	Croissance anormale, puberté avancée ou retardée, retard staturo-pondéral	abnormal growth and accelerated or retarded puberty, failure to thrive
+182	O1.9	Suspicion de grossesse, grossesse non planifiée	suspicion of pregnancy, unplanned pregnancy
+181	O1.8	Demande d'interruption de grossesse	request for abortion
+180	O1.7	Suivi de base de la conception et de la grossesse	basic care during conception and pregnancy
+179	O1.6	Problèmes liés à l'allaitement	problems related to lactation
+178	O1.5	Problèmes liés à l'accouchement	problems related to delivery
+177	O1.4	Complications maternelles de la grossesse : fièvre, œdème, hypertension, menace d'accouchement prématuré	maternal problems during pregnancy such as fever, oedema, hypertension, irregular premature labour
+176	O1.3	Dépistage pré- et post-conceptionnel des maladies génétiques et malformations	basic pre- and post-conception screening for genetic diseases and malformations
+175	O1.2	Prise en charge de base : accouchement normal et post-partum	basic care during regular delivery and postpartum period
+174	O1.1	Poids de naissance anormal, prématurité	abnormal birth weight and prematurity
+173	F2.25	Thrombopénie, thrombocytose	thrombopenia, thrombocytosis
+172	F2.24	Protéinurie	proteinuria
+171	F2.23	Protéinémie, albuminémie	proteinemia, albuminemia
+170	F2.22	Polyglobulie	polycythemia
+169	F2.21	Carences nutritionnelles	nutritional deficiencies
+168	F2.20	Densité osseuse basse	low bone density
+167	F2.19	Biomarqueurs de l'inflammation élevés	elevated biomarkers of inflammation
+166	F2.18	Épanchement à l'échographie : abdomen, plèvre	effusion detected by ultrasound (abdomen, pleura)
+165	F2.17	Incompatibilité de groupe sanguin	blood group incompatibility
+164	F2.16	Anémie	anemia
+163	F2.15	Sédiment urinaire anormal	abnormal urine sediment
+162	F2.14	Hormones thyroïdiennes anormales	abnormal thyroid hormones
+161	F2.13	Bilan lipidique anormal	abnormal serum lipids
+160	F2.12	Marqueurs de la fonction rénale anormaux	abnormal markers of kidney function
+159	F2.11	Enzymes hépatiques anormales	abnormal liver enzymes
+158	F2.10	Histologie, cytologie et tests de génétique moléculaire anormaux	abnormal histology, cytology and molecular genetic tests
+157	F2.9	Glycémie et marqueurs de l'homéostasie glucidique anormaux	abnormal glycaemia and markers of glycaemia homeostasis
+156	F2.8	Analyses de selles anormales, sang occulte, parasites	abnormal fecal analyses, occult blood, parasites
+155	F2.7	Électrolytes anormaux	abnormal electrolytes
+154	F2.6	ECG anormal	abnormal ECG
+153	F2.5	Numération leucocytaire anormale	abnormal leukocyte count
+152	F2.4	Radiographies anormales : abdomen, thorax, squelette	abnormal X-rays of abdomen, chest and skeleton
+151	F2.3	Bilan de coagulation anormal	abnormal coagulation profile
+150	F2.2	Enzymes cardiaques anormales	abnormal cardiac enzymes
+149	F2.1	Gazométrie anormale	abnormal blood gas values
+148	F1.19	Perte de connaissance transitoire, syncope	transient loss of consciousness, syncope
+147	F1.18	Patient sans pouls, arrêt cardio-respiratoire	pulseless patient, cardiorespiratory disturbances and arrest
+146	F1.17	Pâleur	pallor
+145	F1.16	Œdème	oedema
+144	F1.15	Altération ou perte de conscience, coma	impairment or loss of consciousness, coma
+143	F1.14	Gangrène	gangrene
+142	F1.13	Halitose	halitosis (fetor oris)
+141	F1.12	Exophtalmie, myosis ou mydriase	exophthalmos (proptosis), myosis or mydriasis
+140	F1.11	Anomalie de la parole	abnormal speech or speaking
+139	F1.10	Cyanose	cyanosis
+138	F1.9	Troubles cognitifs	cognitive impairment
+137	F1.8	Cachexie et dénutrition	cachexia and malnutrition
+136	F1.7	Bradycardie, tachycardie, pouls irrégulier	bradycardia, tachycardia, irregular pulse
+135	F1.6	Anomalies à la percussion	abnormal findings upon percussion
+134	F1.5	Anomalies à la palpation	abnormal findings upon palpation
+133	F1.4	Anomalies à l'inspection	abnormal findings upon inspection
+132	F1.3	Anomalies à l'auscultation	abnormal findings upon auscultation
+131	F1.2	Variations des organes génitaux externes : physiologiques ou pathologiques, hormonales, post-chirurgicales, après mutilation	variations in external genitalia (female, male, including intersex and transgender individuals)
+130	F1.1	Pression artérielle anormale	abnormal blood pressure
+129	S9.13	Usage non médical de substances, addictions : tabac, alcool, substances illégales, jeu	non-medical substance use (“misuse”), addiction e.g. tobacco, alcohol, illegal substances, gambling and gaming
+128	S9.12	Auto-agression, y compris suicide	self-harm, including suicide
+127	S9.11	Réactions à un événement stressant majeur	reactions to major stressful events
+126	S9.10	Comportement obsessionnel et/ou compulsif	obsessive and/or compulsive behavior
+125	S9.9	Altération de l'état mental : confusion, delirium, comportement (auto-)agressif	changes in mental status such as confusion, delirium, (auto-)aggressive behavior
+124	S9.8	Irritabilité, comportement agressif et violent	irritability, aggressive and violent behavior
+123	S9.7	Peur irrationnelle, crainte de la maladie	irrational fear, fear of illness
+122	S9.6	Hyperactivité	hyperactivity
+121	S9.5	Modification de l'humeur	change in mood
+120	S9.4	Modification du comportement alimentaire	change in eating behavior
+119	S9.3	Modification du comportement	change in behavior
+118	S9.2	Déficit de l'attention	attention deficit
+117	S9.1	Anxiété et panique	anxiety and panic
+116	S8.12	Lésions vasculaires	vascular injuries
+115	S8.11	Traumatismes thoraciques	thoracic injuries
+114	S8.10	Traumatismes rachidiens	spine injuries
+113	S8.9	Lacération, plaie ouverte ou fermée, hémorragie	laceration, closed or open wound, blood loss
+112	S8.8	Traumatismes des extrémités	injuries of the extremities
+111	S8.7	Traumatismes crâniens et cérébraux	head and brain injuries and trauma
+110	S8.6	Lésion par corps étranger	injury by foreign body
+109	S8.5	Noyade et quasi-noyade	drowning or near drowning
+108	S8.4	Luxation articulaire	dislocation of a joint
+107	S8.3	Contusion, lésion des tissus mous	contusion, soft tissue bruising
+106	S8.2	Brûlure, lésion par le froid	burn, cold injury
+105	S8.1	Traumatismes abdominaux	abdominal injuries
+104	S7.10	Myoclonies, fasciculations, convulsion, crise épileptique, état de mal	twitches, fasciculations, convulsion, seizure and status epilepticus
+103	S7.9	Troubles sensitifs : hyper/hypoesthésie, paresthésies, hyper/hypoalgésie	disturbances of sensation (hyper- or hypo-esthesias, paresthesias, hyper- or hypoalgesia)
+102	S7.8	Parésie, paralysie	paresis, paralysis
+101	S7.7	Troubles cognitifs : concentration, mémoire, compréhension	cognitive impairment, including loss of concentration, memory disturbance, and trouble in understanding
+100	S7.6	Céphalée	headache
+99	S7.5	Étourdissement, vertige	dizziness, vertigo
+98	S7.4	Troubles de la parole ou du langage	disorders of speech or language
+97	S7.3	Mouvements anormaux, tremblement, tic, incoordination	abnormal involuntary movements, tremor, tic, lack of coordination
+96	S7.2	Troubles de la marche	abnormal gait
+95	S7.1	Troubles de l'équilibre, chutes	abnormal sense of balance, falls
+94	S6.9	Érythème cutané (localisé ou diffus) et/ou muqueux	redness of the skin (localized or diffuse) and/or mucosa
+93	S6.8	Atteintes unguéales	nail complaints
+92	S6.7	Macules, papules, pustules, vésicules, bulles, ulcères, abcès, épaississement, nécroses, tumeurs cutanées	macules, papules, pustules, blisters, ulcers and abscesses, bullae, thickening, necroses, tumors of the skin
+91	S6.6	Alopécie, pilosité excessive	lack or loss of hair, excessive hair growth
+90	S6.5	Ictère	jaundice (icterus)
+89	S6.4	Plaie infectée, retard de cicatrisation, ulcère cutané	infected wound, delayed wound healing, skin ulcers
+88	S6.3	Hyper- ou hypopigmentation	hyper- or hypopigmentation
+87	S6.2	Ecchymose, hématome, purpura	ecchymosis, hematoma, purpura
+86	S6.1	Lésions des muqueuses buccale, génitale ou périanale	changes in oral, genital or perianal mucosa
+85	S5.6	Arthralgie, gonflement articulaire, raideur matinale, limitation de mobilité	swollen or painful joints, morning stiffness, reduction of joint mobility
+84	S5.5	Douleur, brûlure, crampe, engourdissement des extrémités	pain, burning, cramp, numbness in the extremities
+83	S5.4	Myalgies	myalgia
+82	S5.3	Déformations osseuses et articulaires	deformities of skeleton and joints
+81	S5.2	Dorsalgie, lombalgie	back pain
+80	S5.1	Posture anormale, déformations rachidiennes	abnormal posture and back deformities
+79	S4.18	Leucorrhées	vaginal discharge
+78	S4.17	Saignement vaginal	vaginal bleeding
+77	S4.16	Prolapsus utérin, relâchement pelvien	uterine prolapse, pelvic relaxation
+76	S4.15	Rétention urinaire	urinary retention
+75	S4.14	Incontinence urinaire, énurésie	urinary incontinence and enuresis
+74	S4.13	Écoulement urétral	urethral discharge
+73	S4.12	Symptômes liés à la ménopause	symptoms related to menopause
+72	S4.11	Tuméfaction, douleur inguinale	swelling, pain in groin
+71	S4.10	Plaintes et dysfonctions sexuelles	sexual complaints and dysfunction
+70	S4.9	Douleur, tuméfaction ou masse scrotale	scrotal pain, swelling or mass
+69	S4.8	Demande de contraception, contraception d'urgence	request for contraception, emergency contraception
+68	S4.7	Douleur pelvienne	pelvic pain
+67	S4.6	Masse pelvienne	pelvic mass
+66	S4.5	Symptômes menstruels : troubles des règles, dysménorrhée, syndrome prémenstruel	menstrual symptoms: disorders of menstruation, painful menstruation, premenstrual symptoms
+65	S4.4	Questions liées à la conception : infertilité, stérilisation	issues related to conception, e.g. infertility and sterilization
+64	S4.3	Dysurie, pyurie, hématurie	dysuria, pyuria, hematuria
+63	S4.2	Anurie, pollakiurie, oligurie, polyurie	anuria, pollakiuria, oliguria, polyuria
+62	S4.1	Variations du développement sexuel	variations in sexual development
+61	S3.10	Nausées, vomissements	nausea, vomiting
+60	S3.9	Rectorragie, méléna ; sang, mucus ou pus dans les selles	anal bleeding, melena; fresh blood, mucus, pus in feces
+59	S3.8	Diarrhée	diarrhea
+58	S3.7	Constipation	constipation
+57	S3.6	Hématémèse	hematemesis
+56	S3.5	Prurit anal, douleur anale, procidence	anal itching, anal pain, anal protrusion
+55	S3.4	Trouble du transit, incontinence anale	altered defecation pattern, anal incontinence
+54	S3.3	Masse abdominale	abdominal mass
+53	S3.2	Distension abdominale	abdominal distension
+52	S3.1	Douleur abdominale	abdominal pain
+51	S2.12	Douleur thoracique pariétale	parietal chest pain
+50	S2.11	Palpitations	palpitations
+49	S2.10	Respiration douloureuse, sibilances, stridor	painful respiration, wheezing, stridor
+48	S2.9	Dysphagie, passage douloureux des aliments, régurgitations	impaired or painful passage of food, dysphagia, regurgitation
+47	S2.8	Pyrosis	heartburn (pyrosis)
+46	S2.7	Dyspnée	dyspnea
+45	S2.6	Toux, expectoration, hémoptysie	cough, expectoration, hemoptysis
+44	S2.5	Douleur thoracique	chest pain
+43	S2.4	Gêne thoracique	chest discomfort
+42	S2.3	Masse mammaire, écoulement, modification du volume	breast lump, breast discharge, changes of breast size
+41	S2.2	Modification du rythme respiratoire	change of respiratory pattern
+40	S2.1	Apnée, apnée avec micro-éveil	apnea, apnea with arousal
+39	S1.23	Troubles visuels : photophobie, phosphènes, myodésopsies, diplopie, dyschromatopsie, vision floue	visual disturbances, photophobia, light flashes, floating objects, diplopia, color blindness, blurred vision
+38	S1.22	Tuméfaction palpébrale	swelling of the eyelid
+37	S1.21	Tuméfaction du visage, des lèvres, du cou	swelling of face, lips, neck
+36	S1.20	Strabisme	squint (strabismus)
+35	S1.19	Mal de gorge	sore throat
+34	S1.18	Ronflement	snoring
+33	S1.17	Œil rouge, douloureux, prurigineux ; sécrétions oculaires	painful, red, itchy eyes; eye discharge
+32	S1.16	Raideur et douleur cervicales	neck stiffness and pain
+31	S1.15	Obstruction nasale	nasal obstruction
+30	S1.14	Rhinorrhée	nasal discharge
+29	S1.13	Microcéphalie et macrocéphalie	micro- and macrocephaly
+28	S1.12	Troubles de l'audition : hyper- et hypoacousie, surdité, acouphènes	hearing impairment: hyper- and hypoacusis, deafness, whistling, tinnitus
+27	S1.11	Douleur faciale, mandibulaire ou dentaire, trismus	facial, jaw or tooth pain, trismus
+26	S1.10	Otalgie	earache
+25	S1.9	Sécheresse, douleur, masse buccale ou pharyngée, lésions orales	dryness, pain, mass in mouth or throat, oral lesions
+24	S1.8	Otorrhée	discharge from ear(s)
+23	S1.7	Difficulté à déglutir, fausse route	difficulty in swallowing, choking
+22	S1.6	Blépharospasme	blepharospasm
+21	S1.5	Épistaxis	bleeding nose
+20	S1.4	Asymétrie faciale, déformation	asymmetric face, deformation
+19	S1.3	Altération de la voix : enrouement, aphonie, dysphonie	alteration of voice (hoarseness, aphonia, dysphonia)
+18	S1.2	Baisse de l'acuité visuelle : aiguë, progressive, transitoire, partielle	acute and gradual loss of vision (acute, slow, temporary, partial)
+17	S1.1	Diplopie, ptosis, mouvements oculaires anormaux	diplopia, ptosis, abnormal eye movements
+16	G16	Perte de poids, perte d'appétit	weight loss, loss of appetite
+15	G15	Prise de poids, obésité	weight gain, obesity
+14	G14	Mort subite ou inattendue	unexpected or sudden death
+13	G13	Mort non naturelle	unnatural death
+12	G12	Œdème, diffus ou localisé	oedema (diffuse or local)
+11	G11	Troubles du sommeil : insomnie, hypersomnie, parasomnies	sleep problems (insomnias, hyper-somnias/sleepiness, parasomnias)
+10	G10	Douleur, tous types	pain of all types
+9	G9	Prurit	itching
+8	G8	Hypothermie	hypothermia
+7	G7	Bouffées vasomotrices, flush	flushing
+6	G6	Fièvre, frissons, hyperthermie	fever, chills, hyperthermia
+5	G5	Sensation de malaise général	feeling sick
+4	G4	Fatigue, asthénie	fatigue, tiredness
+3	G3	Soif excessive, polydipsie	excessive thirst, excessive fluid intake (polydipsia)
+2	G2	Tuméfaction, masse, adénopathies	swelling, tumor, included enlarged lymph nodes (lymphadenopathy)
+1	G1	Sudation anormale	abnormal perspiration
