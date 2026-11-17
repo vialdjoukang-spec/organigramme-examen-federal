@@ -2,7 +2,7 @@
 
 ## Matrice clinique et pédagogique
 
-**17 novembre 2026.** Les 180 premières questions ont été relues par lots de vingt. Le registre G3_OBJECTIFS.json relie chaque objectif de question au passage facultaire correspondant. Le tableau distingue les décisions couvertes et les situations à explorer pendant la suite de la production. Une soif subjective, une bouche sèche, une consommation élevée et une polyurie mesurée sont quatre observations distinctes. Leur chronologie et la capacité de la personne à accéder à l’eau orientent le bilan.
+**17 novembre 2026.** Les 200 questions G3 ont été relues en dix lots de vingt. Le registre G3_OBJECTIFS.json relie chaque objectif de question au passage facultaire correspondant. Le tableau décrit les décisions examinées à la clôture clinique. Une soif subjective, une bouche sèche, une consommation élevée et une polyurie mesurée sont quatre observations distinctes. Leur chronologie et la capacité de la personne à accéder à l’eau orientent le bilan.
 
 | Priorité | Présentation | Décision à évaluer | Donnée qui change la décision |
 |---|---|---|---|
@@ -18,7 +18,7 @@
 | Excès d’eau et traitement | Apports hypotoniques massifs, notamment sous desmopressine | Reconnaître une hyponatrémie de dilution, rechercher symptômes neurologiques et demander une prise en charge hospitalière urgente en cas de confusion importante ou de convulsions. | Prévenir l’automédication par desmopressine chez une personne dont l’augmentation des boissons précède celle de la diurèse. [Université de Bâle, polydipsie primaire et déficit en AVP](https://dkf.unibas.ch/de/aktuell/harmlos-oder-hormonstoerung/) |
 | Suivi | Déficit en AVP confirmé, séjour hospitalier, intervention ou maladie aiguë | Apprendre à reconnaître le changement de diurèse et les signes de dysnatrémie. Organiser l’accès à l’eau, la continuité du traitement prescrit et un plan personnalisé de surveillance lors d’un transfert de soins. | Un même traitement peut devenir dangereux si l’accès aux boissons ou la fonction rénale change. Les adaptations thérapeutiques précises requièrent la procédure utilisée dans le cas. |
 
-### Décisions relues dans les lots 023 à 031
+### Décisions relues dans les lots 023 à 032
 
 | Questions | Décisions |
 |---|---|
@@ -58,6 +58,10 @@
 | 166–170 | Redistribution nocturne des œdèmes, rôle de l’eau pendant et après une colique néphrétique, prévention ciblée des cystites et restriction hydrique chez l’insuffisant cardiaque. |
 | 171–175 | Résistance congénitale à l’AVP : thiazidique, charge en solutés et croissance, vidange programmée, transmission liée à l’X et toxicité digestive sous indométacine. |
 | 176–180 | Desmopressine prescrite pour énurésie en cas de gastroentérite, thiazidique et diagnostic de SIAD, préparation colique, hyponatrémie pendant le travail et préparation à l’échographie endovaginale. |
+| 181–185 | Acidocétose possible sous empagliflozine malgré glycémie à 9,8 mmol/l, diurétiques mimant une tubulopathie, dépistage d’un hyperaldostéronisme, dosage de 25-OH-D et interférence entre icodextrine et lecteur GDH-PQQ. |
+| 186–190 | Préservation salivaire en radiothérapie, gouttières fluorées, substitut adapté en l’absence de réserve sécrétoire, sécurité de la pilocarpine et syndrome sec sous immunothérapie. |
+| 191–195 | Pagophagie et carence en fer, comprimé de desmopressine et repas, déficit en AVP révélé après greffe, baisse du DFG masquant une polyurie et densité urinaire biaisée après contraste. |
+| 196–200 | Hyperglycémie avec cétonémie avant le sport, diarrhée sous lactulose, hyperémèse gravidique, apnées du sommeil et maintien de l’insuline basale en cas de maladie aiguë. |
 
 ## Rattachement aux formations romande et alémanique
 
@@ -93,3 +97,14 @@ Aucune répartition fiable des causes parmi **toutes** les consultations G3 suis
 | Troubles psychotiques, apports compulsifs ou traitement psychotrope | Une consommation importante ne suffit pas à attribuer l’hyponatrémie à une cause psychiatrique ; les médicaments et l’osmolalité urinaire restent discriminants. | Q16–20 et 116–120 relient temporalité, dialogue, danger aigu et prévention. [HUG, médicaments et SIADH](https://www.hug.ch/sites/interhug/files/structures/pharmacologie_et_toxicologie_cliniques/documents/cappinfo65_siadh.pdf) |
 
 Avant d’ajouter un lot, vérifier que les décisions à fort enjeu ont chacune un cas probant, que les états physiologiques et iatrogènes courants sont représentés, que la surveillance familiale et les obstacles à l’accès à l’eau sont traités et que chaque test est demandé dans le bon ordre. Comparer notamment G1-116/145 pour les pertes ou la toxicité lithique et G2-145 pour l’hypercalcémie sévère. Un cas G3 doit demander une décision propre à la soif ou à la polyurie.
+
+
+## Avis de clôture clinique du 17 novembre 2026
+
+**La couverture clinique de G3 justifie le passage au SSP suivant.** Les dernières vérifications ont retrouvé les 200 identifiants distincts G3-001 à G3-200 dans l’index publié, avec 120 types A, 40 K′ et 40 menus longs. Les 200 objectifs de question concordent mot pour mot avec le registre facultaire. Chaque binôme comporte au moins une référence clinique et les sept champs de rappel. Les proportions sont celles de la banque pédagogique.
+
+La lacune de sécurité mise au jour au dernier passage concernait la reconnaissance d’une acidocétose sous iSGLT2 à glycémie relativement basse. G3-181 teste maintenant la suspension de l’empagliflozine et la recherche urgente de cétonémie et d’acidose chez une patiente polypnéique qui vomit. G3-091 évalue une glycosurie normoglycémique isolée ; G1-180 traite de l’hypoglycémie retardée à l’effort. [Swissmedic, communication de sécurité](https://www.swissmedic.ch/swissmedic/fr/home/medicaments-a-usage-humain/surveillance-du-marche/health-professional-communication--hpc-/archive/dhpc-_-invokana---canagliflozin---vokanamet---canagliflozin-metf.html)
+
+Le registre [G3_OBJECTIFS.json](G3_OBJECTIFS.json) identifie 30 objectifs facultaires distincts et conserve pour chaque exercice sa justification pédagogique, le document, sa langue, la rubrique et l’URL. Les 114 rattachements francophones et les 86 germanophones sont tous qualifiés de déduits au niveau de la décision testée. Les protocoles de soins, cas cliniques, recommandations de sociétés savantes suisses et publications internationales étayent séparément les décisions médicales.
+
+La relecture est documentaire et a été effectuée par des agents distincts des rédacteurs. Elle ne constitue pas une validation par une faculté ou une commission d’examen. L’absence de distribution nationale de toutes les causes de soif en première consultation reste consignée. Le registre clinique permet de rouvrir un binôme en cas de modification d’une source ou de découverte d’une décision indispensable manquante. Aucune question additionnelle n’est requise par cette revue.
