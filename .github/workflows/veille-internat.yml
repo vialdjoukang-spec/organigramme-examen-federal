@@ -2,7 +2,10 @@
 # Prolonge ve1/ve2 (Argos) : même sources.yml, même script veille.py pour les
 # empreintes, même branche veille-etat (main est protégée).
 # Aucune API payante, aucun modèle de langage. Une fois par jour au plus.
-# Les pages générées sont publiées par pages.yml, qui relit cette branche.
+# Ce workflow n'écrit que sur la branche veille-etat, jamais sur main : il est
+# donc indépendant du verrou mission_exclusive (laissé à ve1/ve2, non modifié).
+# La page publique recharge les données de veille-etat à chaque ouverture.
+# Un déclenchement de pages.yml met seulement à jour la version embarquée.
 name: Veille INTERNAT · pages publiques
 on:
   schedule:
@@ -15,36 +18,19 @@ concurrency:
   group: veille-etat
   cancel-in-progress: false
 jobs:
-  perimetre:
-    runs-on: ubuntu-latest
-    outputs:
-      autorise: ${{ steps.mission.outputs.autorise }}
-    steps:
-      - uses: actions/checkout@v7
-        with: { ref: main }
-      - id: mission
-        run: |
-          python3 - <<'PY'
-          import json, os
-          from pathlib import Path
-          c=json.loads(Path("tools/coordination/config.json").read_text())
-          with open(os.environ["GITHUB_OUTPUT"], "a") as f:
-              print("autorise="+str(c.get("mission_exclusive")!="infobulles_prototype6").lower(), file=f)
-          PY
   collecter:
-    needs: perimetre
-    if: needs.perimetre.outputs.autorise == 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
       - uses: actions/checkout@v7
       - uses: actions/setup-python@v7
         with: { python-version: '3.12' }
-      - name: Récupérer les empreintes précédentes (branche veille-etat)
+      - name: Récupérer l'état précédent (branche veille-etat)
         run: |
           mkdir -p veille/pages
           if git fetch --depth=1 origin veille-etat 2>/dev/null; then
             git show FETCH_HEAD:veille/pages/empreintes.json > veille/pages/empreintes.json 2>/dev/null || true
+            git show FETCH_HEAD:veille/etat.json > veille/etat.json 2>/dev/null || true
           fi
       - name: Collecter les sources et rendre la page
         run: |
