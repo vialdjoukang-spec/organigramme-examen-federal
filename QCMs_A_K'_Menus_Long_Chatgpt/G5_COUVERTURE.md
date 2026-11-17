@@ -53,3 +53,13 @@ La couverture clinique sera réévaluée sur les manuscrits validés par lots de
 | 111–120 | En cas de défaillance respiratoire ou circulatoire, choisir le test ou le traitement qui respecte le terrain et le degré d’urgence. Rechercher une exposition commune, le rapport avec une tâche et les précautions du premier intervenant. |
 
 **Paires explicitement arbitrées.** G1-036 corrige une sonde pliée provoquant une dysréflexie autonome, tandis que G5-103 protège une anastomose récente après vérification de la tubulure. Pour la tétanie, G5-033 concerne le calcium ionisé au pH réel pendant une alcalose, G5-095 le traitement d’une hypocalcémie avec retentissement électrique et G5-104 l’interprétation étiologique d’une PTH après mise en sécurité. G5-106 traite un seul flacon de sang positif à *S. aureus* signalé au retour à domicile et G5-107 la documentation de la clairance après le début du traitement.
+
+## Présentations ambulatoires et pédiatriques
+
+Dans une cohorte belge de médecine de premier recours, 3 890 enfants et adolescents de 0 à 16 ans consultaient pour une maladie aiguë depuis cinq jours au maximum. Sur 3 369 jugés initialement peu gravement malades, six (0,2 %) ont ensuite été hospitalisés pour une infection sérieuse. Le contexte, la définition de la gravité et la population diffèrent de ceux des urgences bâloises. L’examen, le jugement parental, l’intuition clinique et l’évolution contribuent à décider de revoir un enfant plus tôt. [Étude prospective en Flandre](https://pmc.ncbi.nlm.nih.gov/articles/PMC3458229/)
+
+| Questions | Contexte et décision vérifiée |
+|---|---|
+| 121–140 | Au premier contact pédiatrique, tenir compte d’une fièvre mesurée à domicile et de la modification des interactions. Adapter l’accueil d’une infection contagieuse, documenter l’exposition des contacts et examiner les dispositifs médicaux susceptibles de masquer la cause d’une dégradation. |
+| 141–150 | Après une procédure, discuter toxicité systémique de l’anesthésique, surcharge transfusionnelle, céphalée post-ponction, thrombopénie immune sous héparine et bradypnée sous morphine. En contexte infectieux, reconstruire la chronologie des médicaments et tenir compte du statut immunitaire. |
+| 151–160 | Distinguer syncope, crise épileptique et cause rythmique. Avant un retour à domicile, tenir compte des facteurs cliniques, du suivi disponible, de l’accompagnement et de la tolérance des traitements oraux. |
