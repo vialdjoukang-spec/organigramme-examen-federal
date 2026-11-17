@@ -11,5 +11,15 @@ const n=q.options.length,truth=q.options.filter(o=>o[1]).length;
 if(!(q.type in types)||q.options.some(o=>o.length!==3||typeof o[1]!=="boolean"||!o[2]))fail(q.aim);
 if(q.type==="A"&&(n<3||n>5||truth!==1)||q.type==="K"&&n!==4||q.type==="M"&&(n!==1||truth!==1||!d.lexique.includes(q.options[0][0])))fail(q.aim);
 const key=q.case.trim().toLowerCase()+"|"+q.ask.trim().toLowerCase();if(sig.has(key))fail("Doublon "+q.aim);sig.add(key);types[q.type]++}
-return {catalogue:ids.size,branches:counts,items:d.items.length,formats:types,plan:Object.values(d.agenda).flat().length}}
+const plan=d.production;
+if(!plan || plan.minimumParSSP < 200 || plan.minimumTotal !== d.catalogue.length * plan.minimumParSSP)fail("Seuil de production incorrect");
+const progress={};
+for(const [code] of d.catalogue){
+  const total=d.items.filter(q=>q.code===code).length;
+  const state=plan.statuts[code];
+  if(!state || state.integrees!==total || state.minimum < 200)fail("Progression incohérente "+code);
+  if(state.clos && (total<state.minimum || !state.couvertureComplete || !state.auditComplet))fail("Clôture prématurée "+code);
+  progress[code]={integrees:total,minimum:state.minimum,reste:Math.max(0,state.minimum-total)};
+}
+return {progression:progress,catalogue:ids.size,branches:counts,items:d.items.length,formats:types,plan:Object.values(d.agenda).flat().length}}
 console.log(JSON.stringify(verify(data), null, 2));
