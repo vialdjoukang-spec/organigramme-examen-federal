@@ -40,3 +40,7 @@ Le cursus genevois énonce explicitement l’application du BLS avec défibrilla
 | G5-115, G10-035 | Reperfusion de l’embolie pulmonaire avec choc ; oxygénothérapie selon l’oxygénation d’un syndrome coronarien. |
 
 Les autres rapprochements avec G4, G5, G8 et G10 seront effectués sur les décisions et les cas complets. Avant clôture, les rubriques embarquées de G14 seront mises en regard de questions vérifiées ou de renvois exacts. Une extension sera proposée si un acte prioritaire demeure absent.
+
+## Fréquence observée dans le registre suisse 2025
+
+Le rapport SWISSRECA 2025, publié en octobre 2026, analyse 7 604 arrêts cardiaques extrahospitaliers, avec une incidence globale de 83 pour 100 000 habitants. Dans les cantons disposant d’au moins 80 % de données d’issue, 15,2 % des personnes réanimées par les secours ou présentant déjà des signes de vie à leur arrivée ont survécu ; 94,0 % de ces survivants avaient un statut CPC 1 ou 2. Les chiffres de survie portent sur cette sous-population documentée. L’arrêt extrahospitalier enregistré et la mort subite toutes circonstances ne possèdent pas le même dénominateur. [IAS/SRC, SWISSRECA 2025, pp. 18 et 24](https://www.144.ch/wp-content/uploads/2026/10/SWISSRECA-Jahresbericht-2025.pdf).
