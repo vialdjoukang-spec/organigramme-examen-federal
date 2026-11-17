@@ -24,3 +24,23 @@ Le dernier SSP clôturé est G3 au commit 76d524b441958db7d987ab7d3135a24b841726
 | 037 | 86–90 | Fatigue iatrogène | en_cours/037-G4-086.json |
 | 037 | 91–95 | Maladies inflammatoires | en_cours/037-G4-091.json |
 | 037 | 96–100 | Cancer et soins palliatifs | en_cours/037-G4-096.json |
+| 038 | 101–105 | Néoplasies occultes et hémopathies | en_cours/038-G4-101.json |
+| 038 | 106–110 | Substances et sevrages | en_cours/038-G4-106.json |
+| 038 | 111–115 | Fatigue chez le sportif | en_cours/038-G4-111.json |
+| 038 | 116–120 | Facteurs psychosociaux | en_cours/038-G4-116.json |
+| 039 | 121–125 | Nutrition et malabsorption | en_cours/039-G4-121.json |
+| 039 | 126–130 | Troubles du sommeil et somnolence | en_cours/039-G4-126.json |
+| 039 | 131–135 | Fatigue professionnelle | en_cours/039-G4-131.json |
+| 039 | 136–140 | Fonction, handicap et communication | en_cours/039-G4-136.json |
+| 040 | 141–145 | Infections chroniques et expositions | en_cours/040-G4-141.json |
+| 040 | 146–150 | Cardiorespiratoire et réadaptation | en_cours/040-G4-146.json |
+| 040 | 151–155 | Voyage et environnement | en_cours/040-G4-151.json |
+| 040 | 156–160 | Causes reproductives et post-partum | en_cours/040-G4-156.json |
+| 041 | 161–165 | Causes métaboliques | en_cours/041-G4-161.json |
+| 041 | 166–170 | Maladie digestive inflammatoire | en_cours/041-G4-166.json |
+| 041 | 171–175 | Malaise post-effort et fatigue prolongée | en_cours/041-G4-171.json |
+| 041 | 176–180 | Maladie chronique et fonctionnement | en_cours/041-G4-176.json |
+| 042 | 181–185 | Causes organiques restant à couvrir | en_cours/042-G4-181.json |
+| 042 | 186–190 | Évolution et réorientation du bilan | en_cours/042-G4-186.json |
+| 042 | 191–195 | Lacunes de la matrice | en_cours/042-G4-191.json |
+| 042 | 196–200 | Revue clinique finale et suivi | en_cours/042-G4-196.json |
