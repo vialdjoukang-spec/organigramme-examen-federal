@@ -36,7 +36,7 @@ jobs:
           GH_TOKEN_CODEX: ${{ secrets.AUTO_FUSION_TOKEN || secrets.GITHUB_TOKEN }}
           GH_REPO: ${{ github.repository }}
         run: python3 tools/garde/permanence.py --window 1200 --refresh-main --github-state --notifier
-      - uses: actions/upload-artifact@v5
+      - uses: actions/upload-artifact@v7
         if: always()
         with:
           name: coordination-8-9
