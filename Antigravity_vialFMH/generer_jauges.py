@@ -157,6 +157,29 @@ DRAFT_PRS_NOV15 = {
     102: "#732 (grok/redaction-lot-102, 1 HTML)",
 }
 
+# PRs ouverts vérifiés via gh pr/api (16.11.2026) pour l'ensemble des LOTs absents & stubs T8e
+OPEN_PRS_ABSENTS = {
+    42: "#432 (flash/vague1/LOT_042-A)",
+    43: "#737 (grok L1 PA+DX.1) + #527 (claude/lot-043, Lo 11/11 + LISTE_DX)",
+    44: "#733 (grok L1 PA+DX.1, PA 161.6 Ko -> -11.6 Ko) + #525 (claude/lot-044, Lo 11/11 + LISTE_DX)",
+    45: "#524 (claude/lot-045, open non-draft, Lo 11/11 + LISTE_DX_CANONIQUE gelée + paquet.json)",
+    46: "#740 (grok L1 PA+DX.1) + #532 (claude/lot-046, Lo 11/11 + LISTE_DX)",
+    47: "#734 (grok L1 PA+DX.1) + #537 (claude/lot-047, Lo 11/11 + LISTE_DX)",
+    48: "#739 (grok L1 PA+DX.1) + #533 (claude/lot-048, Lo 11/11 + LISTE_DX)",
+    49: "#738 (grok L1 PA+DX.1) + #535 (claude/lot-049, Lo 11/11 + LISTE_DX)",
+    50: "#736 (grok L1 PA+DX.1) + #539 (claude/lot-050, Lo 11/11 + LISTE_DX)",
+    51: "#584 (claude/lot-051, Lo 162 Ko) + #593 (grok/lot-051-bande, Lo 118.5 Ko)",
+    52: "#575 (claude/lot-052, Lo) + #594 (grok/lot-052-bande, Lo 103.5 Ko)",
+    53: "#595 (grok/lot-053-bande, Lo 100–200 Ko)",
+    54: "#596 (grok/lot-054-bande, Lo 100–200 Ko)",
+    58: "#597 (grok/lot-058-bande, Lo 100–200 Ko)",
+    59: "#598 (grok/lot-059-bande, Lo 100–200 Ko)",
+    75: "#430, #431 (flash/vague1/LOT_075-*)",
+    76: "#433 (flash/vague1/LOT_076-A)",
+    80: "#735 (grok/redaction-lot-080, L1 PA+DX.1 controle3 VERT)",
+    102: "#732 (grok/redaction-lot-102, L1 PA seul) + #592 (grok/lot-102, pre-L1 11/11)",
+}
+
 
 def strip_text(fragment: str) -> str:
     return re.sub(r"\s+", " ", html_lib.unescape(re.sub(r"<[^>]+>", " ", fragment))).strip()
@@ -185,8 +208,13 @@ def check_tag_balance(h: str) -> str | None:
 
 
 def is_verbal(ph: str) -> bool:
-    mots = {m.lower() for m in re.findall(r"[\w'’-]+", ph)}
-    return bool(mots & VERBES or PRONOM_VERBE_RE.search(ph) or VERBE_RE.search(ph))
+    ph_norm = ph.replace("’", "'")
+    mots = {m.lower() for m in re.findall(r"[\w'-]+", ph_norm)}
+    for m in list(mots):
+        em = re.match(r"^(?:n|qu|j|t|m|s)'(.+)$", m)
+        if em:
+            mots.add(em.group(1))
+    return bool(mots & VERBES or PRONOM_VERBE_RE.search(ph_norm) or VERBE_RE.search(ph_norm))
 
 
 def extract_sentences(h: str) -> list[tuple[str, str, str]]:
@@ -290,8 +318,8 @@ def url_in_ch_eu_whitelist(url: str, hosts: set[str]) -> bool:
     return False
 
 
-def split_antigravity_bundle(bundle_path: Path) -> tuple[str, dict[str, str]]:
-    """Découpe un fichier *_complet.html d'Antigravity en (head_style_context, {cid: article_html})."""
+def split_antigravity_bundle(bundle_path: Path) -> tuple[str, dict[str, str], bool]:
+    """Découpe un fichier *_complet.html d'Antigravity en (head_style_context, {cid: article_html}, has_custom_script)."""
     raw = bundle_path.read_text(encoding="utf-8", errors="ignore")
     head_m = re.search(r"<head\b[^>]*>(.*?)</head>", raw, re.S | re.I)
     head_ctx = head_m.group(1) if head_m else ""
@@ -303,7 +331,14 @@ def split_antigravity_bundle(bundle_path: Path) -> tuple[str, dict[str, str]]:
     ):
         cid = m.group(1).upper()
         modules[cid] = m.group(0)
-    return head_ctx, modules
+    outside_articles = re.sub(
+        r'<article\b[^>]*class="lot-course"[^>]*>.*?</article>',
+        "",
+        raw,
+        flags=re.S | re.I,
+    ).replace(SCRIPT_FORME, "")
+    bundle_has_custom_script = bool(re.search(r"<script\b", outside_articles, re.I))
+    return head_ctx, modules, bundle_has_custom_script
 
 
 def extract_section_slice(h: str, pt_num: int) -> str:
@@ -327,6 +362,7 @@ def analyze_course_html(
     whitelist_hosts: set[str],
     shared_ctx_head: str = "",
     is_bundled: bool = False,
+    bundle_has_custom_script: bool = False,
     lot_phrase_seen: dict[str, str] | None = None,
 ) -> dict[str, Any]:
     """Calcule les 8 axes (G1–G8) et les sous-métriques exactes d'un cours."""
@@ -380,7 +416,7 @@ def analyze_course_html(
     fenetre_count = len(re.findall(r'<(?:section|div|details)\b[^>]*class="[^"]*\bfenetre\b', h_no_img, re.I))
     script_cleaned = h_no_img.replace(SCRIPT_FORME, "")
     custom_script_count = len(re.findall(r"<script\b", script_cleaned, re.I))
-    if is_bundled and "<script" in shared_ctx_head.lower():
+    if is_bundled and (bundle_has_custom_script or "<script" in shared_ctx_head.lower()):
         custom_script_count = max(custom_script_count, 1)
 
     g1_checks = [
@@ -502,7 +538,22 @@ def analyze_course_html(
         if nums and not cites and tag.lower() != "td":
             nums_no_cite += 1
 
-    bib_items = re.findall(r'<li\b[^>]*id="(?:sb-|[\w-]+-ref-)[^"]*"[^>]*>(.*?)</li>', h_no_img, re.S | re.I)
+    bib_items: list[str] = []
+    for m in re.finditer(r"<li\b([^>]*)>", h_no_img, re.I):
+        attrs = m.group(1)
+        if re.search(r'\bid="(?:sb-|[\w-]+-ref-|src-|source-)[^"]*"', attrs, re.I):
+            end_li = h_no_img.find("</li>", m.end())
+            if end_li != -1:
+                bib_items.append(h_no_img[m.end() : end_li])
+    if not bib_items:
+        for sb_m in SOURCES_RE.finditer(h_no_img):
+            bib_items.extend(re.findall(r"<li\b[^>]*>(.*?)</li>", sb_m.group(0), re.S | re.I))
+    if not bib_items:
+        for m in re.finditer(r"<div\b([^>]*)>", h_no_img, re.I):
+            if re.search(r'\bclass="[^"]*\bsb\b[^"]*"', m.group(1), re.I):
+                end_div = h_no_img.find("</div>", m.end())
+                if end_div != -1:
+                    bib_items.append(h_no_img[m.end() : end_div])
     bib_count = len(bib_items)
     dated_bib = sum(
         1 for bi in bib_items if re.search(r"consulté|20[12]\d", strip_text(bi), re.I)
@@ -539,10 +590,27 @@ def analyze_course_html(
     g4_pass = sup_r_count >= 10 and bib_count >= 3 and lacune_cnt == 0 and nums_no_cite <= 5
 
     # --- G5. Pharmacologie & AIPS ---
-    bib_map_by_id = {
-        m.group(1): m.group(2)
-        for m in re.finditer(r'<li\b[^>]*id="((?:sb-|[\w-]+-ref-)[^"]+)"[^>]*>(.*?)</li>', h_no_img, re.S | re.I)
-    }
+    bib_map_by_id: dict[str, str] = {}
+    for m in re.finditer(r"<li\b([^>]*)>", h_no_img, re.I):
+        idm = re.search(r'\bid="([^"]+)"', m.group(1), re.I)
+        if idm:
+            end_li = h_no_img.find("</li>", m.end())
+            if end_li != -1:
+                bid = idm.group(1)
+                bbody = h_no_img[m.end() : end_li]
+                bib_map_by_id[bid] = bbody
+                for sm in re.finditer(r'<span\b[^>]*id="(sb-[^"]+)"', bbody, re.I):
+                    bib_map_by_id[sm.group(1)] = bbody
+    for m in re.finditer(r"<div\b([^>]*)>", h_no_img, re.I):
+        attrs = m.group(1)
+        if "sb" not in attrs:
+            continue
+        if re.search(r'\bclass="[^"]*\bsb\b[^"]*"', attrs, re.I):
+            idm = re.search(r'\bid="([^"]+)"', attrs, re.I)
+            if idm:
+                end_div = h_no_img.find("</div>", m.end())
+                if end_div != -1:
+                    bib_map_by_id.setdefault(idm.group(1), h_no_img[m.end() : end_div])
     aips_bib_ids = {
         bid
         for bid, btxt in bib_map_by_id.items()
@@ -947,17 +1015,35 @@ def evaluate_lot_audits_and_p1(lot_dir: Path | None, lot_num: int) -> dict[str, 
     if manifeste_present:
         try:
             mj = json.loads(manifeste_path.read_text(encoding="utf-8", errors="ignore"))
-            files_map = mj.get("fichiers") or mj.get("files") or {}
-            if isinstance(files_map, dict) and files_map:
-                ok = True
-                for fname, meta in files_map.items():
-                    fp = lot_dir / fname
+            manifest_entries: list[tuple[str, str]] = []
+            raw_files = mj.get("fichiers") if "fichiers" in mj else mj.get("files")
+            if isinstance(raw_files, dict):
+                for fname, meta in raw_files.items():
                     exp = meta.get("sha256") if isinstance(meta, dict) else meta
-                    if not fp.exists() or not exp:
+                    if fname and exp:
+                        manifest_entries.append((str(fname), str(exp)))
+            elif isinstance(raw_files, list):
+                for item in raw_files:
+                    if isinstance(item, dict):
+                        fn = item.get("fichier") or item.get("nom") or item.get("file")
+                        exp = item.get("sha256")
+                        if fn and exp:
+                            manifest_entries.append((str(fn), str(exp)))
+            elif isinstance(mj, dict):
+                for k, v in mj.items():
+                    if isinstance(v, dict) and "sha256" in v and v["sha256"]:
+                        manifest_entries.append((str(k), str(v["sha256"])))
+                    elif isinstance(v, str) and len(v) >= 8 and "." in str(k):
+                        manifest_entries.append((str(k), v))
+            if manifest_entries:
+                ok = True
+                for fname, exp in manifest_entries:
+                    fp = lot_dir / fname
+                    if not fp.exists() or len(exp) < 8:
                         ok = False
                         break
                     got = hashlib.sha256(fp.read_bytes()).hexdigest()
-                    if not got.startswith(str(exp)):
+                    if not got.startswith(exp):
                         ok = False
                         break
                 manifeste_sha_exact = ok
@@ -1007,8 +1093,23 @@ def evaluate_lot_audits_and_p1(lot_dir: Path | None, lot_num: int) -> dict[str, 
         try:
             j = json.loads(cf.read_text(encoding="utf-8", errors="ignore"))
             v = str(j.get("verdict") or j.get("statut") or "").strip()
+            fn = str(j.get("finale") or "").strip().lower()
+            corrs = j.get("corrections")
+            has_corrs = isinstance(corrs, list) and len(corrs) > 0
             if v:
-                contre_verdicts.append((cf.name, v.upper()))
+                v_up = v.upper()
+                if fn.startswith("non"):
+                    v_up = f"{v_up}_FINALE_NON"
+                contre_verdicts.append((cf.name, v_up))
+            elif fn:
+                if fn.startswith("non"):
+                    corr_lbl = f"({len(corrs)} corr.)" if has_corrs else ""
+                    contre_verdicts.append((cf.name, f"FINALE_NON{corr_lbl}"))
+                elif fn.startswith("oui"):
+                    if has_corrs:
+                        contre_verdicts.append((cf.name, f"CORRECTIONS_FINALE_OUI({len(corrs)})"))
+                    else:
+                        contre_verdicts.append((cf.name, "ACCEPTE_FINALE_OUI"))
         except Exception:
             pass
 
@@ -1019,9 +1120,15 @@ def evaluate_lot_audits_and_p1(lot_dir: Path | None, lot_num: int) -> dict[str, 
         and "NON" not in v
         for _fn, v in contre_verdicts
     )
-    has_phase_b_contre = (audits_dir / "contre_audit.audit.json").exists() or (
-        audits_dir / "phase_B.contre_audit.json"
-    ).exists() or any("DX" in cf.name or "audit2" in cf.name for cf in contre_files)
+    has_phase_b_contre = (
+        (audits_dir / "contre_audit.audit.json").exists()
+        or (audits_dir / "phase_B.contre_audit.json").exists()
+        or any(
+            ("DX" in cf.name or "phase_B" in cf.name or bool(re.match(r"LOT_\d{3}\.audit2\.json$", cf.name)))
+            and "L1_fidelite" not in cf.name
+            for cf in contre_files
+        )
+    )
 
     if contre_files:
         if all_accepte and has_phase_b_contre and manifeste_sha_exact:
@@ -1130,7 +1237,8 @@ def compute_coherence_ab(lot_dir: Path | None, courses_html: dict[str, str], cou
         if i in expected_names:
             # Comparer les 2 mots significatifs du titre
             toks = [w.lower() for w in re.findall(r"[A-Za-zÀ-ÿ]{4,}", expected_names[i])][:3]
-            head_zone = strip_text(dh[:4000]).lower()
+            dh_clean = re.sub(r"<(style|script|nav)\b[^>]*>.*?</\1>", " ", dh, flags=re.S | re.I)
+            head_zone = strip_text(dh_clean)[:4000].lower()
             if toks and any(tok in head_zone for tok in toks):
                 matched += 1
         else:
@@ -1167,6 +1275,7 @@ def locate_lot_files(repo_root: Path) -> tuple[dict[int, dict[str, Any]], dict[s
         best_shared_head = ""
         best_paths: dict[str, str] = {}
         is_bundled = False
+        bundle_has_custom_script = False
 
         for cont in containers_priority:
             d = repo_root / cont / lot_tag
@@ -1178,7 +1287,7 @@ def locate_lot_files(repo_root: Path) -> tuple[dict[int, dict[str, Any]], dict[s
                     found_in.append(cont)
                     container_counts[cont] += 1
                     if best_container is None:
-                        head_ctx, mods = split_antigravity_bundle(bundles[0])
+                        head_ctx, mods, has_script = split_antigravity_bundle(bundles[0])
                         if mods:
                             best_container = cont
                             best_dir = d
@@ -1187,6 +1296,7 @@ def locate_lot_files(repo_root: Path) -> tuple[dict[int, dict[str, Any]], dict[s
                             rel = str(bundles[0].relative_to(repo_root))
                             best_paths = {cid: f"{rel}#{cid}" for cid in mods}
                             is_bundled = True
+                            bundle_has_custom_script = has_script
                 continue
 
             htmls = [
@@ -1226,6 +1336,7 @@ def locate_lot_files(repo_root: Path) -> tuple[dict[int, dict[str, Any]], dict[s
             "paths": best_paths,
             "shared_head": best_shared_head,
             "is_bundled": is_bundled,
+            "bundle_has_custom_script": bundle_has_custom_script,
         }
     return per_lot, dict(container_counts)
 
@@ -1286,6 +1397,7 @@ def build_gauges(repo_root: Path) -> dict[str, Any]:
         modules_html: dict[str, str] = loc["modules_html"]
         is_bundled: bool = loc["is_bundled"]
         shared_head: str = loc["shared_head"]
+        bundle_script: bool = loc["bundle_has_custom_script"]
 
         lot_phrase_seen: dict[str, str] = {}
         courses_metrics: dict[str, dict[str, Any]] = {}
@@ -1298,6 +1410,7 @@ def build_gauges(repo_root: Path) -> dict[str, Any]:
                     whitelist_hosts=whitelist_hosts,
                     shared_ctx_head=shared_head,
                     is_bundled=is_bundled,
+                    bundle_has_custom_script=bundle_script,
                     lot_phrase_seen=lot_phrase_seen,
                 )
             else:
@@ -1509,6 +1622,8 @@ def build_gauges(repo_root: Path) -> dict[str, Any]:
         "courses_absents": len(courses_rows) - sum(l["cours_presents"] for l in lots_out),
         "l1_audited_lots": sum(1 for l in lots_out if l["palier"] in ("T1", "T2a", "T2b", "T2c")),
         "maturite_audit_dist": {str(m): sum(1 for l in lots_out if l["maturite_audit"] == m) for m in range(5)},
+        "manifeste_present_count": sum(1 for l in lots_out if l["manifeste_present"]),
+        "manifeste_sha_exact_count": sum(1 for l in lots_out if l["manifeste_sha_exact"]),
         "tier_counts": dict(sorted(tier_counts.items())),
         "wave_counts": dict(sorted(wave_counts.items())),
         "course_status_counts": dict(sorted(course_status_counts.items())),
@@ -1532,10 +1647,364 @@ def build_gauges(repo_root: Path) -> dict[str, Any]:
     }
 
 
-def write_outputs(out_dir: Path, data: dict[str, Any]) -> tuple[Path, Path]:
+def build_checkpoint_absents(data: dict[str, Any]) -> dict[str, Any]:
+    """Construit la file prioritaire déterministe des LOTs/cours sans contenu didactique (F8)."""
+    priority_order = {
+        "A1_T9_LOT1": (1, "Vague P0-A1 (T9 Lot 1 : 045 #524, 080 #735, 102 #732/#592)"),
+        "A2_T9_LOT2": (2, "Vague P0-A2 (T9 Lot 2 : 043,044,046–050 — appariement #733–#740 + #525–#539)"),
+        "B_STUBS_T8E": (3, "Vague P0-B (16 stubs <20 Ko T8e : d'abord 051–054,058–059 via #575,#584,#593–#598, puis 10 sans PR)"),
+        "B2_STUBS_RESIDUELS_T8C": (4, "Vague P0-B2 (Stubs résiduels <20 Ko sur T8c : 158, 160)"),
+        "C1_PARTIEL_CLAUDE_CODEX": (5, "Vague P0-C1 (Partiels T5 réécriture L1 complète 041,042,075–077 + T7 122)"),
+        "C2_PARTIEL_GROKBOT": (6, "Vague P0-C2 (Partiels Grokbot T8d : 13 LOTs / 70 modules)"),
+    }
+    queue: list[dict[str, Any]] = []
+    prio_counts: dict[str, int] = collections.Counter()
+    prio_course_counts: dict[str, int] = collections.Counter()
+
+    for l in data["lots"]:
+        abs_cids = [cid for cid in MODULE_IDS if l["cours"][cid]["statut"] == "ABSENT"]
+        stub_cids = [cid for cid in MODULE_IDS if l["cours"][cid]["statut"] == "EBAUCHE_STUB"]
+        if not abs_cids and not stub_cids:
+            continue
+
+        lot_num = l["lot_num"]
+        palier = l["palier"]
+        pr_info = OPEN_PRS_ABSENTS.get(lot_num) or l["pr_brouillon_nov15"]
+
+        if palier == "T9" and lot_num in (45, 80, 102):
+            prio = "A1_T9_LOT1"
+            if lot_num == 45:
+                action = "Reprendre PR #524 (LISTE_DX_CANONIQUE gelée + paquet.json + 11 Lo) → migrer/réduire en L1 (80–150 Ko, #fff, forme.css)"
+            elif lot_num == 80:
+                action = "Reprendre PR #735 (PA+DX.1 L1 verts) → geler P1 → rédiger DX.2–DX.10 en L1 (1+5 parallèles)"
+            else:
+                action = "Reprendre PR #732 (PA L1) + vérifier #592 → geler P1 → rédiger DX.1–DX.10 en L1"
+        elif palier == "T9":
+            prio = "A2_T9_LOT2"
+            trim_note = " (réduire PA de 161.6 Ko à <=150 Ko)" if lot_num == 44 else ""
+            action = f"Apparier PR {pr_info}{trim_note} : garder PA+DX.1 L1, migrer DX.2–DX.10 Lo en L1 (80–150 Ko, controle3 VERT, verif_aips OK)"
+        elif palier == "T8e":
+            prio = "B_STUBS_T8E"
+            if pr_info:
+                action = f"Sauver/convertir {pr_info} vers Prompt L1 (80–150 Ko, #fff, forme.css) pour remplacer les {len(stub_cids)} stubs <20 Ko"
+            else:
+                action = f"Gel P1 puis rédaction L1 neuve (80–150 Ko, AIPS vérifiées, #fff) pour remplacer les {len(stub_cids)} stubs <20 Ko (sans PR ouverte)"
+        elif palier == "T5":
+            prio = "C1_PARTIEL_CLAUDE_CODEX"
+            action = (
+                f"Réécriture/éclatement L1 complet obligatoire (fichiers groupés pré-L1 dupliqués, 0 LISTE_DX_CANONIQUE) "
+                f"+ rédaction des {len(abs_cids)} ABSENT(s) ({', '.join(abs_cids)})"
+            )
+        elif palier == "T7":
+            prio = "C1_PARTIEL_CLAUDE_CODEX"
+            action = f"Geler P1, migrer les 9 HTML pré-L1 vers forme.css/:target et rédiger les {len(abs_cids)} ABSENT(s) ({', '.join(abs_cids)})"
+        elif palier == "T8d":
+            prio = "C2_PARTIEL_GROKBOT"
+            action = f"Geler P1 sur Phase A puis rédiger les {len(abs_cids)} module(s) ABSENT(s) ({', '.join(abs_cids)}) au gabarit L1 et aligner les présents"
+        else:
+            prio = "B2_STUBS_RESIDUELS_T8C"
+            action = f"Remplacer les {len(stub_cids)} ébauche(s) résiduelle(s) <20 Ko ({', '.join(stub_cids)}) par une rédaction L1 complète (80–150 Ko)"
+
+        prio_counts[prio] += 1
+        prio_course_counts[prio] += len(abs_cids) + len(stub_cids)
+        checkpoints = {
+            cid: {"statut": l["cours"][cid]["statut"], "checkpoint": "TODO"}
+            for cid in MODULE_IDS
+            if cid in abs_cids or cid in stub_cids
+        }
+        queue.append(
+            {
+                "lot": l["lot"],
+                "lot_num": lot_num,
+                "ssp_code": l["code"],
+                "groupe": l["groupe"],
+                "titre": l["titre"],
+                "palier": palier,
+                "vague_reprise": l["vague_reprise"],
+                "conteneur_principal": l["conteneur_principal"],
+                "priorite_file": prio,
+                "cours_presents": l["cours_presents"],
+                "cours_absents_count": len(abs_cids),
+                "cours_stubs_count": len(stub_cids),
+                "cours_sans_didactique_count": len(abs_cids) + len(stub_cids),
+                "cours_absents": abs_cids,
+                "cours_stubs": stub_cids,
+                "statut_checkpoint": "A_PRODUIRE",
+                "pr_existante": pr_info,
+                "prochaine_action_l1": action,
+                "projection_vague_absents": priority_order[prio][1],
+                "cours_checkpoints": checkpoints,
+            }
+        )
+
+    queue.sort(
+        key=lambda item: (
+            priority_order[item["priorite_file"]][0],
+            0 if item["pr_existante"] else 1,
+            item["lot_num"],
+        )
+    )
+    for idx, item in enumerate(queue, start=1):
+        item["ordre_file"] = idx
+
+    first = queue[0] if queue else None
+    first_cid = (first["cours_absents"] + first["cours_stubs"])[0] if first else None
+
+    main_lots_count = sum(
+        prio_counts[k]
+        for k in ("A1_T9_LOT1", "A2_T9_LOT2", "B_STUBS_T8E", "C1_PARTIEL_CLAUDE_CODEX", "C2_PARTIEL_GROKBOT")
+    )
+    lots_avec_abs = sum(1 for item in queue if item["cours_absents_count"] > 0)
+    total_abs = sum(item["cours_absents_count"] for item in queue)
+    total_stubs = sum(item["cours_stubs_count"] for item in queue)
+
+    return {
+        "meta": {
+            "schema_version": "1.0.0",
+            "git_head": data["meta"]["git_head"],
+            "git_head_date": data["meta"]["git_head_date"],
+            "generator": data["meta"]["generator"],
+            "ordre_source": "Réorientation prioritaire utilisateur 2026-11-17T00:40:01Z + explorer_absents_1 + Prompt L1",
+        },
+        "summary": {
+            "lots_priorite_principale_a1_a2_b_c": main_lots_count,
+            "lots_total_avec_absents_ou_stubs": len(queue),
+            "lots_avec_absents": lots_avec_abs,
+            "lots_t9_complets": prio_counts["A1_T9_LOT1"] + prio_counts["A2_T9_LOT2"],
+            "lots_partiels": prio_counts["C1_PARTIEL_CLAUDE_CODEX"] + prio_counts["C2_PARTIEL_GROKBOT"],
+            "lots_stubs_t8e": prio_counts["B_STUBS_T8E"],
+            "lots_stubs_residuels_t8c": prio_counts["B2_STUBS_RESIDUELS_T8C"],
+            "total_cours_absents": total_abs,
+            "total_cours_stubs": total_stubs,
+            "total_cours_sans_contenu_didactique": total_abs + total_stubs,
+            "priority_lot_counts": {k: prio_counts.get(k, 0) for k in priority_order},
+            "priority_course_counts": {k: prio_course_counts.get(k, 0) for k in priority_order},
+        },
+        "resume_cursor": {
+            "next_ordre_file": first["ordre_file"] if first else None,
+            "next_priority": first["priorite_file"] if first else "TERMINE",
+            "next_lot": first["lot"] if first else None,
+            "next_ssp_code": first["ssp_code"] if first else None,
+            "next_course": first_cid,
+            "remaining_lots": len(queue),
+            "remaining_courses": total_abs + total_stubs,
+            "resume_rule": (
+                "En cas d'atteinte de la limite de quota, reprendre exactement à (next_lot, next_course) "
+                "dans l'ordre A1 -> A2 -> B -> B2 -> C1 -> C2. Chaque module rédigé passe forme.py, "
+                "controle3.py --script-ok, verif_aips.py et generer_jauges.py --check avant bascule du checkpoint "
+                "à FAIT. Retour au schéma normal W0–W5 dès que remaining_courses == 0."
+            ),
+        },
+        "projection_reprise": [
+            {
+                "phase": "P0-A1",
+                "priorite": "A1_T9_LOT1",
+                "lots": prio_counts["A1_T9_LOT1"],
+                "cours": prio_course_counts["A1_T9_LOT1"],
+                "cadence": "3 worktrees parallèles disjoints (045 #524, 080 #735, 102 #732/#592)",
+                "retour_schema_normal": "Non — enchaîner sur P0-A2",
+            },
+            {
+                "phase": "P0-A2",
+                "priorite": "A2_T9_LOT2",
+                "lots": prio_counts["A2_T9_LOT2"],
+                "cours": prio_course_counts["A2_T9_LOT2"],
+                "cadence": "2 vagues de 3–4 LOTs (043,044,046–050 : appariement #733–#740 + #525–#539, trim 044 PA -11.6 Ko)",
+                "retour_schema_normal": "Non — enchaîner sur P0-B",
+            },
+            {
+                "phase": "P0-B",
+                "priorite": "B_STUBS_T8E + B2_STUBS_RESIDUELS_T8C",
+                "lots": prio_counts["B_STUBS_T8E"] + prio_counts["B2_STUBS_RESIDUELS_T8C"],
+                "cours": prio_course_counts["B_STUBS_T8E"] + prio_course_counts["B2_STUBS_RESIDUELS_T8C"],
+                "cadence": "3 vagues : d'abord 6 LOTs avec PRs (#575,#584,#593–#598), puis 10 stubs sans PR + 2 résiduels (158, 160)",
+                "retour_schema_normal": "Non — enchaîner sur P0-C",
+            },
+            {
+                "phase": "P0-C1",
+                "priorite": "C1_PARTIEL_CLAUDE_CODEX",
+                "lots": prio_counts["C1_PARTIEL_CLAUDE_CODEX"],
+                "cours": prio_course_counts["C1_PARTIEL_CLAUDE_CODEX"],
+                "cadence": "1 vague de 6 LOTs (041,042,075–077 réécriture L1 complète + 122)",
+                "retour_schema_normal": "Non — enchaîner sur P0-C2",
+            },
+            {
+                "phase": "P0-C2",
+                "priorite": "C2_PARTIEL_GROKBOT",
+                "lots": prio_counts["C2_PARTIEL_GROKBOT"],
+                "cours": prio_course_counts["C2_PARTIEL_GROKBOT"],
+                "cadence": "2 vagues de 6–7 LOTs (13 LOTs T8d / 70 modules ABSENTs)",
+                "retour_schema_normal": "OUI — 248/248 LOTs et 2 728/2 728 cours dotés de contenu didactique → reprise schéma normal W0 → W5",
+            },
+        ],
+        "queue": queue,
+    }
+
+
+def _short_title(titre: str, max_len: int = 52) -> str:
+    fr = titre.split("|")[0].strip()
+    if len(fr) <= max_len:
+        return fr
+    return fr[: max_len - 1].rstrip() + "…"
+
+
+def _format_lot_md_row(l: dict[str, Any]) -> str:
+    cm = l["completion_mecanique"]
+    ab = l["coherence_AB"]
+    ci = l["couverture_images"]
+    ax = l["axes_moyens"]
+    return (
+        f"| `{l['lot']}` | `{l['code']}` | {l['groupe']} | `{l['palier']}` | `{l['vague_reprise']}` | "
+        f"`{l['conteneur_principal']}` | {l['cours_presents']}/11 | {cm['n_ok']}/11 | {l['p1_statut']} | "
+        f"{ab['dx_matched_ab']}/10 ({ab['inter_file_dups']}) | {ci['cours_avec_image']}/11 | {l['maturite_audit']} | "
+        f"{ax['G1']} | {ax['G2']} | {ax['G3']} | {ax['G4']} | {ax['G5']} | {ax['G6']} | {ax['G7']} | {ax['G8']} | "
+        f"**{l['score_composite']}** | {_short_title(l['titre'])} |"
+    )
+
+
+def render_jauges_markdown(data: dict[str, Any]) -> str:
+    s = data["summary"]
+    head_short = (data["meta"]["git_head"] or "")[:7]
+    pct_pres = round(100.0 * s["courses_presents"] / s["total_courses"], 1)
+    pct_aud = round(100.0 * s["l1_audited_lots"] / s["total_lots"], 1)
+    mat_str = " · ".join(f"`{m}:{s['maturite_audit_dist'][str(m)]}`" for m in range(5))
+    cs_order = ["AUDITE_CONFORME", "PRET_AUDIT", "L1_MECANIQUE_PARTIEL", "HERITAGE_PRE_L1", "EBAUCHE_STUB", "ABSENT"]
+    cs_str = " · ".join(f"`{k}:{s['course_status_counts'].get(k, 0)}`" for k in cs_order)
+
+    tier_desc = {
+        "T1": "Antigravity L1 Audité (bundle)",
+        "T2a": "Claude L1 Audité (`ACCEPTE`)",
+        "T2b": "Claude L1 + `audit2` (`001–016`)",
+        "T2c": "Claude L1 + `PLANCHE` (`023–032`)",
+        "T3": "Claude `fenetre` (sans `forme.css`/`cite`)",
+        "T4": "Claude Héritage 11 HTML",
+        "T5": "Claude Partiel (<11 HTML)",
+        "T6": "Codex Pré-L1 Audité V0",
+        "T7": "Codex Pré-L1 Non Audité / Partiel",
+        "T8a": "Grokbot 11 HTML `80–150 Ko` + `fenetre`",
+        "T8b": "Grokbot 11 HTML `80–150 Ko` (sans `fenetre`)",
+        "T8c": "Grokbot 11 HTML Tailles mixtes",
+        "T8d": "Grokbot Partiel (<11 HTML)",
+        "T8e": "Grokbot Ébauches / Stubs (`<20 Ko`)",
+        "T9": "`MISSING` sur `main` (0 HTML)",
+    }
+    wave_desc = {
+        "DONE": "Clôturé (`017–022` : `MANIFESTE.json` seul)",
+        "W0": "Clôture audits `001–016`/`023–032`, harmonisation `033`, PRs `#732–#740`",
+        "W1": "Renfort rapide `Claude` `T3/T4/T5` (`034–042`, `109`, `111`)",
+        "W2": "Orphelin `T9` (`045`) + `16` stubs `T8e` (`<20 Ko`)",
+        "W3": "Rattrapage `Claude` héritage & partiels (`072–078`, `104–108`, `110`)",
+        "W4": "Reprise ouverte `ChatGPT_Codex` (`T6` + `T7`)",
+        "W5": "Reprise de masse `Grokbot` (`T8a`–`T8d`)",
+    }
+
+    lines = [
+        "# Jauges fines de production — 248 LOTs & 2 728 cours",
+        "",
+        f"**Source canonique** : `Antigravity_vialFMH/jauges_248_lots.json`, `Antigravity_vialFMH/jauges_2728_cours.csv` et `Antigravity_vialFMH/CHECKPOINT_ABSENTS.json` (générés par `python3 Antigravity_vialFMH/generer_jauges.py`, réf. `{head_short}`).",
+        "",
+        "## 1. Synthèse globale mesurée sur disque",
+        "",
+        "| Indicateur | Valeur mesurée |",
+        "|---|---:|",
+        f"| LOTs PROFILES 2023 | **{s['total_lots']}** |",
+        f"| Cours totaux (`248 × 11`) | **{s['total_courses']}** |",
+        f"| Cours physiquement présents sur `main` | **{s['courses_presents']}** ({pct_pres} %) |",
+        f"| Cours absents sur `main` (priorité urgente) | **{s['courses_absents']}** |",
+        f"| LOTs L1 audités (`T1 + T2a + T2b + T2c`) | **{s['l1_audited_lots']} / {s['total_lots']}** ({pct_aud} %) |",
+        f"| Score composite moyen global (`G1–G8`) | **{s['score_moyen_global']} / 100** |",
+        f"| Maturité d'audit (`0 / 1 / 2 / 3 / 4`) | {mat_str} |",
+        f"| `MANIFESTE.json` présents / SHA-256 exacts | `{s['manifeste_present_count']} / {s['total_lots']}` présents · `{s['manifeste_sha_exact_count']} / {s['total_lots']}` SHA-256 exacts |",
+        f"| Statuts cours (`2 728`) | {cs_str} |",
+        "",
+        "## 2. Spécification des 8 axes par cours (`G1`–`G8`) et des 5 agrégats LOT",
+        "",
+        "| Axe | Poids | Critères mesurés (0-token / Audit) | Seuil PASS |",
+        "|---|---:|---|---|",
+        "| **G1. Structure & Gabarit L1** | 18 % | `14/14` points (`id=\"*p1..p14\"`), `FIN_FICHIER` (ou `FIN_COURS` en bundle), balises équilibrées, 0 arbre CIM, Pt 1 Définition seule, 0 `title=`, tableaux enveloppés, 0 ancre cassée, 0 fenêtre imbriquée, 0 gabarit `({..})`, `>=1` `.fenetre`, 0 `<script>` hors `forme.js` (y compris hors `<article>` en bundle). | 14 pts + 0 défaut L1 bloquant |",
+        "| **G2. Volume hors images** | 14 % | `bytes_no_img` (retrait `<img>`, `<svg>`, `<picture>`, `data:image` conforme à `controle3.py:192-195`). | `80 000 <= bytes_no_img <= 150 000` (cible `115–145 Ko`) |",
+        "| **G3. Langue & Non-Redondance** | 12 % | Phrases verbales (`VERBES`/`VERBE_RE`, apostrophe `’` normalisée), longueur `<=32` mots, 0 doublon intra-fichier, **0 phrase partagée inter-fichiers** dans le LOT, `connecteur%`, paragraphes `>40` mots sans connecteur. | 0 doublon intra/inter, `<=3` nominales/longues |",
+        "| **G4. Sources & Véracité CH/EU** | 14 % | `<sup class=\"r\">`, entrées biblio `sb-*`/`*-ref-*`/`src-*`/`div.sb` datées (`consulté`/année), ratio URLs conformes `qa/domaines.yml` (CH/EU), 0 formule lacune (`À vérifier`), chiffres non cités. | `sup.r>=10`, `bib>=3`, 0 lacune, `<=5` chiffres non cités |",
+        "| **G5. Pharmacologie & AIPS** | 14 % | Doses (`mg`, `µg`, `UI`…) liées à AIPS (`sb-aips-*` / `files.refdata.ch` / `Swissmedic n°`) ou `hors AIPS`, 0 `compendium.ch`, fiches `.mb`, modal `Urgence — conduite chronologique`. | 0 `compendium.ch`, 0 dose non sourcée |",
+        "| **G6. Complétude pédagogique (`µ3` + 11.11)** | 10 % | Pt 3 prérequis anatomo-fonctionnel (`LOT_021+` & `020 DX.1`), Pt 6 `>=1` fenêtre par région, Pt 11 `11.A–11.D`, Pt 13 intact sans `.fenetre`, Pt 14 `>=6` Q&R. | `14` pts + `Pt14>=6` + `Pt3` anatomo (`021+`) |",
+        "| **G7. Images pédagogiques (`µ6 v2`)** | 8 % | Présence `<img>`/`<svg>`/`<figure>`, licence libre (`CC0`/`CC BY`/`CC BY-SA`/`PD`), 0 `NC/ND`, lecture guidée (`INTERP`). | `>=1` image licence libre, 0 `NC/ND` |",
+        "| **G8. Design & Front-End Uniforme** | 10 % | Liens `../_polices/forme.css` & `forme.js`, `#brain-barre14`, `#fm-bandeau`, fond `#fff` pur, **0 hex crème/beige/ivoire** (`#f9f5ee`…), **0 bleu `150°–305°`**. | `forme.css` + `forme.js` + 0 crème + 0 bleu |",
+        "",
+        "**Agrégats LOT (`LOT_001`–`LOT_248`)** : `completion_mecanique` (`N/11` cours validant `G1+G2+G5+G8`), `P1_gel` (`LISTE_DX_CANONIQUE.md` + `LISTE_DX.audit.json == GEL`), `coherence_AB` (`DX.1..10` alignés sur Phase A + 0 doublon inter-fichiers), `couverture_images` (`N/11` cours illustrés), `maturite_audit` (`0` non audité · `1` Audit 1 / V0 · `2` Audit 2 `CORRECTIONS` / `finale:non` · `3` Contre-audit 2 Phase B `ACCEPTE`/`APPROVE` · `4` `ACCEPTE` + `MANIFESTE.json` SHA-256 exact).",
+        "",
+        "## 3. Répartition par groupe PROFILES (`G / S / F / O`)",
+        "",
+        "| Groupe | LOTs | Cours présents / Total | L1 audités (`T1–T2`) | Maturité ≥ 3 | Cours `80–150 Ko` | Cours `forme.css/js` | Cours illustrés | Score moyen |",
+        "|---|---:|---:|---:|---:|---:|---:|---:|---:|",
+    ]
+    for g in ("G", "S", "F", "O"):
+        x = s["group_stats"][g]
+        lines.append(
+            f"| **{g}** | {x['lots']} | {x['cours_presents']} / {x['cours_total']} | {x['l1_audites']} | "
+            f"{x['maturite_3_plus']} | {x['l1_band_cours']} | {x['forme_cours']} | {x['images_cours']} | **{x['score_moyen']}** |"
+        )
+
+    lines.extend([
+        "",
+        "## 4. Répartition par palier (`T1`–`T9`) et par vague (`DONE`, `W0`–`W5`)",
+        "",
+        "| Palier | Description | LOTs | Cours (×11) |",
+        "|---|---|---:|---:|",
+    ])
+    for t in ("T1", "T2a", "T2b", "T2c", "T3", "T4", "T5", "T6", "T7", "T8a", "T8b", "T8c", "T8d", "T8e", "T9"):
+        c = s["tier_counts"].get(t, 0)
+        if c:
+            lines.append(f"| **`{t}`** | {tier_desc[t]} | {c} | {c * 11} |")
+
+    lines.extend([
+        "",
+        "| Vague | Périmètre & Stratégie | LOTs | Cours (×11) |",
+        "|---|---|---:|---:|",
+    ])
+    for w in ("DONE", "W0", "W1", "W2", "W3", "W4", "W5"):
+        c = s["wave_counts"].get(w, 0)
+        if c:
+            lines.append(f"| **`{w}`** | {wave_desc[w]} | {c} | {c * 11} |")
+
+    lines.extend([
+        "",
+        "## 5. Tableau complet des 248 LOTs (mesures directes sur disque)",
+        "",
+        "| LOT | Code | Grp | Palier | Vague | Conteneur | Prés. | Méca `N/11` | `P1` | Cohér. `A↔B` (dup) | Img `N/11` | Mat. (0–4) | `G1` | `G2` | `G3` | `G4` | `G5` | `G6` | `G7` | `G8` | Score | Intitulé SSP |",
+        "|---|---|---:|---|---|---|---|---:|:---:|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---|",
+    ])
+    for l in data["lots"]:
+        lines.append(_format_lot_md_row(l))
+    lines.append("")
+    return "\n".join(lines)
+
+
+def sync_dashboard_json(out_dir: Path, data: dict[str, Any]) -> None:
+    html_path = out_dir / "DASHBOARD_PRODUCTION_ANTIGRAVITY.html"
+    if not html_path.exists():
+        return
+    ht = html_path.read_text(encoding="utf-8")
+    courses_rows = data.pop("_courses_rows", None)
+    payload = json.dumps(data, ensure_ascii=False, separators=(",", ":"))
+    if courses_rows is not None:
+        data["_courses_rows"] = courses_rows
+    new_ht, n = re.subn(
+        r'(<script id="jauges-json" type="application/json">)(.*?)(</script>)',
+        lambda m: m.group(1) + payload + m.group(3),
+        ht,
+        count=1,
+        flags=re.S,
+    )
+    if n == 1:
+        html_path.write_text(new_ht, encoding="utf-8")
+
+
+def write_outputs(out_dir: Path, data: dict[str, Any]) -> tuple[Path, Path, Path, Path]:
     out_dir.mkdir(parents=True, exist_ok=True)
     json_path = out_dir / "jauges_248_lots.json"
     csv_path = out_dir / "jauges_2728_cours.csv"
+    cp_path = out_dir / "CHECKPOINT_ABSENTS.json"
+    md_path = out_dir / "JAUGES_FINES_PRODUCTION.md"
 
     courses_rows = data.pop("_courses_rows")
     json_path.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
@@ -1547,13 +2016,18 @@ def write_outputs(out_dir: Path, data: dict[str, Any]) -> tuple[Path, Path]:
         w.writerows(courses_rows)
 
     data["_courses_rows"] = courses_rows
-    return json_path, csv_path
+    cp_data = build_checkpoint_absents(data)
+    cp_path.write_text(json.dumps(cp_data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    md_path.write_text(render_jauges_markdown(data), encoding="utf-8")
+    sync_dashboard_json(out_dir, data)
+    return json_path, csv_path, cp_path, md_path
 
 
 def run_check(out_dir: Path, fresh: dict[str, Any]) -> int:
     errors: list[str] = []
     json_path = out_dir / "jauges_248_lots.json"
     csv_path = out_dir / "jauges_2728_cours.csv"
+    cp_path = out_dir / "CHECKPOINT_ABSENTS.json"
     md_path = out_dir / "JAUGES_FINES_PRODUCTION.md"
     html_path = out_dir / "DASHBOARD_PRODUCTION_ANTIGRAVITY.html"
 
@@ -1561,42 +2035,96 @@ def run_check(out_dir: Path, fresh: dict[str, Any]) -> int:
         errors.append(f"Manquant: {json_path}")
     else:
         existing = json.loads(json_path.read_text(encoding="utf-8"))
-        if len(existing.get("lots", [])) != 248:
-            errors.append(f"JSON lots={len(existing.get('lots', []))} != 248")
+        for k in ("schema_version", "axis_weights", "generator"):
+            if existing.get("meta", {}).get(k) != fresh["meta"].get(k):
+                errors.append(f"JSON meta.{k} diffère du calcul frais")
         if existing.get("summary") != fresh["summary"]:
             errors.append("JSON summary diffère du calcul frais (relancer generer_jauges.py)")
+        if existing.get("lots") != fresh["lots"]:
+            errors.append("JSON lots diffère du calcul frais (relancer generer_jauges.py)")
 
     if not csv_path.exists():
         errors.append(f"Manquant: {csv_path}")
     else:
         with csv_path.open("r", encoding="utf-8", newline="") as fh:
-            rows = list(csv.DictReader(fh))
-        if len(rows) != 2728:
-            errors.append(f"CSV rows={len(rows)} != 2728")
+            reader = csv.DictReader(fh)
+            got_fields = reader.fieldnames
+            rows = list(reader)
+        exp_rows = fresh["_courses_rows"]
+        exp_fields = list(exp_rows[0].keys())
+        if got_fields != exp_fields:
+            errors.append(f"CSV colonnes diffèrent ({got_fields} != {exp_fields})")
+        elif len(rows) != len(exp_rows):
+            errors.append(f"CSV rows={len(rows)} != {len(exp_rows)}")
+        else:
+            for idx, (got_r, exp_r) in enumerate(zip(rows, exp_rows)):
+                norm_exp = {k: str(v) for k, v in exp_r.items()}
+                if got_r != norm_exp:
+                    errors.append(
+                        f"CSV ligne {idx + 1} ({exp_r['lot']} {exp_r['module']}) diffère du calcul frais"
+                    )
+                    break
 
-    if md_path.exists():
+    if not cp_path.exists():
+        errors.append(f"Manquant: {cp_path}")
+    else:
+        existing_cp = json.loads(cp_path.read_text(encoding="utf-8"))
+        fresh_cp = build_checkpoint_absents(fresh)
+        for k in ("summary", "resume_cursor", "projection_reprise", "queue"):
+            if existing_cp.get(k) != fresh_cp[k]:
+                errors.append(f"CHECKPOINT_ABSENTS.json {k} diffère du calcul frais")
+
+    if not md_path.exists():
+        errors.append(f"Manquant: {md_path}")
+    else:
         md_txt = md_path.read_text(encoding="utf-8")
-        for l in fresh["lots"]:
-            needle = f"| `{l['lot']}` | `{l['code']}` |"
+        s = fresh["summary"]
+        for needle in (
+            f"**{s['score_moyen_global']} / 100**",
+            f"**{s['courses_presents']}**",
+            f"**{s['courses_absents']}**",
+            f"**{s['l1_audited_lots']} / {s['total_lots']}**",
+            f"`{s['manifeste_present_count']} / {s['total_lots']}`",
+            f"`{s['manifeste_sha_exact_count']} / {s['total_lots']}`",
+        ):
             if needle not in md_txt:
-                errors.append(f"MD manque la ligne {needle}")
+                errors.append(f"MD synthèse ne contient pas {needle}")
                 break
-        if str(fresh["summary"]["score_moyen_global"]) not in md_txt:
-            errors.append(f"MD ne contient pas score_moyen_global={fresh['summary']['score_moyen_global']}")
+        for g in ("G", "S", "F", "O"):
+            x = s["group_stats"][g]
+            g_needle = f"| **{g}** | {x['lots']} | {x['cours_presents']} / {x['cours_total']} | {x['l1_audites']} | {x['maturite_3_plus']} | {x['l1_band_cours']} | {x['forme_cours']} | {x['images_cours']} | **{x['score_moyen']}** |"
+            if g_needle not in md_txt:
+                errors.append(f"MD table groupe {g} diffère du calcul frais")
+                break
+        for l in fresh["lots"]:
+            expected_row = _format_lot_md_row(l)
+            if expected_row not in md_txt:
+                errors.append(f"MD ligne LOT {l['lot']} diffère du calcul frais")
+                break
 
-    if html_path.exists():
+    if not html_path.exists():
+        errors.append(f"Manquant: {html_path}")
+    else:
         ht = html_path.read_text(encoding="utf-8")
-        if f'"total_lots": {fresh["summary"]["total_lots"]}' not in ht and f'"total_lots":{fresh["summary"]["total_lots"]}' not in ht:
-            errors.append("HTML DASHBOARD ne contient pas les données JSON synchronisées (total_lots)")
-        if f'"score_moyen_global": {fresh["summary"]["score_moyen_global"]}' not in ht and f'"score_moyen_global":{fresh["summary"]["score_moyen_global"]}' not in ht:
-            errors.append("HTML DASHBOARD score_moyen_global désynchronisé")
+        m = re.search(r'<script id="jauges-json" type="application/json">(.*?)</script>', ht, re.S)
+        if not m:
+            errors.append("HTML DASHBOARD sans bloc <script id=\"jauges-json\">")
+        else:
+            try:
+                hdata = json.loads(m.group(1))
+                if hdata.get("summary") != fresh["summary"]:
+                    errors.append("HTML DASHBOARD embedded summary diffère du calcul frais")
+                if hdata.get("lots") != fresh["lots"]:
+                    errors.append("HTML DASHBOARD embedded lots diffère du calcul frais")
+            except Exception as exc:
+                errors.append(f"HTML DASHBOARD JSON invalide: {exc}")
 
     if errors:
         for e in errors:
             print(f"[ERREUR] {e}", file=sys.stderr)
         return 1
     print(
-        f"[OK] Parité vérifiée : 248 LOTs, 2 728 cours, score_moyen_global={fresh['summary']['score_moyen_global']}, "
+        f"[OK] Parité stricte vérifiée : 248 LOTs, 2 728 cours, score_moyen_global={fresh['summary']['score_moyen_global']}, "
         f"paliers={fresh['summary']['tier_counts']}"
     )
     return 0
@@ -1605,8 +2133,8 @@ def run_check(out_dir: Path, fresh: dict[str, Any]) -> int:
 def main() -> int:
     ap = argparse.ArgumentParser(description="Générateur déterministe des jauges fines (248 LOTs / 2 728 cours)")
     ap.add_argument("--repo", default=str(Path(__file__).resolve().parent.parent), help="Racine du dépôt")
-    ap.add_argument("--check", action="store_true", help="Vérifie la parité JSON/CSV/MD/HTML sans modifier")
-    ap.add_argument("--stdout-summary", action="store_true", help="Affiche la synthèse JSON sur stdout")
+    ap.add_argument("--check", action="store_true", help="Vérifie la parité stricte JSON/CSV/CHECKPOINT/MD/HTML sans rien modifier")
+    ap.add_argument("--stdout-summary", action="store_true", help="Affiche la synthèse JSON sur stdout en lecture seule (aucune écriture)")
     args = ap.parse_args()
 
     repo_root = Path(args.repo).resolve()
@@ -1616,20 +2144,22 @@ def main() -> int:
     if args.check:
         return run_check(out_dir, data)
 
-    json_path, csv_path = write_outputs(out_dir, data)
     if args.stdout_summary:
         print(json.dumps(data["summary"], ensure_ascii=False, indent=2))
-    else:
-        s = data["summary"]
-        print(
-            f"Généré : {json_path.name} ({s['total_lots']} LOTs) & {csv_path.name} ({s['total_courses']} cours)\n"
-            f"Présents : {s['courses_presents']}/{s['total_courses']} cours | Absents : {s['courses_absents']} | "
-            f"Score moyen global : {s['score_moyen_global']}/100\n"
-            f"Paliers : {s['tier_counts']}\n"
-            f"Vagues  : {s['wave_counts']}\n"
-            f"Maturité audit (0-4) : {s['maturite_audit_dist']}\n"
-            f"Statuts cours : {s['course_status_counts']}"
-        )
+        return 0
+
+    json_path, csv_path, cp_path, md_path = write_outputs(out_dir, data)
+    s = data["summary"]
+    print(
+        f"Généré : {json_path.name} ({s['total_lots']} LOTs), {csv_path.name} ({s['total_courses']} cours), "
+        f"{cp_path.name}, {md_path.name}\n"
+        f"Présents : {s['courses_presents']}/{s['total_courses']} cours | Absents : {s['courses_absents']} | "
+        f"Score moyen global : {s['score_moyen_global']}/100\n"
+        f"Paliers : {s['tier_counts']}\n"
+        f"Vagues  : {s['wave_counts']}\n"
+        f"Maturité audit (0-4) : {s['maturite_audit_dist']} | MANIFESTE SHA exact : {s['manifeste_sha_exact_count']}/{s['manifeste_present_count']}\n"
+        f"Statuts cours : {s['course_status_counts']}"
+    )
     return 0
 
 
