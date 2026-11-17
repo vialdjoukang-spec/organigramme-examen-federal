@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Veille · Internat — examen fédéral, santé publique, sociétés savantes</title>
-  <meta name="description" content="Veille gratuite, hébergée sur GitHub : pages officielles de l'examen fédéral, actualités de santé publique suisse des 7 derniers jours, et extraits par société savante.">
+  <meta name="description" content="Veille gratuite, hébergée sur GitHub : sous chaque lien, un résumé extractif de deux ou trois phrases repris de la page, pour décider d'un coup d'œil si tu cliques.">
   <style>
 :root { --fond:#f5f6f8; --papier:#fff; --encre:#101828; --encre-2:#344054; --encre-3:#5d6b82;
   --trait:#d9dee7; --calme:#1d4e89; --calme-fond:#eef4fb; --bon:#0e7a3b; --bon-fond:#ecfaf1;
@@ -33,11 +33,19 @@ h1 { font-size:clamp(1.7rem,3vw,2.3rem); letter-spacing:-.03em; margin:1rem 0 .4
 .panneau { display:none; padding:1.2rem 0 2.5rem; }
 .panneau.actif { display:block; }
 .source { background:var(--papier); border:1px solid var(--trait); border-radius:14px;
-  padding:1rem; margin:0 0 1rem; box-shadow:0 1px 2px rgba(16,24,40,.05); }
+  padding:1rem 1.1rem 1.05rem; margin:0 0 1rem; box-shadow:0 1px 2px rgba(16,24,40,.05); }
 .source header { display:flex; justify-content:space-between; gap:.6rem; align-items:start; }
 .source h3 { margin:0; font-size:1.05rem; }
-.source .url { font-size:.85rem; word-break:break-all; margin:.3rem 0; }
-.source .url a, .items a, .defilable a { color:var(--calme); }
+.resume { font-size:1.02rem; color:var(--encre); margin:.7rem 0 .35rem; line-height:1.45; }
+.vide-resume { color:var(--encre-3); font-style:italic; font-size:.95rem; }
+.lien-date { font-size:.85rem; color:var(--encre-3); margin:.15rem 0 .35rem; word-break:break-all; }
+.lien-date a, .items a, .defilable a { color:var(--calme); }
+.lien-date time, .src { color:var(--encre-3); }
+.contenu-cle, .changement { font-size:.95rem; color:var(--encre-2); margin:.35rem 0; line-height:1.45; }
+.contenu-cle .libelle, .changement .libelle { font-weight:650; color:var(--encre); }
+details.technique { font-size:.85rem; color:var(--encre-3); margin:.15rem 0 .4rem; }
+details.technique summary { cursor:pointer; color:var(--encre-2); }
+details.technique p { margin:.35rem 0 0; word-break:break-all; }
 .badge { font-size:.75rem; font-weight:650; text-transform:uppercase; letter-spacing:.04em;
   padding:.15rem .5rem; border-radius:999px; white-space:nowrap; }
 .badge-ok { background:var(--bon-fond); color:var(--bon); }
@@ -45,18 +53,21 @@ h1 { font-size:clamp(1.7rem,3vw,2.3rem); letter-spacing:-.03em; margin:1rem 0 .4
 .badge-off { background:var(--urgence-fond); color:var(--urgence); }
 .motif { color:var(--urgence); }
 .meta, .vide, .extrait { color:var(--encre-3); }
-.extrait { margin:.25rem 0 0; font-size:.95rem; color:var(--encre-2); }
-.items, .defilable { margin:.4rem 0 0; padding-left:1.15rem; }
-.items li, .defilable li { margin:.45rem 0; }
+.items, .defilable { margin:.5rem 0 0; padding:0; list-style:none; }
+.items li, .defilable li { margin:0; padding:.75rem 0; border-top:1px solid var(--trait); }
+.items .resume, .defilable .resume { margin:.1rem 0 .3rem; }
 .defilable-wrap { background:var(--papier); border:1px solid var(--trait); border-radius:14px; padding:1rem; }
-.defilable { max-height:28rem; overflow:auto; padding-right:.5rem; }
+.defilable { max-height:36rem; overflow:auto; padding-right:.5rem; }
 .defilable.replie { max-height:0; overflow:hidden; margin:0; padding:0; }
-.defilable time, .src { display:inline-block; margin-right:.4rem; color:var(--encre-3); font-size:.9rem; }
 .btn-defile { font:inherit; font-weight:650; background:var(--calme); color:#fff; border:0;
   border-radius:10px; padding:.5rem .9rem; cursor:pointer; margin:0 0 .8rem; }
 h2 { font-size:1.15rem; margin:1.4rem 0 .6rem; }
 footer.pied { padding:0 1.25rem 2.5rem; color:var(--encre-3); font-size:.9rem; }
 footer.pied a { color:var(--calme); }
+.veille-statut { font-size:.95rem; margin:.55rem 0 0; }
+.veille-statut.alerte { color:var(--attention); background:var(--attention-fond);
+  border-radius:8px; padding:.45rem .7rem; display:inline-block; }
+.veille-statut.ok { color:var(--encre-3); }
 @media (prefers-reduced-motion: reduce) { * { animation:none !important; transition:none !important; } }
 </style>
 </head>
@@ -70,8 +81,9 @@ footer.pied a { color:var(--calme); }
       <a href="https://vialdjoukang-spec.github.io/organigramme-examen-federal/jeu-revision/catalogue.html">Le catalogue</a>
     </p>
     <h1>La veille du médecin interne</h1>
-    <p class="accroche">Surveille les pages officielles de l'examen fédéral, parcours les actualités de santé publique suisse des sept derniers jours, et lis un extrait par société savante. Chaque ligne reprend un titre, une date, un lien et une ou deux phrases de la source. Rien n'est inventé, aucun abonnement n'est demandé.</p>
-    <p class="meta-collecte">Collecte du 17.11.2026 14:42 (Europe/Zurich). 30 sources actives sur 36. Fenêtre des actualités : du 2026-11-10 au 2026-11-17.</p>
+    <p class="accroche">Sous chaque lien, tu lis d'abord un résumé de deux ou trois phrases repris de la page liée : tu décides d'un coup d'œil si tu cliques. Rien n'est inventé, aucun modèle de langage n'intervient, aucun abonnement n'est demandé.</p>
+    <p class="meta-collecte" id="veille-date-collecte">Collecte du 17.11.2026 15:34 (Europe/Zurich). 29 sources actives sur 36. Fenêtre des actualités : du 2026-11-10 au 2026-11-17.</p>
+    <p class="veille-statut" id="veille-statut" hidden></p>
     <ul class="onglets" role="tablist">
       <li><button type="button" role="tab" data-cible="panneau-examen" aria-selected="true">0. Examen fédéral</button></li>
       <li><button type="button" role="tab" data-cible="panneau-sante" aria-selected="false">1. Santé publique suisse</button></li>
@@ -81,121 +93,121 @@ footer.pied a { color:var(--calme); }
   <main>
     <section class="panneau actif" id="panneau-examen" role="tabpanel">
       <h2>Pages officielles de l'examen</h2>
-      <p>Ce panneau signale toute modification d'une page officielle (OFSP, MEBEKO, IML Berne, portail d'inscription). L'empreinte porte sur les titres et les liens de la zone principale, comme la veille Argos déjà en place.</p>
-      
+      <p>Sous chaque page officielle (OFSP, MEBEKO, IML Berne, portail d'inscription), tu lis d'abord le résumé extractif, puis le lien et la date. Les dates, délais et frais détectés apparaissent sous « Contenu clé ». Si l'empreinte change, une ligne « Ce qui a changé » reprend les titres ou phrases ajoutés et retirés. L'empreinte et le code HTTP restent dans un détail repliable.</p>
+      <div id="examen-sources">
         <article class="source ok" id="ofsp-examen">
           <header>
             <h3>OFSP · examen fédéral en médecine humaine</h3>
             <span class="badge badge-ok">source active</span>
           </header>
-          <p class="url"><a href="https://www.bag.admin.ch/fr/examen-federal-en-medecine-humaine">https://www.bag.admin.ch/fr/examen-federal-en-medecine-humaine</a>
-             · HTTP 200</p>
-          <p class="meta">Dernière détection : 17.11.2026 14:39 (Europe/Zurich) · empreinte 0b8f45a8c1b4.</p>
+          <p class="resume">Vous trouvez sur cette page les informations des délais pour l&#x27;examen fédéral en médecine humaine. Nous vous informons sur la structure, le contenu, l’exécution et l’évaluation de l’examen fédéral en médecine humaine.</p><p class="contenu-cle"><span class="libelle">Contenu clé.</span> Le délai d&#x27;inscription pour l&#x27;examen en médecine humaine est fixé au 31 mars 2026 . Un dossier de demande de mesures de compensation peut être déposé par courrier postal auprès de la MEBEKO, section formation universitaire, jusqu&#x27;au 31 mars 2026.</p><p class="lien-date"><a href="https://www.bag.admin.ch/fr/examen-federal-en-medecine-humaine">https://www.bag.admin.ch/fr/examen-federal-en-medecine-humaine</a> · <time>17.11.2026</time></p>
+          <details class="technique"><summary>Détails techniques</summary><p>HTTP 200 · empreinte 0b8f45a8c1b4237b137cffcb9303d2a02f02161e51f52b104890ab001241d94c · dernière détection 17.11.2026 14:39 (Europe/Zurich)</p></details>
+          
         </article>
         <article class="source ok" id="ofsp-inscription">
           <header>
             <h3>OFSP · inscription à l&#x27;examen fédéral</h3>
             <span class="badge badge-ok">source active</span>
           </header>
-          <p class="url"><a href="https://www.bag.admin.ch/fr/inscription-a-lexamen-federal">https://www.bag.admin.ch/fr/inscription-a-lexamen-federal</a>
-             · HTTP 200</p>
-          <p class="meta">Dernière détection : 17.11.2026 14:39 (Europe/Zurich) · empreinte 1e1f810a1f33.</p>
+          <p class="resume">Les personnes souhaitant passer l’examen fédéral de médecine humaine, médecine dentaire, médecine vétérinaire, pharmacie et chiropratique doivent s’inscrire online dans les délais prescrits. Vous trouverez le lien pour l&#x27;inscription et des informations complémentaires sur ce site web.</p><p class="contenu-cle"><span class="libelle">Contenu clé.</span> Les personnes souhaitant passer l’examen fédéral de médecine humaine, médecine dentaire, médecine vétérinaire, pharmacie et chiropratique doivent s’inscrire online dans les délais prescrits.</p><p class="lien-date"><a href="https://www.bag.admin.ch/fr/inscription-a-lexamen-federal">https://www.bag.admin.ch/fr/inscription-a-lexamen-federal</a> · <time>17.11.2026</time></p>
+          <details class="technique"><summary>Détails techniques</summary><p>HTTP 200 · empreinte 1e1f810a1f332f4b2f66f19618b2849dd5e9509adfcc6bc784eeb37e81962b3b · dernière détection 17.11.2026 14:39 (Europe/Zurich)</p></details>
+          
         </article>
         <article class="source ok" id="ofsp-examens-lpmed">
           <header>
             <h3>OFSP · examens fédéraux des professions médicales universitaires</h3>
             <span class="badge badge-ok">source active</span>
           </header>
-          <p class="url"><a href="https://www.bag.admin.ch/fr/examens-federaux-des-professions-medicales-universitaires">https://www.bag.admin.ch/fr/examens-federaux-des-professions-medicales-universitaires</a>
-             · HTTP 200</p>
-          <p class="meta">Dernière détection : 17.11.2026 14:39 (Europe/Zurich) · empreinte 2f9626795849.</p>
+          <p class="resume">Les examens fédéraux en médecine, médecine dentaire, vétérinaire, pharmacie ou chiropratique sont coordonnés et uniformisés au niveau fédéral une fois par année, en langues française et allemande, mais organisés sur différents sites.</p><p class="contenu-cle"><span class="libelle">Contenu clé.</span> Les personnes souhaitant passer l’examen fédéral de médecine humaine, médecine dentaire, médecine vétérinaire, pharmacie et chiropratique doivent s’inscrire online dans les délais prescrits.</p><p class="lien-date"><a href="https://www.bag.admin.ch/fr/examens-federaux-des-professions-medicales-universitaires">https://www.bag.admin.ch/fr/examens-federaux-des-professions-medicales-universitaires</a> · <time>17.11.2026</time></p>
+          <details class="technique"><summary>Détails techniques</summary><p>HTTP 200 · empreinte 2f96267958496d65f748db97549fde556bc3b6163c8573fe5714926f6f01441e · dernière détection 17.11.2026 14:39 (Europe/Zurich)</p></details>
+          
         </article>
         <article class="source ok" id="ofsp-mebeko">
           <header>
             <h3>OFSP · commission des professions médicales (MEBEKO)</h3>
             <span class="badge badge-ok">source active</span>
           </header>
-          <p class="url"><a href="https://www.bag.admin.ch/fr/commission-des-professions-medicales-mebeko">https://www.bag.admin.ch/fr/commission-des-professions-medicales-mebeko</a>
-             · HTTP 200</p>
-          <p class="meta">Dernière détection : 17.11.2026 14:39 (Europe/Zurich) · empreinte 122aef401430.</p>
+          <p class="resume">Nous vous informons sur les tâches, les compétences et la composition de la Commission des professions médicales (MEBEKO).</p><p class="lien-date"><a href="https://www.bag.admin.ch/fr/commission-des-professions-medicales-mebeko">https://www.bag.admin.ch/fr/commission-des-professions-medicales-mebeko</a> · <time>17.11.2026</time></p>
+          <details class="technique"><summary>Détails techniques</summary><p>HTTP 200 · empreinte 122aef40143066fc0e9a843599a1ec6981502c726a4adc64f10fe0ef4314fb66 · dernière détection 17.11.2026 14:39 (Europe/Zurich)</p></details>
+          
         </article>
         <article class="source ok" id="healthreg-inscription">
           <header>
             <h3>Portail healthreg · inscription à l&#x27;examen</h3>
             <span class="badge badge-ok">source active</span>
           </header>
-          <p class="url"><a href="https://healthreg-online.admin.ch/examination-registration">https://healthreg-online.admin.ch/examination-registration</a>
-             · HTTP 200</p>
-          <p class="meta">Dernière détection : 17.11.2026 14:39 (Europe/Zurich) · empreinte e14b7b1f5824.</p>
+          <p class="resume">Some features required for this application to run are not supported by your browser. Please note that the Swiss Confederation only supports Chrome, Firefox, Edge and Safari in their respective latest 2 versions.</p><p class="lien-date"><a href="https://healthreg-online.admin.ch/examination-registration">https://healthreg-online.admin.ch/examination-registration</a> · <time>17.11.2026</time></p>
+          <details class="technique"><summary>Détails techniques</summary><p>HTTP 200 · empreinte e14b7b1f5824d9475fe37f21c0fab41ec5b213117454cb3df57a99dbca150331 · dernière détection 17.11.2026 14:39 (Europe/Zurich)</p></details>
+          
         </article>
         <article class="source ok" id="iml-examens">
           <header>
             <h3>IML Berne · organisation des examens</h3>
             <span class="badge badge-ok">source active</span>
           </header>
-          <p class="url"><a href="https://www.iml.unibe.ch/fr/offres/assessment/organisation-examens">https://www.iml.unibe.ch/fr/offres/assessment/organisation-examens</a>
-             · HTTP 200</p>
-          <p class="meta">Dernière détection : 17.11.2026 14:39 (Europe/Zurich) · empreinte 3c1ee25142fd.</p>
-        </article>
+          <p class="resume">Paediatrics and Collège A Webinar: Two innovative training formats for paediatricians in Switzerland</p><p class="lien-date"><a href="https://www.iml.unibe.ch/fr/offres/assessment/organisation-examens">https://www.iml.unibe.ch/fr/offres/assessment/organisation-examens</a> · <time>17.11.2026</time></p>
+          <details class="technique"><summary>Détails techniques</summary><p>HTTP 200 · empreinte 3c1ee25142fdfbcf95e776ee82d4a72fb8f11ab723dfe0b3660f618cf1f093d5 · dernière détection 17.11.2026 14:39 (Europe/Zurich)</p></details>
+          
+        </article></div>
     </section>
     <section class="panneau" id="panneau-sante" role="tabpanel">
       <h2>Actualités des 7 derniers jours</h2>
-      <p>La liste reprend les communications officiellement datées de l'OFSP (Bulletin) et de Swissmedic, dans la fenêtre indiquée ci-dessus. Clique le bouton pour la déplier ou la replier.</p>
+      <p>La liste reprend les communications officiellement datées de l'OFSP (Bulletin) et de Swissmedic, dans la fenêtre indiquée ci-dessus. Sous chaque lien, le résumé extractif de la page liée précède le titre. Clique le bouton pour déplier ou replier la liste.</p>
       <div class="defilable-wrap">
         <button type="button" class="btn-defile" id="btn-defile" aria-expanded="true" aria-controls="liste-sante">Replier la liste</button>
-        <p class="meta-collecte">3 actualités dans les 7 derniers jours.</p>
-        <ul class="defilable" id="liste-sante"><li><time>12.11.2026</time> <span class="src">Bulletin de l&#x27;OFSP</span> <a href="https://www.bag.admin.ch/fr/ofsp-bulletin">L’hépatite A en Suisse et dans la Principauté de Liechtenstein pendant la période 2016–2025</a><p class="extrait">En Suisse, les infections par le virus de l’hépatite A sont le plus souvent contractées lors de voyages. Malgré le faible nombre de cas, le risque de flambées épidémiques persiste, comme l’a montré l’année 2017.</p></li><li><time>12.11.2026</time> <span class="src">Swissmedic · communications</span> <a href="https://www.swissmedic.ch/swissmedic/fr/home/news/mitteilungen/nachfrist-zur-publikation-behoerdlich-angeordneter-informationsmaterialien-auf-der-elektronischen-publikationsplattform.html">Prolongation du délai de publication du matériel d&#x27;information exigé par l’autorité compétente sur la plateforme électronique de publication</a></li><li><time>10.11.2026</time> <span class="src">Swissmedic · communications</span> <a href="https://www.swissmedic.ch/swissmedic/fr/home/news/mitteilungen/narcotics-list-extended-112026.html">Drogues de synthèse : le DFI place de nouvelles substances psychoactives sous contrôle</a></li></ul>
+        <p class="meta-collecte" id="sante-compte">3 actualités dans les 7 derniers jours.</p>
+        <ul class="defilable" id="liste-sante"><li><p class="resume">En Suisse, les infections par le virus de l’hépatite A sont le plus souvent contractées lors de voyages. Malgré le faible nombre de cas, le risque de flambées épidémiques persiste, comme l’a montré l’année 2017.</p><p class="lien-date"><a href="https://www.bag.admin.ch/fr/ofsp-bulletin">L’hépatite A en Suisse et dans la Principauté de Liechtenstein pendant la période 2016–2025</a> · <time>12.11.2026</time> · <span class="src">Bulletin de l&#x27;OFSP</span></p></li><li><p class="resume">Swissmedic a constaté que l’obligation de publication du matériel d’information exigé par l’autorité compétente n’avait pas été pleinement mise en œuvre. Les publications encore en suspens doivent être effectuées au plus tard d’ici au 31 décembre 2026</p><p class="lien-date"><a href="https://www.swissmedic.ch/swissmedic/fr/home/news/mitteilungen/nachfrist-zur-publikation-behoerdlich-angeordneter-informationsmaterialien-auf-der-elektronischen-publikationsplattform.html">Prolongation du délai de publication du matériel d&#x27;information exigé par l’autorité compétente sur la plateforme électronique de publication</a> · <time>12.11.2026</time> · <span class="src">Swissmedic · communications</span></p></li><li><p class="resume">Les nouvelles drogues de synthèse peuvent présenter des risques considérables pour la santé</p><p class="lien-date"><a href="https://www.swissmedic.ch/swissmedic/fr/home/news/mitteilungen/narcotics-list-extended-112026.html">Drogues de synthèse : le DFI place de nouvelles substances psychoactives sous contrôle</a> · <time>10.11.2026</time> · <span class="src">Swissmedic · communications</span></p></li></ul>
       </div>
       <h2>Sources de ce panneau</h2>
-      
+      <div id="sante-sources">
         <article class="source ok" id="ofsp-bulletin">
           <header>
             <h3>Bulletin de l&#x27;OFSP</h3>
             <span class="badge badge-ok">source active</span>
           </header>
-          <p class="url"><a href="https://www.bag.admin.ch/fr/ofsp-bulletin">https://www.bag.admin.ch/fr/ofsp-bulletin</a>
-             · HTTP 200</p>
-          <p class="meta">Dernière détection : 17.11.2026 14:39 (Europe/Zurich) · empreinte 43cff77cfb1a.</p>
+          <p class="resume">Depuis 2026, le bulletin de l’OFSP paraît exclusivement en ligne. Cette page publie des informations actuelles sur la déclaration des maladies infectieuses, de même que la statistique Sentinella et des articles scientifiques.</p><p class="lien-date"><a href="https://www.bag.admin.ch/fr/ofsp-bulletin">https://www.bag.admin.ch/fr/ofsp-bulletin</a> · <time>17.11.2026</time></p>
+          <details class="technique"><summary>Détails techniques</summary><p>HTTP 200 · empreinte 43cff77cfb1a918afcf6cef52da4bb7689578213e5d5eb46b575ed052a34b5a9 · dernière détection 17.11.2026 14:39 (Europe/Zurich)</p></details>
+          
         </article>
         <article class="source ok" id="swissmedic-communications">
           <header>
             <h3>Swissmedic · communications</h3>
             <span class="badge badge-ok">source active</span>
           </header>
-          <p class="url"><a href="https://www.swissmedic.ch/swissmedic/fr/home/news/mitteilungen.html">https://www.swissmedic.ch/swissmedic/fr/home/news/mitteilungen.html</a>
-             · HTTP 200</p>
-          <p class="meta">Dernière détection : 17.11.2026 14:39 (Europe/Zurich) · empreinte 0397a95d9162.</p>
-        </article>
+          <p class="resume">Prolongation du délai de publication du matériel d&#x27;information exigé par l’autorité compétente sur la plateforme électronique de publication Drogues de synthèse : le DFI place de nouvelles substances psychoactives sous contrôle</p><p class="lien-date"><a href="https://www.swissmedic.ch/swissmedic/fr/home/news/mitteilungen.html">https://www.swissmedic.ch/swissmedic/fr/home/news/mitteilungen.html</a> · <time>17.11.2026</time></p>
+          <details class="technique"><summary>Détails techniques</summary><p>HTTP 200 · empreinte 0397a95d916287c4fac5e4b4619f8412ce6e6fb16ea8dac6e10714a7b11e8ef3 · dernière détection 17.11.2026 14:39 (Europe/Zurich)</p></details>
+          
+        </article></div>
     </section>
     <section class="panneau" id="panneau-societes" role="tabpanel">
       <h2>Par société savante</h2>
-      <p>Chaque bloc reprend des titres, dates et extraits lus le jour de la collecte. Une société dont le site refuse la lecture (protection, certificat, erreur HTTP) reste visible et porte la mention « source non accessible ».</p>
-      
-        <article class="source ok" id="ssmig">
+      <p>Chaque bloc commence par le résumé de la page d'accueil de la société. Sous chaque lien, le résumé de la page liée te permet de décider si tu cliques. Une société dont le site refuse la lecture (protection, certificat, erreur HTTP) reste visible et porte la mention « source non accessible ».</p>
+      <div id="societes-sources">
+        <article class="source ko" id="ssmig">
           <header>
             <h3>SSMIG / SGAIM · médecine interne générale</h3>
-            <span class="badge badge-ok">source active</span>
+            <span class="badge badge-off">source non accessible</span>
           </header>
-          <p class="url"><a href="https://www.sgaim.ch/fr/">https://www.sgaim.ch/fr/</a>
-             · HTTP 200</p>
-          <p class="meta">Dernière détection : 17.11.2026 14:39 (Europe/Zurich) · empreinte 3c206aff5580.</p><ul class='items'><li><a href="https://www.sgaim.ch/fr/">Réseauter, se former et s’investir</a> </li><li><a href="https://www.sgaim.ch/fr/">Congrès de printemps 2027 de la SSMIG</a> <time datetime="2027-05-21">21.05.2027</time><p class="extrait">Notez dès maintenant dans votre agenda le prochain Congrès de printemps de la SSMIG au Congress Center Basel. Venez vivre trois jours riches avec des Keynotes de haut qualité, des Sessions et Updates passionnants et profitez d&#x27;entretenir et élargir votre réseau.</p></li><li><a href="https://www.sgaim.ch/fr/">Congrès d&#x27;automne 2027 de la SSMIG</a> <time datetime="2027-09-24">24.09.2027</time></li><li><a href="https://www.sgaim.ch/fr/">Pleins feux: trouvez ce qui vous intéresse</a> </li><li><a href="https://www.sgaim.ch/fr/">Promotion de la relève</a> </li><li><a href="https://www.sgaim.ch/fr/">Cours de formation postgraduée et continue</a> </li><li><a href="https://www.sgaim.ch/fr/">Préparation de l’examen de spécialiste avec MKSAP</a> </li><li><a href="https://www.sgaim.ch/fr/">Inscription à l’examen de spécialiste</a> </li></ul>
+          <p class="lien-date"><a href="https://www.sgaim.ch/fr/">https://www.sgaim.ch/fr/</a></p>
+          <details class="technique"><summary>Détails techniques</summary><p>HTTP 500</p></details>
+          <p class="motif">HTTPError: HTTP Error 500: Internal Server Error</p><p class="vide">Aucun extrait daté n&#x27;a été repris sur cette page.</p>
         </article>
         <article class="source ok" id="swisscardio">
           <header>
             <h3>SSC / SwissCardio · cardiologie</h3>
             <span class="badge badge-ok">source active</span>
           </header>
-          <p class="url"><a href="https://www.swisscardio.ch/">https://www.swisscardio.ch/</a>
-             · HTTP 200</p>
-          <p class="meta">Dernière détection : 17.11.2026 14:39 (Europe/Zurich) · empreinte ec009bb85e25.</p><ul class='items'><li><a href="https://www.swisscardio.ch/">ESC Congress: Joint Session SwissCardio and DGK</a> </li><li><a href="https://www.swisscardio.ch/">Watch the recording</a> </li><li><a href="https://www.swisscardio.ch/">Weiterbildung in der Kardiologie</a> </li><li><a href="https://www.swisscardio.ch/">Fortbildung in der Kardiologie</a> </li><li><a href="https://www.swisscardio.ch/">Wofür wir uns engagieren</a> </li></ul>
+          <p class="resume">Die Schweizerische Gesellschaft für Kardiologie (SGK) wurde 1948 gegründet und ist ein Berufsverband und wissenschaftlicher Verein, der Fachärzte und Fachärztinnen sowie andere Fachpersonen im Bereich der Herz- und Kreislaufkrankheiten zusammenschliesst.</p><p class="lien-date"><a href="https://www.swisscardio.ch/">https://www.swisscardio.ch/</a> · <time>17.11.2026</time></p>
+          <details class="technique"><summary>Détails techniques</summary><p>HTTP 200 · empreinte ec009bb85e25344bd8b928cfc56b5fab668b827923bd70f95adf07b2fed482ca · dernière détection 17.11.2026 14:39 (Europe/Zurich)</p></details>
+          <p class="vide">Aucun extrait daté n&#x27;a été repris sur cette page.</p>
         </article>
         <article class="source ko" id="pneumo">
           <header>
             <h3>SSP / SGP · pneumologie</h3>
             <span class="badge badge-off">source non accessible</span>
           </header>
-          <p class="url"><a href="https://pneumo.ch/">https://pneumo.ch/</a>
-             · HTTP 200</p>
+          <p class="lien-date"><a href="https://pneumo.ch/">https://pneumo.ch/</a></p>
+          <details class="technique"><summary>Détails techniques</summary><p>HTTP 200</p></details>
           <p class="motif">La page ne livre qu&#x27;un écran d&#x27;attente ou une protection anti-robot.</p><p class="vide">Aucun extrait daté n&#x27;a été repris sur cette page.</p>
         </article>
         <article class="source ko" id="ssg-gastro">
@@ -203,8 +215,8 @@ footer.pied a { color:var(--calme); }
             <h3>SSG · gastro-entérologie</h3>
             <span class="badge badge-off">source non accessible</span>
           </header>
-          <p class="url"><a href="https://www.sggssg.ch/">https://www.sggssg.ch/</a>
-             </p>
+          <p class="lien-date"><a href="https://www.sggssg.ch/">https://www.sggssg.ch/</a></p>
+          
           <p class="motif">URLError: &lt;urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1029)&gt;</p><p class="vide">Aucun extrait daté n&#x27;a été repris sur cette page.</p>
         </article>
         <article class="source ko" id="ssn-nephro">
@@ -212,8 +224,8 @@ footer.pied a { color:var(--calme); }
             <h3>SSN · néphrologie</h3>
             <span class="badge badge-off">source non accessible</span>
           </header>
-          <p class="url"><a href="https://www.swissnephrology.ch/">https://www.swissnephrology.ch/</a>
-             · HTTP 510</p>
+          <p class="lien-date"><a href="https://www.swissnephrology.ch/">https://www.swissnephrology.ch/</a></p>
+          <details class="technique"><summary>Détails techniques</summary><p>HTTP 510</p></details>
           <p class="motif">HTTPError: HTTP Error 510: Not Extended</p><p class="vide">Aucun extrait daté n&#x27;a été repris sur cette page.</p>
         </article>
         <article class="source ko" id="ssed">
@@ -221,8 +233,8 @@ footer.pied a { color:var(--calme); }
             <h3>SSED / SGED · endocrinologie et diabétologie</h3>
             <span class="badge badge-off">source non accessible</span>
           </header>
-          <p class="url"><a href="https://www.sgedssed.ch/">https://www.sgedssed.ch/</a>
-             · HTTP 200</p>
+          <p class="lien-date"><a href="https://www.sgedssed.ch/">https://www.sgedssed.ch/</a></p>
+          <details class="technique"><summary>Détails techniques</summary><p>HTTP 200</p></details>
           <p class="motif">La page ne livre qu&#x27;un écran d&#x27;attente ou une protection anti-robot.</p><p class="vide">Aucun extrait daté n&#x27;a été repris sur cette page.</p>
         </article>
         <article class="source ok" id="ssh-hemato">
@@ -230,35 +242,35 @@ footer.pied a { color:var(--calme); }
             <h3>SSH / SGH · hématologie</h3>
             <span class="badge badge-ok">source active</span>
           </header>
-          <p class="url"><a href="https://www.sgh-ssh.ch/">https://www.sgh-ssh.ch/</a>
-             · HTTP 200</p>
-          <p class="meta">Dernière détection : 17.11.2026 14:39 (Europe/Zurich) · empreinte 5ae9d88500d4.</p><ul class='items'><li><a href="https://www.sgh-ssh.ch/">Latest News</a> </li><li><a href="https://www.sgh-ssh.ch/sohc-2025-2/">SOHC 2026 – Save the date</a> </li><li><a href="https://www.sgh-ssh.ch/news-from-siwf-regarding-issuing-of-specialist-titles-in-hematology/">News from SIWF regarding issuing of specialist titles in hematology</a> </li></ul>
+          <p class="resume">The Swiss Society of Hematology advances excellence in clinical care, research, and education, supporting hematologists across Switzerland with guidelines, training, and advocacy.</p><p class="lien-date"><a href="https://www.sgh-ssh.ch/">https://www.sgh-ssh.ch/</a> · <time>17.11.2026</time></p>
+          <details class="technique"><summary>Détails techniques</summary><p>HTTP 200 · empreinte 5ae9d88500d49e8db1d4346667ef426f2fdadbd98d17019ef33eb775b373bbc0 · dernière détection 17.11.2026 14:39 (Europe/Zurich)</p></details>
+          <ul class='items'><li><p class="resume">The Swiss Society of Hematology advances excellence in clinical care, research, and education, supporting hematologists across Switzerland with guidelines, training, and advocacy.</p><p class="lien-date"><a href="https://www.sgh-ssh.ch/sohc-2025-2/">SOHC 2026 – Save the date</a></p></li><li><p class="resume">The Swiss Society of Hematology advances excellence in clinical care, research, and education, supporting hematologists across Switzerland with guidelines, training, and advocacy.</p><p class="lien-date"><a href="https://www.sgh-ssh.ch/news-from-siwf-regarding-issuing-of-specialist-titles-in-hematology/">News from SIWF regarding issuing of specialist titles in hematology</a></p></li></ul>
         </article>
         <article class="source ok" id="ssom">
           <header>
             <h3>SSOM / SGMO · oncologie médicale</h3>
             <span class="badge badge-ok">source active</span>
           </header>
-          <p class="url"><a href="https://www.sgmo.ch/">https://www.sgmo.ch/</a>
-             · HTTP 200</p>
-          <p class="meta">Dernière détection : 17.11.2026 14:39 (Europe/Zurich) · empreinte ae78b9d4de5e.</p><p class="vide">Aucun extrait daté n&#x27;a été repris sur cette page.</p>
+          <p class="resume">https://www.sgmo.ch/wp-content/uploads/2023/02/SGMO_LOGO.png 0 0 sgmo-adm-bb https://www.sgmo.ch/wp-content/uploads/2023/02/SGMO_LOGO.png sgmo-adm-bb 2026-06-03 10:09:00 2026-06-03 10:09:00 Stellungnahme: Änderung der KVV und KLV</p><p class="lien-date"><a href="https://www.sgmo.ch/">https://www.sgmo.ch/</a> · <time>17.11.2026</time></p>
+          <details class="technique"><summary>Détails techniques</summary><p>HTTP 200 · empreinte ae78b9d4de5e5acce39f5274019d042292404330048ce330ef327a14d28ec5cc · dernière détection 17.11.2026 14:39 (Europe/Zurich)</p></details>
+          <p class="vide">Aucun extrait daté n&#x27;a été repris sur cette page.</p>
         </article>
         <article class="source ok" id="ssi">
           <header>
             <h3>SSI / SGInf · infectiologie</h3>
             <span class="badge badge-ok">source active</span>
           </header>
-          <p class="url"><a href="https://www.sginf.ch/">https://www.sginf.ch/</a>
-             · HTTP 200</p>
-          <p class="meta">Dernière détection : 17.11.2026 14:39 (Europe/Zurich) · empreinte 79446881afd1.</p><ul class='items'><li><a href="https://www.sginf.ch/">Upcoming Events</a> </li><li><a href="https://www.sginf.ch/">ESCMID Postgraduate course</a> </li><li><a href="https://www.sginf.ch/">Invasive Fungal Infections Symposium</a> </li><li><a href="https://www.sginf.ch/">REVERSE Conference</a> </li><li><a href="https://www.sginf.ch/">Swiss Biorisk Alliance Annual Symposium 2026</a> </li><li><a href="https://www.sginf.ch/">Advancing Antimicrobial Stewardship Together: From Handbook to Practice</a> </li><li><a href="https://www.sginf.ch/">Infektiologisches Bodenseesymposium</a> </li><li><a href="https://www.sginf.ch/">Past Events</a> </li></ul>
+          <p class="resume">Leading the way in infectious disease research and clinical practice across Switzerland.</p><p class="lien-date"><a href="https://www.sginf.ch/">https://www.sginf.ch/</a> · <time>17.11.2026</time></p>
+          <details class="technique"><summary>Détails techniques</summary><p>HTTP 200 · empreinte 79446881afd13911f66110d4550e0524381f37faf9984b6ed520d5b049247e18 · dernière détection 17.11.2026 14:39 (Europe/Zurich)</p></details>
+          <p class="vide">Aucun extrait daté n&#x27;a été repris sur cette page.</p>
         </article>
         <article class="source ko" id="ssr-rhumato">
           <header>
             <h3>SSR / SGR · rhumatologie</h3>
             <span class="badge badge-off">source non accessible</span>
           </header>
-          <p class="url"><a href="https://www.rheuma-net.ch/fr/">https://www.rheuma-net.ch/fr/</a>
-             · HTTP 200</p>
+          <p class="lien-date"><a href="https://www.rheuma-net.ch/fr/">https://www.rheuma-net.ch/fr/</a></p>
+          <details class="technique"><summary>Détails techniques</summary><p>HTTP 200</p></details>
           <p class="motif">La page ne livre qu&#x27;un écran d&#x27;attente ou une protection anti-robot.</p><p class="vide">Aucun extrait daté n&#x27;a été repris sur cette page.</p>
         </article>
         <article class="source ok" id="ssai">
@@ -266,116 +278,116 @@ footer.pied a { color:var(--calme); }
             <h3>SSAI / SGAI · allergologie et immunologie</h3>
             <span class="badge badge-ok">source active</span>
           </header>
-          <p class="url"><a href="https://ssai.ch/">https://ssai.ch/</a>
-             · HTTP 200</p>
-          <p class="meta">Dernière détection : 17.11.2026 14:39 (Europe/Zurich) · empreinte db3280c125d6.</p><ul class='items'><li><a href="https://ssai.ch/">Kompetenz für morgen - engagiert in Forschung, Praxis und Gesundheitspolitik</a> </li><li><a href="https://ssai.ch/">Wer wir sind</a> <p class="extrait">Die Schweizerische Gesellschaft für Allergologie und Immunologie (SGAI) vereinigt Grundlagenforscher/-innen, Spezialisten/-innen für Labordiagnostik und klinisch tätige Ärzte/-innen und spielt damit eine Pionierrolle im multidisziplinären, biomedizinischen Fortschritt.</p></li><li><a href="https://ssai.ch/">SSAI Events</a> </li><li><a href="https://ssai.ch/">Allergology &amp; Immunology Update (AIU) 2027</a> </li><li><a href="https://ssai.ch/">SSAI - SSP/SSTS Joint Annual Meeting 2027</a> </li><li><a href="https://ssai.ch/">Medical Laboratory Immunology Symposium 2027</a> </li><li><a href="https://ssai.ch/tardoc-spezialbewilligung-mk-10-0060/">News &amp; Publikationen</a> </li><li><a href="https://ssai.ch/">TARDOC Spezialbewilligung MK.10.0060</a> <p class="extrait">Für die Abrechnung der TARDOC-Position MK.10.0060 (epikutane Hauttests) ist eine gültige Spezialbewilligung der SGAI erforderlich. Hier finden Sie das Antragsformular sowie alle Informationen zum Prozedere.</p></li></ul>
+          <p class="resume">Die SSAI vereinigt Grundlagenforschende, Spezialisten/-innen für Labordiagnostik und klinisch tätige Ärzte/-innen im Fachbereich Allergologie und Immunologie.</p><p class="lien-date"><a href="https://ssai.ch/">https://ssai.ch/</a> · <time>17.11.2026</time></p>
+          <details class="technique"><summary>Détails techniques</summary><p>HTTP 200 · empreinte db3280c125d6ba8eae9d2f58e7e73af7510555ae5fe4db8c5171aebad5dea252 · dernière détection 17.11.2026 14:39 (Europe/Zurich)</p></details>
+          <ul class='items'><li><p class="resume">Die Schweizerische Gesellschaft für Allergologie und Immunologie (SGAI) vereinigt Grundlagenforscher/-innen, Spezialisten/-innen für Labordiagnostik und klinisch tätige Ärzte/-innen und spielt damit eine Pionierrolle im multidisziplinären, biomedizinischen Fortschritt.</p><p class="lien-date"><a href="https://ssai.ch/">Wer wir sind</a></p></li><li><p class="resume">Jahreskongress 2026 Mitgliederbereich Spezialbewilligung TARDOC MK.10.0060 Die Abrechnung der TARDOC-Position MK.10.0060 (Haut-Test, konfektioniert, epikutan, pro weitere 20 Tests; ausschliesslich notwendig bei Abrechnung von mehr als 80 Epikutantestungen in einer Sitzung) ist ausschliesslich mit…</p><p class="lien-date"><a href="https://ssai.ch/tardoc-spezialbewilligung-mk-10-0060/">News &amp; Publikationen</a></p></li><li><p class="resume">Für die Abrechnung der TARDOC-Position MK.10.0060 (epikutane Hauttests) ist eine gültige Spezialbewilligung der SGAI erforderlich. Hier finden Sie das Antragsformular sowie alle Informationen zum Prozedere.</p><p class="lien-date"><a href="https://ssai.ch/">TARDOC Spezialbewilligung MK.10.0060</a></p></li></ul>
         </article>
         <article class="source ok" id="sng-neuro">
           <header>
             <h3>SNG / SSN · neurologie</h3>
             <span class="badge badge-ok">source active</span>
           </header>
-          <p class="url"><a href="https://www.swissneuro.ch/">https://www.swissneuro.ch/</a>
-             · HTTP 200</p>
-          <p class="meta">Dernière détection : 17.11.2026 14:39 (Europe/Zurich) · empreinte 38852336e281.</p><ul class='items'><li><a href="https://www.swissneuro.ch/">Neurologie in der Schweiz – Fachgesellschaft, Forschung und Gesundheitspolitik</a> <p class="extrait">Die Schweizerischen Neurologischen Gesellschaft SNG ist der nationale Berufsverband der in Praxis und Spitälern tätigen Fachärztinnen und Fachärzte für Neurologie sowie der in der Weiterbildung zum Facharzt Neurologie stehenden Assistentinnen und Assistenten in der Schweiz. Sie engagiert sich für eine Förderung der neurologischen Wissenschaften und des neurologischen Unterrichts in der Aus-, Weiter- und Fortbildung.</p></li><li><a href="https://www.swissneuro.ch/starke-neurologie/publikationen-einblicke/aphasie-verstehen-podcast-mit-perspektiven-aus-medizin-pflege-und-alltag">Aphasie verstehen – Perspektiven aus Neurologie, Pflege und Betroffenen (Podcast)</a> <p class="extrait">Diese Podcastreihe beleuchtet das Thema Aphasie aus unterschiedlichen Blickwinkeln: Fachärzt:innen, Betroffene sowie Pflegefachpersonen geben Einblicke in Diagnose, Therapie und den Alltag mit Aphasie. Dabei werden medizinische, therapeutische und persönliche Erfahrungen aufgegriffen und verschiedene Aspekte der neurologischen Erkrankung verständlich dargestellt.</p></li><li><a href="https://www.swissneuro.ch/">Neurologie und Führung – Videopodcast mit zwei medizinischen Dekanen</a> <p class="extrait">Im Gespräch mit Prof. Dr.</p></li><li><a href="https://www.swissneuro.ch/">Jetzt Mitglied werden und profitieren!</a> <p class="extrait">Sind Sie als Neurologin oder Neurologe in der Schweiz tätig und daran interessiert, stets auf dem Laufenden zu sein, was die Neurologie hierzulande bewegt? Wollen Sie sich ausserdem fortbilden, sich in standespolitische Diskussionen einbringen, die neurologische Wissenschaft fördern und im regelmässigen Austausch mit Kolleginnen und Kollegen stehen?</p></li><li><a href="https://www.swissneuro.ch/">«Epilepsy Nurses»: Neue Chance zur Teilnahme</a> <time datetime="2026-10-05">05.10.2026</time></li><li><a href="https://www.swissneuro.ch/">Engagieren Sie sich im Vorstand der SNG</a> <time datetime="2026-09-28">28.09.2026</time></li><li><a href="https://www.swissneuro.ch/">Erste Swiss NeuroWeek: «The Aging and Resilient Brain»</a> <time datetime="2026-09-21">21.09.2026</time></li><li><a href="https://www.swissneuro.ch/">Ärzte- und Unternehmersymposium Mittelland</a> <time datetime="2026-11-17">17.11.2026</time><p class="extrait">17.11.2026 | Langenthal</p></li></ul>
+          <p class="resume">Die Schweizerischen Neurologischen Gesellschaft SNG ist der nationale Berufsverband der in Praxis und Spitälern tätigen Fachärztinnen und Fachärzte für Neurologie sowie der in der Weiterbildung zum Facharzt Neurologie stehenden Assistentinnen und Assistenten in der Schweiz.</p><p class="lien-date"><a href="https://www.swissneuro.ch/">https://www.swissneuro.ch/</a> · <time>17.11.2026</time></p>
+          <details class="technique"><summary>Détails techniques</summary><p>HTTP 200 · empreinte 38852336e281b990d484e827fbacb0f19a9f99f0932d1603490e6f10cb01bd23 · dernière détection 17.11.2026 14:39 (Europe/Zurich)</p></details>
+          <ul class='items'><li><p class="resume">Die Schweizerischen Neurologischen Gesellschaft SNG ist der nationale Berufsverband der in Praxis und Spitälern tätigen Fachärztinnen und Fachärzte für Neurologie sowie der in der Weiterbildung zum Facharzt Neurologie stehenden Assistentinnen und Assistenten in der Schweiz. Sie engagiert sich für eine Förderung der neurologischen Wissenschaften und des neurologischen Unterrichts in der Aus-, Weiter- und Fortbildung.</p><p class="lien-date"><a href="https://www.swissneuro.ch/">Neurologie in der Schweiz – Fachgesellschaft, Forschung und Gesundheitspolitik</a></p></li><li><p class="resume">Podcast zur Aphasie: Einblicke aus Neurologie, Pflege und Alltag. Erfahren Sie mehr über Ursachen, Therapie und Leben mit Aphasie.</p><p class="lien-date"><a href="https://www.swissneuro.ch/starke-neurologie/publikationen-einblicke/aphasie-verstehen-podcast-mit-perspektiven-aus-medizin-pflege-und-alltag">Aphasie verstehen – Perspektiven aus Neurologie, Pflege und Betroffenen (Podcast)</a></p></li><li><p class="resume">Sind Sie als Neurologin oder Neurologe in der Schweiz tätig und daran interessiert, stets auf dem Laufenden zu sein, was die Neurologie hierzulande bewegt? Wollen Sie sich ausserdem fortbilden, sich in standespolitische Diskussionen einbringen, die neurologische Wissenschaft fördern und im regelmässigen Austausch mit Kolleginnen und Kollegen stehen?</p><p class="lien-date"><a href="https://www.swissneuro.ch/">Jetzt Mitglied werden und profitieren!</a></p></li></ul>
         </article>
         <article class="source ok" id="sspp">
           <header>
             <h3>SSPP · psychiatrie et psychothérapie</h3>
             <span class="badge badge-ok">source active</span>
           </header>
-          <p class="url"><a href="https://www.psychiatrie.ch/sspp/fr">https://www.psychiatrie.ch/sspp/fr</a>
-             · HTTP 200</p>
-          <p class="meta">Dernière détection : 17.11.2026 14:39 (Europe/Zurich) · empreinte 99bf862c86bd.</p><ul class='items'><li><a href="https://www.psychiatrie.ch/sspp/fr/aktuelles-und-wissen/news/artikel/nl-5-preistraegerinnen-und-preistraeger">Actualités</a> </li><li><a href="https://www.psychiatrie.ch/sspp/fr/aktuelles-und-wissen/news/artikel/nl-5-preistraegerinnen-und-preistraeger">Lauréates et lauréats</a> </li><li><a href="https://www.psychiatrie.ch/sspp/fr/aktuelles-und-wissen/news/artikel/nl-5-bericht-sgpp-kongress-2026-in-lugano-vom-169-bis-1892026">Congrès de la SSPP 2026 et Residents’ Day à Lugano, du 16 au 18 septembre 2026</a> <time datetime="2026-09-18">18.09.2026</time></li><li><a href="https://www.psychiatrie.ch/sspp/fr/aktuelles-und-wissen/news/artikel/entdecken-sie-die-highlights-der-neuen-sgpp-webseite">Découvrez les points forts du nouveau site Internet de la SSPP</a> </li><li><a href="https://www.psychiatrie.ch/sspp/fr/aktuelles-und-wissen/news/artikel/tardoc-faq-webinare">Webinaires FAQ TARDOC</a> <p class="extrait">Profitez de l’occasion pour poser directement vos questions sur TARDOC à des expert·e·s.</p></li><li><a href="https://www.psychiatrie.ch/sspp/fr/aktuelles-und-wissen/news/artikel/politik-arbeitsgruppe-psychiatrie-pap-bericht-oktober-2026">Rapport du Groupe de travail Psychiatrie et Politique (GTPP) – octobre 2026</a> </li><li><a href="https://www.psychiatrie.ch/sspp/fr/aktuelles-und-wissen/news/artikel/nl-5-neues-foerderprogramm-advanced-physician-scientists-grants">Nouveau programme de soutien : Advanced Physician Scientists Grants</a> </li><li><a href="https://www.psychiatrie.ch/sspp/fr">Événements</a> </li></ul>
+          <p class="resume">Quatre prix ont été décernés lors du Congrès PSY de cette année. Découvrez les personnes récompensées dans les catégories suivantes :</p><p class="lien-date"><a href="https://www.psychiatrie.ch/sspp/fr">https://www.psychiatrie.ch/sspp/fr</a> · <time>17.11.2026</time></p>
+          <details class="technique"><summary>Détails techniques</summary><p>HTTP 200 · empreinte 99bf862c86bd725382af0ac7bc66ad9da2c7d16e947a853da7babe05eb0843c5 · dernière détection 17.11.2026 14:39 (Europe/Zurich)</p></details>
+          <ul class='items'><li><p class="resume">Nous adressons nos sincères félicitations à tou·te·s les lauréat·e·s et leur souhaitons beaucoup de succès pour l&#x27;avenir ! 1re place : Katinka Marie Beyer pour son travail « Psychotherapeutische Beziehungsgestaltung bei schwerer körperlicher Erkrankung ».</p><p class="lien-date"><a href="https://www.psychiatrie.ch/sspp/fr/aktuelles-und-wissen/news/artikel/nl-5-preistraegerinnen-und-preistraeger">Actualités</a></p></li><li><p class="resume">Nous adressons nos sincères félicitations à tou·te·s les lauréat·e·s et leur souhaitons beaucoup de succès pour l&#x27;avenir ! 1re place : Katinka Marie Beyer pour son travail « Psychotherapeutische Beziehungsgestaltung bei schwerer körperlicher Erkrankung ».</p><p class="lien-date"><a href="https://www.psychiatrie.ch/sspp/fr/aktuelles-und-wissen/news/artikel/nl-5-preistraegerinnen-und-preistraeger">Lauréates et lauréats</a></p></li><li><p class="resume">Veuillez vous connecter à l aide de votre adresse e-mail et de votre mot de passe. En adhérant à la SGPP, vous bénéficiez de nombreux avantages : sur le plan personnel, professionnel et en matière de politique professionnelle.</p><p class="lien-date"><a href="https://www.psychiatrie.ch/sspp/fr/aktuelles-und-wissen/news/artikel/nl-5-bericht-sgpp-kongress-2026-in-lugano-vom-169-bis-1892026">Congrès de la SSPP 2026 et Residents’ Day à Lugano, du 16 au 18 septembre 2026</a> · <time>18.09.2026</time></p></li><li><p class="resume">Veuillez vous connecter à l aide de votre adresse e-mail et de votre mot de passe. En adhérant à la SGPP, vous bénéficiez de nombreux avantages : sur le plan personnel, professionnel et en matière de politique professionnelle.</p><p class="lien-date"><a href="https://www.psychiatrie.ch/sspp/fr/aktuelles-und-wissen/news/artikel/entdecken-sie-die-highlights-der-neuen-sgpp-webseite">Découvrez les points forts du nouveau site Internet de la SSPP</a></p></li><li><p class="resume">Depuis le 1er janvier 2026, TARDOC est le nouveau tarif ambulatoire à la prestation. Dans le cadre des webinaires FAQ de la FMPP , les membres ont la possibilité de poser directement leurs questions à nos expertes et experts et de clarifier les incertitudes rencontrées dans la pratique.</p><p class="lien-date"><a href="https://www.psychiatrie.ch/sspp/fr/aktuelles-und-wissen/news/artikel/tardoc-faq-webinare">Webinaires FAQ TARDOC</a></p></li><li><p class="resume">Veuillez vous connecter à l aide de votre adresse e-mail et de votre mot de passe. En adhérant à la SGPP, vous bénéficiez de nombreux avantages : sur le plan personnel, professionnel et en matière de politique professionnelle.</p><p class="lien-date"><a href="https://www.psychiatrie.ch/sspp/fr/aktuelles-und-wissen/news/artikel/politik-arbeitsgruppe-psychiatrie-pap-bericht-oktober-2026">Rapport du Groupe de travail Psychiatrie et Politique (GTPP) – octobre 2026</a></p></li><li><p class="resume">L&#x27;Académie suisse des sciences médicales (ASSM) lance, en collaboration avec la Fondation Gottfried et Julia Bangerter-Rhyner, le programme de soutien « Advanced Physician Scientists Grants ».</p><p class="lien-date"><a href="https://www.psychiatrie.ch/sspp/fr/aktuelles-und-wissen/news/artikel/nl-5-neues-foerderprogramm-advanced-physician-scientists-grants">Nouveau programme de soutien : Advanced Physician Scientists Grants</a></p></li></ul>
         </article>
         <article class="source ok" id="ssp-pediatrie">
           <header>
             <h3>pädiatrie schweiz / SSP · pédiatrie</h3>
             <span class="badge badge-ok">source active</span>
           </header>
-          <p class="url"><a href="https://www.paediatrieschweiz.ch/">https://www.paediatrieschweiz.ch/</a>
-             · HTTP 200</p>
-          <p class="meta">Dernière détection : 17.11.2026 14:39 (Europe/Zurich) · empreinte d02221bad5f8.</p><ul class='items'><li><a href="https://www.paediatrieschweiz.ch/">Podcast-Serie zum Jubiläum</a> <p class="extrait">Seit 125 Jahren setzt sich pädiatrie schweiz für die Gesundheit von Kindern und Jugendlichen ein. Zum Jubiläum lancieren wir eine zehnteilige Podcast-Serie.</p></li><li><a href="https://www.paediatrieschweiz.ch/news/tardoc-einfuehrung/">Étude EFFICARE</a> </li><li><a href="https://www.paediatrieschweiz.ch/news/kongress-2027/">TARDOC und ambulante Pauschalen</a> </li><li><a href="https://www.paediatrieschweiz.ch/">Kongress 2027</a> <p class="extrait">Paediatrica Vol. 37-3/2026</p></li><li><a href="https://www.paediatrieschweiz.ch/zeitschrift/paediatrica-vol-37-3-2026/">Gastroenterologie</a> </li><li><a href="https://www.paediatrieschweiz.ch/eosinophile-osophagitis-im-kindesalter-fruh-erkennen/">Editorial</a> <p class="extrait">Christiane Sokollik</p></li><li><a href="https://www.paediatrieschweiz.ch/auffaellige-leberwerte-in-der-paediatrie/">Eosinophile Ösophagitis im Kindesalter - früh erkennen</a> <p class="extrait">Katharina Guilcher, Vasiliki Spyropoulou</p></li><li><a href="https://www.paediatrieschweiz.ch/nebenwirkungen-von-vermeintlich-gesunder-ernaehrung/">Auffällige Leberwerte in der Pädiatrie</a> <p class="extrait">Sixtine Morin, Morgane Thorens-Borgeat, Nathalie Marie Rock</p></li></ul>
+          <p class="resume">pädiatrie schweiz ist seit 1901 die Fachgesellschaft aller Kinderärzt:innen in der Schweiz und die Stimme der Kinder- und Jugendgesundheit.</p><p class="lien-date"><a href="https://www.paediatrieschweiz.ch/">https://www.paediatrieschweiz.ch/</a> · <time>17.11.2026</time></p>
+          <details class="technique"><summary>Détails techniques</summary><p>HTTP 200 · empreinte d02221bad5f8716c086f9cb3cee9104bcd2d20a01ed98bf0a12051f38b781b2d · dernière détection 17.11.2026 14:39 (Europe/Zurich)</p></details>
+          <ul class='items'><li><p class="resume">Seit 125 Jahren setzt sich pädiatrie schweiz für die Gesundheit von Kindern und Jugendlichen ein. Zum Jubiläum lancieren wir eine zehnteilige Podcast-Serie.</p><p class="lien-date"><a href="https://www.paediatrieschweiz.ch/">Podcast-Serie zum Jubiläum</a></p></li><li><p class="resume">Update vom 12. November 2026. mfe Haus- und Kinderärzte Schweiz begrüsst, dass der Bundesrat die tarifliche Aufwertung der Hausarztmedizin einfordert.</p><p class="lien-date"><a href="https://www.paediatrieschweiz.ch/news/tardoc-einfuehrung/">Étude EFFICARE</a></p></li><li><p class="resume">Update vom 11.11.2026. Der Kongress 2027 im Kongresshaus Zürich wird am Donnerstag, 3. Juni 2027, um 09:15 Uhr mit der Plenarsession «Less is more in…</p><p class="lien-date"><a href="https://www.paediatrieschweiz.ch/news/kongress-2027/">TARDOC und ambulante Pauschalen</a></p></li><li><p class="resume">Eosinophile Ösophagitis im Kindesalter - früh erkennen. Auffällige Leberwerte in der Pädiatrie. Nebenwirkungen von vermeintlich gesunder Ernährung.</p><p class="lien-date"><a href="https://www.paediatrieschweiz.ch/zeitschrift/paediatrica-vol-37-3-2026/">Gastroenterologie</a></p></li><li><p class="resume">Die Eosinophile Ösophagitis (EoE) ist eine chronische, Typ-2 vermittelte entzündliche Erkrankung der Speiseröhre, die durch Symptome der ösophagealen…</p><p class="lien-date"><a href="https://www.paediatrieschweiz.ch/eosinophile-osophagitis-im-kindesalter-fruh-erkennen/">Editorial</a></p></li><li><p class="resume">Auffällige Befunde der Leberfunktionstests sind in der Pädiatrie häufig anzutreffen, sei es im Zusammenhang mit einer entsprechenden Symptomatik oder als…</p><p class="lien-date"><a href="https://www.paediatrieschweiz.ch/auffaellige-leberwerte-in-der-paediatrie/">Eosinophile Ösophagitis im Kindesalter - früh erkennen</a></p></li><li><p class="resume">&quot;Lass Nahrung Deine Medizin sein&quot; wird Hippocrates mit seiner sehr holistischen Ansicht zitiert.</p><p class="lien-date"><a href="https://www.paediatrieschweiz.ch/nebenwirkungen-von-vermeintlich-gesunder-ernaehrung/">Auffällige Leberwerte in der Pädiatrie</a></p></li></ul>
         </article>
         <article class="source ok" id="ssgo">
           <header>
             <h3>SSGO / SGGG · gynécologie et obstétrique</h3>
             <span class="badge badge-ok">source active</span>
           </header>
-          <p class="url"><a href="https://www.sggg.ch/">https://www.sggg.ch/</a>
-             · HTTP 200</p>
-          <p class="meta">Dernière détection : 17.11.2026 14:39 (Europe/Zurich) · empreinte 87bda38a67ad.</p><ul class='items'><li><a href="https://www.sggg.ch/">Willkommen</a> <p class="extrait">Die Schweizerische Gesellschaft für Gynäkologie und Geburtshilfe – gynécologie suisse oder kurz SGGG – ist eine ärztliche Fachgesellschaft mit dem Ziel, die Gynäkologie und Geburtshilfe in der Schweiz wissenschaftlich, praktisch und ethisch zu fördern. Aufgabe der Gesellschaft ist die umfassende Sicherstellung der Gesundheit der Frau.</p></li><li><a href="https://www.sggg.ch/">Kernaufgaben der gynécologie suisse</a> <p class="extrait">Wahrung der beruflichen Interessen der Mitglieder</p></li><li><a href="tel:+4141926076">Sekretariat</a> <p class="extrait">gynécologie suisse SGGG Bahnhofstrasse 7b 6210 Sursee Tel. +41 (0) 41 926 07 76 info noSpam @sggg.</p></li><li><a href="https://www.sggg.ch/">Aktuelles</a> </li><li><a href="https://www.sggg.ch/news/detail/sggg-kongress-2027">SGGG-Kongress 2027</a> <p class="extrait">15. Juli 2026</p></li><li><a href="https://www.sggg.ch/news/detail/streichung-der-mirena-aus-der-spezialitaetenliste">Streichung der Mirena aus der Spezialitätenliste</a> <p class="extrait">26. Oktober 2026</p></li><li><a href="https://www.sggg.ch/news/detail/lagerfrist-fuer-eingefrorene-eizellen-gynecologie-suisse-begruesst-einlenken-der-staenderatskommission">Lagerfrist für eingefrorene Eizellen: gynécologie suisse begrüsst Einlenken der Ständeratskommission</a> <p class="extrait">22. Oktober 2026</p></li><li><a href="https://www.sggg.ch/">Nächste Veranstaltungen</a> </li></ul>
+          <p class="resume">Die Schweizerische Gesellschaft für Gynäkologie und Geburtshilfe – gynécologie suisse ist eine ärztliche Fachgesellschaft mit dem Ziel, die Gynäkologie und Geburtshilfe in der Schweiz wissenschaftlich, praktisch und ethisch zu fördern.</p><p class="lien-date"><a href="https://www.sggg.ch/">https://www.sggg.ch/</a> · <time>17.11.2026</time></p>
+          <details class="technique"><summary>Détails techniques</summary><p>HTTP 200 · empreinte 87bda38a67ad50b36deacab2911c244c908467559c81510ee6c919e67c469b48 · dernière détection 17.11.2026 14:39 (Europe/Zurich)</p></details>
+          <ul class='items'><li><p class="resume">Die Schweizerische Gesellschaft für Gynäkologie und Geburtshilfe – gynécologie suisse oder kurz SGGG – ist eine ärztliche Fachgesellschaft mit dem Ziel, die Gynäkologie und Geburtshilfe in der Schweiz wissenschaftlich, praktisch und ethisch zu fördern. Aufgabe der Gesellschaft ist die umfassende Sicherstellung der Gesundheit der Frau.</p><p class="lien-date"><a href="https://www.sggg.ch/">Willkommen</a></p></li><li><p class="resume">gynécologie suisse SGGG Bahnhofstrasse 7b 6210 Sursee Tel. +41 (0) 41 926 07 76 info noSpam @sggg.</p><p class="lien-date"><a href="tel:+4141926076">Sekretariat</a></p></li><li><p class="resume vide-resume">Aucun résumé extractif n'a pu être repris sur la page liée.</p><p class="lien-date"><a href="https://www.sggg.ch/news/detail/sggg-kongress-2027">SGGG-Kongress 2027</a></p></li><li><p class="resume">Streichungen aus der Spezialitätenliste schränken Behandlungsmöglichkeiten ein In den vergangenen Monaten sind mehrere für die Frauengesundheit wichtige Medikamente entweder aus der Spezialitätenliste (SL) gestrichen oder vom Schweizer Markt zurückgezogen worden.</p><p class="lien-date"><a href="https://www.sggg.ch/news/detail/streichung-der-mirena-aus-der-spezialitaetenliste">Streichung der Mirena aus der Spezialitätenliste</a></p></li><li><p class="resume">September 2017 dürfen Eizellen in der Schweiz höchstens zehn Jahre aufbewahrt werden. Für die ersten Frauen, die ihre Eizellen damals einfrieren liessen, läuft diese Frist am 30.</p><p class="lien-date"><a href="https://www.sggg.ch/news/detail/lagerfrist-fuer-eingefrorene-eizellen-gynecologie-suisse-begruesst-einlenken-der-staenderatskommission">Lagerfrist für eingefrorene Eizellen: gynécologie suisse begrüsst Einlenken der Ständeratskommission</a></p></li></ul>
         </article>
         <article class="source ok" id="ssc-chirurgie">
           <header>
             <h3>SSC / SGC · chirurgie</h3>
             <span class="badge badge-ok">source active</span>
           </header>
-          <p class="url"><a href="https://sgc-ssc.ch/">https://sgc-ssc.ch/</a>
-             · HTTP 200</p>
-          <p class="meta">Dernière détection : 17.11.2026 14:39 (Europe/Zurich) · empreinte 4d3df06846ad.</p><ul class='items'><li><a href="https://sgc-ssc.ch/bildung/ccrisp-course">April 2026</a> </li><li><a href="https://sgc-ssc.ch/bildung/ccrisp-course">SGC Newsletter</a> </li><li><a href="https://sgc-ssc.ch/wiss">10.-11.11.26, Zurich</a> </li><li><a href="https://sgc-ssc.ch/wiss">CCrISP Course</a> </li><li><a href="http://www.linkedin.com/in/sgc-ssc">Site Update</a> </li><li><a href="https://sgc-ssc.ch/">SGC on LinkedIn</a> </li><li><a href="https://sgc-ssc.ch/">Veranstaltungen</a> <p class="extrait">Finde hier von der SGC akkreditierte Weiterbildungen</p></li><li><a href="https://sgc-ssc.ch/">Das SwissKnife</a> <p class="extrait">das offizielle Publikationsorgan der SGC und des Swiss College of Surgeons findet ihr neu nur noch digital im neuen Kleid!</p></li></ul>
+          <p class="resume">Vereinigung aller Fachärzte und Fachärztinnen für Chirurgie Finde hier von der SGC akkreditierte Weiterbildungen das offizielle Publikationsorgan der SGC und des Swiss College of Surgeons findet ihr neu nur noch digital im neuen Kleid!</p><p class="lien-date"><a href="https://sgc-ssc.ch/">https://sgc-ssc.ch/</a> · <time>17.11.2026</time></p>
+          <details class="technique"><summary>Détails techniques</summary><p>HTTP 200 · empreinte 4d3df06846adbf42027d6b1658004f626e6522fd53bfacb22ec0fc9f2c4399a6 · dernière détection 17.11.2026 14:39 (Europe/Zurich)</p></details>
+          <ul class='items'><li><p class="resume">The Swiss College of Surgeons and the Swiss Society for Surgery started this two-day interactive course 2024 in collaboration with the Royal College of Surgeons of England.</p><p class="lien-date"><a href="https://sgc-ssc.ch/bildung/ccrisp-course">April 2026</a></p></li><li><p class="resume">The Swiss College of Surgeons and the Swiss Society for Surgery started this two-day interactive course 2024 in collaboration with the Royal College of Surgeons of England.</p><p class="lien-date"><a href="https://sgc-ssc.ch/bildung/ccrisp-course">SGC Newsletter</a></p></li><li><p class="resume">Chirurgie ist ein anspruchsvolles Handwerk. Sie erfordert kontinuierliches Training, eine strukturierte und transparente Ausbildung, fachliche Neugier sowie Leidenschaft, Motivation und Freude am Beruf – auch unter hohem Druck.</p><p class="lien-date"><a href="https://sgc-ssc.ch/wiss">10.-11.11.26, Zurich</a></p></li><li><p class="resume">Chirurgie ist ein anspruchsvolles Handwerk. Sie erfordert kontinuierliches Training, eine strukturierte und transparente Ausbildung, fachliche Neugier sowie Leidenschaft, Motivation und Freude am Beruf – auch unter hohem Druck.</p><p class="lien-date"><a href="https://sgc-ssc.ch/wiss">CCrISP Course</a></p></li><li><p class="resume vide-resume">Aucun résumé extractif n'a pu être repris sur la page liée.</p><p class="lien-date"><a href="http://www.linkedin.com/in/sgc-ssc">Site Update</a></p></li><li><p class="resume">das offizielle Publikationsorgan der SGC und des Swiss College of Surgeons findet ihr neu nur noch digital im neuen Kleid!</p><p class="lien-date"><a href="https://sgc-ssc.ch/">Das SwissKnife</a></p></li></ul>
         </article>
         <article class="source ok" id="sso-orl">
           <header>
             <h3>SGORL · ORL et chirurgie cervico-faciale</h3>
             <span class="badge badge-ok">source active</span>
           </header>
-          <p class="url"><a href="https://www.orl-hno.ch/home">https://www.orl-hno.ch/home</a>
-             · HTTP 200</p>
-          <p class="meta">Dernière détection : 17.11.2026 14:39 (Europe/Zurich) · empreinte f04612aad9f3.</p><ul class='items'><li><a href="https://www.orl-hno.ch/home">Aktuelles</a> </li><li><a href="https://www.orl-hno.ch/news/news-detail/news/bundesratsentscheid-zur-al-hoechstgrenze-im-tardoc">Bundesratsentscheid zur AL-Höchstgrenze im TARDOC</a> <p class="extrait">Mit Entscheid vom 11. November 2026 hat der Bundesrat die Genehmigung für die…</p></li><li><a href="https://www.orl-hno.ch/home">Mitglied werden</a> <p class="extrait">Eine Mitgliedschaft in der SGORL lohnt sich in vielerlei Hinsicht.</p></li><li><a href="https://www.orl-hno.ch/mitgliederbereich/mitglied-werden">Mitglied werden und profitieren!</a> <p class="extrait">Eine Mitgliedschaft in der SGORL lohnt sich in vielerlei Hinsicht.</p></li><li><a href="https://www.orl-hno.ch/home">Login Mitgliederbereich</a> </li></ul>
+          <p class="resume">SGORL Gesellschaft der in der Schweiz tätigen Hals-Nasen-Ohrenärzte</p><p class="lien-date"><a href="https://www.orl-hno.ch/home">https://www.orl-hno.ch/home</a> · <time>17.11.2026</time></p>
+          <details class="technique"><summary>Détails techniques</summary><p>HTTP 200 · empreinte f04612aad9f38b8c3367e0e883297a29f22ecc4f4645966a53728de18c424ad4 · dernière détection 17.11.2026 14:39 (Europe/Zurich)</p></details>
+          <ul class='items'><li><p class="resume">Mit Entscheid vom 11. November 2026 hat der Bundesrat die Genehmigung für die erste Jahresrevision von TARDOC und den ambulanten Pauschalen per 1. Januar 2027 erteilt.</p><p class="lien-date"><a href="https://www.orl-hno.ch/news/news-detail/news/bundesratsentscheid-zur-al-hoechstgrenze-im-tardoc">Bundesratsentscheid zur AL-Höchstgrenze im TARDOC</a></p></li><li><p class="resume">Eine Mitgliedschaft in der SGORL lohnt sich in vielerlei Hinsicht.</p><p class="lien-date"><a href="https://www.orl-hno.ch/home">Mitglied werden</a></p></li><li><p class="resume">IMK Institut für Medizin und Kommunikation AG Münsterberg 1 CH-4001 Basel</p><p class="lien-date"><a href="https://www.orl-hno.ch/mitgliederbereich/mitglied-werden">Mitglied werden und profitieren!</a></p></li></ul>
         </article>
         <article class="source ok" id="sso-ophtalmo">
           <header>
             <h3>SSO / SOG · ophtalmologie</h3>
             <span class="badge badge-ok">source active</span>
           </header>
-          <p class="url"><a href="https://www.sog-sso.ch/fr/page-daccueil">https://www.sog-sso.ch/fr/page-daccueil</a>
-             · HTTP 200</p>
-          <p class="meta">Dernière détection : 17.11.2026 14:39 (Europe/Zurich) · empreinte 3a4c314566f6.</p><ul class='items'><li><a href="https://www.sog-sso.ch/fr/page-daccueil">Une bonne vue pour la Suisse –Nous gardons la qualité à l’œil</a> <p class="extrait">Au nom de la Société Suisse d’Ophtalmologie (SSO-SOG), nous vous souhaitons la bienvenue sur notre site Internet et nous réjouissons de l’intérêt que vous portez aux thèmes de notre spécialité.</p></li><li><a href="https://www.sog-sso.ch/fr/page-daccueil">Actualités</a> </li><li><a href="https://www.sog-sso.ch/fr/page-daccueil">Décision du Conseil fédéral sur le plafond de PM dans TARDOC</a> <time datetime="2026-11-11">11.11.2026</time><p class="extrait">Le 11 novembre 2026, le Conseil fédéral a approuvé la première révision annuelle du TARDOC et des forfaits ambulatoires…</p></li><li><a href="https://www.sog-sso.ch/fr/page-daccueil">Les inscriptions sont ouvertes : Cours de réfraction de la SSO 2027</a> <time datetime="2027-03-12">12.03.2027</time><p class="extrait">Du 9 au 12 mars 2027, le cours de réfraction de la SSO de langue allemande se tiendra à la clinique ophtalmologique KSA…</p></li><li><a href="https://www.sog-sso.ch/fr/page-daccueil">« Qui veille à la santé de vos yeux ? » – une campagne de la SSO</a> <p class="extrait">Communiqué de presse de la SSO</p></li><li><a href="https://www.sog-sso.ch/fr/page-daccueil">Rapport annuel de la SSO</a> <p class="extrait">Découvrez les activités de la SSO dans notre rapport annuel. Commandez la version imprimée ici.</p></li><li><a href="https://www.sog-sso.ch/fr/page-daccueil">Arbres décisionnels pour les urgences ophtalmologiques</a> </li><li><a href="https://www.sog-sso.ch/fr/pour-patientes/qui-veille-a-la-sante-de-vos-yeux">Pour les patients: Qui veille à la santé de vos yeux ?</a> <p class="extrait">Découvrez quelles sont les missions des ophtalmologues et comment ils collaborent avec d’autres professionnels de la santé oculaire.</p></li></ul>
+          <p class="resume">La SSO-SOG est la société professionnelle nationale des ophtalmologues en Suisse et s’engage pour une formation initiale, postgraduée et continue de haute qualité ainsi que pour l’organisation du congrès annuel.</p><p class="lien-date"><a href="https://www.sog-sso.ch/fr/page-daccueil">https://www.sog-sso.ch/fr/page-daccueil</a> · <time>17.11.2026</time></p>
+          <details class="technique"><summary>Détails techniques</summary><p>HTTP 200 · empreinte 3a4c314566f6491d7ff3226cdd5416caf594df47c627a5ddc2776074358db8f0 · dernière détection 17.11.2026 14:39 (Europe/Zurich)</p></details>
+          <ul class='items'><li><p class="resume">Au nom de la Société Suisse d’Ophtalmologie (SSO-SOG), nous vous souhaitons la bienvenue sur notre site Internet et nous réjouissons de l’intérêt que vous portez aux thèmes de notre spécialité.</p><p class="lien-date"><a href="https://www.sog-sso.ch/fr/page-daccueil">Une bonne vue pour la Suisse –Nous gardons la qualité à l’œil</a></p></li><li><p class="resume">Le 11 novembre 2026, le Conseil fédéral a approuvé la première révision annuelle du TARDOC et des forfaits ambulatoires…</p><p class="lien-date"><a href="https://www.sog-sso.ch/fr/page-daccueil">Décision du Conseil fédéral sur le plafond de PM dans TARDOC</a> · <time>11.11.2026</time></p></li><li><p class="resume">Du 9 au 12 mars 2027, le cours de réfraction de la SSO de langue allemande se tiendra à la clinique ophtalmologique KSA…</p><p class="lien-date"><a href="https://www.sog-sso.ch/fr/page-daccueil">Les inscriptions sont ouvertes : Cours de réfraction de la SSO 2027</a> · <time>12.03.2027</time></p></li><li><p class="resume">Découvrez les activités de la SSO dans notre rapport annuel. Commandez la version imprimée ici.</p><p class="lien-date"><a href="https://www.sog-sso.ch/fr/page-daccueil">Rapport annuel de la SSO</a></p></li><li><p class="resume">Qui s’occupe de la santé de vos yeux ? Découvrez les rôles des ophtalmologues, optométristes, opticiens et orthoptistes et leur collaboration dans les soins oculaires.</p><p class="lien-date"><a href="https://www.sog-sso.ch/fr/pour-patientes/qui-veille-a-la-sante-de-vos-yeux">Pour les patients: Qui veille à la santé de vos yeux ?</a></p></li></ul>
         </article>
         <article class="source ok" id="ssdv">
           <header>
             <h3>SSDV · dermatologie et vénéréologie</h3>
             <span class="badge badge-ok">source active</span>
           </header>
-          <p class="url"><a href="https://www.derma.swiss/">https://www.derma.swiss/</a>
-             · HTTP 200</p>
-          <p class="meta">Dernière détection : 17.11.2026 14:39 (Europe/Zurich) · empreinte fae977d34617.</p><ul class='items'><li><a href="https://www.derma.swiss/">Für Fachpersonen</a> <p class="extrait">Finden Sie Informationen über die SGDV, die ärztliche Weiter- und Fortbildung in Dermatologie und Venerologie sowie die aktuellen medizinischen und standespolitischen Themen.</p></li><li><a href="https://www.derma.swiss/">Für Patientinnen und Patienten</a> <p class="extrait">Finden Sie Informationen über häufige und seltene Hautkrankheiten, Prävention von Hautkrebs und die Ziele der SGDV zur Sicherung der Qualität im Fachgebiet der Haut- und Geschlechtskrankheiten.</p></li><li><a href="https://www.derma.swiss/christoph-schlapbach-ist-neues-vorstandsmitglied-der-sgdv/">Sicherstellung der histopathologischen Diagnostik, Leistungshöchstgrenze, Pauschalen</a> </li><li><a href="https://www.derma.swiss/auswirkungen-des-neuen-tarifsystems-fair-und-sachlich-beurteilen/">Christoph Schlapbach ist neues Vorstandsmitglied der SGDV</a> </li><li><a href="https://www.derma.swiss/die-sgdv-gratuliert-den-award-gewinnerinnen-2026/">Auswirkungen des neuen Tarifsystems fair und sachlich beurteilen</a> </li><li><a href="https://www.derma.swiss/">Die SGDV Gratuliert den Award-Gewinner:Innen 2026</a> </li><li><a href="https://www.derma.swiss/">Möchten Sie regelmässig informiert werden? Melden Sie sich hier für den Newsletter an.</a> </li><li><a href="https://www.derma.swiss/">Sponsoren der SGDV</a> </li></ul>
+          <p class="resume">Die Schweizerische Gesellschaft für Dermatologie und Venerologie vertritt die Anliegen der Dermatologinnen und Dermatologen, sorgt für Qualität in ihrem Berufsstand und engagiert sich für die Hautgesundheit der Schweizer Bevölkerung.</p><p class="lien-date"><a href="https://www.derma.swiss/">https://www.derma.swiss/</a> · <time>17.11.2026</time></p>
+          <details class="technique"><summary>Détails techniques</summary><p>HTTP 200 · empreinte fae977d34617c6a54ae7d1996e7d177f53d8cbd39320cb05600c330bea053db9 · dernière détection 17.11.2026 14:39 (Europe/Zurich)</p></details>
+          <ul class='items'><li><p class="resume">Finden Sie Informationen über die SGDV, die ärztliche Weiter- und Fortbildung in Dermatologie und Venerologie sowie die aktuellen medizinischen und standespolitischen Themen.</p><p class="lien-date"><a href="https://www.derma.swiss/">Für Fachpersonen</a></p></li><li><p class="resume">Finden Sie Informationen über häufige und seltene Hautkrankheiten, Prävention von Hautkrebs und die Ziele der SGDV zur Sicherung der Qualität im Fachgebiet der Haut- und Geschlechtskrankheiten.</p><p class="lien-date"><a href="https://www.derma.swiss/">Für Patientinnen und Patienten</a></p></li><li><p class="resume">Christoph Schlapbach ist seit dem 1. August 2026 Klinikdirektor und Chefarzt der Universitätsklinik für Dermatologie am Inselspital in Bern. Zudem ergänzt Christoph Schlapbach neu den Vorstand der SGDV als Nachfolger […]</p><p class="lien-date"><a href="https://www.derma.swiss/christoph-schlapbach-ist-neues-vorstandsmitglied-der-sgdv/">Sicherstellung der histopathologischen Diagnostik, Leistungshöchstgrenze, Pauschalen</a></p></li><li><p class="resume">Die Schweizerische Gesellschaft für Dermatologie und Venerologie (SGDV) nimmt zur Kenntnis, dass der Versichererverband prio.swiss feststellt, die Ausgestaltung des neuen Tarifsystems TARDOC sei teilweise fehlerhaft. Genau davor warnt die SGDV […]</p><p class="lien-date"><a href="https://www.derma.swiss/auswirkungen-des-neuen-tarifsystems-fair-und-sachlich-beurteilen/">Christoph Schlapbach ist neues Vorstandsmitglied der SGDV</a></p></li><li><p class="resume">Wir gratulieren den diesjährigen Preisträgern und -trägerinnen 2026 in Zürich: Pierre FabreSwiss Skin Cancer AwardMichael Benzaquen, Inselspital Bern Ablative fractional laser-assisted delivery of 1% tirbanibulin ointment for the treatment of […]</p><p class="lien-date"><a href="https://www.derma.swiss/die-sgdv-gratuliert-den-award-gewinnerinnen-2026/">Auswirkungen des neuen Tarifsystems fair und sachlich beurteilen</a></p></li></ul>
         </article>
         <article class="source ok" id="ssapm">
           <header>
             <h3>SSAPM · anesthésiologie et médecine périopératoire</h3>
             <span class="badge badge-ok">source active</span>
           </header>
-          <p class="url"><a href="https://www.ssapm.ch/">https://www.ssapm.ch/</a>
-             · HTTP 200</p>
-          <p class="meta">Dernière détection : 17.11.2026 14:39 (Europe/Zurich) · empreinte e4c93bc136c9.</p><ul class='items'><li><a href="https://www.ssapm.ch/bildung">Spezialist:innen</a> <p class="extrait">Immer aktuell in den Bereichen Bildung , Qualität , Tarife , Politik , Spezialgebiete , Service , Wissenschaft und alles über uns .</p></li><li><a href="https://www.ssapm.ch/">Patient:innen</a> <p class="extrait">Erfahren Sie hier alles zur Anästhesiologie , zu Schwangerschaft und Geburt und finden Sie Antworten auf die häufigsten Fragen, die Patient:innen schon gestellt haben.</p></li><li><a href="https://bbscongress.ch/en/swissanaesthesia">SSAPM VERANSTALTUNGEN</a> <p class="extrait">Symposium Perioperative Medizin 29. April 2027, Bern SwissAnaesthesia 2027 4.</p></li></ul>
+          <p class="resume">Die SSAPM versteht sich als Dachverein aller Fachärzte für Anästhesiologie und Interessengruppen</p><p class="lien-date"><a href="https://www.ssapm.ch/">https://www.ssapm.ch/</a> · <time>17.11.2026</time></p>
+          <details class="technique"><summary>Détails techniques</summary><p>HTTP 200 · empreinte e4c93bc136c92070f6d966ffd9c69a5f37a6aeb8e7d563d1e34f9f6098a41cae · dernière détection 17.11.2026 14:39 (Europe/Zurich)</p></details>
+          <ul class='items'><li><p class="resume">Die SSAPM versteht sich als Dachverein aller Fachärzte für Anästhesiologie und Interessengruppen</p><p class="lien-date"><a href="https://www.ssapm.ch/bildung">Spezialist:innen</a></p></li><li><p class="resume">Erfahren Sie hier alles zur Anästhesiologie , zu Schwangerschaft und Geburt und finden Sie Antworten auf die häufigsten Fragen, die Patient:innen schon gestellt haben.</p><p class="lien-date"><a href="https://www.ssapm.ch/">Patient:innen</a></p></li><li><p class="resume">BBS Congress GmbH organisiert medizinische Kongresse, Fortbildungskurse und Symposien in der ganzen Schweiz. Wir organisieren Ihre Fortbildungsveranstaltung von Anfang bis zum Schluss und nehmen Ihnen auf dem Weg zu Ihrem erfolgreichen Anlass alle Aufgaben ab.</p><p class="lien-date"><a href="https://bbscongress.ch/en/swissanaesthesia">SSAPM VERANSTALTUNGEN</a></p></li></ul>
         </article>
         <article class="source ok" id="ssmi">
           <header>
             <h3>SSMI / SGI · médecine intensive</h3>
             <span class="badge badge-ok">source active</span>
           </header>
-          <p class="url"><a href="https://sgi-ssmi.ch/fr/a-propos-de-nous">https://sgi-ssmi.ch/fr/a-propos-de-nous</a>
-             · HTTP 200</p>
-          <p class="meta">Dernière détection : 17.11.2026 14:39 (Europe/Zurich) · empreinte 344fc76d74f8.</p><p class="vide">Aucun extrait daté n&#x27;a été repris sur cette page.</p>
+          <p class="resume">Depuis 1972, la Société Suisse de Médecine Intensive (SSMI) s’engage en faveur d&#x27;un traitement de qualité pour les patients et les patientes en état critique pris en charge dans les hôpitaux suisses.</p><p class="lien-date"><a href="https://sgi-ssmi.ch/fr/a-propos-de-nous">https://sgi-ssmi.ch/fr/a-propos-de-nous</a> · <time>17.11.2026</time></p>
+          <details class="technique"><summary>Détails techniques</summary><p>HTTP 200 · empreinte 344fc76d74f89c26f0f29103007c20ee4788ea14eece3f214cf146dbba2af619 · dernière détection 17.11.2026 14:39 (Europe/Zurich)</p></details>
+          <p class="vide">Aucun extrait daté n&#x27;a été repris sur cette page.</p>
         </article>
         <article class="source ok" id="ssmus">
           <header>
             <h3>SSMUS / SGNOR · médecine d&#x27;urgence et de sauvetage</h3>
             <span class="badge badge-ok">source active</span>
           </header>
-          <p class="url"><a href="https://sgnor.ch/fr/">https://sgnor.ch/fr/</a>
-             · HTTP 200</p>
-          <p class="meta">Dernière détection : 17.11.2026 14:39 (Europe/Zurich) · empreinte 53f79c383f2d.</p><ul class='items'><li><a href="https://sgnor.ch/fr/formation-postgraduee-et-continue">Nos thèmes</a> </li><li><a href="https://sgnor.ch/fr/">Actualités et offres d&#x27;emploi</a> </li></ul>
+          <p class="resume">Découvrez l&#x27;avenir de la médecine d&#x27;urgence avec la SSMUS : votre guide pour l&#x27;expertise, la formation continue et l&#x27;innovation dans le domaine de la médecine d&#x27;urgence et de sauvetage en Suisse.</p><p class="lien-date"><a href="https://sgnor.ch/fr/">https://sgnor.ch/fr/</a> · <time>17.11.2026</time></p>
+          <details class="technique"><summary>Détails techniques</summary><p>HTTP 200 · empreinte 53f79c383f2d4aac62a8c76a4465016f31a6318806ef3f7fb43465108fe266e4 · dernière détection 17.11.2026 14:39 (Europe/Zurich)</p></details>
+          <ul class='items'><li><p class="resume">La SSMUS gère les titres de formation postgrade suivants AFC Médecine d&#x27;urgence préhospitalière / médecin d&#x27;urgence (SSMUS) Formation approfondie interdisciplinaire en Médecine d&#x27;Urgence Hospitalière SSMUS</p><p class="lien-date"><a href="https://sgnor.ch/fr/formation-postgraduee-et-continue">Nos thèmes</a></p></li></ul>
         </article>
         <article class="source ko" id="palliative-ch">
           <header>
             <h3>palliative.ch · médecine palliative</h3>
             <span class="badge badge-off">source non accessible</span>
           </header>
-          <p class="url"><a href="https://www.palliative.ch/fr/">https://www.palliative.ch/fr/</a>
-             · HTTP 200</p>
+          <p class="lien-date"><a href="https://www.palliative.ch/fr/">https://www.palliative.ch/fr/</a></p>
+          <details class="technique"><summary>Détails techniques</summary><p>HTTP 200</p></details>
           <p class="motif">La page ne livre qu&#x27;un écran d&#x27;attente ou une protection anti-robot.</p><p class="vide">Aucun extrait daté n&#x27;a été repris sur cette page.</p>
         </article>
         <article class="source ok" id="mfe">
@@ -383,57 +395,58 @@ footer.pied a { color:var(--calme); }
             <h3>mfe · médecins de famille et de l&#x27;enfance</h3>
             <span class="badge badge-ok">source active</span>
           </header>
-          <p class="url"><a href="https://www.medecinsdefamille.ch/">https://www.medecinsdefamille.ch/</a>
-             · HTTP 200</p>
-          <p class="meta">Dernière détection : 17.11.2026 14:39 (Europe/Zurich) · empreinte 1afddc1520e5.</p><ul class='items'><li><a href="https://www.medecinsdefamille.ch/actualites/detail/tardoc-der-bundesrat-macht-druck-hausaerztinnen-wollen-endlich-resultate">TARDOC : le Conseil fédéral met la pression – les médecins de famille attendent enfin des résultats</a> <p class="extrait">mfe Médecins de famille et de l’enfance Suisse salue le fait que le Conseil fédéral exige la revalorisation, attendue depuis trop longtemps, de la…</p></li><li><a href="https://www.medecinsdefamille.ch/actualites/detail/drei-verbaende-eine-stimme-das-neue-journal-fuer-allgemeine-innere-medizin-erscheint-am-8-oktober-2026">Trois associations, une seule voix : le nouveau « Journal de médecine interne générale » paraîtra le 8 octobre 2026</a> <time datetime="2026-10-08">08.10.2026</time><p class="extrait">Après deux ans de préparation, le moment est enfin venu : le 8 octobre paraîtra le premier numéro du nouveau « Journal de médecine interne générale »…</p></li><li><a href="https://www.medecinsdefamille.ch/actualites/detail/rahmenbedingungen-verbessern-statt-ausbildung-kuerzen">Améliorer les conditions-cadres plutôt que raccourcir les études</a> <p class="extrait">mfe Médecins de famille et de l’enfance Suisse, la Société Suisse de Médecine Interne Générale (SSMIG) et pédiatrie suisse s’opposent fermement à un…</p></li><li><a href="https://www.mfe-actu.ch/fr">Perspectives pour les soins de base</a> <p class="extrait">Le magazine en ligne de mfe propose trois fois par an des analyses approfondies sur les soins médicaux de base en Suisse.</p></li><li><a href="https://www.medecinsdefamille.ch/">Politique</a> <p class="extrait">En tant qu’association professionnelle engagée sur le plan politique, nous œuvrons quotidiennement pour garantir l&#x27;accès aux soins médicaux de base. Notre objectif est qu&#x27;à l&#x27;avenir, chaque personne en Suisse puisse bénéficier d&#x27;un système de santé de qualité.</p></li><li><a href="https://www.medecinsdefamille.ch/">Politique de santé</a> <p class="extrait">Als politischer Berufsverband der Haus- und Kinderärzte engagiert sich der mfe für eine Sicherstellung der Grundversorgung.</p></li><li><a href="https://www.medecinsdefamille.ch/">Consultations</a> </li><li><a href="https://www.medecinsdefamille.ch/">Médecine de famille</a> </li></ul>
+          <p class="resume">Réservez dès aujourd&#x27;hui votre formation TARDOC avec un kit pratique exclusif. mfe Médecins de famille et de l’enfance Suisse salue le fait que le Conseil fédéral exige la revalorisation, attendue depuis trop longtemps, de la…</p><p class="lien-date"><a href="https://www.medecinsdefamille.ch/">https://www.medecinsdefamille.ch/</a> · <time>17.11.2026</time></p>
+          <details class="technique"><summary>Détails techniques</summary><p>HTTP 200 · empreinte 1afddc1520e56dda105ae208152545fd54a4f1d32d0dafd1f5e99c05e2321a60 · dernière détection 17.11.2026 14:39 (Europe/Zurich)</p></details>
+          <ul class='items'><li><p class="resume">mfe Médecins de famille et de l’enfance Suisse salue le fait que le Conseil fédéral exige la revalorisation, attendue depuis trop longtemps, de la médecine de famille. La direction est la bonne. Mais la patience des médecins de famille et de l’enfance est à bout.</p><p class="lien-date"><a href="https://www.medecinsdefamille.ch/actualites/detail/tardoc-der-bundesrat-macht-druck-hausaerztinnen-wollen-endlich-resultate">TARDOC : le Conseil fédéral met la pression – les médecins de famille attendent enfin des résultats</a></p></li><li><p class="resume">Après deux ans de préparation, le moment est enfin venu : le 8 octobre paraîtra le premier numéro du nouveau « Journal de médecine interne générale » (JMIG).</p><p class="lien-date"><a href="https://www.medecinsdefamille.ch/actualites/detail/drei-verbaende-eine-stimme-das-neue-journal-fuer-allgemeine-innere-medizin-erscheint-am-8-oktober-2026">Trois associations, une seule voix : le nouveau « Journal de médecine interne générale » paraîtra le 8 octobre 2026</a> · <time>08.10.2026</time></p></li><li><p class="resume">mfe Médecins de famille et de l’enfance Suisse, la Société Suisse de Médecine Interne Générale (SSMIG) et pédiatrie suisse s’opposent fermement à un raccourcissement des études de médecine pour les futurs médecins de premier recours.</p><p class="lien-date"><a href="https://www.medecinsdefamille.ch/actualites/detail/rahmenbedingungen-verbessern-statt-ausbildung-kuerzen">Améliorer les conditions-cadres plutôt que raccourcir les études</a></p></li><li><p class="resume">Édition 01/2026 - Actu, dem Magazine en ligne de mfe Médecins de famille et de l’enfance Suisse. Jetzt weiterlesen auf der Website oder das Magazin als PDF oder als E-Book herunterladen</p><p class="lien-date"><a href="https://www.mfe-actu.ch/fr">Perspectives pour les soins de base</a></p></li><li><p class="resume">En tant qu’association professionnelle engagée sur le plan politique, nous œuvrons quotidiennement pour garantir l&#x27;accès aux soins médicaux de base. Notre objectif est qu&#x27;à l&#x27;avenir, chaque personne en Suisse puisse bénéficier d&#x27;un système de santé de qualité.</p><p class="lien-date"><a href="https://www.medecinsdefamille.ch/">Politique</a></p></li><li><p class="resume">Als politischer Berufsverband der Haus- und Kinderärzte engagiert sich der mfe für eine Sicherstellung der Grundversorgung.</p><p class="lien-date"><a href="https://www.medecinsdefamille.ch/">Politique de santé</a></p></li></ul>
         </article>
         <article class="source ok" id="smartermedicine">
           <header>
             <h3>smarter medicine · listes Top 5</h3>
             <span class="badge badge-ok">source active</span>
           </header>
-          <p class="url"><a href="https://www.smartermedicine.ch/fr/page-daccueil">https://www.smartermedicine.ch/fr/page-daccueil</a>
-             · HTTP 200</p>
-          <p class="meta">Dernière détection : 17.11.2026 14:39 (Europe/Zurich) · empreinte 8afaa8d6de8d.</p><ul class='items'><li><a href="https://www.smartermedicine.ch/fr/page-daccueil">Actualités</a> <p class="extrait">11. novembre 2026</p></li><li><a href="https://www.smartermedicine.ch/fr/ueber-uns/partenaires">Une étape importante: le canton du Tessin devient le 50e partenaire de smarter medicine</a> </li><li><a href="https://www.smartermedicine.ch/fr/ueber-uns/partenaires">L’Association suisse des ergothérapeutes (ASE) et smarter medicine s’associent.</a> </li><li><a href="https://www.smartermedicine.ch/fr/offre/financement-de-la-recherche">Déposez dès maintenant votre candidature pour le Research Grant smarter medicine 2026</a> </li><li><a href="https://www.smartermedicine.ch/fr/ueber-uns/partenaires">Le Centre Hospitalier du Valais Romand rejoint nos rangs</a> </li><li><a href="https://www.smartermedicine.ch/fr/liste-top-5/translate-to-franzoesisch-spitex-pflege-2026">smarter medicine: liste Top 5 pour les soins à domicile</a> </li><li><a href="https://www.smartermedicine.ch/fr/liste-top-5/translate-to-franzoesisch-kopfweh">La Société Suisse des Céphalées publie une liste top 5</a> </li><li><a href="https://www.smartermedicine.ch/fr/page-daccueil">L’association de soutien est composée des organisations suivantes:</a> </li></ul>
-        </article>
+          <p class="resume">smarter medicine s’engage contre la surmédicalisation et les soins inappropriés dans la médecine.</p><p class="lien-date"><a href="https://www.smartermedicine.ch/fr/page-daccueil">https://www.smartermedicine.ch/fr/page-daccueil</a> · <time>17.11.2026</time></p>
+          <details class="technique"><summary>Détails techniques</summary><p>HTTP 200 · empreinte 8afaa8d6de8d41251eea27835371888a3561da906b6de16d16e4438860873e1c · dernière détection 17.11.2026 14:39 (Europe/Zurich)</p></details>
+          <ul class='items'><li><p class="resume">Nos partenaires s’engagent à soutenir les objectifs de smarter medicine.</p><p class="lien-date"><a href="https://www.smartermedicine.ch/fr/ueber-uns/partenaires">Une étape importante: le canton du Tessin devient le 50e partenaire de smarter medicine</a></p></li><li><p class="resume">Nos partenaires s’engagent à soutenir les objectifs de smarter medicine.</p><p class="lien-date"><a href="https://www.smartermedicine.ch/fr/ueber-uns/partenaires">L’Association suisse des ergothérapeutes (ASE) et smarter medicine s’associent.</a></p></li><li><p class="resume">Financement de la recherche - Soutien de projets ayant des effets positifs sur la surmédicalisation et les soins inappropriés.</p><p class="lien-date"><a href="https://www.smartermedicine.ch/fr/offre/financement-de-la-recherche">Déposez dès maintenant votre candidature pour le Research Grant smarter medicine 2026</a></p></li><li><p class="resume">Nos partenaires s’engagent à soutenir les objectifs de smarter medicine.</p><p class="lien-date"><a href="https://www.smartermedicine.ch/fr/ueber-uns/partenaires">Le Centre Hospitalier du Valais Romand rejoint nos rangs</a></p></li><li><p class="resume">La Société scientifique Soins à domicile faisant partie de l’Association suisse pour les sciences infirmières (APSI) fait les cinq recommandations suivantes:</p><p class="lien-date"><a href="https://www.smartermedicine.ch/fr/liste-top-5/translate-to-franzoesisch-spitex-pflege-2026">smarter medicine: liste Top 5 pour les soins à domicile</a></p></li><li><p class="resume">La Société Suisse des Céphalées fait les cinq recommandations suivantes: 1) Ne pas répéter l’imagerie cérébrale si le phénotype des céphalées n’a pas changé. Intuitivement, de nombreuses personnes associent la douleur à des prodromes lésionnels ou reflétant une lésion tissulaire établie [14].</p><p class="lien-date"><a href="https://www.smartermedicine.ch/fr/liste-top-5/translate-to-franzoesisch-kopfweh">La Société Suisse des Céphalées publie une liste top 5</a></p></li></ul>
+        </article></div>
       <h2>Autres veilles utiles</h2>
-      <p>Sommaires de la Revue Médicale Suisse et du Swiss Medical Weekly, et page d'actualité de Swissmedic, lorsque ces pages répondent.</p>
-      
+      <p>Sommaires de la Revue Médicale Suisse et du Swiss Medical Weekly, et page d'actualité de Swissmedic, lorsque ces pages répondent. Le résumé de chaque article lié précède le lien.</p>
+      <div id="autres-sources">
         <article class="source ok" id="swissmedic-actualite">
           <header>
             <h3>Swissmedic · actualité</h3>
             <span class="badge badge-ok">source active</span>
           </header>
-          <p class="url"><a href="https://www.swissmedic.ch/swissmedic/fr/home/news.html">https://www.swissmedic.ch/swissmedic/fr/home/news.html</a>
-             · HTTP 200</p>
-          <p class="meta">Dernière détection : 17.11.2026 14:39 (Europe/Zurich) · empreinte 53fd4b0d2341.</p><ul class='items'><li><a href="https://www.swissmedic.ch/swissmedic/fr/home/news.html">Navigation directe: actualités, bases juridiques, contact</a> </li><li><a href="https://www.swissmedic.ch/swissmedic/de/home/news.html">Actualité</a> </li><li><a href="https://www.swissmedic.ch/swissmedic/fr/home/contacts/contact.html">Service navigation</a> </li><li><a href="https://www.swissmedic.ch/swissmedic/fr/home/news.html">Schweizerisches Heilmittelinstitut Institut suisse des produits thérapeutiques Istituto svizzero per gli agenti terapeutici Swiss Agency for Therapeutic Products</a> </li><li><a href="https://www.swissmedic.ch/swissmedic/fr/home/news.html">Recherche</a> </li><li><a href="https://www.swissmedic.ch/swissmedic/fr/home.html">Swissmedic</a> </li><li><a href="https://www.swissmedic.ch/swissmedic/fr/home/news.html">Recherche</a> </li><li><a href="https://www.swissmedic.ch/swissmedic/fr/home.html">Breadcrumb</a> <p class="extrait">Context sidebar</p></li></ul>
+          <p class="resume">Pandémie de maladie à coronavirus (COVID-19)</p><p class="lien-date"><a href="https://www.swissmedic.ch/swissmedic/fr/home/news.html">https://www.swissmedic.ch/swissmedic/fr/home/news.html</a> · <time>17.11.2026</time></p>
+          <details class="technique"><summary>Détails techniques</summary><p>HTTP 200 · empreinte 53fd4b0d23411c95f0864616bad2bb829adb7b939c4651a1d2bb8ce3a8105b6c · dernière détection 17.11.2026 14:39 (Europe/Zurich)</p></details>
+          <ul class='items'><li><p class="resume">Vous avez des questions générales, qui ne s&#x27;adressent à aucune division de Swissmedic ou qui ne portent sur aucune préparation en particulier ? Il vous suffit de prendre contact avec notre division Communication.</p><p class="lien-date"><a href="https://www.swissmedic.ch/swissmedic/fr/home/contacts/contact.html">Service navigation</a></p></li><li><p class="resume">Swissmedic est l’autorité d’autorisation et de surveillance des produits thérapeutiques.</p><p class="lien-date"><a href="https://www.swissmedic.ch/swissmedic/fr/home.html">Swissmedic</a></p></li><li><p class="resume">Différentes réglementations pour différentes catégories</p><p class="lien-date"><a href="https://www.swissmedic.ch/swissmedic/fr/home/news/focus.html">Sous la loupe</a></p></li><li><p class="resume">Informations relatives au nouveau coronavirus (SARS-CoV-2)</p><p class="lien-date"><a href="https://www.swissmedic.ch/swissmedic/fr/home/news/coronavirus-covid-19.html">Pandémie de maladie à coronavirus (COVID-19)</a></p></li><li><p class="resume">La révision récente de la loi et les adaptations proposées désormais dans le droit d’exécution poursuivent notamment les objectifs suivants:</p><p class="lien-date"><a href="https://www.swissmedic.ch/swissmedic/fr/home/news/specials.html">Specials</a></p></li><li><p class="resume">HPC – Credelio ad us. vet., comprimés à croquer pour chats Prolongation du délai de publication du matériel d&#x27;information exigé par l’autorité compétente sur la plateforme électronique de publication Drogues de synthèse : le DFI place de nouvelles substances psychoactives sous contrôle</p><p class="lien-date"><a href="https://www.swissmedic.ch/swissmedic/fr/home/news/updates.html">Nouveautés</a></p></li></ul>
         </article>
         <article class="source ok" id="revmed">
           <header>
             <h3>Revue Médicale Suisse · sommaire</h3>
             <span class="badge badge-ok">source active</span>
           </header>
-          <p class="url"><a href="https://www.revmed.ch/">https://www.revmed.ch/</a>
-             · HTTP 200</p>
-          <p class="meta">Dernière détection : 17.11.2026 14:39 (Europe/Zurich) · empreinte 373d214aa88e.</p><ul class='items'><li><a href="https://www.revmed.ch/">Numéro Actuel De la Rms 983</a> <time datetime="2026-11-11">11.11.2026</time></li><li><a href="https://www.revmed.ch/">Pour ne pas tomber de Charybde en Scylla</a> <p class="extrait">Gregory Berra et Benoit Lechartier</p></li><li><a href="https://www.revmed.ch/">Asthme, pollution atmosphérique et changement climatique</a> <p class="extrait">Linda Benabdelkader, Julia Langhart, Manon Grandbastien et Florian Charbonnier</p></li><li><a href="https://www.revmed.ch/">Transition pédiatrie-adulte en pneumologie</a> <p class="extrait">Soumaya Valiton, Iona Barrelet, Anne Mornand, Anne-Laure Hariel, Hélène Gallienne, Valerie Durand, Isabelle Ruchonnet-Métrailler, Cindy Soroken, Aileen-Margaret Kharat</p></li><li><a href="https://www.revmed.ch/">Le malaise vagal</a> </li><li><a href="https://www.revmed.ch/revue-medicale-suisse/2026/revue-medicale-suisse-983/interpretation-des-explorations-fonctionnelles-respiratoires-en-2026">Interprétation des explorations fonctionnelles respiratoires en 2026</a> </li><li><a href="https://www.revmed.ch/revue-medicale-suisse/2026/revue-medicale-suisse-983/continuum-tuberculeux-nouvelles-definitions-et-implications-cliniques">Continuum tuberculeux : nouvelles définitions et implications cliniques</a> </li><li><a href="https://www.revmed.ch/">Recevoir la revue</a> <p class="extrait">Si vous êtes membres de la SSMIG, MFE ou KHM, il suffit de vous connecter ou activer votre compte pour accéder aux contenus du Journal de Médecine Interne Générale. Si vous n&#x27;êtes pas membres, vous pouvez souscrire à un abonnement en cliquant sur le lien ci-dessous.</p></li></ul>
+          <p class="resume">La Revue Médicale Suisse est la revue de formation continue de référence pour les médecins et les spécialistes des diverses disciplines médicales.</p><p class="lien-date"><a href="https://www.revmed.ch/">https://www.revmed.ch/</a> · <time>17.11.2026</time></p>
+          <details class="technique"><summary>Détails techniques</summary><p>HTTP 200 · empreinte 373d214aa88e97bb32bd33910d038be6acf8587784fd3e254150be972b868c12 · dernière détection 17.11.2026 14:39 (Europe/Zurich)</p></details>
+          <ul class='items'><li><p class="resume">Linda Benabdelkader, Julia Langhart, Manon Grandbastien et Florian Charbonnier</p><p class="lien-date"><a href="https://www.revmed.ch/">Asthme, pollution atmosphérique et changement climatique</a></p></li><li><p class="resume">Soumaya Valiton, Iona Barrelet, Anne Mornand, Anne-Laure Hariel, Hélène Gallienne, Valerie Durand, Isabelle Ruchonnet-Métrailler, Cindy Soroken, Aileen-Margaret Kharat</p><p class="lien-date"><a href="https://www.revmed.ch/">Transition pédiatrie-adulte en pneumologie</a></p></li><li><p class="resume">Les explorations fonctionnelles respiratoires (EFR) constituent la base du diagnostic et du pronostic des maladies pulmonaires. La mise à jour de 2022 d...</p><p class="lien-date"><a href="https://www.revmed.ch/revue-medicale-suisse/2026/revue-medicale-suisse-983/interpretation-des-explorations-fonctionnelles-respiratoires-en-2026">Interprétation des explorations fonctionnelles respiratoires en 2026</a></p></li><li><p class="resume">En 2026, la tuberculose reste un enjeu majeur de santé publique mondiale et la maladie infectieuse la plus meurtrière. Le concept de continuum de la tub...</p><p class="lien-date"><a href="https://www.revmed.ch/revue-medicale-suisse/2026/revue-medicale-suisse-983/continuum-tuberculeux-nouvelles-definitions-et-implications-cliniques">Continuum tuberculeux : nouvelles définitions et implications cliniques</a></p></li><li><p class="resume">Si vous êtes membres de la SSMIG, MFE ou KHM, il suffit de vous connecter ou activer votre compte pour accéder aux contenus du Journal de Médecine Interne Générale. Si vous n&#x27;êtes pas membres, vous pouvez souscrire à un abonnement en cliquant sur le lien ci-dessous.</p><p class="lien-date"><a href="https://www.revmed.ch/">Recevoir la revue</a></p></li></ul>
         </article>
         <article class="source ok" id="smw">
           <header>
             <h3>Swiss Medical Weekly · sommaire</h3>
             <span class="badge badge-ok">source active</span>
           </header>
-          <p class="url"><a href="https://smw.ch/index.php/smw">https://smw.ch/index.php/smw</a>
-             · HTTP 200</p>
-          <p class="meta">Dernière détection : 17.11.2026 14:42 (Europe/Zurich) · empreinte ad5211bfb9ec.</p><ul class='items'><li><a href="https://smw.ch/index.php/smw">Volume 156, No. 11</a> <p class="extrait">Published November 1, 2026</p></li><li><a href="https://smw.ch/index.php/smw">Viewpoint</a> <p class="extrait">Stefanie Lehner , Thierry Chevalley, Michael Dietrich , Sigrid Jehle-Kunz, Gregor Freystaetter (Author)</p></li><li><a href="https://smw.ch/index.php/smw">Medical guidelines</a> <p class="extrait">Léo König, Beckey Trinh, Barbara Lucchini, Noela Vontobel, Sarah Sigrist, Lia Bally, Philipp Schuetz, Sandrina Bervini, Tinh-Hai Collet, Claudia Cavelti-Weder (Author)</p></li><li><a href="https://smw.ch/index.php/smw">Original article</a> <p class="extrait">Flurina Suter, Cornelia Richter, Sarah R. Haile, Katharina Staehelin, Matthias Lorez (Author)</p></li><li><a href="https://smw.ch/index.php/smw">Clinical reasoning: Case report</a> <p class="extrait">Alan Costa, Reto Lienhard, Florian Tagini, Gilbert Greub, Philippe Temperli, Aline Sedda, Oriane Aebischer, Oscar Marchetti (Author)</p></li><li><a href="https://smw.ch/index.php/smw">Clinical reasoning: Clinical images</a> <p class="extrait">Varvara Chatzipetrou , Sabina Berezowska, Frederic Lamoth, Pierre-Yves Bochud (Author)</p></li><li><a href="https://smw.ch/index.php/smw">Supplement</a> <p class="extrait">Swiss Society for Anaesthesiology and Perioperative Medicine, Swiss Association for Anaesthesia Care (Author)</p></li></ul>
-        </article>
+          <p class="resume">Stefanie Lehner , Thierry Chevalley, Michael Dietrich , Sigrid Jehle-Kunz, Gregor Freystaetter (Author) Valentine Ballmer, Karin Zürcher, Luc Lebon (Author)</p><p class="lien-date"><a href="https://smw.ch/index.php/smw">https://smw.ch/index.php/smw</a> · <time>17.11.2026</time></p>
+          <details class="technique"><summary>Détails techniques</summary><p>HTTP 200 · empreinte ad5211bfb9ecea6fcae884f32c183a2e3a454836d69e4fcec638fb067284df7f · dernière détection 17.11.2026 14:42 (Europe/Zurich)</p></details>
+          <ul class='items'><li><p class="resume">Stefanie Lehner , Thierry Chevalley, Michael Dietrich , Sigrid Jehle-Kunz, Gregor Freystaetter (Author)</p><p class="lien-date"><a href="https://smw.ch/index.php/smw">Viewpoint</a></p></li><li><p class="resume">Léo König, Beckey Trinh, Barbara Lucchini, Noela Vontobel, Sarah Sigrist, Lia Bally, Philipp Schuetz, Sandrina Bervini, Tinh-Hai Collet, Claudia Cavelti-Weder (Author)</p><p class="lien-date"><a href="https://smw.ch/index.php/smw">Medical guidelines</a></p></li><li><p class="resume">Flurina Suter, Cornelia Richter, Sarah R. Haile, Katharina Staehelin, Matthias Lorez (Author)</p><p class="lien-date"><a href="https://smw.ch/index.php/smw">Original article</a></p></li><li><p class="resume">Alan Costa, Reto Lienhard, Florian Tagini, Gilbert Greub, Philippe Temperli, Aline Sedda, Oriane Aebischer, Oscar Marchetti (Author)</p><p class="lien-date"><a href="https://smw.ch/index.php/smw">Clinical reasoning: Case report</a></p></li><li><p class="resume">Varvara Chatzipetrou , Sabina Berezowska, Frederic Lamoth, Pierre-Yves Bochud (Author)</p><p class="lien-date"><a href="https://smw.ch/index.php/smw">Clinical reasoning: Clinical images</a></p></li><li><p class="resume">Swiss Society for Anaesthesiology and Perioperative Medicine, Swiss Association for Anaesthesia Care (Author)</p><p class="lien-date"><a href="https://smw.ch/index.php/smw">Supplement</a></p></li></ul>
+        </article></div>
     </section>
   </main>
   <footer class="pied">
-    <p>Cette veille ne coûte rien : un workflow GitHub Actions, public, tourne une fois par jour, sans API payante et sans modèle de langage. Les données s'écrivent sur la branche <code>veille-etat</code>, pas sur <code>main</code>.</p>
+    <p>Cette veille ne coûte rien : un workflow GitHub Actions, public, tourne une fois par jour, sans API payante et sans modèle de langage. Il n'écrit que sur la branche <code>veille-etat</code>, jamais sur <code>main</code>. À chaque ouverture, la page recharge ces données (avec un cache-buster) ; si le chargement échoue, elle affiche la dernière version embarquée et le signale.</p>
     <p>Elle prolonge la veille Argos déjà présente (<code>veille/veille.py</code>, <code>veille/sources.yml</code>, workflows ve1 et ve2) au lieu de la remplacer.</p>
   </footer>
   <script>
 (function(){
+  const DONNEES_URL="https://raw.githubusercontent.com/vialdjoukang-spec/organigramme-examen-federal/veille-etat/veille/pages/donnees.json";
   const onglets=[...document.querySelectorAll('.onglets button')];
   const panneaux=[...document.querySelectorAll('.panneau')];
   function activer(id){
@@ -445,15 +458,171 @@ footer.pied a { color:var(--calme); }
   const hash=(location.hash||'#examen').replace('#','');
   const map={examen:'panneau-examen', sante:'panneau-sante', societes:'panneau-societes'};
   activer(map[hash]||'panneau-examen');
-  const btn=document.getElementById('btn-defile');
-  const liste=document.getElementById('liste-sante');
-  if(btn && liste){
-    btn.addEventListener('click',()=>{
-      const replie=liste.classList.toggle('replie');
-      btn.setAttribute('aria-expanded', String(!replie));
-      btn.textContent=replie ? 'Déplier la liste des 7 derniers jours' : 'Replier la liste';
+  function brancherListe(){
+    const btn=document.getElementById('btn-defile');
+    const liste=document.getElementById('liste-sante');
+    if(btn && liste && !btn.dataset.lie){
+      btn.dataset.lie="1";
+      btn.addEventListener('click',()=>{
+        const replie=liste.classList.toggle('replie');
+        btn.setAttribute('aria-expanded', String(!replie));
+        btn.textContent=replie ? 'Déplier la liste des 7 derniers jours' : 'Replier la liste';
+      });
+    }
+  }
+  brancherListe();
+
+  function esc(s){
+    return String(s==null?"":s).replace(/[&<>"']/g,function(c){
+      return {"&":"&amp;","<":"&lt;",">":"&gt;",""":"&quot;","'":"&#39;"}[c];
     });
   }
+  function dateCourte(iso){
+    if(!iso) return "";
+    var m=String(iso).match(/^([0-9]{4})-([0-9]{2})-([0-9]{2})/);
+    if(m) return m[3]+"."+m[2]+"."+m[1];
+    try{
+      var d=new Date(iso);
+      if(!isNaN(d)){
+        var dd=String(d.getDate()).padStart(2,"0");
+        var mm=String(d.getMonth()+1).padStart(2,"0");
+        return dd+"."+mm+"."+d.getFullYear();
+      }
+    }catch(e){}
+    return String(iso);
+  }
+  function dateLongue(iso){
+    if(!iso) return "";
+    var s=String(iso);
+    var m=s.match(/^([0-9]{4})-([0-9]{2})-([0-9]{2})T([0-9]{2}):([0-9]{2})/);
+    if(m) return m[3]+"."+m[2]+"."+m[1]+" "+m[4]+":"+m[5]+" (Europe/Zurich)";
+    return s;
+  }
+  function badge(src){
+    if(src.accessible && src.changee) return '<span class="badge badge-change">page modifiée</span>';
+    if(src.accessible) return '<span class="badge badge-ok">source active</span>';
+    return '<span class="badge badge-off">source non accessible</span>';
+  }
+  function blocResume(texte, vide){
+    if(texte) return '<p class="resume">'+esc(texte)+'</p>';
+    if(vide) return '<p class="resume vide-resume">Aucun résumé extractif n\'a pu être repris sur cette page.</p>';
+    return "";
+  }
+  function blocLienDate(href, libelle, date){
+    var d=date ? ' · <time>'+esc(date)+'</time>' : "";
+    return '<p class="lien-date"><a href="'+esc(href)+'">'+esc(libelle)+'</a>'+d+'</p>';
+  }
+  function detailsTechniques(src){
+    var morceaux=[];
+    if(src.http) morceaux.push("HTTP "+src.http);
+    if(src.empreinte) morceaux.push("empreinte "+src.empreinte);
+    if(src.date_detection) morceaux.push("dernière détection "+dateLongue(src.date_detection));
+    if(!morceaux.length) return "";
+    return '<details class="technique"><summary>Détails techniques</summary><p>'+esc(morceaux.join(" · "))+'</p></details>';
+  }
+  function listeItems(items, vide){
+    if(!items || !items.length) return '<p class="vide">'+esc(vide)+'</p>';
+    return "<ul class='items'>"+items.map(function(it){
+      var date=it.date_lisible||it.date||"";
+      var titre=it.titre||"(sans titre)";
+      var href=it.lien||"#";
+      var resume=blocResume(it.extrait);
+      if(!resume) resume='<p class="resume vide-resume">Aucun résumé extractif n\'a pu être repris sur la page liée.</p>';
+      return '<li>'+resume+blocLienDate(href,titre,date)+'</li>';
+    }).join("")+"</ul>";
+  }
+  function blocSource(src, avecItems){
+    var motif=(src.motif && !src.accessible) ? '<p class="motif">'+esc(src.motif)+'</p>' : "";
+    var resume=blocResume(src.resume, !!src.accessible);
+    var cle=src.contenu_cle ? '<p class="contenu-cle"><span class="libelle">Contenu clé.</span> '+esc(src.contenu_cle)+'</p>' : "";
+    var chg=src.ce_qui_a_change ? '<p class="changement"><span class="libelle">Ce qui a changé.</span> '+esc(src.ce_qui_a_change)+'</p>' : "";
+    var date="";
+    if(src.date_detection) date=dateCourte(src.date_detection);
+    var items=avecItems ? listeItems(src.items||[], "Aucun extrait daté n'a été repris sur cette page.") : "";
+    return '<article class="source '+(src.accessible?'ok':'ko')+'" id="'+esc(src.id)+'">'
+      +'<header><h3>'+esc(src.nom)+'</h3>'+badge(src)+'</header>'
+      +resume+cle+chg+blocLienDate(src.url||"#", src.url||"", date)
+      +detailsTechniques(src)+motif+items+'</article>';
+  }
+  function listeSante(donnees){
+    var items=[];
+    (donnees.sante||[]).forEach(function(src){
+      (src.items||[]).forEach(function(it){ items.push({src:src,it:it}); });
+    });
+    items.sort(function(a,b){ return String(b.it.date||"").localeCompare(String(a.it.date||"")); });
+    if(!items.length){
+      return {n:0, html:'<p class="vide">Aucune actualité datée des 7 derniers jours n\'a été reprise sur les sources accessibles.</p>'};
+    }
+    var html='<ul class="defilable" id="liste-sante">'+items.map(function(pair){
+      var it=pair.it, src=pair.src;
+      var date=it.date_lisible||it.date||"";
+      var titre=it.titre||"(sans titre)";
+      var href=it.lien||src.url;
+      var resume=blocResume(it.extrait);
+      if(!resume) resume='<p class="resume vide-resume">Aucun résumé extractif n\'a pu être repris sur la page liée.</p>';
+      return '<li>'+resume+'<p class="lien-date"><a href="'+esc(href)+'">'+esc(titre)+'</a>'
+        +(date?' · <time>'+esc(date)+'</time>':'')
+        +' · <span class="src">'+esc(src.nom)+'</span></p></li>';
+    }).join("")+"</ul>";
+    return {n:items.length, html:html};
+  }
+  function compteSources(donnees){
+    var tous=[].concat(donnees.examen||[], donnees.sante||[], donnees.societes||[], donnees.autres||[]);
+    var nAct=tous.filter(function(s){ return s.accessible; }).length;
+    return {nAct:nAct, nTot:tous.length};
+  }
+  function appliquer(donnees){
+    var fen=donnees.fenetre_sante||{};
+    var c=compteSources(donnees);
+    var dateEl=document.getElementById("veille-date-collecte");
+    if(dateEl){
+      dateEl.textContent="Collecte du "+(donnees.collectee_lisible||"")+". "
+        +c.nAct+" source"+(c.nAct===1?"":"s")+" active"+(c.nAct===1?"":"s")+" sur "+c.nTot
+        +". Fenêtre des actualités : du "+(fen.debut||"")+" au "+(fen.fin||"")+".";
+    }
+    var ex=document.getElementById("examen-sources");
+    if(ex) ex.innerHTML=(donnees.examen||[]).map(function(s){ return blocSource(s,false); }).join("");
+    var sante=listeSante(donnees);
+    var compte=document.getElementById("sante-compte");
+    if(compte) compte.textContent=sante.n+" actualité"+(sante.n===1?"":"s")+" dans les 7 derniers jours.";
+    var wrap=document.querySelector(".defilable-wrap");
+    if(wrap){
+      var ancienne=document.getElementById("liste-sante");
+      var vide=wrap.querySelector("p.vide");
+      var cible=ancienne||vide;
+      if(cible) cible.outerHTML=sante.html;
+      else wrap.insertAdjacentHTML("beforeend", sante.html);
+      var btn=document.getElementById("btn-defile");
+      if(btn){ btn.dataset.lie=""; btn.setAttribute("aria-expanded","true"); btn.textContent="Replier la liste"; }
+      brancherListe();
+    }
+    var ss=document.getElementById("sante-sources");
+    if(ss) ss.innerHTML=(donnees.sante||[]).map(function(s){ return blocSource(s,false); }).join("");
+    var soc=document.getElementById("societes-sources");
+    if(soc) soc.innerHTML=(donnees.societes||[]).map(function(s){ return blocSource(s,true); }).join("");
+    var au=document.getElementById("autres-sources");
+    if(au) au.innerHTML=(donnees.autres||[]).map(function(s){ return blocSource(s,true); }).join("");
+  }
+  function signaler(ok, message){
+    var el=document.getElementById("veille-statut");
+    if(!el) return;
+    el.hidden=!message;
+    el.className="veille-statut"+(ok?" ok":" alerte");
+    el.textContent=message||"";
+  }
+  fetch(DONNEES_URL+"?t="+Date.now(), {cache:"no-store"})
+    .then(function(r){
+      if(!r.ok) throw new Error("HTTP "+r.status);
+      return r.json();
+    })
+    .then(function(d){
+      if(!d || !d.collectee_lisible || !Array.isArray(d.examen)) throw new Error("format");
+      appliquer(d);
+      signaler(true, "");
+    })
+    .catch(function(){
+      signaler(false, "Le chargement de la dernière collecte a échoué ; voici la dernière version embarquée.");
+    });
 })();
 </script>
 </body>
