@@ -1,15 +1,30 @@
 [
   {
     "code": "G7",
-    "type": "M",
+    "type": "A",
     "aim": "Repérer une interaction avec le fézolinétant avant sa prescription",
     "case": "Une femme souhaite un traitement non hormonal de ses bouffées. Son ordonnance comporte lévothyroxine, carbonate de calcium, fluvoxamine et paracétamol occasionnel. Le médecin vérifie si le fézolinétant serait compatible avec les traitements en cours.",
     "ask": "Quel médicament de son ordonnance pose une interaction majeure par inhibition du CYP1A2 ?",
     "options": [
       [
+        "Lévothyroxine.",
+        false,
+        "Ce médicament ne présente pas cette forte inhibition du CYP1A2."
+      ],
+      [
+        "Paracétamol.",
+        false,
+        "Une prise occasionnelle de paracétamol ne correspond pas à l’inhibiteur puissant recherché."
+      ],
+      [
         "Fluvoxamine",
         true,
         "La fluvoxamine inhibe fortement le CYP1A2 et augmente nettement l’exposition au fézolinétant."
+      ],
+      [
+        "Carbonate de calcium.",
+        false,
+        "Des interactions digestives du calcium sont possibles avec certains médicaments ; ce n’est pas le mécanisme en cause ici."
       ]
     ],
     "answer": "Fluvoxamine",
@@ -29,72 +44,30 @@
       "https://www.swissmedic.ch/dam/swissmedic/en/dokumente/zulassung/swisspar/69232-veoza-01-swisspar-20250619.pdf.download.pdf/SwissPAR%20Veoza.pdf"
     ],
     "objective": "https://www.medecine.unige.ch/enseignement/etudes/curriculum/data/a989.htm",
-    "rattachementFacultaire": "Genève, enseignement de gynécologie consacré à la ménopause ; application clinique à la situation.",
-    "menu": [
-      "Fluvoxamine",
-      "Lévothyroxine",
-      "Carbonate de calcium",
-      "Paracétamol",
-      "Amoxicilline",
-      "Loratadine",
-      "Metformine",
-      "Insuline glargine",
-      "Sitagliptine",
-      "Ramipril",
-      "Énalapril",
-      "Valsartan",
-      "Losartan",
-      "Amlodipine",
-      "Bisoprolol",
-      "Aténolol",
-      "Furosémide",
-      "Hydrochlorothiazide",
-      "Spironolactone",
-      "Pravastatine",
-      "Ézétimibe",
-      "Acide folique",
-      "Cholécalciférol",
-      "Cyanocobalamine",
-      "Alendronate"
-    ]
+    "rattachementFacultaire": "Genève, enseignement de gynécologie consacré à la ménopause ; application clinique à la situation."
   },
   {
     "code": "G7",
-    "type": "A",
-    "aim": "Adapter la gabapentine au risque d’accumulation rénale",
-    "case": "Une femme dialysée envisage la gabapentine pour des bouffées nocturnes gênantes après échec des mesures non médicamenteuses. Le schéma fourni sur un forum correspond à une adulte ayant une fonction rénale normale.",
-    "ask": "Que faut-il vérifier avant une éventuelle prescription ?",
+    "type": "M",
+    "aim": "Choisir le paramètre pharmacocinétique guidant la gabapentine en cas d’insuffisance rénale",
+    "case": "Une femme dont la fonction rénale est chroniquement altérée, sans dialyse, envisage la gabapentine pour des bouffées nocturnes gênantes après échec des mesures non médicamenteuses. Le schéma fourni sur un forum correspond à une adulte ayant une fonction rénale normale.",
+    "ask": "Quel paramètre guide en priorité l’adaptation de la posologie de gabapentine ?",
     "options": [
       [
-        "Adapter le schéma à la dialyse avec le néphrologue.",
+        "Clairance de la créatinine",
         true,
-        "La gabapentine est éliminée par le rein ; dose, intervalle et relation aux séances doivent être individualisés."
-      ],
-      [
-        "Reprendre la dose standard mais le matin.",
-        false,
-        "Changer l’horaire ne corrige pas l’accumulation."
-      ],
-      [
-        "Calculer la dose sur les transaminases seules.",
-        false,
-        "La clairance rénale est centrale pour ce médicament."
-      ],
-      [
-        "Compenser les séances par une dose quotidienne doublée.",
-        false,
-        "Une telle majoration empirique expose à une toxicité neurologique."
+        "L’élimination rénale impose d’adapter la dose et parfois l’intervalle à ce paramètre."
       ]
     ],
-    "answer": "Adapter le schéma à la dialyse avec le néphrologue.",
-    "why": "Si cette option hors indication est retenue, tenir compte de la dialyse, de la fragilité et des autres sédatifs. Surveiller notamment somnolence, vertiges et instabilité.",
+    "answer": "Clairance de la créatinine",
+    "why": "Vérifier la clairance de la créatinine et la table d’adaptation suisse, la fragilité et les autres sédatifs. Surveiller somnolence, vertiges et instabilité.",
     "recap": [
       "La gabapentine est utilisée hors indication contre certaines bouffées.",
       "La grande insuffisance rénale augmente le risque d’exposition excessive.",
       "L’élimination rénale et l’épuration dialytique déterminent le schéma.",
       "Rechercher bénéfice nocturne et effets gênants le jour.",
       "Évaluer équilibre, vigilance et risque de chute.",
-      "Vérifier fonction rénale et calendrier des séances.",
+      "Évaluer la clairance rénale avant de choisir la dose et l’intervalle.",
       "Individualiser avec prudence ou choisir une autre option."
     ],
     "sources": [
@@ -102,50 +75,77 @@
       "https://compendium.ch/fr/product/1466278-gabapentine-sandoz-cpr-pell-600-mg"
     ],
     "objective": "https://medizinstudium.unibas.ch/fileadmin/user_upload/medizin/Dokumente/Master/26_27_Stoffkatalog_MA_MDT.pdf#page=32",
-    "rattachementFacultaire": "Bâle, catalogue MDT du master 2026–2027, p. 32, gynécologie ; application à la décision clinique."
+    "rattachementFacultaire": "Bâle, catalogue MDT du master 2026–2027, p. 32, gynécologie ; application à la décision clinique.",
+    "menu": [
+      "Clairance de la créatinine",
+      "Alanine aminotransférase",
+      "Aspartate aminotransférase",
+      "Gamma-glutamyltransférase",
+      "Bilirubine totale",
+      "Albumine sérique",
+      "Temps de prothrombine",
+      "Plaquettes",
+      "Ferritine",
+      "Hémoglobine",
+      "Volume globulaire moyen",
+      "Haptoglobine",
+      "Calcémie",
+      "Phosphatémie",
+      "Phosphatase alcaline",
+      "TSH",
+      "Thyroxine libre",
+      "Cortisol matinal",
+      "Prolactine",
+      "FSH",
+      "LH",
+      "Estradiol",
+      "Vitamine B12",
+      "HbA1c",
+      "Cholestérol LDL"
+    ]
   },
   {
     "code": "G7",
     "type": "A",
-    "aim": "Écarter une option anticholinergique en cas de rétention urinaire documentée",
-    "case": "Une patiente avec résidu postmictionnel important et épisodes répétés de rétention cherche une option sans hormones pour ses bouffées. L’oxybutynine est proposée pour son effet sur les symptômes vasomoteurs.",
-    "ask": "Quel élément doit guider la décision ?",
+    "aim": "Éviter une aggravation de l’hypotension orthostatique lors du choix d’un traitement non hormonal",
+    "case": "Une patiente avec syncopes orthostatiques documentées et pression debout de 86/58 mmHg demande de la clonidine pour des bouffées invalidantes. Elle n’a pas d’hypertension et ne prend aucun antihypertenseur.",
+    "ask": "Quelle décision est la plus appropriée ?",
     "options": [
       [
-        "Son utilisation est favorisée par le résidu postmictionnel.",
-        false,
-        "Elle peut au contraire aggraver la vidange vésicale."
-      ],
-      [
-        "Son effet sur les bouffées protège contre une rétention.",
-        false,
-        "L’effet symptomatique n’annule pas les effets antimuscariniques."
-      ],
-      [
-        "La rétention fait privilégier une autre option.",
+        "Préférer une autre stratégie non hormonale.",
         true,
-        "L’oxybutynine peut majorer le défaut de vidange chez cette patiente."
+        "La clonidine peut abaisser la pression et aggraver les syncopes ; sa place dans les bouffées est limitée."
       ],
       [
-        "L’absence de brûlures mictionnelles autorise le traitement.",
+        "Ajouter la clonidine avant le lever.",
         false,
-        "La rétention est distincte d’une cystite."
+        "Cette prise peut accentuer les symptômes au passage en position debout."
+      ],
+      [
+        "Utiliser la voie transdermique pour neutraliser l’effet tensionnel.",
+        false,
+        "La voie transdermique ne supprime pas l’effet hémodynamique systémique."
+      ],
+      [
+        "Traiter d’abord par un diurétique puis introduire la clonidine.",
+        false,
+        "La déplétion risque d’aggraver l’orthostatisme."
       ]
     ],
-    "answer": "La rétention fait privilégier une autre option.",
-    "why": "Recenser également constipation, sécheresse buccale et charge anticholinergique. Une efficacité possible contre le flush ne suffit pas à rendre l’option appropriée.",
+    "answer": "Préférer une autre stratégie non hormonale.",
+    "why": "Le bénéfice antivasomoteur limité ne justifie pas cette exposition chez une patiente déjà symptomatique. Choisir une option adaptée à sa pression et documenter la cause des syncopes.",
     "recap": [
-      "L’oxybutynine est un antimuscarinique.",
-      "Ses effets sont particulièrement problématiques lorsqu’une rétention est déjà présente.",
-      "Le blocage muscarinique peut réduire la contraction du détrusor.",
-      "Vidange incomplète et difficultés mictionnelles orientent.",
-      "Revoir antécédents de globe et le résidu documenté.",
-      "Vérifier les contre-indications selon la notice.",
-      "Choisir une alternative non hormonale compatible."
+      "La clonidine est un agoniste alpha-2 central.",
+      "Une hypotension préalable augmente les conséquences cliniques d’un effet hypotenseur.",
+      "La réduction du tonus sympathique peut abaisser la pression.",
+      "Vertiges ou syncope lors du lever sont des éléments majeurs.",
+      "Vérifier les mesures couchée et debout.",
+      "Rechercher autres médicaments et facteurs d’orthostatisme.",
+      "Privilégier un traitement des bouffées avec meilleur profil individuel."
     ],
     "sources": [
       "https://www.sggg.ch/fileadmin/user_upload/Dokumente/3_Fachinformationen/1_Expertenbriefe/FR/99_Nicht_hormonelle_Therapie_von_menopausalen_Hitzewallungen_FR.pdf",
-      "https://www.cancer.gov/about-cancer/treatment/side-effects/hot-flashes-hp-pdq"
+      "https://www.nice.org.uk/guidance/ng23/chapter/recommendations"
     ],
     "objective": "https://www.medecine.unige.ch/enseignement/etudes/curriculum/data/a989.htm",
     "rattachementFacultaire": "Genève, enseignement de gynécologie consacré à la ménopause ; application clinique à la situation."
@@ -204,19 +204,19 @@
     "ask": "Quel conseil est le plus exact ?",
     "options": [
       [
-        "Garantir la disparition des accès si elle augmente l’intensité.",
+        "Utiliser la baisse attendue du nombre d’accès comme principal critère de succès sportif.",
         false,
-        "La réponse vasomotrice ne peut pas être prédite ainsi."
+        "L’activité a plusieurs bénéfices même si les bouffées changent peu."
       ],
       [
-        "Déconseiller l’exercice tant que les bouffées persistent.",
+        "Remplacer l’évaluation des bouffées par le gain d’endurance.",
         false,
-        "Les symptômes seuls ne motivent pas cette restriction."
+        "L’endurance et la gêne vasomotrice sont deux résultats différents."
       ],
       [
-        "Suspendre les autres options pendant une année complète.",
+        "Ajuster systématiquement la charge d’exercice à chaque bouffée rapportée.",
         false,
-        "La durée d’un essai se discute selon le retentissement et ses préférences."
+        "L’adaptation de la charge suit la tolérance et les objectifs de santé ; le nombre d’accès ne dicte pas la progression."
       ],
       [
         "Encourager l’activité pour la santé générale et réévaluer les bouffées.",
