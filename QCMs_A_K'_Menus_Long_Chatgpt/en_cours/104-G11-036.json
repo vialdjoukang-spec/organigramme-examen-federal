@@ -2,45 +2,45 @@
   {
     "code": "G11",
     "type": "A",
-    "aim": "Calculer l’index d’apnées-hypopnées en utilisant le temps de sommeil mesuré.",
-    "case": "Une polysomnographie chez un adulte enregistre 150 apnées et hypopnées principalement obstructives. L’enregistrement dure huit heures, dont six heures de sommeil confirmées par l’EEG. Le résultat doit figurer au rapport du laboratoire.",
-    "ask": "Quel index d’apnées-hypopnées (IAH) faut-il inscrire ?",
+    "aim": "Distinguer la durée cumulée d’hypoxémie du nombre d’événements respiratoires.",
+    "case": "Deux adultes ayant des apnées obstructives ont chacun un IAH de 26/h, une durée totale de sommeil comparable et la même saturation minimale de 82 %. Les signaux sont de bonne qualité. Chez le premier, le T90 est de 3 % et chez le second, de 24 %.",
+    "ask": "Que révèle cette différence ?",
     "options": [
       [
-        "18,75 événements par heure",
+        "Le second a davantage d’apnées obstructives par heure.",
         false,
-        "Ce résultat utilise la durée totale d’enregistrement, qui inclut deux heures d’éveil."
+        "Le T90 ne compte pas les événements respiratoires, et les IAH indiqués sont identiques."
       ],
       [
-        "25 événements par heure",
+        "Le second a présenté un nadir de saturation plus bas.",
+        false,
+        "Le nadir indiqué est identique chez les deux patients."
+      ],
+      [
+        "Le second a passé davantage de temps avec une SpO₂ inférieure à 90 %.",
         true,
-        "Les 150 événements sont divisés par six heures de sommeil."
+        "Le T90 exprimé en pourcentage est la part du temps de sommeil passée sous 90 % de saturation."
       ],
       [
-        "50 événements par heure",
+        "Le second a nécessairement une hypercapnie nocturne.",
         false,
-        "Ce calcul ne correspond pas au temps de sommeil mesuré."
-      ],
-      [
-        "75 événements par heure",
-        false,
-        "La durée d’éveil ne constitue pas le dénominateur de l’IAH polysomnographique."
+        "L’oxymétrie ne mesure pas la pression de CO₂."
       ]
     ],
-    "answer": "25 événements par heure",
-    "why": "L’IAH polysomnographique utilise le temps réellement dormi. Une valeur de 25/h relève de la catégorie modérée chez l’adulte et s’interprète avec les symptômes et les comorbidités.",
+    "answer": "Le second a passé davantage de temps avec une SpO₂ inférieure à 90 %.",
+    "why": "À nombre d’événements et nadir identiques, la durée cumulée passée sous le seuil peut différer fortement. Le tracé complet et le contexte clinique sont nécessaires pour attribuer l’hypoxémie aux apnées ou à une autre cause.",
     "recap": [
-      "L’IAH représente le nombre d’apnées et d’hypopnées par heure de sommeil.",
-      "Les seuils de gravité sont propres à la population étudiée, ici un adulte.",
-      "Les événements respiratoires répétés fragmentent le sommeil et peuvent désaturer.",
-      "Le retentissement peut comprendre somnolence ou fatigue au réveil.",
-      "Les pauses peuvent être observées par l’entourage.",
-      "L’EEG de la polysomnographie distingue sommeil et éveil.",
-      "Associer le chiffre aux symptômes et aux risques lors de la décision thérapeutique."
+      "Le T90 exprime une durée ou une proportion passée sous un seuil de SpO₂ de 90 %, selon l’unité affichée.",
+      "Les rapports de polysomnographie peuvent le présenter en pourcentage du temps de sommeil.",
+      "Des événements plus longs ou une oxygénation basale plus basse peuvent prolonger le temps sous le seuil.",
+      "L’intensité de la somnolence n’est pas déductible de ce seul chiffre.",
+      "Une saturation minimale identique ne décrit pas l’ensemble de la nuit.",
+      "Lire les courbes de saturation, le flux et l’effort avec les paramètres de synthèse.",
+      "Une hypoxémie prolongée disproportionnée justifie la recherche d’une cause associée."
     ],
     "sources": [
-      "https://www.chuv.ch/fr/sommeil/cirs-home/patients-et-familles/les-troubles-du-sommeil/lapnee-du-sommeil",
-      "https://www.hug.ch/pneumologie/troubles-respiratoires-sommeil"
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC6509728/",
+      "https://swiss-sleep.ch/wp-content/uploads/2015/09/SSSSC-sleep-apnea-recommendations_FR_version-170620-final.pdf"
     ],
     "objective": "https://www.medecine.unige.ch/enseignement/etudes/curriculum/data/d102.htm",
     "rattachementFacultaire": {
