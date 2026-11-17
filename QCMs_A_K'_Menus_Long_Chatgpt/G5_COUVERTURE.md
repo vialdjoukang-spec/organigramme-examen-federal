@@ -63,3 +63,23 @@ Dans une cohorte belge de médecine de premier recours, 3 890 enfants et adolesc
 | 121–140 | Au premier contact pédiatrique, tenir compte d’une fièvre mesurée à domicile et de la modification des interactions. Adapter l’accueil d’une infection contagieuse, documenter l’exposition des contacts et examiner les dispositifs médicaux susceptibles de masquer la cause d’une dégradation. |
 | 141–150 | Après une procédure, discuter toxicité systémique de l’anesthésique, surcharge transfusionnelle, céphalée post-ponction, thrombopénie immune sous héparine et bradypnée sous morphine. En contexte infectieux, reconstruire la chronologie des médicaments et tenir compte du statut immunitaire. |
 | 151–160 | Distinguer syncope, crise épileptique et cause rythmique. Avant un retour à domicile, tenir compte des facteurs cliniques, du suivi disponible, de l’accompagnement et de la tolérance des traitements oraux. |
+
+## Décisions des deux derniers lots
+
+| Questions | Décision vérifiée |
+|---|---|
+| 161–165 | Explorer les priorités d’une personne en déclin, les volontés actuelles, la prévention des lésions de pression et la continuité du traitement en cas de dysphagie. |
+| 166–175 | Réexaminer un résultat négatif ou une amélioration apparente dans son contexte. Choisir le moment du contrôle, le prélèvement ou la seconde imagerie lorsque la clinique reste préoccupante. |
+| 176–180 | Organiser une consultation accessible ou une documentation médico-légale, identifier une exposition au froid ou une pédiculose et sécuriser un relais de méthadone. |
+| 181–190 | Distinguer rhume banal, évolution après ROR, otite simple et aggravation secondaire. Prendre en charge les signes focaux d’une méningite, d’un purpura septique ou d’une cholécystite, ainsi que les vomissements cycliques persistants pendant la consommation de cannabis. |
+| 191–200 | Préciser la plainte initiale par la vision, l’exposition cutanée, le pied neuropathique, le mécanisme d’une plaie ou la position de la tête. Adapter les gestes au risque de perte visuelle, d’obstruction respiratoire ou urinaire et de complication rénale de l’enfant. |
+
+## Arbitrage clinique de clôture
+
+La rhinopharyngite et l’otite peu sévère demandent ici un traitement symptomatique et des indications de réévaluation. Le purpura fébrile rapidement extensif impose une évaluation urgente. Le contrôle de la pression artérielle et des urines d’une vascularite à IgA concerne au contraire un enfant stable, après le diagnostic. La microangiopathie post-diarrhéique est une autre décision d’orientation urgente. La revue suisse rapporte environ 1,4 cas annuels de SHU pour 100 000 enfants âgés de 16 ans ou moins, toutes étiologies confondues. [Pétéchies fébriles, urgences pédiatriques des HUG, 2026](https://www.hug.ch/sites/interhug/files/structures/saup_professionnels/Procedures_medicales/les_petechies_febriles_algorithme_update_18.02.2026.pdf) · [SHU de l’enfant, Pédiatrie suisse](https://www.paediatrieschweiz.ch/fr/syndrome-hemolytique-et-uremique-pendant-lenfance/)
+
+La revue du dernier lot a supprimé des répétitions de la décision chirurgicale pour infection nécrosante, du signe d’épuisement asthmatique, de l’exclusion erronée d’arthrite septique par des cristaux, de la surveillance ventilatoire du Guillain–Barré, de la fermeture aiguë de l’angle et de la manœuvre d’Epley. La reconnaissance du zona ophtalmique en territoire V1 et la fermeture aiguë de l’angle restent deux raisonnements cliniques distincts. La première question recherche les signes de kératite ou d’uvéite dans un contexte vésiculeux, la seconde reconnaît l’association cornée trouble, halos et semi-mydriase.
+
+**Avis indépendant de production.** Clore G5 au périmètre des 200 décisions répertoriées. La revue couvre les infections et troubles métaboliques courants dans les populations étudiées, l’évaluation à distance, les terrains fragiles, l’iatrogénie, les soins ambulatoires, les signes de défaillance et les urgences rares dont l’issue dépend d’une intervention rapide. Aucun manque prioritaire identifié lors du dernier passage ne justifie un lot 201–220. Les fréquences publiées sont rattachées à leurs populations. Le registre relie chaque question à une rubrique d’enseignement romande ou alémanique par un motif explicite. Les rattachements spécifiques aux vignettes sont des déductions pédagogiques. Les dix manifestes attestent les contrelectures de production. Une validation humaine ou psychométrique n’a pas été mesurée.
+
+Le contrôle sur les 40 manuscrits concorde avec les 200 objectifs individuels du registre, rattachés à 22 rubriques distinctes (89 questions avec une rubrique francophone, 111 avec une rubrique germanophone).
