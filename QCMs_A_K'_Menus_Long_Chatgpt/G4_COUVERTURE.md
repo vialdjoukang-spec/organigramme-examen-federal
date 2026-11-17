@@ -27,3 +27,18 @@
 Les enseignements genevois de démarche clinique et de premiers recours documentent directement des présentations associant fatigue, variations pondérales ou somnolence. Les objectifs de bilan clinique, de laboratoire, de médecine interne, de fonction et de suivi pédiatrique du catalogue de Master de Bâle complètent les rattachements germanophones. Une décision précise déduite d’un objectif général sera signalée comme telle dans le registre. [Faculté de médecine de Bâle, Stoffkatalog 2026/27](https://medizinstudium.unibas.ch/fileadmin/user_upload/medizin/Dokumente/Master/26_27_Stoffkatalog_MA_MDT.pdf)
 
 Le contre-audit vérifie la décision clinique, les propositions fausses, la source suisse applicable, les répétitions à l’intérieur de G4 et dans les SSP précédents, ainsi que les indices formels qui pourraient signaler la clé. L’avis de clôture dépend de la couverture effective des présentations fréquentes, des urgences et des décisions de suivi utiles.
+
+## Décisions vérifiées dans les soixante premiers binômes
+
+| Questions | Population et décisions |
+|---|---|
+| 001–020 | Qualifier fatigue, somnolence et faiblesse. Évaluer retentissement, sommeil, humeur, sécurité et signes d’alarme, puis organiser le suivi en premier recours. |
+| 021–025 | Chez la personne ferriprive, interpréter la ferritine en inflammation, chercher pertes menstruelles, pertes digestives ou malabsorption et contrôler la réponse. |
+| 026–030 | Distinguer anémies centrales et périphériques, traiter rapidement une carence en B12 avec atteinte neurologique et adresser les cytopénies multilignées. |
+| 031–035 | Asthénie infectieuse liée à EBV ou CMV, crise aplasique chez l’enfant sphérocytaire, érythème migrant, hépatite A aiguë. |
+| 036–040 | Chez l’enfant et l’adolescent, repérer une insuffisance médullaire ou une instabilité hémodynamique, préserver l’entretien confidentiel, rechercher saturnisme ou disponibilité énergétique insuffisante selon l’histoire. |
+| 041–050 | Personnes avec affection rénale ou hépatobiliaire, déficit en IgA ou antécédent de bypass. Adapter examens, suppléance et suivi. |
+| 051–055 | Après COVID, identifier l’exacerbation post-effort, adapter l’activité, rechercher des apports insuffisants liés à la parosmie et interrompre une épreuve en cas de désaturation. |
+| 056–060 | En péripartum, traiter l’anémie résistante au fer oral, distinguer atteinte hypophysaire, dépression, cardiomyopathie et thyroïdite. |
+
+L’essai romand de Verdon et coll. porte sur le fer oral chez des femmes fatiguées sans anémie. Cet objectif diffère de l’exploration étiologique d’une anémie ferriprive des Q021–025. [Essai de premier recours en Suisse romande](https://www.bmj.com/content/326/7399/1124)
