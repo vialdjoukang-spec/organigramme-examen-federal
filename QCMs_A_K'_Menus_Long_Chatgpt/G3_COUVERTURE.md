@@ -2,7 +2,7 @@
 
 ## Matrice clinique et pédagogique
 
-**17 novembre 2026.** Les 80 premières questions ont été relues par lots de vingt. Le registre G3_OBJECTIFS.json relie chaque objectif de question au passage facultaire correspondant. Le tableau distingue les décisions couvertes et les situations à explorer pendant la suite de la production. Une soif subjective, une bouche sèche, une consommation élevée et une polyurie mesurée sont quatre observations distinctes. Leur chronologie et la capacité de la personne à accéder à l’eau orientent le bilan.
+**17 novembre 2026.** Les 140 premières questions ont été relues par lots de vingt. Le registre G3_OBJECTIFS.json relie chaque objectif de question au passage facultaire correspondant. Le tableau distingue les décisions couvertes et les situations à explorer pendant la suite de la production. Une soif subjective, une bouche sèche, une consommation élevée et une polyurie mesurée sont quatre observations distinctes. Leur chronologie et la capacité de la personne à accéder à l’eau orientent le bilan.
 
 | Priorité | Présentation | Décision à évaluer | Donnée qui change la décision |
 |---|---|---|---|
@@ -18,7 +18,7 @@
 | Excès d’eau et traitement | Apports hypotoniques massifs, notamment sous desmopressine | Reconnaître une hyponatrémie de dilution, rechercher symptômes neurologiques et demander une prise en charge hospitalière urgente en cas de confusion importante ou de convulsions. | Prévenir l’automédication par desmopressine chez une personne dont l’augmentation des boissons précède celle de la diurèse. [Université de Bâle, polydipsie primaire et déficit en AVP](https://dkf.unibas.ch/de/aktuell/harmlos-oder-hormonstoerung/) |
 | Suivi | Déficit en AVP confirmé, séjour hospitalier, intervention ou maladie aiguë | Apprendre à reconnaître le changement de diurèse et les signes de dysnatrémie. Organiser l’accès à l’eau, la continuité du traitement prescrit et un plan personnalisé de surveillance lors d’un transfert de soins. | Un même traitement peut devenir dangereux si l’accès aux boissons ou la fonction rénale change. Les adaptations thérapeutiques précises requièrent la procédure utilisée dans le cas. |
 
-### Décisions relues dans les lots 023 à 026
+### Décisions relues dans les lots 023 à 029
 
 | Questions | Décisions |
 |---|---|
@@ -38,6 +38,18 @@
 | 66–70 | Soif du patient hémodialysé. Sodium alimentaire ou du dialysat, volume urinaire résiduel, poids cible et hypertonicité avec surcharge en situation d’anurie. |
 | 71–75 | Causes rénales avec indices orientant le bilan. Acidose tubulaire du Sjögren, drépanocytose, néphronophtise, cystinose et syndrome de Gitelman. |
 | 76–80 | Concentration spontanée conservée, contre-indication initiale ou critère d’arrêt de la privation d’eau, réponse à la desmopressine et effet d’une polyurie chronique sur le gradient médullaire. |
+| 81–85 | Hypernatrémie, déficit en eau, chronologie du sodium et adaptation de la concentration urinaire devant des pertes extrarénales. |
+| 86–90 | Qualité du recueil, sodium corrigé en hyperglycémie, pseudohyponatrémie, écart osmolaire et excrétion d’osmoles sur 24 heures. |
+| 91–95 | Glycosurie sous iSGLT2, démasquage d’un déficit en AVP par le cortisol, tolvaptan, ténofovir et limites de la FENa sous diurétique. |
+| 96–100 | Desmopressine, dose oubliée, prise d’eau sous antidiurèse, changement de voie ou de formulation et conduite en cas de situation intercurrente. |
+| 101–105 | Charge en solutés et capacité d’excréter de l’eau, insuffisance d’apports du nouveau-né allaité, urée des 24 heures, prévention après hyponatrémie et glycémie préanalytique discordante. |
+| 106–110 | Pertes rénales de sel après hémorragie sous-arachnoïdienne, natrémie différée, diagnostics alternatifs au SIAD, voie orale pendant la cicatrisation nasale et réponse triphasique. |
+| 111–115 | Boissons adaptées aux pertes intestinales, dilution du lait artificiel, réhydratation entérale hospitalière ou à domicile, pertes chlorées digestives. |
+| 116–120 | Hyperglycémie sous olanzapine, chronologie d’un ISRS, prévention de l’intoxication à l’eau et surveillance pondérale concertée. |
+| 121–125 | Insuffisance surrénalienne et recherche de cause d’une hypercalcémie, dont forme familiale, apports calcium/alcalins et calcitriol. |
+| 126–130 | Polyols des pastilles, sodium médicamenteux, apports hydriques entéraux, administration jéjunale et pertes rénales nettes d’eau par rapport aux électrolytes. |
+| 131–135 | Bilan étiologique d’un déficit en AVP avec lésion de tige : histiocytose, hypophysite, tumeur germinale, autres axes et suivi longitudinal. |
+| 136–140 | Continuité de la desmopressine lors d’une opération ou d’un voyage, surveillance chez le patient perfusé, conservation et transmissions. |
 
 ## Rattachement aux formations romande et alémanique
 
@@ -54,5 +66,18 @@ Pour chaque binôme, consigner l’établissement, le document, la rubrique, l�
 ## Fréquence et critères de couverture
 
 Aucune répartition fiable des causes parmi **toutes** les consultations G3 suisses n’a été identifiée dans les références consultées. La prévalence nationale du diabète, le recrutement de patients déjà adressés pour polyurie hypotonique et l’exactitude des tests de copeptine décrivent des populations ou des mesures différentes. Le chiffre de 95,6 % rapporté pour un test dans l’essai de Refardt mesure une exactitude diagnostique chez les participants. Il ne chiffre pas la prévalence d’un déficit en AVP chez les personnes ayant soif.
+
+### Population, fréquence et décision prioritaire
+
+| Population | Interpréter la fréquence | Décision couverte et référence |
+|---|---|---|
+| Enfant avec soif, perte pondérale ou énurésie récidivante | Le diabète de type 1 constitue une priorité de sécurité face à ces signes. La fréquence parmi tous les enfants qui boivent beaucoup reste inconnue. | Q5 organise le bilan d’une décompensation ; Q46 interprète le débit selon le poids. [HUG, suspicion de diabète](https://www.hug.ch/vdoc/HUG_000001131.pdf) |
+| Nouveau-né allaité et nourrisson recevant du lait en poudre | Une demande fréquente peut être physiologique ; une perte pondérale importante avec raréfaction des couches change l’urgence. | Q102 évalue transfert lacté, poids et natrémie. Q112 vérifie la reconstitution du lait. [Pédiatrie Suisse, alimentation du nouveau-né](https://files.paediatrieschweiz.ch/production/uploads/2023/09/Richtlinien-Ernahrung-des-gesunden-Neugeborenen_DE.pdf) |
+| Enfant ou adulte ayant une mucoviscidose | Le risque de diabète augmente avec l’âge dans cette population ; l’estimation ne s’applique pas à la population suisse générale. | Q63 prescrit l’HGPO chez une patiente stable lorsque les mesures à jeun n’expliquent pas la soif. [CHUV, mucoviscidose et diabète](https://www.chuv.ch/fr/dedop/dedop-home/patients-et-famille/diabetologie/mucoviscidose-et-diabete) |
+| Grossesse avancée, notamment gémellaire | Le diabète insipide gestationnel est rare ; apparition tardive d’une polyurie hypotonique et signes hépato-obstétricaux motivent l’évaluation. | Q21–24 différencient diagnostic, urgence obstétricale, traitement et réévaluation. [Cas primaire lausannois](https://doi.org/10.1093/ndt/gfg152) |
+| Adultes sous hémodialyse | La soif peut accompagner une surcharge aussi bien qu’un retrait excessif ; sa fréquence dépend des prescriptions et des apports. | Q66–70 distinguent sodium alimentaire, prescription, volémie et hyperglycémie chez le patient anurique. [KDIGO, gestion volémique pendant la dialyse](https://kdigo.org/wp-content/uploads/2017/05/KDIGO-BP-Volume-in-Dialysis-FINAL.pdf) |
+| Personne adressée pour polyurie hypotonique | Le spectre étiologique de cette population sélectionnée ne décrit pas la première consultation pour soif. | Q31–35 et 76–80 indiquent quand et comment interpréter des tests spécialisés. [Étude comparative prospective avec participation suisse](https://pubmed.ncbi.nlm.nih.gov/37966286/) |
+| Patients après chirurgie hypophysaire | Le risque de trouble du sodium évolue selon le délai depuis l’opération. Son estimation dépend de la population et du protocole de dépistage. | Q6 évalue le déficit précoce ; Q107 recherche une hyponatrémie retardée ; Q110 explique la réponse triphasique. [Étude de suivi postopératoire](https://pubmed.ncbi.nlm.nih.gov/36723998/) |
+| Troubles psychotiques, apports compulsifs ou traitement psychotrope | Une consommation importante ne suffit pas à attribuer l’hyponatrémie à une cause psychiatrique ; les médicaments et l’osmolalité urinaire restent discriminants. | Q16–20 et 116–120 relient temporalité, dialogue, danger aigu et prévention. [HUG, médicaments et SIADH](https://www.hug.ch/sites/interhug/files/structures/pharmacologie_et_toxicologie_cliniques/documents/cappinfo65_siadh.pdf) |
 
 Avant d’ajouter un lot, vérifier que les décisions à fort enjeu ont chacune un cas probant, que les états physiologiques et iatrogènes courants sont représentés, que la surveillance familiale et les obstacles à l’accès à l’eau sont traités et que chaque test est demandé dans le bon ordre. Comparer notamment G1-116/145 pour les pertes ou la toxicité lithique et G2-145 pour l’hypercalcémie sévère. Un cas G3 doit demander une décision propre à la soif ou à la polyurie.
