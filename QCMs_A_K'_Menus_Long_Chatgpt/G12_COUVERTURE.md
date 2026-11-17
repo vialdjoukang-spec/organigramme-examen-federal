@@ -1,5 +1,7 @@
 # G12 · Œdème diffus ou localisé
 
+Le référentiel national de médecine humaine décrit G12 comme le point de départ clinique de l’œdème diffus ou localisé. [PROFILES 2023, section 3.1, p. 27](https://www.unige.ch/medecine/application/files/6617/5939/2636/2023_PROFILES_final_Intregre2025.pdf#page=27).
+
 ## Fréquence et urgence
 
 Dans l’étude de Bonn, 14,8 % des 3 072 adultes allemands de 18 à 79 ans interrogés rapportaient un gonflement d’une ou des deux jambes pendant les quatre semaines précédentes. Cette fréquence décrit une plainte en population générale. Dans le registre suisse SWIVTER, 65 % des 530 premières TVP symptomatiques de jambe sans embolie pulmonaire symptomatique associée étaient proximales. Le dénominateur suisse est constitué de thromboses confirmées. [Étude de Bonn](https://doi.org/10.1055/s-0037-1617353) · [Registre suisse SWIVTER](https://pmc.ncbi.nlm.nih.gov/articles/PMC9018645/).
@@ -41,5 +43,6 @@ Le CST de Berne enseigne l’examen veineux et lymphatique des membres et les si
 | 101–120 | Pseudo-cellulite médicamenteuse, pied de Charcot, vascularites et infection cutanée, adaptation de la dialyse et signes glomérulaires, déficit acquis et héréditaire en C1-inhibiteur, soins du membre œdématié et prévention des lésions. |
 | 121–140 | Lipœdème, infiltration thyroïdienne ou musculaire et lipohypertrophie d’injection ; gonflements postopératoires et traumatiques menaçants ; ascite cardiaque, tumorale, chyleuse, tuberculeuse ou pancréatique ; choc, compartiment abdominal, tolérance au remplissage et au carvédilol. |
 | 141–160 | Rupture de varice, traitement précoce du reflux avec ulcère, prévention des récidives et biopsie d’une plaie atypique ; pesée et titration du traitement de l’insuffisance cardiaque ; anomalies du drainage veineux profond, soins gériatriques et révision d’ordonnance. |
+| 161–180 | Suspicion d’embolie pulmonaire, stratification et hypertension pulmonaire thromboembolique chronique, hydrops fœtal et œdèmes pédiatriques, maladies inflammatoires ou infiltratives et réadaptation lymphatique après stabilisation des mesures. |
 
 G7-096 présente le gonflement et le flush après intensification de l’antihypertenseur. G12-060 analyse une prescription en cascade évitable lors d’un œdème sous prégabaline. G5-171 couvre déjà la place d’une nouvelle échographie proximale après examen limité et suspicion persistante de TVP.
