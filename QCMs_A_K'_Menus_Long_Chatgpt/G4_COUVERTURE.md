@@ -51,3 +51,10 @@ L’essai romand de Verdon et coll. porte sur le fer oral chez des femmes fatigu
 | 076–080 | En gériatrie, identifier hypotension postprandiale, délirium hypoactif, exposition sédative cumulée, risque nutritionnel et sarcopénie probable. |
 | 081–090 | En endocrinologie et pharmacologie, interpréter la fatigue selon traitement en cours, rythme des contrôles, interactions, fonction rénale et voies d’administration. |
 | 091–100 | En rhumatologie, reconnaître inflammation et toxicité malgré une présentation ou une CRP trompeuse. En oncologie, traiter les symptômes qui limitent le sommeil et la fonction, individualiser transfusion, activité et objectifs de vie. |
+
+## Paires revues cliniquement
+
+- **G4-003 et G1-103.** G4 aborde la demande de scanner au premier contact, après dix jours de fatigue légère, sans anomalie à l’examen. G1 organise le suivi de sueurs après un bilan initial déjà réalisé. La décision discriminante de G4 est de différer l’imagerie non orientée.
+- **G4-021 et G4-048.** En Q021, l’inflammation élève la ferritine et peut masquer la carence martiale malgré anémie microcytaire et pertes menstruelles. En Q048, une ferritine élevée à plusieurs reprises et une CRP normale font rechercher une surcharge. La saturation de la transferrine sert ces deux hypothèses différentes.
+- **G4-030 et G4-036.** Une dysplasie multilignée persistante chez un adulte stable conduit à l’exploration médullaire. Chez l’enfant, des leucocytes totaux normaux ne doivent pas retarder l’évaluation urgente de cytopénies suspectes de leucémie.
+- **G4-002 et G4-071.** Le test clinique au regard soutenu relève de Q002. Q071 examine désormais le protocole électrophysiologique lors d’une fatigabilité à anti-RACh négatifs.
