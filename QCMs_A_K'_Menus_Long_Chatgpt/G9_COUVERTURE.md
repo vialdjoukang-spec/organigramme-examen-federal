@@ -4,6 +4,8 @@
 
 Dans sept communes suisses, quatre enquêtes par questionnaire parental chez des enfants de 5–7 ans ont estimé à 4,6 % en 1992 et 7,6 % en 2001 la proportion présentant dans l’année une éruption caractéristique de dermatite atopique. Ces données historiques décrivent un symptôme rapporté à un âge donné. La fréquence du prurit chronique toutes causes en Suisse requiert un autre dénominateur ; les enquêtes européennes citées dans le guide EDF 2025 indiquent leur population et leur période. [Grize et coll., SCARPOL](https://pubmed.ncbi.nlm.nih.gov/16629784/) · [European Dermatology Forum, 2025](https://doi.org/10.2340/actadv.v105.44220).
 
+Parmi 413 adultes en hémodialyse depuis au moins six mois, recrutés dans 15 centres romands, 25 % présentaient un prurit associé à la maladie rénale chronique. Une phosphatémie plus élevée était associée à une plus grande intensité chez les patients atteints. Le caractère transversal de l’étude limite l’interprétation causale. [Étude suisse multicentrique, 2025](https://doi.org/10.1186/s12882-025-04570-w).
+
 | Situation | Décision clinique à couvrir |
 |---|---|
 | Consultation de premier recours, enfant ou adulte | Repérer les lésions qui précédaient le grattage, leurs localisations et leur évolution ; rechercher sécheresse, eczéma, urticaire, exposition et contage. Coter séparément l’intensité du prurit et ses répercussions. |
