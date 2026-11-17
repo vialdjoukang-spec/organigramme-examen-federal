@@ -1,0 +1,621 @@
+<!doctype html>
+<html lang="fr-CH">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Catalogue · Internat — 1 / 63</title>
+  <meta name="description" content="Catalogue des spécialités du jeu de révision INTERNAT. Parcours chaque salle, lis l'aperçu d'une minute, puis entre dans l'Arène.">
+  <style>
+:root {
+  --fond: #f5f6f8; --papier: #fff; --encre: #101828; --encre-2: #344054; --encre-3: #5d6b82;
+  --trait: #d9dee7; --urgence: #b42318; --calme: #1d4e89; --calme-fond: #eef4fb;
+  --bon: #0e7a3b; --bon-fond: #ecfaf1; --attention: #a14a06; --attention-fond: #fff6ea;
+  --police: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+* { box-sizing: border-box; }
+html { font-size: 18px; }
+body { margin: 0; font-family: var(--police); color: var(--encre); background:
+  radial-gradient(1200px 500px at 10% -10%, #e8eef8, transparent 60%),
+  radial-gradient(800px 400px at 100% 0%, #f8efe8, transparent 50%), var(--fond);
+  line-height: 1.5; }
+header.haut { max-width: 1120px; margin: 0 auto; padding: 2rem 1.25rem 1rem; }
+.marque { display: flex; align-items: baseline; gap: .6rem; flex-wrap: wrap; }
+.marque-logo { display: inline-grid; place-items: center; width: 2rem; height: 2rem;
+  border-radius: 8px; background: var(--calme); color: #fff; font-weight: 700; }
+.marque-nom { font-weight: 700; font-size: 1.4rem; letter-spacing: -.02em; }
+.marque-lien { color: var(--calme); }
+h1 { font-size: clamp(1.8rem, 3vw, 2.4rem); margin: 1rem 0 .4rem; letter-spacing: -.03em; }
+.accroche { color: var(--encre-2); max-width: 46rem; }
+.compteur { display: inline-flex; align-items: baseline; gap: .35rem; margin: 1.2rem 0;
+  padding: .55rem 1rem; background: var(--papier); border: 1px solid var(--trait);
+  border-radius: 999px; box-shadow: 0 1px 3px rgba(16,24,40,.06); }
+.compteur .n { font-size: 1.8rem; font-weight: 750; color: var(--calme); }
+.compteur .sep { color: var(--encre-3); }
+nav.ancres { display: flex; flex-wrap: wrap; gap: .4rem; margin: 1rem 0 0; }
+nav.ancres a { font-size: .85rem; color: var(--calme); text-decoration: none;
+  border: 1px solid var(--trait); background: var(--papier); padding: .25rem .6rem; border-radius: 999px; }
+nav.ancres a:hover { border-color: var(--calme); }
+main { max-width: 1120px; margin: 0 auto; padding: 0 1.25rem 3rem; }
+section.lot { margin-top: 2.2rem; }
+section.lot h2 { font-size: 1.15rem; margin: 0 0 .8rem; padding-bottom: .4rem;
+  border-bottom: 2px solid var(--calme); }
+.grille { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.carte { background: var(--papier); border: 1px solid var(--trait); border-radius: 14px;
+  padding: 1rem 1rem .9rem; display: flex; flex-direction: column; gap: .6rem;
+  box-shadow: 0 1px 2px rgba(16,24,40,.05); }
+.carte header { display: flex; justify-content: space-between; gap: .6rem; align-items: start; }
+.carte h3 { margin: 0; font-size: 1.05rem; }
+.badge { margin: 0; font-size: .75rem; font-weight: 650; text-transform: uppercase;
+  letter-spacing: .04em; padding: .15rem .5rem; border-radius: 999px; white-space: nowrap; }
+.badge-disponible { background: var(--bon-fond); color: var(--bon); }
+.badge-a { } /* placeholder */
+.badge-à, .badge-à\ venir, .badge-àvenir { background: var(--attention-fond); color: var(--attention); }
+.badge-àvenir, .carte.statut-à\ venir .badge, .carte[class*="venir"] .badge { background: var(--attention-fond); color: var(--attention); }
+.apercu { font-size: .92rem; color: var(--encre-2); }
+.apercu h4 { margin: .6rem 0 .2rem; font-size: .8rem; text-transform: uppercase;
+  letter-spacing: .04em; color: var(--encre-3); }
+.apercu ul { margin: 0; padding-left: 1.1rem; }
+.apercu li { margin: .15rem 0; }
+.attente { color: var(--encre-3); font-size: .95rem; margin: 0; flex: 1; }
+.action { margin: auto 0 0; }
+.arene { display: inline-block; text-decoration: none; background: var(--calme); color: #fff;
+  font-weight: 650; padding: .5rem 0.9rem; border-radius: 10px; border: 0; font-size: .95rem; }
+.arene:hover { filter: brightness(1.08); }
+.arene-off { background: #98a2b3; color: #fff; cursor: not-allowed; }
+pied, footer.pied { max-width: 1120px; margin: 0 auto; padding: 0 1.25rem 2.5rem;
+  color: var(--encre-3); font-size: .9rem; }
+footer.pied a { color: var(--calme); }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+
+  .badge-avenir { background: var(--attention-fond); color: var(--attention); }
+  </style>
+</head>
+<body>
+  <header class="haut">
+    <p class="marque">
+      <span class="marque-logo" aria-hidden="true">+</span>
+      <span class="marque-nom">Internat</span>
+      <a class="marque-lien" href="index.html">Retour au jeu</a>
+      ·
+      <a class="marque-lien" href="https://vialdjoukang-spec.github.io/organigramme-examen-federal/veille/">Veille</a>
+    </p>
+    <h1>Le catalogue des salles</h1>
+    <p class="accroche">Parcours les spécialités et les disciplines du plan. Pour chaque salle disponible, lis l'aperçu en une minute — pathologies couvertes, drapeaux rouges et pièges, tirés seulement du contenu déjà produit et sourcé — puis entre dans l'Arène.</p>
+    <p class="compteur" aria-live="polite">
+      <span class="n">1</span>
+      <span class="sep">/</span>
+      <span class="n">63</span>
+      <span>salles — 1 ouverte</span>
+    </p>
+    <nav class="ancres" aria-label="Lots"><a href="#lot-a">Médecine interne</a><a href="#lot-b">Neurosciences et santé mentale</a><a href="#lot-c">Mère et enfant</a><a href="#lot-d">Chirurgie</a><a href="#lot-e">Organes des sens et peau</a><a href="#lot-f">Aigu et fin de vie</a><a href="#lot-g">Premier recours et société</a><a href="#paraclinique">Paraclinique</a><a href="#transversales">Disciplines transversales</a><a href="#fondamentales">Sciences fondamentales</a></nav>
+  </header>
+  <main>
+    <section class="lot" id="lot-a"><h2>Lot A · Médecine interne</h2><div class="grille">
+      <article class="carte statut-disponible" id="cardiologie">
+        <header>
+          <h3>Cardiologie</h3>
+          <p class="badge badge-disponible">disponible</p>
+        </header>
+        
+        <div class="apercu">
+          <h4>Pathologies couvertes</h4>
+          <ul><li>Infarctus avec sus-décalage ST (STEMI)</li><li>Infarctus du ventricule droit</li><li>Syndrome coronarien aigu sans sus-décalage ST</li><li>Dissection aortique aiguë</li><li>Embolie pulmonaire</li><li>Péricardite aiguë</li></ul>
+          <h4>Drapeaux rouges</h4>
+          <ul><li>Sus-décalage ST persistant dans ≥ 2 dérivations contiguës</li><li>Troponine hs qui monte, sans sus-décalage ST</li><li>Douleur brutale déchirante + asymétrie tensionnelle entre les bras</li><li>Choc ? Sinon : probabilité clinique, puis D-dimères ou CT</li><li>Douleur respiro-dépendante + sus-décalage ST diffus</li><li>STEMI inférieur + sus-décalage en V3R–V4R</li></ul>
+          <h4>Pièges</h4>
+          <ul><li>Le sus-décalage inférieur impose de chercher une extension au ventricule droit (V3R–V4R).</li><li>Origine coronarienne douteuse et aucune autre piste : tu traites comme un SCA.</li><li>Hypotension, choc ou tamponnade prédisent la mortalité de la dissection de type A.</li><li>Un tiers seulement des ECG reste normal ; un sus-décalage ST apparaît dans environ 7 % des cas.</li><li>Des cas publiés décrivent une fibrinolyse donnée à tort sur un faux diagnostic de SCA.</li><li>Les D-dimères ne suffisaient pas, en 2009, à exclure la dissection en pratique clinique.</li><li>Les biomarqueurs cardiaques (troponine, BNP) entrent dans la stratification du risque de l’EP.</li><li>Le manuel de pharmacologie range lui aussi l’infarctus du VD parmi les contre-indications des nitrés.</li></ul>
+        </div>
+        <p class="action"><a class="arene" href="index.html?specialite=cardiologie">Entrer dans l'Arène</a></p>
+      </article>
+      <article class="carte statut-avenir" id="angiologie">
+        <header>
+          <h3>Angiologie</h3>
+          <p class="badge badge-avenir">à venir</p>
+        </header>
+        <p class="attente">Cette spécialité arrive bientôt. L'aperçu restera vide tant qu'aucun cas sourcé n'est produit : rien n'est inventé ici.</p>
+        <p class="action"><button class="arene arene-off" type="button" disabled>L'Arène ouvrira ici</button></p>
+      </article>
+      <article class="carte statut-avenir" id="pneumologie">
+        <header>
+          <h3>Pneumologie</h3>
+          <p class="badge badge-avenir">à venir</p>
+        </header>
+        <p class="attente">Cette spécialité arrive bientôt. L'aperçu restera vide tant qu'aucun cas sourcé n'est produit : rien n'est inventé ici.</p>
+        <p class="action"><button class="arene arene-off" type="button" disabled>L'Arène ouvrira ici</button></p>
+      </article>
+      <article class="carte statut-avenir" id="gastro-enterologie-hepatologie">
+        <header>
+          <h3>Gastro-entérologie et hépatologie</h3>
+          <p class="badge badge-avenir">à venir</p>
+        </header>
+        <p class="attente">Cette spécialité arrive bientôt. L'aperçu restera vide tant qu'aucun cas sourcé n'est produit : rien n'est inventé ici.</p>
+        <p class="action"><button class="arene arene-off" type="button" disabled>L'Arène ouvrira ici</button></p>
+      </article>
+      <article class="carte statut-avenir" id="nephrologie">
+        <header>
+          <h3>Néphrologie</h3>
+          <p class="badge badge-avenir">à venir</p>
+        </header>
+        <p class="attente">Cette spécialité arrive bientôt. L'aperçu restera vide tant qu'aucun cas sourcé n'est produit : rien n'est inventé ici.</p>
+        <p class="action"><button class="arene arene-off" type="button" disabled>L'Arène ouvrira ici</button></p>
+      </article>
+      <article class="carte statut-avenir" id="endocrinologie-diabetologie">
+        <header>
+          <h3>Endocrinologie et diabétologie</h3>
+          <p class="badge badge-avenir">à venir</p>
+        </header>
+        <p class="attente">Cette spécialité arrive bientôt. L'aperçu restera vide tant qu'aucun cas sourcé n'est produit : rien n'est inventé ici.</p>
+        <p class="action"><button class="arene arene-off" type="button" disabled>L'Arène ouvrira ici</button></p>
+      </article>
+      <article class="carte statut-avenir" id="hematologie">
+        <header>
+          <h3>Hématologie</h3>
+          <p class="badge badge-avenir">à venir</p>
+        </header>
+        <p class="attente">Cette spécialité arrive bientôt. L'aperçu restera vide tant qu'aucun cas sourcé n'est produit : rien n'est inventé ici.</p>
+        <p class="action"><button class="arene arene-off" type="button" disabled>L'Arène ouvrira ici</button></p>
+      </article>
+      <article class="carte statut-avenir" id="oncologie">
+        <header>
+          <h3>Oncologie</h3>
+          <p class="badge badge-avenir">à venir</p>
+        </header>
+        <p class="attente">Cette spécialité arrive bientôt. L'aperçu restera vide tant qu'aucun cas sourcé n'est produit : rien n'est inventé ici.</p>
+        <p class="action"><button class="arene arene-off" type="button" disabled>L'Arène ouvrira ici</button></p>
+      </article>
+      <article class="carte statut-avenir" id="infectiologie">
+        <header>
+          <h3>Infectiologie</h3>
+          <p class="badge badge-avenir">à venir</p>
+        </header>
+        <p class="attente">Cette spécialité arrive bientôt. L'aperçu restera vide tant qu'aucun cas sourcé n'est produit : rien n'est inventé ici.</p>
+        <p class="action"><button class="arene arene-off" type="button" disabled>L'Arène ouvrira ici</button></p>
+      </article>
+      <article class="carte statut-avenir" id="rhumatologie">
+        <header>
+          <h3>Rhumatologie</h3>
+          <p class="badge badge-avenir">à venir</p>
+        </header>
+        <p class="attente">Cette spécialité arrive bientôt. L'aperçu restera vide tant qu'aucun cas sourcé n'est produit : rien n'est inventé ici.</p>
+        <p class="action"><button class="arene arene-off" type="button" disabled>L'Arène ouvrira ici</button></p>
+      </article>
+      <article class="carte statut-avenir" id="immunologie-allergologie">
+        <header>
+          <h3>Immunologie et allergologie</h3>
+          <p class="badge badge-avenir">à venir</p>
+        </header>
+        <p class="attente">Cette spécialité arrive bientôt. L'aperçu restera vide tant qu'aucun cas sourcé n'est produit : rien n'est inventé ici.</p>
+        <p class="action"><button class="arene arene-off" type="button" disabled>L'Arène ouvrira ici</button></p>
+      </article>
+      <article class="carte statut-avenir" id="geriatrie">
+        <header>
+          <h3>Gériatrie</h3>
+          <p class="badge badge-avenir">à venir</p>
+        </header>
+        <p class="attente">Cette spécialité arrive bientôt. L'aperçu restera vide tant qu'aucun cas sourcé n'est produit : rien n'est inventé ici.</p>
+        <p class="action"><button class="arene arene-off" type="button" disabled>L'Arène ouvrira ici</button></p>
+      </article></div></section>
+<section class="lot" id="lot-b"><h2>Lot B · Neurosciences et santé mentale</h2><div class="grille">
+      <article class="carte statut-avenir" id="neurologie">
+        <header>
+          <h3>Neurologie</h3>
+          <p class="badge badge-avenir">à venir</p>
+        </header>
+        <p class="attente">Cette spécialité arrive bientôt. L'aperçu restera vide tant qu'aucun cas sourcé n'est produit : rien n'est inventé ici.</p>
+        <p class="action"><button class="arene arene-off" type="button" disabled>L'Arène ouvrira ici</button></p>
+      </article>
+      <article class="carte statut-avenir" id="psychiatrie-psychotherapie">
+        <header>
+          <h3>Psychiatrie et psychothérapie</h3>
+          <p class="badge badge-avenir">à venir</p>
+        </header>
+        <p class="attente">Cette spécialité arrive bientôt. L'aperçu restera vide tant qu'aucun cas sourcé n'est produit : rien n'est inventé ici.</p>
+        <p class="action"><button class="arene arene-off" type="button" disabled>L'Arène ouvrira ici</button></p>
+      </article>
+      <article class="carte statut-avenir" id="pedopsychiatrie">
+        <header>
+          <h3>Pédopsychiatrie</h3>
+          <p class="badge badge-avenir">à venir</p>
+        </header>
+        <p class="attente">Cette spécialité arrive bientôt. L'aperçu restera vide tant qu'aucun cas sourcé n'est produit : rien n'est inventé ici.</p>
+        <p class="action"><button class="arene arene-off" type="button" disabled>L'Arène ouvrira ici</button></p>
+      </article>
+      <article class="carte statut-avenir" id="addictologie">
+        <header>
+          <h3>Addictologie</h3>
+          <p class="badge badge-avenir">à venir</p>
+        </header>
+        <p class="attente">Cette spécialité arrive bientôt. L'aperçu restera vide tant qu'aucun cas sourcé n'est produit : rien n'est inventé ici.</p>
+        <p class="action"><button class="arene arene-off" type="button" disabled>L'Arène ouvrira ici</button></p>
+      </article></div></section>
+<section class="lot" id="lot-c"><h2>Lot C · Mère et enfant</h2><div class="grille">
+      <article class="carte statut-avenir" id="pediatrie">
+        <header>
+          <h3>Pédiatrie</h3>
+          <p class="badge badge-avenir">à venir</p>
+        </header>
+        <p class="attente">Cette spécialité arrive bientôt. L'aperçu restera vide tant qu'aucun cas sourcé n'est produit : rien n'est inventé ici.</p>
+        <p class="action"><button class="arene arene-off" type="button" disabled>L'Arène ouvrira ici</button></p>
+      </article>
+      <article class="carte statut-avenir" id="neonatologie">
+        <header>
+          <h3>Néonatologie</h3>
+          <p class="badge badge-avenir">à venir</p>
+        </header>
+        <p class="attente">Cette spécialité arrive bientôt. L'aperçu restera vide tant qu'aucun cas sourcé n'est produit : rien n'est inventé ici.</p>
+        <p class="action"><button class="arene arene-off" type="button" disabled>L'Arène ouvrira ici</button></p>
+      </article>
+      <article class="carte statut-avenir" id="gynecologie">
+        <header>
+          <h3>Gynécologie</h3>
+          <p class="badge badge-avenir">à venir</p>
+        </header>
+        <p class="attente">Cette spécialité arrive bientôt. L'aperçu restera vide tant qu'aucun cas sourcé n'est produit : rien n'est inventé ici.</p>
+        <p class="action"><button class="arene arene-off" type="button" disabled>L'Arène ouvrira ici</button></p>
+      </article>
+      <article class="carte statut-avenir" id="obstetrique">
+        <header>
+          <h3>Obstétrique</h3>
+          <p class="badge badge-avenir">à venir</p>
+        </header>
+        <p class="attente">Cette spécialité arrive bientôt. L'aperçu restera vide tant qu'aucun cas sourcé n'est produit : rien n'est inventé ici.</p>
+        <p class="action"><button class="arene arene-off" type="button" disabled>L'Arène ouvrira ici</button></p>
+      </article></div></section>
+<section class="lot" id="lot-d"><h2>Lot D · Chirurgie</h2><div class="grille">
+      <article class="carte statut-avenir" id="chirurgie-viscerale">
+        <header>
+          <h3>Chirurgie viscérale</h3>
+          <p class="badge badge-avenir">à venir</p>
+        </header>
+        <p class="attente">Cette spécialité arrive bientôt. L'aperçu restera vide tant qu'aucun cas sourcé n'est produit : rien n'est inventé ici.</p>
+        <p class="action"><button class="arene arene-off" type="button" disabled>L'Arène ouvrira ici</button></p>
+      </article>
+      <article class="carte statut-avenir" id="traumatologie-orthopedie">
+        <header>
+          <h3>Traumatologie et orthopédie</h3>
+          <p class="badge badge-avenir">à venir</p>
+        </header>
+        <p class="attente">Cette spécialité arrive bientôt. L'aperçu restera vide tant qu'aucun cas sourcé n'est produit : rien n'est inventé ici.</p>
+        <p class="action"><button class="arene arene-off" type="button" disabled>L'Arène ouvrira ici</button></p>
+      </article>
+      <article class="carte statut-avenir" id="urologie">
+        <header>
+          <h3>Urologie</h3>
+          <p class="badge badge-avenir">à venir</p>
+        </header>
+        <p class="attente">Cette spécialité arrive bientôt. L'aperçu restera vide tant qu'aucun cas sourcé n'est produit : rien n'est inventé ici.</p>
+        <p class="action"><button class="arene arene-off" type="button" disabled>L'Arène ouvrira ici</button></p>
+      </article>
+      <article class="carte statut-avenir" id="chirurgie-vasculaire">
+        <header>
+          <h3>Chirurgie vasculaire</h3>
+          <p class="badge badge-avenir">à venir</p>
+        </header>
+        <p class="attente">Cette spécialité arrive bientôt. L'aperçu restera vide tant qu'aucun cas sourcé n'est produit : rien n'est inventé ici.</p>
+        <p class="action"><button class="arene arene-off" type="button" disabled>L'Arène ouvrira ici</button></p>
+      </article>
+      <article class="carte statut-avenir" id="chirurgie-thoracique-cardiaque">
+        <header>
+          <h3>Chirurgie thoracique et cardiaque</h3>
+          <p class="badge badge-avenir">à venir</p>
+        </header>
+        <p class="attente">Cette spécialité arrive bientôt. L'aperçu restera vide tant qu'aucun cas sourcé n'est produit : rien n'est inventé ici.</p>
+        <p class="action"><button class="arene arene-off" type="button" disabled>L'Arène ouvrira ici</button></p>
+      </article>
+      <article class="carte statut-avenir" id="neurochirurgie">
+        <header>
+          <h3>Neurochirurgie</h3>
+          <p class="badge badge-avenir">à venir</p>
+        </header>
+        <p class="attente">Cette spécialité arrive bientôt. L'aperçu restera vide tant qu'aucun cas sourcé n'est produit : rien n'est inventé ici.</p>
+        <p class="action"><button class="arene arene-off" type="button" disabled>L'Arène ouvrira ici</button></p>
+      </article></div></section>
+<section class="lot" id="lot-e"><h2>Lot E · Organes des sens et peau</h2><div class="grille">
+      <article class="carte statut-avenir" id="orl">
+        <header>
+          <h3>ORL</h3>
+          <p class="badge badge-avenir">à venir</p>
+        </header>
+        <p class="attente">Cette spécialité arrive bientôt. L'aperçu restera vide tant qu'aucun cas sourcé n'est produit : rien n'est inventé ici.</p>
+        <p class="action"><button class="arene arene-off" type="button" disabled>L'Arène ouvrira ici</button></p>
+      </article>
+      <article class="carte statut-avenir" id="ophtalmologie">
+        <header>
+          <h3>Ophtalmologie</h3>
+          <p class="badge badge-avenir">à venir</p>
+        </header>
+        <p class="attente">Cette spécialité arrive bientôt. L'aperçu restera vide tant qu'aucun cas sourcé n'est produit : rien n'est inventé ici.</p>
+        <p class="action"><button class="arene arene-off" type="button" disabled>L'Arène ouvrira ici</button></p>
+      </article>
+      <article class="carte statut-avenir" id="dermatologie-venereologie">
+        <header>
+          <h3>Dermatologie et vénéréologie</h3>
+          <p class="badge badge-avenir">à venir</p>
+        </header>
+        <p class="attente">Cette spécialité arrive bientôt. L'aperçu restera vide tant qu'aucun cas sourcé n'est produit : rien n'est inventé ici.</p>
+        <p class="action"><button class="arene arene-off" type="button" disabled>L'Arène ouvrira ici</button></p>
+      </article></div></section>
+<section class="lot" id="lot-f"><h2>Lot F · Aigu et fin de vie</h2><div class="grille">
+      <article class="carte statut-avenir" id="medecine-urgence">
+        <header>
+          <h3>Médecine d'urgence</h3>
+          <p class="badge badge-avenir">à venir</p>
+        </header>
+        <p class="attente">Cette spécialité arrive bientôt. L'aperçu restera vide tant qu'aucun cas sourcé n'est produit : rien n'est inventé ici.</p>
+        <p class="action"><button class="arene arene-off" type="button" disabled>L'Arène ouvrira ici</button></p>
+      </article>
+      <article class="carte statut-avenir" id="anesthesiologie">
+        <header>
+          <h3>Anesthésiologie</h3>
+          <p class="badge badge-avenir">à venir</p>
+        </header>
+        <p class="attente">Cette spécialité arrive bientôt. L'aperçu restera vide tant qu'aucun cas sourcé n'est produit : rien n'est inventé ici.</p>
+        <p class="action"><button class="arene arene-off" type="button" disabled>L'Arène ouvrira ici</button></p>
+      </article>
+      <article class="carte statut-avenir" id="medecine-intensive">
+        <header>
+          <h3>Médecine intensive</h3>
+          <p class="badge badge-avenir">à venir</p>
+        </header>
+        <p class="attente">Cette spécialité arrive bientôt. L'aperçu restera vide tant qu'aucun cas sourcé n'est produit : rien n'est inventé ici.</p>
+        <p class="action"><button class="arene arene-off" type="button" disabled>L'Arène ouvrira ici</button></p>
+      </article>
+      <article class="carte statut-avenir" id="toxicologie">
+        <header>
+          <h3>Toxicologie</h3>
+          <p class="badge badge-avenir">à venir</p>
+        </header>
+        <p class="attente">Cette spécialité arrive bientôt. L'aperçu restera vide tant qu'aucun cas sourcé n'est produit : rien n'est inventé ici.</p>
+        <p class="action"><button class="arene arene-off" type="button" disabled>L'Arène ouvrira ici</button></p>
+      </article>
+      <article class="carte statut-avenir" id="medecine-palliative">
+        <header>
+          <h3>Médecine palliative</h3>
+          <p class="badge badge-avenir">à venir</p>
+        </header>
+        <p class="attente">Cette spécialité arrive bientôt. L'aperçu restera vide tant qu'aucun cas sourcé n'est produit : rien n'est inventé ici.</p>
+        <p class="action"><button class="arene arene-off" type="button" disabled>L'Arène ouvrira ici</button></p>
+      </article></div></section>
+<section class="lot" id="lot-g"><h2>Lot G · Premier recours et société</h2><div class="grille">
+      <article class="carte statut-avenir" id="medecine-famille">
+        <header>
+          <h3>Médecine de famille</h3>
+          <p class="badge badge-avenir">à venir</p>
+        </header>
+        <p class="attente">Cette spécialité arrive bientôt. L'aperçu restera vide tant qu'aucun cas sourcé n'est produit : rien n'est inventé ici.</p>
+        <p class="action"><button class="arene arene-off" type="button" disabled>L'Arène ouvrira ici</button></p>
+      </article>
+      <article class="carte statut-avenir" id="medecine-voyages-tropicale">
+        <header>
+          <h3>Médecine des voyages et tropicale</h3>
+          <p class="badge badge-avenir">à venir</p>
+        </header>
+        <p class="attente">Cette spécialité arrive bientôt. L'aperçu restera vide tant qu'aucun cas sourcé n'est produit : rien n'est inventé ici.</p>
+        <p class="action"><button class="arene arene-off" type="button" disabled>L'Arène ouvrira ici</button></p>
+      </article>
+      <article class="carte statut-avenir" id="medecine-travail">
+        <header>
+          <h3>Médecine du travail</h3>
+          <p class="badge badge-avenir">à venir</p>
+        </header>
+        <p class="attente">Cette spécialité arrive bientôt. L'aperçu restera vide tant qu'aucun cas sourcé n'est produit : rien n'est inventé ici.</p>
+        <p class="action"><button class="arene arene-off" type="button" disabled>L'Arène ouvrira ici</button></p>
+      </article>
+      <article class="carte statut-avenir" id="medecine-physique-readaptation">
+        <header>
+          <h3>Médecine physique et réadaptation</h3>
+          <p class="badge badge-avenir">à venir</p>
+        </header>
+        <p class="attente">Cette spécialité arrive bientôt. L'aperçu restera vide tant qu'aucun cas sourcé n'est produit : rien n'est inventé ici.</p>
+        <p class="action"><button class="arene arene-off" type="button" disabled>L'Arène ouvrira ici</button></p>
+      </article>
+      <article class="carte statut-avenir" id="prevention-sante-publique">
+        <header>
+          <h3>Prévention et santé publique</h3>
+          <p class="badge badge-avenir">à venir</p>
+        </header>
+        <p class="attente">Cette spécialité arrive bientôt. L'aperçu restera vide tant qu'aucun cas sourcé n'est produit : rien n'est inventé ici.</p>
+        <p class="action"><button class="arene arene-off" type="button" disabled>L'Arène ouvrira ici</button></p>
+      </article>
+      <article class="carte statut-avenir" id="medecine-legale">
+        <header>
+          <h3>Médecine légale</h3>
+          <p class="badge badge-avenir">à venir</p>
+        </header>
+        <p class="attente">Cette spécialité arrive bientôt. L'aperçu restera vide tant qu'aucun cas sourcé n'est produit : rien n'est inventé ici.</p>
+        <p class="action"><button class="arene arene-off" type="button" disabled>L'Arène ouvrira ici</button></p>
+      </article>
+      <article class="carte statut-avenir" id="genetique-medicale">
+        <header>
+          <h3>Génétique médicale</h3>
+          <p class="badge badge-avenir">à venir</p>
+        </header>
+        <p class="attente">Cette spécialité arrive bientôt. L'aperçu restera vide tant qu'aucun cas sourcé n'est produit : rien n'est inventé ici.</p>
+        <p class="action"><button class="arene arene-off" type="button" disabled>L'Arène ouvrira ici</button></p>
+      </article></div></section>
+<section class="lot" id="paraclinique"><h2>Phase 2 · Paraclinique</h2><div class="grille">
+      <article class="carte statut-avenir" id="radiologie">
+        <header>
+          <h3>Radiologie</h3>
+          <p class="badge badge-avenir">à venir</p>
+        </header>
+        <p class="attente">Cette spécialité arrive bientôt. L'aperçu restera vide tant qu'aucun cas sourcé n'est produit : rien n'est inventé ici.</p>
+        <p class="action"><button class="arene arene-off" type="button" disabled>L'Arène ouvrira ici</button></p>
+      </article>
+      <article class="carte statut-avenir" id="medecine-nucleaire">
+        <header>
+          <h3>Médecine nucléaire</h3>
+          <p class="badge badge-avenir">à venir</p>
+        </header>
+        <p class="attente">Cette spécialité arrive bientôt. L'aperçu restera vide tant qu'aucun cas sourcé n'est produit : rien n'est inventé ici.</p>
+        <p class="action"><button class="arene arene-off" type="button" disabled>L'Arène ouvrira ici</button></p>
+      </article>
+      <article class="carte statut-avenir" id="laboratoire">
+        <header>
+          <h3>Laboratoire (chimie, hématologie, microbiologie)</h3>
+          <p class="badge badge-avenir">à venir</p>
+        </header>
+        <p class="attente">Cette spécialité arrive bientôt. L'aperçu restera vide tant qu'aucun cas sourcé n'est produit : rien n'est inventé ici.</p>
+        <p class="action"><button class="arene arene-off" type="button" disabled>L'Arène ouvrira ici</button></p>
+      </article>
+      <article class="carte statut-avenir" id="anatomopathologie">
+        <header>
+          <h3>Anatomopathologie</h3>
+          <p class="badge badge-avenir">à venir</p>
+        </header>
+        <p class="attente">Cette spécialité arrive bientôt. L'aperçu restera vide tant qu'aucun cas sourcé n'est produit : rien n'est inventé ici.</p>
+        <p class="action"><button class="arene arene-off" type="button" disabled>L'Arène ouvrira ici</button></p>
+      </article>
+      <article class="carte statut-avenir" id="ecg">
+        <header>
+          <h3>ECG</h3>
+          <p class="badge badge-avenir">à venir</p>
+        </header>
+        <p class="attente">Cette spécialité arrive bientôt. L'aperçu restera vide tant qu'aucun cas sourcé n'est produit : rien n'est inventé ici.</p>
+        <p class="action"><button class="arene arene-off" type="button" disabled>L'Arène ouvrira ici</button></p>
+      </article>
+      <article class="carte statut-avenir" id="efr-explorations-fonctionnelles">
+        <header>
+          <h3>EFR et explorations fonctionnelles</h3>
+          <p class="badge badge-avenir">à venir</p>
+        </header>
+        <p class="attente">Cette spécialité arrive bientôt. L'aperçu restera vide tant qu'aucun cas sourcé n'est produit : rien n'est inventé ici.</p>
+        <p class="action"><button class="arene arene-off" type="button" disabled>L'Arène ouvrira ici</button></p>
+      </article></div></section>
+<section class="lot" id="transversales"><h2>Phase 3 · Disciplines transversales</h2><div class="grille">
+      <article class="carte statut-avenir" id="ethique">
+        <header>
+          <h3>Éthique</h3>
+          <p class="badge badge-avenir">à venir</p>
+        </header>
+        <p class="attente">Cette spécialité arrive bientôt. L'aperçu restera vide tant qu'aucun cas sourcé n'est produit : rien n'est inventé ici.</p>
+        <p class="action"><button class="arene arene-off" type="button" disabled>L'Arène ouvrira ici</button></p>
+      </article>
+      <article class="carte statut-avenir" id="droit-medical-suisse">
+        <header>
+          <h3>Droit médical suisse</h3>
+          <p class="badge badge-avenir">à venir</p>
+        </header>
+        <p class="attente">Cette spécialité arrive bientôt. L'aperçu restera vide tant qu'aucun cas sourcé n'est produit : rien n'est inventé ici.</p>
+        <p class="action"><button class="arene arene-off" type="button" disabled>L'Arène ouvrira ici</button></p>
+      </article>
+      <article class="carte statut-avenir" id="communication">
+        <header>
+          <h3>Communication</h3>
+          <p class="badge badge-avenir">à venir</p>
+        </header>
+        <p class="attente">Cette spécialité arrive bientôt. L'aperçu restera vide tant qu'aucun cas sourcé n'est produit : rien n'est inventé ici.</p>
+        <p class="action"><button class="arene arene-off" type="button" disabled>L'Arène ouvrira ici</button></p>
+      </article>
+      <article class="carte statut-avenir" id="ebm-statistiques">
+        <header>
+          <h3>EBM et statistiques</h3>
+          <p class="badge badge-avenir">à venir</p>
+        </header>
+        <p class="attente">Cette spécialité arrive bientôt. L'aperçu restera vide tant qu'aucun cas sourcé n'est produit : rien n'est inventé ici.</p>
+        <p class="action"><button class="arene arene-off" type="button" disabled>L'Arène ouvrira ici</button></p>
+      </article>
+      <article class="carte statut-avenir" id="systeme-sante-assurances">
+        <header>
+          <h3>Système de santé et assurances suisses (LAMal, LAA, AI)</h3>
+          <p class="badge badge-avenir">à venir</p>
+        </header>
+        <p class="attente">Cette spécialité arrive bientôt. L'aperçu restera vide tant qu'aucun cas sourcé n'est produit : rien n'est inventé ici.</p>
+        <p class="action"><button class="arene arene-off" type="button" disabled>L'Arène ouvrira ici</button></p>
+      </article>
+      <article class="carte statut-avenir" id="pharmacologie-clinique">
+        <header>
+          <h3>Pharmacologie clinique</h3>
+          <p class="badge badge-avenir">à venir</p>
+        </header>
+        <p class="attente">Cette spécialité arrive bientôt. L'aperçu restera vide tant qu'aucun cas sourcé n'est produit : rien n'est inventé ici.</p>
+        <p class="action"><button class="arene arene-off" type="button" disabled>L'Arène ouvrira ici</button></p>
+      </article></div></section>
+<section class="lot" id="fondamentales"><h2>Phase 4 · Sciences fondamentales</h2><div class="grille">
+      <article class="carte statut-avenir" id="anatomie">
+        <header>
+          <h3>Anatomie</h3>
+          <p class="badge badge-avenir">à venir</p>
+        </header>
+        <p class="attente">Cette spécialité arrive bientôt. L'aperçu restera vide tant qu'aucun cas sourcé n'est produit : rien n'est inventé ici.</p>
+        <p class="action"><button class="arene arene-off" type="button" disabled>L'Arène ouvrira ici</button></p>
+      </article>
+      <article class="carte statut-avenir" id="physiologie">
+        <header>
+          <h3>Physiologie</h3>
+          <p class="badge badge-avenir">à venir</p>
+        </header>
+        <p class="attente">Cette spécialité arrive bientôt. L'aperçu restera vide tant qu'aucun cas sourcé n'est produit : rien n'est inventé ici.</p>
+        <p class="action"><button class="arene arene-off" type="button" disabled>L'Arène ouvrira ici</button></p>
+      </article>
+      <article class="carte statut-avenir" id="physiopathologie">
+        <header>
+          <h3>Physiopathologie</h3>
+          <p class="badge badge-avenir">à venir</p>
+        </header>
+        <p class="attente">Cette spécialité arrive bientôt. L'aperçu restera vide tant qu'aucun cas sourcé n'est produit : rien n'est inventé ici.</p>
+        <p class="action"><button class="arene arene-off" type="button" disabled>L'Arène ouvrira ici</button></p>
+      </article>
+      <article class="carte statut-avenir" id="biochimie">
+        <header>
+          <h3>Biochimie</h3>
+          <p class="badge badge-avenir">à venir</p>
+        </header>
+        <p class="attente">Cette spécialité arrive bientôt. L'aperçu restera vide tant qu'aucun cas sourcé n'est produit : rien n'est inventé ici.</p>
+        <p class="action"><button class="arene arene-off" type="button" disabled>L'Arène ouvrira ici</button></p>
+      </article>
+      <article class="carte statut-avenir" id="pharmacologie">
+        <header>
+          <h3>Pharmacologie</h3>
+          <p class="badge badge-avenir">à venir</p>
+        </header>
+        <p class="attente">Cette spécialité arrive bientôt. L'aperçu restera vide tant qu'aucun cas sourcé n'est produit : rien n'est inventé ici.</p>
+        <p class="action"><button class="arene arene-off" type="button" disabled>L'Arène ouvrira ici</button></p>
+      </article>
+      <article class="carte statut-avenir" id="microbiologie">
+        <header>
+          <h3>Microbiologie</h3>
+          <p class="badge badge-avenir">à venir</p>
+        </header>
+        <p class="attente">Cette spécialité arrive bientôt. L'aperçu restera vide tant qu'aucun cas sourcé n'est produit : rien n'est inventé ici.</p>
+        <p class="action"><button class="arene arene-off" type="button" disabled>L'Arène ouvrira ici</button></p>
+      </article>
+      <article class="carte statut-avenir" id="immunologie">
+        <header>
+          <h3>Immunologie</h3>
+          <p class="badge badge-avenir">à venir</p>
+        </header>
+        <p class="attente">Cette spécialité arrive bientôt. L'aperçu restera vide tant qu'aucun cas sourcé n'est produit : rien n'est inventé ici.</p>
+        <p class="action"><button class="arene arene-off" type="button" disabled>L'Arène ouvrira ici</button></p>
+      </article>
+      <article class="carte statut-avenir" id="genetique">
+        <header>
+          <h3>Génétique</h3>
+          <p class="badge badge-avenir">à venir</p>
+        </header>
+        <p class="attente">Cette spécialité arrive bientôt. L'aperçu restera vide tant qu'aucun cas sourcé n'est produit : rien n'est inventé ici.</p>
+        <p class="action"><button class="arene arene-off" type="button" disabled>L'Arène ouvrira ici</button></p>
+      </article>
+      <article class="carte statut-avenir" id="histologie">
+        <header>
+          <h3>Histologie</h3>
+          <p class="badge badge-avenir">à venir</p>
+        </header>
+        <p class="attente">Cette spécialité arrive bientôt. L'aperçu restera vide tant qu'aucun cas sourcé n'est produit : rien n'est inventé ici.</p>
+        <p class="action"><button class="arene arene-off" type="button" disabled>L'Arène ouvrira ici</button></p>
+      </article>
+      <article class="carte statut-avenir" id="embryologie">
+        <header>
+          <h3>Embryologie</h3>
+          <p class="badge badge-avenir">à venir</p>
+        </header>
+        <p class="attente">Cette spécialité arrive bientôt. L'aperçu restera vide tant qu'aucun cas sourcé n'est produit : rien n'est inventé ici.</p>
+        <p class="action"><button class="arene arene-off" type="button" disabled>L'Arène ouvrira ici</button></p>
+      </article></div></section>
+  </main>
+  <footer class="pied">
+    <p>Ce catalogue compte les 63 spécialités et disciplines du plan (lots A à G, paraclinique, disciplines transversales, sciences fondamentales). Il n'en compte pas 45. La Phase 0, la veille et l'examen blanc restent dans le <a href="docs/CATALOGUE_PRODUCTION.md">catalogue de production</a>.</p>
+    <p>L'aperçu d'une salle reste vide tant qu'aucun cas sourcé n'est produit. Rien n'est inventé. Prototype pédagogique : il ne remplace ni un protocole local ni l'avis d'un médecin.</p>
+  </footer>
+</body>
+</html>

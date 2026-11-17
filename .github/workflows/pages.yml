@@ -9,7 +9,7 @@ name: Pages
 on:
   push:
     branches: [main]
-    paths: ["QCMs_A_K'_Menus_Long_Chatgpt/index.html", app_v2.html, progres.html, 'assets/**', 'tools/coordination/**', .github/workflows/pages.yml, 'Claude/_reference/**', 'Claude/_polices/**', 'Claude/_progression/donnees/**', outils/receptacle.py, outils/publier_cours.py, 'Claude/LOT_*/audits/contre_audit.audit.json']
+    paths: ["QCMs_A_K'_Menus_Long_Chatgpt/index.html", app_v2.html, progres.html, 'assets/**', 'tools/coordination/**', .github/workflows/pages.yml, 'Claude/_reference/**', 'Claude/_polices/**', 'Claude/_progression/donnees/**', outils/receptacle.py, outils/publier_cours.py, 'Claude/LOT_*/audits/contre_audit.audit.json', 'jeu-revision/**']
   workflow_dispatch:
 permissions:
   contents: read
@@ -31,9 +31,16 @@ jobs:
           ref: automates/prevalences
           path: .etat_local/prevalences
           persist-credentials: false
+      - uses: actions/checkout@v7
+        with:
+          ref: veille-etat
+          path: .etat_local/veille
+          persist-credentials: false
+        continue-on-error: true
       - name: Suivi commun monographies et prévalences
         run: python3 tools/coordination/calculer.py --output .etat_local/coordination
-      - run: |
+      - name: Construire le site (application, jeu, catalogue, veille)
+        run: |
           mkdir _site
           mkdir -p _site/banque-qcm
           cp "QCMs_A_K'_Menus_Long_Chatgpt/index.html" _site/banque-qcm/index.html
@@ -47,9 +54,20 @@ jobs:
           if [ -f .etat_local/prevalences/erreurs.pdf ]; then cp .etat_local/prevalences/erreurs.pdf _site/prevalences-erreurs.pdf; fi
           if [ -f .etat_local/prevalences/erreurs.json ]; then cp .etat_local/prevalences/erreurs.json _site/prevalences-erreurs.json; fi
           if [ -d assets ]; then cp -r assets _site/assets; fi
-          # Réceptacle : progression.html et les cours des SSP prêts (Claude/_reference/prets.txt)
-          python3 outils/publier_cours.py _site
+          # Jeu INTERNAT, catalogue joueur et veille (données fraîches depuis veille-etat).
+          if [ -d jeu-revision ]; then cp -a jeu-revision _site/jeu-revision; fi
+          mkdir -p _site/veille
+          if [ -f .etat_local/veille/veille/pages/index.html ]; then
+            cp .etat_local/veille/veille/pages/index.html _site/veille/index.html
+            if [ -f .etat_local/veille/veille/pages/donnees.json ]; then cp .etat_local/veille/veille/pages/donnees.json _site/veille/donnees.json; fi
+          elif [ -f jeu-revision/veille/index.html ]; then
+            cp jeu-revision/veille/index.html _site/veille/index.html
+            if [ -f jeu-revision/veille/donnees.json ]; then cp jeu-revision/veille/donnees.json _site/veille/donnees.json; fi
+          fi
           touch _site/.nojekyll
+      - name: Réceptacle des cours prêts
+        continue-on-error: true
+        run: python3 outils/publier_cours.py _site
       - uses: actions/configure-pages@v6
       - uses: actions/upload-pages-artifact@v5
         with: { path: _site }

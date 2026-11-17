@@ -1,0 +1,88 @@
+# Veille INTERNAT : examen fédéral, santé publique (7 jours), sociétés savantes.
+# Prolonge ve1/ve2 (Argos) : même sources.yml, même script veille.py pour les
+# empreintes, même branche veille-etat (main est protégée).
+# Aucune API payante, aucun modèle de langage. Une fois par jour au plus.
+# Les pages générées sont publiées par pages.yml, qui relit cette branche.
+name: Veille INTERNAT · pages publiques
+on:
+  schedule:
+    - cron: '17 6 * * *'   # chaque jour 06:17 UTC (après ve1 à 05:17)
+  workflow_dispatch:
+permissions:
+  contents: write   # commit de veille/pages/* sur la branche veille-etat
+  actions: write    # déclenche Pages + réactivation mensuelle
+concurrency:
+  group: veille-etat
+  cancel-in-progress: false
+jobs:
+  perimetre:
+    runs-on: ubuntu-latest
+    outputs:
+      autorise: ${{ steps.mission.outputs.autorise }}
+    steps:
+      - uses: actions/checkout@v7
+        with: { ref: main }
+      - id: mission
+        run: |
+          python3 - <<'PY'
+          import json, os
+          from pathlib import Path
+          c=json.loads(Path("tools/coordination/config.json").read_text())
+          with open(os.environ["GITHUB_OUTPUT"], "a") as f:
+              print("autorise="+str(c.get("mission_exclusive")!="infobulles_prototype6").lower(), file=f)
+          PY
+  collecter:
+    needs: perimetre
+    if: needs.perimetre.outputs.autorise == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with: { python-version: '3.12' }
+      - name: Récupérer les empreintes précédentes (branche veille-etat)
+        run: |
+          mkdir -p veille/pages
+          if git fetch --depth=1 origin veille-etat 2>/dev/null; then
+            git show FETCH_HEAD:veille/pages/empreintes.json > veille/pages/empreintes.json 2>/dev/null || true
+          fi
+      - name: Collecter les sources et rendre la page
+        run: |
+          python3 veille/collecter_pages.py \
+            --sources veille/sources.yml \
+            --etat veille/pages/empreintes.json \
+            --sortie-html veille/pages/index.html \
+            --sortie-json veille/pages/donnees.json
+      - name: Enregistrer la page sur veille-etat (pas sur main)
+        if: always()
+        run: |
+          [ -f veille/pages/index.html ] || exit 0
+          mkdir -p /tmp/pages-veille
+          cp -a veille/pages/. /tmp/pages-veille/
+          # Conserve aussi etat.json d'Argos (ve1/ve2) s'il est déjà sur la branche.
+          git config user.name "argos-veille[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if git fetch --depth=1 origin veille-etat 2>/dev/null; then
+            git checkout -q -f -B veille-etat FETCH_HEAD
+          else
+            git checkout -q --orphan veille-etat
+            git rm -rqf . || true
+          fi
+          mkdir -p veille/pages
+          cp -a /tmp/pages-veille/. veille/pages/
+          git add veille/pages/index.html veille/pages/donnees.json veille/pages/empreintes.json
+          git diff --cached --quiet || git commit -qm "veille(internat): actualise la page publique"
+          git push -q origin veille-etat
+      - name: Publier via le workflow Pages
+        if: success()
+        env: { GH_TOKEN: '${{ github.token }}' }
+        run: |
+          gh workflow run pages.yml --repo "${{ github.repository }}" --ref main
+          echo "Pages relancé."
+      - name: Réactivation mensuelle (parade aux 60 jours)
+        if: always()
+        env: { GH_TOKEN: '${{ github.token }}' }
+        run: |
+          if [ "$(date -u +%d)" -le 7 ] || [ "${{ github.event_name }}" = workflow_dispatch ]; then
+            gh api -X PUT "repos/${{ github.repository }}/actions/workflows/veille-internat.yml/enable" && echo "Workflow réactivé."
+          fi
