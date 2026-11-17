@@ -41,3 +41,14 @@ Les lignes de la matrice orientent la production. Un domaine sera compté comme 
 | 036–040 | Gérer une crise d’hyperthermie maligne et ses suites, préparer une anesthésie non déclenchante en cas de risque familial et reconnaître des causes distinctes de fièvre postopératoire. |
 
 La Q037 oriente vers une infection sternale profonde après sternotomie. Elle a remplacé deux propositions déjà proches de G1-017 et G1-138. G6-028 évalue la possibilité de garder un enfant en accueil familial dans un canton précis, une décision différente des mesures thermiques déjà vues dans G1-174.
+
+## Décisions contrôlées, lots 055 et 056
+
+| Questions | Domaine de décision effectivement évalué |
+|---|---|
+| 041–050 | Débuter un traitement urgent d’infection du système nerveux central, interpréter les résultats selon le moment du prélèvement et tenir compte d’une exposition palustre. La quantification, la gravité et la surveillance après traitement répondent à des questions distinctes. |
+| 051–060 | Explorer les fièvres abdominales complexes et distinguer inflammation, infection et complication perforative. Chez la femme enceinte ou en post-partum, tenir compte de l’exposition alimentaire, de la période périnatale, de l’anatomie pelvienne et de l’allaitement. |
+| 061–070 | Choisir le site et le moment d’une culture d’urine, reconnaître une pyélonéphrite avec gaz intraparenchymateux, adapter l’imagerie à la grossesse et interpréter un calcul infectieux. Distinguer vaccination de contact, maladie intercurrente, infection postvaccinale et suspicion d’effet indésirable nécessitant un bilan urgent. |
+| 071–080 | Décider du lieu des soins suivant la profondeur et la durée d’une aplasie, reconnaître entérocolite et risque fongique, et interpréter une fièvre pendant ou après un produit transfusé ou perfusé. |
+
+G6-063 choisit l’imagerie non irradiante initiale d’une obstruction suspectée pendant la grossesse. G1-061 reconnaît l’obstruction comme cause d’échec apparent d’une antibiothérapie et G5-194 choisit la décompression d’un calcul infecté après confirmation. G6-065 échantillonne les urines du bassinet durant une dérivation déjà décidée. Les informations à obtenir sont différentes à chacune de ces étapes.
