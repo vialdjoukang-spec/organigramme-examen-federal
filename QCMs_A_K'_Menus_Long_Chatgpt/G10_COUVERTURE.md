@@ -19,3 +19,10 @@ Dans la cohorte lausannoise CoLaus, les auteurs ont analysé 4 602 participants 
 | Populations et contextes | Adapter le recueil et le traitement à l’enfant et au nouveau-né, à la personne âgée ou non communicante, à la grossesse et au post-partum, à la maladie oncologique, aux soins palliatifs et aux troubles liés à l’usage de substances. |
 
 Les correspondances facultaires reposent sur les objectifs de neurosciences et de médecine de premier recours de Genève et le catalogue de compétences cliniques du Master de Bâle. Les indications propres à une intervention ou à un médicament requièrent la référence clinique citée dans le corrigé. [Genève, approches thérapeutiques de la douleur](https://www.medecine.unige.ch/enseignement/etudes/curriculum/data/a2062.htm) · [Bâle, catalogue des compétences du Master 2026–2027](https://medizinstudium.unibas.ch/fileadmin/user_upload/medizin/Dokumente/Master/26_27_Stoffkatalog_MA_MDT.pdf).
+
+## Questions relues
+
+| Questions | Décisions travaillées |
+|---|---|
+| 001–020 | Hyperalgésie secondaire et cartographie douloureuse, distinction viscérale/pariétale et douleurs projetées, urgences vasculaires, autoévaluation adaptée et observation néonatale ou pédiatrique. |
+| 021–040 | Queue de cheval incomplète, déficit moteur progressif, protection du rachis ankylosé, investigations discovertébrales, concordance clinique et imagerie, raisonnement thoracique et choix de la voie antalgique aiguë. |
