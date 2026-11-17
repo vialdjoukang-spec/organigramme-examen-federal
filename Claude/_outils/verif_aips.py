@@ -16,7 +16,7 @@ n'est jamais un succès). Les défauts 3 sont des alertes à relire.
 import re, sys, os, html, json, hashlib, subprocess, argparse
 
 GUILL = re.compile(r'«\s*(.+?)\s*»', re.S)
-ANCRE = re.compile(r'href="#sb-aips-([0-9a-z]+)"')
+ANCRE = re.compile(r'href="#sb-aips-([0-9a-z]+(?:-[0-9a-z]+)*)"')
 DOSE = re.compile(r"(\d{1,3}(?:[ '’\u00a0\u202f]\d{3})+|\d+(?:[.,]\d+)?)\s?(?:mg|µg|mcg|UI|mmol)\b")
 HORS = re.compile(r"hors (?:AIPS|information professionnelle)|ne (?:chiffre|donne|fixe|porte|décrit) pas|diverge|"
                   r"alors que l'AIPS|absente? de l'AIPS|recommandation|consensus|propose|selon (?:l'|la |le )", re.I)
@@ -50,7 +50,7 @@ def aips(url, cache):
 
 def verifier(chemin, cache):
     h = open(chemin, encoding='utf-8').read()
-    biblio = {m.group(1): m.group(2) for m in re.finditer(r'<li id="sb-aips-([0-9a-z]+)">(.*?)</li>', h, re.S)}
+    biblio = {m.group(1): m.group(2) for m in re.finditer(r'<li id="sb-aips-([0-9a-z]+(?:-[0-9a-z]+)*)">(.*?)</li>', h, re.S)}
     urls = {k: (re.search(r'https://files\.refdata\.ch/[^\s<"]+?\.html', v) or [None])[0] for k, v in biblio.items()}
     d = {'ancre_sans_biblio': [], 'biblio_sans_url': [], 'citation_absente': [], 'dose_absente': [], 'aips_illisible': []}
     cites = set(ANCRE.findall(h))

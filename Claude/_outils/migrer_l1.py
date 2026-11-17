@@ -118,4 +118,5 @@ if __name__ == '__main__':
         n = migrer(h, pre)
         if n != h:
             open(f, 'w', encoding='utf-8').write(n)
-        print(f"{f.split('/')[-1]} {len(h.encode())}→{len(n.encode())} o, fenêtres {n.count('class=\"fenetre\" id=')}")
+        nb_fen = n.count('class="fenetre" id=')
+        print(f"{f.split('/')[-1]} {len(h.encode())}→{len(n.encode())} o, fenêtres {nb_fen}")
