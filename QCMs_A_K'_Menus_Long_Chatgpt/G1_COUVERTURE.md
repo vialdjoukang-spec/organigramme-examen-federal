@@ -18,7 +18,7 @@ L’USZ estime la prévalence de l’hyperhidrose à **2 à 4 % de la population
 | Sudation localisée et peau | Frey Q15/29, kératolyse Q74, miliaria Q66, intertrigo Q46, bromhidrose Q95, coloration Q54/131, urticaire cholinergique Q127, trichobactériose Q148. | Rougeur confondue avec transpiration, objectifs socioprofessionnels. |
 | Autonome et neurologie | Complications du diabète Q13/96, dysréflexie médullaire Q36, Arlequin Q37, Horner Q52, syringomyélie/localisation Q73, Ross Q98, neuropathie familiale Q99, Guillain-Barré Q100, algie vasculaire et crises Q136–140. | Plusieurs entités rares déjà représentées. Éviter d’ajouter un éponyme sans décision nouvelle. |
 | Infection et hématologie | Tuberculose Q7, endocardite Q8, primo-infection VIH Q9, paludisme Q49, pyélonéphrite compliquée Q61, fièvre Q Q62, légionellose Q63, spondylodiscite Q64, cholangite Q65, lymphome Q6/102/121, neutropénie Q122. | Gravité malgré apyrexie, réévaluation si un signe apparaît après bilan initial. |
-| Médicaments et toxiques | Iatrogénie Q5, syndromes sérotoninergique/neuroleptique Q16–17, sevrages Q10/25/76/101, toxidromes Q77–80, pilocarpine Q118, lithium Q116, salicylés Q119/149, ElViS Q120. | Vérifier les doublons Q116/144 et Q117/141 sur la dernière version du lot 009. |
+| Médicaments et toxiques | Iatrogénie Q5, syndromes sérotoninergique/neuroleptique Q16–17, sevrages Q10/25/76/101, toxidromes Q77–80, pilocarpine Q118, lithium Q116, salicylés Q119/149, ElViS Q120. | Les recouvrements initiaux avec Q116/117 ont été corrigés : Q141 vise désormais l’asepsie du pansement d’une chambre implantable et Q144 le phénomène d’Uhthoff. Q149 cible la gazométrie mixte. |
 | Pédiatrie, maladies rares et situations spécifiques | Cardiopathie du nourrisson Q26, mucoviscidose Q27/126/146, dysplasie ectodermique Q68, Fabry Q51/69, syndrome sec Q135, post-partum Q28/30, dialyse Q44, pathologies professionnelles Q47/86/87. | Préanalytique pédiatrique, transfert de compétences au domicile, enseignement à l’entourage. |
 | Urgences et raisonnement transversal | SCA Q19, anaphylaxie Q20, syncope Q21, choc hémorragique Q22/55, complication aortique Q60, hypoperfusion, hyponatrémie, intoxication CO Q48, crise épileptique autonome Q137. | Le G1 doit rester la situation d’entrée réelle. Une vignette sur une urgence où la sueur n’apporte aucune décision appartient plutôt à un autre SSP. |
 
@@ -33,7 +33,7 @@ L’attribution des vingt premiers emplacements a déjà été transmise aux aut
 | 161–165 | Canicule, insuffisance cardiaque et domicile | Distinguer dans l’ordre la congestion d’une déplétion, la nécessité de personnaliser la prescription hydrique, la révision conjointe des médicaments et de la biologie, l’organisation d’une visite à une personne isolée, puis la transmission de consignes d’escalade aux proches. Ne pas prescrire le même volume ni l’arrêt systématique des diurétiques. | C, S |
 | 166–170 | Test de la sueur et dépistage néonatal | Sous-lot réservé : cinq décisions préanalytiques/de dépistage à vérifier dans la procédure locale. Confronter chaque cible au prélèvement adéquat mais intermédiaire en Q27, à la déperdition saline de Q126 et aux paumes aquagéniques de Q146. Un résultat non exploitable et un résultat intermédiaire constituent deux situations différentes. | P, S |
 
-### Q171–200 : décisions candidates à rédiger et à contre-auditer
+### Q171–200 décisions candidates à rédiger et à contre-auditer
 
 La colonne de priorité désigne le **contexte du cas** et le délai de décision. « Courant » pour Q171–173 qualifie les gestes de pratique d’examen de la température, pas leur prévalence comme causes de consultation G1. Les lettres renvoient aux sources ci-dessous. Ces ouvrages donnent le point de départ ; une référence spécifique doit vérifier chaque assertion de corrigé. Rejeter toute candidature où la sueur ne modifie pas le raisonnement ou qui reproduirait une décision validée ailleurs. Les numéros restent remplaçables avant attribution.
 
@@ -233,10 +233,10 @@ Chaque ligne reprend l’objectif du dossier à la collecte. L’index fait appa
 | G1-138 | Reconnaître des accès sympathiques et posturaux déclenchés par les soins après lésion cérébrale grave |
 | G1-139 | Trier une poussée sudorale hyperthermique avec rebond de spasticité chez un porteur de pompe |
 | G1-140 | Éviter une fausse attribution de dénervation après un test sudomoteur sous médicament anticholinergique |
-| G1-141 | Éviter une augmentation de l’absorption transdermique du fentanyl lors d’un épisode fébrile |
+| G1-141 | Rétablir la protection aseptique d’une chambre implantable dont le pansement est imbibé de sueur |
 | G1-142 | Adapter les soins d’une aisselle irradiée exposée à la transpiration |
 | G1-143 | Repérer l’interruption de délivrance d’insuline après décollement du cathéter sur peau moite |
-| G1-144 | Identifier une neurotoxicité médicamenteuse favorisée par les pertes hydrosodées sudorales |
+| G1-144 | Attribuer la réapparition très brève d’un ancien déficit de SEP à l’échauffement pendant les épisodes de sueur |
 | G1-145 | Repérer un déficit hydrosodé combinant pertes stomiales et sudorales malgré des apports habituels |
 | G1-146 | Orienter un plissement palmaire aquagénique précoce avec symptômes respiratoires |
 | G1-147 | Choisir la matrice biologique après une exposition chronique aux vapeurs de mercure |
