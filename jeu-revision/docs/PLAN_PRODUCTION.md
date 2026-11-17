@@ -13,7 +13,8 @@
 5. Écris un convertisseur qui transforme une fiche SSP (`data/tip/`) en brouillon de cas.
 6. Ajoute une carte du parcours : une salle par spécialité, verrouillée ou ouverte.
 
-## Phase 1 · Spécialités, par lots (5 cas Urgence + 5 cas Consultation au minimum chacune)
+## Phase 1 · Spécialités, par lots (couverture exhaustive)
+Couvre chaque pathologie de la spécialité retenue par PROFILES et par les SSP du dépôt : donne-lui au moins un cas, et donne un cas Urgence ET un cas Consultation à chaque pathologie fréquente ou grave. Publie pour chaque spécialité la liste des pathologies couvertes et manquantes.
 - **Lot A, médecine interne** : cardiologie (compléter), angiologie, pneumologie, gastro-entérologie et hépatologie, néphrologie, endocrinologie et diabétologie, hématologie, oncologie, infectiologie, rhumatologie, immunologie et allergologie, gériatrie.
 - **Lot B, neurosciences et santé mentale** : neurologie, psychiatrie et psychothérapie, pédopsychiatrie, addictologie.
 - **Lot C, mère et enfant** : pédiatrie, néonatologie, gynécologie, obstétrique.
