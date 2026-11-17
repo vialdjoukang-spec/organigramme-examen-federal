@@ -27,3 +27,16 @@ La Faculté de Genève décrit l’exploration d’un état fébrile sans foyer 
 | Fièvre persistante ou récurrente | Reprendre l’anamnèse et l’examen, sélectionner les explorations selon les indices pour causes infectieuses, inflammatoires, hématologiques ou médicamenteuses. |
 
 Les lignes de la matrice orientent la production. Un domaine sera compté comme couvert après contrelecture de la décision correspondante et vérification de ses antériorités dans le corpus.
+
+## Décisions contrôlées, lots 053 et 054
+
+| Questions | Domaine de décision effectivement évalué |
+|---|---|
+| 001–010 | Assurer une thermométrie interprétable et distinguer les frissons d’une crise. Chez le nourrisson fébrile, intégrer terme, âge, échantillon urinaire, LCR, atteinte herpétique possible et limites des analyses inflammatoires précoces. |
+| 011–020 | Adapter les prélèvements et la recherche de foyer à la localisation clinique. Sous exposition thermique, tenir compte du mécanisme, des organes à surveiller et de la persistance de la charge thermique. |
+| 021–025 | Adapter un traitement de pneumonie au contexte, drainer un foyer pleural purulent, distinguer une inhalation chimique et réévaluer l’indication à la voie IV après stabilisation. |
+| 026–030 | Quantifier la déshydratation, protéger la fonction rénale et organiser le suivi ou l’accueil de l’enfant. L’aptitude à l’accueil familial de jour suit ici les règles du canton de Genève. |
+| 031–035 | Relier volume sanguin prélevé, contexte valvulaire, germe documenté et stabilité à l’interprétation des hémocultures, aux explorations et à la durée du traitement. |
+| 036–040 | Gérer une crise d’hyperthermie maligne et ses suites, préparer une anesthésie non déclenchante en cas de risque familial et reconnaître des causes distinctes de fièvre postopératoire. |
+
+La Q037 oriente vers une infection sternale profonde après sternotomie. Elle a remplacé deux propositions déjà proches de G1-017 et G1-138. G6-028 évalue la possibilité de garder un enfant en accueil familial dans un canton précis, une décision différente des mesures thermiques déjà vues dans G1-174.
