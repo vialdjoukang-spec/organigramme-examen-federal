@@ -323,7 +323,8 @@ def ajouter_menu(h):
             marque = '§'
         else:
             k += 1; marque = k
-        items.append(f'<a href="#{i}"><b>{marque}</b>{re.sub(r"^[0-9.\s]+", "", lib)[:60]}</a>')
+        lib_clean = re.sub(r"^[0-9.\s]+", "", lib)[:60]
+        items.append(f'<a href="#{i}"><b>{marque}</b>{lib_clean}</a>')
     nav = '<nav id="brain-barre14" aria-label="Parties du cours">' + ''.join(items) + '</nav>'
     return re.sub(r'(<body\b[^>]*>)', lambda m: m.group(1) + nav, h2, count=1)
 
