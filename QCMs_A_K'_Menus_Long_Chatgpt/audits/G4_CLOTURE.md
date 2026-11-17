@@ -1,0 +1,9 @@
+# Clôture G4 · Fatigue, lassitude
+
+Le 17 novembre 2026, la vérification du HTML publié confirme 200 questions numérotées G4-001 à G4-200, dont 120 A, 40 K′ et 40 menus longs. Les lots 033 à 042 ont chacun un manifeste, quatre empreintes de manuscrits et un journal d’audit. La revue documentaire indépendante a examiné la fréquence clinique, les urgences, les populations particulières et les décisions de suivi. Aucune lacune prioritaire n’a été relevée à l’issue de la [revue de couverture](../G4_COUVERTURE.md). La validation par un médecin suisse n’est pas documentée.
+
+Le [registre](../G4_OBJECTIFS.json) rattache les 200 questions à 21 objectifs facultaires distincts. Les 79 correspondances romandes et 121 alémaniques sont déduites et justifiées individuellement. Les dates non publiées sont identifiées comme telles. Les sources cliniques sont séparées des objectifs d’enseignement.
+
+Les deux rectificatifs concernant G4-003 et G4-071 maintiennent leur numéro et conservent le manuscrit historique. Le [correctif de formulation](G4_FORMULATIONS.md) porte sur 27 questions. Sur les 120 A finales, la clé correcte est seule la plus longue dans 33 cas et ex æquo dans quatre. Sur le HTML final, les 40 K′ ont respectivement 2, 5, 17, 13 et 3 combinaisons comportant zéro à quatre assertions vraies. Ce dernier calcul inclut les corrections du lot 042 postérieures au [contrôle des manuscrits](../en_cours/G4_DOCIMOLOGIE.md). Le filtre lexical trouve 4 assertions K′ vraies et 3 fausses portant un marqueur. Les positions des options sont permutées à l’affichage ; des répétitions aléatoires restent possibles.
+
+Les 40 menus comportent 25 à 40 entrées. Le test logique a recherché les clés et les synonymes déclarés, sélectionné les clés et vérifié l’affichage du barème. Le contrôle de structure, du catalogue, des numéros et de la correspondance facultaire a réussi. Le premier SSP suivant est G5 « Sensation de maladie ».
