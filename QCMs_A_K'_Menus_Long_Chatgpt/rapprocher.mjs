@@ -1,8 +1,11 @@
-// node rapprocher.mjs LOT.json [index.html] ; rapprochements à examiner avant audit.
-import {readFileSync} from 'node:fs';
+// node rapprocher.mjs LOT.json [index.html] [--en-cours]
+// Avec --en-cours, confronter aussi les réservations déjà rédigées des autres tranches.
+import {readFileSync,readdirSync,existsSync} from 'node:fs';
 import {fileURLToPath} from 'node:url';
+import {basename, dirname, join} from 'node:path';
 
-const [lot, index = fileURLToPath(new URL('./index.html', import.meta.url))] = process.argv.slice(2);
+const args = process.argv.slice(2);
+const [lot, index = fileURLToPath(new URL('./index.html', import.meta.url))] = args.filter(x => x !== '--en-cours');
 if (!lot) throw Error('Fournir le fichier JSON du lot ou du sous-lot.');
 const data = JSON.parse(readFileSync(index, 'utf8').match(/id="donnees">([^<]+)<\/script>/)[1]);
 const input = JSON.parse(readFileSync(lot, 'utf8'));
@@ -14,7 +17,30 @@ function terms(str) {
 function decision(q) {
   return terms([q.aim, q.answer, ...(q.options || []).filter(o => o[1]).map(o => o[0])].join(' '));
 }
-const questions = [...data.items, ...proposed];
+// Les brouillons peuvent précéder le lot contrôlé ou être réservés plus loin dans la file.
+const bodyName = /^(\d+)-([GSFO]\d+(?:\.\d+)*)-(\d+)\.json$/;
+const localId = (code, n) => code + '-' + String(n).padStart(3,'0');
+const head = basename(lot).match(bodyName);
+const start = input.start || (head && Number(head[3]));
+const ids = proposed.map((q,i) => q.id || (start ? localId(q.code, start+i) : null));
+const reserved = [];
+if (args.includes('--en-cours')) {
+  const dir = join(dirname(index),'en_cours');
+  if (!existsSync(dir)) throw Error('Dossier en_cours/ introuvable auprès de la banque.');
+  const ignored = new Set([...data.items.map(q=>q.id), ...ids.filter(Boolean)]);
+  for (const entry of readdirSync(dir).sort()) {
+    const parts = entry.match(bodyName);
+    if (!parts || basename(lot)===entry) continue;
+    const rows = JSON.parse(readFileSync(join(dir,entry),'utf8'));
+    if (!Array.isArray(rows) || rows.some(q=>q.code!==parts[2])) throw Error('Tranche incompatible : '+entry);
+    rows.forEach((q,i)=>{
+      const id=localId(parts[2],Number(parts[3])+i);
+      if (!ignored.has(id)) {reserved.push({...q,id});ignored.add(id)}
+    });
+  }
+}
+const indexed = [...data.items, ...reserved];
+const questions = [...indexed, ...proposed];
 const vectors = questions.map(q => ({action:decision(q), cas:terms(q.case)}));
 const frequency = new Map();
 for (const row of vectors) for (const word of new Set([...row.action, ...row.cas])) frequency.set(word, (frequency.get(word) || 0) + 1);
@@ -27,12 +53,12 @@ function similarity(a, b) {
 }
 function id(i) {
   const q = questions[i];
-  return q.id || (input.start ? `${q.code}-${String(input.start + i - data.items.length).padStart(3, '0')}` : `proposition ${i - data.items.length + 1}`);
+  return q.id || ids[i-indexed.length] || `proposition ${i-indexed.length+1}`;
 }
-for (let i = data.items.length; i < questions.length; i++) {
+for (let i = indexed.length; i < questions.length; i++) {
   const hits = [];
   for (let j = 0; j < i; j++) {
-    if (questions[i].id && questions[i].id === questions[j].id) continue;
+    if (id(i) === id(j)) continue;
     const score = 0.72 * similarity(vectors[i].action, vectors[j].action) + 0.28 * similarity(vectors[i].cas, vectors[j].cas);
     hits.push({id:id(j), decision:questions[j].aim, score:Number(score.toFixed(3))});
   }
