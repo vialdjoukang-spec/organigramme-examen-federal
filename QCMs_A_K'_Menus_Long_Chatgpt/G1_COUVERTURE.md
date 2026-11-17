@@ -70,6 +70,63 @@ La colonne de priorité désigne le **contexte du cas** et le délai de décisio
 | 199 | Après collapsus avec sueurs froides en présence d’une tierce personne, distinguer respiration agonique et respiration normale pour initier réanimation et défibrillation ; Q21 porte sur la syncope avec récupération. | I | indéterminée ; immédiat |
 | 200 | Devant dyspnée aiguë, sueurs et asymétrie d’un mollet après immobilisation, utiliser la probabilité clinique pour choisir D-dimères ou imagerie chez un patient stable. Conserver uniquement si le problème clinique introduit par la diaphorèse reste central. | I | indéterminée ; urgent |
 
+## Synchronisation des décisions
+
+Au second relevé, les **190 premières questions G1** sont intégrées au HTML. Le tableau suivant donne les dossiers apparus après l’instantané des 150 décisions. Lorsqu’un objectif diffère du plan prévisionnel, cette ligne décrit ce que l’auteur a effectivement rédigé. La numérotation seule ne suffit pas à démontrer l’audit.
+
+| Numéro | État à la lecture | Objectif du fichier |
+|---|---|---|
+| G1-151 | Intégré | Réévaluer une plainte nocturne dont la distribution diffère d’une ancienne hyperhidrose traitée |
+| G1-152 | Intégré | Vérifier une contre-indication propre à un appareil d’iontophorèse |
+| G1-153 | Intégré | Conduire la décision partagée avant une chirurgie sympathique pour hyperhidrose réfractaire |
+| G1-154 | Intégré | Documenter une demande suisse d’appareil personnel d’iontophorèse selon la LiMA |
+| G1-155 | Intégré | Qualifier une lésion focale au contact d’un bijou pendant l’iontophorèse palmaire |
+| G1-156 | Intégré | Différencier site receveur greffé et site donneur cicatrisé lors de l’examen sudoral |
+| G1-157 | Intégré | Interpréter la conservation du débit sudoral global avant une reprise sportive après brûlure étendue |
+| G1-158 | Intégré | Interpréter une peau sous-lésionnelle sèche chez une personne tétraplégique exposée à la chaleur |
+| G1-159 | Intégré | Rendre un plan canicule applicable à une personne qui ne peut pas saisir sa boisson |
+| G1-160 | Intégré | Distinguer une suppuration axillaire récidivante d’une transpiration excessive |
+| G1-161 | Intégré | Reconnaître une congestion malgré une transpiration abondante et des apports augmentés |
+| G1-162 | Intégré | Individualiser la revue des diurétiques en période de chaleur |
+| G1-163 | Intégré | Calculer les apports réellement consommés sous restriction hydrique individualisée |
+| G1-164 | Intégré | Rechercher une déplétion potassique devant des troubles électriques en période de chaleur sous diurétique |
+| G1-165 | Intégré | Organiser un relais quotidien pour une personne isolée vulnérable aux pertes sudorales |
+| G1-166 | Intégré | Écarter un prélèvement de sueur insuffisant avant toute interprétation diagnostique |
+| G1-167 | Intégré | Choisir le calendrier du premier test de la sueur chez un prématuré |
+| G1-168 | Intégré | Choisir l’analyse spécifique après une conductivité sudorale élevée |
+| G1-169 | Intégré | Informer les parents et recueillir leur accord avant une analyse génétique complémentaire |
+| G1-170 | Intégré | Réouvrir une démarche diagnostique malgré un dépistage néonatal négatif |
+| G1-171 | Intégré | Relier successivement l’ascension fébrile, le plateau et la défervescence au point de consigne |
+| G1-172 | Intégré | Contrôler une mesure frontale incohérente en présence de sueurs abondantes |
+| G1-173 | Intégré | Corriger l’objectif d’un antipyrétique après une convulsion fébrile ancienne |
+| G1-174 | Intégré | Éviter le refroidissement glacé lors d’une fièvre infectieuse stable et mal tolérée |
+| G1-175 | Intégré | Repérer une double exposition au même antipyrétique derrière deux noms commerciaux |
+| G1-176 | Intégré | Déterminer quand reprendre le volant après une hypoglycémie au-dessous de 4 mmol/L |
+| G1-177 | Intégré | Nommer la perte progressive des signes d’alarme d’une hypoglycémie |
+| G1-178 | Intégré | Reconnaître le risque de récidive après correction sous sulfamide à libération modifiée |
+| G1-179 | Intégré | Arbitrer une discordance entre symptômes et glucomètre interstitiel pendant une chute rapide |
+| G1-180 | Intégré | Prévenir une récidive à distance d’une randonnée longue sous insuline |
+| G1-181 | Intégré | Choisir un marqueur orienté par l’association d’un flush objectivé et de diarrhées récurrentes |
+| G1-182 | Intégré | Corriger une collecte urinaire de 5-HIAA incomplète et exposée à des interférences alimentaires |
+| G1-183 | Intégré | Documenter biologiquement une activation mastocytaire après stabilisation d’une réaction systémique |
+| G1-184 | Intégré | Différencier une dermatose vasculaire centrofaciale d’une hypersudation isolée |
+| G1-185 | Intégré | Identifier une origine toxique collective derrière un flush attribué au repas |
+| G1-186 | Intégré | Nommer la procédure permettant d’adapter une épreuve écrite sans en modifier les objectifs |
+| G1-187 | Intégré | Rédiger un certificat d’incapacité partielle respectant le secret médical |
+| G1-188 | Intégré | Respecter le refus éclairé d’un adolescent devant une intervention élective |
+| G1-189 | Intégré | Organiser une réponse au harcèlement scolaire lié aux auréoles de transpiration |
+| G1-190 | Intégré | Évaluer le bénéfice d’un traitement sur l’activité prioritaire définie avec le patient |
+| G1-191 | Rédigé pour contre-audit | Planifier la surveillance hépatique d’une patiente qui envisage le fézolinétant pour des symptômes vasomoteurs postménopausiques |
+| G1-192 | Rédigé pour contre-audit | Reconnaître le signal hépatique imposant l’arrêt du fézolinétant |
+| G1-193 | Rédigé pour contre-audit | Conseiller une contraception distincte du traitement symptomatique de la périménopause |
+| G1-194 | Rédigé pour contre-audit | Explorer un saignement tardif sous traitement continu après une longue période sans saignement |
+| G1-195 | Rédigé pour contre-audit | Prendre une décision partagée devant la récidive des bouffées après un essai d’arrêt du THM |
+| G1-196 | Rédigé pour contre-audit | Interpréter la négativité précoce du bilan coronarien après un accès de diaphorèse. |
+| G1-197 | Rédigé pour contre-audit | Étendre l’ECG devant une nouvelle diaphorèse hypotensive lors d’un infarctus inférieur. |
+| G1-198 | Rédigé pour contre-audit | Trier un patient hypotherme et moite avec confusion et foyer infectieux probable. |
+| G1-199 | Rédigé pour contre-audit | Passer d’une présomption de syncope vagale à la réanimation dès l’apparition d’une respiration agonique. |
+| G1-200 | Rédigé pour contre-audit | Éviter d’attribuer à la panique un accès sudoral avec dyspnée lorsqu’une embolie pulmonaire est cliniquement très probable. |
+
 ## Après Q200
 
 Recalculer les décisions réellement validées après les remplacements. Trois indications d’extension méritent une revue avant toute nouvelle numérotation : **(1)** insuffisance de refroidissement après radiothérapie étendue ou dermatose kératinisante si le mécanisme, la décision et la conduite diffèrent des greffes Q156–160 ; **(2)** conduite devant une dysphagie ou dyspnée nouvelle après injection de toxine botulique, effet à distance rare et distinct de la réaction locale, à conserver seulement si les séries antérieures ne l’ont pas traitée ; **(3)** prise en charge d’une aide technique, d’une prothèse ou d’une orthèse lorsqu’une transpiration importante compromet sa tenue et menace la peau, après validation par une source suisse de réadaptation. Ne pas avancer un nombre final d’items avant l’audit de ces lacunes. Le minimum de 200 fixe un volume ; la clôture clinique dépend de la couverture effectivement démontrée.
