@@ -45,3 +45,8 @@ Dans l’instantané des **190 items G1**, tous les champs `objective` contenaie
 | Nature de la validation | La relecture concerne la couverture et les décisions proposées. Elle est distincte de la contre-lecture indépendante de chaque binôme et d’une validation humaine. La présente revue ne pose pas la validation humaine comme préalable. |
 
 **Proposition finale :** lorsque les contrôles ci-dessus sont satisfaits, clore G1 à 210 et reprendre G2. Si la seule réserve restante est le rattachement facultaire, conserver explicitement l’état « couverture clinique achevée, traçabilité pédagogique en cours » jusqu’à obtention de la preuve, sans étendre le nombre de questions.
+
+
+## Vérification de clôture du 17 novembre 2026
+
+La banque a intégré G1-001 à G1-210 après douze lots contre-audités à l’échelle du projet. G1-Q92, Q175, Q206, Q209 et Q210 sont synchronisées avec les décisions finales. Les 210 identifiants ont chacun une correspondance pédagogique datée dans G1_OBJECTIFS.json : 29 directes au niveau du geste et 181 déduites, pour 46 objectifs facultaires. Le corrigé affiche la rubrique, le lien et le motif de rattachement. Le contrôle verifier.mjs réussit. La clôture documentaire et clinique par revue IA est enregistrée dans index.html au commit c5f53e5238b5fdf7b6d9be341a8ed28ee8346e06. Le premier SSP ouvert est G2. La validation humaine reste non renseignée.
