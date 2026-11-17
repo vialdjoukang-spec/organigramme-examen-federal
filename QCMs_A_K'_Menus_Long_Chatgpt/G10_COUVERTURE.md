@@ -30,3 +30,5 @@ Les correspondances facultaires reposent sur les objectifs de neurosciences et d
 | 061–080 | Céphalées secondaires menaçantes, agenda et prophylaxie des céphalées primaires, urgences douloureuses de la grossesse et du post-partum, interactions et contre-indications des antalgiques usuels. |
 | 081–100 | Crise douloureuse drépanocytaire, douleur chronique diffuse et fibromyalgie, fractionnement de la radiothérapie antalgique, prévention des effets indésirables des opioïdes. |
 | 101–120 | Syndrome douloureux régional complexe et réadaptation, causes toxiques et métaboliques de neuropathie, lésions occultes de la hanche, douleurs liées à la dialyse, antalgie palliative de secours ou continue. |
+| 121–140 | Urgences traumatiques du membre et de la main, peur du mouvement et sommeil, douleurs centrales après AVC ou lésion médullaire, réduction concertée et rotation d’un traitement opioïde. |
+| 141–160 | Douleurs oculaires, dentaires et ORL ; diarrhée et maldigestion, douleur vésicale et endométriose ; hémarthrose et ulcérations douloureuses ; adaptation des exercices, outils et aides à la marche. |
