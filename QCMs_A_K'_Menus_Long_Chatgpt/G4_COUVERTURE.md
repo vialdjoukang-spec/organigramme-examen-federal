@@ -80,3 +80,27 @@ L’essai romand de Verdon et coll. porte sur le fer oral chez des femmes fatigu
 | 156–160 | En gynécologie et obstétrique, explorer un phénotype hémorragique, des douleurs cycliques, un prurit gravidique ou un traitement hormonal. Repérer un syndrome d’hyperstimulation ovarienne avec oligurie. |
 
 **Fenêtre VIH.** G4-144 concerne une personne sans syndrome aigu caractéristique et sans PrEP/PEP qui présente un autotest négatif trop précoce. G1-009 évalue l’association immédiate d’un test combiné et d’une recherche moléculaire en cas de suspicion clinique de primo-infection.
+
+## Décisions 161–200 et avis de clôture
+
+| Questions | Population et décision |
+|---|---|
+| 161–165 | Diabète ou obésité : corriger une hypoglycémie iatrogène, explorer gastroparésie et hypoventilation diurne ; reconnaître neuropathie focale et acidose lactique. |
+| 166–170 | En cas de MICI connue, distinguer poussée, infection, effet d’un médicament ou du fer intraveineux et diarrhée après résection iléale. |
+| 171–175 | Reconnaître un EM/SFC hors contexte post-COVID selon le cadre NICE 2021 ; adapter l’accès aux soins et préserver les apports dans les formes sévères. Déterminer l’examen requis en cas d’atteinte rénale ou pulmonaire d’une maladie systémique. |
+| 176–180 | En cas de maladie chronique, préciser le retentissement de la fatigue, une exposition alimentaire négligée, le rythme des apports, l’indication d’oxygène ou l’efficacité réelle d’une CPAP. |
+| 181–185 | Répondre à l’insécurité alimentaire avec le consentement du patient. Rechercher une hypermagnésémie en insuffisance rénale, interpréter l’activité G6PD pendant une réticulocytose, adresser immédiatement un BAV complet et ajuster le seuil des D-dimères à l’âge selon la probabilité prétest. |
+| 186–190 | Cortisol matinal indéterminé chez une patiente stable, obstruction nasale perturbant le sommeil, bactériurie asymptomatique, syndrome néphritique ou demande de second avis : choisir la décision propre au contexte. |
+| 191–195 | Respecter l’ordre des substitutions hypophysaires. Adapter la reprise des apprentissages après commotion. Explorer une maladie de Wilson, un profil d’effort avec second souffle ou une hémolyse non immune associée à une thrombose atypique. |
+| 196–200 | Utiliser les critères de fibromyalgie, discuter une fatigue après borréliose traitée, rechercher une trajectoire bipolaire, interpréter une microcytose ancienne et tester un déficit fonctionnel en B12 sous protoxyde d’azote. |
+
+### Hiérarchie clinique vérifiée
+
+Les données de population décrites ci-dessus concernent la fréquence du symptôme. La démarche de premier recours hiérarchise les hypothèses selon le patient et ses signes d’appel. La recommandation suisse de septembre 2024 cite notamment troubles du sommeil, souffrance psychique et psychosociale, médicaments, causes endocriniennes ou métaboliques, hématologie, infections et maladies cardiorespiratoires. Les 200 questions privilégient le recueil des données qui modifient concrètement le bilan, le traitement ou le délai de réévaluation. [mediX Suisse, diagnostic de la fatigue](https://www.medix.ch/wissen/guidelines/kurzversion/psychische-krankheiten/muedigkeit/)
+
+- **Présentations très fréquentes ou fréquentes au premier recours.** Fatigue récente isolée, sommeil restreint ou non réparateur, souffrance psychique, surcharge professionnelle, apnée et fatigue médicamenteuse : Q001–020, Q076–090, Q106–110, Q126–140 et Q180. L’examen et le suivi doivent repérer les présentations initialement peu spécifiques qui évoluent.
+- **Causes courantes dans une population définie.** Pertes menstruelles, fer avec ou sans anémie, grossesse et post-partum : Q005, Q021–025, Q056–062 et Q156–160. Fragilité gériatrique, cancer, affection rénale, MICI et diabète relèvent de sous-groupes avec des décisions différentes sur médicaments, nutrition, effort et objectifs de soins.
+- **Causes moins fréquentes guidées par des indices.** Infections d’exposition, atteintes endocriniennes, maladies systémiques, malabsorption, hémopathies et atteintes neuromusculaires sont explorées quand l’anamnèse, l’examen ou un résultat discriminant en augmente la probabilité. Les vignettes ne leur attribuent pas de proportion nationale artificielle.
+- **Évènements rares ou impératifs de sécurité.** Urgence pédiatrique avec cytopénies, instabilité au cours d’un trouble alimentaire, insuffisance respiratoire, décompensation cardiaque, exposition au CO, violences imminentes, bilan palustre devant une fièvre du voyageur, hyperstimulation ovarienne, bloc complet symptomatique et syndrome néphritique rapidement évolutif. Les questions testent l’acte de protection ou d’orientation. Un test rassurant hors contexte ne dispense pas du suivi.
+
+**Avis indépendant au périmètre vérifié : clore G4 à 200 décisions et poursuivre le prochain SSP.** Les causes fréquentes, les populations particulières, les signaux d’alarme et les principales décisions de suivi prévues par la matrice possèdent un ancrage identifiable dans les binômes. La revue comparative a corrigé les répétitions documentées. Une extension Q201–220 ne répond à aucune lacune prioritaire identifiée à cette date. Une nouvelle recommandation suisse ou la mise en évidence d’une décision manquante pourra entraîner une révision ciblée. Cet avis repose sur une contrelecture documentaire assistée par IA et ne constitue pas une mesure psychométrique auprès de candidats ni une certification clinique humaine.
