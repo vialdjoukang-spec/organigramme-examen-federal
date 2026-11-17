@@ -2,7 +2,7 @@
 
 ## Matrice clinique et pédagogique
 
-**17 novembre 2026.** Les 140 premières questions ont été relues par lots de vingt. Le registre G3_OBJECTIFS.json relie chaque objectif de question au passage facultaire correspondant. Le tableau distingue les décisions couvertes et les situations à explorer pendant la suite de la production. Une soif subjective, une bouche sèche, une consommation élevée et une polyurie mesurée sont quatre observations distinctes. Leur chronologie et la capacité de la personne à accéder à l’eau orientent le bilan.
+**17 novembre 2026.** Les 180 premières questions ont été relues par lots de vingt. Le registre G3_OBJECTIFS.json relie chaque objectif de question au passage facultaire correspondant. Le tableau distingue les décisions couvertes et les situations à explorer pendant la suite de la production. Une soif subjective, une bouche sèche, une consommation élevée et une polyurie mesurée sont quatre observations distinctes. Leur chronologie et la capacité de la personne à accéder à l’eau orientent le bilan.
 
 | Priorité | Présentation | Décision à évaluer | Donnée qui change la décision |
 |---|---|---|---|
@@ -18,7 +18,7 @@
 | Excès d’eau et traitement | Apports hypotoniques massifs, notamment sous desmopressine | Reconnaître une hyponatrémie de dilution, rechercher symptômes neurologiques et demander une prise en charge hospitalière urgente en cas de confusion importante ou de convulsions. | Prévenir l’automédication par desmopressine chez une personne dont l’augmentation des boissons précède celle de la diurèse. [Université de Bâle, polydipsie primaire et déficit en AVP](https://dkf.unibas.ch/de/aktuell/harmlos-oder-hormonstoerung/) |
 | Suivi | Déficit en AVP confirmé, séjour hospitalier, intervention ou maladie aiguë | Apprendre à reconnaître le changement de diurèse et les signes de dysnatrémie. Organiser l’accès à l’eau, la continuité du traitement prescrit et un plan personnalisé de surveillance lors d’un transfert de soins. | Un même traitement peut devenir dangereux si l’accès aux boissons ou la fonction rénale change. Les adaptations thérapeutiques précises requièrent la procédure utilisée dans le cas. |
 
-### Décisions relues dans les lots 023 à 029
+### Décisions relues dans les lots 023 à 031
 
 | Questions | Décisions |
 |---|---|
@@ -50,6 +50,14 @@
 | 126–130 | Polyols des pastilles, sodium médicamenteux, apports hydriques entéraux, administration jéjunale et pertes rénales nettes d’eau par rapport aux électrolytes. |
 | 131–135 | Bilan étiologique d’un déficit en AVP avec lésion de tige : histiocytose, hypophysite, tumeur germinale, autres axes et suivi longitudinal. |
 | 136–140 | Continuité de la desmopressine lors d’une opération ou d’un voyage, surveillance chez le patient perfusé, conservation et transmissions. |
+| 141–145 | Bolus selon la portion réelle, lecture conjointe du journal et du profil glycémique, lipohypertrophie, données de capteur manquantes et préparation de la NPH. |
+| 146–150 | Déperditions dans les protections, perfusion réellement administrée, volumes d’urostomie, irrigation à déduire du drainage et recherche d’un résidu après miction. |
+| 151–155 | Jeûne hydrique avant don de sang, allaitement en période chaude, soif physiologique maternelle, chronologie de l’alcool et fuite buccale sous pression positive. |
+| 156–160 | Conversion de glycémie d’un lecteur importé, rupture du jeûne religieux si hyperglycémie symptomatique, caféine et urgenturie, acétazolamide et atteinte salivaire après iode 131. |
+| 161–165 | Hypokaliémie avant insuline, syndrome de Wolfram, crise hyperosmolaire et acidocétosique mixte, metformine en insuffisance rénale aiguë et boissons sucrées entretenant la soif. |
+| 166–170 | Redistribution nocturne des œdèmes, rôle de l’eau pendant et après une colique néphrétique, prévention ciblée des cystites et restriction hydrique chez l’insuffisant cardiaque. |
+| 171–175 | Résistance congénitale à l’AVP : thiazidique, charge en solutés et croissance, vidange programmée, transmission liée à l’X et toxicité digestive sous indométacine. |
+| 176–180 | Desmopressine prescrite pour énurésie en cas de gastroentérite, thiazidique et diagnostic de SIAD, préparation colique, hyponatrémie pendant le travail et préparation à l’échographie endovaginale. |
 
 ## Rattachement aux formations romande et alémanique
 
@@ -64,6 +72,10 @@
 Pour chaque binôme, consigner l’établissement, le document, la rubrique, l’objectif paraphrasé, la date de vérification et le caractère explicite ou inféré du rattachement. Les protocoles HUG, les publications de recherche et les pages de soins du CHUV servent à défendre la décision clinique. La formation régionale et la preuve clinique sont deux colonnes distinctes du registre.
 
 ## Fréquence et critères de couverture
+
+Dans la cohorte nationale suisse 2010–2018, 5 544 hospitalisations pour acidocétose représentaient en moyenne 7,46 épisodes pour 100 000 personnes-années de population générale. Le registre ne sépare pas diabète inaugural et maladie préexistante. [Étude de population suisse](https://doi.org/10.3389/fendo.2022.940990)
+
+Parmi les 144 patients sélectionnés pour deux épreuves en raison d’une polyurie hypotonique dans onze centres de l’étude Fenske, 82 avaient une polydipsie primaire (57 %), 59 un déficit central en AVP (41 %) et trois une résistance rénale (2 %). Dans un autre essai comparant deux stimuli chez 158 adultes sélectionnés, 69 avaient un déficit en AVP et 89 une polydipsie primaire. Ces dénominateurs décrivent un recrutement spécialisé. [Étude Fenske](https://pubmed.ncbi.nlm.nih.gov/30067922/) · [Étude Refardt](https://pubmed.ncbi.nlm.nih.gov/37966286/)
 
 Aucune répartition fiable des causes parmi **toutes** les consultations G3 suisses n’a été identifiée dans les références consultées. La prévalence nationale du diabète, le recrutement de patients déjà adressés pour polyurie hypotonique et l’exactitude des tests de copeptine décrivent des populations ou des mesures différentes. Le chiffre de 95,6 % rapporté pour un test dans l’essai de Refardt mesure une exactitude diagnostique chez les participants. Il ne chiffre pas la prévalence d’un déficit en AVP chez les personnes ayant soif.
 
