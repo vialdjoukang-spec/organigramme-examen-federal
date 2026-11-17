@@ -26,3 +26,7 @@ Les correspondances facultaires reposent sur les objectifs de neurosciences et d
 |---|---|
 | 001–020 | Hyperalgésie secondaire et cartographie douloureuse, distinction viscérale/pariétale et douleurs projetées, urgences vasculaires, autoévaluation adaptée et observation néonatale ou pédiatrique. |
 | 021–040 | Queue de cheval incomplète, déficit moteur progressif, protection du rachis ankylosé, investigations discovertébrales, concordance clinique et imagerie, raisonnement thoracique et choix de la voie antalgique aiguë. |
+| 041–060 | Complications des hernies et des diverticulites, périhépatite, douleurs articulaires inflammatoires, exploration d’une douleur neuropathique et réévaluation postopératoire. |
+| 061–080 | Céphalées secondaires menaçantes, agenda et prophylaxie des céphalées primaires, urgences douloureuses de la grossesse et du post-partum, interactions et contre-indications des antalgiques usuels. |
+| 081–100 | Crise douloureuse drépanocytaire, douleur chronique diffuse et fibromyalgie, fractionnement de la radiothérapie antalgique, prévention des effets indésirables des opioïdes. |
+| 101–120 | Syndrome douloureux régional complexe et réadaptation, causes toxiques et métaboliques de neuropathie, lésions occultes de la hanche, douleurs liées à la dialyse, antalgie palliative de secours ou continue. |
