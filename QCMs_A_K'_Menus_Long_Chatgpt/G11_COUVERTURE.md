@@ -1,5 +1,7 @@
 # G11 — Troubles du sommeil
 
+Le référentiel fédéral PROFILES 2023 regroupe sous G11 les insomnies, les hypersomnies ou la somnolence, ainsi que les parasomnies. Les questions portent sur les décisions qui se présentent au début de la formation postgraduée. [PROFILES 2023, section 3.1](https://www.unige.ch/medecine/application/files/6617/5939/2636/2023_PROFILES_final_Intregre2025.pdf).
+
 ## Fréquence et portée clinique en Suisse
 
 En 2022, l’indicateur de l’Enquête suisse sur la santé classait 26 % des personnes de 15 ans ou plus vivant en ménage privé dans la catégorie des troubles du sommeil moyens et 7 % dans la catégorie pathologique. L’OFS construit cet indicateur à partir de quatre questions. Ces proportions ne mesurent pas les diagnostics individuels d’insomnie chronique. [Office fédéral de la statistique, enquête 1997–2022](https://www.swissstats.bfs.admin.ch/data/webviewer/appId/ch.admin.bfs.swissstat/article/issue241415052200-01/package).
@@ -29,3 +31,4 @@ Les questions G4-006–010, 126–130 et 180 couvrent respectivement la correcti
 | Questions | Décisions travaillées |
 |---|---|
 | 001–020 | Clinophilie et besoin de sommeil individuel, caféine en soirée, caractérisation des siestes, agenda et sévérité de l’insomnie, NoSAS et mécanisme de la nycturie, sécurité de conduite et protection des travailleurs de nuit. |
+| 021–040 | Composantes cognitives et comportementales de la TCC-I, adaptation à l’épilepsie ou à une activité dangereuse, narcolepsie et examen du sommeil ; interprétation de la capnie, du T90 et des efforts respiratoires, titration et continuité de la PPC. |
