@@ -1,6 +1,8 @@
-# Auto-audit — prototype Urgences cardio (17.11.2026)
+# Auto-audit — cardiologie, schéma v2 (Phase 0, 17.11.2026)
 
-Le détail ligne par ligne se trouve dans `docs/AUDIT-donnees.md` (généré par `node tests/audit.js`).
+Le détail ligne par ligne se trouve dans `docs/AUDIT-donnees.md` (généré par `node tests/audit.js`). La couverture par pathologie se trouve dans `docs/couverture/`.
+
+Phase 0 : la cardiologie a migré au schéma v2 sans nouveau texte clinique, sauf des mentions « À vérifier » ajoutées là où une rubrique n’avait pas de source et un message « examen inutile » (troponine au duel 3) tiré d’une affirmation déjà sourcée. Bilan : 180 affirmations, 35 « À vérifier » (19,4 %), 0 dose.
 
 ## 1. Sources suisses lues
 
@@ -28,7 +30,7 @@ Pharmacologie (autorisé) : OpenStax *Pharmacology for Nurses* (20.2, 20.3, 18.4
 - **Oxygène** : absence de bénéfice sans hypoxémie non lue ; le seuil « SpO₂ < 90 % » est sourcé (KSSG ; HUG écrit « FiO₂ < 90 % », coquille probable signalée dans la fiche).
 - **Opioïdes** : contre-indications détaillées non lues.
 - **Péricardite** : la source suisse date de 2016 (ESC 2015) ; une mise à jour européenne récente existe — à vérifier.
-- **Raretés** : seules Dissection (≈ 6/100 000/an, KSSG), Péricardite (≈ 5 % des douleurs thoraciques aux urgences, RMS 2016), ECG, Troponine, Aspirine et HNF ont une justification sourcée ; les autres raretés sont des choix pédagogiques marqués « À vérifier ». Aucun poids d’examen PROFILES n’est affirmé.
+- **Poids / raretés** : la rareté suit désormais le nombre de SSP rattachées (provisoire). Notes de fréquence : seules Dissection (≈ 6/100 000/an, KSSG), Péricardite (≈ 5 % des douleurs thoraciques aux urgences, RMS 2016), ECG, Troponine, Aspirine et HNF ont une justification sourcée ; les autres raretés sont des choix pédagogiques marqués « À vérifier ». Aucun poids d’examen PROFILES n’est affirmé.
 - Divergence signalée : **P2Y12** — le KSSG (ESC 2017/2020) prévoit le ticagrélor dès le STEMI ; les HUG ont retiré la double antiagrégation préhospitalière (déc. 2023). Le jeu donne un verdict « Info » et renvoie au cardiologue.
 
 ## 3. Doses
@@ -37,10 +39,10 @@ Aucune dose n’est affichée. Les sources lues contiennent des doses (HUG : ASA
 
 ## 4. Écarts avec les skills chargés
 
-- `ssp-chaine-clinique` : le gabarit (geste → sémiologie → exploration → prise en charge) structure les fiches pathologie, mais les champs G8 complets (`mecanisme`, `principe`, `pourquoi_ce_choix`, `precautions`, `alternative` pour chaque examen et chaque moyen) ne sont pas tous remplis ; les fichiers `data/ck/*.json` du projet SSP ne s’appliquent pas à ce dépôt. Le brief (prototype de jeu) a primé.
-- `ssp-chaine-clinique` admet une source européenne à défaut de suisse ; le brief l’interdit sauf renvoi suisse : le brief a primé.
+- `ssp-chaine-clinique` : le gabarit (geste → sémiologie → exploration → prise en charge) a inspiré les 8 rubriques ; les règles du projet (sources suisses seulement, aucun cours ni lot du dépôt) priment.
 - `ssp-verite` : chaque affirmation cite URL et date ; le numéro de paragraphe n’est pas noté.
-- `ssp-posologie-suisse` : aucune dose, donc aucune extraction AIPS nécessaire. Les doses restent non validées par un médecin.
+- `ssp-posologie-suisse` : aucune dose, donc aucune extraction AIPS nécessaire.
+- Poids PROFILES : PROFILES ne publie pas de pondération ; le jeu compte les SSP rattachées (provisoire, « À vérifier »).
 
 ## 5. Validation humaine requise
 

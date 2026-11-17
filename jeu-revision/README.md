@@ -1,6 +1,6 @@
-# Internat · Urgences cardio — révision médicale par duels de cartes
+# Internat · Révision PROFILES — révision médicale par duels de cartes
 
-Prototype jouable dans un navigateur, sans installation. Tu joues l’interne. Chaque cas clinique se gagne en **duels de cartes** : tu associes le bon geste ou le bon médicament à la bonne situation. Chaque erreur ouvre automatiquement la **fiche** correspondante et met à jour le **journal**.
+Prototype jouable dans un navigateur, sans installation. Tu joues l’interne. Chaque cas clinique se gagne en **duels de cartes** : tu associes le bon geste ou le bon médicament à la bonne situation. Chaque erreur ouvre automatiquement la **fiche** en 8 rubriques ; chaque coup alimente le **tableau de bord** (carte de chaleur, calibration, angles morts, répétition espacée).
 
 Public visé : préparation de l’examen fédéral suisse de médecine humaine (format PROFILES) et pratique clinique en Suisse.
 
@@ -15,57 +15,45 @@ Public visé : préparation de l’examen fédéral suisse de médecine humaine 
 
 ## Comment jouer
 
-1. Clique « Prendre la garde ».
-2. Lis le **dossier** à gauche : les valeurs en rouge signalent une alerte vitale.
-3. Joue une carte de ta main (clic, Entrée, ou touches **1 à 9**).
-4. Le retour s’affiche tout de suite : **vert** = bon réflexe, **rouge** = erreur (perte de PV), **bleu** = information.
-5. Une erreur ouvre la fiche. Lis-la, ferme-la (Échap), puis continue.
-6. Joue tous les objectifs du duel pour passer au suivant.
+1. **Parcours** : une salle par spécialité (lots A à G du plan). Chaque salle suit le cycle Fondamentaux → Consultation → Urgence → cas final. Une salle s’ouvre quand la précédente atteint 2 étoiles de moyenne ; le mode **Entraînement** ouvre tout et coupe le chrono.
+2. **Duel** : choisis une carte (clic ou touches **1 à 9**), puis déclare ta confiance : **Sûr (S)**, **Hésitant (H)** ou **Au hasard (A)**. Rien n’est présélectionné ; le coup part seulement après la confiance. Échap annule.
+3. **Règles** : erreur dangereuse −30 PV, erreur mineure −10 PV, examen inutile −5 PV et +1 min. Urgence et cas final se jouent sous chrono. Étoiles : 3 au départ, −1 sous 80 % de PV, −1 sous 50 %, −1 pour un examen inutile, −1 si le chrono est dépassé ; minimum 1 en cas de victoire.
+4. **Fiche** : toute erreur ouvre la fiche en 8 rubriques (fondamentaux, démarche, différentiels, exploration, diagnostic, prise en charge, suivi, explication des coups).
+5. **Ronde** : chaque jour, 20 minutes sur les points faibles, angles morts en premier (Leitner, 5 boîtes).
+6. **Tableau de bord** : grade, carte de chaleur spécialité × échelon, calibration et excès de confiance, angles morts, vitesse (objectif Urgence < 20 s), boîtes Leitner, préparation par domaine PROFILES, export/import JSON.
+7. **Examen blanc** : structure prête (cas mêlés, chronométrés, notés) ; le seuil de réussite reste « À vérifier ».
 
-Le cas « Douleur thoracique, 74 ans » compte quatre duels :
+Une pathologie est **maîtrisée** quand ses 7 échelons sont réussis avec « sûr » à J0, J+1 et J+7 ; elle revient à J+30. Grades : Externe, Interne (25 %), Chef de clinique (50 %), Médecin cadre (75 %), prêt pour l’examen blanc (90 %).
 
-| Duel | Situation | Objectifs | Pièges |
-|---|---|---|---|
-| 1 | Exclure la dissection | ECG 12 D, angio-CT | aspirine, héparine, P2Y12 avant exclusion ; O₂ ; nitrés |
-| 2 | Nommer la menace | STEMI | péricardite, NSTEMI, EP, dissection |
-| 3 | Chercher le ventricule droit | V3R–V4R | nitrés, bêtabloquant, O₂ |
-| 4 | Reperfuser | aspirine, HNF, alarme STEMI → ICP | nitrés, O₂, bêtabloquant |
-
-Trois écrans : **Plateau** (duel), **Fiche** (fenêtre au clic sur « Fiche » ou sur toute carte hors de la main), **Journal** (précision par système, erreurs, fiches à revoir, remise à zéro). Un onglet **Collection** montre toutes les cartes et la légende des raretés.
+**Sauvegarde.** La progression reste dans le navigateur (`localStorage`, clé `revmed.progression.v2`). Exporte-la régulièrement ; l’import vérifie le schéma et la version, puis fusionne sans rien perdre ni dupliquer.
 
 ## Structure
 
 ```
-index.html                    page unique, ordre de chargement des scripts
-css/tokens.css                couleurs fonctionnelles, typographie, espacements
-css/layout.css                en-tête, plateau, journal, responsive, mouvement réduit
-css/cards.css                 cartes et animations (distribution, survol, secousse, halo)
-css/fiche.css                 fiche détaillée (dialog)
-data/sources.js               registre des sources (URL, éditeur, date de lecture, portée)
-data/systems.js               systèmes du journal (cardio actif ; neuro, infectio, pneumo à venir)
-data/cards/cardio.js          18 cartes (6 pathologies, 12 actions/médicaments)
-data/services/urgences-cardio.js  le cas, ses 4 duels et leurs règles
-js/engine/registry.js         index des données + validation de cohérence
-js/engine/duel.js             moteur de duel (sans DOM)
-js/engine/journal.js          journal persistant (localStorage, clé revmed.journal.v1)
-js/ui/*.js                    rendu : carte, plateau, fiche, collection, journal
-js/main.js                    démarrage et navigation
-tests/qa.py                   QA Playwright (28 contrôles) + captures d’écran
-tests/audit.js                auto-audit des données → docs/AUDIT-donnees.md
-tests/check_links.sh          vérifie que chaque URL de source répond
-docs/screenshots/             captures produites par la QA
-docs/AUDIT.md                 auto-audit commenté (sources, « À vérifier », limites)
-tests/check_overlap.py        contrôle de reprise textuelle face aux sources téléchargées
-tests/dump_text.js            extrait le texte du jeu pour ce contrôle
+index.html                       page unique, ordre de chargement des scripts
+css/                             tokens, mise en page, cartes, fiche, composants v2 (mouvement réduit)
+data/sources.js                  registre des sources (URL, date de lecture, type, catégorie)
+data/parcours.js                 lots A–G et 41 spécialités
+data/profiles-ssp.js             248 SSP PROFILES officielles (smifk-cims.ch, lues le 17.11.2026)
+data/specialites/<id>.js         une spécialité : catalogue, cartes, cas, questions (JSON strict)
+js/engine/schema.js              schéma 8 rubriques + validateur
+js/engine/registry.js            index des données, rareté (poids PROFILES provisoire)
+js/engine/duel.js                duel, règles, chrono, étoiles (sans DOM)
+js/engine/progression.js         traqueur : coups, Leitner, maîtrise, grades, export/import
+js/engine/quiz.js                questions à 7 échelons, Fondamentaux, Ronde
+js/engine/son.js                 sons Web Audio synthétisés
+js/ui/*.js                       parcours, plateau, confiance, fiche, Ronde, tableau, collection, règles
+tools/nouvelle-specialite.js     gabarit d’une spécialité vide et valide
+tools/couverture.js              rapport de couverture → docs/couverture/
+tools/planche.py                 planche par spécialité → planches/<id>.html
+tests/                           valider.js, test_moteur.js, qa.py, audit.js, check_links.sh, check_overlap.py
+docs/FORMAT_AUTEUR.md            format d’auteur, règle de couverture, format du rapport
+docs/CONTINUITE.md               état, suite (ordre du lot A), pièges
 ```
 
 ## Ajouter du contenu
 
-**Une carte** : ajoute un objet dans `data/cards/<systeme>.js`. Chaque affirmation s’écrit `c("Phrase complète.", "id-source")`. Sans source, écris `c("Phrase. À vérifier.")` : l’interface affiche le badge. Ajoute la source dans `data/sources.js` avec sa date de lecture.
-
-**Un système** : ajoute `{ id, nom, actif: true }` dans `data/systems.js`, puis un fichier `data/cards/<id>.js` chargé dans `index.html`.
-
-**Un service** : copie `data/services/urgences-cardio.js`, change `id`, `nom`, `systeme`, puis écris le cas : `patient`, `dossier` (examens à révéler), `etapes` (adversaire, main, objectifs, règles). Ajoute la ligne `<script>` dans `index.html` et l’entrée sur la carte des services (`js/ui/board.js`). Au démarrage, `JEU.registry.validate()` signale en console toute carte ou source inconnue.
+Suis `docs/FORMAT_AUTEUR.md` : `node tools/nouvelle-specialite.js <id>`, remplis le fichier depuis des sources suisses, ajoute sa ligne `<script>` dans `index.html`, puis lance `node tests/valider.js` et `node tools/couverture.js`.
 
 ## Politique des sources
 
@@ -77,8 +65,12 @@ tests/dump_text.js            extrait le texte du jeu pour ce contrôle
 ## Contrôles
 
 ```
-python3 tests/qa.py          # Playwright + Chromium : partie complète, fiche, journal, captures
+node tests/valider.js        # validateur du schéma et des sources : 0 erreur exigée
+node tests/test_moteur.js    # moteur : progression, Leitner, maîtrise, import/export, duel, validateur
+python3 tests/qa.py          # Playwright + Chrome : parcours, duel, fiche, Ronde, tableau, captures
 node tests/audit.js > docs/AUDIT-donnees.md
+node tools/couverture.js     # rapport de couverture → docs/couverture/
+python3 tools/planche.py cardiologie   # planche → planches/cardiologie.html
 ./tests/check_links.sh       # chaque URL de source doit répondre 200
 ```
 

@@ -1,0 +1,137 @@
+/* Composants v2 : parcours, confiance, chrono, étoiles, quiz, tableau de bord, fiche en 8 rubriques.
+   Couleurs fonctionnelles seulement (rouge urgence/erreur, bleu calme/info, vert bon réflexe). */
+.btn-son { font-size: .82rem; padding: 6px 10px; }
+.btn-son[aria-pressed="true"] { color: var(--encre-3); }
+.btn-petit { padding: 4px 10px; font-size: .8rem; }
+.page { max-width: 1200px; margin: 0 auto; }
+.msg { padding: 8px 12px; border-radius: var(--r-s); font-weight: 600; }
+.msg--ok { background: var(--bon-fond); color: var(--bon); }
+.msg--ko { background: var(--urgence-fond); color: var(--urgence); }
+.interrupteur { display: inline-flex; gap: 6px; align-items: center; font-size: .9rem; color: var(--encre-2); margin-top: 6px; }
+.interrupteur input { width: 18px; height: 18px; }
+
+/* Barre du cas */
+.barre-droite { display: flex; align-items: center; gap: 18px; }
+.chrono-bloc { display: flex; flex-direction: column; align-items: flex-end; }
+.chrono { font-family: var(--police-mono); font-weight: 800; font-size: 1.15rem; color: var(--calme); }
+.chrono--depasse { color: var(--urgence); }
+.tag-mode { display: inline-block; padding: 1px 7px; border-radius: 4px; font-weight: 800; letter-spacing: .04em; font-size: .7rem; border: 1px solid currentColor; }
+.tag-mode--urgence, .tag-mode--final { color: var(--urgence); }
+.tag-mode--consultation, .tag-mode--entrainement, .tag-mode--examen { color: var(--calme); }
+.phase { margin: 2px 0 6px; font-size: .82rem; color: var(--encre-3); }
+.tag-phase, .tag-raison { display: inline-block; margin-right: 6px; padding: 1px 7px; border-radius: 4px; background: var(--calme-fond); color: var(--calme); font-weight: 700; text-transform: uppercase; font-size: .7rem; letter-spacing: .04em; }
+.tag-raison { background: var(--attention-fond); color: var(--attention); }
+
+/* Sélection et confiance */
+.carte--choisie { outline: 3px solid var(--calme); outline-offset: 2px; transform: translateY(-6px); }
+.confiance { margin-top: 12px; display: flex; flex-wrap: wrap; align-items: center; gap: 10px; padding: 10px 12px; background: var(--calme-fond); border: 1px solid #c9d9ee; border-radius: var(--r-m); }
+.confiance:focus { outline: none; box-shadow: var(--focus); }
+.confiance-q { margin: 0; font-size: .92rem; }
+.confiance-boutons { display: flex; gap: 8px; }
+.btn-conf { display: inline-flex; align-items: center; gap: 8px; min-height: 40px; padding: 6px 14px; border-radius: var(--r-s); border: 1px solid var(--trait-fort); background: var(--papier); color: var(--encre); font-weight: 700; cursor: pointer; }
+.btn-conf:hover { border-color: var(--calme); color: var(--calme); }
+.btn-conf kbd { font-family: var(--police-mono); font-size: .72rem; padding: 0 5px; border: 1px solid var(--trait-fort); border-radius: 4px; color: var(--encre-3); }
+.confiance-annuler { margin-left: auto; }
+
+/* Étoiles */
+.etoiles { display: flex; gap: 6px; font-size: 2rem; line-height: 1; margin: 6px 0; }
+.etoile { color: var(--trait-fort); }
+.etoile.on { color: #b7791f; animation: etoile 520ms cubic-bezier(.2, .8, .2, 1.4) both; animation-delay: calc(var(--i) * 160ms + 200ms); }
+@keyframes etoile { from { transform: scale(.2) rotate(-30deg); opacity: 0; } to { transform: none; opacity: 1; } }
+.examen-resultat-bloc { margin: 8px 0; padding: 10px; border: 1px dashed var(--trait-fort); border-radius: var(--r-s); }
+
+/* Parcours */
+.lots { display: grid; gap: 18px; }
+.salles { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 10px; }
+.salle { background: var(--papier); border: 1px solid var(--trait); border-radius: var(--r-m); padding: 10px 12px; display: flex; flex-direction: column; gap: 6px; }
+.salle--preparation { flex-direction: row; justify-content: space-between; color: var(--encre-3); background: transparent; border-style: dashed; }
+.salle--ouverte { border-top: 4px solid var(--calme); box-shadow: var(--ombre-1); }
+.salle--verrouillee { border-top: 4px solid var(--trait-fort); opacity: .85; }
+.salle-tete { display: flex; justify-content: space-between; gap: 8px; align-items: baseline; }
+.salle-nom { font-weight: 800; }
+.salle-etat { font-size: .78rem; color: var(--encre-3); }
+.cycle { list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; }
+.pas { display: grid; grid-template-columns: 1fr auto; gap: 2px 8px; align-items: center; padding: 6px 8px; border-radius: var(--r-s); background: var(--fond); font-size: .86rem; }
+.pas-titre { font-weight: 700; }
+.pas-info { color: var(--encre-3); font-size: .78rem; }
+.pas-actions { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: 6px; }
+.pas > .btn { grid-column: 1 / -1; justify-self: start; }
+.pas--reussi { background: var(--bon-fond); }
+.pas--reussi .pas-info { color: var(--bon); font-weight: 700; }
+.pas--vide { opacity: .7; }
+.examen-blanc { margin-top: 22px; padding: 14px; background: var(--papier); border: 1px solid var(--trait); border-radius: var(--r-m); }
+
+/* Quiz */
+.quiz-carte { background: var(--papier); border: 1px solid var(--trait); border-radius: var(--r-l); padding: 18px; box-shadow: var(--ombre-1); max-width: 860px; }
+.quiz-tete { display: flex; justify-content: space-between; align-items: baseline; }
+.quiz-enonce { margin: 8px 0 12px; padding: 12px 14px; border-left: 4px solid var(--calme); background: var(--calme-fond); font-size: 1.05rem; }
+.quiz-question { font-size: 1rem; margin: 0 0 10px; }
+.quiz-choix { display: grid; gap: 8px; }
+.choix { position: relative; text-align: left; padding: 10px 12px 10px 36px; border: 1px solid var(--trait-fort); border-radius: var(--r-s); background: var(--papier); font: inherit; cursor: pointer; }
+.choix .raccourci { position: absolute; left: 10px; top: 10px; }
+.choix:hover:not([disabled]) { border-color: var(--calme); }
+.choix--choisi { outline: 3px solid var(--calme); }
+.choix--juste { border-color: var(--bon); background: var(--bon-fond); }
+.choix--faux { border-color: var(--urgence); background: var(--urgence-fond); }
+.choix[disabled] { cursor: default; color: var(--encre); }
+
+/* Tableau de bord */
+.tb-grille { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 14px; margin: 14px 0; }
+.tb-bloc { background: var(--papier); border: 1px solid var(--trait); border-radius: var(--r-m); padding: 12px 14px; }
+.tb-bloc h2 { font-size: 1rem; margin: 0 0 8px; }
+.grade { font-size: 1.4rem; margin: 0 0 6px; }
+.table-defile { overflow-x: auto; }
+.chaleur, .calib { border-collapse: collapse; width: 100%; font-size: .84rem; }
+.chaleur th, .chaleur td, .calib th, .calib td { padding: 6px 8px; border: 1px solid var(--trait); text-align: left; }
+.chaleur thead th { font-size: .72rem; color: var(--encre-2); }
+.cellule { font-family: var(--police-mono); text-align: center !important; }
+.cellule--vide { color: var(--encre-3); }
+.cellule--critique { background: #fde0dc; color: #8a1c12; }
+.cellule--faible { background: var(--attention-fond); color: var(--attention); }
+.cellule--moyen { background: #eef4fb; color: var(--calme); }
+.cellule--fort { background: #d3f3df; color: #0b5e2e; }
+.tag-am { display: inline-block; margin-left: 6px; font-size: .68rem; font-weight: 800; padding: 1px 6px; border-radius: 4px; background: var(--urgence-fond); color: var(--urgence); }
+.leitner { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px; }
+.leitner li { background: var(--fond); border-radius: var(--r-s); padding: 6px; font-size: .78rem; text-align: center; }
+.leitner-n { display: block; font-family: var(--police-mono); font-size: 1.2rem; font-weight: 800; color: var(--calme); }
+.vitesse { margin: 0; padding-left: 18px; font-size: .86rem; }
+
+/* Fiche v2 */
+.rub h3 { display: flex; align-items: center; gap: 8px; }
+.rub-num { display: inline-grid; place-items: center; width: 22px; height: 22px; border-radius: 50%; background: var(--patho); color: #fff; font-size: .74rem; }
+.rub-ech { margin-left: auto; font-size: .68rem; font-weight: 700; color: var(--encre-3); text-transform: none; letter-spacing: 0; }
+.rub-aide { margin: -4px 0 6px; font-size: .78rem; color: var(--encre-3); }
+.fiche-bloc h4 { margin: 8px 0 4px; font-size: .82rem; color: var(--encre-2); }
+.dx--tue { color: var(--urgence); }
+.tag-tue { margin-left: 4px; font-size: .64rem; padding: 0 4px; border-radius: 3px; background: var(--urgence); color: #fff; text-transform: uppercase; }
+.na { color: var(--encre-3); font-style: italic; }
+.fiche-coups { list-style: none; padding: 0; display: grid; gap: 6px; }
+.coup { padding: 6px 8px; border-radius: var(--r-s); border-left: 4px solid var(--calme); background: var(--calme-fond); font-size: .86rem; display: grid; gap: 2px; }
+.coup--bon { border-color: var(--bon); background: var(--bon-fond); }
+.coup--erreur { border-color: var(--urgence); background: var(--urgence-fond); }
+.coup--inutile { border-color: var(--attention); background: var(--attention-fond); }
+.coup-tag { font-weight: 800; font-size: .74rem; }
+.coup-ctx { color: var(--encre-3); font-size: .74rem; }
+.verdict--inutile { border-top-color: var(--attention); background: var(--attention-fond); }
+.verdict--inutile::after { content: "Inutile"; background: var(--attention); }
+.feedback--inutile { background: var(--attention-fond); border-color: #f0c48e; }
+.feedback--inutile .feedback-tag { background: var(--attention); }
+.verdict--inutile { --flash: rgba(161, 74, 6, .5); --flash-fond: #ffe7c7; }
+
+@media (max-width: 760px) {
+  .barre-droite { flex-direction: column; align-items: flex-start; gap: 6px; }
+  .leitner { grid-template-columns: repeat(3, 1fr); }
+  .confiance-annuler { margin-left: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .etoile.on { animation: none !important; }
+  .carte--choisie { transform: none; }
+}
+
+/* En-tête sur tablette : les onglets passent à la ligne au lieu de déborder. */
+@media (max-width: 1100px) {
+  .entete { flex-wrap: wrap; padding: 10px 16px; }
+  .barre-droite { flex-wrap: wrap; }
+  .onglets { flex-wrap: wrap; }
+}
+.salles { align-items: start; }

@@ -6,9 +6,9 @@
 window.JEU = window.JEU || {};
 JEU.ui = JEU.ui || {};
 JEU.ui.RARETES = {
-  commune:  { label: "Commune",  pips: 1, def: "Geste ou situation de presque chaque douleur thoracique." },
-  frequente:{ label: "Fréquente", pips: 2, def: "Diagnostic ou traitement courant aux urgences." },
-  rare:     { label: "Rare",     pips: 3, def: "Situation rare, mais vitale à reconnaître." }
+  commune:  { label: "Poids PROFILES élevé", pips: 1, def: "Pathologie rattachée à 4 SSP PROFILES ou plus (approximation provisoire)." },
+  frequente:{ label: "Poids PROFILES moyen", pips: 2, def: "Pathologie rattachée à 3 SSP PROFILES (approximation provisoire)." },
+  rare:     { label: "Poids PROFILES ciblé", pips: 3, def: "Pathologie rattachée à 1 ou 2 SSP PROFILES (approximation provisoire)." }
 };
 
 JEU.ui.renderCard = function (card, opts = {}) {
@@ -31,7 +31,8 @@ JEU.ui.renderCard = function (card, opts = {}) {
 
   const principal = h("button", {
     type: "button", class: "carte-action",
-    "aria-label": opts.mode === "main" ? `Jouer ${card.nom}` : `Ouvrir la fiche ${card.nom}`,
+    "aria-label": opts.mode === "main" ? `Choisir ${card.nom}` : `Ouvrir la fiche ${card.nom}`,
+    "aria-pressed": opts.mode === "main" ? String(!!opts.choisie) : null,
     onclick: () => (opts.onPlay && opts.mode === "main" ? opts.onPlay(card.id) : JEU.ui.fiche.open(card.id))
   });
   const btnFiche = h("button", {

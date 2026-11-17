@@ -11,7 +11,7 @@ JEU.dom = (function () {
       else if (k === "html") el.innerHTML = v;
       else el.setAttribute(k, v === true ? "" : v);
     });
-    kids.flat().forEach(k => { if (k !== null && k !== undefined && k !== false) el.append(k.nodeType ? k : document.createTextNode(String(k))); });
+    kids.flat(Infinity).forEach(k => { if (k !== null && k !== undefined && k !== false) el.append(k.nodeType ? k : document.createTextNode(String(k))); });
     return el;
   }
   const $ = (sel, root = document) => root.querySelector(sel);
@@ -23,5 +23,8 @@ JEU.dom = (function () {
     el.addEventListener("animationend", () => el.classList.remove(cls), { once: true });
   }
   const dateFr = iso => new Date(iso).toLocaleString("fr-CH", { dateStyle: "short", timeStyle: "short" });
-  return { h, $, reducedMotion, pulse, dateFr };
+  const $$ = (sel, root = document) => [...root.querySelectorAll(sel)];
+  const mmss = s => { const n = Math.max(0, Math.round(s)); return `${String(Math.floor(n / 60)).padStart(2, "0")}:${String(n % 60).padStart(2, "0")}`; };
+  const pct = x => x === null || x === undefined ? "—" : `${Math.round(x * 100)} %`;
+  return { h, $, $$, reducedMotion, pulse, dateFr, mmss, pct };
 })();
