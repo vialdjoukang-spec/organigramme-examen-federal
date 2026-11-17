@@ -24,5 +24,17 @@ G3 — Soif excessive, consommation excessive de liquides (polydipsie). G2 a ét
 | 027 | 86–90 | Pièges analytiques du bilan hydro-électrolytique | en_cours/027-G3-086.json |
 | 027 | 91–95 | Iatrogénie et bilan des pertes hydriques | en_cours/027-G3-091.json |
 | 027 | 96–100 | Sécurité ambulatoire sous desmopressine | en_cours/027-G3-096.json |
+| 028 | 101–105 | Faibles apports en solutés et excès de boissons | en_cours/028-G3-101.json |
+| 028 | 106–110 | Évolution postopératoire des troubles de l’eau et du sodium | en_cours/028-G3-106.json |
+| 028 | 111–115 | Pertes extrarénales et soif compensatrice | en_cours/028-G3-111.json |
+| 028 | 116–120 | Polydipsie et psychotropes | en_cours/028-G3-116.json |
+| 029 | 121–125 | Causes endocriniennes de polydipsie | en_cours/029-G3-121.json |
+| 029 | 126–130 | Charge alimentaire ou iatrogène en solutés | en_cours/029-G3-126.json |
+| 029 | 131–135 | Causes non opératoires de déficit en vasopressine | en_cours/029-G3-131.json |
+| 029 | 136–140 | Sécurité lors d’un changement de lieu de soins | en_cours/029-G3-136.json |
+| 030 | 141–145 | Soif du patient diabétique déjà traité | en_cours/030-G3-141.json |
+| 030 | 146–150 | Mesures d’entrées et sorties difficiles | en_cours/030-G3-146.json |
+| 030 | 151–155 | Soif physiologique et diagnostics différentiels fréquents | en_cours/030-G3-151.json |
+| 030 | 156–160 | Soif, habitudes de boisson et triage contextualisé | en_cours/030-G3-156.json |
 
 À la reprise, utiliser les manuscrits existants et vérifier les fichiers d’audit. Relire l’index du dernier commit avant d’attribuer ou de publier. Le premier SSP ouvert reste prioritaire.
