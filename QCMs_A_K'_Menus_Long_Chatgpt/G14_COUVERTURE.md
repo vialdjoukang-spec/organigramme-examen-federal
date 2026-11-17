@@ -54,3 +54,21 @@ Les huit fichiers des lots 133 et 134 couvrent vingt décisions de réanimation/
 Les lots 135 et 136 prolongent l’évaluation des causes réversibles, de la tachycardie catécholaminergique, des cardiomyopathies arythmogènes, de la génétique familiale et de la prévention après arrêt. Les actes 067 et 069 ont été remplacés pour éviter la répétition de la caractérisation IRM et de l’explication générique du défibrillateur. Le bilan neuropsychologique post-arrêt est déjà testé par G8-180 et sert de renvoi. G14-077 couvre désormais une dégradation posthypoxique biphasique retardée. Le suivi dans trois mois, la détresse propre du co-survivant, les aides à la mémoire prospective et le journal de soins constituent quatre décisions distinctes. L’objectif facultaire de neurorééducation de cinquième année porte explicitement sur le fonctionnement et le handicap, les facteurs somatiques et mentaux du pronostic et l’intégration sociale. Les applications post-arrêt sont identifiées comme déduites. [UNIGE, séminaire de neurorééducation](https://www.medecine.unige.ch/enseignement/etudes/curriculum/data/uc4584.htm).
 
 Les recommandations ESC sur l’insuffisance cardiaque publiées le 28 août 2026 ont été vérifiées pour les indications instrumentales. Le document PDF historique de heartfailure.ch redirige vers une page générale et a été retiré de la tranche concernée au profit du texte actuel. [ESC 2026](https://www.escardio.org/guidelines/clinical-practice-guidelines/all-esc-practice-guidelines/heart-failure/).
+
+## Contrôle des 120 premières questions
+
+Les vingt-quatre manuscrits des lots 133 à 138 ont été lus, avec contre-résolution indépendante et comparaison des décisions aux 2 640 questions antérieures. Le lot 138 attend son dernier contrôle de version avant sceau.
+
+| Rubrique | Décisions disponibles | Rapprochements vérifiés |
+|---|---|---|
+| Préexcitation | G14-086 à 090, traitements à éviter, ablation, limites du test et exploration professionnelle | Choix distincts du diagnostic de préexcitation seul |
+| Myocardite | G14-091 à 095, hospitalisation, sérologie, biopsie, fibrose et immunothérapie | La persistance du rehaussement tardif est interprétée séparément de son indication diagnostique |
+| Mort inattendue du nourrisson | G14-036 à 040 et 096 à 100 | G13-043 donne le diagnostic d’exclusion. G11-064 couvre le couchage dorsal. G11-183 traite les limites des moniteurs |
+| Embolie pulmonaire | G14-101 à 105, contre-indication de lyse, grossesse, assistance extracorporelle, indices non spécifiques et SAPL triple positif | G12-095 couvre déjà le filtre cave. G12-164 couvre le diagnostic d’HTP thromboembolique chronique |
+| Tamponnade et dissection | G14-106 à 110, fenêtre péricardique, priorité d’imagerie, ETO, hémodynamique et traitement anti-impulsion | G5-014 couvre le drainage de la tamponnade aiguë. La fenêtre de 106 traite les récidives |
+| Métabolisme et médicaments | G14-111 à 115, correction du potassium, insulinothérapie euglycémique, Fab, surveillance glycémique et dialyse | G3-027 couvre le magnésium. G14-043 teste le déplacement transcellulaire du potassium |
+| Valvules et risques concurrents | G14-116 à 120, sténose symptomatique, scanner calcique, TAVI, pronostic global pour le DAI et limites de la chirurgie du prolapsus arythmique | L’IRM pour fibrose déjà évaluée en G14-031 a été retirée de 120 |
+
+Les rattachements de 101–110 et 116–120 sont précisés par les enseignements genevois de chirurgie cardiovasculaire sur l’embolie pulmonaire, la dissection, la sténose aortique et les valvulopathies mitrales. Les choix techniques actuels restent des applications déduites de ces objectifs. Les recommandations ESC/EACTS 2025, le consensus EHRA sur le prolapsus mitral et l’Antidotliste suisse 2026/2027 ont été confrontés aux décisions.
+
+Pour la couverture des causes réversibles, G5-114 évalue la décompression urgente d’un pneumothorax compressif. G8-043 évalue les cinq insufflations initiales d’un arrêt hypoxique après ensevelissement. G8-061, 081, 104 et 105 couvrent les adaptations de l’arrêt hypothermique. Ces renvois évitent de répéter les mêmes gestes dans G14.
