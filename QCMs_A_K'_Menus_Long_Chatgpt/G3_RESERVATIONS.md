@@ -8,5 +8,9 @@ G3 — Soif excessive, consommation excessive de liquides (polydipsie). G2 a ét
 | 023 | 6–10 | Déficit en vasopressine et accès à l’eau après une chirurgie hypophysaire | en_cours/023-G3-006.json |
 | 023 | 11–15 | Résistance rénale à la vasopressine et causes acquises | en_cours/023-G3-011.json |
 | 023 | 16–20 | Polydipsie primaire, prise d’eau excessive, hyponatrémie et surveillance | en_cours/023-G3-016.json |
+| 024 | 21–25 | Grossesse, vasopressinase placentaire, réévaluation du trouble après la délivrance | en_cours/024-G3-021.json |
+| 024 | 26–30 | Polyurie de solutés et surveillance après levée d’obstacle | en_cours/024-G3-026.json |
+| 024 | 31–35 | Tests dynamiques, copeptine, limites et sécurité des explorations spécialisées | en_cours/024-G3-031.json |
+| 024 | 36–40 | Xérostomie médicamenteuse ou auto-immune, mesures buccodentaires | en_cours/024-G3-036.json |
 
 À la reprise, utiliser les manuscrits existants et vérifier les fichiers d’audit. Relire l’index du dernier commit avant d’attribuer ou de publier. Le premier SSP ouvert reste prioritaire.
