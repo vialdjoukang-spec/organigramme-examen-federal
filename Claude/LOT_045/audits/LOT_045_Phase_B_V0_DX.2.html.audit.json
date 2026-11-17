@@ -1,0 +1,72 @@
+{
+ "fichier": "Claude/LOT_045/LOT_045_Phase_B_V0_DX.2.html",
+ "octets": 105977,
+ "sha256": "baff9bda26bbff93400f565ffb65b409f6d594c9f8249fe7ec553948423776b6",
+ "score_pct": 70.0,
+ "score": "7/10",
+ "grille": "p4=2 ; p8=1 (définition reposant sur CHEST, source américaine seule) ; p9=1 (alternatives sans citation, CRP sans seuil décisionnel) ; p10=2 ; p11=1 (paracétamol et amoxicilline sans dose AIPS alors que le corpus les contient)",
+ "finale": "non",
+ "motif_finale": "Doses absentes pour l'amoxicilline (Amoxi-Mepha 44911) et le paracétamol (Dafalgan 46206), présents dans le corpus AIPS.",
+ "corrections": [
+  {
+   "gravite": "Critique",
+   "point": 11,
+   "avant": "La dose adulte de l'amoxicilline doit être lue dans l'information professionnelle suisse du comprimé choisi, car la fiche consultée pour ce cours concerne la suspension pédiatrique.",
+   "apres": "Chez l'adulte de plus de 40 kg, l'information suisse d'Amoxi-Mepha prévoit 375 à 750 mg 3 à 4 fois par jour, soit 1500 à 3000 mg par jour [aips-44911].",
+   "source": "aips-44911 (Amoxi-Mepha, Posologie usuelle ; à rapatrier). Corriger aussi la ligne Amoxicilline du tableau"
+  },
+  {
+   "gravite": "Critique",
+   "point": 11,
+   "avant": "<td>Amoxicilline</td><td>Alternative NICE ; préférée en grossesse</td><td>Voir l'information du comprimé choisi</td><td>Allergie aux pénicillines</td></tr>",
+   "apres": "<td>Amoxi-Mepha (amoxicilline), Swissmedic 44911</td><td>Alternative NICE ; préférée en grossesse</td><td>375 à 750 mg 3 à 4 fois par jour [aips-44911]</td><td>Allergie aux pénicillines</td></tr>",
+   "source": "aips-44911"
+  },
+  {
+   "gravite": "Critique",
+   "point": 11,
+   "avant": "Paracétamol</td><td>Antalgique et antipyrétique</td><td>Voir l'information du produit choisi</td><td>Dose maximale quotidienne</td></tr>",
+   "apres": "DAFALGAN® 500 mg (paracétamol), Swissmedic 46206</td><td>Antalgique et antipyrétique</td><td>Plus de 40 kg : jusqu'à 4 x 1 à 2 comprimés par jour, maximum 4000 mg par jour [aips-46206]</td><td>Intervalle de 4 à 8 h</td></tr>",
+   "source": "aips-46206"
+  },
+  {
+   "gravite": "Moyen",
+   "point": 11,
+   "avant": "<td>Ibuprofène (Ibuprofen-Mepha, Swissmedic 49156)</td><td>Antalgique et antipyrétique</td><td>Dose la plus faible, durée la plus courte<sup class=\"r\"><a href=\"#sb-aips-49156-3\">aips-49156-3</a></sup></td><td>Ulcère, insuffisance rénale grave</td></tr>",
+   "apres": "<td>Ibuprofène (Ibuprofen-Mepha, Swissmedic 49156)</td><td>Antalgique et antipyrétique</td><td>Dose simple de 400 mg, dose journalière maximale de 2400 mg, la plus faible possible<sup class=\"r\"><a href=\"#sb-aips-49156-4\">aips-49156-4</a></sup></td><td>Ulcère, insuffisance rénale grave</td></tr>",
+   "source": "aips-49156-4 (dose disponible dans l'extrait, non reprise)"
+  },
+  {
+   "gravite": "Moyen",
+   "point": 8,
+   "avant": "Il définit la bronchite aiguë par une infection aiguë des voies respiratoires inférieures, avec une toux dominante, d'une durée d'au plus 3 semaines<sup class=\"r\"><a href=\"#sb-wd1575e-4\">wd1575e-4</a></sup>.",
+   "apres": "",
+   "source": "LV5 : la définition repose sur le seul CHEST (États-Unis). Ajouter l'ERS 2020 (toux aiguë de moins de 3 semaines, wd8e55d) ou la DEGAM 2021 comme référence principale, CHEST en complément"
+  },
+  {
+   "gravite": "Léger",
+   "point": 11,
+   "avant": "Ce tableau résume les médicaments utiles, et il montre que seule la doxycycline possède une dose lue dans l'information suisse pour cette indication.",
+   "apres": "",
+   "source": "Phrase fausse : le dextrométhorphane a aussi sa dose AIPS (aips-61441-2) ; supprimer"
+  },
+  {
+   "gravite": "Moyen",
+   "point": 9,
+   "avant": "<td>CRP nettement élevée</td><td>Inflammation marquée, pneumonie possible</td><td>Radiographie, discussion d'antibiotique</td></tr>",
+   "apres": "",
+   "source": "Ligne sans seuil chiffré ni citation (LV4) ; ajouter un seuil sourcé (recommandation européenne de CRP au cabinet) ou supprimer"
+  },
+  {
+   "gravite": "Léger",
+   "point": 9,
+   "avant": "Chez un patient allergique à l'iode, on évite les produits de contraste et l'on choisit un scanner sans injection ou une autre méthode.",
+   "apres": "",
+   "source": "Phrase sans citation ; « allergie à l'iode » est un terme impropre (allergie aux produits de contraste iodés) ; un scanner non injecté n'explore pas l'embolie"
+  }
+ ],
+ "help": [
+  "Rapatrier dans le paquet les AIPS du corpus cités en correction (numéros entre crochets) avant d'écrire les doses : la règle D-7 exige que chaque nombre figure dans un extrait aips-* du paquet.",
+  "Audit limité aux points 4, 8, 9, 10 et 11 (Θ3) ; extraits lus avec lecon.py extraire et corpus AipsDownload_20261008."
+ ]
+}

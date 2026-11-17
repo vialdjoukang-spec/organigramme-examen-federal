@@ -1,0 +1,5 @@
+- 2026-11-10 · gel P1 de la liste DX (audit indépendant, verdict CORRIGER, liste corrigée de l'auditeur appliquée) · sha 5376b1993af04684
+- 2026-11-10 · rédaction des 11 leçons (P2 controle3 VERT) ; phrases partagées DX.4/DX.6/DX.7 réécrites
+- 2026-11-10 · audit P3 (3 auditeurs indépendants) : 11 fichiers CORRIGER (doses AIPS déclarées absentes à tort, textes AIPS adoucis, seuils) ; corrections A-5 appliquées
+- 2026-11-10 · second passage P3 : 7 ACCEPTE, 4 CORRIGER ; corrections chirurgicales du chef (Co-Amoxi-Mepha 53995, lacune DX.3, étoposide DX.8, contre-indications PA) vérifiées par un auditeur indépendant (audit3) : 11 ACCEPTE
+- 2026-11-10 · écart à la règle Θ2 « deux échecs P3 → REFUSE » : 4 fichiers corrigés après le second échec plutôt que refusés (défauts ponctuels, corrections vérifiées indépendamment)
