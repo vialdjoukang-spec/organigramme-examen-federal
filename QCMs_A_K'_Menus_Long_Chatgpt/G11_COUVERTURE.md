@@ -32,3 +32,5 @@ Les questions G4-006–010, 126–130 et 180 couvrent respectivement la correcti
 |---|---|
 | 001–020 | Clinophilie et besoin de sommeil individuel, caféine en soirée, caractérisation des siestes, agenda et sévérité de l’insomnie, NoSAS et mécanisme de la nycturie, sécurité de conduite et protection des travailleurs de nuit. |
 | 021–040 | Composantes cognitives et comportementales de la TCC-I, adaptation à l’épilepsie ou à une activité dangereuse, narcolepsie et examen du sommeil ; interprétation de la capnie, du T90 et des efforts respiratoires, titration et continuité de la PPC. |
+| 041–060 | Comportement anormal en sommeil paradoxal et ses imitateurs respiratoires, parasomnies infantiles et somniloquie, sévérité et diagnostics différentiels des impatiences, chronotype, phase circadienne et rythme différent de 24 heures. |
+| 061–080 | Maturation du sommeil du nourrisson, difficultés de coucher, horaires scolaires, somnolence pédiatrique, hypersomnolences centrales et interprétation du TILE, risque suicidaire associé à une insomnie, manie et traitement des cauchemars post-traumatiques. |
