@@ -23,7 +23,7 @@ Les numéros renvoient aux décisions G2. L’index HTML et le registre des audi
 | Tête, cou et œil | Nodule thyroïdien suspect Q8, déficit facial sur masse parotidienne Q9, kyste thyréoglosse Q10, menace des voies aériennes et angine de Ludwig Q19–20, tuméfactions salivaires Q41–45, anomalies congénitales Q51–54, urgences palpébrales et orbitaires Q66–70, autonomie thyroïdienne et goitre compressif Q101–102, cytologie et traitements Q103–105. |
 | Peau, sein, vulve, périnée et vie quotidienne | Masse axillaire et sénologie Q18, stade sentinelle Q23, localisations en transit Q24, lésions cutanées superficielles Q46–50, seins en lactation et hors lactation Q61–65, abcès/fistule et autres masses anales Q71–75, bartholinite récidivante, diagnostic tissulaire, hématome obstétrical, kyste de Gartner et bilan veineux Q76–80. |
 | Abdomen, appareil génito-urinaire, nouveau-né et contexte postopératoire | Hernie étranglée Q16, masse d’invagination et réduction Q31, néphroblastome Q32, nodule testiculaire et hydrocèle Q33–34, hémorragie sous-galéale Q35, paroi abdominale et cicatrices Q55–60, incidentalomes rénaux et surrénaliens Q116–120. |
-| Continuité des soins et communication | Non-concordance à réévaluer devant une masse persistante Q25, décisions avec le patient en tuméfaction bénigne Q7/65. Les questions préparées Q136–140 précisent le suivi d’un prélèvement non contributif, l’interprète, la confidentialité, l’annonce progressive et le refus provisoire. Leur publication doit être confirmée dans le registre. |
+| Continuité des soins et communication | Non-concordance à réévaluer devant une masse persistante Q25, décisions avec le patient en tuméfaction bénigne Q7/65. Q136–140 précisent le suivi d’un prélèvement non contributif, l’interprète, la confidentialité, l’annonce progressive et le refus provisoire. |
 
 ## Rares à connaître en raison de la conséquence d’un retard
 
@@ -38,6 +38,19 @@ Le syndrome cave supérieur Q5, le sarcome profond Q6, la maladie de Kawasaki Q1
 | Traiter une compression médullaire suspectée devant un déficit neurologique nouveau | Q99 porte sur la stabilité mécanique d’un os long. [CHUV, urgences palliatives](https://www.chuv.ch/fileadmin/sites/spl/Palliative_Flash_62_Urgences_Palliatives.pdf) |
 | Récupérer les éléments d’une exérèse imprévue de sarcome pour un avis du centre expert | Q6 vise le trajet de biopsie avant intervention. [CHUV, parcours sarcomes](https://www.chuv.ch/fr/offre-en-soins/maladies-et-parcours-de-soins/prise-en-charge/web_pec_26/prise-en-charge-des-sarcomes) |
 | Décider du rattrapage d’une biopsie mammaire bénigne discordante avec la masse et son image | Q64 identifie le cancer inflammatoire. Q136 concerne un échantillon thyroïdien insuffisant. [USZ, diagnostic des masses mammaires](https://www.usz.ch/sprechstunde/diagnostik-brustkrebs/) |
+
+## Vérification après le lot 020
+
+L’index d’empreinte `e5a79f5ab314a91904e5d6218241ed063d4b0b1b` contient 160 questions G2 consécutives. Les quatre décisions urgentes ou oncologiques proposées plus haut sont désormais traitées dans le HTML par Q141 (compression médullaire), Q143 (anévrisme rompu), Q144 (torsion testiculaire) et Q158 (discordance radiopathologique). La conduite après exérèse imprévue d’un sarcome figure dans le lot 022, Q191, contre-lue sur le texte du Swiss Sarcoma Network. [Recommandation pour l’exérèse imprévue](https://www.swiss-sarcoma.net/pdf/GCP_5_whoops.pdf)
+
+| Q121–160 | Compléments observés |
+|---|---|
+| 121–130 | Paragangliome carotidien, hématome de cloison, angiofibrome nasopharyngé, abcès périamygdalien et otite externe invasive. Tuméfactions neurogènes ou vasculaires du membre, maturation post-traumatique, Dupuytren et Morton. |
+| 131–140 | Suites postopératoires, corps étranger, lymphoprolifération après greffe, sérome péri-implantaire tardif et lymphome associé. Suivi des résultats, consentement éclairé, interprétariat et limites du partage de l’information. |
+| 141–150 | Urgences médullaire, rénale obstructive, aortique, testiculaire et métabolique. Ostéonécrose des maxillaires, kyste dentigère, péri-implantite, péricoronarite récidivante et suivi de l’améloblastome. |
+| 151–160 | Masses hépatiques bénignes et infectieuses, choix contraceptif, amibiase, échinococcose, imagerie typique. Évaluation oncogériatrique, adénopathie vaccinale, discordance de biopsie, nodule mammaire pendant la grossesse et clip préthérapeutique. |
+
+Une masse mammaire solide bénigne telle que le fibroadénome mérite une décision propre si elle reste absente du dernier lot. Le cancer inflammatoire Q64, le kyste Q65 et le prélèvement non représentatif Q158 sollicitent d’autres décisions. [Kantonsspital Baden, fibroadénome](https://www.kantonsspitalbaden.ch/wissen/fibroadenom)
 
 ## Critère de clôture
 
