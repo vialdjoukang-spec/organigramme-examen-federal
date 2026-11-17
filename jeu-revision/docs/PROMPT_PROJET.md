@@ -23,7 +23,7 @@ Pose-toi une seule question à chaque carte, chaque cas et chaque écran : **à 
 - Sciences fondamentales et pharmacologie : utilise des références internationales en accès libre.
 - Doses : n'affiche une dose qu'après citation mot pour mot de l'information professionnelle suisse (swissmedicinfo), avec sa date.
 - Marque « À vérifier » toute affirmation sans source lue et datée. N'invente rien.
-- **Réutilise d'abord le contenu déjà audité du dépôt** (`data/tip/`, `data/ck/glo.json`, `hyp.json`, `prev.json`, `doses_ch.json`) ; cite l'identifiant SSP d'origine. N'écris de neuf que pour combler un manque.
+- **INTERDIT : n'ouvre aucun cours ni aucun LOT produit du dépôt** (`data/tip/`, `data/ck/`, `LOT_*`, `grok-LOTS-html`, etc.). Construis tout le contenu clinique depuis les sociétés savantes, universités et facultés de médecine suisses.
 
 ## Règles du jeu (à implémenter et afficher dans un écran « Règles »)
 - Chaque cas compte 3 à 5 duels dans l'ordre clinique : trier, explorer, différencier, diagnostiquer, traiter.

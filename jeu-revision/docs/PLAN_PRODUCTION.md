@@ -10,11 +10,11 @@
 2. Implémente la pénalité des examens inutiles et le chronomètre.
 3. Ajoute la Web Audio API, le bouton muet et les effets.
 4. Étends le schéma de carte et de cas aux 8 rubriques du prompt ; écris le validateur.
-5. Écris un convertisseur qui transforme une fiche SSP (`data/tip/`) en brouillon de cas.
+5. Écris un gabarit de cas qui structure les 8 rubriques depuis les sources suisses (sans ouvrir les cours ni les LOT du dépôt).
 6. Ajoute une carte du parcours : une salle par spécialité, verrouillée ou ouverte.
 
 ## Phase 1 · Spécialités, par lots (couverture exhaustive)
-Couvre chaque pathologie de la spécialité retenue par PROFILES et par les SSP du dépôt : donne-lui au moins un cas, et donne un cas Urgence ET un cas Consultation à chaque pathologie fréquente ou grave. Publie pour chaque spécialité la liste des pathologies couvertes et manquantes.
+Couvre chaque pathologie de la spécialité retenue par PROFILES (liste des objectifs publics, sans ouvrir les LOT du dépôt) : donne-lui au moins un cas, et donne un cas Urgence ET un cas Consultation à chaque pathologie fréquente ou grave. Publie pour chaque spécialité la liste des pathologies couvertes et manquantes.
 - **Lot A, médecine interne** : cardiologie (compléter), angiologie, pneumologie, gastro-entérologie et hépatologie, néphrologie, endocrinologie et diabétologie, hématologie, oncologie, infectiologie, rhumatologie, immunologie et allergologie, gériatrie.
 - **Lot B, neurosciences et santé mentale** : neurologie, psychiatrie et psychothérapie, pédopsychiatrie, addictologie.
 - **Lot C, mère et enfant** : pédiatrie, néonatologie, gynécologie, obstétrique.
@@ -36,4 +36,4 @@ Anatomie, physiologie, physiopathologie, biochimie, pharmacologie, microbiologie
 Termine la Phase 0, puis produis le lot A dans l'ordre listé, puis B à G. Lance au plus 3 spécialités en parallèle. Audite et pousse chaque spécialité dès qu'elle est finie.
 
 ## Économie
-Réutilise le contenu SSP audité avant toute recherche. Utilise des scripts pour la validation et les captures, jamais un modèle. Ne relis que le diff.
+N'ouvre jamais les cours ni les LOT du dépôt ; mets en cache les sources suisses lues. Utilise des scripts pour la validation et les captures, jamais un modèle. Ne relis que le diff.
