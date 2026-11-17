@@ -10,7 +10,7 @@ Les 200 décisions réconciliées comprennent 120 questions A, 40 K′ et 40 men
 | K′ comptant 3 affirmations vraies | 17 | 17 |
 | K′ comptant 4 affirmations vraies | 1 | 4 |
 | Clé A strictement la plus longue en caractères | 52/120 | 34/120 |
-| Clé A de longueur maximale ex æquo en caractères | 8 | 10 |
+| Clé A de longueur maximale ex æquo en caractères | 9 | 11 |
 | Clé A strictement la plus longue en mots | 28 | 18 |
 | Clé A supérieure à 1,6 fois le plus long distracteur | 0 | 0 |
 | Propositions A avec marqueur, fausses / vraies | 19 / 1 | 3 / 1 |
