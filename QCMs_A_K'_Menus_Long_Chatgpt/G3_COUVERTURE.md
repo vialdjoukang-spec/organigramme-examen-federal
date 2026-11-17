@@ -2,7 +2,7 @@
 
 ## Matrice clinique et pédagogique
 
-**17 novembre 2026.** Les 40 premières questions ont été relues par lots de vingt. Le registre G3_OBJECTIFS.json relie chaque objectif de question au passage facultaire correspondant. Le tableau distingue les décisions couvertes et les situations à explorer pendant la suite de la production. Une soif subjective, une bouche sèche, une consommation élevée et une polyurie mesurée sont quatre observations distinctes. Leur chronologie et la capacité de la personne à accéder à l’eau orientent le bilan.
+**17 novembre 2026.** Les 80 premières questions ont été relues par lots de vingt. Le registre G3_OBJECTIFS.json relie chaque objectif de question au passage facultaire correspondant. Le tableau distingue les décisions couvertes et les situations à explorer pendant la suite de la production. Une soif subjective, une bouche sèche, une consommation élevée et une polyurie mesurée sont quatre observations distinctes. Leur chronologie et la capacité de la personne à accéder à l’eau orientent le bilan.
 
 | Priorité | Présentation | Décision à évaluer | Donnée qui change la décision |
 |---|---|---|---|
@@ -18,7 +18,7 @@
 | Excès d’eau et traitement | Apports hypotoniques massifs, notamment sous desmopressine | Reconnaître une hyponatrémie de dilution, rechercher symptômes neurologiques et demander une prise en charge hospitalière urgente en cas de confusion importante ou de convulsions. | Prévenir l’automédication par desmopressine chez une personne dont l’augmentation des boissons précède celle de la diurèse. [Université de Bâle, polydipsie primaire et déficit en AVP](https://dkf.unibas.ch/de/aktuell/harmlos-oder-hormonstoerung/) |
 | Suivi | Déficit en AVP confirmé, séjour hospitalier, intervention ou maladie aiguë | Apprendre à reconnaître le changement de diurèse et les signes de dysnatrémie. Organiser l’accès à l’eau, la continuité du traitement prescrit et un plan personnalisé de surveillance lors d’un transfert de soins. | Un même traitement peut devenir dangereux si l’accès aux boissons ou la fonction rénale change. Les adaptations thérapeutiques précises requièrent la procédure utilisée dans le cas. |
 
-### Décisions relues dans les lots 023 et 024
+### Décisions relues dans les lots 023 à 026
 
 | Questions | Décisions |
 |---|---|
@@ -30,12 +30,21 @@
 | 26–30 | Mesure après drainage d’une rétention, déficit magnésien en récupération rénale, charge uréique, mannitol et adaptation des apports. |
 | 31–35 | Copeptine en pratique spécialisée. Choix du test, stimulus incomplet, valeur basale élevée, intervalle indéterminé et sécurité cardiovasculaire. |
 | 36–40 | Candidose buccale limitée, diagnostic du syndrome sec, sialométrie, prévention dentaire et soins de confort. |
+| 41–45 | Diabète symptomatique, HbA1c après transfusion, glycémie postprandiale sous prednisone, tonicité et cinétique des cétones urinaires. |
+| 46–50 | Diurèse rapportée au poids chez l’enfant, imagerie cérébrale en cas de cassure staturale, nutrition du nourrisson, bilan initial et projet d’accueil. |
+| 51–55 | Bilan hydrique à l’effort, distinction hyponatrémie et atteinte liée à la chaleur, conseils et conduite après une hyponatrémie d’effort non sévère. |
+| 56–60 | Accès effectif aux boissons, dysphagie, crainte des déplacements nocturnes, continuité d’accès malgré la dépendance et réévaluation du jeûne. |
+| 61–65 | Classification MODY, insulinopénie après pancréatectomie, HGPO dans la mucoviscidose, diabète néonatal et déficit sécrétoire sous anti-PD1. |
+| 66–70 | Soif du patient hémodialysé. Sodium alimentaire ou du dialysat, volume urinaire résiduel, poids cible et hypertonicité avec surcharge en situation d’anurie. |
+| 71–75 | Causes rénales avec indices orientant le bilan. Acidose tubulaire du Sjögren, drépanocytose, néphronophtise, cystinose et syndrome de Gitelman. |
+| 76–80 | Concentration spontanée conservée, contre-indication initiale ou critère d’arrêt de la privation d’eau, réponse à la desmopressine et effet d’une polyurie chronique sur le gradient médullaire. |
 
 ## Rattachement aux formations romande et alémanique
 
 | Faculté et rubrique consultée | Objectif institutionnel et usage |
 |---|---|
 | Université de Genève, Excrétion et homéostasie, problème 3 « Une histoire d’eau » | Relier osmolalité, soif, action rénale de la vasopressine, concentration et dilution des urines. [Objectifs du problème](https://www.medecine.unige.ch/enseignement/etudes/curriculum/data/a663.htm) |
+| Universität Zürich, *Lernziele Themenblock Niere, Elektrolyte, Wasserhaushalt* (2018) | Les rubriques sur les dysnatrémies, la dialyse, les alcaloses et les acidoses étayent les compétences de diagnostic et d’évaluation de l’état hydrique. [Objectifs zurichois](https://www.vam.uzh.ch/dam/jcr%3A9210423e-9922-4d7f-a49f-5350d0af66c3/Lernziele%20Themenblock%20Niere_2018.pdf) |
 | Universität Basel, BMed 3, *Endokrine Systeme*, « Allgemeine Ziele » | Comprendre la régulation hormonale, ses effets et les conséquences d’une fonction endocrine excessive ou insuffisante, puis en déduire les principes du diagnostic. Rattachement pédagogique inféré pour le couple osmolalité plasmatique–urinaire et l’axe AVP. [Programme de Bâle](https://medizinstudium.unibas.ch/de/studium/bachelor/3-jahr/themenbloecke/) |
 | Universität Basel, MMed 1, *Endokrine Systeme*, « Allgemeine Ziele » | Aborder présentation, diagnostic et traitement des affections endocriniennes utiles en pratique. L’attribution d’un test précis à une vignette relève de l’auteur. [Programme de Master](https://medizinstudium.unibas.ch/de/studium/master/1-jahr/themenbloecke/) |
 | Université de Lausanne, École de médecine, modules B2.5 et B2.6 et approche de BMed3 | Les modules relient métabolisme, homéostasie et système urogénital. En BMed3, la démarche par symptômes relie physiopathologie et maladies fréquentes. Rattachement inféré pour la discrimination entre glycosurie et perte d’eau libre. Le texte décrit le cursus et ne prescrit aucun seuil de copeptine. [École de médecine, révision du Bachelor](https://wp.unil.ch/infoecoledemedecine/2024/11/la-revision-du-bachelor-est-en-route/) |
