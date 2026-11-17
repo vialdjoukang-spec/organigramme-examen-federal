@@ -52,6 +52,20 @@ L’index d’empreinte `e5a79f5ab314a91904e5d6218241ed063d4b0b1b` contient 160 
 
 Une masse mammaire solide bénigne telle que le fibroadénome mérite une décision propre si elle reste absente du dernier lot. Le cancer inflammatoire Q64, le kyste Q65 et le prélèvement non représentatif Q158 sollicitent d’autres décisions. [Kantonsspital Baden, fibroadénome](https://www.kantonsspitalbaden.ch/wissen/fibroadenom)
 
+## Contre-relecture des lots 021–022
+
+La banque prépare Q161–200. Les compétences ci-dessous ont été identifiées à la lecture des fichiers de production. Leur publication doit être confrontée à l’index définitif.
+
+| Segment | Décisions ajoutées |
+|---|---|
+| 161–165 | Préparation de la biopsie pour analyses complémentaires, limites de la clonalité IGH, corticothérapie avant biopsie d’un lymphome cérébral suspecté, analyses du liquide de rinçage d’un ganglion et biopsie ostéomédullaire après aspiration sèche. |
+| 166–175 | Lésion herpétique digitale, ténosynovite infectieuse des fléchisseurs, nodules arthrosiques, tumeur glomique, doigt en maillet. Pseudokyste pancréatique compressif, neuroblastome probable, obstacle urinaire du nourrisson, interprétation pédiatrique de l’AFP et stabilisation d’une sténose pylorique. |
+| 176–180 | Adressage d’une masse annexielle suspecte, fibrome compressif, torsion annexielle possible malgré un flux artériel, grossesse hétérotopique après assistance médicale et réserve ovarienne en cas d’endométriomes bilatéraux. |
+| 181–190 | Infections cervicofaciales profondes et mastoïdite. Tumeurs et pseudotumeurs cutanées, signes dermoscopiques et xanthomes justifiant une évaluation cardiovasculaire. Le recouvrement de Q184 avec G1-083 et de Q185 avec la nouvelle G2-086 justifie un arbitrage avant gel. |
+| 191–200 | Q191 traite la reprise en centre des sarcomes après exérèse imprévue. Tumeurs desmoïdes, ténosynoviales, dermatofibrosarcome et GIST requièrent des décisions distinctes. Épididymite, varicocèle récente persistante au décubitus, fibroadénome bénin concordant Q198, torsion d’appendice testiculaire et paraphimosis. |
+
+Deux motifs de consultation restent à vérifier dans la version gelée. Une éruption palmoplantaire accompagnant des adénopathies généralisées doit faire rechercher une syphilis secondaire. Une tuméfaction inflammatoire cutanée sans collection invite à traiter une infection non purulente, surveiller l’évolution et rechercher une collection si la réponse est défavorable. Ces deux décisions peuvent remplacer des vignettes redondantes. À ce stade, aucune lacune recensée n’exige un bloc entier de vingt nouvelles questions de G2. [OFSP, syphilis](https://www.bag.admin.ch/fr/syphilis-fr) · [HUG, recommandation abcès](https://www.hug.ch/sites/interhug/files/structures/rug/protocoles/non-traumatologique/abces_11.02.2021.pdf)
+
 ## Critère de clôture
 
 Avant clôture, rapprocher les décisions candidates des Q121 et suivantes, consigner leurs numéros effectifs ou la raison de leur retrait, puis vérifier les versions publiées, les audits par vingt et les rattachements facultaires. Toute fréquence exige une population de référence. La décision de clôture s’appuie sur les situations fréquentes, les urgences, les erreurs graves évitables et les objectifs acquis. Un nombre rond ne démontre aucune de ces conditions.
