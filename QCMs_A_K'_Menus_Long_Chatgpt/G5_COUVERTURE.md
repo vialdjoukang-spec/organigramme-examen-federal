@@ -23,3 +23,7 @@ Aux urgences de Bâle, 128 des 218 patients sélectionnés présentant une plain
 Les registres antérieurs sont consultés avant toute nouvelle question. Une autre maladie dans un énoncé ne suffit pas à distinguer deux décisions identiques. Une même maladie peut donner lieu à un autre binôme si la présentation, la question clinique et la conduite diffèrent utilement. Le registre distingue les objectifs de formation des références épidémiologiques et cliniques. [Université de Bâle, catalogue du Master 2026/27](https://medizinstudium.unibas.ch/fileadmin/user_upload/medizin/Dokumente/Master/26_27_Stoffkatalog_MA_MDT.pdf)
 
 La couverture clinique sera réévaluée sur les manuscrits validés par lots de vingt.
+
+**Iatrogénie en gériatrie.** Dans une analyse bâloise de 633 patients ayant une plainte non spécifique, d’âge médian 81 ans, 77 (12,2 %) présentaient un problème lié au traitement médicamenteux. Quarante pour cent de ces problèmes ont été identifiés dès la première évaluation. La réconciliation des traitements porte aussi sur l’automédication, les interruptions et les changements de dose. [Cohorte du service des urgences de Bâle](https://pubmed.ncbi.nlm.nih.gov/23497667/)
+
+**Pédiatrie.** Devant une description imprécise ou un appel des parents, vérifier la modification du jeu et des interactions, les apports, la respiration et les urines ; anticiper les conditions de réévaluation. [Enseignement clinique pédiatrique du CHUV](https://www.chuv.ch/fileadmin/formation/hel_Fievre_Primarycare2012.pdf)
