@@ -1,0 +1,5 @@
+- 2026-11-15 · liste proposée, non gelée : dix maladies, ordre d'incidence quand une incidence a été lue, létalité chiffrée seulement pour les deux accidents vasculaires genevois.
+- 2026-11-15 · monographie rédigée à neuf. Le glucose dosé est celui de l'information professionnelle 29550, en voie veineuse centrale, à partir de 15 ans pour les maxima.
+- 2026-11-15 · corrections appliquées telles quelles : le flacon à 40 % n'est pas le schéma d'urgence ; thiamine avant ou avec le glucose sans retarder l'hypoglycémie ; pas de glucose après une ischémie aiguë ; structure 9.a à 9.d ; fourchettes de la hernie distinguées ; incidence de Podnar non collée au décompte brut. La liste des dix diagnostics n'est pas modifiée.
+- 2026-11-15 · chez la personne dénutrie ou alcoolodépendante, la thiamine est donnée avant ou avec le glucose, ancre du collège conservée. Glucose 10 % B. Braun ajouté à la bibliographie, même autorisation 29550, sans volume de bolus.
+- 2026-11-15 · deux images retenues après lecture : voie corticospinale (CC BY 3.0) et scanner d'hémorragie ventriculaire (domaine public).
