@@ -18,3 +18,10 @@
   - Phase 4 : Intégration, relations fonctionnelles, motivation durable et viabilité
 - Fichiers de séances correspondants créés.
 - Prochaine étape : poursuivre avec la séance 01.02 (Histoire de vie chronologique).
+
+### 2026-11-18 — Préparation séance 01.02
+- Consigne de Vial reçue : séance personnelle prévue ce soir à 19h (Europe/Zurich). Ouvrir le dossier psychotherapie-personnelle-de-Vial (branche seance-01-01-consignation ou main après merge) et préparer la séance suivante selon le plan : phase 1 fondations, séances 01.01 à 01.04. Si la séance du jour est 01.02, se concentrer sur l'histoire de vie. Noter toute consigne de Vial dans JOURNAL.md et le fichier de séance correspondant.
+- Branche seance-01-01-consignation non détectée active ; contenu sur main (après merge). Phase 1 intacte.
+- Séance du jour confirmée 01.02 — Histoire de vie chronologique. Point de départ retenu : Bloc 1 — enfance au Cameroun (famille, figures parentales, fratrie, école, sécurité). Vial dicte, notes au fur et à mesure selon CONSIGNES-NOTES.md.
+- 01.01 considéré acquis (oral antérieur) ; zone d'ombre à régulariser si Vial le souhaite.
+- Préparation prête : objectifs, déroulement, structure des traces respectés. Pas de modification du cadre figé.
