@@ -1,0 +1,4152 @@
+# Plan de complétude épidémiologique – Europe + Suisse
+
+**Europe : 128 / 1416 tâches (9,0 %)** · Suisse : 215 / 1416 (15,2 %) · au moins une valeur : 246 / 1416
+Mis à jour le 2026-11-15 22:02 (Europe/Zurich). Une tâche = un DX nommé. Version à cases rouges : `PLAN_COMPLETUDE_EPIDEMIO.html`.
+
+| Statut | Europe | Suisse |
+|---|---|---|
+| candidats à lire | 57 | 40 |
+| vérifié | 128 | 215 |
+| à faire | 1220 | 1151 |
+| à revoir (0 résultat automatique) | 11 | 10 |
+
+Hors compteur : N 1064 (section 4).
+
+## Règles
+- Chaque DX nommé : deux recherches lancées en même temps, EUROPE (général) et SUISSE (spécifique), en colonnes séparées.
+- 100 % = au moins une valeur européenne vérifiée par DX nommé ; la valeur suisse s’y ajoute dès qu’elle existe.
+- Contexte complet bloquant pour chaque valeur : population, âge/sexe, définition, mesure et période, unité, année, territoire, type de source.
+- Territoire toujours écrit (Suisse, pays européen, UE, Europe). Hors Europe : on s’arrête, la valeur ne compte pas.
+- Sources : Suisse (OFS, OFSP-IDD, ONEC, Obsan/MonAM, cohortes CoLaus, SAPALDIA, SHCS) ; Europe (ECDC, Eurostat, Orphanet, EMA, OMS Europe, registres et études européens via Europe PMC/PubMed).
+- Référentiel Gemini/MHT non fiable : contrôle seulement, jamais source.
+- « Candidats à lire » = articles trouvés automatiquement : une valeur n’est « vérifiée » qu’après lecture de la source et remplissage des 8 colonnes.
+- Aucune injection dans les cours sans PR conforme au prompt L1, avec seulement des valeurs vérifiées.
+- Chaque IA écrit seulement dans son dossier NomIA__Completude_Epidemio.
+
+## 1. Classe A (source suisse probable) — Europe 122 / 409 · Suisse 212
+- **) : Brûlures, lésions dues au froid** (0 / 2)
+  - [ ] LOT_106 DX6 Europe : à faire
+  - [x] LOT_106 DX6 Suisse : 1 002 cas hospitaliers/an (Suisse ; contexte hospitalier stationnaire, 2022)
+  - [ ] LOT_106 DX7 Europe : à faire
+  - [x] LOT_106 DX7 Suisse : 1 002 cas hospitaliers/an (Suisse ; contexte hospitalier stationnaire, 2022)
+- **) : Traumatismes abdominaux** (0 / 2)
+  - [ ] LOT_105 DX6 Europe : à faire
+  - [ ] LOT_105 DX6 Suisse : à faire
+  - [ ] LOT_105 DX7 Europe : à faire
+  - [ ] LOT_105 DX7 Suisse : à faire
+- **Abus d’antalgiques** (0 / 1)
+  - [ ] LOT_100 DX5 Europe : à faire
+  - [ ] LOT_100 DX5 Suisse : à faire
+- **Abus sexuels envers l’enfant et l’adolescent** (0 / 1)
+  - [ ] LOT_216 DX5 Europe : à faire
+  - [ ] LOT_216 DX5 Suisse : à faire
+- **Accident de la circulation routière** (1 / 1)
+  - [x] LOT_013 DX4 Europe : 4,94 décès pour 100 000 habitants (Union européenne (UE-27), 2023)
+  - [x] LOT_013 DX4 Suisse : 3,2 décès pour 100 000 habitants (Suisse, 2023)
+- **Accident de montagne, de sport ou noyade** (0 / 1)
+  - [ ] LOT_013 DX6 Europe : à revoir (0 résultat automatique)
+  - [ ] LOT_013 DX6 Suisse : à revoir (0 résultat automatique)
+- **Accident vasculaire cérébral** (1 / 1)
+  - [x] LOT_133 DX1 Europe : 63,93 décès pour 100 000 habitants (Union européenne (UE-27), 2023) ; 1,5 % des personnes de 15 ans et plus (Union européenne (UE-27), 2019)
+  - [x] LOT_133 DX1 Suisse : 35,88 décès pour 100 000 habitants (Suisse, 2023)
+- **Accident vasculaire cérébral avec déficit facial** (1 / 1)
+  - [x] LOT_020 DX2 Europe : 63,93 décès pour 100 000 habitants (Union européenne (UE-27), 2023) ; 1,5 % des personnes de 15 ans et plus (Union européenne (UE-27), 2019)
+  - [x] LOT_020 DX2 Suisse : 35,88 décès pour 100 000 habitants (Suisse, 2023)
+- **Accident vasculaire cérébral du tronc cérébral** (1 / 1)
+  - [x] LOT_017 DX3 Europe : 63,93 décès pour 100 000 habitants (Union européenne (UE-27), 2023) ; 1,5 % des personnes de 15 ans et plus (Union européenne (UE-27), 2019)
+  - [x] LOT_017 DX3 Suisse : 35,88 décès pour 100 000 habitants (Suisse, 2023)
+- **Agitation dans le trouble du spectre de l'autisme** (0 / 1)
+  - [ ] LOT_122 DX7 Europe : à faire
+  - [ ] LOT_122 DX7 Suisse : à faire
+- **Alcoolisme chronique, sevrage alcoolique** (1 / 1)
+  - [x] LOT_001 DX6 Europe : 3,46 décès pour 100 000 habitants (Union européenne (UE-27), 2023)
+  - [x] LOT_001 DX6 Suisse : 2,63 décès pour 100 000 habitants (Suisse, 2023)
+- **Amétropie non corrigée** (0 / 1)
+  - [ ] LOT_018 DX1 Europe : à revoir (0 résultat automatique)
+  - [x] LOT_018 DX1 Suisse : 11 cas hospitaliers/an (Suisse ; contexte hospitalier stationnaire, 2022)
+- **Anémie, hypothyroïdie, diabète déséquilibré** (0 / 1)
+  - [ ] LOT_005 DX10 Europe : 5 candidat(s) à lire
+  - [x] LOT_005 DX10 Suisse : 6,2 % (Suisse ; population vivant à domicile (communauté), 2022) ; 7 418 cas hospitaliers/an (Suisse ; contexte hospitalier stationnaire, 2022) ; 1 276 décès/an (Suisse ; population résidante, 2024)
+- **Angor stable (maladie coronarienne chronique)** (1 / 1)
+  - [x] LOT_044 DX2 Europe : 100,39 décès pour 100 000 habitants (Union européenne (UE-27), 2023) ; 3,2 % des personnes de 15 ans et plus (Union européenne (UE-27), 2019)
+  - [x] LOT_044 DX2 Suisse : 69,12 décès pour 100 000 habitants (Suisse, 2023)
+- **Anorexie de la dépression** (0 / 1)
+  - [ ] LOT_197 DX6 Europe : à faire
+  - [ ] LOT_197 DX6 Suisse : à faire
+- **Anorexie mentale** (0 / 2)
+  - [ ] LOT_016 DX9 Europe : 5 candidat(s) à lire
+  - [ ] LOT_016 DX9 Suisse : 4 candidat(s) à lire
+  - [ ] LOT_120 DX1 Europe : 5 candidat(s) à lire
+  - [ ] LOT_120 DX1 Suisse : 4 candidat(s) à lire
+- **Anxiété chez le jeune** (0 / 1)
+  - [ ] LOT_117 DX10 Europe : à faire
+  - [ ] LOT_117 DX10 Suisse : à faire
+- **Anxiété de performance** (0 / 1)
+  - [ ] LOT_117 DX5 Europe : à faire
+  - [ ] LOT_117 DX5 Suisse : à faire
+- **Anxiété et dépression** (0 / 1)
+  - [ ] LOT_117 DX8 Europe : à faire
+  - [ ] LOT_117 DX8 Suisse : à faire
+- **Anxiété généralisée** (0 / 2)
+  - [ ] LOT_117 DX3 Europe : à faire
+  - [ ] LOT_117 DX3 Suisse : à faire
+  - [ ] LOT_123 DX4 Europe : à faire
+  - [ ] LOT_123 DX4 Suisse : à faire
+- **Anxiété ou dépression associée** (0 / 1)
+  - [ ] LOT_230 DX5 Europe : à faire
+  - [ ] LOT_230 DX5 Suisse : à faire
+- **Anxiété sociale** (0 / 1)
+  - [ ] LOT_117 DX4 Europe : à faire
+  - [ ] LOT_117 DX4 Suisse : à faire
+- **Anxiété sous substance ou sevrage** (0 / 1)
+  - [ ] LOT_117 DX9 Europe : à faire
+  - [ ] LOT_117 DX9 Suisse : à faire
+- **Aphasie après accident vasculaire** (0 / 1)
+  - [ ] LOT_098 DX5 Europe : à faire
+  - [ ] LOT_098 DX5 Suisse : à faire
+- **Appendicite aiguë** (0 / 2)
+  - [ ] LOT_052 DX4 Europe : à faire
+  - [x] LOT_052 DX4 Suisse : 12 670 cas hospitaliers/an (Suisse ; contexte hospitalier stationnaire, 2022)
+  - [ ] LOT_134 DX4 Europe : à faire
+  - [x] LOT_134 DX4 Suisse : 12 670 cas hospitaliers/an (Suisse ; contexte hospitalier stationnaire, 2022)
+- **Arrêt cardiaque** (0 / 1)
+  - [ ] LOT_008 DX7 Europe : 5 candidat(s) à lire
+  - [ ] LOT_008 DX7 Suisse : 3 candidat(s) à lire
+- **Arthrose** (2 / 2)
+  - [x] LOT_010 DX7 Europe : 16,3 % des personnes de 15 ans et plus (Union européenne (UE-27), 2019)
+  - [x] LOT_010 DX7 Suisse : 13,5 % (Suisse ; population vivant à domicile (communauté), 2022)
+  - [x] LOT_082 DX8 Europe : 16,3 % des personnes de 15 ans et plus (Union européenne (UE-27), 2019)
+  - [x] LOT_082 DX8 Suisse : 13,5 % (Suisse ; population vivant à domicile (communauté), 2022)
+- **Ascite de la cirrhose, dont la péritonite bactérienne spontanée** (0 / 1)
+  - [ ] LOT_053 DX6 Europe : à faire
+  - [ ] LOT_053 DX6 Suisse : à faire
+- **Ascite maligne (carcinose péritonéale, notamment cancer de l'ovaire)** (0 / 1)
+  - [ ] LOT_053 DX7 Europe : à faire
+  - [x] LOT_053 DX7 Suisse : 392 décès/an (Suisse ; population générale, 2018–2022) ; 9,5 nouveaux cas pour 100 000 personnes/an (Suisse ; population générale, 2018–2022)
+- **Asthme (exacerbation asthmatique)** (2 / 2)
+  - [x] LOT_049 DX1 Europe : 1,16 décès pour 100 000 habitants (Union européenne (UE-27), 2023) ; 5,7 % des personnes de 15 ans et plus (Union européenne (UE-27), 2019)
+  - [x] LOT_049 DX1 Suisse : 5,4 % (Suisse ; population vivant à domicile (communauté), 2022) ; 2 685 cas hospitaliers/an (Suisse ; contexte hospitalier stationnaire, 2022) ; 88 décès/an (Suisse ; population résidante, 2024)
+  - [x] LOT_132 DX4 Europe : 1,16 décès pour 100 000 habitants (Union européenne (UE-27), 2023) ; 5,7 % des personnes de 15 ans et plus (Union européenne (UE-27), 2019)
+  - [x] LOT_132 DX4 Suisse : 5,4 % (Suisse ; population vivant à domicile (communauté), 2022) ; 2 685 cas hospitaliers/an (Suisse ; contexte hospitalier stationnaire, 2022) ; 88 décès/an (Suisse ; population résidante, 2024)
+- **Asthme aigu grave** (1 / 1)
+  - [x] LOT_014 DX7 Europe : 1,16 décès pour 100 000 habitants (Union européenne (UE-27), 2023) ; 5,7 % des personnes de 15 ans et plus (Union européenne (UE-27), 2019)
+  - [x] LOT_014 DX7 Suisse : 5,4 % (Suisse ; population vivant à domicile (communauté), 2022) ; 2 685 cas hospitaliers/an (Suisse ; contexte hospitalier stationnaire, 2022) ; 88 décès/an (Suisse ; population résidante, 2024)
+- **Asthme et bronchite à éosinophiles** (1 / 1)
+  - [x] LOT_045 DX4 Europe : 1,16 décès pour 100 000 habitants (Union européenne (UE-27), 2023) ; 5,7 % des personnes de 15 ans et plus (Union européenne (UE-27), 2019)
+  - [x] LOT_045 DX4 Suisse : 5,4 % (Suisse ; population vivant à domicile (communauté), 2022) ; 2 685 cas hospitaliers/an (Suisse ; contexte hospitalier stationnaire, 2022) ; 88 décès/an (Suisse ; population résidante, 2024)
+- **Autre trouble anxieux** (0 / 1)
+  - [ ] LOT_126 DX4 Europe : à faire
+  - [ ] LOT_126 DX4 Suisse : à faire
+- **Barotraumatisme de l’oreille moyenne** (0 / 1)
+  - [ ] LOT_026 DX4 Europe : à faire
+  - [ ] LOT_026 DX4 Suisse : à faire
+- **Boulimie** (0 / 1)
+  - [ ] LOT_120 DX2 Europe : à faire
+  - [ ] LOT_120 DX2 Suisse : à faire
+- **Bronchiectasies** (0 / 1)
+  - [ ] LOT_045 DX9 Europe : à faire
+  - [x] LOT_045 DX9 Suisse : 238 cas hospitaliers/an (Suisse ; contexte hospitalier stationnaire, 2022)
+- **Bronchiolite aiguë et bronchite obstructive virale du nourrisson et du jeune enfant** (0 / 1)
+  - [ ] LOT_049 DX3 Europe : à faire
+  - [ ] LOT_049 DX3 Suisse : à faire
+- **Bronchopneumopathie chronique obstructive (BPCO)** (3 / 3)
+  - [x] LOT_045 DX6 Europe : 26,69 décès pour 100 000 habitants (Union européenne (UE-27), 2023) ; 4,3 % des personnes de 15 ans et plus (Union européenne (UE-27), 2019)
+  - [x] LOT_045 DX6 Suisse : 2,0 % (Suisse ; population vivant à domicile (communauté), 2022) ; 12 231 cas hospitaliers/an (Suisse ; contexte hospitalier stationnaire, 2022) ; 2 165 décès/an (Suisse ; population résidante, 2024)
+  - [x] LOT_049 DX2 Europe : 26,69 décès pour 100 000 habitants (Union européenne (UE-27), 2023) ; 4,3 % des personnes de 15 ans et plus (Union européenne (UE-27), 2019)
+  - [x] LOT_049 DX2 Suisse : 2,0 % (Suisse ; population vivant à domicile (communauté), 2022) ; 12 231 cas hospitaliers/an (Suisse ; contexte hospitalier stationnaire, 2022) ; 2 165 décès/an (Suisse ; population résidante, 2024)
+  - [x] LOT_135 DX1 Europe : 26,69 décès pour 100 000 habitants (Union européenne (UE-27), 2023) ; 4,3 % des personnes de 15 ans et plus (Union européenne (UE-27), 2019)
+  - [x] LOT_135 DX1 Suisse : 2,0 % (Suisse ; population vivant à domicile (communauté), 2022) ; 12 231 cas hospitaliers/an (Suisse ; contexte hospitalier stationnaire, 2022) ; 2 165 décès/an (Suisse ; population résidante, 2024)
+- **Brûlures** (0 / 1)
+  - [ ] LOT_084 DX2 Europe : à faire
+  - [x] LOT_084 DX2 Suisse : 1 002 cas hospitaliers/an (Suisse ; contexte hospitalier stationnaire, 2022)
+- **Cachexie cancéreuse** (0 / 1)
+  - [ ] LOT_197 DX4 Europe : à faire
+  - [ ] LOT_197 DX4 Suisse : à faire
+- **Camptocormie associée à la maladie de Parkinson** (0 / 1)
+  - [ ] LOT_080 DX8 Europe : à faire
+  - [x] LOT_080 DX8 Suisse : 3 409 cas hospitaliers/an (Suisse ; contexte hospitalier stationnaire, 2022)
+- **Cancer bronchique** (1 / 1)
+  - [x] LOT_045 DX8 Europe : 46,65 décès pour 100 000 habitants (Union européenne (UE-27), 2023)
+  - [x] LOT_045 DX8 Suisse : 3 262 décès/an (Suisse ; population générale, 2018–2022) ; 32,2 nouveaux cas pour 100 000 personnes/an (Suisse ; population générale, 2018–2022) ; 45,9 nouveaux cas pour 100 000 personnes/an (Suisse ; population générale, 2018–2022)
+- **Cancer bronchopulmonaire** (1 / 1)
+  - [x] LOT_133 DX10 Europe : 46,65 décès pour 100 000 habitants (Union européenne (UE-27), 2023)
+  - [x] LOT_133 DX10 Suisse : 3 262 décès/an (Suisse ; population générale, 2018–2022) ; 32,2 nouveaux cas pour 100 000 personnes/an (Suisse ; population générale, 2018–2022) ; 45,9 nouveaux cas pour 100 000 personnes/an (Suisse ; population générale, 2018–2022)
+- **Cancer buccal** (0 / 1)
+  - [ ] LOT_086 DX10 Europe : à faire
+  - [ ] LOT_086 DX10 Suisse : à faire
+- **Cancer colorectal** (1 / 1)
+  - [x] LOT_054 DX6 Europe : 26,47 décès pour 100 000 habitants (Union européenne (UE-27), 2023)
+  - [x] LOT_054 DX6 Suisse : 1 606 décès/an (Suisse ; population générale, 2018–2022) ; 28,9 nouveaux cas pour 100 000 personnes/an (Suisse ; population générale, 2018–2022) ; 41,4 nouveaux cas pour 100 000 personnes/an (Suisse ; population générale, 2018–2022)
+- **Cancer de l'œsophage (adénocarcinome et carcinome épidermoïde)** (2 / 2)
+  - [x] LOT_047 DX8 Europe : 4,75 décès pour 100 000 habitants (Union européenne (UE-27), 2023)
+  - [x] LOT_047 DX8 Suisse : 440 décès/an (Suisse ; population générale, 2018–2022) ; 2,2 nouveaux cas pour 100 000 personnes/an (Suisse ; population générale, 2018–2022) ; 7,2 nouveaux cas pour 100 000 personnes/an (Suisse ; population générale, 2018–2022)
+  - [x] LOT_048 DX7 Europe : 4,75 décès pour 100 000 habitants (Union européenne (UE-27), 2023)
+  - [x] LOT_048 DX7 Suisse : 440 décès/an (Suisse ; population générale, 2018–2022) ; 2,2 nouveaux cas pour 100 000 personnes/an (Suisse ; population générale, 2018–2022) ; 7,2 nouveaux cas pour 100 000 personnes/an (Suisse ; population générale, 2018–2022)
+- **Cancer de l'ovaire** (1 / 1)
+  - [x] LOT_054 DX10 Europe : 9,1 décès pour 100 000 habitants (Union européenne (UE-27), 2023)
+  - [x] LOT_054 DX10 Suisse : 392 décès/an (Suisse ; population générale, 2018–2022) ; 9,5 nouveaux cas pour 100 000 personnes/an (Suisse ; population générale, 2018–2022) ; 8,07 décès pour 100 000 habitants (Suisse, 2023)
+- **Cancer de la cavité buccale et du pharynx** (0 / 1)
+  - [ ] LOT_048 DX6 Europe : à faire
+  - [ ] LOT_048 DX6 Suisse : à faire
+- **Cancer de l’endomètre** (1 / 1)
+  - [x] LOT_073 DX3 Europe : 6,33 décès pour 100 000 habitants (Union européenne (UE-27), 2023)
+  - [x] LOT_073 DX3 Suisse : 209 décès/an (Suisse ; population générale, 2018–2022) ; 15,0 nouveaux cas pour 100 000 personnes/an (Suisse ; population générale, 2018–2022) ; 4,69 décès pour 100 000 habitants (Suisse, 2023)
+- **Cancer de l’œsophage** (1 / 1)
+  - [x] LOT_023 DX6 Europe : 4,75 décès pour 100 000 habitants (Union européenne (UE-27), 2023)
+  - [x] LOT_023 DX6 Suisse : 440 décès/an (Suisse ; population générale, 2018–2022) ; 2,2 nouveaux cas pour 100 000 personnes/an (Suisse ; population générale, 2018–2022) ; 7,2 nouveaux cas pour 100 000 personnes/an (Suisse ; population générale, 2018–2022)
+- **Cancer des fosses nasales ou des sinus** (0 / 1)
+  - [ ] LOT_021 DX10 Europe : à faire
+  - [ ] LOT_021 DX10 Suisse : à faire
+- **cancer du col de l’utérus** (1 / 1)
+  - [x] LOT_078 DX5 Europe : 3,4 décès pour 100 000 habitants (Union européenne (UE-27), 2023)
+  - [x] LOT_078 DX5 Suisse : 77 décès/an (Suisse ; population générale, 2018–2022) ; 4,2 nouveaux cas pour 100 000 personnes/an (Suisse ; population générale, 2018–2022) ; 610 cas hospitaliers/an (Suisse ; contexte hospitalier stationnaire, 2022)
+- **Cancer du larynx** (1 / 1)
+  - [x] LOT_019 DX10 Europe : 1,99 décès pour 100 000 habitants (Union européenne (UE-27), 2023)
+  - [x] LOT_019 DX10 Suisse : 72 décès/an (Suisse ; population générale, 2018–2022) ; 0,7 nouveaux cas pour 100 000 personnes/an (Suisse ; population générale, 2018–2022) ; 3,7 nouveaux cas pour 100 000 personnes/an (Suisse ; population générale, 2018–2022)
+- **Cancer du rein (carcinome à cellules rénales)** (1 / 1)
+  - [x] LOT_054 DX8 Europe : 4,97 décès pour 100 000 habitants (Union européenne (UE-27), 2023)
+  - [x] LOT_054 DX8 Suisse : 298 décès/an (Suisse ; population générale, 2018–2022) ; 5,3 nouveaux cas pour 100 000 personnes/an (Suisse ; population générale, 2018–2022) ; 14,2 nouveaux cas pour 100 000 personnes/an (Suisse ; population générale, 2018–2022)
+- **Cancer (néoplasie maligne) et cachexie cancéreuse** (0 / 1)
+  - [ ] LOT_016 DX1 Europe : 5 candidat(s) à lire
+  - [ ] LOT_016 DX1 Suisse : 5 candidat(s) à lire
+- **Carcinome du sein chez l’homme** (1 / 1)
+  - [x] LOT_042 DX5 Europe : 0,52 décès pour 100 000 habitants (Union européenne (UE-27), 2023)
+  - [x] LOT_042 DX5 Suisse : 1 377 décès/an (Suisse ; population générale, 2018–2022) ; 113,6 nouveaux cas pour 100 000 personnes/an (Suisse ; population générale, 2018–2022) ; 10 807 cas hospitaliers/an (Suisse ; contexte hospitalier stationnaire, 2022)
+- **Carcinome épidermoïde buccal ou oropharyngé** (0 / 1)
+  - [ ] LOT_025 DX9 Europe : à faire
+  - [ ] LOT_025 DX9 Suisse : à faire
+- **Carcinome épidermoïde de l’oropharynx** (0 / 1)
+  - [ ] LOT_035 DX10 Europe : à faire
+  - [ ] LOT_035 DX10 Suisse : à faire
+- **Carcinome épidermoïde du pénis** (0 / 1)
+  - [ ] LOT_131 DX8 Europe : à faire
+  - [ ] LOT_131 DX8 Suisse : à faire
+- **Carcinome épidermoïde oropharyngé** (0 / 1)
+  - [ ] LOT_026 DX10 Europe : à faire
+  - [ ] LOT_026 DX10 Suisse : à faire
+- **Carcinome mammaire infiltrant** (0 / 1)
+  - [ ] LOT_158 DX1 Europe : à faire
+  - [x] LOT_158 DX1 Suisse : 1 377 décès/an (Suisse ; population générale, 2018–2022) ; 113,6 nouveaux cas pour 100 000 personnes/an (Suisse ; population générale, 2018–2022) ; 10 807 cas hospitaliers/an (Suisse ; contexte hospitalier stationnaire, 2022)
+- **Carcinome prostatique** (1 / 1)
+  - [x] LOT_158 DX4 Europe : 34,61 décès pour 100 000 habitants (Union européenne (UE-27), 2023)
+  - [x] LOT_158 DX4 Suisse : 1 342 décès/an (Suisse ; population générale, 2018–2022) ; 135,4 nouveaux cas pour 100 000 personnes/an (Suisse ; population générale, 2018–2022) ; 9 085 cas hospitaliers/an (Suisse ; contexte hospitalier stationnaire, 2022)
+- **Cardiopathie ischémique** (2 / 2)
+  - [x] LOT_014 DX1 Europe : 100,39 décès pour 100 000 habitants (Union européenne (UE-27), 2023) ; 3,2 % des personnes de 15 ans et plus (Union européenne (UE-27), 2019)
+  - [x] LOT_014 DX1 Suisse : 69,12 décès pour 100 000 habitants (Suisse, 2023)
+  - [x] LOT_047 DX5 Europe : 100,39 décès pour 100 000 habitants (Union européenne (UE-27), 2023) ; 3,2 % des personnes de 15 ans et plus (Union européenne (UE-27), 2019)
+  - [x] LOT_047 DX5 Suisse : 69,12 décès pour 100 000 habitants (Suisse, 2023)
+- **Cataracte** (0 / 2)
+  - [ ] LOT_018 DX2 Europe : 5 candidat(s) à lire
+  - [x] LOT_018 DX2 Suisse : 1 444 cas hospitaliers/an (Suisse ; contexte hospitalier stationnaire, 2022)
+  - [ ] LOT_039 DX2 Europe : 5 candidat(s) à lire
+  - [x] LOT_039 DX2 Suisse : 1 444 cas hospitaliers/an (Suisse ; contexte hospitalier stationnaire, 2022)
+- **Céphalées (de tension, migraine)** (0 / 1)
+  - [ ] LOT_010 DX3 Europe : 5 candidat(s) à lire
+  - [ ] LOT_010 DX3 Suisse : 3 candidat(s) à lire
+- **Chemsex et usage de substances psychoactives** (0 / 1)
+  - [ ] LOT_218 DX4 Europe : à faire
+  - [ ] LOT_218 DX4 Suisse : à faire
+- **Choc septique** (0 / 1)
+  - [ ] LOT_130 DX10 Europe : à faire
+  - [x] LOT_130 DX10 Suisse : 12 038 cas hospitaliers/an (Suisse ; contexte hospitalier stationnaire, 2022)
+- **Cholécystite aiguë** (0 / 1)
+  - [ ] LOT_134 DX3 Europe : à faire
+  - [x] LOT_134 DX3 Suisse : 18 837 cas hospitaliers/an (Suisse ; contexte hospitalier stationnaire, 2022) ; 2 574 cas hospitaliers/an (Suisse ; contexte hospitalier stationnaire, 2022)
+- **Cholécystite ou angiocholite** (0 / 1)
+  - [ ] LOT_052 DX5 Europe : à faire
+  - [x] LOT_052 DX5 Suisse : 18 837 cas hospitaliers/an (Suisse ; contexte hospitalier stationnaire, 2022) ; 2 574 cas hospitaliers/an (Suisse ; contexte hospitalier stationnaire, 2022)
+- **Chute accidentelle de la personne âgée** (0 / 1)
+  - [ ] LOT_013 DX2 Europe : 5 candidat(s) à lire
+  - [ ] LOT_013 DX2 Suisse : 5 candidat(s) à lire
+- **Cirrhose** (1 / 1)
+  - [x] LOT_090 DX7 Europe : 13,68 décès pour 100 000 habitants (Union européenne (UE-27), 2023) ; 0,4 % des personnes de 15 ans et plus (Union européenne (UE-27), 2019)
+  - [x] LOT_090 DX7 Suisse : 6,22 décès pour 100 000 habitants (Suisse, 2023)
+- **Cirrhose hépatique** (2 / 2)
+  - [x] LOT_012 DX7 Europe : 13,68 décès pour 100 000 habitants (Union européenne (UE-27), 2023) ; 0,4 % des personnes de 15 ans et plus (Union européenne (UE-27), 2019)
+  - [x] LOT_012 DX7 Suisse : 6,22 décès pour 100 000 habitants (Suisse, 2023)
+  - [x] LOT_134 DX5 Europe : 13,68 décès pour 100 000 habitants (Union européenne (UE-27), 2023) ; 0,4 % des personnes de 15 ans et plus (Union européenne (UE-27), 2019)
+  - [x] LOT_134 DX5 Suisse : 6,22 décès pour 100 000 habitants (Suisse, 2023)
+- **Colique néphrétique** (0 / 1)
+  - [ ] LOT_052 DX3 Europe : à faire
+  - [x] LOT_052 DX3 Suisse : 10 203 cas hospitaliers/an (Suisse ; contexte hospitalier stationnaire, 2022)
+- **Complications somatiques de la dénutrition** (0 / 1)
+  - [ ] LOT_120 DX9 Europe : à faire
+  - [x] LOT_120 DX9 Suisse : 756 cas hospitaliers/an (Suisse ; contexte hospitalier stationnaire, 2022)
+- **Comportement sous substance** (0 / 1)
+  - [ ] LOT_119 DX6 Europe : à faire
+  - [ ] LOT_119 DX6 Suisse : à faire
+- **Conduites autodommageables** (0 / 1)
+  - [ ] LOT_120 DX7 Europe : à faire
+  - [ ] LOT_120 DX7 Suisse : à faire
+- **Conjonctivite allergique** (2 / 2)
+  - [x] LOT_033 DX3 Europe : 18,5 % des personnes de 15 ans et plus (Union européenne (UE-27), 2019)
+  - [ ] LOT_033 DX3 Suisse : à faire
+  - [x] LOT_038 DX5 Europe : 18,5 % des personnes de 15 ans et plus (Union européenne (UE-27), 2019)
+  - [ ] LOT_038 DX5 Suisse : à faire
+- **Consommation abusive de substances associée** (0 / 1)
+  - [ ] LOT_126 DX8 Europe : à faire
+  - [ ] LOT_126 DX8 Suisse : à faire
+- **Crise d'asthme** (0 / 1)
+  - [ ] LOT_046 DX4 Europe : à faire
+  - [x] LOT_046 DX4 Suisse : 5,4 % (Suisse ; population vivant à domicile (communauté), 2022) ; 2 685 cas hospitaliers/an (Suisse ; contexte hospitalier stationnaire, 2022) ; 88 décès/an (Suisse ; population résidante, 2024)
+- **Crise dissociative non épileptique** (0 / 1)
+  - [ ] LOT_104 DX7 Europe : à faire
+  - [x] LOT_104 DX7 Suisse : 8 239 cas hospitaliers/an (Suisse ; contexte hospitalier stationnaire, 2022)
+- **Crise focale épileptique** (0 / 1)
+  - [ ] LOT_104 DX9 Europe : à faire
+  - [x] LOT_104 DX9 Suisse : 8 239 cas hospitaliers/an (Suisse ; contexte hospitalier stationnaire, 2022)
+- **Crise suicidaire associée à une dépression** (1 / 1)
+  - [x] LOT_128 DX1 Europe : 10,37 décès pour 100 000 habitants (Union européenne (UE-27), 2023)
+  - [x] LOT_128 DX1 Suisse : 11,22 décès pour 100 000 habitants (Suisse, 2023)
+- **Crise suicidaire réactionnelle à un stress aigu** (1 / 1)
+  - [x] LOT_128 DX2 Europe : 10,37 décès pour 100 000 habitants (Union européenne (UE-27), 2023)
+  - [x] LOT_128 DX2 Suisse : 11,22 décès pour 100 000 habitants (Suisse, 2023)
+- **Crise tonico-clonique généralisée et épilepsie non provoquée** (0 / 1)
+  - [ ] LOT_104 DX8 Europe : à faire
+  - [x] LOT_104 DX8 Suisse : 8 239 cas hospitaliers/an (Suisse ; contexte hospitalier stationnaire, 2022)
+- **Cryptorchidie** (0 / 1)
+  - [ ] LOT_131 DX3 Europe : à faire
+  - [x] LOT_131 DX3 Suisse : 376 cas hospitaliers/an (Suisse ; contexte hospitalier stationnaire, 2022)
+- **Cyberharcèlement de l’adolescent, dont diffusion de contenus intimes et sextorsion** (0 / 1)
+  - [ ] LOT_217 DX4 Europe : à faire
+  - [ ] LOT_217 DX4 Suisse : à faire
+- **Cystite simple** (0 / 1)
+  - [ ] LOT_064 DX5 Europe : à faire
+  - [x] LOT_064 DX5 Suisse : 2 574 cas hospitaliers/an (Suisse ; contexte hospitalier stationnaire, 2022)
+- **Dacryocystite aiguë** (0 / 1)
+  - [ ] LOT_038 DX8 Europe : à faire
+  - [x] LOT_038 DX8 Suisse : 2 574 cas hospitaliers/an (Suisse ; contexte hospitalier stationnaire, 2022)
+- **Décès de nature indéterminée** (0 / 1)
+  - [ ] LOT_013 DX10 Europe : 5 candidat(s) à lire
+  - [ ] LOT_013 DX10 Suisse : 1 candidat(s) à lire
+- **Décès en lien avec un acte médical** (0 / 1)
+  - [ ] LOT_013 DX9 Europe : à revoir (0 résultat automatique)
+  - [ ] LOT_013 DX9 Suisse : à revoir (0 résultat automatique)
+- **Décès inattendu du nourrisson ou de l'enfant** (0 / 1)
+  - [ ] LOT_013 DX8 Europe : 5 candidat(s) à lire
+  - [ ] LOT_013 DX8 Suisse : 5 candidat(s) à lire
+- **Décollement de rétine** (0 / 1)
+  - [ ] LOT_039 DX4 Europe : à faire
+  - [x] LOT_039 DX4 Suisse : 2 778 cas hospitaliers/an (Suisse ; contexte hospitalier stationnaire, 2022)
+- **Décollement de rétine rhegmatogène** (0 / 1)
+  - [ ] LOT_018 DX7 Europe : à revoir (0 résultat automatique)
+  - [x] LOT_018 DX7 Suisse : 2 778 cas hospitaliers/an (Suisse ; contexte hospitalier stationnaire, 2022)
+- **Dégénérescence maculaire liée à l’âge** (0 / 2)
+  - [ ] LOT_018 DX3 Europe : 5 candidat(s) à lire
+  - [ ] LOT_018 DX3 Suisse : 3 candidat(s) à lire
+  - [ ] LOT_039 DX5 Europe : 5 candidat(s) à lire
+  - [ ] LOT_039 DX5 Suisse : 3 candidat(s) à lire
+- **Démence et symptômes comportementaux** (1 / 1)
+  - [x] LOT_124 DX9 Europe : 34,09 décès pour 100 000 habitants (Union européenne (UE-27), 2023)
+  - [x] LOT_124 DX9 Suisse : 52,9 décès pour 100 000 habitants (Suisse, 2023)
+- **Démence légère et décision concrète** (1 / 1)
+  - [x] LOT_246 DX4 Europe : 34,09 décès pour 100 000 habitants (Union européenne (UE-27), 2023)
+  - [x] LOT_246 DX4 Suisse : 52,9 décès pour 100 000 habitants (Suisse, 2023)
+- **Démence vasculaire** (1 / 1)
+  - [x] LOT_101 DX4 Europe : 34,09 décès pour 100 000 habitants (Union européenne (UE-27), 2023)
+  - [x] LOT_101 DX4 Suisse : 52,9 décès pour 100 000 habitants (Suisse, 2023)
+- **Dengue (fièvre au retour de voyage)** (0 / 1)
+  - [ ] LOT_006 DX7 Europe : 5 candidat(s) à lire
+  - [x] LOT_006 DX7 Suisse : 189 cas déclarés/an (Suisse et Liechtenstein ; population générale, 2025)
+- **Dénutrition inflammatoire chronique** (0 / 1)
+  - [ ] LOT_197 DX3 Europe : à faire
+  - [x] LOT_197 DX3 Suisse : 756 cas hospitaliers/an (Suisse ; contexte hospitalier stationnaire, 2022)
+- **Dénutrition par carence d'apport** (0 / 1)
+  - [ ] LOT_197 DX2 Europe : à faire
+  - [x] LOT_197 DX2 Suisse : 756 cas hospitaliers/an (Suisse ; contexte hospitalier stationnaire, 2022)
+- **Dépression** (3 / 3)
+  - [x] LOT_004 DX1 Europe : 7,2 % des personnes de 15 ans et plus (Union européenne (UE-27), 2019)
+  - [ ] LOT_004 DX1 Suisse : 5 candidat(s) à lire
+  - [x] LOT_011 DX4 Europe : 7,2 % des personnes de 15 ans et plus (Union européenne (UE-27), 2019)
+  - [ ] LOT_011 DX4 Suisse : 5 candidat(s) à lire
+  - [x] LOT_101 DX6 Europe : 7,2 % des personnes de 15 ans et plus (Union européenne (UE-27), 2019)
+  - [ ] LOT_101 DX6 Suisse : 5 candidat(s) à lire
+- **Dépression de la commande ventilatoire par opioïde** (0 / 1)
+  - [ ] LOT_041 DX2 Europe : à faire
+  - [ ] LOT_041 DX2 Suisse : à faire
+- **Dépression et apnées obstructives du sommeil** (1 / 1)
+  - [x] LOT_073 DX10 Europe : 7,2 % des personnes de 15 ans et plus (Union européenne (UE-27), 2019)
+  - [ ] LOT_073 DX10 Suisse : à faire
+- **Dermite associée à l'incontinence** (0 / 1)
+  - [ ] LOT_199 DX7 Europe : à faire
+  - [ ] LOT_199 DX7 Suisse : à faire
+- **Diabète de type 1** (1 / 1)
+  - [x] LOT_157 DX3 Europe : 23,53 décès pour 100 000 habitants (Union européenne (UE-27), 2023) ; 7,4 % des personnes de 15 ans et plus (Union européenne (UE-27), 2019)
+  - [x] LOT_157 DX3 Suisse : 6,2 % (Suisse ; population vivant à domicile (communauté), 2022) ; 7 418 cas hospitaliers/an (Suisse ; contexte hospitalier stationnaire, 2022) ; 1 276 décès/an (Suisse ; population résidante, 2024)
+- **Diabète de type 2** (1 / 1)
+  - [x] LOT_157 DX1 Europe : 23,53 décès pour 100 000 habitants (Union européenne (UE-27), 2023) ; 7,4 % des personnes de 15 ans et plus (Union européenne (UE-27), 2019)
+  - [x] LOT_157 DX1 Suisse : 6,2 % (Suisse ; population vivant à domicile (communauté), 2022) ; 7 418 cas hospitaliers/an (Suisse ; contexte hospitalier stationnaire, 2022) ; 1 276 décès/an (Suisse ; population résidante, 2024)
+- **Diabète gestationnel** (0 / 1)
+  - [ ] LOT_157 DX6 Europe : à faire
+  - [ ] LOT_157 DX6 Suisse : à faire
+- **Diabète sucré (hyperglycémie)** (3 / 3)
+  - [x] LOT_003 DX1 Europe : 23,53 décès pour 100 000 habitants (Union européenne (UE-27), 2023) ; 7,4 % des personnes de 15 ans et plus (Union européenne (UE-27), 2019)
+  - [x] LOT_003 DX1 Suisse : 6,2 % (Suisse ; population vivant à domicile (communauté), 2022) ; 7 418 cas hospitaliers/an (Suisse ; contexte hospitalier stationnaire, 2022) ; 1 276 décès/an (Suisse ; population résidante, 2024)
+  - [x] LOT_004 DX4 Europe : 23,53 décès pour 100 000 habitants (Union européenne (UE-27), 2023) ; 7,4 % des personnes de 15 ans et plus (Union européenne (UE-27), 2019)
+  - [x] LOT_004 DX4 Suisse : 6,2 % (Suisse ; population vivant à domicile (communauté), 2022) ; 7 418 cas hospitaliers/an (Suisse ; contexte hospitalier stationnaire, 2022) ; 1 276 décès/an (Suisse ; population résidante, 2024)
+  - [x] LOT_009 DX8 Europe : 23,53 décès pour 100 000 habitants (Union européenne (UE-27), 2023) ; 7,4 % des personnes de 15 ans et plus (Union européenne (UE-27), 2019)
+  - [x] LOT_009 DX8 Suisse : 6,2 % (Suisse ; population vivant à domicile (communauté), 2022) ; 7 418 cas hospitaliers/an (Suisse ; contexte hospitalier stationnaire, 2022) ; 1 276 décès/an (Suisse ; population résidante, 2024)
+- **Diabète sucré déséquilibré ou inaugural** (1 / 1)
+  - [x] LOT_016 DX7 Europe : 23,53 décès pour 100 000 habitants (Union européenne (UE-27), 2023) ; 7,4 % des personnes de 15 ans et plus (Union européenne (UE-27), 2019)
+  - [x] LOT_016 DX7 Suisse : 6,2 % (Suisse ; population vivant à domicile (communauté), 2022) ; 7 418 cas hospitaliers/an (Suisse ; contexte hospitalier stationnaire, 2022) ; 1 276 décès/an (Suisse ; population résidante, 2024)
+- **Diphtérie respiratoire** (0 / 1)
+  - [ ] LOT_035 DX9 Europe : à faire
+  - [x] LOT_035 DX9 Suisse : 24 cas déclarés/an (Suisse et Liechtenstein ; population générale, 2025) ; 10 cas hospitaliers/an (Suisse ; contexte hospitalier stationnaire, 2022)
+- **Douleur cancéreuse** (0 / 1)
+  - [ ] LOT_010 DX10 Europe : 5 candidat(s) à lire
+  - [ ] LOT_010 DX10 Suisse : 5 candidat(s) à lire
+- **Douleur chronique** (0 / 1)
+  - [ ] LOT_011 DX5 Europe : 5 candidat(s) à lire
+  - [ ] LOT_011 DX5 Suisse : 5 candidat(s) à lire
+- **Douleur chronique à caractéristiques neuropathiques** (0 / 1)
+  - [ ] LOT_010 DX9 Europe : à revoir (0 résultat automatique)
+  - [ ] LOT_010 DX9 Suisse : à revoir (0 résultat automatique)
+- **Dyslipidémie** (1 / 1)
+  - [x] LOT_208 DX3 Europe : 13,8 % des personnes de 15 ans et plus (Union européenne (UE-27), 2019)
+  - [x] LOT_208 DX3 Suisse : 14,8 % (Suisse ; population vivant à domicile (communauté), 2022)
+- **Dyslipidémie et statine en prévention primaire** (1 / 1)
+  - [x] LOT_207 DX3 Europe : 13,8 % des personnes de 15 ans et plus (Union européenne (UE-27), 2019)
+  - [x] LOT_207 DX3 Suisse : 14,8 % (Suisse ; population vivant à domicile (communauté), 2022)
+- **Dysphagie de la maladie de Parkinson** (0 / 1)
+  - [ ] LOT_023 DX2 Europe : à faire
+  - [x] LOT_023 DX2 Suisse : 3 409 cas hospitaliers/an (Suisse ; contexte hospitalier stationnaire, 2022)
+- **Dysphagie oropharyngée après accident vasculaire cérébral** (0 / 2)
+  - [ ] LOT_023 DX1 Europe : à faire
+  - [ ] LOT_023 DX1 Suisse : à faire
+  - [ ] LOT_048 DX2 Europe : à faire
+  - [ ] LOT_048 DX2 Suisse : à faire
+- **Dysphagie oropharyngée de la maladie de Parkinson** (0 / 1)
+  - [ ] LOT_048 DX4 Europe : à faire
+  - [x] LOT_048 DX4 Suisse : 3 409 cas hospitaliers/an (Suisse ; contexte hospitalier stationnaire, 2022)
+- **Embolie pulmonaire** (0 / 7)
+  - [ ] LOT_043 DX9 Europe : à faire
+  - [x] LOT_043 DX9 Suisse : 5 428 cas hospitaliers/an (Suisse ; contexte hospitalier stationnaire, 2022) ; 270 décès/an (Suisse ; population résidante, 2024)
+  - [ ] LOT_044 DX7 Europe : à faire
+  - [x] LOT_044 DX7 Suisse : 5 428 cas hospitaliers/an (Suisse ; contexte hospitalier stationnaire, 2022) ; 270 décès/an (Suisse ; population résidante, 2024)
+  - [ ] LOT_045 DX10 Europe : à faire
+  - [x] LOT_045 DX10 Suisse : 5 428 cas hospitaliers/an (Suisse ; contexte hospitalier stationnaire, 2022) ; 270 décès/an (Suisse ; population résidante, 2024)
+  - [ ] LOT_046 DX8 Europe : à faire
+  - [x] LOT_046 DX8 Suisse : 5 428 cas hospitaliers/an (Suisse ; contexte hospitalier stationnaire, 2022) ; 270 décès/an (Suisse ; population résidante, 2024)
+  - [ ] LOT_049 DX7 Europe : à faire
+  - [x] LOT_049 DX7 Suisse : 5 428 cas hospitaliers/an (Suisse ; contexte hospitalier stationnaire, 2022) ; 270 décès/an (Suisse ; population résidante, 2024)
+  - [ ] LOT_051 DX10 Europe : à faire
+  - [x] LOT_051 DX10 Suisse : 5 428 cas hospitaliers/an (Suisse ; contexte hospitalier stationnaire, 2022) ; 270 décès/an (Suisse ; population résidante, 2024)
+  - [ ] LOT_150 DX4 Europe : à faire
+  - [x] LOT_150 DX4 Suisse : 5 428 cas hospitaliers/an (Suisse ; contexte hospitalier stationnaire, 2022) ; 270 décès/an (Suisse ; population résidante, 2024)
+- **Embolie pulmonaire aiguë** (0 / 1)
+  - [ ] LOT_154 DX10 Europe : à faire
+  - [x] LOT_154 DX10 Suisse : 5 428 cas hospitaliers/an (Suisse ; contexte hospitalier stationnaire, 2022) ; 270 décès/an (Suisse ; population résidante, 2024)
+- **Embolie pulmonaire massive** (0 / 1)
+  - [ ] LOT_014 DX3 Europe : à revoir (0 résultat automatique)
+  - [x] LOT_014 DX3 Suisse : 5 428 cas hospitaliers/an (Suisse ; contexte hospitalier stationnaire, 2022) ; 270 décès/an (Suisse ; population résidante, 2024)
+- **Endométriose** (0 / 2)
+  - [ ] LOT_066 DX6 Europe : à faire
+  - [x] LOT_066 DX6 Suisse : 4 395 cas hospitaliers/an (Suisse ; contexte hospitalier stationnaire, 2022)
+  - [ ] LOT_068 DX1 Europe : à faire
+  - [x] LOT_068 DX1 Suisse : 4 395 cas hospitaliers/an (Suisse ; contexte hospitalier stationnaire, 2022)
+- **Épanchements de l'insuffisance cardiaque** (0 / 1)
+  - [ ] LOT_166 DX2 Europe : à faire
+  - [x] LOT_166 DX2 Suisse : 22 623 cas hospitaliers/an (Suisse ; contexte hospitalier stationnaire, 2022)
+- **Épisode dépressif** (2 / 2)
+  - [x] LOT_016 DX2 Europe : 7,2 % des personnes de 15 ans et plus (Union européenne (UE-27), 2019)
+  - [ ] LOT_016 DX2 Suisse : 5 candidat(s) à lire
+  - [x] LOT_118 DX2 Europe : 7,2 % des personnes de 15 ans et plus (Union européenne (UE-27), 2019)
+  - [ ] LOT_118 DX2 Suisse : 5 candidat(s) à lire
+- **Épisode dépressif associé** (1 / 1)
+  - [x] LOT_120 DX4 Europe : 7,2 % des personnes de 15 ans et plus (Union européenne (UE-27), 2019)
+  - [ ] LOT_120 DX4 Suisse : à faire
+- **Épisode dépressif avec idées suicidaires consécutif au harcèlement** (1 / 1)
+  - [x] LOT_217 DX3 Europe : 7,2 % des personnes de 15 ans et plus (Union européenne (UE-27), 2019)
+  - [ ] LOT_217 DX3 Suisse : à faire
+- **Épisode dépressif majeur** (1 / 1)
+  - [x] LOT_121 DX1 Europe : 7,2 % des personnes de 15 ans et plus (Union européenne (UE-27), 2019)
+  - [ ] LOT_121 DX1 Suisse : à faire
+- **Épisode maniaque (trouble bipolaire)** (0 / 1)
+  - [ ] LOT_124 DX7 Europe : à faire
+  - [ ] LOT_124 DX7 Suisse : à faire
+- **Épuisement du proche aidant donnée non trouvée dans les sources consultées** (0 / 1)
+  - [ ] LOT_213 DX4 Europe : à faire
+  - [ ] LOT_213 DX4 Suisse : à faire
+- **Ésotropie accommodative** (0 / 1)
+  - [ ] LOT_036 DX1 Europe : à faire
+  - [x] LOT_036 DX1 Suisse : 266 cas hospitaliers/an (Suisse ; contexte hospitalier stationnaire, 2022)
+- **Ésotropie infantile** (0 / 1)
+  - [ ] LOT_036 DX3 Europe : à faire
+  - [x] LOT_036 DX3 Suisse : 266 cas hospitaliers/an (Suisse ; contexte hospitalier stationnaire, 2022)
+- **État de mal épileptique non convulsif** (0 / 1)
+  - [ ] LOT_125 DX6 Europe : à faire
+  - [x] LOT_125 DX6 Suisse : 8 239 cas hospitaliers/an (Suisse ; contexte hospitalier stationnaire, 2022)
+- **Événement neurologique (AVC, crise)** (0 / 1)
+  - [ ] LOT_008 DX8 Europe : 5 candidat(s) à lire
+  - [ ] LOT_008 DX8 Suisse : 2 candidat(s) à lire
+- **Exacerbation de bronchopneumopathie chronique obstructive** (1 / 1)
+  - [x] LOT_046 DX3 Europe : 26,69 décès pour 100 000 habitants (Union européenne (UE-27), 2023) ; 4,3 % des personnes de 15 ans et plus (Union européenne (UE-27), 2019)
+  - [x] LOT_046 DX3 Suisse : 2,0 % (Suisse ; population vivant à domicile (communauté), 2022) ; 12 231 cas hospitaliers/an (Suisse ; contexte hospitalier stationnaire, 2022) ; 2 165 décès/an (Suisse ; population résidante, 2024)
+- **Exotropie intermittente** (0 / 1)
+  - [ ] LOT_036 DX2 Europe : à faire
+  - [x] LOT_036 DX2 Suisse : 266 cas hospitaliers/an (Suisse ; contexte hospitalier stationnaire, 2022)
+- **fausse couche du premier trimestre** (0 / 1)
+  - [ ] LOT_078 DX6 Europe : à faire
+  - [x] LOT_078 DX6 Suisse : 531 cas hospitaliers/an (Suisse ; contexte hospitalier stationnaire, 2022)
+- **Fibrillation auriculaire** (0 / 3)
+  - [ ] LOT_046 DX7 Europe : à faire
+  - [ ] LOT_046 DX7 Suisse : à faire
+  - [ ] LOT_136 DX1 Europe : à faire
+  - [ ] LOT_136 DX1 Suisse : à faire
+  - [ ] LOT_154 DX3 Europe : à faire
+  - [ ] LOT_154 DX3 Suisse : à faire
+- **Fibrillation auriculaire préexcitée** (0 / 1)
+  - [ ] LOT_136 DX10 Europe : à faire
+  - [ ] LOT_136 DX10 Suisse : à faire
+- **Flush émotionnel, troubles anxieux** (0 / 1)
+  - [ ] LOT_007 DX3 Europe : 5 candidat(s) à lire
+  - [ ] LOT_007 DX3 Suisse : 5 candidat(s) à lire
+- **Flush lié à l’alcool** (0 / 1)
+  - [ ] LOT_007 DX5 Europe : 1 candidat(s) à lire
+  - [ ] LOT_007 DX5 Suisse : à revoir (0 résultat automatique)
+- **Forme très sévère et résistante** (0 / 1)
+  - [ ] LOT_126 DX10 Europe : à faire
+  - [ ] LOT_126 DX10 Suisse : à faire
+- **Fracture vertébrale ostéoporotique avec cyphose acquise** (0 / 1)
+  - [ ] LOT_080 DX6 Europe : à faire
+  - [ ] LOT_080 DX6 Suisse : à faire
+- **Gastro-entérite aiguë** (0 / 1)
+  - [ ] LOT_006 DX10 Europe : 5 candidat(s) à lire
+  - [ ] LOT_006 DX10 Suisse : 5 candidat(s) à lire
+- **Gastroentérite aiguë** (0 / 1)
+  - [ ] LOT_052 DX2 Europe : à faire
+  - [ ] LOT_052 DX2 Suisse : à faire
+- **Glaucome aigu par fermeture de l’angle** (0 / 1)
+  - [ ] LOT_039 DX6 Europe : à faire
+  - [x] LOT_039 DX6 Suisse : 1 678 cas hospitaliers/an (Suisse ; contexte hospitalier stationnaire, 2022)
+- **Glaucome primitif à angle ouvert** (0 / 1)
+  - [ ] LOT_018 DX4 Europe : 1 candidat(s) à lire
+  - [x] LOT_018 DX4 Suisse : 1 678 cas hospitaliers/an (Suisse ; contexte hospitalier stationnaire, 2022)
+- **Gonococcie disséminée [S5]** (0 / 1)
+  - [ ] LOT_074 DX8 Europe : à faire
+  - [x] LOT_074 DX8 Suisse : 75,2 cas déclarés pour 100 000 habitants/an (Suisse et Liechtenstein ; population générale, 2025) ; 6 893 cas déclarés/an (Suisse et Liechtenstein ; population générale, 2025) ; 62 cas hospitaliers/an (Suisse ; contexte hospitalier stationnaire, 2022)
+- **Grossesse extra-utérine** (0 / 2)
+  - [ ] LOT_052 DX9 Europe : à faire
+  - [ ] LOT_052 DX9 Suisse : à faire
+  - [ ] LOT_067 DX4 Europe : à faire
+  - [ ] LOT_067 DX4 Suisse : à faire
+- **Harcèlement sexuel au travail, y compris en milieu médical** (0 / 1)
+  - [ ] LOT_217 DX5 Europe : à faire
+  - [ ] LOT_217 DX5 Suisse : à faire
+- **Hautes résistances des voies aériennes** (0 / 2)
+  - [ ] LOT_040 DX4 Europe : à faire
+  - [ ] LOT_040 DX4 Suisse : à faire
+  - [ ] LOT_040 DX10 Europe : à faire
+  - [ ] LOT_040 DX10 Suisse : à faire
+- **Hémorragie intracrânienne spontanée (hémorragie sous-arachnoïdienne ou intracérébrale)** (1 / 1)
+  - [x] LOT_014 DX5 Europe : 63,93 décès pour 100 000 habitants (Union européenne (UE-27), 2023)
+  - [x] LOT_014 DX5 Suisse : 35,88 décès pour 100 000 habitants (Suisse, 2023)
+- **Hernie discale** (0 / 1)
+  - [ ] LOT_010 DX6 Europe : 2 candidat(s) à lire
+  - [x] LOT_010 DX6 Suisse : 13 965 cas hospitaliers/an (Suisse ; contexte hospitalier stationnaire, 2022)
+- **Hernie discale lombaire avec radiculopathie** (0 / 1)
+  - [ ] LOT_081 DX2 Europe : à faire
+  - [x] LOT_081 DX2 Suisse : 13 965 cas hospitaliers/an (Suisse ; contexte hospitalier stationnaire, 2022)
+- **hernie inguinale non compliquée** (0 / 1)
+  - [ ] LOT_072 DX6 Europe : à faire
+  - [x] LOT_072 DX6 Suisse : 12 852 cas hospitaliers/an (Suisse ; contexte hospitalier stationnaire, 2022)
+- **Homicide** (1 / 1)
+  - [x] LOT_013 DX7 Europe : 0,65 décès pour 100 000 habitants (Union européenne (UE-27), 2023)
+  - [x] LOT_013 DX7 Suisse : 0,48 décès pour 100 000 habitants (Suisse, 2023)
+- **Humeur induite par une substance** (0 / 1)
+  - [ ] LOT_121 DX8 Europe : à faire
+  - [ ] LOT_121 DX8 Suisse : à faire
+- **Hydrocèle** (0 / 2)
+  - [ ] LOT_070 DX7 Europe : à faire
+  - [x] LOT_070 DX7 Suisse : 1 634 cas hospitaliers/an (Suisse ; contexte hospitalier stationnaire, 2022)
+  - [ ] LOT_072 DX9 Europe : à faire
+  - [x] LOT_072 DX9 Suisse : 1 634 cas hospitaliers/an (Suisse ; contexte hospitalier stationnaire, 2022)
+- **Hyperglycémie et diabète de découverte fortuite** (0 / 1)
+  - [ ] LOT_207 DX4 Europe : à faire
+  - [x] LOT_207 DX4 Suisse : 6,2 % (Suisse ; population vivant à domicile (communauté), 2022) ; 7 418 cas hospitaliers/an (Suisse ; contexte hospitalier stationnaire, 2022) ; 1 276 décès/an (Suisse ; population résidante, 2024)
+- **Hyperphagie boulimique (souvent associée au surpoids ou à l’obésité)** (0 / 1)
+  - [ ] LOT_215 DX4 Europe : 5 candidat(s) à lire
+  - [x] LOT_215 DX4 Suisse : 12,1 % (Suisse ; population vivant à domicile (communauté), 2022) ; 2 001 cas hospitaliers/an (Suisse ; contexte hospitalier stationnaire, 2022)
+- **Hypertension artérielle** (1 / 1)
+  - [x] LOT_051 DX7 Europe : 21,9 % des personnes de 15 ans et plus (Union européenne (UE-27), 2019)
+  - [x] LOT_051 DX7 Suisse : 19,5 % (Suisse ; population vivant à domicile (communauté), 2022)
+- **Hypertension artérielle primaire** (1 / 1)
+  - [x] LOT_130 DX1 Europe : 21,9 % des personnes de 15 ans et plus (Union européenne (UE-27), 2019)
+  - [x] LOT_130 DX1 Suisse : 19,5 % (Suisse ; population vivant à domicile (communauté), 2022)
+- **Hypertension artérielle sans symptôme** (1 / 1)
+  - [x] LOT_207 DX2 Europe : 21,9 % des personnes de 15 ans et plus (Union européenne (UE-27), 2019)
+  - [x] LOT_207 DX2 Suisse : 19,5 % (Suisse ; population vivant à domicile (communauté), 2022)
+- **Hypertension induite par les médicaments et les substances** (0 / 1)
+  - [ ] LOT_130 DX7 Europe : à faire
+  - [ ] LOT_130 DX7 Suisse : à faire
+- **Hyperthyroïdie** (0 / 5)
+  - [ ] LOT_007 DX4 Europe : 5 candidat(s) à lire
+  - [x] LOT_007 DX4 Suisse : 1 286 cas hospitaliers/an (Suisse ; contexte hospitalier stationnaire, 2022)
+  - [ ] LOT_016 DX4 Europe : 5 candidat(s) à lire
+  - [x] LOT_016 DX4 Suisse : 1 286 cas hospitaliers/an (Suisse ; contexte hospitalier stationnaire, 2022)
+  - [ ] LOT_050 DX7 Europe : 5 candidat(s) à lire
+  - [x] LOT_050 DX7 Suisse : 1 286 cas hospitaliers/an (Suisse ; contexte hospitalier stationnaire, 2022)
+  - [ ] LOT_073 DX5 Europe : 5 candidat(s) à lire
+  - [x] LOT_073 DX5 Suisse : 1 286 cas hospitaliers/an (Suisse ; contexte hospitalier stationnaire, 2022)
+  - [ ] LOT_122 DX3 Europe : 5 candidat(s) à lire
+  - [x] LOT_122 DX3 Suisse : 1 286 cas hospitaliers/an (Suisse ; contexte hospitalier stationnaire, 2022)
+- **Incontinence fécale** (0 / 1)
+  - [ ] LOT_058 DX9 Europe : à faire
+  - [ ] LOT_058 DX9 Suisse : à faire
+- **Incontinence fécale par atteinte du sphincter ou diarrhée** (0 / 1)
+  - [ ] LOT_201 DX6 Europe : à faire
+  - [ ] LOT_201 DX6 Suisse : à faire
+- **Incontinence fécale par fécalome** (0 / 1)
+  - [ ] LOT_201 DX5 Europe : à faire
+  - [ ] LOT_201 DX5 Suisse : à faire
+- **incontinence urinaire d'effort** (2 / 2)
+  - [x] LOT_075 DX6 Europe : 5,6 % des personnes de 15 ans et plus (Union européenne (UE-27), 2019)
+  - [ ] LOT_075 DX6 Suisse : à faire
+  - [x] LOT_201 DX1 Europe : 5,6 % des personnes de 15 ans et plus (Union européenne (UE-27), 2019)
+  - [ ] LOT_201 DX1 Suisse : à faire
+- **Incontinence urinaire fonctionnelle ou médicamenteuse** (1 / 1)
+  - [x] LOT_201 DX4 Europe : 5,6 % des personnes de 15 ans et plus (Union européenne (UE-27), 2019)
+  - [ ] LOT_201 DX4 Suisse : à faire
+- **Incontinence urinaire mixte** (1 / 1)
+  - [x] LOT_201 DX3 Europe : 5,6 % des personnes de 15 ans et plus (Union européenne (UE-27), 2019)
+  - [ ] LOT_201 DX3 Suisse : à faire
+- **Incontinence urinaire par rétention chronique** (1 / 1)
+  - [x] LOT_201 DX7 Europe : 5,6 % des personnes de 15 ans et plus (Union européenne (UE-27), 2019)
+  - [ ] LOT_201 DX7 Suisse : à faire
+- **Incontinence urinaire par urgenturie** (1 / 1)
+  - [x] LOT_201 DX2 Europe : 5,6 % des personnes de 15 ans et plus (Union européenne (UE-27), 2019)
+  - [ ] LOT_201 DX2 Suisse : à faire
+- **Infarctus du myocarde avec sus-décalage du segment ST** (1 / 1)
+  - [x] LOT_154 DX1 Europe : 32,76 décès pour 100 000 habitants (Union européenne (UE-27), 2023) ; 1,7 % des personnes de 15 ans et plus (Union européenne (UE-27), 2019)
+  - [x] LOT_154 DX1 Suisse : 23,99 décès pour 100 000 habitants (Suisse, 2023)
+- **Infarctus du myocarde de type 1** (1 / 1)
+  - [x] LOT_150 DX1 Europe : 32,76 décès pour 100 000 habitants (Union européenne (UE-27), 2023) ; 1,7 % des personnes de 15 ans et plus (Union européenne (UE-27), 2019)
+  - [x] LOT_150 DX1 Suisse : 23,99 décès pour 100 000 habitants (Suisse, 2023)
+- **Infarctus du myocarde de type 2** (1 / 1)
+  - [x] LOT_150 DX2 Europe : 32,76 décès pour 100 000 habitants (Union européenne (UE-27), 2023) ; 1,7 % des personnes de 15 ans et plus (Union européenne (UE-27), 2019)
+  - [x] LOT_150 DX2 Suisse : 23,99 décès pour 100 000 habitants (Suisse, 2023)
+- **Infection à Chlamydia trachomatis** (0 / 1)
+  - [ ] LOT_074 DX2 Europe : à faire
+  - [x] LOT_074 DX2 Suisse : 138,6 cas déclarés pour 100 000 habitants/an (Suisse et Liechtenstein ; population générale, 2025) ; 12 706 cas déclarés/an (Suisse et Liechtenstein ; population générale, 2025)
+- **Infection à Neisseria gonorrhoeae** (0 / 1)
+  - [ ] LOT_074 DX1 Europe : à faire
+  - [x] LOT_074 DX1 Suisse : 75,2 cas déclarés pour 100 000 habitants/an (Suisse et Liechtenstein ; population générale, 2025) ; 6 893 cas déclarés/an (Suisse et Liechtenstein ; population générale, 2025) ; 62 cas hospitaliers/an (Suisse ; contexte hospitalier stationnaire, 2022)
+- **Infection des voies respiratoires supérieures** (0 / 1)
+  - [ ] LOT_051 DX4 Europe : à faire
+  - [ ] LOT_051 DX4 Suisse : à faire
+- **Infection par le VIH** (1 / 1)
+  - [x] LOT_001 DX8 Europe : 0,4 décès pour 100 000 habitants (Union européenne (UE-27), 2023)
+  - [x] LOT_001 DX8 Suisse : 4,2 cas déclarés pour 100 000 habitants/an (Suisse et Liechtenstein ; population générale, 2025) ; 387 cas déclarés/an (Suisse et Liechtenstein ; population générale, 2025) ; 83 cas hospitaliers/an (Suisse ; contexte hospitalier stationnaire, 2022)
+- **Infection VIH chez les hommes ayant des rapports sexuels avec des hommes (HSH)** (1 / 1)
+  - [x] LOT_218 DX2 Europe : 0,4 décès pour 100 000 habitants (Union européenne (UE-27), 2023)
+  - [x] LOT_218 DX2 Suisse : 0,15 décès pour 100 000 habitants (Suisse, 2023)
+- **Infection virale des voies respiratoires supérieures (rhume, grippe)** (0 / 1)
+  - [ ] LOT_045 DX1 Europe : à faire
+  - [x] LOT_045 DX1 Suisse : 34 984 cas déclarés/an (Suisse et Liechtenstein ; population générale, 2025) ; 3 556 cas hospitaliers/an (Suisse ; contexte hospitalier stationnaire, 2022) ; 325 décès/an (Suisse ; population résidante, 2024)
+- **Infection virale des voies respiratoires, grippe** (0 / 1)
+  - [ ] LOT_006 DX9 Europe : 2 candidat(s) à lire
+  - [x] LOT_006 DX9 Suisse : 34 984 cas déclarés/an (Suisse et Liechtenstein ; population générale, 2025) ; 3 556 cas hospitaliers/an (Suisse ; contexte hospitalier stationnaire, 2022) ; 325 décès/an (Suisse ; population résidante, 2024)
+- **Insomnie (primaire ou comorbide)** (0 / 1)
+  - [ ] LOT_011 DX1 Europe : 5 candidat(s) à lire
+  - [ ] LOT_011 DX1 Suisse : 5 candidat(s) à lire
+- **Insomnie après l'événement** (0 / 1)
+  - [ ] LOT_127 DX7 Europe : à faire
+  - [ ] LOT_127 DX7 Suisse : à faire
+- **Insomnie liée aux substances (caféine, médicaments, sevrage d’hypnotiques)** (0 / 1)
+  - [ ] LOT_011 DX8 Europe : 4 candidat(s) à lire
+  - [ ] LOT_011 DX8 Suisse : 5 candidat(s) à lire
+- **Insuffisance cardiaque** (0 / 2)
+  - [ ] LOT_012 DX4 Europe : 5 candidat(s) à lire
+  - [x] LOT_012 DX4 Suisse : 22 623 cas hospitaliers/an (Suisse ; contexte hospitalier stationnaire, 2022)
+  - [ ] LOT_133 DX7 Europe : 5 candidat(s) à lire
+  - [x] LOT_133 DX7 Suisse : 22 623 cas hospitaliers/an (Suisse ; contexte hospitalier stationnaire, 2022)
+- **Insuffisance cardiaque aiguë** (0 / 1)
+  - [ ] LOT_150 DX6 Europe : à faire
+  - [x] LOT_150 DX6 Suisse : 22 623 cas hospitaliers/an (Suisse ; contexte hospitalier stationnaire, 2022)
+- **Insuffisance cardiaque avec rétention hydrosodée** (0 / 1)
+  - [ ] LOT_015 DX6 Europe : à revoir (0 résultat automatique)
+  - [x] LOT_015 DX6 Suisse : 22 623 cas hospitaliers/an (Suisse ; contexte hospitalier stationnaire, 2022)
+- **Insuffisance cardiaque décompensée (œdème pulmonaire cardiogénique)** (0 / 1)
+  - [ ] LOT_046 DX2 Europe : à faire
+  - [x] LOT_046 DX2 Suisse : 22 623 cas hospitaliers/an (Suisse ; contexte hospitalier stationnaire, 2022)
+- **Insuffisance cardiaque gauche aiguë (œdème pulmonaire, « asthme cardiaque »)** (0 / 1)
+  - [ ] LOT_049 DX6 Europe : à faire
+  - [x] LOT_049 DX6 Suisse : 5,4 % (Suisse ; population vivant à domicile (communauté), 2022) ; 22 623 cas hospitaliers/an (Suisse ; contexte hospitalier stationnaire, 2022) ; 2 685 cas hospitaliers/an (Suisse ; contexte hospitalier stationnaire, 2022)
+- **Insuffisance ovarienne prématurée** (0 / 1)
+  - [ ] LOT_073 DX9 Europe : à faire
+  - [ ] LOT_073 DX9 Suisse : à faire
+- **Insuffisance rénale chronique** (2 / 2)
+  - [x] LOT_003 DX3 Europe : 2,9 % des personnes de 15 ans et plus (Union européenne (UE-27), 2019)
+  - [ ] LOT_003 DX3 Suisse : 1 candidat(s) à lire
+  - [x] LOT_009 DX9 Europe : 2,9 % des personnes de 15 ans et plus (Union européenne (UE-27), 2019)
+  - [ ] LOT_009 DX9 Suisse : 1 candidat(s) à lire
+- **Insuffisance rénale chronique, syndrome néphrotique** (1 / 1)
+  - [x] LOT_012 DX3 Europe : 2,9 % des personnes de 15 ans et plus (Union européenne (UE-27), 2019)
+  - [ ] LOT_012 DX3 Suisse : 1 candidat(s) à lire
+- **Intoxication (alcool, drogues)** (0 / 1)
+  - [ ] LOT_008 DX4 Europe : 5 candidat(s) à lire
+  - [ ] LOT_008 DX4 Suisse : 5 candidat(s) à lire
+- **Intoxication aiguë** (0 / 1)
+  - [ ] LOT_129 DX9 Europe : à faire
+  - [ ] LOT_129 DX9 Suisse : à faire
+- **Intoxication au monoxyde de carbone** (0 / 1)
+  - [ ] LOT_149 DX9 Europe : à faire
+  - [ ] LOT_149 DX9 Suisse : à faire
+- **Intoxication mortelle (drogues, médicaments, monoxyde de carbone)** (0 / 1)
+  - [ ] LOT_013 DX5 Europe : 3 candidat(s) à lire
+  - [ ] LOT_013 DX5 Suisse : 2 candidat(s) à lire
+- **Intoxication par les salicylés** (0 / 1)
+  - [ ] LOT_149 DX10 Europe : à faire
+  - [ ] LOT_149 DX10 Suisse : à faire
+- **Intoxication par un stimulant** (0 / 1)
+  - [ ] LOT_122 DX4 Europe : à faire
+  - [ ] LOT_122 DX4 Suisse : à faire
+- **Intoxication suspectée, appel à Tox Info Suisse** (0 / 1)
+  - [ ] LOT_128 DX8 Europe : à faire
+  - [ ] LOT_128 DX8 Suisse : à faire
+- **Jeu d'argent excessif** (0 / 1)
+  - [ ] LOT_129 DX7 Europe : à faire
+  - [ ] LOT_129 DX7 Suisse : à faire
+- **Lésion de pression de catégorie 1** (0 / 1)
+  - [ ] LOT_199 DX1 Europe : à faire
+  - [ ] LOT_199 DX1 Suisse : à faire
+- **Lésion de pression de catégorie 2** (0 / 1)
+  - [ ] LOT_199 DX2 Europe : à faire
+  - [ ] LOT_199 DX2 Suisse : à faire
+- **Lésion de pression de catégorie 3** (0 / 1)
+  - [ ] LOT_199 DX3 Europe : à faire
+  - [ ] LOT_199 DX3 Suisse : à faire
+- **Lésion de pression de catégorie 4** (0 / 1)
+  - [ ] LOT_199 DX4 Europe : à faire
+  - [ ] LOT_199 DX4 Suisse : à faire
+- **Lésion de pression non classable** (0 / 1)
+  - [ ] LOT_199 DX5 Europe : à faire
+  - [ ] LOT_199 DX5 Suisse : à faire
+- **Lésion des tissus profonds** (0 / 1)
+  - [ ] LOT_199 DX6 Europe : à faire
+  - [ ] LOT_199 DX6 Suisse : à faire
+- **Lésion myocardique de la maladie rénale chronique** (0 / 1)
+  - [ ] LOT_150 DX7 Europe : à faire
+  - [ ] LOT_150 DX7 Suisse : à faire
+- **Lésion myocardique du sepsis** (0 / 1)
+  - [ ] LOT_150 DX8 Europe : à faire
+  - [x] LOT_150 DX8 Suisse : 12 038 cas hospitaliers/an (Suisse ; contexte hospitalier stationnaire, 2022)
+- **Lésion structurale : hématome sous-dural ou AVC** (0 / 1)
+  - [ ] LOT_125 DX7 Europe : à faire
+  - [ ] LOT_125 DX7 Suisse : à faire
+- **Leucémie aiguë lymphoblastique** (1 / 1)
+  - [x] LOT_153 DX4 Europe : 7,67 décès pour 100 000 habitants (Union européenne (UE-27), 2023)
+  - [x] LOT_153 DX4 Suisse : 157 décès/an (Suisse ; population générale, 2018–2022) ; 4,3 nouveaux cas pour 100 000 personnes/an (Suisse ; population générale, 2018–2022) ; 7,4 nouveaux cas pour 100 000 personnes/an (Suisse ; population générale, 2018–2022)
+- **Leucémie aiguë myéloïde** (1 / 1)
+  - [x] LOT_153 DX3 Europe : 7,67 décès pour 100 000 habitants (Union européenne (UE-27), 2023)
+  - [x] LOT_153 DX3 Suisse : 336 décès/an (Suisse ; population générale, 2018–2022) ; 3,5 nouveaux cas pour 100 000 personnes/an (Suisse ; population générale, 2018–2022) ; 5,5 nouveaux cas pour 100 000 personnes/an (Suisse ; population générale, 2018–2022)
+- **Leucémie lymphoïde chronique** (1 / 1)
+  - [x] LOT_153 DX6 Europe : 7,67 décès pour 100 000 habitants (Union européenne (UE-27), 2023)
+  - [x] LOT_153 DX6 Suisse : 157 décès/an (Suisse ; population générale, 2018–2022) ; 4,3 nouveaux cas pour 100 000 personnes/an (Suisse ; population générale, 2018–2022) ; 7,4 nouveaux cas pour 100 000 personnes/an (Suisse ; population générale, 2018–2022)
+- **Leucémie myéloïde chronique** (1 / 1)
+  - [x] LOT_153 DX5 Europe : 7,67 décès pour 100 000 habitants (Union européenne (UE-27), 2023)
+  - [x] LOT_153 DX5 Suisse : 336 décès/an (Suisse ; population générale, 2018–2022) ; 3,5 nouveaux cas pour 100 000 personnes/an (Suisse ; population générale, 2018–2022) ; 5,5 nouveaux cas pour 100 000 personnes/an (Suisse ; population générale, 2018–2022)
+- **Lombalgie / douleurs dorsales** (1 / 1)
+  - [x] LOT_010 DX1 Europe : 23,8 % des personnes de 15 ans et plus (Union européenne (UE-27), 2019)
+  - [ ] LOT_010 DX1 Suisse : à revoir (0 résultat automatique)
+- **Lombalgie aiguë** (1 / 1)
+  - [x] LOT_081 DX1 Europe : 23,8 % des personnes de 15 ans et plus (Union européenne (UE-27), 2019)
+  - [ ] LOT_081 DX1 Suisse : à faire
+- **Lombalgie chronique** (1 / 1)
+  - [x] LOT_081 DX3 Europe : 23,8 % des personnes de 15 ans et plus (Union européenne (UE-27), 2019)
+  - [ ] LOT_081 DX3 Suisse : à faire
+- **Lymphome non hodgkinien** (1 / 1)
+  - [x] LOT_054 DX7 Europe : 6,32 décès pour 100 000 habitants (Union européenne (UE-27), 2023)
+  - [x] LOT_054 DX7 Suisse : 542 décès/an (Suisse ; population générale, 2018–2022) ; 10,9 nouveaux cas pour 100 000 personnes/an (Suisse ; population générale, 2018–2022) ; 16,0 nouveaux cas pour 100 000 personnes/an (Suisse ; population générale, 2018–2022)
+- **Maladie coronarienne** (1 / 1)
+  - [x] LOT_051 DX2 Europe : 100,39 décès pour 100 000 habitants (Union européenne (UE-27), 2023) ; 3,2 % des personnes de 15 ans et plus (Union européenne (UE-27), 2019)
+  - [x] LOT_051 DX2 Suisse : 69,12 décès pour 100 000 habitants (Suisse, 2023)
+- **Maladie d’Alzheimer** (1 / 1)
+  - [x] LOT_101 DX3 Europe : 16,43 décès pour 100 000 habitants (Union européenne (UE-27), 2023)
+  - [x] LOT_101 DX3 Suisse : 1 857 cas hospitaliers/an (Suisse ; contexte hospitalier stationnaire, 2022) ; 15,08 décès pour 100 000 habitants (Suisse, 2023)
+- **Maladie infectieuse aiguë de courte durée (grippe, infection respiratoire ou digestive) donnée non trouvée dans les sources consultées** (0 / 1)
+  - [ ] LOT_214 DX3 Europe : à faire
+  - [x] LOT_214 DX3 Suisse : 34 984 cas déclarés/an (Suisse et Liechtenstein ; population générale, 2025) ; 3 556 cas hospitaliers/an (Suisse ; contexte hospitalier stationnaire, 2022) ; 325 décès/an (Suisse ; population résidante, 2024)
+- **Maladies inflammatoires / auto-immunes (sarcoïdose, lupus érythémateux, polyarthrite rhumatoïde)** (0 / 1)
+  - [ ] LOT_002 DX9 Europe : 5 candidat(s) à lire
+  - [ ] LOT_002 DX9 Suisse : à revoir (0 résultat automatique)
+- **Maladies systémiques (hépatiques, rénales, diabète, cancer)** (0 / 1)
+  - [ ] LOT_009 DX4 Europe : 5 candidat(s) à lire
+  - [x] LOT_009 DX4 Suisse : 6,2 % (Suisse ; population vivant à domicile (communauté), 2022) ; 7 418 cas hospitaliers/an (Suisse ; contexte hospitalier stationnaire, 2022) ; 1 276 décès/an (Suisse ; population résidante, 2024)
+- **Maltraitance physique et psychologique de l’enfant, négligence comprise** (0 / 1)
+  - [ ] LOT_216 DX4 Europe : à faire
+  - [ ] LOT_216 DX4 Suisse : à faire
+- **Marche parkinsonienne** (0 / 1)
+  - [ ] LOT_096 DX3 Europe : à faire
+  - [x] LOT_096 DX3 Suisse : 3 409 cas hospitaliers/an (Suisse ; contexte hospitalier stationnaire, 2022)
+- **Mélanome cutané** (1 / 1)
+  - [x] LOT_158 DX5 Europe : 3,13 décès pour 100 000 habitants (Union européenne (UE-27), 2023)
+  - [x] LOT_158 DX5 Suisse : 295 décès/an (Suisse ; population générale, 2018–2022) ; 26,9 nouveaux cas pour 100 000 personnes/an (Suisse ; population générale, 2018–2022) ; 32,5 nouveaux cas pour 100 000 personnes/an (Suisse ; population générale, 2018–2022)
+- **Méningite bactérienne aiguë** (0 / 1)
+  - [ ] LOT_032 DX5 Europe : à faire
+  - [ ] LOT_032 DX5 Suisse : à faire
+- **Migraine avec aura** (0 / 1)
+  - [ ] LOT_100 DX3 Europe : à faire
+  - [ ] LOT_100 DX3 Suisse : à faire
+- **Migraine avec aura visuelle** (0 / 1)
+  - [ ] LOT_039 DX9 Europe : à faire
+  - [ ] LOT_039 DX9 Suisse : à faire
+- **Migraine chronique** (0 / 1)
+  - [ ] LOT_100 DX4 Europe : à faire
+  - [ ] LOT_100 DX4 Suisse : à faire
+- **Migraine sans aura** (0 / 1)
+  - [ ] LOT_100 DX2 Europe : à faire
+  - [ ] LOT_100 DX2 Suisse : à faire
+- **Morsure** (0 / 1)
+  - [ ] LOT_113 DX7 Europe : à faire
+  - [ ] LOT_113 DX7 Suisse : à faire
+- **Mort subite inattendue en épilepsie** (0 / 1)
+  - [ ] LOT_014 DX6 Europe : 5 candidat(s) à lire
+  - [x] LOT_014 DX6 Suisse : 8 239 cas hospitaliers/an (Suisse ; contexte hospitalier stationnaire, 2022)
+- **Néoplasie (lymphome, leucémie, métastase ganglionnaire)** (0 / 1)
+  - [ ] LOT_002 DX2 Europe : 5 candidat(s) à lire
+  - [ ] LOT_002 DX2 Suisse : 5 candidat(s) à lire
+- **Néoplasie intraépithéliale de haut grade** (0 / 1)
+  - [ ] LOT_158 DX2 Europe : à faire
+  - [ ] LOT_158 DX2 Suisse : à faire
+- **Neuroborréliose de Lyme avec atteinte faciale** (0 / 1)
+  - [ ] LOT_020 DX4 Europe : à revoir (0 résultat automatique)
+  - [x] LOT_020 DX4 Suisse : 145,4 consultations pour 100 000 habitants/an (Suisse ; population générale, 2025) ; 13 268,1 consultations/an (Suisse ; population générale, 2025)
+- **Neuropathie alcoolique** (0 / 1)
+  - [ ] LOT_084 DX8 Europe : à faire
+  - [ ] LOT_084 DX8 Suisse : à faire
+- **Nouvelle chute** (0 / 1)
+  - [ ] LOT_095 DX10 Europe : à faire
+  - [ ] LOT_095 DX10 Suisse : à faire
+- **Noyade ou quasi-noyade (immersion)** (1 / 1)
+  - [x] LOT_008 DX5 Europe : 1,01 décès pour 100 000 habitants (Union européenne (UE-27), 2023)
+  - [x] LOT_008 DX5 Suisse : 0,71 décès pour 100 000 habitants (Suisse, 2023)
+- **Obésité (œdème de déclivité)** (0 / 1)
+  - [ ] LOT_012 DX2 Europe : 5 candidat(s) à lire
+  - [x] LOT_012 DX2 Suisse : 12,1 % (Suisse ; population vivant à domicile (communauté), 2022) ; 2 001 cas hospitaliers/an (Suisse ; contexte hospitalier stationnaire, 2022)
+- **Obésité commune multifactorielle (primaire)** (0 / 1)
+  - [ ] LOT_015 DX1 Europe : 5 candidat(s) à lire
+  - [x] LOT_015 DX1 Suisse : 12,1 % (Suisse ; population vivant à domicile (communauté), 2022) ; 2 001 cas hospitaliers/an (Suisse ; contexte hospitalier stationnaire, 2022)
+- **Obésité hypothalamique acquise** (0 / 1)
+  - [ ] LOT_015 DX10 Europe : à revoir (0 résultat automatique)
+  - [ ] LOT_015 DX10 Suisse : à revoir (0 résultat automatique)
+- **Obésité monogénique ou syndromique** (0 / 1)
+  - [ ] LOT_015 DX8 Europe : à revoir (0 résultat automatique)
+  - [ ] LOT_015 DX8 Suisse : à revoir (0 résultat automatique)
+- **Occlusion intestinale mécanique hors volvulus (grêle sur brides ou hernie, côlon sur cancer)** (0 / 1)
+  - [ ] LOT_053 DX5 Europe : à faire
+  - [ ] LOT_053 DX5 Suisse : à faire
+- **Orbitopathie dysthyroïdienne (maladie de Basedow)** (0 / 1)
+  - [ ] LOT_017 DX5 Europe : 1 candidat(s) à lire
+  - [x] LOT_017 DX5 Suisse : 1 286 cas hospitaliers/an (Suisse ; contexte hospitalier stationnaire, 2022)
+- **Paludisme (fièvre au retour de voyage)** (0 / 1)
+  - [ ] LOT_006 DX6 Europe : 5 candidat(s) à lire
+  - [x] LOT_006 DX6 Suisse : 3,1 cas déclarés pour 100 000 habitants/an (Suisse et Liechtenstein ; population générale, 2025) ; 285 cas déclarés/an (Suisse et Liechtenstein ; population générale, 2025) ; 167 cas hospitaliers/an (Suisse ; contexte hospitalier stationnaire, 2022)
+- **Paralysie faciale zostérienne** (0 / 1)
+  - [ ] LOT_020 DX3 Europe : à faire
+  - [x] LOT_020 DX3 Suisse : 232,3 consultations pour 100 000 habitants/an (Suisse ; population générale, 2025) ; 21 200,5 consultations/an (Suisse ; population générale, 2025)
+- **Perforation d'ulcère gastroduodénal** (0 / 1)
+  - [ ] LOT_135 DX10 Europe : à faire
+  - [x] LOT_135 DX10 Suisse : 2 727 cas hospitaliers/an (Suisse ; contexte hospitalier stationnaire, 2022)
+- **Perforation d'ulcère peptique** (1 / 1)
+  - [x] LOT_152 DX7 Europe : 2,64 décès pour 100 000 habitants (Union européenne (UE-27), 2023)
+  - [x] LOT_152 DX7 Suisse : 2 727 cas hospitaliers/an (Suisse ; contexte hospitalier stationnaire, 2022) ; 1,26 décès pour 100 000 habitants (Suisse, 2023)
+- **Pharyngite gonococcique** (0 / 1)
+  - [ ] LOT_035 DX8 Europe : à faire
+  - [x] LOT_035 DX8 Suisse : 75,2 cas déclarés pour 100 000 habitants/an (Suisse et Liechtenstein ; population générale, 2025) ; 6 893 cas déclarés/an (Suisse et Liechtenstein ; population générale, 2025) ; 62 cas hospitaliers/an (Suisse ; contexte hospitalier stationnaire, 2022)
+- **Phéochromocytome et paragangliome** (0 / 1)
+  - [ ] LOT_130 DX8 Europe : à faire
+  - [ ] LOT_130 DX8 Suisse : à faire
+- **Phéochromocytome et paragangliome sécrétant** (0 / 1)
+  - [ ] LOT_073 DX6 Europe : à faire
+  - [ ] LOT_073 DX6 Suisse : à faire
+- **Phimosis physiologique ou pathologique** (0 / 1)
+  - [ ] LOT_131 DX1 Europe : à faire
+  - [x] LOT_131 DX1 Suisse : 246 cas hospitaliers/an (Suisse ; contexte hospitalier stationnaire, 2022)
+- **Pneumonie** (1 / 1)
+  - [x] LOT_005 DX3 Europe : 24,97 décès pour 100 000 habitants (Union européenne (UE-27), 2023)
+  - [x] LOT_005 DX3 Suisse : 13,02 décès pour 100 000 habitants (Suisse, 2023)
+- **Pneumonie acquise en communauté** (2 / 2)
+  - [x] LOT_135 DX2 Europe : 24,97 décès pour 100 000 habitants (Union européenne (UE-27), 2023)
+  - [x] LOT_135 DX2 Suisse : 13,02 décès pour 100 000 habitants (Suisse, 2023)
+  - [x] LOT_152 DX1 Europe : 24,97 décès pour 100 000 habitants (Union européenne (UE-27), 2023)
+  - [x] LOT_152 DX1 Suisse : 13,02 décès pour 100 000 habitants (Suisse, 2023)
+- **Pneumonie communautaire** (2 / 2)
+  - [x] LOT_006 DX1 Europe : 24,97 décès pour 100 000 habitants (Union européenne (UE-27), 2023)
+  - [x] LOT_006 DX1 Suisse : 13,02 décès pour 100 000 habitants (Suisse, 2023)
+  - [x] LOT_045 DX7 Europe : 24,97 décès pour 100 000 habitants (Union européenne (UE-27), 2023)
+  - [x] LOT_045 DX7 Suisse : 13,02 décès pour 100 000 habitants (Suisse, 2023)
+- **Pneumonie communautaire avec atteinte pleurale (pleuropneumonie)** (1 / 1)
+  - [x] LOT_049 DX4 Europe : 24,97 décès pour 100 000 habitants (Union européenne (UE-27), 2023)
+  - [x] LOT_049 DX4 Suisse : 13,02 décès pour 100 000 habitants (Suisse, 2023)
+- **Pneumonie communautaire avec réaction pleurale** (1 / 1)
+  - [x] LOT_044 DX5 Europe : 24,97 décès pour 100 000 habitants (Union européenne (UE-27), 2023)
+  - [x] LOT_044 DX5 Suisse : 13,02 décès pour 100 000 habitants (Suisse, 2023)
+- **Pneumonie communautaire 🚩 E5** (1 / 1)
+  - [x] LOT_046 DX1 Europe : 24,97 décès pour 100 000 habitants (Union européenne (UE-27), 2023)
+  - [x] LOT_046 DX1 Suisse : 13,02 décès pour 100 000 habitants (Suisse, 2023)
+- **Pneumonie et pleuropneumonie** (1 / 1)
+  - [x] LOT_043 DX7 Europe : 24,97 décès pour 100 000 habitants (Union européenne (UE-27), 2023)
+  - [x] LOT_043 DX7 Suisse : 13,02 décès pour 100 000 habitants (Suisse, 2023)
+- **Polyneuropathie liée au VIH ou lèpre importée** (0 / 1)
+  - [ ] LOT_103 DX10 Europe : à faire
+  - [x] LOT_103 DX10 Suisse : 4,2 cas déclarés pour 100 000 habitants/an (Suisse et Liechtenstein ; population générale, 2025) ; 387 cas déclarés/an (Suisse et Liechtenstein ; population générale, 2025) ; 83 cas hospitaliers/an (Suisse ; contexte hospitalier stationnaire, 2022)
+- **Polyneuropathie toxique alcoolique ou chimio-induite** (0 / 1)
+  - [ ] LOT_103 DX3 Europe : à faire
+  - [ ] LOT_103 DX3 Suisse : à faire
+- **Prédiabète** (0 / 1)
+  - [ ] LOT_157 DX2 Europe : à faire
+  - [x] LOT_157 DX2 Suisse : 6,2 % (Suisse ; population vivant à domicile (communauté), 2022) ; 7 418 cas hospitaliers/an (Suisse ; contexte hospitalier stationnaire, 2022) ; 1 276 décès/an (Suisse ; population résidante, 2024)
+- **Prématuré et mère porteuse de l'hépatite B** (0 / 1)
+  - [ ] LOT_203 DX7 Europe : à faire
+  - [x] LOT_203 DX7 Suisse : 12,5 cas déclarés pour 100 000 habitants/an (Suisse et Liechtenstein ; population générale, 2025) ; 1 142 cas déclarés/an (Suisse et Liechtenstein ; population générale, 2025)
+- **Presbyacousie** (0 / 1)
+  - [ ] LOT_028 DX4 Europe : à faire
+  - [ ] LOT_028 DX4 Suisse : à faire
+- **Prolapsus pelvien avec fuites** (0 / 1)
+  - [ ] LOT_201 DX8 Europe : à faire
+  - [x] LOT_201 DX8 Suisse : 4 289 cas hospitaliers/an (Suisse ; contexte hospitalier stationnaire, 2022)
+- **Prolapsus valvulaire mitral** (0 / 1)
+  - [ ] LOT_132 DX5 Europe : à faire
+  - [x] LOT_132 DX5 Suisse : 4 289 cas hospitaliers/an (Suisse ; contexte hospitalier stationnaire, 2022)
+- **Quasi-noyade d'apparence bénigne** (1 / 1)
+  - [x] LOT_109 DX6 Europe : 1,01 décès pour 100 000 habitants (Union européenne (UE-27), 2023)
+  - [x] LOT_109 DX6 Suisse : 0,71 décès pour 100 000 habitants (Suisse, 2023)
+- **Radiculopathie cervicale par hernie discale** (0 / 1)
+  - [ ] LOT_103 DX4 Europe : à faire
+  - [x] LOT_103 DX4 Suisse : 13 965 cas hospitaliers/an (Suisse ; contexte hospitalier stationnaire, 2022)
+- **Rappels de l'adulte et coqueluche à 25 ans** (0 / 1)
+  - [ ] LOT_203 DX3 Europe : à faire
+  - [x] LOT_203 DX3 Suisse : 16,0 consultations pour 100 000 habitants/an (Suisse ; population générale, 2025) ; 1 464 consultations/an (Suisse ; population générale, 2025) ; 24 cas hospitaliers/an (Suisse ; contexte hospitalier stationnaire, 2022)
+- **Respiration de Cheyne-Stokes dans l'insuffisance cardiaque** (0 / 1)
+  - [ ] LOT_041 DX4 Europe : à faire
+  - [x] LOT_041 DX4 Suisse : 22 623 cas hospitaliers/an (Suisse ; contexte hospitalier stationnaire, 2022)
+- **Rétinoblastome** (0 / 1)
+  - [ ] LOT_036 DX10 Europe : à faire
+  - [ ] LOT_036 DX10 Suisse : à faire
+- **Rhinite allergique** (3 / 3)
+  - [x] LOT_030 DX2 Europe : 18,5 % des personnes de 15 ans et plus (Union européenne (UE-27), 2019)
+  - [ ] LOT_030 DX2 Suisse : à faire
+  - [x] LOT_031 DX1 Europe : 18,5 % des personnes de 15 ans et plus (Union européenne (UE-27), 2019)
+  - [ ] LOT_031 DX1 Suisse : à faire
+  - [x] LOT_034 DX4 Europe : 18,5 % des personnes de 15 ans et plus (Union européenne (UE-27), 2019)
+  - [ ] LOT_034 DX4 Suisse : à faire
+- **Rhinite non allergique** (0 / 1)
+  - [ ] LOT_030 DX3 Europe : à faire
+  - [ ] LOT_030 DX3 Suisse : à faire
+- **Risque de chute** (0 / 1)
+  - [ ] LOT_099 DX9 Europe : à faire
+  - [ ] LOT_099 DX9 Suisse : à faire
+- **Risque d’accouchement prématuré** (0 / 1)
+  - [ ] LOT_079 DX6 Europe : à faire
+  - [ ] LOT_079 DX6 Suisse : à faire
+- **Risque suicidaire élevé** (1 / 1)
+  - [x] LOT_128 DX5 Europe : 10,37 décès pour 100 000 habitants (Union européenne (UE-27), 2023)
+  - [x] LOT_128 DX5 Suisse : 11,22 décès pour 100 000 habitants (Suisse, 2023)
+- **Risque suicidaire extrêmement élevé** (1 / 1)
+  - [x] LOT_128 DX6 Europe : 10,37 décès pour 100 000 habitants (Union européenne (UE-27), 2023)
+  - [x] LOT_128 DX6 Suisse : 11,22 décès pour 100 000 habitants (Suisse, 2023)
+- **Risque suicidaire faible** (1 / 1)
+  - [x] LOT_128 DX3 Europe : 10,37 décès pour 100 000 habitants (Union européenne (UE-27), 2023)
+  - [x] LOT_128 DX3 Suisse : 11,22 décès pour 100 000 habitants (Suisse, 2023)
+- **Risque suicidaire modéré** (1 / 1)
+  - [x] LOT_128 DX4 Europe : 10,37 décès pour 100 000 habitants (Union européenne (UE-27), 2023)
+  - [x] LOT_128 DX4 Suisse : 11,22 décès pour 100 000 habitants (Suisse, 2023)
+- **Rupture de varice** (0 / 1)
+  - [ ] LOT_057 DX4 Europe : à faire
+  - [x] LOT_057 DX4 Suisse : 2 128 cas hospitaliers/an (Suisse ; contexte hospitalier stationnaire, 2022)
+- **Sarcome des tissus mous** (0 / 1)
+  - [ ] LOT_158 DX6 Europe : à faire
+  - [ ] LOT_158 DX6 Suisse : à faire
+- **Schizophrénie à distinguer du trouble obsessionnel-compulsif** (0 / 1)
+  - [ ] LOT_126 DX3 Europe : à faire
+  - [ ] LOT_126 DX3 Suisse : à faire
+- **Schizophrénie et troubles délirants** (0 / 1)
+  - [ ] LOT_124 DX8 Europe : à faire
+  - [ ] LOT_124 DX8 Suisse : à faire
+- **Sclérose en plaques (ophtalmoplégie internucléaire)** (0 / 1)
+  - [ ] LOT_017 DX6 Europe : 5 candidat(s) à lire
+  - [x] LOT_017 DX6 Suisse : 1 795 cas hospitaliers/an (Suisse ; contexte hospitalier stationnaire, 2022)
+- **Sepsis** (0 / 1)
+  - [ ] LOT_008 DX10 Europe : 5 candidat(s) à lire
+  - [x] LOT_008 DX10 Suisse : 12 038 cas hospitaliers/an (Suisse ; contexte hospitalier stationnaire, 2022)
+- **Sepsis avec purpura (suspecté)** (0 / 1)
+  - [ ] LOT_133 DX2 Europe : à faire
+  - [x] LOT_133 DX2 Suisse : 12 038 cas hospitaliers/an (Suisse ; contexte hospitalier stationnaire, 2022)
+- **Sevrage alcoolique et delirium tremens** (2 / 2)
+  - [x] LOT_124 DX3 Europe : 3,46 décès pour 100 000 habitants (Union européenne (UE-27), 2023)
+  - [x] LOT_124 DX3 Suisse : 2,63 décès pour 100 000 habitants (Suisse, 2023)
+  - [x] LOT_125 DX5 Europe : 3,46 décès pour 100 000 habitants (Union européenne (UE-27), 2023)
+  - [x] LOT_125 DX5 Suisse : 2,63 décès pour 100 000 habitants (Suisse, 2023)
+- **Sommeil insuffisant et insomnie** (0 / 1)
+  - [ ] LOT_040 DX7 Europe : à faire
+  - [ ] LOT_040 DX7 Suisse : à faire
+- **Suicide assisté** (0 / 1)
+  - [ ] LOT_013 DX1 Europe : 2 candidat(s) à lire
+  - [ ] LOT_013 DX1 Suisse : 1 candidat(s) à lire
+- **Suicide non assisté** (1 / 1)
+  - [x] LOT_013 DX3 Europe : 10,37 décès pour 100 000 habitants (Union européenne (UE-27), 2023)
+  - [x] LOT_013 DX3 Suisse : 11,22 décès pour 100 000 habitants (Suisse, 2023)
+- **Surdité brusque neurosensorielle** (0 / 1)
+  - [ ] LOT_028 DX6 Europe : à faire
+  - [ ] LOT_028 DX6 Suisse : à faire
+- **Surdité induite par le bruit** (0 / 1)
+  - [ ] LOT_028 DX5 Europe : à faire
+  - [ ] LOT_028 DX5 Suisse : à faire
+- **Suspicion de varice** (0 / 1)
+  - [ ] LOT_060 DX9 Europe : à faire
+  - [x] LOT_060 DX9 Suisse : 2 128 cas hospitaliers/an (Suisse ; contexte hospitalier stationnaire, 2022)
+- **Symptômes secondaires ou psychose** (0 / 1)
+  - [ ] LOT_118 DX10 Europe : à faire
+  - [ ] LOT_118 DX10 Suisse : à faire
+- **Syndrome coronarien aigu** (4 / 4)
+  - [x] LOT_001 DX1 Europe : 32,76 décès pour 100 000 habitants (Union européenne (UE-27), 2023)
+  - [x] LOT_001 DX1 Suisse : 23,99 décès pour 100 000 habitants (Suisse, 2023)
+  - [x] LOT_043 DX6 Europe : 32,76 décès pour 100 000 habitants (Union européenne (UE-27), 2023)
+  - [x] LOT_043 DX6 Suisse : 23,99 décès pour 100 000 habitants (Suisse, 2023)
+  - [x] LOT_044 DX6 Europe : 32,76 décès pour 100 000 habitants (Union européenne (UE-27), 2023)
+  - [x] LOT_044 DX6 Suisse : 23,99 décès pour 100 000 habitants (Suisse, 2023)
+  - [x] LOT_046 DX6 Europe : 32,76 décès pour 100 000 habitants (Union européenne (UE-27), 2023)
+  - [x] LOT_046 DX6 Suisse : 23,99 décès pour 100 000 habitants (Suisse, 2023)
+- **Syndrome coronarien aigu sans sus-décalage du segment ST** (1 / 1)
+  - [x] LOT_154 DX2 Europe : 32,76 décès pour 100 000 habitants (Union européenne (UE-27), 2023)
+  - [x] LOT_154 DX2 Suisse : 23,99 décès pour 100 000 habitants (Suisse, 2023)
+- **Syndrome coronarien chronique (angor stable)** (1 / 1)
+  - [x] LOT_043 DX3 Europe : 100,39 décès pour 100 000 habitants (Union européenne (UE-27), 2023) ; 3,2 % des personnes de 15 ans et plus (Union européenne (UE-27), 2019)
+  - [x] LOT_043 DX3 Suisse : 69,12 décès pour 100 000 habitants (Suisse, 2023)
+- **Syndrome d'hyperventilation (trouble anxieux, trouble panique)** (0 / 1)
+  - [ ] LOT_046 DX5 Europe : à faire
+  - [ ] LOT_046 DX5 Suisse : à faire
+- **Syndrome de la mort subite du nourrisson** (1 / 1)
+  - [x] LOT_014 DX10 Europe : 0,13 décès pour 100 000 habitants (Union européenne (UE-27), 2023)
+  - [x] LOT_014 DX10 Suisse : 0,03 décès pour 100 000 habitants (Suisse, 2023)
+- **Syndrome dépressif associé** (0 / 1)
+  - [ ] LOT_126 DX5 Europe : à faire
+  - [ ] LOT_126 DX5 Suisse : à faire
+- **Syndrome d’obésité-hypoventilation** (0 / 1)
+  - [ ] LOT_040 DX2 Europe : à faire
+  - [x] LOT_040 DX2 Suisse : 12,1 % (Suisse ; population vivant à domicile (communauté), 2022) ; 2 001 cas hospitaliers/an (Suisse ; contexte hospitalier stationnaire, 2022)
+- **Tabagisme** (0 / 2)
+  - [ ] LOT_129 DX1 Europe : à faire
+  - [x] LOT_129 DX1 Suisse : 23,9 % (Suisse ; population vivant à domicile (communauté), 2022)
+  - [ ] LOT_208 DX1 Europe : à faire
+  - [x] LOT_208 DX1 Suisse : 23,9 % (Suisse ; population vivant à domicile (communauté), 2022)
+- **Tachycardie réciproque par voie accessoire (syndrome de Wolff-Parkinson-White)** (0 / 1)
+  - [ ] LOT_050 DX8 Europe : à faire
+  - [x] LOT_050 DX8 Suisse : 3 409 cas hospitaliers/an (Suisse ; contexte hospitalier stationnaire, 2022)
+- **Tachycardie sinusale secondaire (substance, médicament ou cause systémique)** (0 / 1)
+  - [ ] LOT_050 DX4 Europe : à faire
+  - [ ] LOT_050 DX4 Suisse : à faire
+- **Tachycardie ventriculaire sur cardiopathie structurelle** (0 / 1)
+  - [ ] LOT_050 DX9 Europe : à faire
+  - [ ] LOT_050 DX9 Suisse : à faire
+- **TDAH, présentation combinée** (0 / 1)
+  - [ ] LOT_122 DX1 Europe : à faire
+  - [ ] LOT_122 DX1 Suisse : à faire
+- **Testicule non descendu** (0 / 1)
+  - [ ] LOT_072 DX10 Europe : à faire
+  - [x] LOT_072 DX10 Suisse : 376 cas hospitaliers/an (Suisse ; contexte hospitalier stationnaire, 2022)
+- **Thrombose pulmonaire (embolie pulmonaire)** (0 / 1)
+  - [ ] LOT_147 DX9 Europe : à faire
+  - [x] LOT_147 DX9 Suisse : 5 428 cas hospitaliers/an (Suisse ; contexte hospitalier stationnaire, 2022) ; 270 décès/an (Suisse ; population résidante, 2024)
+- **Tiques, voyage et rage** (0 / 1)
+  - [ ] LOT_203 DX8 Europe : à faire
+  - [x] LOT_203 DX8 Suisse : 5,5 cas déclarés pour 100 000 habitants/an (Suisse et Liechtenstein ; population générale, 2025) ; 502 cas déclarés/an (Suisse et Liechtenstein ; population générale, 2025)
+- **Traumatisme** (0 / 1)
+  - [ ] LOT_008 DX2 Europe : 5 candidat(s) à lire
+  - [ ] LOT_008 DX2 Suisse : 5 candidat(s) à lire
+- **Traumatisme crânien léger** (0 / 1)
+  - [ ] LOT_111 DX1 Europe : à faire
+  - [ ] LOT_111 DX1 Suisse : à faire
+- **Traumatisme ouvert du thorax** (0 / 1)
+  - [ ] LOT_115 DX5 Europe : à faire
+  - [ ] LOT_115 DX5 Suisse : à faire
+- **Traumatisme pénétrant du rachis** (0 / 1)
+  - [ ] LOT_114 DX9 Europe : à faire
+  - [ ] LOT_114 DX9 Suisse : à faire
+- **Traumatisme sous anticoagulant** (0 / 1)
+  - [ ] LOT_111 DX7 Europe : à faire
+  - [ ] LOT_111 DX7 Suisse : à faire
+- **Trouble anxieux** (0 / 1)
+  - [ ] LOT_118 DX3 Europe : à faire
+  - [ ] LOT_118 DX3 Suisse : à faire
+- **Trouble anxieux associé** (0 / 1)
+  - [ ] LOT_120 DX5 Europe : à faire
+  - [ ] LOT_120 DX5 Suisse : à faire
+- **Trouble anxieux et attaque de panique** (0 / 2)
+  - [ ] LOT_043 DX2 Europe : à faire
+  - [ ] LOT_043 DX2 Suisse : à faire
+  - [ ] LOT_044 DX3 Europe : à faire
+  - [ ] LOT_044 DX3 Suisse : à faire
+- **Trouble bipolaire** (0 / 1)
+  - [ ] LOT_118 DX8 Europe : à faire
+  - [ ] LOT_118 DX8 Suisse : à faire
+- **Trouble bipolaire de type I** (0 / 1)
+  - [ ] LOT_121 DX2 Europe : à faire
+  - [ ] LOT_121 DX2 Suisse : à faire
+- **Trouble bipolaire de type II** (0 / 1)
+  - [ ] LOT_121 DX3 Europe : à faire
+  - [ ] LOT_121 DX3 Suisse : à faire
+- **Trouble de l'usage d'alcool** (0 / 1)
+  - [ ] LOT_129 DX2 Europe : à faire
+  - [ ] LOT_129 DX2 Suisse : à faire
+- **Trouble de l'usage d'opioïdes** (0 / 1)
+  - [ ] LOT_129 DX3 Europe : à faire
+  - [ ] LOT_129 DX3 Suisse : à faire
+- **Trouble de l'usage de cannabis** (0 / 1)
+  - [ ] LOT_129 DX4 Europe : à faire
+  - [ ] LOT_129 DX4 Suisse : à faire
+- **Trouble de la réfraction** (0 / 1)
+  - [ ] LOT_039 DX1 Europe : à faire
+  - [x] LOT_039 DX1 Suisse : 11 cas hospitaliers/an (Suisse ; contexte hospitalier stationnaire, 2022)
+- **Trouble dépressif persistant** (1 / 1)
+  - [x] LOT_121 DX4 Europe : 7,2 % des personnes de 15 ans et plus (Union européenne (UE-27), 2019)
+  - [ ] LOT_121 DX4 Suisse : à faire
+- **Trouble du déficit de l’attention avec hyperactivité** (0 / 1)
+  - [ ] LOT_118 DX1 Europe : à faire
+  - [ ] LOT_118 DX1 Suisse : à faire
+- **Trouble du sommeil** (0 / 1)
+  - [ ] LOT_118 DX4 Europe : à faire
+  - [ ] LOT_118 DX4 Suisse : à faire
+- **Trouble du spectre de l’autisme** (0 / 1)
+  - [ ] LOT_118 DX7 Europe : à faire
+  - [ ] LOT_118 DX7 Suisse : à faire
+- **Trouble lié à une substance** (0 / 1)
+  - [ ] LOT_118 DX5 Europe : à faire
+  - [ ] LOT_118 DX5 Suisse : à faire
+- **Trouble panique et autres troubles anxieux** (0 / 1)
+  - [ ] LOT_050 DX2 Europe : à faire
+  - [ ] LOT_050 DX2 Suisse : à faire
+- **Troubles alimentaires de la démence** (0 / 1)
+  - [ ] LOT_197 DX7 Europe : à faire
+  - [ ] LOT_197 DX7 Suisse : à faire
+- **Troubles anxieux** (1 / 2)
+  - [x] LOT_004 DX8 Europe : 14,0 % de la population (Europe (UE-27 + CH, IS, NO), 2010 (publication 2011))
+  - [ ] LOT_004 DX8 Suisse : 5 candidat(s) à lire
+  - [ ] LOT_011 DX3 Europe : 5 candidat(s) à lire
+  - [ ] LOT_011 DX3 Suisse : 5 candidat(s) à lire
+- **Troubles du sommeil (insomnie, sommeil insuffisant)** (0 / 1)
+  - [ ] LOT_004 DX3 Europe : 4 candidat(s) à lire
+  - [ ] LOT_004 DX3 Suisse : 4 candidat(s) à lire
+- **Troubles du spectre de l’alcoolisation fœtale** (0 / 1)
+  - [ ] LOT_029 DX9 Europe : à faire
+  - [ ] LOT_029 DX9 Suisse : à faire
+- **Troubles liés à l'alcool** (0 / 1)
+  - [ ] LOT_011 DX6 Europe : à revoir (0 résultat automatique)
+  - [ ] LOT_011 DX6 Suisse : à revoir (0 résultat automatique)
+- **Troubles psychologiques (dépression, anxiété)** (0 / 1)
+  - [ ] LOT_005 DX6 Europe : 5 candidat(s) à lire
+  - [ ] LOT_005 DX6 Suisse : 5 candidat(s) à lire
+- **Tuberculose** (2 / 2)
+  - [x] LOT_001 DX7 Europe : 0,58 décès pour 100 000 habitants (Union européenne (UE-27), 2023)
+  - [x] LOT_001 DX7 Suisse : 5,7 cas déclarés pour 100 000 habitants/an (Suisse et Liechtenstein ; population générale, 2025) ; 525 cas déclarés/an (Suisse et Liechtenstein ; population générale, 2025) ; 10 décès/an (Suisse ; population résidante, 2024)
+  - [x] LOT_016 DX8 Europe : 0,58 décès pour 100 000 habitants (Union européenne (UE-27), 2023)
+  - [x] LOT_016 DX8 Suisse : 5,7 cas déclarés pour 100 000 habitants/an (Suisse et Liechtenstein ; population générale, 2025) ; 525 cas déclarés/an (Suisse et Liechtenstein ; population générale, 2025) ; 10 décès/an (Suisse ; population résidante, 2024)
+- **Tumeur intracrânienne** (0 / 1)
+  - [ ] LOT_029 DX5 Europe : à faire
+  - [ ] LOT_029 DX5 Suisse : à faire
+- **Tumeur maligne du foie (carcinome hépatocellulaire)** (1 / 1)
+  - [x] LOT_054 DX9 Europe : 9,63 décès pour 100 000 habitants (Union européenne (UE-27), 2023)
+  - [x] LOT_054 DX9 Suisse : 714 décès/an (Suisse ; population générale, 2018–2022) ; 3,7 nouveaux cas pour 100 000 personnes/an (Suisse ; population générale, 2018–2022) ; 11,6 nouveaux cas pour 100 000 personnes/an (Suisse ; population générale, 2018–2022)
+- **Tumeur maligne nasosinusienne** (0 / 3)
+  - [ ] LOT_030 DX10 Europe : à faire
+  - [ ] LOT_030 DX10 Suisse : à faire
+  - [ ] LOT_031 DX10 Europe : à faire
+  - [ ] LOT_031 DX10 Suisse : à faire
+  - [ ] LOT_034 DX10 Europe : à faire
+  - [ ] LOT_034 DX10 Suisse : à faire
+- **Tumeur testiculaire** (0 / 1)
+  - [ ] LOT_070 DX6 Europe : à faire
+  - [x] LOT_070 DX6 Suisse : 13 décès/an (Suisse ; population générale, 2018–2022) ; 11,0 nouveaux cas pour 100 000 personnes/an (Suisse ; population générale, 2018–2022)
+- **Ulcère à Helicobacter** (0 / 1)
+  - [ ] LOT_057 DX6 Europe : à faire
+  - [x] LOT_057 DX6 Suisse : 2 727 cas hospitaliers/an (Suisse ; contexte hospitalier stationnaire, 2022)
+- **Ulcère gastroduodénal** (0 / 1)
+  - [ ] LOT_057 DX1 Europe : à faire
+  - [x] LOT_057 DX1 Suisse : 2 727 cas hospitaliers/an (Suisse ; contexte hospitalier stationnaire, 2022)
+- **Urticaire** (0 / 2)
+  - [ ] LOT_009 DX7 Europe : 5 candidat(s) à lire
+  - [ ] LOT_009 DX7 Suisse : 1 candidat(s) à lire
+  - [ ] LOT_094 DX6 Europe : 5 candidat(s) à lire
+  - [ ] LOT_094 DX6 Suisse : 1 candidat(s) à lire
+- **Urticaire, anaphylaxie** (0 / 1)
+  - [ ] LOT_007 DX8 Europe : 5 candidat(s) à lire
+  - [ ] LOT_007 DX8 Suisse : 1 candidat(s) à lire
+- **Usage excessif des jeux vidéo** (0 / 1)
+  - [ ] LOT_129 DX8 Europe : à faire
+  - [ ] LOT_129 DX8 Suisse : à faire
+- **Violence dans le couple à haut risque létal : strangulation et menaces de mort** (0 / 1)
+  - [ ] LOT_216 DX3 Europe : à faire
+  - [ ] LOT_216 DX3 Suisse : à faire
+- **Violences, discriminations, crimes de haine et pratiques de conversion** (0 / 1)
+  - [ ] LOT_218 DX3 Europe : à faire
+  - [ ] LOT_218 DX3 Suisse : à faire
+- **Voix parkinsonienne** (0 / 1)
+  - [ ] LOT_098 DX7 Europe : à faire
+  - [x] LOT_098 DX7 Suisse : 3 409 cas hospitaliers/an (Suisse ; contexte hospitalier stationnaire, 2022)
+- **Zona otique avec paralysie faciale** (0 / 1)
+  - [ ] LOT_026 DX6 Europe : à faire
+  - [x] LOT_026 DX6 Suisse : 232,3 consultations pour 100 000 habitants/an (Suisse ; population générale, 2025) ; 21 200,5 consultations/an (Suisse ; population générale, 2025)
+- **· Crise épileptique aiguë symptomatique** (0 / 1)
+  - [ ] LOT_104 DX2 Europe : à faire
+  - [x] LOT_104 DX2 Suisse : 8 239 cas hospitaliers/an (Suisse ; contexte hospitalier stationnaire, 2022)
+- **· Épilepsie** (0 / 1)
+  - [ ] LOT_104 DX3 Europe : à faire
+  - [x] LOT_104 DX3 Suisse : 8 239 cas hospitaliers/an (Suisse ; contexte hospitalier stationnaire, 2022)
+- **· État de mal épileptique convulsif** (0 / 1)
+  - [ ] LOT_104 DX1 Europe : à faire
+  - [x] LOT_104 DX1 Suisse : 8 239 cas hospitaliers/an (Suisse ; contexte hospitalier stationnaire, 2022)
+
+## 2. Classe B (chiffre surtout européen) — Europe 5 / 847 · Suisse 2
+- **) : Contusions, lésions contusives des tissus mous** (0 / 2)
+  - [ ] LOT_107 DX6 Europe : à faire
+  - [ ] LOT_107 DX6 Suisse : à faire
+  - [ ] LOT_107 DX7 Europe : à faire
+  - [ ] LOT_107 DX7 Suisse : à faire
+- **) : Luxation articulaire** (0 / 2)
+  - [ ] LOT_108 DX6 Europe : à faire
+  - [ ] LOT_108 DX6 Suisse : à faire
+  - [ ] LOT_108 DX7 Europe : à faire
+  - [ ] LOT_108 DX7 Suisse : à faire
+- **Abcès annexiel** (0 / 1)
+  - [ ] LOT_067 DX5 Europe : à faire
+  - [ ] LOT_067 DX5 Suisse : à faire
+- **Abcès dentoalvéolaire** (0 / 2)
+  - [ ] LOT_026 DX9 Europe : à faire
+  - [ ] LOT_026 DX9 Suisse : à faire
+  - [ ] LOT_027 DX2 Europe : à faire
+  - [ ] LOT_027 DX2 Suisse : à faire
+- **Abcès odontogène** (0 / 1)
+  - [ ] LOT_037 DX4 Europe : à faire
+  - [ ] LOT_037 DX4 Suisse : à faire
+- **Abcès péri-anal** (0 / 1)
+  - [ ] LOT_056 DX7 Europe : à faire
+  - [ ] LOT_056 DX7 Suisse : à faire
+- **Abcès périamygdalien** (0 / 3)
+  - [ ] LOT_025 DX8 Europe : à faire
+  - [ ] LOT_025 DX8 Suisse : à faire
+  - [ ] LOT_027 DX7 Europe : à faire
+  - [ ] LOT_027 DX7 Suisse : à faire
+  - [ ] LOT_035 DX4 Europe : à faire
+  - [ ] LOT_035 DX4 Suisse : à faire
+- **Abcès rétropharyngé** (0 / 1)
+  - [ ] LOT_035 DX6 Europe : à faire
+  - [ ] LOT_035 DX6 Suisse : à faire
+- **Achalasie** (0 / 3)
+  - [ ] LOT_023 DX7 Europe : à faire
+  - [ ] LOT_023 DX7 Suisse : à faire
+  - [ ] LOT_047 DX9 Europe : à faire
+  - [ ] LOT_047 DX9 Suisse : à faire
+  - [ ] LOT_048 DX10 Europe : à faire
+  - [ ] LOT_048 DX10 Suisse : à faire
+- **Acidocétose** (0 / 1)
+  - [ ] LOT_149 DX8 Europe : à faire
+  - [ ] LOT_149 DX8 Suisse : à faire
+- **Acidocétose diabétique** (0 / 2)
+  - [ ] LOT_003 DX9 Europe : à faire
+  - [ ] LOT_003 DX9 Suisse : à faire
+  - [ ] LOT_157 DX4 Europe : à faire
+  - [ ] LOT_157 DX4 Suisse : à faire
+- **Acidose lactique** (0 / 1)
+  - [ ] LOT_149 DX7 Europe : à faire
+  - [ ] LOT_149 DX7 Suisse : à faire
+- **Acidose métabolique à trou anionique élevé** (0 / 1)
+  - [ ] LOT_149 DX4 Europe : à faire
+  - [ ] LOT_149 DX4 Suisse : à faire
+- **Acidose métabolique hyperchlorémique** (0 / 1)
+  - [ ] LOT_149 DX5 Europe : à faire
+  - [ ] LOT_149 DX5 Suisse : à faire
+- **Acidose métabolique par cétogenèse** (0 / 1)
+  - [ ] LOT_041 DX1 Europe : à faire
+  - [ ] LOT_041 DX1 Suisse : à faire
+- **Acidose respiratoire** (0 / 1)
+  - [ ] LOT_149 DX2 Europe : à faire
+  - [ ] LOT_149 DX2 Suisse : à faire
+- **Acromégalie** (0 / 1)
+  - [ ] LOT_034 DX9 Europe : à faire
+  - [ ] LOT_034 DX9 Suisse : à faire
+- **Adénite cervicale infectieuse** (0 / 1)
+  - [ ] LOT_037 DX7 Europe : à faire
+  - [ ] LOT_037 DX7 Suisse : à faire
+- **Adénopathie à histologie granulomateuse (étiologie non précisée)** (0 / 1)
+  - [ ] LOT_002 DX3 Europe : à faire
+  - [ ] LOT_002 DX3 Suisse : à faire
+- **Adénopathie cervicale maligne** (0 / 1)
+  - [ ] LOT_037 DX9 Europe : à faire
+  - [ ] LOT_037 DX9 Suisse : à faire
+- **Adénopathie inguinale infectieuse ou inflammatoire** (0 / 1)
+  - [ ] LOT_072 DX7 Europe : à faire
+  - [ ] LOT_072 DX7 Suisse : à faire
+- **adenopathie maligne** (0 / 1)
+  - [ ] LOT_072 DX3 Europe : à faire
+  - [ ] LOT_072 DX3 Suisse : à faire
+- **Adénopathie médicamenteuse (phénytoïne)** (0 / 1)
+  - [ ] LOT_002 DX10 Europe : à faire
+  - [ ] LOT_002 DX10 Suisse : à faire
+- **Adénopathie périphérique maligne** (0 / 1)
+  - [ ] LOT_134 DX6 Europe : à faire
+  - [ ] LOT_134 DX6 Suisse : à faire
+- **Adénopathie réactionnelle bénigne (infection du territoire de drainage)** (0 / 1)
+  - [ ] LOT_002 DX1 Europe : à faire
+  - [ ] LOT_002 DX1 Suisse : à faire
+- **Agents toxiques à l’origine de l’arrêt** (0 / 1)
+  - [ ] LOT_147 DX5 Europe : à faire
+  - [ ] LOT_147 DX5 Suisse : à faire
+- **Agranulocytose médicamenteuse** (0 / 1)
+  - [ ] LOT_153 DX2 Europe : à faire
+  - [ ] LOT_153 DX2 Suisse : à faire
+- **Akathisie iatrogène** (0 / 1)
+  - [ ] LOT_124 DX6 Europe : à faire
+  - [ ] LOT_124 DX6 Suisse : à faire
+- **Alcalose métabolique** (0 / 1)
+  - [ ] LOT_149 DX6 Europe : à faire
+  - [ ] LOT_149 DX6 Suisse : à faire
+- **Alcalose respiratoire** (0 / 1)
+  - [ ] LOT_149 DX3 Europe : à faire
+  - [ ] LOT_149 DX3 Suisse : à faire
+- **Allongement de l'intervalle QT** (0 / 1)
+  - [ ] LOT_154 DX9 Europe : à faire
+  - [ ] LOT_154 DX9 Suisse : à faire
+- **Alopécie androgénétique** (0 / 1)
+  - [ ] LOT_091 DX3 Europe : à faire
+  - [ ] LOT_091 DX3 Suisse : à faire
+- **Alopécie cicatricielle** (0 / 1)
+  - [ ] LOT_091 DX1 Europe : à faire
+  - [ ] LOT_091 DX1 Suisse : à faire
+- **Alopécie de traction** (0 / 1)
+  - [ ] LOT_091 DX10 Europe : à faire
+  - [ ] LOT_091 DX10 Suisse : à faire
+- **Anaphylaxie** (0 / 1)
+  - [ ] LOT_147 DX10 Europe : à faire
+  - [ ] LOT_147 DX10 Suisse : à faire
+- **Anaphylaxie avec bronchospasme ou œdème laryngé** (0 / 1)
+  - [ ] LOT_049 DX8 Europe : à faire
+  - [ ] LOT_049 DX8 Suisse : à faire
+- **Anémie** (0 / 3)
+  - [ ] LOT_004 DX6 Europe : à faire
+  - [ ] LOT_004 DX6 Suisse : à faire
+  - [ ] LOT_046 DX9 Europe : à faire
+  - [ ] LOT_046 DX9 Suisse : à faire
+  - [ ] LOT_133 DX4 Europe : à faire
+  - [ ] LOT_133 DX4 Suisse : à faire
+- **Anévrisme de l'aorte abdominale** (0 / 2)
+  - [ ] LOT_054 DX5 Europe : à faire
+  - [ ] LOT_054 DX5 Suisse : à faire
+  - [ ] LOT_134 DX2 Europe : à faire
+  - [ ] LOT_134 DX2 Suisse : à faire
+- **Anévrisme de l'aorte abdominale asymptomatique** (0 / 1)
+  - [ ] LOT_207 DX9 Europe : à faire
+  - [ ] LOT_207 DX9 Suisse : à faire
+- **Anévrisme de l’aorte abdominale** (0 / 1)
+  - [ ] LOT_052 DX10 Europe : à faire
+  - [ ] LOT_052 DX10 Suisse : à faire
+- **Anévrisme intracrânien compressif (paralysie du III)** (0 / 1)
+  - [ ] LOT_017 DX10 Europe : à faire
+  - [ ] LOT_017 DX10 Suisse : à faire
+- **Anévrisme ou faux anévrisme fémoral** (0 / 1)
+  - [ ] LOT_072 DX4 Europe : à faire
+  - [ ] LOT_072 DX4 Suisse : à faire
+- **Angine à streptocoque du groupe A** (0 / 1)
+  - [ ] LOT_035 DX2 Europe : à faire
+  - [ ] LOT_035 DX2 Suisse : à faire
+- **Angio-œdème** (0 / 1)
+  - [ ] LOT_038 DX9 Europe : à faire
+  - [ ] LOT_038 DX9 Suisse : à faire
+- **Angio-œdème associé aux inhibiteurs de l’enzyme de conversion** (0 / 1)
+  - [ ] LOT_037 DX2 Europe : à faire
+  - [ ] LOT_037 DX2 Suisse : à faire
+- **Angio-œdème héréditaire** (0 / 1)
+  - [ ] LOT_037 DX3 Europe : à faire
+  - [ ] LOT_037 DX3 Suisse : à faire
+- **Angio-œdème histaminergique** (0 / 1)
+  - [ ] LOT_037 DX1 Europe : à faire
+  - [ ] LOT_037 DX1 Suisse : à faire
+- **Angiodysplasie** (0 / 1)
+  - [ ] LOT_060 DX6 Europe : à faire
+  - [ ] LOT_060 DX6 Suisse : à faire
+- **Angiofibrome nasopharyngien juvénile** (0 / 1)
+  - [ ] LOT_021 DX9 Europe : à faire
+  - [ ] LOT_021 DX9 Suisse : à faire
+- **Angioœdème** (0 / 1)
+  - [ ] LOT_094 DX7 Europe : à faire
+  - [ ] LOT_094 DX7 Suisse : à faire
+- **Angioœdème facial** (0 / 1)
+  - [ ] LOT_020 DX9 Europe : à faire
+  - [ ] LOT_020 DX9 Suisse : à faire
+- **Anneau de Schatzki** (0 / 1)
+  - [ ] LOT_048 DX5 Europe : à faire
+  - [ ] LOT_048 DX5 Suisse : à faire
+- **Anticoagulant lupique** (0 / 1)
+  - [ ] LOT_151 DX9 Europe : à faire
+  - [ ] LOT_151 DX9 Suisse : à faire
+- **Anurie** (0 / 1)
+  - [ ] LOT_063 DX1 Europe : à faire
+  - [ ] LOT_063 DX1 Suisse : à faire
+- **Aphasie progressive** (0 / 1)
+  - [ ] LOT_098 DX1 Europe : à faire
+  - [ ] LOT_098 DX1 Suisse : à faire
+- **Aphtose récidivante** (0 / 1)
+  - [ ] LOT_086 DX1 Europe : à faire
+  - [ ] LOT_086 DX1 Suisse : à faire
+- **Aphtose tardive** (0 / 1)
+  - [ ] LOT_086 DX3 Europe : à faire
+  - [ ] LOT_086 DX3 Suisse : à faire
+- **Apnées centrales et Cheyne-Stokes** (0 / 1)
+  - [ ] LOT_040 DX3 Europe : à faire
+  - [ ] LOT_040 DX3 Suisse : à faire
+- **Apnées obstructives du sommeil chez l'enfant** (0 / 1)
+  - [ ] LOT_122 DX5 Europe : à faire
+  - [ ] LOT_122 DX5 Suisse : à faire
+- **Appui unipodal** (0 / 1)
+  - [ ] LOT_095 DX7 Europe : à faire
+  - [ ] LOT_095 DX7 Suisse : à faire
+- **Apraxie de l’ouverture des paupières** (0 / 1)
+  - [ ] LOT_022 DX10 Europe : à faire
+  - [ ] LOT_022 DX10 Suisse : à faire
+- **Aréflexie** (0 / 1)
+  - [ ] LOT_102 DX4 Europe : à faire
+  - [ ] LOT_102 DX4 Suisse : à faire
+- **Arrêt respiratoire** (0 / 1)
+  - [ ] LOT_109 DX10 Europe : à faire
+  - [ ] LOT_109 DX10 Suisse : à faire
+- **Artériopathie** (0 / 1)
+  - [ ] LOT_089 DX3 Europe : à faire
+  - [ ] LOT_089 DX3 Suisse : à faire
+- **Artérite à cellules géantes** (0 / 2)
+  - [ ] LOT_017 DX7 Europe : à faire
+  - [ ] LOT_017 DX7 Suisse : à faire
+  - [ ] LOT_027 DX9 Europe : à faire
+  - [ ] LOT_027 DX9 Suisse : à faire
+- **Artérite à cellules géantes avec atteinte visuelle** (0 / 1)
+  - [ ] LOT_018 DX10 Europe : à faire
+  - [ ] LOT_018 DX10 Suisse : à faire
+- **Arthrite réactionnelle après urétrite** (0 / 1)
+  - [ ] LOT_074 DX9 Europe : à faire
+  - [ ] LOT_074 DX9 Suisse : à faire
+- **Arthrite septique** (0 / 1)
+  - [ ] LOT_134 DX7 Europe : à faire
+  - [ ] LOT_134 DX7 Suisse : à faire
+- **Ascite** (0 / 1)
+  - [ ] LOT_135 DX4 Europe : à faire
+  - [ ] LOT_135 DX4 Suisse : à faire
+- **Ascite de l'hypertension portale** (0 / 1)
+  - [ ] LOT_166 DX1 Europe : à faire
+  - [ ] LOT_166 DX1 Suisse : à faire
+- **Ascite maligne** (0 / 1)
+  - [ ] LOT_166 DX7 Europe : à faire
+  - [ ] LOT_166 DX7 Suisse : à faire
+- **Ascite par hypoalbuminémie** (0 / 1)
+  - [ ] LOT_166 DX10 Europe : à faire
+  - [ ] LOT_166 DX10 Suisse : à faire
+- **Ataxie** (0 / 2)
+  - [ ] LOT_096 DX4 Europe : à faire
+  - [ ] LOT_096 DX4 Suisse : à faire
+  - [ ] LOT_097 DX9 Europe : à faire
+  - [ ] LOT_097 DX9 Suisse : à faire
+- **Atélectasie pulmonaire** (0 / 1)
+  - [ ] LOT_135 DX8 Europe : à faire
+  - [ ] LOT_135 DX8 Suisse : à faire
+- **Atrésie des choanes** (0 / 1)
+  - [ ] LOT_031 DX9 Europe : à faire
+  - [ ] LOT_031 DX9 Suisse : à faire
+- **Attaque de panique** (0 / 2)
+  - [ ] LOT_117 DX1 Europe : à faire
+  - [ ] LOT_117 DX1 Suisse : à faire
+  - [ ] LOT_123 DX2 Europe : à faire
+  - [ ] LOT_123 DX2 Suisse : à faire
+- **Atteintes musculosquelettiques (diagnostic posé dans l'année)** (0 / 1)
+  - [ ] LOT_005 DX5 Europe : à faire
+  - [ ] LOT_005 DX5 Suisse : à faire
+- **Attitude scoliotique** (0 / 1)
+  - [ ] LOT_082 DX2 Europe : à faire
+  - [ ] LOT_082 DX2 Suisse : à faire
+- **Attitude scoliotique fonctionnelle par inégalité de longueur des membres inférieurs** (0 / 1)
+  - [ ] LOT_080 DX3 Europe : à faire
+  - [ ] LOT_080 DX3 Suisse : à faire
+- **Automédication** (0 / 1)
+  - [ ] LOT_066 DX8 Europe : à faire
+  - [ ] LOT_066 DX8 Suisse : à faire
+- **Autres infections virales (cytomégalovirus)** (0 / 1)
+  - [ ] LOT_002 DX5 Europe : à faire
+  - [ ] LOT_002 DX5 Suisse : à faire
+- **Avalanche** (0 / 1)
+  - [ ] LOT_008 DX9 Europe : à faire
+  - [ ] LOT_008 DX9 Suisse : à faire
+- **Bactériurie asymptomatique** (0 / 1)
+  - [ ] LOT_064 DX10 Europe : à faire
+  - [ ] LOT_064 DX10 Suisse : à faire
+- **Ballonnement et distension abdominale fonctionnels, dont le syndrome de l'intestin irritable** (0 / 1)
+  - [ ] LOT_053 DX1 Europe : à faire
+  - [ ] LOT_053 DX1 Suisse : à faire
+- **Blépharite** (0 / 3)
+  - [ ] LOT_022 DX2 Europe : à faire
+  - [ ] LOT_022 DX2 Suisse : à faire
+  - [ ] LOT_033 DX5 Europe : à faire
+  - [ ] LOT_033 DX5 Suisse : à faire
+  - [ ] LOT_038 DX3 Europe : à faire
+  - [ ] LOT_038 DX3 Suisse : à faire
+- **Blépharospasme essentiel** (0 / 1)
+  - [ ] LOT_022 DX8 Europe : à faire
+  - [ ] LOT_022 DX8 Suisse : à faire
+- **Bloc atrioventriculaire complet** (0 / 1)
+  - [ ] LOT_154 DX5 Europe : à faire
+  - [ ] LOT_154 DX5 Suisse : à faire
+- **Bloc atrioventriculaire de haut degré** (0 / 1)
+  - [ ] LOT_136 DX8 Europe : à faire
+  - [ ] LOT_136 DX8 Suisse : à faire
+- **Bloc de branche gauche** (0 / 1)
+  - [ ] LOT_154 DX8 Europe : à faire
+  - [ ] LOT_154 DX8 Suisse : à faire
+- **Bouchon de cérumen** (0 / 2)
+  - [ ] LOT_026 DX3 Europe : à faire
+  - [ ] LOT_026 DX3 Suisse : à faire
+  - [ ] LOT_028 DX1 Europe : à faire
+  - [ ] LOT_028 DX1 Suisse : à faire
+- **Bouffées de chaleur de la ménopause (femme 40–65 ans)** (0 / 1)
+  - [ ] LOT_007 DX1 Europe : à faire
+  - [ ] LOT_007 DX1 Suisse : à faire
+- **Bradycardie sinusale** (0 / 1)
+  - [ ] LOT_136 DX6 Europe : à faire
+  - [ ] LOT_136 DX6 Suisse : à faire
+- **Bronchite aiguë** (0 / 2)
+  - [ ] LOT_043 DX4 Europe : à faire
+  - [ ] LOT_043 DX4 Suisse : à faire
+  - [ ] LOT_045 DX2 Europe : à faire
+  - [ ] LOT_045 DX2 Suisse : à faire
+- **Canal lombaire** (0 / 1)
+  - [ ] LOT_096 DX7 Europe : à faire
+  - [ ] LOT_096 DX7 Suisse : à faire
+- **Canal lombaire étroit** (0 / 1)
+  - [ ] LOT_081 DX6 Europe : à faire
+  - [ ] LOT_081 DX6 Suisse : à faire
+- **Canalopathie héréditaire** (0 / 1)
+  - [ ] LOT_014 DX9 Europe : à faire
+  - [ ] LOT_014 DX9 Suisse : à faire
+- **Candidose buccale** (0 / 1)
+  - [ ] LOT_025 DX3 Europe : à faire
+  - [ ] LOT_025 DX3 Suisse : à faire
+- **Cardiomyopathie** (0 / 1)
+  - [ ] LOT_014 DX2 Europe : à faire
+  - [ ] LOT_014 DX2 Suisse : à faire
+- **Cardiomyopathie hypertrophique** (0 / 1)
+  - [ ] LOT_050 DX10 Europe : à faire
+  - [ ] LOT_050 DX10 Suisse : à faire
+- **Cardiomyopathie hypertrophique obstructive** (0 / 1)
+  - [ ] LOT_132 DX7 Europe : à faire
+  - [ ] LOT_132 DX7 Suisse : à faire
+- **Carence en vitamine B12 avec atteinte cordonale** (0 / 1)
+  - [ ] LOT_103 DX5 Europe : à faire
+  - [ ] LOT_103 DX5 Suisse : à faire
+- **Carence en vitamine K** (0 / 1)
+  - [ ] LOT_151 DX2 Europe : à faire
+  - [ ] LOT_151 DX2 Suisse : à faire
+- **Cellulite / érysipèle (infection cutanée)** (0 / 1)
+  - [ ] LOT_006 DX3 Europe : à faire
+  - [ ] LOT_006 DX3 Suisse : à faire
+- **Cellulite cervico-faciale odontogène** (0 / 1)
+  - [ ] LOT_020 DX7 Europe : à faire
+  - [ ] LOT_020 DX7 Suisse : à faire
+- **Cellulite orbitaire** (0 / 1)
+  - [ ] LOT_038 DX7 Europe : à faire
+  - [ ] LOT_038 DX7 Suisse : à faire
+- **Cellulite préseptale** (0 / 1)
+  - [ ] LOT_038 DX6 Europe : à faire
+  - [ ] LOT_038 DX6 Suisse : à faire
+- **Céphalée de tension** (0 / 1)
+  - [ ] LOT_100 DX1 Europe : à faire
+  - [ ] LOT_100 DX1 Suisse : à faire
+- **Cervicalgie commune non spécifique** (1 / 1)
+  - [x] LOT_032 DX1 Europe : 16,9 % des personnes de 15 ans et plus (Union européenne (UE-27), 2019)
+  - [ ] LOT_032 DX1 Suisse : à faire
+- **Cervicalgie post-traumatique sans lésion osseuse** (1 / 1)
+  - [x] LOT_114 DX10 Europe : 16,9 % des personnes de 15 ans et plus (Union européenne (UE-27), 2019)
+  - [ ] LOT_114 DX10 Suisse : à faire
+- **Cervicalgie, douleurs épaules-nuque-bras** (1 / 1)
+  - [x] LOT_010 DX2 Europe : 16,9 % des personnes de 15 ans et plus (Union européenne (UE-27), 2019)
+  - [ ] LOT_010 DX2 Suisse : à faire
+- **Chalazion** (0 / 1)
+  - [ ] LOT_038 DX2 Europe : à faire
+  - [ ] LOT_038 DX2 Suisse : à faire
+- **Chez l'enfant** (0 / 1)
+  - [ ] LOT_111 DX8 Europe : à faire
+  - [ ] LOT_111 DX8 Suisse : à faire
+- **Chez la personne âgée** (0 / 1)
+  - [ ] LOT_111 DX9 Europe : à faire
+  - [ ] LOT_111 DX9 Suisse : à faire
+- **Chloasma** (0 / 1)
+  - [ ] LOT_088 DX9 Europe : à faire
+  - [ ] LOT_088 DX9 Suisse : à faire
+- **Choc hémorragique suspect** (0 / 1)
+  - [ ] LOT_113 DX9 Europe : à faire
+  - [ ] LOT_113 DX9 Suisse : à faire
+- **Cholestase** (0 / 1)
+  - [ ] LOT_090 DX3 Europe : à faire
+  - [ ] LOT_090 DX3 Suisse : à faire
+- **Cholestéatome** (0 / 1)
+  - [ ] LOT_028 DX9 Europe : à faire
+  - [ ] LOT_028 DX9 Suisse : à faire
+- **Cholestéatome de l’oreille moyenne** (0 / 1)
+  - [ ] LOT_024 DX8 Europe : à faire
+  - [ ] LOT_024 DX8 Suisse : à faire
+- **Cicatrice génitale** (0 / 1)
+  - [ ] LOT_086 DX6 Europe : à faire
+  - [ ] LOT_086 DX6 Suisse : à faire
+- **Claudication artérielle** (0 / 1)
+  - [ ] LOT_096 DX6 Europe : à faire
+  - [ ] LOT_096 DX6 Suisse : à faire
+- **Claudication veineuse** (0 / 1)
+  - [ ] LOT_096 DX8 Europe : à faire
+  - [ ] LOT_096 DX8 Suisse : à faire
+- **Coagulation intravasculaire disséminée** (0 / 1)
+  - [ ] LOT_151 DX6 Europe : à faire
+  - [ ] LOT_151 DX6 Suisse : à faire
+- **coagulopathie et iatrogénie** (0 / 1)
+  - [ ] LOT_078 DX10 Europe : à faire
+  - [ ] LOT_078 DX10 Suisse : à faire
+- **Colite hémorragique** (0 / 1)
+  - [ ] LOT_060 DX7 Europe : à faire
+  - [ ] LOT_060 DX7 Suisse : à faire
+- **Congestion pelvienne** (0 / 1)
+  - [ ] LOT_068 DX4 Europe : à faire
+  - [ ] LOT_068 DX4 Suisse : à faire
+- **Conjonctivite bactérienne aiguë** (0 / 1)
+  - [ ] LOT_033 DX2 Europe : à faire
+  - [ ] LOT_033 DX2 Suisse : à faire
+- **Conjonctivite virale non herpétique** (0 / 1)
+  - [ ] LOT_033 DX1 Europe : à faire
+  - [ ] LOT_033 DX1 Suisse : à faire
+- **Constipation chronique fonctionnelle** (0 / 1)
+  - [ ] LOT_053 DX2 Europe : à faire
+  - [ ] LOT_053 DX2 Suisse : à faire
+- **Contraception hormonale** (0 / 1)
+  - [ ] LOT_066 DX10 Europe : à faire
+  - [ ] LOT_066 DX10 Suisse : à faire
+- **Contusion thoracique** (0 / 1)
+  - [ ] LOT_115 DX1 Europe : à faire
+  - [ ] LOT_115 DX1 Suisse : à faire
+- **Convulsion après le choc** (0 / 1)
+  - [ ] LOT_111 DX10 Europe : à faire
+  - [ ] LOT_111 DX10 Suisse : à faire
+- **Corps de Lewy** (0 / 1)
+  - [ ] LOT_101 DX5 Europe : à faire
+  - [ ] LOT_101 DX5 Suisse : à faire
+- **Corps étranger cornéen ou abrasion cornéenne** (0 / 1)
+  - [ ] LOT_022 DX5 Europe : à faire
+  - [ ] LOT_022 DX5 Suisse : à faire
+- **Corps étranger du conduit auditif** (0 / 2)
+  - [ ] LOT_024 DX6 Europe : à faire
+  - [ ] LOT_024 DX6 Suisse : à faire
+  - [ ] LOT_026 DX5 Europe : à faire
+  - [ ] LOT_026 DX5 Suisse : à faire
+- **Corps étranger inséré par voie rectale, vaginale ou urétrale** (0 / 1)
+  - [ ] LOT_110 DX9 Europe : à faire
+  - [ ] LOT_110 DX9 Suisse : à faire
+- **Corps étranger nasal** (0 / 3)
+  - [ ] LOT_021 DX4 Europe : à faire
+  - [ ] LOT_021 DX4 Suisse : à faire
+  - [ ] LOT_030 DX8 Europe : à faire
+  - [ ] LOT_030 DX8 Suisse : à faire
+  - [ ] LOT_031 DX7 Europe : à faire
+  - [ ] LOT_031 DX7 Suisse : à faire
+- **corps étranger nasal ou auriculaire** (0 / 1)
+  - [ ] LOT_110 DX6 Europe : à faire
+  - [ ] LOT_110 DX6 Suisse : à faire
+- **Corps étranger oculaire superficiel et intraoculaire : LOT_110 SSP S8.6** (0 / 1)
+  - [ ] LOT_110 DX7 Europe : à faire
+  - [ ] LOT_110 DX7 Suisse : à faire
+- **Corps étranger pénétrant des tissus mous** (0 / 1)
+  - [ ] LOT_110 DX8 Europe : à faire
+  - [ ] LOT_110 DX8 Suisse : à faire
+- **Corps étranger planté** (0 / 1)
+  - [ ] LOT_113 DX8 Europe : à faire
+  - [ ] LOT_113 DX8 Suisse : à faire
+- **Craniosténose** (0 / 1)
+  - [ ] LOT_029 DX6 Europe : à faire
+  - [ ] LOT_029 DX6 Suisse : à faire
+- **Crise aiguë de fermeture de l’angle** (0 / 1)
+  - [ ] LOT_033 DX9 Europe : à faire
+  - [ ] LOT_033 DX9 Suisse : à faire
+- **Crise aiguë symptomatique métabolique, toxique ou de sevrage** (0 / 1)
+  - [ ] LOT_104 DX5 Europe : à faire
+  - [ ] LOT_104 DX5 Suisse : à faire
+- **Cycles anovulatoires** (0 / 1)
+  - [ ] LOT_066 DX3 Europe : à faire
+  - [ ] LOT_066 DX3 Suisse : à faire
+- **Cyphose posturale de l’adolescent** (0 / 1)
+  - [ ] LOT_080 DX2 Europe : à faire
+  - [ ] LOT_080 DX2 Suisse : à faire
+- **Déchirure cutanée** (0 / 1)
+  - [ ] LOT_199 DX8 Europe : à faire
+  - [ ] LOT_199 DX8 Suisse : à faire
+- **Décollement postérieur du vitré** (0 / 1)
+  - [ ] LOT_039 DX3 Europe : à faire
+  - [ ] LOT_039 DX3 Suisse : à faire
+- **Défaillance respiratoire** (0 / 1)
+  - [ ] LOT_102 DX6 Europe : à faire
+  - [ ] LOT_102 DX6 Suisse : à faire
+- **Déficit des releveurs** (0 / 1)
+  - [ ] LOT_084 DX5 Europe : à faire
+  - [ ] LOT_084 DX5 Suisse : à faire
+- **Déficit neurologique** (0 / 1)
+  - [ ] LOT_111 DX3 Europe : à faire
+  - [ ] LOT_111 DX3 Suisse : à faire
+- **Déformation avancée** (0 / 1)
+  - [ ] LOT_082 DX9 Europe : à faire
+  - [ ] LOT_082 DX9 Suisse : à faire
+- **Délirium (CIM-11 6D70)** (0 / 1)
+  - [ ] LOT_124 DX2 Europe : à faire
+  - [ ] LOT_124 DX2 Suisse : à faire
+- **Delirium médicamenteux** (0 / 1)
+  - [ ] LOT_125 DX8 Europe : à faire
+  - [ ] LOT_125 DX8 Suisse : à faire
+- **Déni et ambivalence face au trouble** (0 / 1)
+  - [ ] LOT_120 DX10 Europe : à faire
+  - [ ] LOT_120 DX10 Suisse : à faire
+- **Dermatite de contact palpébrale** (0 / 1)
+  - [ ] LOT_038 DX4 Europe : à faire
+  - [ ] LOT_038 DX4 Suisse : à faire
+- **Dermatite eczémateuse du conduit auditif** (0 / 1)
+  - [ ] LOT_024 DX5 Europe : à faire
+  - [ ] LOT_024 DX5 Suisse : à faire
+- **Dermite ocre** (0 / 1)
+  - [ ] LOT_089 DX2 Europe : à faire
+  - [ ] LOT_089 DX2 Suisse : à faire
+- **Dermohypodermite** (0 / 1)
+  - [ ] LOT_094 DX4 Europe : à faire
+  - [ ] LOT_094 DX4 Suisse : à faire
+- **Déshydratation, pertes hydriques (chaleur, fièvre, diarrhée)** (0 / 1)
+  - [ ] LOT_003 DX8 Europe : à faire
+  - [ ] LOT_003 DX8 Suisse : à faire
+- **Désinhibition** (0 / 1)
+  - [ ] LOT_119 DX3 Europe : à faire
+  - [ ] LOT_119 DX3 Suisse : à faire
+- **Désorganisation du générateur respiratoire** (0 / 1)
+  - [ ] LOT_041 DX3 Europe : à faire
+  - [ ] LOT_041 DX3 Suisse : à faire
+- **Détersion** (0 / 1)
+  - [ ] LOT_089 DX5 Europe : à faire
+  - [ ] LOT_089 DX5 Suisse : à faire
+- **Détresse respiratoire** (0 / 2)
+  - [ ] LOT_109 DX3 Europe : à faire
+  - [ ] LOT_109 DX3 Suisse : à faire
+  - [ ] LOT_115 DX9 Europe : à faire
+  - [ ] LOT_115 DX9 Suisse : à faire
+- **Deuil** (0 / 1)
+  - [ ] LOT_121 DX7 Europe : à faire
+  - [ ] LOT_121 DX7 Suisse : à faire
+- **Deuil compliqué** (0 / 1)
+  - [ ] LOT_127 DX4 Europe : à faire
+  - [ ] LOT_127 DX4 Suisse : à faire
+- **Déviation de la cloison nasale** (0 / 2)
+  - [ ] LOT_031 DX4 Europe : à faire
+  - [ ] LOT_031 DX4 Suisse : à faire
+  - [ ] LOT_034 DX5 Europe : à faire
+  - [ ] LOT_034 DX5 Suisse : à faire
+- **Diabète insipide (central ou néphrogénique)** (0 / 1)
+  - [ ] LOT_003 DX4 Europe : à faire
+  - [ ] LOT_003 DX4 Suisse : à faire
+- **Discordance entre l'HbA1c et la glycémie** (0 / 1)
+  - [ ] LOT_157 DX10 Europe : à faire
+  - [ ] LOT_157 DX10 Suisse : à faire
+- **Dissection aortique aiguë** (0 / 2)
+  - [ ] LOT_044 DX10 Europe : à faire
+  - [ ] LOT_044 DX10 Suisse : à faire
+  - [ ] LOT_150 DX9 Europe : à faire
+  - [ ] LOT_150 DX9 Suisse : à faire
+- **Dissection artérielle cervicale** (0 / 1)
+  - [ ] LOT_032 DX7 Europe : à faire
+  - [ ] LOT_032 DX7 Suisse : à faire
+- **Dissection ou rupture aortique** (0 / 1)
+  - [ ] LOT_014 DX4 Europe : à faire
+  - [ ] LOT_014 DX4 Suisse : à faire
+- **Dissociation aiguë** (0 / 1)
+  - [ ] LOT_127 DX6 Europe : à faire
+  - [ ] LOT_127 DX6 Suisse : à faire
+- **Diverticule de Zenker** (0 / 2)
+  - [ ] LOT_023 DX8 Europe : à faire
+  - [ ] LOT_023 DX8 Suisse : à faire
+  - [ ] LOT_048 DX9 Europe : à faire
+  - [ ] LOT_048 DX9 Suisse : à faire
+- **Diverticulite aiguë** (0 / 1)
+  - [ ] LOT_052 DX7 Europe : à faire
+  - [ ] LOT_052 DX7 Suisse : à faire
+- **Doppler non concluant** (0 / 1)
+  - [ ] LOT_070 DX9 Europe : à faire
+  - [ ] LOT_070 DX9 Suisse : à faire
+- **Dysarthrie** (0 / 1)
+  - [ ] LOT_098 DX8 Europe : à faire
+  - [ ] LOT_098 DX8 Suisse : à faire
+- **Dysfonction du nœud sinusal** (0 / 1)
+  - [ ] LOT_136 DX7 Europe : à faire
+  - [ ] LOT_136 DX7 Suisse : à faire
+- **Dysgénésie gonadique** (0 / 1)
+  - [ ] LOT_062 DX7 Europe : à faire
+  - [ ] LOT_062 DX7 Suisse : à faire
+- **Dysménorrhée invalidante** (0 / 1)
+  - [ ] LOT_068 DX2 Europe : à faire
+  - [ ] LOT_068 DX2 Suisse : à faire
+- **Dysménorrhée primaire** (0 / 1)
+  - [ ] LOT_066 DX1 Europe : à faire
+  - [ ] LOT_066 DX1 Suisse : à faire
+- **Dysménorrhée secondaire** (0 / 1)
+  - [ ] LOT_066 DX2 Europe : à faire
+  - [ ] LOT_066 DX2 Suisse : à faire
+- **Dysmorphie musculaire avec usage de stéroïdes anabolisants androgènes** (0 / 1)
+  - [ ] LOT_215 DX5 Europe : à faire
+  - [ ] LOT_215 DX5 Suisse : à faire
+- **Dyspareunie** (0 / 2)
+  - [ ] LOT_068 DX3 Europe : à faire
+  - [ ] LOT_068 DX3 Suisse : à faire
+  - [ ] LOT_079 DX7 Europe : à faire
+  - [ ] LOT_079 DX7 Suisse : à faire
+- **Dyspepsie fonctionnelle (syndrome douloureux épigastrique)** (0 / 1)
+  - [ ] LOT_047 DX2 Europe : à faire
+  - [ ] LOT_047 DX2 Suisse : à faire
+- **Dysphagie oropharyngée** (0 / 1)
+  - [ ] LOT_197 DX5 Europe : à faire
+  - [ ] LOT_197 DX5 Suisse : à faire
+- **Dystonie laryngée** (0 / 1)
+  - [ ] LOT_019 DX8 Europe : à faire
+  - [ ] LOT_019 DX8 Suisse : à faire
+- **Dystonie palpébrale médicamenteuse** (0 / 1)
+  - [ ] LOT_022 DX9 Europe : à faire
+  - [ ] LOT_022 DX9 Suisse : à faire
+- **Eau trouble ou inconnue** (0 / 1)
+  - [ ] LOT_109 DX9 Europe : à faire
+  - [ ] LOT_109 DX9 Suisse : à faire
+- **Ecchymoses** (0 / 1)
+  - [ ] LOT_087 DX2 Europe : à faire
+  - [ ] LOT_087 DX2 Suisse : à faire
+- **Eczéma (prurit sur peau atteinte)** (0 / 1)
+  - [ ] LOT_009 DX1 Europe : à faire
+  - [ ] LOT_009 DX1 Suisse : à faire
+- **Effet d'un antagoniste de la vitamine K** (0 / 1)
+  - [ ] LOT_151 DX1 Europe : à faire
+  - [ ] LOT_151 DX1 Suisse : à faire
+- **Effet d'un anticoagulant oral direct** (0 / 1)
+  - [ ] LOT_151 DX4 Europe : à faire
+  - [ ] LOT_151 DX4 Suisse : à faire
+- **Effet de l'héparine non fractionnée** (0 / 1)
+  - [ ] LOT_151 DX3 Europe : à faire
+  - [ ] LOT_151 DX3 Suisse : à faire
+- **Effet des statines** (0 / 1)
+  - [ ] LOT_083 DX6 Europe : à faire
+  - [ ] LOT_083 DX6 Suisse : à faire
+- **Effluvium télogène** (0 / 1)
+  - [ ] LOT_091 DX9 Europe : à faire
+  - [ ] LOT_091 DX9 Suisse : à faire
+- **Élargissement bénin des espaces sous-arachnoïdiens du nourrisson** (0 / 1)
+  - [ ] LOT_029 DX2 Europe : à faire
+  - [ ] LOT_029 DX2 Suisse : à faire
+- **Élargissement de la raie** (0 / 1)
+  - [ ] LOT_091 DX4 Europe : à faire
+  - [ ] LOT_091 DX4 Suisse : à faire
+- **Encéphalite (auto-immune ou infectieuse)** (0 / 1)
+  - [ ] LOT_124 DX5 Europe : à faire
+  - [ ] LOT_124 DX5 Suisse : à faire
+- **Encéphalopathie de Wernicke** (0 / 1)
+  - [ ] LOT_125 DX3 Europe : à faire
+  - [ ] LOT_125 DX3 Suisse : à faire
+- **Endocardite infectieuse** (0 / 2)
+  - [ ] LOT_001 DX3 Europe : à faire
+  - [ ] LOT_001 DX3 Suisse : à faire
+  - [ ] LOT_132 DX10 Europe : à faire
+  - [ ] LOT_132 DX10 Suisse : à faire
+- **Endocrinopathie** (0 / 1)
+  - [ ] LOT_083 DX8 Europe : à faire
+  - [ ] LOT_083 DX8 Suisse : à faire
+- **Endométriome** (0 / 1)
+  - [ ] LOT_067 DX2 Europe : à faire
+  - [ ] LOT_067 DX2 Suisse : à faire
+- **Enfant** (0 / 1)
+  - [ ] LOT_109 DX8 Europe : à faire
+  - [ ] LOT_109 DX8 Suisse : à faire
+- **Entorse latérale de cheville** (0 / 1)
+  - [ ] LOT_112 DX2 Europe : à faire
+  - [ ] LOT_112 DX2 Suisse : à faire
+- **Épanchement parapneumonique et empyème** (0 / 1)
+  - [ ] LOT_166 DX3 Europe : à faire
+  - [ ] LOT_166 DX3 Suisse : à faire
+- **Épanchement péricardique et tamponnade** (0 / 1)
+  - [ ] LOT_166 DX8 Europe : à faire
+  - [ ] LOT_166 DX8 Suisse : à faire
+- **Épanchement pleural** (0 / 2)
+  - [ ] LOT_135 DX3 Europe : à faire
+  - [ ] LOT_135 DX3 Suisse : à faire
+  - [ ] LOT_152 DX3 Europe : à faire
+  - [ ] LOT_152 DX3 Suisse : à faire
+- **Épanchement pleural malin** (0 / 1)
+  - [ ] LOT_166 DX6 Europe : à faire
+  - [ ] LOT_166 DX6 Suisse : à faire
+- **Épiglottite aiguë** (0 / 1)
+  - [ ] LOT_035 DX5 Europe : à faire
+  - [ ] LOT_035 DX5 Suisse : à faire
+- **Épisode maniaque** (0 / 1)
+  - [ ] LOT_122 DX2 Europe : à faire
+  - [ ] LOT_122 DX2 Suisse : à faire
+- **Éruption médicamenteuse / prurit médicamenteux** (0 / 1)
+  - [ ] LOT_009 DX6 Europe : à faire
+  - [ ] LOT_009 DX6 Suisse : à faire
+- **Érysipèle** (0 / 1)
+  - [ ] LOT_094 DX1 Europe : à faire
+  - [ ] LOT_094 DX1 Suisse : à faire
+- **Érythrodermie** (0 / 1)
+  - [ ] LOT_094 DX5 Europe : à faire
+  - [ ] LOT_094 DX5 Suisse : à faire
+- **État de stress post-traumatique** (0 / 1)
+  - [ ] LOT_127 DX2 Europe : à faire
+  - [ ] LOT_127 DX2 Suisse : à faire
+- **État hyperglycémique hyperosmolaire** (0 / 1)
+  - [ ] LOT_157 DX5 Europe : à faire
+  - [ ] LOT_157 DX5 Suisse : à faire
+- **Étourdissement** (0 / 1)
+  - [ ] LOT_099 DX6 Europe : à faire
+  - [ ] LOT_099 DX6 Suisse : à faire
+- **Évitement scolaire ou professionnel** (0 / 1)
+  - [ ] LOT_123 DX5 Europe : à faire
+  - [ ] LOT_123 DX5 Suisse : à faire
+- **Exposition au froid (environnementale)** (0 / 1)
+  - [ ] LOT_008 DX3 Europe : à faire
+  - [ ] LOT_008 DX3 Suisse : à faire
+- **Extrasystoles atriales et ventriculaires idiopathiques** (0 / 1)
+  - [ ] LOT_050 DX1 Europe : à faire
+  - [ ] LOT_050 DX1 Suisse : à faire
+- **Extrasystoles ventriculaires** (0 / 1)
+  - [ ] LOT_136 DX2 Europe : à faire
+  - [ ] LOT_136 DX2 Suisse : à faire
+- **Facteur masculin extrême** (0 / 1)
+  - [ ] LOT_065 DX6 Europe : à faire
+  - [ ] LOT_065 DX6 Suisse : à faire
+- **Faiblesse aux stéroïdes** (0 / 1)
+  - [ ] LOT_083 DX7 Europe : à faire
+  - [ ] LOT_083 DX7 Suisse : à faire
+- **Faiblesse myopathique** (0 / 1)
+  - [ ] LOT_083 DX4 Europe : à faire
+  - [ ] LOT_083 DX4 Suisse : à faire
+- **Fasciite nécrosante** (0 / 1)
+  - [ ] LOT_134 DX10 Europe : à faire
+  - [ ] LOT_134 DX10 Suisse : à faire
+- **Fatigue post-infectieuse (infection virale récente)** (0 / 1)
+  - [ ] LOT_004 DX10 Europe : à faire
+  - [ ] LOT_004 DX10 Suisse : à faire
+- **Fécalome** (0 / 1)
+  - [ ] LOT_058 DX6 Europe : à faire
+  - [ ] LOT_058 DX6 Suisse : à faire
+- **Fibrillation atriale** (0 / 1)
+  - [ ] LOT_050 DX3 Europe : à faire
+  - [ ] LOT_050 DX3 Suisse : à faire
+- **Fibromyalgie** (0 / 1)
+  - [ ] LOT_010 DX8 Europe : à faire
+  - [ ] LOT_010 DX8 Suisse : à faire
+- **Fibromyalgie à écarter** (0 / 1)
+  - [ ] LOT_083 DX9 Europe : à faire
+  - [ ] LOT_083 DX9 Suisse : à faire
+- **Fièvre prolongée sans cause retrouvée (FUO)** (0 / 1)
+  - [ ] LOT_006 DX4 Europe : à faire
+  - [ ] LOT_006 DX4 Suisse : à faire
+- **Fissure anale aiguë** (0 / 1)
+  - [ ] LOT_056 DX5 Europe : à faire
+  - [ ] LOT_056 DX5 Suisse : à faire
+- **Fissure anale chronique** (0 / 1)
+  - [ ] LOT_056 DX6 Europe : à faire
+  - [ ] LOT_056 DX6 Suisse : à faire
+- **Fistule anale** (0 / 1)
+  - [ ] LOT_056 DX8 Europe : à faire
+  - [ ] LOT_056 DX8 Suisse : à faire
+- **Fistule artérioveineuse durale** (0 / 1)
+  - [ ] LOT_028 DX10 Europe : à faire
+  - [ ] LOT_028 DX10 Suisse : à faire
+- **Fistule artérioveineuse traumatique** (0 / 1)
+  - [ ] LOT_116 DX6 Europe : à faire
+  - [ ] LOT_116 DX6 Suisse : à faire
+- **Flutter atrial** (0 / 1)
+  - [ ] LOT_050 DX6 Europe : à faire
+  - [ ] LOT_050 DX6 Suisse : à faire
+- **Flutter auriculaire** (0 / 1)
+  - [ ] LOT_136 DX4 Europe : à faire
+  - [ ] LOT_136 DX4 Suisse : à faire
+- **Fonte musculaire endocrinienne** (0 / 1)
+  - [ ] LOT_197 DX10 Europe : à faire
+  - [ ] LOT_197 DX10 Suisse : à faire
+- **Forme aiguë** (0 / 1)
+  - [ ] LOT_059 DX1 Europe : à faire
+  - [ ] LOT_059 DX1 Suisse : à faire
+- **Forme aqueuse** (0 / 1)
+  - [ ] LOT_059 DX5 Europe : à faire
+  - [ ] LOT_059 DX5 Suisse : à faire
+- **Forme chronique** (0 / 1)
+  - [ ] LOT_059 DX3 Europe : à faire
+  - [ ] LOT_059 DX3 Suisse : à faire
+- **Forme idiopathique** (0 / 1)
+  - [ ] LOT_086 DX2 Europe : à faire
+  - [ ] LOT_086 DX2 Suisse : à faire
+- **Forme inflammatoire** (0 / 1)
+  - [ ] LOT_059 DX8 Europe : à faire
+  - [ ] LOT_059 DX8 Suisse : à faire
+- **Forme invasive** (0 / 1)
+  - [ ] LOT_059 DX4 Europe : à faire
+  - [ ] LOT_059 DX4 Suisse : à faire
+- **Forme motrice** (0 / 1)
+  - [ ] LOT_059 DX9 Europe : à faire
+  - [ ] LOT_059 DX9 Suisse : à faire
+- **Forme osmotique** (0 / 1)
+  - [ ] LOT_059 DX6 Europe : à faire
+  - [ ] LOT_059 DX6 Suisse : à faire
+- **Forme sans urgence vitale** (0 / 1)
+  - [ ] LOT_062 DX2 Europe : à faire
+  - [ ] LOT_062 DX2 Suisse : à faire
+- **Forme sécrétoire** (0 / 1)
+  - [ ] LOT_059 DX7 Europe : à faire
+  - [ ] LOT_059 DX7 Suisse : à faire
+- **Forme sévère** (0 / 1)
+  - [ ] LOT_059 DX10 Europe : à faire
+  - [ ] LOT_059 DX10 Suisse : à faire
+- **Fracture cervicale instable de type burst ou tear-drop** (0 / 1)
+  - [ ] LOT_114 DX3 Europe : à faire
+  - [ ] LOT_114 DX3 Suisse : à faire
+- **Fracture de C1 de type Jefferson** (0 / 1)
+  - [ ] LOT_114 DX5 Europe : à faire
+  - [ ] LOT_114 DX5 Suisse : à faire
+- **Fracture de l'extrémité distale du radius** (0 / 1)
+  - [ ] LOT_152 DX8 Europe : à faire
+  - [ ] LOT_152 DX8 Suisse : à faire
+- **Fracture de l’odontoïde de type II** (0 / 1)
+  - [ ] LOT_114 DX2 Europe : à faire
+  - [ ] LOT_114 DX2 Suisse : à faire
+- **Fracture des os propres du nez** (0 / 1)
+  - [ ] LOT_021 DX3 Europe : à faire
+  - [ ] LOT_021 DX3 Suisse : à faire
+- **Fracture distale du radius** (0 / 1)
+  - [ ] LOT_112 DX1 Europe : à faire
+  - [ ] LOT_112 DX1 Suisse : à faire
+- **Fracture du rachis cervical** (0 / 1)
+  - [ ] LOT_032 DX4 Europe : à faire
+  - [ ] LOT_032 DX4 Suisse : à faire
+- **Fracture du scaphoïde** (0 / 2)
+  - [ ] LOT_112 DX4 Europe : à faire
+  - [ ] LOT_112 DX4 Suisse : à faire
+  - [ ] LOT_152 DX9 Europe : à faire
+  - [ ] LOT_152 DX9 Suisse : à faire
+- **Fracture du scaphoïde à cliché initial normal** (0 / 1)
+  - [ ] LOT_112 DX9 Europe : à faire
+  - [ ] LOT_112 DX9 Suisse : à faire
+- **Fracture mandibulaire** (0 / 2)
+  - [ ] LOT_020 DX5 Europe : à faire
+  - [ ] LOT_020 DX5 Suisse : à faire
+  - [ ] LOT_027 DX6 Europe : à faire
+  - [ ] LOT_027 DX6 Suisse : à faire
+- **Fracture ouverte** (0 / 1)
+  - [ ] LOT_112 DX6 Europe : à faire
+  - [ ] LOT_112 DX6 Suisse : à faire
+- **Fracture pathologique** (0 / 1)
+  - [ ] LOT_112 DX10 Europe : à faire
+  - [ ] LOT_112 DX10 Suisse : à faire
+- **Fracture proximale du fémur** (0 / 1)
+  - [ ] LOT_112 DX3 Europe : à faire
+  - [ ] LOT_112 DX3 Suisse : à faire
+- **Fracture thoraco-lombaire par compression** (0 / 1)
+  - [ ] LOT_114 DX1 Europe : à faire
+  - [ ] LOT_114 DX1 Suisse : à faire
+- **Fracture zygomatico-orbitaire** (0 / 1)
+  - [ ] LOT_020 DX6 Europe : à faire
+  - [ ] LOT_020 DX6 Suisse : à faire
+- **Fracture-luxation thoraco-lombaire** (0 / 1)
+  - [ ] LOT_114 DX8 Europe : à faire
+  - [ ] LOT_114 DX8 Suisse : à faire
+- **Freezing** (0 / 1)
+  - [ ] LOT_096 DX1 Europe : à faire
+  - [ ] LOT_096 DX1 Suisse : à faire
+- **Fuite nasale de liquide cérébrospinal** (0 / 1)
+  - [ ] LOT_030 DX9 Europe : à faire
+  - [ ] LOT_030 DX9 Suisse : à faire
+- **Fuite otologique de liquide cérébrospinal** (0 / 1)
+  - [ ] LOT_024 DX10 Europe : à faire
+  - [ ] LOT_024 DX10 Suisse : à faire
+- **Fusion vertébrale** (0 / 1)
+  - [ ] LOT_082 DX7 Europe : à faire
+  - [ ] LOT_082 DX7 Suisse : à faire
+- **Gangrène de Fournier** (0 / 1)
+  - [ ] LOT_131 DX10 Europe : à faire
+  - [ ] LOT_131 DX10 Suisse : à faire
+- **Gibbosité** (0 / 1)
+  - [ ] LOT_082 DX4 Europe : à faire
+  - [ ] LOT_082 DX4 Suisse : à faire
+- **Gilles de la Tourette** (0 / 1)
+  - [ ] LOT_097 DX7 Europe : à faire
+  - [ ] LOT_097 DX7 Suisse : à faire
+- **Gingivostomatite herpétique** (0 / 1)
+  - [ ] LOT_025 DX6 Europe : à faire
+  - [ ] LOT_025 DX6 Suisse : à faire
+- **Goitre** (0 / 1)
+  - [ ] LOT_037 DX8 Europe : à faire
+  - [ ] LOT_037 DX8 Suisse : à faire
+- **Golfes temporaux** (0 / 1)
+  - [ ] LOT_091 DX5 Europe : à faire
+  - [ ] LOT_091 DX5 Suisse : à faire
+- **Grain de beauté** (0 / 1)
+  - [ ] LOT_092 DX9 Europe : à faire
+  - [ ] LOT_092 DX9 Suisse : à faire
+- **grossesse môlaire** (0 / 1)
+  - [ ] LOT_078 DX7 Europe : à faire
+  - [ ] LOT_078 DX7 Suisse : à faire
+- **Guillain-Barré** (0 / 1)
+  - [ ] LOT_102 DX3 Europe : à faire
+  - [ ] LOT_102 DX3 Suisse : à faire
+- **Hématochézie** (0 / 1)
+  - [ ] LOT_060 DX3 Europe : à faire
+  - [ ] LOT_060 DX3 Suisse : à faire
+- **Hématome cutané** (0 / 1)
+  - [ ] LOT_087 DX3 Europe : à faire
+  - [ ] LOT_087 DX3 Suisse : à faire
+- **Hématome de la cloison nasale** (0 / 1)
+  - [ ] LOT_031 DX8 Europe : à faire
+  - [ ] LOT_031 DX8 Suisse : à faire
+- **Hématome sous-dural** (0 / 1)
+  - [ ] LOT_029 DX4 Europe : à faire
+  - [ ] LOT_029 DX4 Suisse : à faire
+- **Hématome sous-dural chronique** (0 / 1)
+  - [ ] LOT_124 DX4 Europe : à faire
+  - [ ] LOT_124 DX4 Suisse : à faire
+- **Hémopéritoine et hémothorax** (0 / 1)
+  - [ ] LOT_166 DX5 Europe : à faire
+  - [ ] LOT_166 DX5 Suisse : à faire
+- **Hémophilie acquise** (0 / 1)
+  - [ ] LOT_151 DX10 Europe : à faire
+  - [ ] LOT_151 DX10 Suisse : à faire
+- **Hémophilie constitutionnelle** (0 / 1)
+  - [ ] LOT_151 DX8 Europe : à faire
+  - [ ] LOT_151 DX8 Suisse : à faire
+- **Hémorragie artérielle externe de membre** (0 / 1)
+  - [ ] LOT_116 DX3 Europe : à faire
+  - [ ] LOT_116 DX3 Suisse : à faire
+- **Hémorragie externe abondante** (0 / 1)
+  - [ ] LOT_113 DX3 Europe : à faire
+  - [ ] LOT_113 DX3 Suisse : à faire
+- **Hémorragie sous-arachnoïdienne** (0 / 1)
+  - [ ] LOT_032 DX6 Europe : à faire
+  - [ ] LOT_032 DX6 Suisse : à faire
+- **Hémorragie sous-conjonctivale** (0 / 1)
+  - [ ] LOT_033 DX6 Europe : à faire
+  - [ ] LOT_033 DX6 Suisse : à faire
+- **Hémorroïde interne** (0 / 1)
+  - [ ] LOT_060 DX5 Europe : à faire
+  - [ ] LOT_060 DX5 Suisse : à faire
+- **Hépatite** (0 / 1)
+  - [ ] LOT_090 DX8 Europe : à faire
+  - [ ] LOT_090 DX8 Suisse : à faire
+- **Hépatopathie chronique décompensée** (1 / 1)
+  - [x] LOT_133 DX6 Europe : 13,68 décès pour 100 000 habitants (Union européenne (UE-27), 2023)
+  - [x] LOT_133 DX6 Suisse : 6,22 décès pour 100 000 habitants (Suisse, 2023)
+- **hernie crurale** (0 / 1)
+  - [ ] LOT_072 DX2 Europe : à faire
+  - [ ] LOT_072 DX2 Suisse : à faire
+- **Hernie de la paroi abdominale (inguinale, ombilicale, incisionnelle)** (0 / 1)
+  - [ ] LOT_054 DX1 Europe : à faire
+  - [ ] LOT_054 DX1 Suisse : à faire
+- **Hernie etranglee** (0 / 1)
+  - [ ] LOT_072 DX1 Europe : à faire
+  - [ ] LOT_072 DX1 Suisse : à faire
+- **Hernie obturatrice** (0 / 1)
+  - [ ] LOT_072 DX5 Europe : à faire
+  - [ ] LOT_072 DX5 Suisse : à faire
+- **Herpès buccal** (0 / 1)
+  - [ ] LOT_086 DX7 Europe : à faire
+  - [ ] LOT_086 DX7 Suisse : à faire
+- **Hirsutisme** (0 / 1)
+  - [ ] LOT_091 DX6 Europe : à faire
+  - [ ] LOT_091 DX6 Suisse : à faire
+- **Humeur liée à une maladie somatique** (0 / 1)
+  - [ ] LOT_121 DX6 Europe : à faire
+  - [ ] LOT_121 DX6 Suisse : à faire
+- **Hydrocéphalie** (0 / 1)
+  - [ ] LOT_029 DX3 Europe : à faire
+  - [ ] LOT_029 DX3 Suisse : à faire
+- **hyperactivité vésicale avec incontinence par urgenturie** (0 / 1)
+  - [ ] LOT_075 DX7 Europe : à faire
+  - [ ] LOT_075 DX7 Suisse : à faire
+- **Hyperaldostéronisme primaire** (0 / 1)
+  - [ ] LOT_130 DX3 Europe : à faire
+  - [ ] LOT_130 DX3 Suisse : à faire
+- **Hypercalcémie** (0 / 1)
+  - [ ] LOT_155 DX6 Europe : à faire
+  - [ ] LOT_155 DX6 Suisse : à faire
+- **Hyperéosinophilie** (0 / 1)
+  - [ ] LOT_153 DX9 Europe : à faire
+  - [ ] LOT_153 DX9 Suisse : à faire
+- **Hyperglycémie secondaire** (0 / 1)
+  - [ ] LOT_157 DX9 Europe : à faire
+  - [ ] LOT_157 DX9 Suisse : à faire
+- **Hyperhidrose focale primaire** (0 / 1)
+  - [ ] LOT_001 DX4 Europe : à faire
+  - [ ] LOT_001 DX4 Suisse : à faire
+- **Hyperkaliémie** (0 / 3)
+  - [ ] LOT_063 DX8 Europe : à faire
+  - [ ] LOT_063 DX8 Suisse : à faire
+  - [ ] LOT_154 DX7 Europe : à faire
+  - [ ] LOT_154 DX7 Suisse : à faire
+  - [ ] LOT_155 DX4 Europe : à faire
+  - [ ] LOT_155 DX4 Suisse : à faire
+- **Hypermagnésémie** (0 / 1)
+  - [ ] LOT_155 DX8 Europe : à faire
+  - [ ] LOT_155 DX8 Suisse : à faire
+- **Hyperménorrhée** (0 / 1)
+  - [ ] LOT_066 DX4 Europe : à faire
+  - [ ] LOT_066 DX4 Suisse : à faire
+- **Hypernatrémie** (0 / 1)
+  - [ ] LOT_155 DX2 Europe : à faire
+  - [ ] LOT_155 DX2 Suisse : à faire
+- **Hyperparathyroïdie primaire (hypercalcémie)** (0 / 1)
+  - [ ] LOT_003 DX5 Europe : à faire
+  - [ ] LOT_003 DX5 Suisse : à faire
+- **Hyperphagie boulimique** (0 / 2)
+  - [ ] LOT_015 DX4 Europe : 5 candidat(s) à lire
+  - [ ] LOT_015 DX4 Suisse : 3 candidat(s) à lire
+  - [ ] LOT_120 DX3 Europe : 5 candidat(s) à lire
+  - [ ] LOT_120 DX3 Suisse : 3 candidat(s) à lire
+- **Hyperphosphatémie** (0 / 1)
+  - [ ] LOT_155 DX10 Europe : à faire
+  - [ ] LOT_155 DX10 Suisse : à faire
+- **Hyperplasie congénitale des surrénales** (0 / 1)
+  - [ ] LOT_062 DX5 Europe : à faire
+  - [ ] LOT_062 DX5 Suisse : à faire
+- **Hyperplasie congénitale des surrénales du nouveau-né** (0 / 1)
+  - [ ] LOT_131 DX7 Europe : à faire
+  - [ ] LOT_131 DX7 Suisse : à faire
+- **Hypersensibilité œsophagienne au reflux** (0 / 1)
+  - [ ] LOT_047 DX3 Europe : à faire
+  - [ ] LOT_047 DX3 Suisse : à faire
+- **Hypersomnie centrale** (0 / 1)
+  - [ ] LOT_040 DX5 Europe : à faire
+  - [ ] LOT_040 DX5 Suisse : à faire
+- **Hypertension intracrânienne idiopathique ou secondaire** (0 / 1)
+  - [ ] LOT_017 DX8 Europe : à faire
+  - [ ] LOT_017 DX8 Suisse : à faire
+- **Hypertension rénoparenchymateuse** (0 / 1)
+  - [ ] LOT_130 DX4 Europe : à faire
+  - [ ] LOT_130 DX4 Suisse : à faire
+- **Hypertension rénovasculaire** (0 / 1)
+  - [ ] LOT_130 DX5 Europe : à faire
+  - [ ] LOT_130 DX5 Suisse : à faire
+- **Hypertrophie adénoamygdalienne de l’enfant** (0 / 1)
+  - [ ] LOT_034 DX3 Europe : à faire
+  - [ ] LOT_034 DX3 Suisse : à faire
+- **Hypertrophie adénoïdienne** (0 / 1)
+  - [ ] LOT_031 DX6 Europe : à faire
+  - [ ] LOT_031 DX6 Suisse : à faire
+- **Hyperventilation** (0 / 1)
+  - [ ] LOT_117 DX7 Europe : à faire
+  - [ ] LOT_117 DX7 Suisse : à faire
+- **Hypervolémie** (0 / 1)
+  - [ ] LOT_063 DX7 Europe : à faire
+  - [ ] LOT_063 DX7 Suisse : à faire
+- **Hypocalcémie** (0 / 1)
+  - [ ] LOT_155 DX5 Europe : à faire
+  - [ ] LOT_155 DX5 Suisse : à faire
+- **Hypoglycémie** (0 / 3)
+  - [ ] LOT_001 DX2 Europe : à faire
+  - [ ] LOT_001 DX2 Suisse : à faire
+  - [ ] LOT_124 DX1 Europe : à faire
+  - [ ] LOT_124 DX1 Suisse : à faire
+  - [ ] LOT_157 DX7 Europe : à faire
+  - [ ] LOT_157 DX7 Suisse : à faire
+- **Hypoglycémie avec neuroglycopénie** (0 / 1)
+  - [ ] LOT_125 DX1 Europe : à faire
+  - [ ] LOT_125 DX1 Suisse : à faire
+- **Hypoglycémie hyperinsulinémique endogène** (0 / 1)
+  - [ ] LOT_157 DX8 Europe : à faire
+  - [ ] LOT_157 DX8 Suisse : à faire
+- **Hypoglycémie ou hyperglycémie** (0 / 1)
+  - [ ] LOT_008 DX6 Europe : à faire
+  - [ ] LOT_008 DX6 Suisse : à faire
+- **Hypokaliémie** (0 / 1)
+  - [ ] LOT_155 DX3 Europe : à faire
+  - [ ] LOT_155 DX3 Suisse : à faire
+- **Hypomagnésémie** (0 / 1)
+  - [ ] LOT_155 DX7 Europe : à faire
+  - [ ] LOT_155 DX7 Suisse : à faire
+- **Hyponatrémie** (0 / 1)
+  - [ ] LOT_155 DX1 Europe : à faire
+  - [ ] LOT_155 DX1 Suisse : à faire
+- **Hypophonie** (0 / 1)
+  - [ ] LOT_098 DX9 Europe : à faire
+  - [ ] LOT_098 DX9 Suisse : à faire
+- **Hypophosphatémie** (0 / 1)
+  - [ ] LOT_155 DX9 Europe : à faire
+  - [ ] LOT_155 DX9 Suisse : à faire
+- **Hypopigmentation postinflammatoire** (0 / 1)
+  - [ ] LOT_088 DX3 Europe : à faire
+  - [ ] LOT_088 DX3 Suisse : à faire
+- **Hypospadias** (0 / 1)
+  - [ ] LOT_131 DX4 Europe : à faire
+  - [ ] LOT_131 DX4 Suisse : à faire
+- **Hypotension orthostatique** (0 / 2)
+  - [ ] LOT_130 DX2 Europe : à faire
+  - [ ] LOT_130 DX2 Suisse : à faire
+  - [ ] LOT_148 DX2 Europe : à faire
+  - [ ] LOT_148 DX2 Suisse : à faire
+- **Hypothermie secondaire à une maladie médicale** (0 / 1)
+  - [ ] LOT_008 DX1 Europe : à faire
+  - [ ] LOT_008 DX1 Suisse : à faire
+- **Hypothermie suspecte** (0 / 1)
+  - [ ] LOT_109 DX5 Europe : à faire
+  - [ ] LOT_109 DX5 Suisse : à faire
+- **Hypothyroïdie** (0 / 4)
+  - [ ] LOT_004 DX9 Europe : à faire
+  - [ ] LOT_004 DX9 Suisse : à faire
+  - [ ] LOT_012 DX10 Europe : à faire
+  - [ ] LOT_012 DX10 Suisse : à faire
+  - [ ] LOT_015 DX5 Europe : à faire
+  - [ ] LOT_015 DX5 Suisse : à faire
+  - [ ] LOT_034 DX8 Europe : à faire
+  - [ ] LOT_034 DX8 Suisse : à faire
+- **Hypoxémie** (0 / 1)
+  - [ ] LOT_149 DX1 Europe : à faire
+  - [ ] LOT_149 DX1 Suisse : à faire
+- **Hypoxie et hypercapnie** (0 / 1)
+  - [ ] LOT_125 DX2 Europe : à faire
+  - [ ] LOT_125 DX2 Suisse : à faire
+- **Ictère du nouveau-né** (0 / 1)
+  - [ ] LOT_090 DX9 Europe : à faire
+  - [ ] LOT_090 DX9 Suisse : à faire
+- **Idées de mort** (0 / 1)
+  - [ ] LOT_119 DX9 Europe : à faire
+  - [ ] LOT_119 DX9 Suisse : à faire
+- **Idées de mort après l'événement** (0 / 1)
+  - [ ] LOT_127 DX9 Europe : à faire
+  - [ ] LOT_127 DX9 Suisse : à faire
+- **Idées de mort associées** (0 / 1)
+  - [ ] LOT_123 DX10 Europe : à faire
+  - [ ] LOT_123 DX10 Suisse : à faire
+- **Iléus** (0 / 1)
+  - [ ] LOT_061 DX7 Europe : à faire
+  - [ ] LOT_061 DX7 Suisse : à faire
+- **Immersion avec détresse** (0 / 1)
+  - [ ] LOT_109 DX1 Europe : à faire
+  - [ ] LOT_109 DX1 Suisse : à faire
+- **Immunodépression et asplénie** (0 / 1)
+  - [ ] LOT_203 DX6 Europe : à faire
+  - [ ] LOT_203 DX6 Suisse : à faire
+- **Impaction alimentaire œsophagienne** (0 / 1)
+  - [ ] LOT_023 DX3 Europe : à faire
+  - [ ] LOT_023 DX3 Suisse : à faire
+- **Incontinence continue par fistule** (0 / 1)
+  - [ ] LOT_201 DX9 Europe : à faire
+  - [ ] LOT_201 DX9 Suisse : à faire
+- **Incontinence par regorgement** (0 / 1)
+  - [ ] LOT_055 DX3 Europe : à faire
+  - [ ] LOT_055 DX3 Suisse : à faire
+- **Index cheville-bras** (0 / 1)
+  - [ ] LOT_096 DX10 Europe : à faire
+  - [ ] LOT_096 DX10 Suisse : à faire
+- **Infection à entérobactérie** (0 / 1)
+  - [ ] LOT_070 DX5 Europe : à faire
+  - [ ] LOT_070 DX5 Suisse : à faire
+- **Infection à Mycoplasma genitalium** (0 / 1)
+  - [ ] LOT_074 DX3 Europe : à faire
+  - [ ] LOT_074 DX3 Suisse : à faire
+- **Infection à Trichomonas vaginalis** (0 / 1)
+  - [ ] LOT_074 DX4 Europe : à faire
+  - [ ] LOT_074 DX4 Suisse : à faire
+- **Infection cervicale profonde** (0 / 1)
+  - [ ] LOT_037 DX6 Europe : à faire
+  - [ ] LOT_037 DX6 Suisse : à faire
+- **Infection congénitale à cytomégalovirus** (0 / 1)
+  - [ ] LOT_029 DX8 Europe : à faire
+  - [ ] LOT_029 DX8 Suisse : à faire
+- **Infection génitale** (0 / 1)
+  - [ ] LOT_066 DX7 Europe : à faire
+  - [ ] LOT_066 DX7 Suisse : à faire
+- **Infection sexuellement transmise** (0 / 1)
+  - [ ] LOT_070 DX4 Europe : à faire
+  - [ ] LOT_070 DX4 Suisse : à faire
+- **Infection urinaire** (0 / 1)
+  - [ ] LOT_005 DX1 Europe : à faire
+  - [ ] LOT_005 DX1 Suisse : à faire
+- **Infection urinaire avec symptômes systémiques (pyélonéphrite)** (0 / 1)
+  - [ ] LOT_006 DX2 Europe : à faire
+  - [ ] LOT_006 DX2 Suisse : à faire
+- **Infections fébriles** (0 / 1)
+  - [ ] LOT_001 DX9 Europe : à faire
+  - [ ] LOT_001 DX9 Suisse : à faire
+- **Infertilité associée** (0 / 1)
+  - [ ] LOT_068 DX7 Europe : à faire
+  - [ ] LOT_068 DX7 Suisse : à faire
+- **Infertilité secondaire** (0 / 1)
+  - [ ] LOT_065 DX9 Europe : à faire
+  - [ ] LOT_065 DX9 Suisse : à faire
+- **Inhalation de corps étranger** (0 / 1)
+  - [ ] LOT_049 DX10 Europe : à faire
+  - [ ] LOT_049 DX10 Suisse : à faire
+- **Inhalation d’un corps étranger des voies aériennes** (0 / 1)
+  - [ ] LOT_110 DX5 Europe : à faire
+  - [ ] LOT_110 DX5 Suisse : à faire
+- **Inhibiteur oral de première ligne** (0 / 1)
+  - [ ] LOT_071 DX4 Europe : à faire
+  - [ ] LOT_071 DX4 Suisse : à faire
+- **Injection intracaverneuse** (0 / 1)
+  - [ ] LOT_071 DX7 Europe : à faire
+  - [ ] LOT_071 DX7 Suisse : à faire
+- **Insensibilité aux androgènes** (0 / 1)
+  - [ ] LOT_062 DX6 Europe : à faire
+  - [ ] LOT_062 DX6 Suisse : à faire
+- **Instabilité posturale** (0 / 1)
+  - [ ] LOT_096 DX2 Europe : à faire
+  - [ ] LOT_096 DX2 Suisse : à faire
+- **Insuffisance aortique** (0 / 1)
+  - [ ] LOT_132 DX6 Europe : à faire
+  - [ ] LOT_132 DX6 Suisse : à faire
+- **Insuffisance hépatocellulaire** (0 / 1)
+  - [ ] LOT_151 DX5 Europe : à faire
+  - [ ] LOT_151 DX5 Suisse : à faire
+- **Insuffisance mitrale dégénérative** (0 / 1)
+  - [ ] LOT_132 DX3 Europe : à faire
+  - [ ] LOT_132 DX3 Suisse : à faire
+- **Insuffisance ovarienne occulte** (0 / 1)
+  - [ ] LOT_065 DX8 Europe : à faire
+  - [ ] LOT_065 DX8 Suisse : à faire
+- **Insuffisance respiratoire aiguë** (0 / 1)
+  - [ ] LOT_133 DX3 Europe : à faire
+  - [ ] LOT_133 DX3 Suisse : à faire
+- **Insuffisance surrénalienne primaire (maladie d'Addison)** (0 / 1)
+  - [ ] LOT_016 DX10 Europe : à faire
+  - [ ] LOT_016 DX10 Suisse : à faire
+- **Insuffisance veineuse chronique** (0 / 1)
+  - [ ] LOT_012 DX1 Europe : à faire
+  - [ ] LOT_012 DX1 Suisse : à faire
+- **Intestin irritable** (0 / 1)
+  - [ ] LOT_058 DX3 Europe : à faire
+  - [ ] LOT_058 DX3 Suisse : à faire
+- **Intolérance à l’effort** (0 / 1)
+  - [ ] LOT_083 DX5 Europe : à faire
+  - [ ] LOT_083 DX5 Suisse : à faire
+- **Intolérance au lactose et autres malabsorptions de glucides** (0 / 1)
+  - [ ] LOT_053 DX3 Europe : à faire
+  - [ ] LOT_053 DX3 Suisse : à faire
+- **Irritabilité et sursaut** (0 / 1)
+  - [ ] LOT_127 DX8 Europe : à faire
+  - [ ] LOT_127 DX8 Suisse : à faire
+- **Ischémie aiguë de membre par occlusion artérielle** (0 / 1)
+  - [ ] LOT_116 DX4 Europe : à faire
+  - [ ] LOT_116 DX4 Suisse : à faire
+- **Ischémie mésentérique aiguë** (0 / 1)
+  - [ ] LOT_134 DX9 Europe : à faire
+  - [ ] LOT_134 DX9 Suisse : à faire
+- **Kératite aiguë** (0 / 1)
+  - [ ] LOT_022 DX6 Europe : à faire
+  - [ ] LOT_022 DX6 Suisse : à faire
+- **Kératite infectieuse** (0 / 1)
+  - [ ] LOT_033 DX7 Europe : à faire
+  - [ ] LOT_033 DX7 Suisse : à faire
+- **Kyste fonctionnel** (0 / 1)
+  - [ ] LOT_067 DX1 Europe : à faire
+  - [ ] LOT_067 DX1 Suisse : à faire
+- **Kyste ovarien bénin (masse annexielle bénigne)** (0 / 1)
+  - [ ] LOT_054 DX4 Europe : à faire
+  - [ ] LOT_054 DX4 Suisse : à faire
+- **Kyste vocal** (0 / 1)
+  - [ ] LOT_019 DX6 Europe : à faire
+  - [ ] LOT_019 DX6 Suisse : à faire
+- **Laryngite aiguë** (0 / 1)
+  - [ ] LOT_019 DX1 Europe : à faire
+  - [ ] LOT_019 DX1 Suisse : à faire
+- **Laryngite aiguë sous-glottique (faux-croup)** (0 / 1)
+  - [ ] LOT_049 DX5 Europe : à faire
+  - [ ] LOT_049 DX5 Suisse : à faire
+- **Laryngite chronique avec œdème de Reinke** (0 / 1)
+  - [ ] LOT_019 DX5 Europe : à faire
+  - [ ] LOT_019 DX5 Suisse : à faire
+- **Lésion de l’artère poplitée sur luxation du genou** (0 / 1)
+  - [ ] LOT_116 DX2 Europe : à faire
+  - [ ] LOT_116 DX2 Suisse : à faire
+- **Lésion iatrogène de l’artère fémorale** (0 / 1)
+  - [ ] LOT_116 DX1 Europe : à faire
+  - [ ] LOT_116 DX1 Suisse : à faire
+- **Lésion intimale de grade I** (0 / 1)
+  - [ ] LOT_116 DX8 Europe : à faire
+  - [ ] LOT_116 DX8 Suisse : à faire
+- **Lésion médullaire complète** (0 / 1)
+  - [ ] LOT_114 DX7 Europe : à faire
+  - [ ] LOT_114 DX7 Suisse : à faire
+- **Lésion médullaire incomplète** (0 / 1)
+  - [ ] LOT_114 DX6 Europe : à faire
+  - [ ] LOT_114 DX6 Suisse : à faire
+- **Lésion sphinctérienne** (0 / 1)
+  - [ ] LOT_055 DX4 Europe : à faire
+  - [ ] LOT_055 DX4 Suisse : à faire
+- **Lésion traumatique fermée de l’aorte thoracique** (0 / 1)
+  - [ ] LOT_116 DX9 Europe : à faire
+  - [ ] LOT_116 DX9 Suisse : à faire
+- **Lésion vasculaire traumatique du membre** (0 / 1)
+  - [ ] LOT_112 DX7 Europe : à faire
+  - [ ] LOT_112 DX7 Suisse : à faire
+- **Lever de chaise** (0 / 1)
+  - [ ] LOT_095 DX6 Europe : à faire
+  - [ ] LOT_095 DX6 Suisse : à faire
+- **Lévonorgestrel** (0 / 1)
+  - [ ] LOT_069 DX4 Europe : à faire
+  - [ ] LOT_069 DX4 Suisse : à faire
+- **Lichen ou maladie bulleuse** (0 / 1)
+  - [ ] LOT_086 DX8 Europe : à faire
+  - [ ] LOT_086 DX8 Suisse : à faire
+- **Lichen scléreux vulvaire** (0 / 1)
+  - [ ] LOT_073 DX8 Europe : à faire
+  - [ ] LOT_073 DX8 Suisse : à faire
+- **Lichen unguéal** (0 / 1)
+  - [ ] LOT_093 DX2 Europe : à faire
+  - [ ] LOT_093 DX2 Suisse : à faire
+- **Ligne rouge** (0 / 1)
+  - [ ] LOT_093 DX10 Europe : à faire
+  - [ ] LOT_093 DX10 Suisse : à faire
+- **Lipœdème** (0 / 1)
+  - [ ] LOT_012 DX9 Europe : à faire
+  - [ ] LOT_012 DX9 Suisse : à faire
+- **Lumière de Wood** (0 / 1)
+  - [ ] LOT_088 DX2 Europe : à faire
+  - [ ] LOT_088 DX2 Suisse : à faire
+- **Luxation articulaire aiguë** (0 / 1)
+  - [ ] LOT_112 DX5 Europe : à faire
+  - [ ] LOT_112 DX5 Suisse : à faire
+- **Luxation facettaire cervicale** (0 / 1)
+  - [ ] LOT_114 DX4 Europe : à faire
+  - [ ] LOT_114 DX4 Suisse : à faire
+- **Luxation mandibulaire** (0 / 1)
+  - [ ] LOT_027 DX10 Europe : à faire
+  - [ ] LOT_027 DX10 Suisse : à faire
+- **Luxation rétrolunaire du carpe** (0 / 1)
+  - [ ] LOT_152 DX10 Europe : à faire
+  - [ ] LOT_152 DX10 Suisse : à faire
+- **Lymphœdème** (0 / 1)
+  - [ ] LOT_012 DX8 Europe : à faire
+  - [ ] LOT_012 DX8 Suisse : à faire
+- **Macrocéphalie familiale constitutionnelle** (0 / 1)
+  - [ ] LOT_029 DX1 Europe : à faire
+  - [ ] LOT_029 DX1 Suisse : à faire
+- **Mal des transports** (0 / 1)
+  - [ ] LOT_061 DX8 Europe : à faire
+  - [ ] LOT_061 DX8 Suisse : à faire
+- **Malabsorption du sujet âgé** (0 / 1)
+  - [ ] LOT_197 DX9 Europe : à faire
+  - [ ] LOT_197 DX9 Suisse : à faire
+- **Maladie cœliaque** (0 / 3)
+  - [ ] LOT_016 DX5 Europe : à faire
+  - [ ] LOT_016 DX5 Suisse : à faire
+  - [ ] LOT_053 DX4 Europe : à faire
+  - [ ] LOT_053 DX4 Suisse : à faire
+  - [ ] LOT_158 DX9 Europe : à faire
+  - [ ] LOT_158 DX9 Suisse : à faire
+- **Maladie de Behçet** (0 / 1)
+  - [ ] LOT_086 DX5 Europe : à faire
+  - [ ] LOT_086 DX5 Suisse : à faire
+- **Maladie de Ménière** (0 / 2)
+  - [ ] LOT_028 DX7 Europe : à faire
+  - [ ] LOT_028 DX7 Suisse : à faire
+  - [ ] LOT_099 DX4 Europe : à faire
+  - [ ] LOT_099 DX4 Suisse : à faire
+- **Maladie de Rendu-Osler** (0 / 1)
+  - [ ] LOT_021 DX8 Europe : à faire
+  - [ ] LOT_021 DX8 Suisse : à faire
+- **Maladie de Scheuermann thoracique** (0 / 1)
+  - [ ] LOT_080 DX4 Europe : à faire
+  - [ ] LOT_080 DX4 Suisse : à faire
+- **Maladie de Sjögren** (0 / 1)
+  - [ ] LOT_025 DX7 Europe : à faire
+  - [ ] LOT_025 DX7 Suisse : à faire
+- **Maladie de von Willebrand** (0 / 2)
+  - [ ] LOT_021 DX7 Europe : à faire
+  - [ ] LOT_021 DX7 Suisse : à faire
+  - [ ] LOT_151 DX7 Europe : à faire
+  - [ ] LOT_151 DX7 Suisse : à faire
+- **Maladie des griffes du chat (Bartonella henselae)** (0 / 1)
+  - [ ] LOT_002 DX8 Europe : à faire
+  - [ ] LOT_002 DX8 Suisse : à faire
+- **Maladie hémorroïdaire** (0 / 1)
+  - [ ] LOT_056 DX10 Europe : à faire
+  - [ ] LOT_056 DX10 Suisse : à faire
+- **Maladie ulcéreuse gastroduodénale (Helicobacter pylori, AINS, aspirine)** (0 / 1)
+  - [ ] LOT_047 DX6 Europe : à faire
+  - [ ] LOT_047 DX6 Suisse : à faire
+- **Manœuvre libératoire** (0 / 1)
+  - [ ] LOT_099 DX2 Europe : à faire
+  - [ ] LOT_099 DX2 Suisse : à faire
+- **Marche spastique** (0 / 1)
+  - [ ] LOT_096 DX5 Europe : à faire
+  - [ ] LOT_096 DX5 Suisse : à faire
+- **Marqueur coronarien** (0 / 1)
+  - [ ] LOT_071 DX1 Europe : à faire
+  - [ ] LOT_071 DX1 Suisse : à faire
+- **Masse après la ménopause** (0 / 1)
+  - [ ] LOT_067 DX8 Europe : à faire
+  - [ ] LOT_067 DX8 Suisse : à faire
+- **Masse avant la ménopause** (0 / 1)
+  - [ ] LOT_067 DX9 Europe : à faire
+  - [ ] LOT_067 DX9 Suisse : à faire
+- **Masse d’allure bénigne** (0 / 1)
+  - [ ] LOT_067 DX6 Europe : à faire
+  - [ ] LOT_067 DX6 Suisse : à faire
+- **Masse maligne** (0 / 1)
+  - [ ] LOT_067 DX10 Europe : à faire
+  - [ ] LOT_067 DX10 Suisse : à faire
+- **Masse suspecte** (0 / 1)
+  - [ ] LOT_067 DX7 Europe : à faire
+  - [ ] LOT_067 DX7 Suisse : à faire
+- **Mauvaise coupe** (0 / 1)
+  - [ ] LOT_093 DX9 Europe : à faire
+  - [ ] LOT_093 DX9 Suisse : à faire
+- **Mélasma** (0 / 1)
+  - [ ] LOT_088 DX8 Europe : à faire
+  - [ ] LOT_088 DX8 Suisse : à faire
+- **Méningo-encéphalite** (0 / 1)
+  - [ ] LOT_125 DX4 Europe : à faire
+  - [ ] LOT_125 DX4 Suisse : à faire
+- **Mention à l’état civil** (0 / 1)
+  - [ ] LOT_062 DX8 Europe : à faire
+  - [ ] LOT_062 DX8 Suisse : à faire
+- **Méthode de courte durée** (0 / 1)
+  - [ ] LOT_069 DX3 Europe : à faire
+  - [ ] LOT_069 DX3 Suisse : à faire
+- **Méthode de longue durée** (0 / 1)
+  - [ ] LOT_069 DX1 Europe : à faire
+  - [ ] LOT_069 DX1 Suisse : à faire
+- **Méthode œstroprogestative** (0 / 1)
+  - [ ] LOT_069 DX2 Europe : à faire
+  - [ ] LOT_069 DX2 Suisse : à faire
+- **Microangiopathie** (0 / 1)
+  - [ ] LOT_087 DX10 Europe : à faire
+  - [ ] LOT_087 DX10 Suisse : à faire
+- **Microbiote à restaurer** (0 / 1)
+  - [ ] LOT_079 DX10 Europe : à faire
+  - [ ] LOT_079 DX10 Suisse : à faire
+- **Microcéphalie primitive génétique** (0 / 1)
+  - [ ] LOT_029 DX7 Europe : à faire
+  - [ ] LOT_029 DX7 Suisse : à faire
+- **Microhématurie** (0 / 1)
+  - [ ] LOT_064 DX4 Europe : à faire
+  - [ ] LOT_064 DX4 Suisse : à faire
+- **Microsomie craniofaciale** (0 / 1)
+  - [ ] LOT_020 DX10 Europe : à faire
+  - [ ] LOT_020 DX10 Suisse : à faire
+- **Moisissure** (0 / 1)
+  - [ ] LOT_093 DX5 Europe : à faire
+  - [ ] LOT_093 DX5 Suisse : à faire
+- **Mononévrite** (0 / 1)
+  - [ ] LOT_084 DX9 Europe : à faire
+  - [ ] LOT_084 DX9 Suisse : à faire
+- **Mononévrite multiple des vasculites** (0 / 1)
+  - [ ] LOT_103 DX7 Europe : à faire
+  - [ ] LOT_103 DX7 Suisse : à faire
+- **Mononucléose infectieuse (EBV)** (0 / 1)
+  - [ ] LOT_002 DX4 Europe : à faire
+  - [ ] LOT_002 DX4 Suisse : à faire
+- **Mononucléose infectieuse à EBV** (0 / 1)
+  - [ ] LOT_035 DX3 Europe : à faire
+  - [ ] LOT_035 DX3 Suisse : à faire
+- **Mouvements périodiques des jambes, syndrome des jambes sans repos** (0 / 1)
+  - [ ] LOT_011 DX7 Europe : à faire
+  - [ ] LOT_011 DX7 Suisse : à faire
+- **Mutilation génitale féminine** (0 / 1)
+  - [ ] LOT_131 DX5 Europe : à faire
+  - [ ] LOT_131 DX5 Suisse : à faire
+- **Myalgie sans hausse des enzymes** (0 / 1)
+  - [ ] LOT_083 DX1 Europe : à faire
+  - [ ] LOT_083 DX1 Suisse : à faire
+- **Myasthénie auto-immune** (0 / 1)
+  - [ ] LOT_023 DX9 Europe : à faire
+  - [ ] LOT_023 DX9 Suisse : à faire
+- **Myasthénie oculaire** (0 / 1)
+  - [ ] LOT_036 DX7 Europe : à faire
+  - [ ] LOT_036 DX7 Suisse : à faire
+- **Myasthénie oculaire et généralisée** (0 / 1)
+  - [ ] LOT_017 DX4 Europe : à faire
+  - [ ] LOT_017 DX4 Suisse : à faire
+- **Mycose** (0 / 1)
+  - [ ] LOT_079 DX3 Europe : à faire
+  - [ ] LOT_079 DX3 Suisse : à faire
+- **Myélopathie cervicale compressive** (0 / 1)
+  - [ ] LOT_103 DX8 Europe : à faire
+  - [ ] LOT_103 DX8 Suisse : à faire
+- **Myélopathie cervicale dégénérative** (0 / 1)
+  - [ ] LOT_032 DX3 Europe : à faire
+  - [ ] LOT_032 DX3 Suisse : à faire
+- **Myocardite** (0 / 2)
+  - [ ] LOT_014 DX8 Europe : à faire
+  - [ ] LOT_014 DX8 Suisse : à faire
+  - [ ] LOT_150 DX3 Europe : à faire
+  - [ ] LOT_150 DX3 Suisse : à faire
+- **Myoclonies et fasciculations** (0 / 1)
+  - [ ] LOT_104 DX10 Europe : à faire
+  - [ ] LOT_104 DX10 Suisse : à faire
+- **Myome utérin (léiomyome)** (0 / 2)
+  - [ ] LOT_054 DX2 Europe : à faire
+  - [ ] LOT_054 DX2 Suisse : à faire
+  - [ ] LOT_067 DX3 Europe : à faire
+  - [ ] LOT_067 DX3 Suisse : à faire
+- **Myosite** (0 / 1)
+  - [ ] LOT_083 DX2 Europe : à faire
+  - [ ] LOT_083 DX2 Suisse : à faire
+- **Nécrose tubulaire aiguë** (0 / 1)
+  - [ ] LOT_063 DX5 Europe : à faire
+  - [ ] LOT_063 DX5 Suisse : à faire
+- **Neuropathie diabétique** (0 / 1)
+  - [ ] LOT_084 DX7 Europe : à faire
+  - [ ] LOT_084 DX7 Suisse : à faire
+- **Neutropénie fébrile** (0 / 1)
+  - [ ] LOT_153 DX1 Europe : à faire
+  - [ ] LOT_153 DX1 Suisse : à faire
+- **Névralgie du trijumeau** (0 / 1)
+  - [ ] LOT_027 DX8 Europe : à faire
+  - [ ] LOT_027 DX8 Suisse : à faire
+- **Névrite optique** (0 / 2)
+  - [ ] LOT_018 DX8 Europe : à faire
+  - [ ] LOT_018 DX8 Suisse : à faire
+  - [ ] LOT_039 DX8 Europe : à faire
+  - [ ] LOT_039 DX8 Suisse : à faire
+- **Névrite vestibulaire** (0 / 1)
+  - [ ] LOT_099 DX3 Europe : à faire
+  - [ ] LOT_099 DX3 Suisse : à faire
+- **Nodules vocaux** (0 / 1)
+  - [ ] LOT_019 DX3 Europe : à faire
+  - [ ] LOT_019 DX3 Suisse : à faire
+- **Nouveau rapport à risque** (0 / 1)
+  - [ ] LOT_069 DX9 Europe : à faire
+  - [ ] LOT_069 DX9 Suisse : à faire
+- **Nystagmus** (0 / 1)
+  - [ ] LOT_099 DX8 Europe : à faire
+  - [ ] LOT_099 DX8 Suisse : à faire
+- **Nævus achromique** (0 / 1)
+  - [ ] LOT_088 DX5 Europe : à faire
+  - [ ] LOT_088 DX5 Suisse : à faire
+- **Nævus anémique** (0 / 1)
+  - [ ] LOT_088 DX6 Europe : à faire
+  - [ ] LOT_088 DX6 Suisse : à faire
+- **Obstacle extrahépatique** (0 / 1)
+  - [ ] LOT_090 DX4 Europe : à faire
+  - [ ] LOT_090 DX4 Suisse : à faire
+- **Obstruction aiguë des voies aériennes par corps étranger** (0 / 1)
+  - [ ] LOT_023 DX10 Europe : à faire
+  - [ ] LOT_023 DX10 Suisse : à faire
+- **Obstruction biliaire** (0 / 1)
+  - [ ] LOT_133 DX5 Europe : à faire
+  - [ ] LOT_133 DX5 Suisse : à faire
+- **Obstruction urinaire** (0 / 1)
+  - [ ] LOT_063 DX6 Europe : à faire
+  - [ ] LOT_063 DX6 Suisse : à faire
+- **Occlusion artérielle rétinienne** (0 / 1)
+  - [ ] LOT_018 DX9 Europe : à faire
+  - [ ] LOT_018 DX9 Suisse : à faire
+- **Occlusion de l'intestin grêle sur bride** (0 / 1)
+  - [ ] LOT_135 DX6 Europe : à faire
+  - [ ] LOT_135 DX6 Suisse : à faire
+- **Occlusion du grêle sur adhérences** (0 / 1)
+  - [ ] LOT_152 DX6 Europe : à faire
+  - [ ] LOT_152 DX6 Suisse : à faire
+- **Occlusion veineuse rétinienne** (0 / 1)
+  - [ ] LOT_018 DX6 Europe : à faire
+  - [ ] LOT_018 DX6 Suisse : à faire
+- **Œsophagite à éosinophiles** (0 / 1)
+  - [ ] LOT_023 DX5 Europe : à faire
+  - [ ] LOT_023 DX5 Suisse : à faire
+- **Oligurie** (0 / 1)
+  - [ ] LOT_063 DX2 Europe : à faire
+  - [ ] LOT_063 DX2 Suisse : à faire
+- **Ongle incarné** (0 / 1)
+  - [ ] LOT_093 DX7 Europe : à faire
+  - [ ] LOT_093 DX7 Suisse : à faire
+- **Onychomycose** (0 / 1)
+  - [ ] LOT_093 DX4 Europe : à faire
+  - [ ] LOT_093 DX4 Suisse : à faire
+- **Orbitopathie dysthyroïdienne** (0 / 1)
+  - [ ] LOT_036 DX8 Europe : 1 candidat(s) à lire
+  - [ ] LOT_036 DX8 Suisse : à revoir (0 résultat automatique)
+- **Orchi-épididymite** (0 / 1)
+  - [ ] LOT_070 DX3 Europe : à faire
+  - [ ] LOT_070 DX3 Suisse : à faire
+- **Orgelet** (0 / 1)
+  - [ ] LOT_038 DX1 Europe : à faire
+  - [ ] LOT_038 DX1 Suisse : à faire
+- **Otite externe aiguë bactérienne** (0 / 2)
+  - [ ] LOT_024 DX1 Europe : à faire
+  - [ ] LOT_024 DX1 Suisse : à faire
+  - [ ] LOT_026 DX1 Europe : à faire
+  - [ ] LOT_026 DX1 Suisse : à faire
+- **Otite externe nécrosante** (0 / 2)
+  - [ ] LOT_024 DX9 Europe : à faire
+  - [ ] LOT_024 DX9 Suisse : à faire
+  - [ ] LOT_026 DX7 Europe : à faire
+  - [ ] LOT_026 DX7 Suisse : à faire
+- **Otite moyenne aiguë** (0 / 1)
+  - [ ] LOT_026 DX2 Europe : à faire
+  - [ ] LOT_026 DX2 Suisse : à faire
+- **Otite moyenne aiguë perforée** (0 / 1)
+  - [ ] LOT_024 DX2 Europe : à faire
+  - [ ] LOT_024 DX2 Suisse : à faire
+- **Otite moyenne avec épanchement** (0 / 1)
+  - [ ] LOT_028 DX2 Europe : à faire
+  - [ ] LOT_028 DX2 Suisse : à faire
+- **Otite moyenne chronique suppurée sans cholestéatome** (0 / 1)
+  - [ ] LOT_024 DX3 Europe : à faire
+  - [ ] LOT_024 DX3 Suisse : à faire
+- **Otomycose** (0 / 1)
+  - [ ] LOT_024 DX4 Europe : à faire
+  - [ ] LOT_024 DX4 Suisse : à faire
+- **Otospongiose** (0 / 1)
+  - [ ] LOT_028 DX3 Europe : à faire
+  - [ ] LOT_028 DX3 Suisse : à faire
+- **Ovaires polykystiques** (0 / 1)
+  - [ ] LOT_091 DX7 Europe : à faire
+  - [ ] LOT_091 DX7 Suisse : à faire
+- **Panaris** (0 / 1)
+  - [ ] LOT_093 DX8 Europe : à faire
+  - [ ] LOT_093 DX8 Suisse : à faire
+- **Pancréatite aiguë** (0 / 1)
+  - [ ] LOT_052 DX6 Europe : à faire
+  - [ ] LOT_052 DX6 Suisse : à faire
+- **Panique avec douleur thoracique** (0 / 1)
+  - [ ] LOT_117 DX6 Europe : à faire
+  - [ ] LOT_117 DX6 Suisse : à faire
+- **Panique déclenchée par un souvenir** (0 / 1)
+  - [ ] LOT_127 DX5 Europe : à faire
+  - [ ] LOT_127 DX5 Suisse : à faire
+- **Papillomatose laryngée** (0 / 1)
+  - [ ] LOT_019 DX9 Europe : à faire
+  - [ ] LOT_019 DX9 Suisse : à faire
+- **Paralysie** (0 / 1)
+  - [ ] LOT_102 DX2 Europe : à faire
+  - [ ] LOT_102 DX2 Suisse : à faire
+- **Paralysie du nerf abducens (VI)** (0 / 1)
+  - [ ] LOT_036 DX4 Europe : à faire
+  - [ ] LOT_036 DX4 Suisse : à faire
+- **Paralysie du nerf oculomoteur (III)** (0 / 1)
+  - [ ] LOT_036 DX6 Europe : à faire
+  - [ ] LOT_036 DX6 Suisse : à faire
+- **Paralysie du nerf trochléaire (IV)** (0 / 1)
+  - [ ] LOT_036 DX5 Europe : à faire
+  - [ ] LOT_036 DX5 Suisse : à faire
+- **Paralysie faciale idiopathique de Bell** (0 / 1)
+  - [ ] LOT_020 DX1 Europe : à faire
+  - [ ] LOT_020 DX1 Suisse : à faire
+- **Paralysie laryngée** (0 / 1)
+  - [ ] LOT_019 DX7 Europe : à faire
+  - [ ] LOT_019 DX7 Suisse : à faire
+- **Paralysie oculomotrice** (0 / 1)
+  - [ ] LOT_039 DX10 Europe : à faire
+  - [ ] LOT_039 DX10 Suisse : à faire
+- **Paralysie oculomotrice microvasculaire (nerfs III, IV ou VI)** (0 / 1)
+  - [ ] LOT_017 DX2 Europe : à faire
+  - [ ] LOT_017 DX2 Suisse : à faire
+- **Parasomnies (somnambulisme, terreurs nocturnes, cauchemars)** (0 / 1)
+  - [ ] LOT_011 DX10 Europe : à faire
+  - [ ] LOT_011 DX10 Suisse : à faire
+- **Parésie** (0 / 1)
+  - [ ] LOT_102 DX1 Europe : à faire
+  - [ ] LOT_102 DX1 Suisse : à faire
+- **Paresthésies** (0 / 1)
+  - [ ] LOT_084 DX1 Europe : à faire
+  - [ ] LOT_084 DX1 Suisse : à faire
+- **Pelade** (0 / 1)
+  - [ ] LOT_091 DX2 Europe : à faire
+  - [ ] LOT_091 DX2 Suisse : à faire
+- **Pelade unguéale** (0 / 1)
+  - [ ] LOT_093 DX3 Europe : à faire
+  - [ ] LOT_093 DX3 Suisse : à faire
+- **Perforation de la cloison nasale** (0 / 1)
+  - [ ] LOT_021 DX5 Europe : à faire
+  - [ ] LOT_021 DX5 Suisse : à faire
+- **Perforation tympanique traumatique** (0 / 1)
+  - [ ] LOT_024 DX7 Europe : à faire
+  - [ ] LOT_024 DX7 Suisse : à faire
+- **Perforation, médiastinite ou fistule compliquant un corps étranger** (0 / 1)
+  - [ ] LOT_110 DX10 Europe : à faire
+  - [ ] LOT_110 DX10 Suisse : à faire
+- **Péricardite aiguë** (0 / 3)
+  - [ ] LOT_044 DX8 Europe : à faire
+  - [ ] LOT_044 DX8 Suisse : à faire
+  - [ ] LOT_132 DX8 Europe : à faire
+  - [ ] LOT_132 DX8 Suisse : à faire
+  - [ ] LOT_154 DX6 Europe : à faire
+  - [ ] LOT_154 DX6 Suisse : à faire
+- **Péricardite aiguë et myopéricardite** (0 / 1)
+  - [ ] LOT_043 DX8 Europe : à faire
+  - [ ] LOT_043 DX8 Suisse : à faire
+- **Péricoronarite** (0 / 1)
+  - [ ] LOT_027 DX5 Europe : à faire
+  - [ ] LOT_027 DX5 Suisse : à faire
+- **Période qui suit une hospitalisation** (0 / 1)
+  - [ ] LOT_128 DX7 Europe : à faire
+  - [ ] LOT_128 DX7 Suisse : à faire
+- **Péritonite aiguë généralisée** (0 / 1)
+  - [ ] LOT_134 DX8 Europe : à faire
+  - [ ] LOT_134 DX8 Suisse : à faire
+- **Péritonite bactérienne spontanée** (0 / 1)
+  - [ ] LOT_166 DX4 Europe : à faire
+  - [ ] LOT_166 DX4 Suisse : à faire
+- **Perte de confiance** (0 / 1)
+  - [ ] LOT_095 DX2 Europe : à faire
+  - [ ] LOT_095 DX2 Suisse : à faire
+- **Perte de connaissance dans l'eau** (0 / 1)
+  - [ ] LOT_109 DX4 Europe : à faire
+  - [ ] LOT_109 DX4 Suisse : à faire
+- **Perte de connaissance initiale** (0 / 1)
+  - [ ] LOT_111 DX2 Europe : à faire
+  - [ ] LOT_111 DX2 Suisse : à faire
+- **Perte de sensibilité** (0 / 1)
+  - [ ] LOT_089 DX9 Europe : à faire
+  - [ ] LOT_089 DX9 Suisse : à faire
+- **Perte d’intelligibilité** (0 / 1)
+  - [ ] LOT_098 DX10 Europe : à faire
+  - [ ] LOT_098 DX10 Suisse : à faire
+- **Pétéchies** (0 / 1)
+  - [ ] LOT_087 DX1 Europe : à faire
+  - [ ] LOT_087 DX1 Suisse : à faire
+- **Peur de la maladie** (0 / 1)
+  - [ ] LOT_123 DX3 Europe : à faire
+  - [ ] LOT_123 DX3 Suisse : à faire
+- **Pharyngite à streptocoque** (0 / 1)
+  - [ ] LOT_002 DX6 Europe : à faire
+  - [ ] LOT_002 DX6 Suisse : à faire
+- **Pharyngite aiguë** (0 / 1)
+  - [ ] LOT_025 DX1 Europe : à faire
+  - [ ] LOT_025 DX1 Suisse : à faire
+- **Pharyngite virale aiguë** (0 / 1)
+  - [ ] LOT_035 DX1 Europe : à faire
+  - [ ] LOT_035 DX1 Suisse : à faire
+- **Phéochromocytome** (0 / 2)
+  - [ ] LOT_007 DX10 Europe : à faire
+  - [ ] LOT_007 DX10 Suisse : à faire
+  - [ ] LOT_122 DX6 Europe : à faire
+  - [ ] LOT_122 DX6 Suisse : à faire
+- **Photoprotection** (0 / 1)
+  - [ ] LOT_088 DX10 Europe : à faire
+  - [ ] LOT_088 DX10 Suisse : à faire
+- **Pied diabétique** (0 / 1)
+  - [ ] LOT_089 DX8 Europe : à faire
+  - [ ] LOT_089 DX8 Suisse : à faire
+- **Pityriasis versicolor** (0 / 1)
+  - [ ] LOT_088 DX4 Europe : à faire
+  - [ ] LOT_088 DX4 Suisse : à faire
+- **Placement à des fins d'assistance** (0 / 1)
+  - [ ] LOT_128 DX9 Europe : à faire
+  - [ ] LOT_128 DX9 Suisse : à faire
+- **Plaie chez une personne anticoagulée** (0 / 1)
+  - [ ] LOT_113 DX10 Europe : à faire
+  - [ ] LOT_113 DX10 Suisse : à faire
+- **Plaie de la main** (0 / 1)
+  - [ ] LOT_113 DX6 Europe : à faire
+  - [ ] LOT_113 DX6 Suisse : à faire
+- **Plaie du cuir chevelu** (0 / 1)
+  - [ ] LOT_111 DX6 Europe : à faire
+  - [ ] LOT_111 DX6 Suisse : à faire
+- **Plaie infectée** (0 / 1)
+  - [ ] LOT_089 DX4 Europe : à faire
+  - [ ] LOT_089 DX4 Suisse : à faire
+- **Plaie profonde** (0 / 1)
+  - [ ] LOT_113 DX2 Europe : à faire
+  - [ ] LOT_113 DX2 Suisse : à faire
+- **Plaie qui ne guérit pas** (0 / 1)
+  - [ ] LOT_086 DX9 Europe : à faire
+  - [ ] LOT_086 DX9 Suisse : à faire
+- **Plaie simple** (0 / 1)
+  - [ ] LOT_113 DX1 Europe : à faire
+  - [ ] LOT_113 DX1 Suisse : à faire
+- **Planning familial** (0 / 1)
+  - [ ] LOT_069 DX10 Europe : à faire
+  - [ ] LOT_069 DX10 Suisse : à faire
+- **Pleurésie tuberculeuse** (0 / 1)
+  - [ ] LOT_166 DX9 Europe : à faire
+  - [ ] LOT_166 DX9 Suisse : à faire
+- **Pneumothorax** (0 / 1)
+  - [ ] LOT_132 DX9 Europe : à faire
+  - [ ] LOT_132 DX9 Suisse : à faire
+- **Pneumothorax sous tension** (0 / 1)
+  - [ ] LOT_147 DX7 Europe : à faire
+  - [ ] LOT_147 DX7 Suisse : à faire
+- **Pneumothorax spontané** (0 / 5)
+  - [ ] LOT_044 DX9 Europe : à faire
+  - [ ] LOT_044 DX9 Suisse : à faire
+  - [ ] LOT_046 DX10 Europe : à faire
+  - [ ] LOT_046 DX10 Suisse : à faire
+  - [ ] LOT_049 DX9 Europe : à faire
+  - [ ] LOT_049 DX9 Suisse : à faire
+  - [ ] LOT_135 DX9 Europe : à faire
+  - [ ] LOT_135 DX9 Suisse : à faire
+  - [ ] LOT_152 DX4 Europe : à faire
+  - [ ] LOT_152 DX4 Suisse : à faire
+- **Polyarthrite indifférenciée** (0 / 1)
+  - [ ] LOT_085 DX6 Europe : à faire
+  - [ ] LOT_085 DX6 Suisse : à faire
+- **Polydipsie primaire (potomanie, polydipsie psychogène)** (0 / 1)
+  - [ ] LOT_003 DX2 Europe : à faire
+  - [ ] LOT_003 DX2 Suisse : à faire
+- **Polyneuropathie des gammapathies monoclonales** (0 / 1)
+  - [ ] LOT_103 DX6 Europe : à faire
+  - [ ] LOT_103 DX6 Suisse : à faire
+- **Polyneuropathie diabétique distale symétrique** (0 / 1)
+  - [ ] LOT_103 DX1 Europe : à faire
+  - [ ] LOT_103 DX1 Suisse : à faire
+- **Polyneuropathie urémique** (0 / 1)
+  - [ ] LOT_103 DX9 Europe : à faire
+  - [ ] LOT_103 DX9 Suisse : à faire
+- **Polype ou hyperplasie endométriale** (0 / 1)
+  - [ ] LOT_073 DX4 Europe : à faire
+  - [ ] LOT_073 DX4 Suisse : à faire
+- **Polype vocal** (0 / 1)
+  - [ ] LOT_019 DX4 Europe : à faire
+  - [ ] LOT_019 DX4 Suisse : à faire
+- **polype, adénomyose, léiomyome** (0 / 1)
+  - [ ] LOT_078 DX8 Europe : à faire
+  - [ ] LOT_078 DX8 Suisse : à faire
+- **Polypose nasosinusienne** (0 / 1)
+  - [ ] LOT_034 DX6 Europe : à faire
+  - [ ] LOT_034 DX6 Suisse : à faire
+- **Polyurie** (0 / 1)
+  - [ ] LOT_063 DX3 Europe : à faire
+  - [ ] LOT_063 DX3 Suisse : à faire
+- **Polyurie de l’hypercalcémie** (0 / 1)
+  - [ ] LOT_063 DX9 Europe : à faire
+  - [ ] LOT_063 DX9 Suisse : à faire
+- **Pompe à vide** (0 / 1)
+  - [ ] LOT_071 DX6 Europe : à faire
+  - [ ] LOT_071 DX6 Suisse : à faire
+- **Porte d’entrée** (0 / 1)
+  - [ ] LOT_094 DX2 Europe : à faire
+  - [ ] LOT_094 DX2 Suisse : à faire
+- **Pouls distaux** (0 / 1)
+  - [ ] LOT_096 DX9 Europe : à faire
+  - [ ] LOT_096 DX9 Suisse : à faire
+- **Prélèvement mycologique** (0 / 1)
+  - [ ] LOT_093 DX6 Europe : à faire
+  - [ ] LOT_093 DX6 Suisse : à faire
+- **Prélèvement non diagnostique** (0 / 1)
+  - [ ] LOT_158 DX10 Europe : à faire
+  - [ ] LOT_158 DX10 Suisse : à faire
+- **Pression d’assignation précoce** (0 / 1)
+  - [ ] LOT_062 DX3 Europe : à faire
+  - [ ] LOT_062 DX3 Suisse : à faire
+- **Priapisme ischémique** (0 / 1)
+  - [ ] LOT_131 DX9 Europe : à faire
+  - [ ] LOT_131 DX9 Suisse : à faire
+- **Proches** (0 / 1)
+  - [ ] LOT_101 DX10 Europe : à faire
+  - [ ] LOT_101 DX10 Suisse : à faire
+- **Proctalgia fugax** (0 / 1)
+  - [ ] LOT_056 DX9 Europe : à faire
+  - [ ] LOT_056 DX9 Suisse : à faire
+- **Prothèse pénienne** (0 / 1)
+  - [ ] LOT_071 DX9 Europe : à faire
+  - [ ] LOT_071 DX9 Suisse : à faire
+- **Pseudo-anévrisme traumatique** (0 / 1)
+  - [ ] LOT_116 DX5 Europe : à faire
+  - [ ] LOT_116 DX5 Suisse : à faire
+- **Pseudo-obstruction colique aiguë (syndrome d'Ogilvie)** (0 / 1)
+  - [ ] LOT_053 DX8 Europe : à faire
+  - [ ] LOT_053 DX8 Suisse : à faire
+- **Psoriasis unguéal** (0 / 1)
+  - [ ] LOT_093 DX1 Europe : à faire
+  - [ ] LOT_093 DX1 Suisse : à faire
+- **Ptosis aponévrotique (involutif) de l'adulte** (0 / 1)
+  - [ ] LOT_017 DX1 Europe : à faire
+  - [ ] LOT_017 DX1 Suisse : à faire
+- **Pulpite dentaire** (0 / 1)
+  - [ ] LOT_027 DX1 Europe : à faire
+  - [ ] LOT_027 DX1 Suisse : à faire
+- **Purpura fulminans** (0 / 1)
+  - [ ] LOT_087 DX6 Europe : à faire
+  - [ ] LOT_087 DX6 Suisse : à faire
+- **Purpura thrombopénique immunologique** (0 / 1)
+  - [ ] LOT_021 DX6 Europe : à faire
+  - [ ] LOT_021 DX6 Suisse : à faire
+- **Pyrosis fonctionnel** (0 / 1)
+  - [ ] LOT_047 DX4 Europe : à faire
+  - [ ] LOT_047 DX4 Suisse : à faire
+- **Pyurie** (0 / 1)
+  - [ ] LOT_064 DX2 Europe : à faire
+  - [ ] LOT_064 DX2 Suisse : à faire
+- **Radiculalgie** (0 / 1)
+  - [ ] LOT_081 DX7 Europe : à faire
+  - [ ] LOT_081 DX7 Suisse : à faire
+- **Radiculopathie cervicale dégénérative** (0 / 1)
+  - [ ] LOT_032 DX2 Europe : à faire
+  - [ ] LOT_032 DX2 Suisse : à faire
+- **Radiographie** (0 / 1)
+  - [ ] LOT_082 DX10 Europe : à faire
+  - [ ] LOT_082 DX10 Suisse : à faire
+- **Radiographie encore normale** (0 / 1)
+  - [ ] LOT_085 DX8 Europe : à faire
+  - [ ] LOT_085 DX8 Suisse : à faire
+- **Raideur brève** (0 / 1)
+  - [ ] LOT_085 DX3 Europe : à faire
+  - [ ] LOT_085 DX3 Suisse : à faire
+- **Raideur matinale prolongée** (0 / 1)
+  - [ ] LOT_085 DX2 Europe : à faire
+  - [ ] LOT_085 DX2 Suisse : à faire
+- **Ralentissement dangereux** (0 / 1)
+  - [ ] LOT_121 DX9 Europe : à faire
+  - [ ] LOT_121 DX9 Suisse : à faire
+- **Réaction aiguë à un facteur de stress** (0 / 1)
+  - [ ] LOT_127 DX1 Europe : à faire
+  - [ ] LOT_127 DX1 Suisse : à faire
+- **Réaction leucémoïde** (0 / 1)
+  - [ ] LOT_153 DX7 Europe : à faire
+  - [ ] LOT_153 DX7 Suisse : à faire
+- **Récidive** (0 / 3)
+  - [ ] LOT_089 DX7 Europe : à faire
+  - [ ] LOT_089 DX7 Suisse : à faire
+  - [ ] LOT_094 DX3 Europe : à faire
+  - [ ] LOT_094 DX3 Suisse : à faire
+  - [ ] LOT_099 DX10 Europe : à faire
+  - [ ] LOT_099 DX10 Suisse : à faire
+- **Reflux gastro-œsophagien** (0 / 3)
+  - [ ] LOT_045 DX5 Europe : à faire
+  - [ ] LOT_045 DX5 Suisse : à faire
+  - [ ] LOT_047 DX1 Europe : à faire
+  - [ ] LOT_047 DX1 Suisse : à faire
+  - [ ] LOT_048 DX1 Europe : à faire
+  - [ ] LOT_048 DX1 Suisse : à faire
+- **Reflux gastro-œsophagien et douleur œsophagienne** (0 / 1)
+  - [ ] LOT_043 DX5 Europe : à faire
+  - [ ] LOT_043 DX5 Suisse : à faire
+- **Reflux gastro-œsophagien et œsophagite** (0 / 1)
+  - [ ] LOT_044 DX4 Europe : à faire
+  - [ ] LOT_044 DX4 Suisse : à faire
+- **Réserve ovarienne basse** (0 / 1)
+  - [ ] LOT_065 DX3 Europe : à faire
+  - [ ] LOT_065 DX3 Suisse : à faire
+- **Réserve ovarienne conservée** (0 / 1)
+  - [ ] LOT_065 DX4 Europe : à faire
+  - [ ] LOT_065 DX4 Suisse : à faire
+- **Retard de cicatrisation** (0 / 1)
+  - [ ] LOT_089 DX10 Europe : à faire
+  - [ ] LOT_089 DX10 Suisse : à faire
+- **Retard de diagnostic** (0 / 1)
+  - [ ] LOT_068 DX8 Europe : à faire
+  - [ ] LOT_068 DX8 Suisse : à faire
+- **Rétention aiguë d'urine** (0 / 1)
+  - [ ] LOT_135 DX5 Europe : à faire
+  - [ ] LOT_135 DX5 Suisse : à faire
+- **Retentissement familial** (0 / 1)
+  - [ ] LOT_123 DX8 Europe : à faire
+  - [ ] LOT_123 DX8 Suisse : à faire
+- **Retentissement somatique** (0 / 1)
+  - [ ] LOT_127 DX10 Europe : à faire
+  - [ ] LOT_127 DX10 Suisse : à faire
+- **Retentissement sur autrui** (0 / 1)
+  - [ ] LOT_119 DX10 Europe : à faire
+  - [ ] LOT_119 DX10 Suisse : à faire
+- **Rétinopathie diabétique** (0 / 1)
+  - [ ] LOT_018 DX5 Europe : à faire
+  - [ ] LOT_018 DX5 Suisse : à faire
+- **Retrait** (0 / 1)
+  - [ ] LOT_119 DX1 Europe : à faire
+  - [ ] LOT_119 DX1 Suisse : à faire
+- **Rétrécissement aortique calcifié** (0 / 1)
+  - [ ] LOT_132 DX2 Europe : à faire
+  - [ ] LOT_132 DX2 Suisse : à faire
+- **Rétrécissement aortique serré symptomatique** (0 / 1)
+  - [ ] LOT_148 DX4 Europe : à faire
+  - [ ] LOT_148 DX4 Suisse : à faire
+- **Rétrognathie mandibulaire** (0 / 1)
+  - [ ] LOT_034 DX7 Europe : à faire
+  - [ ] LOT_034 DX7 Suisse : à faire
+- **Rhabdomyolyse** (0 / 2)
+  - [ ] LOT_083 DX3 Europe : à faire
+  - [ ] LOT_083 DX3 Suisse : à faire
+  - [ ] LOT_150 DX10 Europe : à faire
+  - [ ] LOT_150 DX10 Suisse : à faire
+- **Rhinite médicamenteuse** (0 / 1)
+  - [ ] LOT_031 DX3 Europe : à faire
+  - [ ] LOT_031 DX3 Suisse : à faire
+- **Rhinite virale aiguë** (0 / 2)
+  - [ ] LOT_030 DX1 Europe : à faire
+  - [ ] LOT_030 DX1 Suisse : à faire
+  - [ ] LOT_031 DX2 Europe : à faire
+  - [ ] LOT_031 DX2 Suisse : à faire
+- **Rhinosinusite aiguë bactérienne** (0 / 1)
+  - [ ] LOT_030 DX5 Europe : à faire
+  - [ ] LOT_030 DX5 Suisse : à faire
+- **Rhinosinusite aiguë postvirale** (0 / 1)
+  - [ ] LOT_030 DX4 Europe : à faire
+  - [ ] LOT_030 DX4 Suisse : à faire
+- **Rhinosinusite chronique avec polypes** (0 / 2)
+  - [ ] LOT_030 DX7 Europe : à faire
+  - [ ] LOT_030 DX7 Suisse : à faire
+  - [ ] LOT_031 DX5 Europe : à faire
+  - [ ] LOT_031 DX5 Suisse : à faire
+- **Rhinosinusite chronique sans polypes** (0 / 1)
+  - [ ] LOT_030 DX6 Europe : à faire
+  - [ ] LOT_030 DX6 Suisse : à faire
+- **Risque de chronicisation** (0 / 1)
+  - [ ] LOT_081 DX10 Europe : à faire
+  - [ ] LOT_081 DX10 Suisse : à faire
+- **Rituels de vérification** (0 / 1)
+  - [ ] LOT_123 DX7 Europe : à faire
+  - [ ] LOT_123 DX7 Suisse : à faire
+- **Rituels envahissants** (0 / 1)
+  - [ ] LOT_119 DX4 Europe : à faire
+  - [ ] LOT_119 DX4 Suisse : à faire
+- **Ronflement primaire** (0 / 1)
+  - [ ] LOT_034 DX2 Europe : à faire
+  - [ ] LOT_034 DX2 Suisse : à faire
+- **Rosacée (flush facial récurrent, adulte 45–60 ans)** (0 / 1)
+  - [ ] LOT_007 DX2 Europe : à faire
+  - [ ] LOT_007 DX2 Suisse : à faire
+- **Rougeur fébrile** (0 / 1)
+  - [ ] LOT_094 DX8 Europe : à faire
+  - [ ] LOT_094 DX8 Suisse : à faire
+- **Saignement diverticulaire** (0 / 1)
+  - [ ] LOT_060 DX4 Europe : à faire
+  - [ ] LOT_060 DX4 Suisse : à faire
+- **Sarcopénie primaire** (0 / 1)
+  - [ ] LOT_197 DX1 Europe : à faire
+  - [ ] LOT_197 DX1 Suisse : à faire
+- **Schizocytes** (0 / 1)
+  - [ ] LOT_087 DX9 Europe : à faire
+  - [ ] LOT_087 DX9 Suisse : à faire
+- **Schwannome vestibulaire** (0 / 1)
+  - [ ] LOT_028 DX8 Europe : à faire
+  - [ ] LOT_028 DX8 Suisse : à faire
+- **Sclérite** (0 / 1)
+  - [ ] LOT_033 DX10 Europe : à faire
+  - [ ] LOT_033 DX10 Suisse : à faire
+- **Sclérose tubéreuse** (0 / 1)
+  - [ ] LOT_088 DX7 Europe : à faire
+  - [ ] LOT_088 DX7 Suisse : à faire
+- **Scoliose congénitale par hémivertèbre** (0 / 1)
+  - [ ] LOT_080 DX9 Europe : à faire
+  - [ ] LOT_080 DX9 Suisse : à faire
+- **Scoliose idiopathique** (0 / 1)
+  - [ ] LOT_082 DX1 Europe : à faire
+  - [ ] LOT_082 DX1 Suisse : à faire
+- **Scoliose idiopathique de l’adolescent** (0 / 1)
+  - [ ] LOT_080 DX1 Europe : à faire
+  - [ ] LOT_080 DX1 Suisse : à faire
+- **Scoliose lombaire dégénérative de novo de l’adulte** (0 / 1)
+  - [ ] LOT_080 DX5 Europe : à faire
+  - [ ] LOT_080 DX5 Suisse : à faire
+- **Scoliose révélatrice d’une syringomyélie foraminale associée à une malformation de Chiari I** (0 / 1)
+  - [ ] LOT_080 DX10 Europe : à faire
+  - [ ] LOT_080 DX10 Suisse : à faire
+- **Scoliose secondaire** (0 / 1)
+  - [ ] LOT_082 DX3 Europe : à faire
+  - [ ] LOT_082 DX3 Suisse : à faire
+- **Sécheresse oculaire** (0 / 2)
+  - [ ] LOT_022 DX1 Europe : à faire
+  - [ ] LOT_022 DX1 Suisse : à faire
+  - [ ] LOT_033 DX4 Europe : à faire
+  - [ ] LOT_033 DX4 Suisse : à faire
+- **Selle dure** (0 / 1)
+  - [ ] LOT_058 DX7 Europe : à faire
+  - [ ] LOT_058 DX7 Suisse : à faire
+- **Sialolithiase** (0 / 1)
+  - [ ] LOT_037 DX5 Europe : à faire
+  - [ ] LOT_037 DX5 Suisse : à faire
+- **Sialolithiase sous-mandibulaire** (0 / 1)
+  - [ ] LOT_025 DX10 Europe : à faire
+  - [ ] LOT_025 DX10 Suisse : à faire
+- **Sinusite maxillaire aiguë** (0 / 1)
+  - [ ] LOT_027 DX4 Europe : à faire
+  - [ ] LOT_027 DX4 Suisse : à faire
+- **Souffle systolique fonctionnel** (0 / 1)
+  - [ ] LOT_132 DX1 Europe : à faire
+  - [ ] LOT_132 DX1 Suisse : à faire
+- **Spasme hémifacial** (0 / 1)
+  - [ ] LOT_022 DX7 Europe : à faire
+  - [ ] LOT_022 DX7 Suisse : à faire
+- **Spasticité** (0 / 1)
+  - [ ] LOT_102 DX7 Europe : à faire
+  - [ ] LOT_102 DX7 Suisse : à faire
+- **Spermatocèle** (0 / 1)
+  - [ ] LOT_070 DX8 Europe : à faire
+  - [ ] LOT_070 DX8 Suisse : à faire
+- **Splénomégalie** (0 / 1)
+  - [ ] LOT_135 DX7 Europe : à faire
+  - [ ] LOT_135 DX7 Suisse : à faire
+- **Spondylarthrite axiale radiographique avec ankylose rachidienne** (0 / 1)
+  - [ ] LOT_080 DX7 Europe : à faire
+  - [ ] LOT_080 DX7 Suisse : à faire
+- **Spondylodiscite cervicale** (0 / 1)
+  - [ ] LOT_032 DX8 Europe : à faire
+  - [ ] LOT_032 DX8 Suisse : à faire
+- **Squeeze test** (0 / 1)
+  - [ ] LOT_085 DX5 Europe : à faire
+  - [ ] LOT_085 DX5 Suisse : à faire
+- **Stase rectale** (0 / 1)
+  - [ ] LOT_058 DX5 Europe : à faire
+  - [ ] LOT_058 DX5 Suisse : à faire
+- **Sténose œsophagienne peptique** (0 / 1)
+  - [ ] LOT_023 DX4 Europe : à faire
+  - [ ] LOT_023 DX4 Suisse : à faire
+- **Stimulation cérébrale** (0 / 1)
+  - [ ] LOT_097 DX10 Europe : à faire
+  - [ ] LOT_097 DX10 Suisse : à faire
+- **Stomatite aphteuse récidivante** (0 / 1)
+  - [ ] LOT_025 DX4 Europe : à faire
+  - [ ] LOT_025 DX4 Suisse : à faire
+- **Subluxation atlanto-axoïdienne rhumatoïde** (0 / 1)
+  - [ ] LOT_032 DX10 Europe : à faire
+  - [ ] LOT_032 DX10 Suisse : à faire
+- **Suspicion d'hémothorax** (0 / 1)
+  - [ ] LOT_115 DX3 Europe : à faire
+  - [ ] LOT_115 DX3 Suisse : à faire
+- **Suspicion de dissection aortique** (0 / 1)
+  - [ ] LOT_152 DX5 Europe : à faire
+  - [ ] LOT_152 DX5 Suisse : à faire
+- **Suspicion de pneumothorax** (0 / 1)
+  - [ ] LOT_115 DX2 Europe : à faire
+  - [ ] LOT_115 DX2 Suisse : à faire
+- **Suspicion de tumeur urologique** (0 / 1)
+  - [ ] LOT_064 DX9 Europe : à faire
+  - [ ] LOT_064 DX9 Suisse : à faire
+- **Suspicion d’infection haute** (0 / 1)
+  - [ ] LOT_064 DX6 Europe : à faire
+  - [ ] LOT_064 DX6 Suisse : à faire
+- **Symptôme somatique fonctionnel** (0 / 1)
+  - [ ] LOT_230 DX1 Europe : à faire
+  - [ ] LOT_230 DX1 Suisse : à faire
+- **Symptômes prémenstruels** (0 / 1)
+  - [ ] LOT_066 DX5 Europe : à faire
+  - [ ] LOT_066 DX5 Suisse : à faire
+- **Symptômes vasomoteurs de la ménopause** (0 / 2)
+  - [ ] LOT_001 DX5 Europe : à faire
+  - [ ] LOT_001 DX5 Suisse : à faire
+  - [ ] LOT_073 DX1 Europe : à faire
+  - [ ] LOT_073 DX1 Suisse : à faire
+- **Syncope convulsivante** (0 / 1)
+  - [ ] LOT_104 DX6 Europe : à faire
+  - [ ] LOT_104 DX6 Suisse : à faire
+- **Syncope réflexe vasovagale** (0 / 1)
+  - [ ] LOT_148 DX1 Europe : à faire
+  - [ ] LOT_148 DX1 Suisse : à faire
+- **Syncope rythmique** (0 / 1)
+  - [ ] LOT_148 DX3 Europe : à faire
+  - [ ] LOT_148 DX3 Suisse : à faire
+- **Syndrome aortique aigu (dissection aortique)** (0 / 1)
+  - [ ] LOT_043 DX10 Europe : à faire
+  - [ ] LOT_043 DX10 Suisse : à faire
+- **Syndrome carcinoïde (tumeur neuroendocrine)** (0 / 1)
+  - [ ] LOT_007 DX9 Europe : à faire
+  - [ ] LOT_007 DX9 Suisse : à faire
+- **Syndrome d'apnées obstructives du sommeil** (0 / 1)
+  - [ ] LOT_130 DX6 Europe : à faire
+  - [ ] LOT_130 DX6 Suisse : à faire
+- **Syndrome de Cushing endogène** (0 / 1)
+  - [ ] LOT_015 DX9 Europe : à faire
+  - [ ] LOT_015 DX9 Suisse : à faire
+- **Syndrome de Duane** (0 / 1)
+  - [ ] LOT_036 DX9 Europe : à faire
+  - [ ] LOT_036 DX9 Suisse : à faire
+- **Syndrome de fatigue chronique (encéphalomyélite myalgique)** (0 / 1)
+  - [ ] LOT_004 DX7 Europe : à faire
+  - [ ] LOT_004 DX7 Suisse : à faire
+- **Syndrome de Horner par dissection de l'artère carotide interne** (0 / 1)
+  - [ ] LOT_017 DX9 Europe : à faire
+  - [ ] LOT_017 DX9 Suisse : à faire
+- **Syndrome de la dent couronnée** (0 / 1)
+  - [ ] LOT_032 DX9 Europe : à faire
+  - [ ] LOT_032 DX9 Suisse : à faire
+- **Syndrome de la paroi thoracique** (0 / 3)
+  - [ ] LOT_043 DX1 Europe : à faire
+  - [ ] LOT_043 DX1 Suisse : à faire
+  - [ ] LOT_044 DX1 Europe : à faire
+  - [ ] LOT_044 DX1 Suisse : à faire
+  - [ ] LOT_051 DX1 Europe : à faire
+  - [ ] LOT_051 DX1 Suisse : à faire
+- **Syndrome de la queue de cheval** (0 / 1)
+  - [ ] LOT_201 DX10 Europe : à faire
+  - [ ] LOT_201 DX10 Suisse : à faire
+- **Syndrome de la veine cave supérieure** (0 / 1)
+  - [ ] LOT_037 DX10 Europe : à faire
+  - [ ] LOT_037 DX10 Suisse : à faire
+- **Syndrome de Lemierre** (0 / 1)
+  - [ ] LOT_035 DX7 Europe : à faire
+  - [ ] LOT_035 DX7 Suisse : à faire
+- **Syndrome de Mallory-Weiss** (0 / 1)
+  - [ ] LOT_057 DX3 Europe : à faire
+  - [ ] LOT_057 DX3 Suisse : à faire
+- **Syndrome de réalimentation** (0 / 1)
+  - [ ] LOT_197 DX8 Europe : à faire
+  - [ ] LOT_197 DX8 Suisse : à faire
+- **Syndrome de renutrition** (0 / 1)
+  - [ ] LOT_120 DX8 Europe : à faire
+  - [ ] LOT_120 DX8 Suisse : à faire
+- **Syndrome de sevrage menaçant** (0 / 1)
+  - [ ] LOT_129 DX10 Europe : à faire
+  - [ ] LOT_129 DX10 Suisse : à faire
+- **Syndrome de Sjögren primaire (sécheresse buccale)** (0 / 1)
+  - [ ] LOT_003 DX6 Europe : à faire
+  - [ ] LOT_003 DX6 Suisse : à faire
+- **Syndrome de tako-tsubo** (0 / 1)
+  - [ ] LOT_150 DX5 Europe : à faire
+  - [ ] LOT_150 DX5 Suisse : à faire
+- **Syndrome de Tietze** (0 / 1)
+  - [ ] LOT_051 DX9 Europe : à faire
+  - [ ] LOT_051 DX9 Suisse : à faire
+- **Syndrome de toux d'origine des voies aériennes supérieures (STOVAS)** (0 / 1)
+  - [ ] LOT_045 DX3 Europe : à faire
+  - [ ] LOT_045 DX3 Suisse : à faire
+- **Syndrome des hamartomes tumoraux lié à PTEN** (0 / 1)
+  - [ ] LOT_029 DX10 Europe : à faire
+  - [ ] LOT_029 DX10 Suisse : à faire
+- **Syndrome des jambes sans repos** (0 / 1)
+  - [ ] LOT_040 DX6 Europe : à faire
+  - [ ] LOT_040 DX6 Suisse : à faire
+- **Syndrome des loges aigu** (0 / 1)
+  - [ ] LOT_112 DX8 Europe : à faire
+  - [ ] LOT_112 DX8 Suisse : à faire
+- **Syndrome des loges après reperfusion** (0 / 1)
+  - [ ] LOT_116 DX7 Europe : à faire
+  - [ ] LOT_116 DX7 Suisse : à faire
+- **Syndrome des ovaires polykystiques** (0 / 1)
+  - [ ] LOT_015 DX3 Europe : à faire
+  - [ ] LOT_015 DX3 Suisse : à faire
+- **Syndrome douloureux pariétal thoracique (douleur thoracique)** (0 / 1)
+  - [ ] LOT_010 DX4 Europe : à faire
+  - [ ] LOT_010 DX4 Suisse : à faire
+- **Syndrome du canal carpien** (0 / 1)
+  - [ ] LOT_103 DX2 Europe : à faire
+  - [ ] LOT_103 DX2 Suisse : à faire
+- **Syndrome d’apnées-hypopnées obstructives du sommeil** (0 / 1)
+  - [ ] LOT_040 DX1 Europe : à faire
+  - [ ] LOT_040 DX1 Suisse : à faire
+- **Syndrome d’apnées-hypopnées obstructives du sommeil de l’adulte** (0 / 1)
+  - [ ] LOT_034 DX1 Europe : à faire
+  - [ ] LOT_034 DX1 Suisse : à faire
+- **Syndrome génito-urinaire de la ménopause** (0 / 1)
+  - [ ] LOT_073 DX2 Europe : à faire
+  - [ ] LOT_073 DX2 Suisse : à faire
+- **Syndrome hyperosmolaire hyperglycémique** (0 / 1)
+  - [ ] LOT_003 DX10 Europe : à faire
+  - [ ] LOT_003 DX10 Suisse : à faire
+- **Syndrome mononucléosique** (0 / 1)
+  - [ ] LOT_153 DX8 Europe : à faire
+  - [ ] LOT_153 DX8 Suisse : à faire
+- **Syndrome myélodysplasique** (0 / 1)
+  - [ ] LOT_153 DX10 Europe : à faire
+  - [ ] LOT_153 DX10 Suisse : à faire
+- **Syndrome néphrotique** (0 / 1)
+  - [ ] LOT_015 DX7 Europe : à faire
+  - [ ] LOT_015 DX7 Suisse : à faire
+- **Syndrome phobique associé** (0 / 1)
+  - [ ] LOT_126 DX6 Europe : à faire
+  - [ ] LOT_126 DX6 Suisse : à faire
+- **Syndrome pyramidal** (0 / 1)
+  - [ ] LOT_102 DX8 Europe : à faire
+  - [ ] LOT_102 DX8 Suisse : à faire
+- **Syndrome viral / infection virale banale** (0 / 1)
+  - [ ] LOT_005 DX9 Europe : à faire
+  - [ ] LOT_005 DX9 Suisse : à faire
+- **Synovite** (0 / 1)
+  - [ ] LOT_085 DX9 Europe : à faire
+  - [ ] LOT_085 DX9 Suisse : à faire
+- **Tachycardie par réentrée intranodale** (0 / 1)
+  - [ ] LOT_050 DX5 Europe : à faire
+  - [ ] LOT_050 DX5 Suisse : à faire
+- **Tachycardie par réentrée nodale** (0 / 1)
+  - [ ] LOT_136 DX5 Europe : à faire
+  - [ ] LOT_136 DX5 Suisse : à faire
+- **Tachycardie sinusale** (0 / 1)
+  - [ ] LOT_136 DX3 Europe : à faire
+  - [ ] LOT_136 DX3 Suisse : à faire
+- **Tachycardie ventriculaire** (0 / 2)
+  - [ ] LOT_136 DX9 Europe : à faire
+  - [ ] LOT_136 DX9 Suisse : à faire
+  - [ ] LOT_154 DX4 Europe : à faire
+  - [ ] LOT_154 DX4 Suisse : à faire
+- **Tamponnade cardiaque** (0 / 1)
+  - [ ] LOT_147 DX6 Europe : à faire
+  - [ ] LOT_147 DX6 Suisse : à faire
+- **Thrombopénie** (0 / 2)
+  - [ ] LOT_087 DX5 Europe : à faire
+  - [ ] LOT_087 DX5 Suisse : à faire
+  - [ ] LOT_133 DX9 Europe : à faire
+  - [ ] LOT_133 DX9 Suisse : à faire
+- **Thrombose coronaire** (0 / 1)
+  - [ ] LOT_147 DX8 Europe : à faire
+  - [ ] LOT_147 DX8 Suisse : à faire
+- **Thrombose veineuse péri-anale** (0 / 1)
+  - [ ] LOT_056 DX4 Europe : à faire
+  - [ ] LOT_056 DX4 Suisse : à faire
+- **Thrombose veineuse profonde** (0 / 2)
+  - [ ] LOT_012 DX6 Europe : à faire
+  - [ ] LOT_012 DX6 Suisse : à faire
+  - [ ] LOT_133 DX8 Europe : à faire
+  - [ ] LOT_133 DX8 Suisse : à faire
+- **Tic moteur palpébral** (0 / 1)
+  - [ ] LOT_022 DX4 Europe : à faire
+  - [ ] LOT_022 DX4 Suisse : à faire
+- **Tics** (0 / 1)
+  - [ ] LOT_097 DX6 Europe : à faire
+  - [ ] LOT_097 DX6 Suisse : à faire
+- **Torsion du cordon spermatique** (0 / 1)
+  - [ ] LOT_074 DX6 Europe : à faire
+  - [ ] LOT_074 DX6 Suisse : à faire
+- **Torsion du testicule** (0 / 1)
+  - [ ] LOT_131 DX6 Europe : à faire
+  - [ ] LOT_131 DX6 Suisse : à faire
+- **Torsion testiculaire** (0 / 1)
+  - [ ] LOT_070 DX1 Europe : à faire
+  - [ ] LOT_070 DX1 Suisse : à faire
+- **Toxoplasmose** (0 / 1)
+  - [ ] LOT_002 DX7 Europe : à faire
+  - [ ] LOT_002 DX7 Suisse : à faire
+- **Tremblement cérébelleux** (0 / 1)
+  - [ ] LOT_097 DX4 Europe : à faire
+  - [ ] LOT_097 DX4 Suisse : à faire
+- **Tremblement de Holmes** (0 / 1)
+  - [ ] LOT_097 DX5 Europe : à faire
+  - [ ] LOT_097 DX5 Suisse : à faire
+- **Tremblement essentiel** (0 / 1)
+  - [ ] LOT_097 DX3 Europe : à faire
+  - [ ] LOT_097 DX3 Suisse : à faire
+- **Trichomonas** (0 / 1)
+  - [ ] LOT_079 DX4 Europe : à faire
+  - [ ] LOT_079 DX4 Suisse : à faire
+- **Trouble à symptomatologie somatique** (0 / 1)
+  - [ ] LOT_230 DX7 Europe : à faire
+  - [ ] LOT_230 DX7 Suisse : à faire
+- **Trouble alimentaire associé** (0 / 1)
+  - [ ] LOT_126 DX7 Europe : à faire
+  - [ ] LOT_126 DX7 Suisse : à faire
+- **Trouble de défécation** (0 / 1)
+  - [ ] LOT_058 DX4 Europe : à faire
+  - [ ] LOT_058 DX4 Suisse : à faire
+- **Trouble de l'adaptation** (0 / 2)
+  - [ ] LOT_121 DX5 Europe : à faire
+  - [ ] LOT_121 DX5 Suisse : à faire
+  - [ ] LOT_127 DX3 Europe : à faire
+  - [ ] LOT_127 DX3 Suisse : à faire
+- **Trouble de l'usage de stimulants** (0 / 1)
+  - [ ] LOT_129 DX5 Europe : à faire
+  - [ ] LOT_129 DX5 Suisse : à faire
+- **Trouble de la personnalité** (0 / 1)
+  - [ ] LOT_118 DX9 Europe : à faire
+  - [ ] LOT_118 DX9 Suisse : à faire
+- **Trouble de la personnalité associé** (0 / 1)
+  - [ ] LOT_126 DX9 Europe : à faire
+  - [ ] LOT_126 DX9 Suisse : à faire
+- **Trouble de l’équilibre** (0 / 1)
+  - [ ] LOT_095 DX1 Europe : à faire
+  - [ ] LOT_095 DX1 Suisse : à faire
+- **Trouble du rythme circadien (travail posté, retard de phase)** (0 / 1)
+  - [ ] LOT_011 DX9 Europe : à faire
+  - [ ] LOT_011 DX9 Suisse : à faire
+- **Trouble dysmorphique corporel (dysmorphophobie)** (0 / 1)
+  - [ ] LOT_215 DX3 Europe : à faire
+  - [ ] LOT_215 DX3 Suisse : à faire
+- **Trouble explosif intermittent (CIM-11 6C71)** (0 / 1)
+  - [ ] LOT_124 DX10 Europe : à faire
+  - [ ] LOT_124 DX10 Suisse : à faire
+- **Trouble neurocognitif majeur à distinguer du delirium** (1 / 1)
+  - [x] LOT_125 DX9 Europe : 34,09 décès pour 100 000 habitants (Union européenne (UE-27), 2023)
+  - [x] LOT_125 DX9 Suisse : 52,9 décès pour 100 000 habitants (Suisse, 2023)
+- **Trouble obsessionnel compulsif** (0 / 1)
+  - [ ] LOT_120 DX6 Europe : à faire
+  - [ ] LOT_120 DX6 Suisse : à faire
+- **Trouble obsessionnel-compulsif primaire** (0 / 1)
+  - [ ] LOT_126 DX1 Europe : à faire
+  - [ ] LOT_126 DX1 Suisse : à faire
+- **Trouble obsessionnel-compulsif secondaire neurologique** (0 / 1)
+  - [ ] LOT_126 DX2 Europe : à faire
+  - [ ] LOT_126 DX2 Suisse : à faire
+- **Trouble oppositionnel avec provocation** (0 / 1)
+  - [ ] LOT_122 DX9 Europe : à faire
+  - [ ] LOT_122 DX9 Suisse : à faire
+- **trouble ovulatoire** (0 / 1)
+  - [ ] LOT_078 DX9 Europe : à faire
+  - [ ] LOT_078 DX9 Suisse : à faire
+- **Trouble ovulatoire lié au stress** (0 / 1)
+  - [ ] LOT_065 DX7 Europe : à faire
+  - [ ] LOT_065 DX7 Suisse : à faire
+- **Trouble panique** (0 / 1)
+  - [ ] LOT_117 DX2 Europe : à faire
+  - [ ] LOT_117 DX2 Suisse : à faire
+- **Trouble psychiatrique primaire après exclusion somatique** (0 / 1)
+  - [ ] LOT_125 DX10 Europe : à faire
+  - [ ] LOT_125 DX10 Suisse : à faire
+- **Trouble somatoforme prolongé** (0 / 1)
+  - [ ] LOT_230 DX2 Europe : à faire
+  - [ ] LOT_230 DX2 Suisse : à faire
+- **Trouble temporo-mandibulaire douloureux** (0 / 2)
+  - [ ] LOT_026 DX8 Europe : à faire
+  - [ ] LOT_026 DX8 Suisse : à faire
+  - [ ] LOT_027 DX3 Europe : à faire
+  - [ ] LOT_027 DX3 Suisse : à faire
+- **Troubles électrolytiques** (0 / 1)
+  - [ ] LOT_005 DX2 Europe : à faire
+  - [ ] LOT_005 DX2 Suisse : à faire
+- **Troubles œsophagiens** (0 / 1)
+  - [ ] LOT_051 DX5 Europe : à faire
+  - [ ] LOT_051 DX5 Suisse : à faire
+- **Troubles respiratoires du sommeil (syndrome d’apnées obstructives du sommeil)** (0 / 1)
+  - [ ] LOT_011 DX2 Europe : à faire
+  - [ ] LOT_011 DX2 Suisse : à faire
+- **Troubles spécifiques des apprentissages** (0 / 1)
+  - [ ] LOT_118 DX6 Europe : à faire
+  - [ ] LOT_118 DX6 Suisse : à faire
+- **Tumeur cutanée** (0 / 1)
+  - [ ] LOT_092 DX10 Europe : à faire
+  - [ ] LOT_092 DX10 Suisse : à faire
+- **Tumeur palpébrale** (0 / 1)
+  - [ ] LOT_038 DX10 Europe : à faire
+  - [ ] LOT_038 DX10 Suisse : à faire
+- **Tumeur parotidienne** (0 / 1)
+  - [ ] LOT_020 DX8 Europe : à faire
+  - [ ] LOT_020 DX8 Suisse : à faire
+- **Tumeur résiduelle selon la classification R** (0 / 1)
+  - [ ] LOT_158 DX7 Europe : à faire
+  - [ ] LOT_158 DX7 Suisse : à faire
+- **Ulcération buccale traumatique** (0 / 1)
+  - [ ] LOT_025 DX5 Europe : à faire
+  - [ ] LOT_025 DX5 Suisse : à faire
+- **Ulcère de Kennedy et peau de fin de vie** (0 / 1)
+  - [ ] LOT_199 DX10 Europe : à faire
+  - [ ] LOT_199 DX10 Suisse : à faire
+- **Ulcère du pied diabétique et ischémie** (0 / 1)
+  - [ ] LOT_199 DX9 Europe : à faire
+  - [ ] LOT_199 DX9 Suisse : à faire
+- **Ulcère génital** (0 / 1)
+  - [ ] LOT_086 DX4 Europe : à faire
+  - [ ] LOT_086 DX4 Suisse : à faire
+- **Ulcère ou perforation** (0 / 1)
+  - [ ] LOT_052 DX8 Europe : à faire
+  - [ ] LOT_052 DX8 Suisse : à faire
+- **Ulcère veineux** (0 / 1)
+  - [ ] LOT_089 DX1 Europe : à faire
+  - [ ] LOT_089 DX1 Suisse : à faire
+- **Urgence hypertensive** (0 / 1)
+  - [ ] LOT_130 DX9 Europe : à faire
+  - [ ] LOT_130 DX9 Suisse : à faire
+- **Usage problématique de médicaments contrôlés** (0 / 1)
+  - [ ] LOT_129 DX6 Europe : à faire
+  - [ ] LOT_129 DX6 Suisse : à faire
+- **Uvéite antérieure** (0 / 1)
+  - [ ] LOT_039 DX7 Europe : à faire
+  - [ ] LOT_039 DX7 Suisse : à faire
+- **Uvéite antérieure aiguë** (0 / 1)
+  - [ ] LOT_033 DX8 Europe : à faire
+  - [ ] LOT_033 DX8 Suisse : à faire
+- **Vaginite à écarter** (0 / 1)
+  - [ ] LOT_064 DX7 Europe : à faire
+  - [ ] LOT_064 DX7 Suisse : à faire
+- **Vaginose bactérienne** (0 / 1)
+  - [ ] LOT_079 DX2 Europe : à faire
+  - [ ] LOT_079 DX2 Suisse : à faire
+- **Variante logopénique** (0 / 1)
+  - [ ] LOT_098 DX3 Europe : à faire
+  - [ ] LOT_098 DX3 Suisse : à faire
+- **Variante non fluente** (0 / 1)
+  - [ ] LOT_098 DX2 Europe : à faire
+  - [ ] LOT_098 DX2 Suisse : à faire
+- **Variante sémantique** (0 / 1)
+  - [ ] LOT_098 DX4 Europe : à faire
+  - [ ] LOT_098 DX4 Suisse : à faire
+- **Varicocèle** (0 / 2)
+  - [ ] LOT_072 DX8 Europe : à faire
+  - [ ] LOT_072 DX8 Suisse : à faire
+  - [ ] LOT_131 DX2 Europe : à faire
+  - [ ] LOT_131 DX2 Suisse : à faire
+- **Vasculite** (0 / 1)
+  - [ ] LOT_087 DX7 Europe : à faire
+  - [ ] LOT_087 DX7 Suisse : à faire
+- **Vertige positionnel** (0 / 1)
+  - [ ] LOT_099 DX1 Europe : à faire
+  - [ ] LOT_099 DX1 Suisse : à faire
+- **Virilisation** (0 / 1)
+  - [ ] LOT_091 DX8 Europe : à faire
+  - [ ] LOT_091 DX8 Suisse : à faire
+- **Vitiligo** (0 / 1)
+  - [ ] LOT_088 DX1 Europe : à faire
+  - [ ] LOT_088 DX1 Suisse : à faire
+- **Volet costal suspect** (0 / 1)
+  - [ ] LOT_115 DX4 Europe : à faire
+  - [ ] LOT_115 DX4 Suisse : à faire
+- **Volvulus du côlon (sigmoïde, cæcum)** (0 / 1)
+  - [ ] LOT_053 DX9 Europe : à faire
+  - [ ] LOT_053 DX9 Suisse : à faire
+- **Xérose cutanée (prurit du sujet âgé)** (0 / 1)
+  - [ ] LOT_009 DX3 Europe : à faire
+  - [ ] LOT_009 DX3 Suisse : à faire
+- **· Syncope convulsivante** (0 / 1)
+  - [ ] LOT_104 DX4 Europe : à faire
+  - [ ] LOT_104 DX4 Suisse : à faire
+
+## 3. Classe C (rubriques, signes : valeur de contexte européenne) — Europe 1 / 160 · Suisse 1
+- **Agitation** (0 / 1)
+  - [ ] LOT_119 DX2 Europe : à faire
+  - [ ] LOT_119 DX2 Suisse : à faire
+- **Anorexie du vieillissement (causes bucco-dentaires et sociales du sujet âgé)** (0 / 1)
+  - [ ] LOT_016 DX3 Europe : à faire
+  - [ ] LOT_016 DX3 Suisse : à faire
+- **Antagonisme relationnel** (0 / 1)
+  - [ ] LOT_230 DX10 Europe : à faire
+  - [ ] LOT_230 DX10 Suisse : à faire
+- **Antécédent de traumatisme ou d’abus** (0 / 1)
+  - [ ] LOT_230 DX6 Europe : à faire
+  - [ ] LOT_230 DX6 Suisse : à faire
+- **Antibiotique sur un marqueur isolé** (0 / 1)
+  - [ ] LOT_240 DX7 Europe : à faire
+  - [ ] LOT_240 DX7 Suisse : à faire
+- **Antigène prostatique et décision partagée** (0 / 1)
+  - [ ] LOT_207 DX7 Europe : à faire
+  - [ ] LOT_207 DX7 Suisse : à faire
+- **Calendrier incomplet du nourrisson** (0 / 1)
+  - [ ] LOT_203 DX1 Europe : à faire
+  - [ ] LOT_203 DX1 Suisse : à faire
+- **Causes endocriniennes** (0 / 1)
+  - [ ] LOT_040 DX9 Europe : à faire
+  - [ ] LOT_040 DX9 Suisse : à faire
+- **Céphalée croissante** (0 / 1)
+  - [ ] LOT_111 DX5 Europe : à faire
+  - [ ] LOT_111 DX5 Suisse : à faire
+- **Céphalée secondaire** (0 / 1)
+  - [ ] LOT_100 DX7 Europe : à faire
+  - [ ] LOT_100 DX7 Suisse : à faire
+- **Check-up approfondi chez une personne asymptomatique** (0 / 1)
+  - [ ] LOT_240 DX5 Europe : à faire
+  - [ ] LOT_240 DX5 Suisse : à faire
+- **Composante psychique / prurit psychogène** (0 / 1)
+  - [ ] LOT_009 DX5 Europe : à faire
+  - [ ] LOT_009 DX5 Suisse : à faire
+- **Confusion** (0 / 1)
+  - [ ] LOT_101 DX7 Europe : à faire
+  - [ ] LOT_101 DX7 Suisse : à faire
+- **Contention** (0 / 1)
+  - [ ] LOT_089 DX6 Europe : à faire
+  - [ ] LOT_089 DX6 Suisse : à faire
+- **Contexte de trauma associé** (0 / 1)
+  - [ ] LOT_109 DX7 Europe : à faire
+  - [ ] LOT_109 DX7 Suisse : à faire
+- **Crampe à clarifier** (0 / 1)
+  - [ ] LOT_084 DX10 Europe : à faire
+  - [ ] LOT_084 DX10 Suisse : à faire
+- **Crampes** (0 / 1)
+  - [ ] LOT_084 DX4 Europe : à faire
+  - [ ] LOT_084 DX4 Suisse : à faire
+- **Crise d'un enfant ou d'un adolescent** (0 / 1)
+  - [ ] LOT_128 DX10 Europe : à faire
+  - [ ] LOT_128 DX10 Suisse : à faire
+- **Décision partagée devant une personne asymptomatique** (0 / 1)
+  - [ ] LOT_207 DX1 Europe : à faire
+  - [ ] LOT_207 DX1 Suisse : à faire
+- **Diagnostic organique secondairement révisé** (0 / 1)
+  - [ ] LOT_230 DX8 Europe : à faire
+  - [ ] LOT_230 DX8 Suisse : à faire
+- **Diarrhée nouvelle incontrôlée** (0 / 1)
+  - [ ] LOT_055 DX7 Europe : à faire
+  - [ ] LOT_055 DX7 Suisse : à faire
+- **Dosage de vitamine D sans facteur de risque** (0 / 1)
+  - [ ] LOT_240 DX4 Europe : à faire
+  - [ ] LOT_240 DX4 Suisse : à faire
+- **Douleur anale aiguë** (0 / 1)
+  - [ ] LOT_056 DX2 Europe : à faire
+  - [ ] LOT_056 DX2 Suisse : à faire
+- **Douleur de la fosse iliaque gauche** (0 / 1)
+  - [ ] LOT_068 DX9 Europe : à faire
+  - [ ] LOT_068 DX9 Suisse : à faire
+- **Douleur pariétale traumatique** (0 / 1)
+  - [ ] LOT_051 DX6 Europe : à faire
+  - [ ] LOT_051 DX6 Suisse : à faire
+- **Douleur thoracique après effort violent** (0 / 1)
+  - [ ] LOT_115 DX7 Europe : à faire
+  - [ ] LOT_115 DX7 Suisse : à faire
+- **Douleur thoracique associée** (0 / 1)
+  - [ ] LOT_123 DX9 Europe : à faire
+  - [ ] LOT_123 DX9 Suisse : à faire
+- **Douleur thoracique psychogène** (0 / 1)
+  - [ ] LOT_051 DX3 Europe : à faire
+  - [ ] LOT_051 DX3 Suisse : à faire
+- **Dysbiose** (0 / 1)
+  - [ ] LOT_079 DX5 Europe : à faire
+  - [ ] LOT_079 DX5 Suisse : à faire
+- **Dysphonie fonctionnelle** (0 / 1)
+  - [ ] LOT_019 DX2 Europe : à faire
+  - [ ] LOT_019 DX2 Suisse : à faire
+- **Dysurie** (0 / 1)
+  - [ ] LOT_064 DX1 Europe : à faire
+  - [ ] LOT_064 DX1 Suisse : à faire
+- **Écoulement urétral mécanique ou tumoral [S5]** (0 / 1)
+  - [ ] LOT_074 DX10 Europe : à faire
+  - [ ] LOT_074 DX10 Suisse : à faire
+- **Épistaxis** (0 / 1)
+  - [ ] LOT_113 DX4 Europe : à faire
+  - [ ] LOT_113 DX4 Suisse : à faire
+- **Épistaxis antérieure essentielle** (0 / 1)
+  - [ ] LOT_021 DX1 Europe : à faire
+  - [ ] LOT_021 DX1 Suisse : à faire
+- **Épistaxis favorisée par un traitement antithrombotique** (0 / 1)
+  - [ ] LOT_021 DX2 Europe : à faire
+  - [ ] LOT_021 DX2 Suisse : à faire
+- **Examens sans bénéfice chez l'asymptomatique** (0 / 1)
+  - [ ] LOT_207 DX10 Europe : à faire
+  - [ ] LOT_207 DX10 Suisse : à faire
+- **Fièvre** (0 / 1)
+  - [ ] LOT_007 DX7 Europe : à faire
+  - [ ] LOT_007 DX7 Suisse : à faire
+- **Fièvre ou douleur abdominale** (0 / 1)
+  - [ ] LOT_079 DX8 Europe : à faire
+  - [ ] LOT_079 DX8 Suisse : à faire
+- **Flush médicamenteux (niacine, inhibiteurs calciques, vasodilatateurs)** (0 / 1)
+  - [ ] LOT_007 DX6 Europe : à faire
+  - [ ] LOT_007 DX6 Suisse : à faire
+- **Forme fonctionnelle** (0 / 1)
+  - [ ] LOT_058 DX2 Europe : à faire
+  - [ ] LOT_058 DX2 Suisse : à faire
+- **Forme persistante** (0 / 1)
+  - [ ] LOT_059 DX2 Europe : à faire
+  - [ ] LOT_059 DX2 Suisse : à faire
+- **Fugue ou errance** (0 / 1)
+  - [ ] LOT_119 DX5 Europe : à faire
+  - [ ] LOT_119 DX5 Suisse : à faire
+- **Fuite de gaz** (0 / 1)
+  - [ ] LOT_055 DX1 Europe : à faire
+  - [ ] LOT_055 DX1 Suisse : à faire
+- **Globe vésical (rétention urinaire chronique)** (0 / 1)
+  - [ ] LOT_054 DX3 Europe : à faire
+  - [ ] LOT_054 DX3 Suisse : à faire
+- **Grossesse et protection du nouveau-né** (0 / 1)
+  - [ ] LOT_203 DX5 Europe : à faire
+  - [ ] LOT_203 DX5 Suisse : à faire
+- **Hématémèse ou melaena** (0 / 1)
+  - [ ] LOT_113 DX5 Europe : à faire
+  - [ ] LOT_113 DX5 Suisse : à faire
+- **Hématurie macroscopique** (0 / 1)
+  - [ ] LOT_064 DX3 Europe : à faire
+  - [ ] LOT_064 DX3 Suisse : à faire
+- **Hématurie sous anticoagulant** (0 / 1)
+  - [ ] LOT_064 DX8 Europe : à faire
+  - [ ] LOT_064 DX8 Suisse : à faire
+- **Hépatopathie chronique / cholestase (comorbidité)** (1 / 1)
+  - [x] LOT_009 DX10 Europe : 13,68 décès pour 100 000 habitants (Union européenne (UE-27), 2023)
+  - [x] LOT_009 DX10 Suisse : 6,22 décès pour 100 000 habitants (Suisse, 2023)
+- **Homme jeune sans cause claire** (0 / 1)
+  - [ ] LOT_071 DX3 Europe : à faire
+  - [ ] LOT_071 DX3 Suisse : à faire
+- **Hyperhidrose secondaire (toutes causes : une autre maladie est en cause)** (0 / 1)
+  - [ ] LOT_001 DX10 Europe : à faire
+  - [ ] LOT_001 DX10 Suisse : à faire
+- **Imagerie** (0 / 1)
+  - [ ] LOT_101 DX9 Europe : à faire
+  - [ ] LOT_101 DX9 Suisse : à faire
+- **Imagerie et radioprotection** (0 / 1)
+  - [ ] LOT_205 DX6 Europe : à faire
+  - [ ] LOT_205 DX6 Suisse : à faire
+- **Imagerie non indiquée** (0 / 1)
+  - [ ] LOT_081 DX9 Europe : à faire
+  - [ ] LOT_081 DX9 Suisse : à faire
+- **Indication de dialyse** (0 / 1)
+  - [ ] LOT_063 DX10 Europe : à faire
+  - [ ] LOT_063 DX10 Suisse : à faire
+- **Indication d’embolisation** (0 / 1)
+  - [ ] LOT_068 DX10 Europe : à faire
+  - [ ] LOT_068 DX10 Suisse : à faire
+- **Indication seulement psychosociale** (0 / 1)
+  - [ ] LOT_062 DX4 Europe : à faire
+  - [ ] LOT_062 DX4 Suisse : à faire
+- **Infections (catégorie CIM-10 la plus représentée parmi les diagnostics de sortie)** (0 / 1)
+  - [ ] LOT_005 DX4 Europe : à faire
+  - [ ] LOT_005 DX4 Suisse : à faire
+- **IRM du genou antérieur** (0 / 1)
+  - [ ] LOT_240 DX2 Europe : à faire
+  - [ ] LOT_240 DX2 Suisse : à faire
+- **Ivresse ou état similaire** (0 / 1)
+  - [ ] LOT_246 DX5 Europe : à faire
+  - [ ] LOT_246 DX5 Suisse : à faire
+- **Lésion veineuse associée** (0 / 1)
+  - [ ] LOT_116 DX10 Europe : à faire
+  - [ ] LOT_116 DX10 Suisse : à faire
+- **Logopédie** (0 / 1)
+  - [ ] LOT_098 DX6 Europe : à faire
+  - [ ] LOT_098 DX6 Suisse : à faire
+- **Macule** (0 / 1)
+  - [ ] LOT_092 DX1 Europe : à faire
+  - [ ] LOT_092 DX1 Suisse : à faire
+- **Maladie somatique grave (toutes causes confondues)** (0 / 1)
+  - [ ] LOT_004 DX5 Europe : à faire
+  - [ ] LOT_004 DX5 Suisse : à faire
+- **Maladies inflammatoires non infectieuses (cause de FUO)** (0 / 1)
+  - [ ] LOT_006 DX5 Europe : à faire
+  - [ ] LOT_006 DX5 Suisse : à faire
+- **Mammographie de dépistage** (0 / 1)
+  - [ ] LOT_205 DX4 Europe : à faire
+  - [ ] LOT_205 DX4 Suisse : à faire
+- **Mammographie et surdiagnostic** (0 / 1)
+  - [ ] LOT_207 DX6 Europe : à faire
+  - [ ] LOT_207 DX6 Suisse : à faire
+- **Médicaments** (0 / 1)
+  - [ ] LOT_095 DX4 Europe : à faire
+  - [ ] LOT_095 DX4 Suisse : à faire
+- **Méléna** (0 / 1)
+  - [ ] LOT_060 DX2 Europe : à faire
+  - [ ] LOT_060 DX2 Suisse : à faire
+- **Méléna sans hématémèse** (0 / 1)
+  - [ ] LOT_057 DX9 Europe : à faire
+  - [ ] LOT_057 DX9 Suisse : à faire
+- **Menace cardiovasculaire** (0 / 1)
+  - [ ] LOT_051 DX8 Europe : à faire
+  - [ ] LOT_051 DX8 Suisse : à faire
+- **Mineur capable de discernement** (0 / 1)
+  - [ ] LOT_246 DX2 Europe : à faire
+  - [ ] LOT_246 DX2 Suisse : à faire
+- **Myokymie palpébrale** (0 / 1)
+  - [ ] LOT_022 DX3 Europe : à faire
+  - [ ] LOT_022 DX3 Suisse : à faire
+- **Nausées de chimiothérapie** (0 / 1)
+  - [ ] LOT_061 DX5 Europe : à faire
+  - [ ] LOT_061 DX5 Suisse : à faire
+- **Nausées de la personne âgée** (0 / 1)
+  - [ ] LOT_061 DX6 Europe : à faire
+  - [ ] LOT_061 DX6 Suisse : à faire
+- **Nausées multifactorielles** (0 / 1)
+  - [ ] LOT_061 DX9 Europe : à faire
+  - [ ] LOT_061 DX9 Suisse : à faire
+- **Nausées postopératoires** (0 / 1)
+  - [ ] LOT_061 DX4 Europe : à faire
+  - [ ] LOT_061 DX4 Suisse : à faire
+- **Nécrose** (0 / 2)
+  - [ ] LOT_087 DX4 Europe : à faire
+  - [ ] LOT_087 DX4 Suisse : à faire
+  - [ ] LOT_092 DX8 Europe : à faire
+  - [ ] LOT_092 DX8 Suisse : à faire
+- **Néoplasie (cause de FUO)** (0 / 1)
+  - [ ] LOT_006 DX8 Europe : 5 candidat(s) à lire
+  - [ ] LOT_006 DX8 Suisse : 5 candidat(s) à lire
+- **Neuroleptique poursuivi à la sortie** (0 / 1)
+  - [ ] LOT_240 DX9 Europe : à faire
+  - [ ] LOT_240 DX9 Suisse : à faire
+- **Neuromodulation sacrée** (0 / 1)
+  - [ ] LOT_055 DX9 Europe : à faire
+  - [ ] LOT_055 DX9 Suisse : à faire
+- **Nodule pulmonaire découvert par hasard** (0 / 1)
+  - [ ] LOT_205 DX7 Europe : à faire
+  - [ ] LOT_205 DX7 Suisse : à faire
+- **Œdème médicamenteux** (0 / 1)
+  - [ ] LOT_012 DX5 Europe : à faire
+  - [ ] LOT_012 DX5 Suisse : à faire
+- **Oubli** (0 / 1)
+  - [ ] LOT_101 DX1 Europe : à faire
+  - [ ] LOT_101 DX1 Suisse : à faire
+- **Oxygène pour une saturation haute** (0 / 1)
+  - [ ] LOT_240 DX10 Europe : à faire
+  - [ ] LOT_240 DX10 Suisse : à faire
+- **Papule** (0 / 1)
+  - [ ] LOT_092 DX2 Europe : à faire
+  - [ ] LOT_092 DX2 Suisse : à faire
+- **Pathologie somatique claire (toutes causes confondues)** (0 / 1)
+  - [ ] LOT_005 DX7 Europe : à faire
+  - [ ] LOT_005 DX7 Suisse : à faire
+- **Patient instable** (0 / 1)
+  - [ ] LOT_057 DX8 Europe : à faire
+  - [ ] LOT_057 DX8 Suisse : à faire
+- **Patient stable à bas risque** (0 / 1)
+  - [ ] LOT_057 DX7 Europe : à faire
+  - [ ] LOT_057 DX7 Suisse : à faire
+- **Perfusion de fer sans essai oral** (0 / 1)
+  - [ ] LOT_240 DX3 Europe : à faire
+  - [ ] LOT_240 DX3 Suisse : à faire
+- **Personne incapable de discernement** (0 / 1)
+  - [ ] LOT_247 DX6 Europe : à faire
+  - [ ] LOT_247 DX6 Suisse : à faire
+- **Personnel de santé au statut inconnu** (0 / 1)
+  - [ ] LOT_203 DX10 Europe : à faire
+  - [ ] LOT_203 DX10 Suisse : à faire
+- **Perte de poids et anorexie d'origine médicamenteuse** (0 / 1)
+  - [ ] LOT_016 DX6 Europe : à faire
+  - [ ] LOT_016 DX6 Suisse : à faire
+- **Perte de selles** (0 / 1)
+  - [ ] LOT_055 DX2 Europe : à faire
+  - [ ] LOT_055 DX2 Suisse : à faire
+- **Pertes physiologiques** (0 / 1)
+  - [ ] LOT_079 DX1 Europe : à faire
+  - [ ] LOT_079 DX1 Suisse : à faire
+- **Peur après un malaise réel** (0 / 1)
+  - [ ] LOT_123 DX6 Europe : à faire
+  - [ ] LOT_123 DX6 Suisse : à faire
+- **Peur focale** (0 / 1)
+  - [ ] LOT_123 DX1 Europe : à faire
+  - [ ] LOT_123 DX1 Suisse : à faire
+- **Plaie et effet indésirable grave** (0 / 1)
+  - [ ] LOT_203 DX9 Europe : à faire
+  - [ ] LOT_203 DX9 Suisse : à faire
+- **Plaque prurigineuse** (0 / 1)
+  - [ ] LOT_094 DX9 Europe : à faire
+  - [ ] LOT_094 DX9 Suisse : à faire
+- **Polydipsie médicamenteuse (diurétiques, lithium, anticholinergiques)** (0 / 1)
+  - [ ] LOT_003 DX7 Europe : à faire
+  - [ ] LOT_003 DX7 Suisse : à faire
+- **Pression artérielle** (0 / 1)
+  - [ ] LOT_208 DX2 Europe : à faire
+  - [ ] LOT_208 DX2 Suisse : à faire
+- **Présyncope** (0 / 1)
+  - [ ] LOT_099 DX7 Europe : à faire
+  - [ ] LOT_099 DX7 Suisse : à faire
+- **Prise de poids d'origine médicamenteuse** (0 / 1)
+  - [ ] LOT_015 DX2 Europe : à faire
+  - [ ] LOT_015 DX2 Suisse : à faire
+- **Prise en charge précoce** (0 / 1)
+  - [ ] LOT_085 DX10 Europe : à faire
+  - [ ] LOT_085 DX10 Suisse : à faire
+- **Problèmes liés aux médicaments (effets indésirables, interactions)** (0 / 1)
+  - [ ] LOT_005 DX8 Europe : à faire
+  - [ ] LOT_005 DX8 Suisse : à faire
+- **Problèmes musculo-squelettiques (catégorie diagnostique)** (0 / 1)
+  - [ ] LOT_004 DX2 Europe : à faire
+  - [ ] LOT_004 DX2 Suisse : à faire
+- **Prophylaxie thromboembolique à bas risque** (0 / 1)
+  - [ ] LOT_240 DX6 Europe : à faire
+  - [ ] LOT_240 DX6 Suisse : à faire
+- **Protrusion anale** (0 / 1)
+  - [ ] LOT_056 DX3 Europe : à faire
+  - [ ] LOT_056 DX3 Suisse : à faire
+- **Prurit** (0 / 1)
+  - [ ] LOT_090 DX6 Europe : à faire
+  - [ ] LOT_090 DX6 Suisse : à faire
+- **Prurit anal** (0 / 1)
+  - [ ] LOT_056 DX1 Europe : à faire
+  - [ ] LOT_056 DX1 Suisse : à faire
+- **Prurit d’origine mixte (plusieurs causes)** (0 / 1)
+  - [ ] LOT_009 DX2 Europe : à faire
+  - [ ] LOT_009 DX2 Suisse : à faire
+- **Pustule** (0 / 1)
+  - [ ] LOT_092 DX3 Europe : à faire
+  - [ ] LOT_092 DX3 Suisse : à faire
+- **Rattrapage de l'enfant et de l'adolescent** (0 / 1)
+  - [ ] LOT_203 DX2 Europe : à faire
+  - [ ] LOT_203 DX2 Suisse : à faire
+- **Réaction au produit de contraste** (0 / 1)
+  - [ ] LOT_205 DX9 Europe : à faire
+  - [ ] LOT_205 DX9 Suisse : à faire
+- **Réadaptation cardiaque** (0 / 1)
+  - [ ] LOT_236 DX4 Europe : à faire
+  - [ ] LOT_236 DX4 Suisse : à faire
+- **Réadaptation en médecine interne** (0 / 1)
+  - [ ] LOT_236 DX7 Europe : à faire
+  - [ ] LOT_236 DX7 Suisse : à faire
+- **Réadaptation gériatrique** (0 / 1)
+  - [ ] LOT_236 DX2 Europe : à faire
+  - [ ] LOT_236 DX2 Suisse : à faire
+- **Réadaptation musculo-squelettique** (0 / 1)
+  - [ ] LOT_236 DX1 Europe : à faire
+  - [ ] LOT_236 DX1 Suisse : à faire
+- **Réadaptation neurologique** (0 / 1)
+  - [ ] LOT_236 DX3 Europe : à faire
+  - [ ] LOT_236 DX3 Suisse : à faire
+- **Réadaptation paraplégiologique** (0 / 1)
+  - [ ] LOT_236 DX8 Europe : à faire
+  - [ ] LOT_236 DX8 Suisse : à faire
+- **Réadaptation pédiatrique** (0 / 1)
+  - [ ] LOT_236 DX9 Europe : à faire
+  - [ ] LOT_236 DX9 Suisse : à faire
+- **Réadaptation psychosomatique** (0 / 1)
+  - [ ] LOT_236 DX6 Europe : à faire
+  - [ ] LOT_236 DX6 Suisse : à faire
+- **Réadaptation pulmonaire** (0 / 1)
+  - [ ] LOT_236 DX5 Europe : à faire
+  - [ ] LOT_236 DX5 Suisse : à faire
+- **Rectorragie** (0 / 1)
+  - [ ] LOT_060 DX1 Europe : à faire
+  - [ ] LOT_060 DX1 Suisse : à faire
+- **Rectorragie d’origine haute** (0 / 1)
+  - [ ] LOT_057 DX10 Europe : à faire
+  - [ ] LOT_057 DX10 Suisse : à faire
+- **Récupération** (0 / 1)
+  - [ ] LOT_102 DX10 Europe : à faire
+  - [ ] LOT_102 DX10 Suisse : à faire
+- **Refus d’une lecture psychologique** (0 / 1)
+  - [ ] LOT_230 DX3 Europe : à faire
+  - [ ] LOT_230 DX3 Suisse : à faire
+- **Représentant et volonté présumée** (0 / 1)
+  - [ ] LOT_246 DX7 Europe : à faire
+  - [ ] LOT_246 DX7 Suisse : à faire
+- **Résultat biologique critique** (0 / 1)
+  - [ ] LOT_205 DX8 Europe : à faire
+  - [ ] LOT_205 DX8 Suisse : à faire
+- **Rhumatismes et arthrite (cause de douleur chronique)** (0 / 1)
+  - [ ] LOT_010 DX5 Europe : à faire
+  - [ ] LOT_010 DX5 Suisse : à faire
+- **Risque absolu** (0 / 1)
+  - [ ] LOT_208 DX4 Europe : à faire
+  - [ ] LOT_208 DX4 Suisse : à faire
+- **Risque cardiovasculaire, lipides et glycémie** (0 / 1)
+  - [ ] LOT_205 DX2 Europe : à faire
+  - [ ] LOT_205 DX2 Suisse : à faire
+- **Saignement de source obscure** (0 / 1)
+  - [ ] LOT_060 DX10 Europe : à faire
+  - [ ] LOT_060 DX10 Suisse : à faire
+- **Saignement du grêle** (0 / 1)
+  - [ ] LOT_060 DX8 Europe : à faire
+  - [ ] LOT_060 DX8 Suisse : à faire
+- **Saignement sous anti-inflammatoire** (0 / 1)
+  - [ ] LOT_057 DX5 Europe : à faire
+  - [ ] LOT_057 DX5 Suisse : à faire
+- **Signe d’alarme** (0 / 2)
+  - [ ] LOT_058 DX10 Europe : à faire
+  - [ ] LOT_058 DX10 Suisse : à faire
+  - [ ] LOT_100 DX6 Europe : à faire
+  - [ ] LOT_100 DX6 Suisse : à faire
+- **Situation réfractaire fragile** (0 / 1)
+  - [ ] LOT_055 DX10 Europe : à faire
+  - [ ] LOT_055 DX10 Suisse : à faire
+- **Somnolence iatrogène ou thymique** (0 / 1)
+  - [ ] LOT_040 DX8 Europe : à faire
+  - [ ] LOT_040 DX8 Suisse : à faire
+- **Sphincter interne faible** (0 / 1)
+  - [ ] LOT_055 DX5 Europe : à faire
+  - [ ] LOT_055 DX5 Suisse : à faire
+- **Stérilet au cuivre** (0 / 1)
+  - [ ] LOT_069 DX6 Europe : à faire
+  - [ ] LOT_069 DX6 Suisse : à faire
+- **Sueurs nocturnes fébriles avec signes généraux** (0 / 1)
+  - [ ] LOT_073 DX7 Europe : à faire
+  - [ ] LOT_073 DX7 Suisse : à faire
+- **Suivi jusqu’à l’âge adulte** (0 / 1)
+  - [ ] LOT_062 DX10 Europe : à faire
+  - [ ] LOT_062 DX10 Suisse : à faire
+- **Surconsommation de soins** (0 / 1)
+  - [ ] LOT_230 DX9 Europe : à faire
+  - [ ] LOT_230 DX9 Suisse : à faire
+- **Toux après immersion** (0 / 1)
+  - [ ] LOT_109 DX2 Europe : à faire
+  - [ ] LOT_109 DX2 Suisse : à faire
+- **Toux et crachats sanglants après choc** (0 / 1)
+  - [ ] LOT_115 DX8 Europe : à faire
+  - [ ] LOT_115 DX8 Suisse : à faire
+- **Transit lent** (0 / 1)
+  - [ ] LOT_058 DX1 Europe : à faire
+  - [ ] LOT_058 DX1 Suisse : à faire
+- **Tremblement de repos** (0 / 1)
+  - [ ] LOT_097 DX1 Europe : à faire
+  - [ ] LOT_097 DX1 Suisse : à faire
+- **Tremblement d’action** (0 / 1)
+  - [ ] LOT_097 DX2 Europe : à faire
+  - [ ] LOT_097 DX2 Suisse : à faire
+- **Tremblement médicamenteux** (0 / 1)
+  - [ ] LOT_097 DX8 Europe : à faire
+  - [ ] LOT_097 DX8 Suisse : à faire
+- **Trouble psychique** (0 / 1)
+  - [ ] LOT_246 DX3 Europe : à faire
+  - [ ] LOT_246 DX3 Suisse : à faire
+- **Vaccinations complémentaires dès 65 ans** (0 / 1)
+  - [ ] LOT_203 DX4 Europe : à faire
+  - [ ] LOT_203 DX4 Suisse : à faire
+- **Vertige central** (0 / 1)
+  - [ ] LOT_099 DX5 Europe : à faire
+  - [ ] LOT_099 DX5 Suisse : à faire
+- **Virage sous traitement** (0 / 1)
+  - [ ] LOT_121 DX10 Europe : à faire
+  - [ ] LOT_121 DX10 Suisse : à faire
+- **Vomissements aigus** (0 / 1)
+  - [ ] LOT_061 DX1 Europe : à faire
+  - [ ] LOT_061 DX1 Suisse : à faire
+- **Vomissements anticipés** (0 / 1)
+  - [ ] LOT_061 DX3 Europe : à faire
+  - [ ] LOT_061 DX3 Suisse : à faire
+- **Vomissements répétés** (0 / 1)
+  - [ ] LOT_111 DX4 Europe : à faire
+  - [ ] LOT_111 DX4 Suisse : à faire
+- **Vomissements retardés** (0 / 1)
+  - [ ] LOT_061 DX2 Europe : à faire
+  - [ ] LOT_061 DX2 Suisse : à faire
+- **Xérostomie médicamenteuse** (0 / 1)
+  - [ ] LOT_025 DX2 Europe : à faire
+  - [ ] LOT_025 DX2 Suisse : à faire
+
+## 4. Reclassement après la Phase A
+- [ ] 1064 DX sans nom : relancer `applicabilite.py` puis `recherche.py` quand les noms existent.
