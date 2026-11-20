@@ -1,0 +1,2445 @@
+{
+  "rappel_obligatoire_avant_redaction": {
+    "lecture_imperative": [
+      "1. Lire intégralement PROMPT_Alpha_19.11.26.md ET la mise à jour incluse dans prompt_alpha_a_jour ci-dessous.",
+      "2. Respecter l'intervalle GLOBAL par cours : viser 85–95 Ko de texte médical pur (soit ~95–115 Ko de fichier JSON) sans quota rigide par partie — répartir le texte proportionnellement à l'importance clinique des parties.",
+      "3. Produire graduellement 1 cours complet par requête (Phase A, puis Cours 1, Cours 2...) en français médical académique, phrases verbales exclusives (0 phrase nominale), zéro prose générique ou patronnée.",
+      "4. Utiliser uniquement les guillemets typographiques français « … » dans les valeurs texte JSON (jamais de guillemet droit non échappé).",
+      "5. Zéro arbre décisionnel graphique (.fm-canvas) : ne générer aucun schéma décisionnel."
+    ],
+    "specificites_locales_ssp": [
+      "Circuit NON_MONOGRAPHIQUE : conserver strictement l'architecture en Leçons Suisses Structurées (14 points adaptés), SANS JAMAIS utiliser de titres ou de plan maladie artificiel (interdiction de Physiopathologie / Approche syndromique / Diagnostic positif).",
+      "Couvrir 100 % des notions obligatoires listées dans phase_b[*].plan[*].notions_obligatoires pour Erreurs ou fautes d’un collègue ou d’un autre professionnel de santé (O7.5).",
+      "Cascade posologique suisse à 4 paliers obligatoire : 1. AIPS Swissmedic (n° 5 chiffres) -> 2. Compendium.ch -> 3. Sociétés savantes & CHU suisses (HUG, CHUV, Inselspital, USZ, USB, OFSP, ASSM, SSMIG, Tox Info Suisse 145) -> 4. Sociétés savantes européennes."
+    ]
+  },
+  "meta": {
+    "rang_gravite": 56,
+    "ssp": "SSP_227",
+    "code_profiles": "O7.5",
+    "nom_francais": "Erreurs ou fautes d’un collègue ou d’un autre professionnel de santé",
+    "circuit": "NON_MONOGRAPHIQUE",
+    "police_obligatoire": "Atkinson Hyperlegible",
+    "calibre_cible": "80–100 Ko texte pur",
+    "arbres_decisionnels_autorises": false,
+    "mode_redaction": "Neon Deep Research",
+    "nb_chapitres_total": 16,
+    "defauts_audit_initial": [
+      "Incomplet (11/16 cours)",
+      "Faux plan maladie (10 f.)",
+      "111 phrases nominales",
+      "Termes chantier (11 f.)"
+    ]
+  },
+  "sommaire": {
+    "phase_a": {
+      "fichier_html_cible": "LOT_227_Phase_A_V0.html",
+      "titre": "Erreurs ou fautes d’un collègue ou d’un autre professionnel de santé — Vue d'ensemble et orientation clinique (O7.5)"
+    },
+    "phase_b": [
+      {
+        "cours_numero": 1,
+        "titre": "Erreur de prescription ou d'administration médicamenteuse sans dommage grave (near-miss / incident)",
+        "cim": "Y69",
+        "urgence": "semi-urgent"
+      },
+      {
+        "cours_numero": 2,
+        "titre": "Défaut de communication ou de transmission lors d'un transfert de soins",
+        "cim": "Z71.8",
+        "urgence": "semi-urgent"
+      },
+      {
+        "cours_numero": 3,
+        "titre": "Erreur diagnostique ou retard de diagnostic par biais cognitif d'un confrère",
+        "cim": "Y69",
+        "urgence": "semi-urgent"
+      },
+      {
+        "cours_numero": 4,
+        "titre": "Complication chirurgicale ou technique évitable (oubli de compresse, erreur de côté, lésion iatrogène)",
+        "cim": "Y61.0",
+        "urgence": "urgent"
+      },
+      {
+        "cours_numero": 5,
+        "titre": "Manquement au secret médical ou violation de la confidentialité (LPD / art. 321 CP)",
+        "cim": "Z71.8",
+        "urgence": "semi-urgent"
+      },
+      {
+        "cours_numero": 6,
+        "titre": "Conduite professionnelle altérée par épuisement (burnout) ou surcharge d'un collègue",
+        "cim": "Z73.0",
+        "urgence": "semi-urgent"
+      },
+      {
+        "cours_numero": 7,
+        "titre": "Comportement irrespectueux, harcèlement ou discrimination envers collègues/patients",
+        "cim": "Z56.6",
+        "urgence": "semi-urgent"
+      },
+      {
+        "cours_numero": 8,
+        "titre": "Défaut d'hygiène des mains ou rupture des mesures d'asepsie / contrôle des infections",
+        "cim": "Z29.8",
+        "urgence": "semi-urgent"
+      },
+      {
+        "cours_numero": 9,
+        "titre": "Fraude scientifique, falsification de dossier médical ou facturation abusive",
+        "cim": "Z76.8",
+        "urgence": "semi-urgent"
+      },
+      {
+        "cours_numero": 10,
+        "titre": "Pratique illégale, charlatanisme ou non-respect grave des recommandations cliniques (médecine non basée sur les preuves)",
+        "cim": "Z71.8",
+        "urgence": "semi-urgent"
+      },
+      {
+        "cours_numero": 11,
+        "titre": "Collègue en état d'ébriété ou sous influence de substances en service clinique",
+        "cim": "F10.0",
+        "urgence": "immediate"
+      },
+      {
+        "cours_numero": 12,
+        "titre": "Erreur médicale aiguë grave en cours (surdosage vital, voie d'administration erronée, geste sur mauvais côté)",
+        "cim": "Y69",
+        "urgence": "immediate"
+      },
+      {
+        "cours_numero": 13,
+        "titre": "Inconduite sexuelle ou abus d'un professionnel envers un patient",
+        "cim": "T74.2",
+        "urgence": "immediate"
+      },
+      {
+        "cours_numero": 14,
+        "titre": "Rétention ou dissimulation d'un résultat critique mettant en jeu la vie d'un patient",
+        "cim": "Y69",
+        "urgence": "urgent"
+      },
+      {
+        "cours_numero": 15,
+        "titre": "Défaillance aiguë de discernement ou pathologie neuropsychiatrique aiguë d'un collègue en fonction",
+        "cim": "F05.9",
+        "urgence": "immediate"
+      }
+    ]
+  },
+  "phase_a": {
+    "titre": "Erreurs ou fautes d’un collègue ou d’un autre professionnel de santé — Vue d'ensemble (O7.5)",
+    "plan": [
+      {
+        "point": 1,
+        "titre": "Définition, portée clinique et cadre suisse de la situation",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit NON_MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 2,
+        "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit NON_MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 3,
+        "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit NON_MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 4,
+        "titre": "Démarche d'évaluation structurée et situations différentielles",
+        "description": "Présentation et hiérarchisation des 15 entités de la Cartographie Renouveau."
+      },
+      {
+        "point": 5,
+        "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit NON_MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 6,
+        "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit NON_MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 7,
+        "titre": "Typologie des situations et stratification des priorités",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit NON_MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 8,
+        "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit NON_MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 9,
+        "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit NON_MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 10,
+        "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit NON_MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 11,
+        "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit NON_MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 12,
+        "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit NON_MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 13,
+        "titre": "Points clés essentiels pour la pratique suisse",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit NON_MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 14,
+        "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit NON_MONOGRAPHIQUE, sans arbre décisionnel."
+      }
+    ]
+  },
+  "phase_b": [
+    {
+      "cours_numero": 1,
+      "fichier_html_cible": "LOT_227_Phase_B_V0_DX.1.html",
+      "titre": "Erreur de prescription ou d'administration médicamenteuse sans dommage grave (near-miss / incident)",
+      "cim": "Y69",
+      "urgence": "semi-urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition, portée clinique et cadre suisse de la situation",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Écart involontaire dans le processus de prescription, dispensation ou administration d'un médicament par un collègue ou soi-même."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Représente 30–50 % des incidents déclarés en milieu hospitalier et ambulatoire."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Modèle du fromage suisse de Reason : erreurs latentes systémiques (homonymie LASA, interruptions, transmissions incomplètes)."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche d'évaluation structurée et situations différentielles",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Médicament à marge thérapeutique étroite (insuline, anticoagulants, KCl IV, chimiothérapie, opioïdes)."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Reconstitution factuelle de la chaîne d'erreur, dose réelle administrée, heure, allergies connues."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Vérification des paramètres vitaux et de l'absence de signes de toxicité chez le patient."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Typologie des situations et stratification des priorités",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Incident médicamenteux identifié et analysé."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Déclaration CIRS (Critical Incident Reporting System) anonyme et systémique ; bilan biologique si médicament potentiellement toxique."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Dialogue constructif non accusateur avec le collègue impliqué."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Sécuriser d'abord le patient (antidote/surveillance), puis informer le patient avec transparence et empathie (devoir d'information)."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Analyse des causes racines (RMM/morbimortalité), double contrôle des médicaments à haut risque."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Perte de confiance du patient si dissimulation, récidive si défaut systémique non corrigé."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Surveillance clinique adaptée à la pharmacocinétique du produit."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Absence de séquelle dans les near-miss ; amélioration de la sécurité collective."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Équipe soignante, pharmacie hospitalière, responsable qualité/CIRS."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés essentiels pour la pratique suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 2,
+      "fichier_html_cible": "LOT_227_Phase_B_V0_DX.2.html",
+      "titre": "Défaut de communication ou de transmission lors d'un transfert de soins",
+      "cim": "Z71.8",
+      "urgence": "semi-urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition, portée clinique et cadre suisse de la situation",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Perte d'information clinique critique entre deux services, deux médecins ou entre hôpital et médecin de famille."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Impliqué dans > 60 % des événements indésirables graves selon la Joint Commission."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Biais d'attribution de responsabilité (« je pensais que le spécialiste gérait »), lettres de sortie tardives."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche d'évaluation structurée et situations différentielles",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Résultat anatomopathologique malin non communiqué, hémoculture positive négligée, arrêt non justifié d'anticoagulant."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Vérifier résultats en attente (histologies, hémocultures, imagerie), réconciliation médicamenteuse."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Réévaluation clinique du patient à la recherche d'une pathologie évolutive non traitée."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Typologie des situations et stratification des priorités",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Faille de continuité des soins identifiée."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Réconciliation médicamenteuse et traçabilité de tous les résultats en attente."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Appel direct au collègue concerné (outil SBAR)."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Corriger immédiatement le suivi manquant (rappeler le patient, initier le traitement requis) et expliquer honnêtement le retard."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Standardiser les transmissions (SBAR, I-PASS) et le suivi des résultats en attente."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Retard diagnostique oncologique ou infectieux."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Contrôle de la mise en œuvre du plan corrigé."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Prévention efficace des récidives par processus standardisés."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Médecin de famille, équipe hospitalière, direction qualité."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés essentiels pour la pratique suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 3,
+      "fichier_html_cible": "LOT_227_Phase_B_V0_DX.3.html",
+      "titre": "Erreur diagnostique ou retard de diagnostic par biais cognitif d'un confrère",
+      "cim": "Y69",
+      "urgence": "semi-urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition, portée clinique et cadre suisse de la situation",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Diagnostic initial erroné ou retardé ayant conduit à une prise en charge inadaptée."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Concerne ~5–10 % des consultations ambulatoires ; fréquent pour embolie pulmonaire, dissection aortique, cancers, appendicite."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Heuristiques de pensée rapide (Système 1 de Kahneman) exposant aux biais d'ancrage et de disponibilité."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche d'évaluation structurée et situations différentielles",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Aggravation clinique sous traitement présumé adapté."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Reprendre l'anamnèse à zéro avec un regard neuf sans se fier aveuglément à l'étiquette diagnostique précédente."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Examen complet réévaluant les hypothèses alternatives."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Typologie des situations et stratification des priorités",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Rectification diagnostique objectivée."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Examens complémentaires ciblés pour infirmer/confirmer le nouveau diagnostic."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Contact confraternel respectueux avec le collègue pour l'informer de l'évolution (apprentissage partagé)."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Instaurer sans délai le traitement adapté au diagnostic rectifié."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Communication loyale et factuelle au patient (sans attaque ad hominem du confrère) ; colloque de morbi-mortalité."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Morbidité liée au retard thérapeutique."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Suivi rapproché de la réponse au nouveau traitement."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Favorable si rectifié à temps."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Médecin de famille, spécialiste, RMM."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés essentiels pour la pratique suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 4,
+      "fichier_html_cible": "LOT_227_Phase_B_V0_DX.4.html",
+      "titre": "Complication chirurgicale ou technique évitable (oubli de compresse, erreur de côté, lésion iatrogène)",
+      "cim": "Y61.0",
+      "urgence": "urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition, portée clinique et cadre suisse de la situation",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Incident technique per-procédural ou chirurgical dû à un manquement aux protocoles de sécurité."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Rare depuis la généralisation de la check-list chirurgicale OMS mais grave."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Absence de marquage du site, fatigue, interruption de tâche, non-respect du time-out."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche d'évaluation structurée et situations différentielles",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Sepsis abdominal, déficit neurologique post-opératoire, hémorragie."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Compte-rendu opératoire, symptômes post-opératoires inhabituels (douleur persistante, fièvre, asymétrie)."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Examen du site opératoire, signes infectieux ou mécaniques."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Typologie des situations et stratification des priorités",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Complication technique objectivée."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Imagerie ciblée (radiographie/CT montrant corps étranger radio-opaque) et avis chirurgical."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Déclaration événement indésirable grave (EIG)."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Reprise chirurgicale/réparation urgente si indiquée ; information transparente au patient par le chirurgien responsable."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Application stricte de la check-list OMS et du comptage des textiles."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Péritonite, handicap, procédure judiciaire."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Suivi post-réintervention."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Favorable si reprise rapide."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Chirurgien, direction médicale, assurance RC, médiateur."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés essentiels pour la pratique suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 5,
+      "fichier_html_cible": "LOT_227_Phase_B_V0_DX.5.html",
+      "titre": "Manquement au secret médical ou violation de la confidentialité (LPD / art. 321 CP)",
+      "cim": "Z71.8",
+      "urgence": "semi-urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition, portée clinique et cadre suisse de la situation",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Divulgation non autorisée d'informations couvertes par le secret professionnel médical à un tiers."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Fréquent sous forme mineure (discussions publiques, erreurs d'e-mail/fax) et sévèrement sanctionné en Suisse."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Cadre légal suisse : art. 321 CP (secret professionnel) et LPD (protection des données)."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche d'évaluation structurée et situations différentielles",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Divulgation mettant en danger une victime de violence ou portant atteinte grave à la réputation/emploi."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Identifier exactement quelles données ont été divulguées, à qui et par quel canal."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Impact psychologique sur le patient (perte de confiance, préjudice professionnel/familial)."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Typologie des situations et stratification des priorités",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Violation avérée de la confidentialité."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Signalement immédiat au préposé à la protection des données (DPO) et à la direction."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Rappel immédiat des règles au collègue concerné."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Contenir la fuite (demande de destruction du document envoyé par erreur), informer honnêtement le patient."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Formation de l'équipe, sécurisation informatique (HIN en Suisse)."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Rupture d'alliance thérapeutique, plainte pénale art. 321 CP."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Audit des pratiques de confidentialité."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Confiance parfois restaurée par excuses sincères et transparence."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Direction médicale, DPO, FMH/société médicale cantonale."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés essentiels pour la pratique suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 6,
+      "fichier_html_cible": "LOT_227_Phase_B_V0_DX.6.html",
+      "titre": "Conduite professionnelle altérée par épuisement (burnout) ou surcharge d'un collègue",
+      "cim": "Z73.0",
+      "urgence": "semi-urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition, portée clinique et cadre suisse de la situation",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Baisse de performance, cynisme ou erreurs répétées chez un professionnel de santé en situation d'épuisement sévère."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Le burnout touche 30–50 % des médecins assistants et soignants à un moment de leur carrière."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Privation chronique de sommeil, charge émotionnelle, perfectionnisme."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche d'évaluation structurée et situations différentielles",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Mise en danger immédiate des patients ou risque suicidaire du collègue."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Signes observables : erreurs inhabituelles, retrait, irritabilité, retards, épuisement visible."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Entretien confraternel privé et empathique (« Je m'inquiète pour toi... »)."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Typologie des situations et stratification des priorités",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Altération de l'aptitude professionnelle par épuisement."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Évaluation par la médecine du personnel / hiérarchie bienveillante."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Réseau d'entraide pour médecins en difficulté (ReMed en Suisse !)."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Alléger immédiatement la charge clinique/gardes pour protéger patients et collègue."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Orientation vers ReMed (réseau de soutien FMH), médecin traitant, psychothérapie."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Erreurs médicales graves, suicide du soignant."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Accompagnement de reprise progressive."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Très bonne récupération si pris en charge précocement."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "ReMed (FMH), médecin du personnel, chef de service."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés essentiels pour la pratique suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 7,
+      "fichier_html_cible": "LOT_227_Phase_B_V0_DX.7.html",
+      "titre": "Comportement irrespectueux, harcèlement ou discrimination envers collègues/patients",
+      "cim": "Z56.6",
+      "urgence": "semi-urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition, portée clinique et cadre suisse de la situation",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Propos humiliants, colères, sexisme, racisme ou intimidation exercés par un professionnel de santé."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Facteur majeur d'erreurs médicales (les subordonnés n'osent plus signaler un problème)."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Rupture de la sécurité psychologique de l'équipe."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche d'évaluation structurée et situations différentielles",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Harcèlement sexuel, discrimination grave, intimidation bloquant une alerte vitale."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Faits précis datés, témoins, impact sur les soignants ou patients."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Recueil factuel non émotionnel."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Typologie des situations et stratification des priorités",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Comportement professionnel inapproprié documenté."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Documentation écrite et remontée via canal hiérarchique ou personne de confiance."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Médiation ou enquête RH indépendante."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Protéger la victime/témoin et rappeler fermement le cadre institutionnel."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Mesures disciplinaires ou coaching comportemental selon gravité."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Erreurs de soins par peur de parler, démissions."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Suivi par RH/direction médicale."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Amélioration du climat et de la sécurité si tolérance zéro appliquée."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Personne de confiance, RH, direction médicale, commission de déontologie."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés essentiels pour la pratique suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 8,
+      "fichier_html_cible": "LOT_227_Phase_B_V0_DX.8.html",
+      "titre": "Défaut d'hygiène des mains ou rupture des mesures d'asepsie / contrôle des infections",
+      "cim": "Z29.8",
+      "urgence": "semi-urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition, portée clinique et cadre suisse de la situation",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Non-respect des précautions standard (désinfection des mains, port d'EPI, asepsie lors de gestes invasifs)."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Responsable de milliers d'infections nosocomiales évitables chaque année."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Transmission manuportée de BMR (SARM, BLSE), C. difficile ou virus respiratoires."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche d'évaluation structurée et situations différentielles",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Rupture d'asepsie lors de pose de voie centrale, ponction lombaire ou au bloc opératoire."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Observation directe d'un oubli avant examen/cathéter ou en isolement."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Risque immédiat de contamination du patient."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Typologie des situations et stratification des priorités",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Brèche d'asepsie observée."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Interpellation immédiate et courtoise (« speak up ») AVANT le geste."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Signalement au service PCI (Prévention et Contrôle de l'Infection) si récidive."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Stopper le geste et refaire la préparation stérile (changement de gants/champ)."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Formation continue, audits d'hygiène des mains."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Bactériémie sur cathéter, infection du site opératoire."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Réévaluation clinique programmée à 2–6 semaines avec contrôle de la tolérance thérapeutique et de l'observance."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Prévention immédiate efficace si culture du speak-up."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Service PCI/hygiène hospitalière, équipe soignante."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés essentiels pour la pratique suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 9,
+      "fichier_html_cible": "LOT_227_Phase_B_V0_DX.9.html",
+      "titre": "Fraude scientifique, falsification de dossier médical ou facturation abusive",
+      "cim": "Z76.8",
+      "urgence": "semi-urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition, portée clinique et cadre suisse de la situation",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Modification rétroactive frauduleuse d'un dossier patient, fabrication de données ou facturation fictive."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Rare mais aux conséquences disciplinaires et pénales majeures."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Perte d'intégrité du dossier médical (document probant légal)."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche d'évaluation structurée et situations différentielles",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Falsification visant à masquer une erreur médicale grave."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Constatation objective d'anomalies (horodatage, actes facturés non réalisés)."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Vérification factuelle sans accusation hâtive (exclure d'abord une erreur informatique)."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Typologie des situations et stratification des priorités",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Falsification documentée."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Alerte interne sécurisée (compliance, direction médicale, commission de déontologie)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Protection des lanceurs d'alerte."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Préserver l'intégrité des preuves et informer la direction médicale."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Procédure disciplinaire/ordinale."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Perte d'autorisation de pratiquer, atteinte à la confiance publique."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Réévaluation clinique programmée à 2–6 semaines avec contrôle de la tolérance thérapeutique et de l'observance."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Traitement institutionnel."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Direction médicale, médecin cantonal, FMH."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés essentiels pour la pratique suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 10,
+      "fichier_html_cible": "LOT_227_Phase_B_V0_DX.10.html",
+      "titre": "Pratique illégale, charlatanisme ou non-respect grave des recommandations cliniques (médecine non basée sur les preuves)",
+      "cim": "Z71.8",
+      "urgence": "semi-urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition, portée clinique et cadre suisse de la situation",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Prise en charge s'écartant gravement des standards scientifiques et mettant le patient en danger."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Rare chez les médecins diplômés mais observé occasionnellement."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Perte de chance thérapeutique majeure pour le patient."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche d'évaluation structurée et situations différentielles",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Arrêt d'un traitement vital en cours sur conseil d'un professionnel."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Propos/prescriptions rapportés par le patient, documents écrits."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Évaluation de la perte de chance actuelle (progression tumorale, décompensation)."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Typologie des situations et stratification des priorités",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Conduite médicale dangereuse non conforme aux standards."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Information loyale et factuelle au patient basée sur les preuves (EBM)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Signalement au médecin cantonal si mise en danger systématique de patients."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Reprendre immédiatement la prise en charge validée avec l'accord du patient."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Notification à l'autorité de surveillance (médecin cantonal) si danger public."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Décès évitable par perte de chance."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Suivi rapproché du patient."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Dépend de la précocité de la réorientation."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Médecin cantonal, commission de surveillance des professions de la santé."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés essentiels pour la pratique suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 11,
+      "fichier_html_cible": "LOT_227_Phase_B_V0_DX.11.html",
+      "titre": "Collègue en état d'ébriété ou sous influence de substances en service clinique",
+      "cim": "F10.0",
+      "urgence": "immediate",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition, portée clinique et cadre suisse de la situation",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Exercice d'une activité de soins ou de garde sous l'emprise d'alcool, de stupéfiants ou de sédatifs."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "La prévalence des addictions chez les médecins est comparable ou légèrement supérieure à la population générale (~10 % sur la vie, accès facilité aux opioïdes/benzodiazépines)."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Altération du jugement, des réflexes et de la dextérité."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche d'évaluation structurée et situations différentielles",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Le collègue s'apprête à opérer, accoucher, prescrire ou conduire en urgence."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Signes observés : haleine alcoolisée, dysarthrie, ataxie, incohérence, disparition d'ampoules de fentanyl/midazolam."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Évaluation immédiate de la sécurité des patients pris en charge par ce collègue."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Typologie des situations et stratification des priorités",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Inaptitude aiguë manifeste mettant les patients en danger."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Retrait immédiat et discret du service avec relais clinique assuré pour les patients ; alerte immédiate du médecin-chef/cadre de garde."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Test d'alcoolémie/toxique encadré par la médecine du personnel selon règlement."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "1) Sécuriser les patients (prendre le relais immédiatement), 2) Retirer le collègue des soins sans humiliation publique, 3) Prévenir le supérieur de garde, 4) S'assurer qu'il ne prenne pas le volant."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Prise en charge addictologique confidentielle (ReMed), suivi par médecin cantonal si besoin pour réinsertion encadrée."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Accident médical mortel, suicide du collègue après découverte."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Soutien psychologique immédiat du collègue (risque suicidaire élevé lors du dévoilement !)."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Réinsertion possible après soins et suivi d'abstinence."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Chef de service, médecin du personnel, ReMed (FMH), médecin cantonal."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés essentiels pour la pratique suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 12,
+      "fichier_html_cible": "LOT_227_Phase_B_V0_DX.12.html",
+      "titre": "Erreur médicale aiguë grave en cours (surdosage vital, voie d'administration erronée, geste sur mauvais côté)",
+      "cim": "Y69",
+      "urgence": "immediate",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition, portée clinique et cadre suisse de la situation",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Erreur active imminente ou venant de se produire exposant le patient à un danger vital immédiat (ex. KCl IV direct, vincristine intrathécale, surdosage opioïde/insuline, mauvais patient)."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Urgence de sécurité des soins nécessitant une réaction en secondes."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Toxicité aiguë immédiate ou lésion irréversible."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche d'évaluation structurée et situations différentielles",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Arrêt cardiaque, dépression respiratoire, choc anaphylactique, erreur de groupe sanguin (ABO)."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Identifier immédiatement le produit/dose/site exact."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Évaluation ABCDE immédiate du patient."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Typologie des situations et stratification des priorités",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Événement indésirable grave aigu."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Monitoring continu, bilan biologique/ECG selon l'agent."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Appel immédiat à Tox Info Suisse (145) ou réanimation."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "1) Stopper la perfusion/geste, 2) Réanimation et antidote immédiat (naloxone, glucose, gluconate de calcium, arrêt transfusion si incompatibilité ABO), 3) Information honnête du patient/famille par le médecin cadre."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Analyse systémique approfondie (RMM), déclaration d'événement indésirable grave."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Décès, séquelles neurologiques ou fonctionnelles permanentes."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Monitorage continu (PA, FC, SpO2, conscience, diurèse > 0,5 mL/kg/h) et réévaluation biologique SI à H2–H6."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Dépend de la rapidité de l'interception."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Réanimation, chef de service, direction qualité, patient/famille."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés essentiels pour la pratique suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 13,
+      "fichier_html_cible": "LOT_227_Phase_B_V0_DX.13.html",
+      "titre": "Inconduite sexuelle ou abus d'un professionnel envers un patient",
+      "cim": "T74.2",
+      "urgence": "immediate",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition, portée clinique et cadre suisse de la situation",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Tout acte ou propos à caractère sexuel d'un professionnel de santé envers un patient profitant de la relation thérapeutique."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Rare mais gravement traumatisant ; abus de confiance absolu."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Asymétrie de pouvoir et vulnérabilité du patient."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche d'évaluation structurée et situations différentielles",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Patient mineur, agression récente, professionnel toujours en contact avec des patients vulnérables."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Recueillir les propos du patient avec bienveillance, respect et objectivité sans le faire douter."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Si agression sexuelle récente (< 72 h) : prise en charge UMV, PEP VIH, constat."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Typologie des situations et stratification des priorités",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Suspicion fondée d'abus sexuel par un soignant."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Constat médico-légal si récent, soutien psychologique/LAVI."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Alerte immédiate de la direction médicale et du médecin cantonal."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Écarter immédiatement le soignant suspecté des soins (mesure conservatoire), assurer la sécurité et le soutien du patient."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Procédure disciplinaire/pénale, retrait d'autorisation de pratiquer, suivi LAVI du patient."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "TSPT sévère, perte totale de confiance dans la médecine, autres victimes."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Suivi psychologique du patient."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Reconnaissance et protection essentielles pour la reconstruction de la victime."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Direction médicale, médecin cantonal, LAVI, UMV, police."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés essentiels pour la pratique suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 14,
+      "fichier_html_cible": "LOT_227_Phase_B_V0_DX.14.html",
+      "titre": "Rétention ou dissimulation d'un résultat critique mettant en jeu la vie d'un patient",
+      "cim": "Y69",
+      "urgence": "urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition, portée clinique et cadre suisse de la situation",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Découverte fortuite qu'un résultat paraclinique critique n'a pas été vu ni communiqué au patient."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Source fréquente de plaintes et de sinistres graves en médecine ambulatoire et aux urgences."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Rupture de boucle de communication (« closed-loop communication »)."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche d'évaluation structurée et situations différentielles",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Trouble ionique menaçant, sepsis, néoplasie évolutive, dissection/embolie."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Date de l'examen initial, délai écoulé, symptômes actuels du patient."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Évaluation clinique immédiate dès contact avec le patient."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Typologie des situations et stratification des priorités",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Résultat critique non suivi identifié."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Contacter le patient EN URGENCE (téléphone/police si injoignable pour urgence vitale) et répéter/compléter le bilan."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Analyse du circuit de validation des résultats."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Prise en charge médicale immédiate du problème découvert + explication transparente et excuses sincères au patient."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Mise en place d'un système de validation obligatoire (read-back) des résultats critiques."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Décès évitable, progression tumorale."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Suivi rapproché du patient."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Limitation des dégâts proportionnelle à la réactivité."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Médecin traitant, laboratoire/radiologie, direction qualité."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés essentiels pour la pratique suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 15,
+      "fichier_html_cible": "LOT_227_Phase_B_V0_DX.15.html",
+      "titre": "Défaillance aiguë de discernement ou pathologie neuropsychiatrique aiguë d'un collègue en fonction",
+      "cim": "F05.9",
+      "urgence": "immediate",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition, portée clinique et cadre suisse de la situation",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Altération brutale des capacités cognitives ou comportementales d'un soignant sur son lieu de travail."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Rare mais urgence double (pour le collègue malade et pour ses patients)."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Hypoglycémie, AVC, sepsis, épisode maniaque aigu."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche d'évaluation structurée et situations différentielles",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Déficit neurologique focal, confusion, agitation extrême."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Début brutal, antécédents connus (diabète, etc.), comportement inhabituel."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Paramètres vitaux, glycémie capillaire, examen neurologique (FAST)."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Typologie des situations et stratification des priorités",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Pathologie aiguë du soignant en poste."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Prise en charge médicale immédiate aux urgences pour le collègue."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Relais immédiat de ses tâches cliniques."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Stopper l'activité clinique, soigner le collègue comme tout patient en urgence, assurer la continuité des soins pour ses patients."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Arrêt de travail et réévaluation d'aptitude avant reprise."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Aggravation neurologique du collègue, erreurs de soins."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Selon pathologie diagnostiquée."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Favorable si traité rapidement."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Urgences, chef de service, médecine du personnel."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés essentiels pour la pratique suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    }
+  ],
+  "prompt_alpha_a_jour": "# MISSION : CORRECTION ET COMPLÉTION DES 248 SSP SUISSES (3 975 ENTITÉS + 248 CHAPITRES 0)\n\n## § 0. IDENTIFICATION, SIGNATURE & RÈGLES DE CONTINUITÉ — BLOQUANT ABSOLU\n1. **Identification obligatoire** en tête de première réponse :\n   - HEURE DE DÉBUT : AAAA-MM-JJ HH:MM (Europe/Zurich)\n   - MODÈLE : nom exact du modèle (ex. ANTIGRAVITY ORCHESTRATOR NEON)\n   - PLATEFORME : plateforme exacte (ex. ANTIGRAVITY)\n   - Ajouter la même ligne à `1_Claude AI/IDENTIFICATION_AGENTS.md`. Si incertitude, s'arrêter.\n2. **Signature IA fixe en bas à droite de TOUT HTML produit ou modifié** (juste avant `</body>`, en GRAS MAJUSCULE) :\n   `<div id=\"signature-ia\" style=\"position:fixed;right:12px;bottom:10px;z-index:9999;background:#fff;border:2px solid #000;padding:4px 10px;font:700 12px/1.3 Arial,sans-serif;text-transform:uppercase;color:#000\">DÉBUT : AAAA-MM-JJ HH:MM (EUROPE/ZURICH) · MODÈLE : <NOM> · PLATEFORME : <PLATEFORME></div>`\n   - **Seul Vial peut autoriser le retrait de ce bloc.** Un agent qui reprend un fichier signé ajoute sa propre ligne sous la précédente sans jamais effacer l'existante.\n3. **Continuité & transparence** :\n   - **Redémarrage propre à partir de `SSP_248`** : tous les cours précédemment modifiés ont été restaurés à l'état initial (`6941513`). Enchaîner continûment **`SSP_248 → SSP_033`**, puis **`SSP_001 → SSP_032`**.\n   - **Toujours afficher le raisonnement visible** en français dans chaque réponse.\n   - **Veille & relance GitHub** : commiter et pousser sur `origin main` après chaque SSP (ou lot <= 5 SSP) avec l'état à jour dans `SUIVI_PRODUCTION.csv`, `HANDOFF_AFFINAGE.md` et `HANDOFF_IA_COMPLET.md`.\n   - **Suivi graphique temps réel** : maintenir à jour le tableau de bord visuel temps réel des réalisations achevées et en cours.\n\n## § 1. RÈGLES ACTUALISÉES (PRIMENT SUR LE PROMPT ALPHA 19.11.26)\n1. **Nombre de cours par SSP** : **1 cours par entité de la Cartographie Renouveau** (15 à 24 entités par SSP, 3 975 au total) + le Chapitre 0 (`Phase_A`), dans l'ordre exact des `Cours 1 … N` de `SSP_nnn/NOTIONS.md` / `NOTIONS.json`.\n2. **QUALITÉ CLINIQUE MAXIMALE & ZÉRO MÉDIOCRITÉ (BLOQUANT ABSOLU — Consigne Vial 20.11.26)** :\n   - **Interdiction absolue de toute prose patronnée / générique** : aucune phrase-cadre où seul le nom de la pathologie change d'un cours à l'autre, aucun remplissage artificiel pour atteindre le calibre. La médiocrité clinique est dangereuse et entraîne un rejet immédiat.\n   - Chaque cours (`Phase_A` et `DX.1..N`) doit être **rédigé sur mesure** pour son entité exacte, avec : raisonnement physiopathologique et sémiologique réel, seuils numériques précis, diagnostics différentiels discriminants, posologies et contre-indications sourcées (Compendium.ch / AIPS, Tox Info Suisse, OFSP, ASSM, sociétés savantes suisses), vignettes cliniques authentiques et QCM exigeants de niveau Examen Fédéral Suisse.\n3. **INTERDICTION DES ARBRES DÉCISIONNELS (Consigne Vial 20.11.26)** :\n   - **Ne générer AUCUN arbre décisionnel ni algorithme graphique (`.fm-canvas`, SVG décisionnel, etc.)** dans `Phase_A` ou dans les `DX.n` — l'auteur (Vial) les réalisera lui-même.\n4. **Calibre texte pur actualisé (Consigne Vial 20.11.26)** :\n   - **80 à 100 Ko de texte pur UTF-8 par fichier** (`81 920` à `102 400` octets, calibre du Prompt Alpha confirmé par Vial le 20.11.2026 à 21:20, mesuré fenêtres comprises, hors balises HTML, CSS, JS, SVG et images).\n   - HTML hors images (`controle3.py`) : **`40 000` à `100 000` octets** (alerte).\n   - Densité maximale : zéro remplissage, zéro phrase pouvant figurer telle quelle dans un autre cours, zéro phrase de gabarit de `cartographie_DATA.json`.\n5. **Phrases verbales exclusives (BLOQUANT)** :\n   - Chaque phrase (texte, fenêtres, listes, légendes `<figcaption>`, cellules narratives `<td>`) contient un verbe conjugué reconnu. **Zéro phrase nominale.**\n4. **Médicaments cliquables d'emblée & Fenêtres centrées PK/PD à 2 onglets (Consigne Vial 20.11.26)** :\n   - Dès qu'un médicament est évoqué, il devient cliquable (`<a class=\"ouvre med-chip\" href=\"#f-...\">`).\n   - Chaque `<section class=\"fenetre mb\" id=\"f-...\"><div class=\"fen\">` s'ouvre au centre de l'écran et contient **2 onglets** :\n     * **Onglet 1 (`data-tab=\"pk\"`)** : Pharmacocinétique + **Courbe vectorielle SVG $C(t)$** + **4 paramètres cliniciens mis en évidence** (`.pkpd-kpis`).\n     * **Onglet 2 (`data-tab=\"pd\"`)** : Pharmacodynamique & Clinique + **Courbe vectorielle SVG $E(C)$** + posologies/précautions/grossesse suisses (Compendium.ch / AIPS).\n5. **Images** : uniquement à l'intérieur des `<section class=\"fenetre\">`, jamais hors fenêtre (licences selon Prompt Alpha § 4). Ne comptent pas dans le calibre.\n6. **Zéro terminologie de chantier visible** : aucun texte visible (ni `<title>`) ne doit contenir `LOT`, `V0`, `Phase A/B`, `DX.n`, `Appel A/B`, `Partie n`. Seuls les noms de fichiers gardent le format Alpha (`LOT_nnn_Phase_A_V0.html`, `LOT_nnn_Phase_B_V0_DX.i.html`).\n7. **Circuits & Plans** :\n   - `MONOGRAPHIQUE` (189 SSP) : plan maladie en 14 points (Prompt Alpha § 3.1).\n   - `NON_MONOGRAPHIQUE` (52 SSP) : Leçon en 12 à 14 points adaptés (Prompt Alpha § 3.2). **Jamais** de plan maladie ni de titres « Physiopathologie / Approche syndromique / Diagnostic positif » artificiels.\n   - `MIXTE` (7 SSP) : Prompt Alpha § 3.3, chaque fichier déclare `<meta name=\"ssp-circuit\" content=\"...\">`.\n8. **Correctifs Frontend v2 / Architecture `_sources/` (`UNIQUE.html` & `_polices/`)** :\n   - **Arborescence propre par SSP** : à la racine de `SSP_nnn/`, seul **`SSP_nnn_<code>_UNIQUE.html`** (plus le sous-dossier **`_sources/`**) est visible. Tous les fichiers sources (`LOT_nnn_*.html`, `images/`, `NOTIONS.*`, `MANIFESTE.json`, `DECISION*`, `paquet.json`, `_archive_avant_alpha/`) sont rangés dans `SSP_nnn/_sources/` sans rien supprimer.\n   - **Barre haute amovible (`gabarit_unique.html`)** : `#topbar` compacte 1 ligne (~42 px) avec pilule active, fil d'Ariane section, boutons `◀`/`▶`, tiroir overlay amovible `#dd-drawer` (`☰ Diagnostics (N) ▾` + option `📌 Épingler`) contenant `nav#nav` en colonnes égales (`32 px`, teinte unique par cours), et bouton `▴ Masquer barre` + pilule flottante `#btn-show-bar`.\n   - **Zéro dédoublement & navigation `#...` 100 % fonctionnelle (`forme.js`)** : script `forme.js` exécuté sous `DOMContentLoaded` et injecté par `assembler_unique.py`/`inliner.py` après `</head>` et avant `#signature-ia`/`</body>` ; intercepteur global appelant `e.preventDefault()` sur 100 % des `href^=\"#\"` (bloque le rechargement `srcdoc` + `file://`).\n   - **Modales centrées `<div class=\"fen\">` & désaturation (`forme.css` / `optimiser_ssp.py`)** : ouverture via classe `.fm-open` (plus `:target` en repli) avec pile `modalStack` et bouton `Fermer ✕` sticky (sans `history.back()`), auto-enveloppement `<div class=\"fen\">`, tableaux hors modale déplacés vers `<section class=\"fenetre fm-tab-fen\">` déclenchés par cartes `.fm-encart-fen`, citations `<sup class=\"r\"><a>` compactées en `[N]` avec modale aperçu `#fm-src-modal` empilable (`fm-stack-top`), puces médicaments `a.ouvre.med-chip` (`℞ ...`, `white-space: nowrap`, compatible accents français), repli du plan latéral desktop `#fm-plan-toggle`, îlots discontinus (`margin-bottom: 30px`) et padding bas `5.5rem` protégeant la lecture au-dessus de `#signature-ia`.\n   - **HTML unique** : ne jamais l'écrire à la main ; toujours exécuter `optimiser_ssp.py` puis `assembler_unique.py nnn`.\n\n## § 2. ARCHIVAGE & WORKFLOW PAR SSP (P0 → P4)\n- **Zéro suppression** : avant d'écraser ou renommer un fichier source existant, archiver dans `SSP_nnn/_sources/_archive_avant_alpha/`.\n- **P0 (Préparer)** : lire circuit (`catalogue_248.json`), entités (`NOTIONS.md`/`NOTIONS.json`), `memoire_zero_token.py --digest --lot nnn`, écrire `PLAN_ENTITES.md`.\n- **P1 (Décider)** : noter dans `DECISION.md` (Corriger / Réécrire si mécanique, faux plan maladie ou `< 30 Ko` / Créer).\n- **P2 (Produire)** : `LOT_nnn_Phase_A_V0.html` + `LOT_nnn_Phase_B_V0_DX.1..N.html`, 100 % des notions de `NOTIONS.json` expliquées et sourcées (Compendium.ch / AIPS, OFSP, ASSM, CC, LAMal, LAVI, Smarter Medicine), sans aucune phrase gabarit de la cartographie.\n- **P3 (Portes de Contrôle + Optimisation + Assemblage + Audit Chrome)** :\n  1. `controle3.py --script-ok` → **`VERT {}`** (si `paquet.json` présent ; `--script-ok` requis car `_sources/` référence `../../_polices/forme.js`)\n  2. `verif_aips.py` → **`OK`** (si `paquet.json` présent) et `restaurer_fond.py --verifier` → **`exit=0`**\n  3. `python _outils/optimiser_ssp.py nnn` → migration vers `_sources/`, tableaux déplacés en `<div class=\"fen\">`, teintes non bleues `--fm-a`\n  4. `python _outils/verif_mission.py nnn` → **100 % fichiers `PASS`** (`errors: []`)\n  5. `python _outils/assembler_unique.py nnn` → **`(1 + N) / (1 + N) onglets`** à la racine de `SSP_nnn/`\n  6. `python _outils/notions.py verifier nnn` → **`0 NON`** + copier `rapport_notions.csv` dans `SSP_nnn/_sources/`\n  7. `python _outils/audit_unique_browser.py nnn --all-tabs` → **`PASS` sur 100 % des onglets en Chrome headless réel**\n  8. Ajouter ligne dans `SUIVI_PRODUCTION.csv` + `git commit` + `git push origin main`.\n- **P4 (Affinage)** : consigner tout doute clinique/posologique non vérifié dans `1_Claude AI/HANDOFF_AFFINAGE.md` sous `## SSP_nnn`.\n\n## § 3. MISSION 2 — SSP 001 → 032\n- Extraire les cours depuis `SSP_nnn_<code>_UNIQUE.html` (JSON `data` gzip+base64, marqueurs `@@IMG:…@@`, `@@FONT:…@@`) après archivage des anciens `LOT_nnn_*.html` dans `_archive_avant_alpha/`.\n- Le frontend reste identique ; auditer le contenu avec la même sévérité (attention : `SSP_013` G13 = `NON_MONOGRAPHIQUE`, `SSP_014` G14 = `MIXTE`).\n- Produire `1_Claude AI/AUDIT_001-032.md` et corriger tous les ❌.\n\n## § 4. LES 12 BLOCAGES ROUGE (REJET IMMÉDIAT)\n1. Identification absente ou incertaine.\n2. Signature `#signature-ia` absente, modifiée ou supprimée.\n3. Entité de la Cartographie sans cours.\n4. Fichier hors intervalle `80–100 Ko` de texte pur (tout cours ; un cours de 30–50 Ko est à enrichir).\n5. Toute phrase nominale.\n6. Toute notion au verdict `NON`.\n7. Phrase gabarit de `cartographie_DATA.json` recopiée dans un cours.\n8. Plan maladie appliqué à une Leçon `NON_MONOGRAPHIQUE`.\n9. Terme de chantier visible (`LOT`, `V0`, `Phase A/B`, `DX.n`, `Appel`, `Partie n`).\n10. Posologie sans source de la cascade suisse.\n11. Image hors `<section class=\"fenetre\">`.\n12. Fichier supprimé au lieu d'être archivé.\n\n## § 5. ANNEXE CIRCUITS (248 SSP)\n- **NON_MONOGRAPHIQUE (52)** : 013 · 065 · 069 · 176 · 180 · 181 · 182 · 184 · 185 · 186 · 192 · 194 · 195 · 198 · 200 · 203 · 204 · 205 · 206 · 207 · 208 · 209 · 210 · 211 · 212 · 213 · 214 · 215 · 216 · 217 · 218 · 219 · 220 · 221 · 222 · 224 · 225 · 226 · 227 · 232 · 233 · 235 · 236 · 237 · 238 · 239 · 240 · 241 · 242 · 243 · 246 · 247.\n- **MIXTE (7)** : 014 · 165 · 174 · 175 · 190 · 202 · 223.\n- **MONOGRAPHIQUE (189)** : tous les autres SSP."
+}

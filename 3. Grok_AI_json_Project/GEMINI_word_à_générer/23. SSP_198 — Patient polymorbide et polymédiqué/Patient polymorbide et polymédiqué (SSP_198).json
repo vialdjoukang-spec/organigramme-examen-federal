@@ -1,0 +1,2445 @@
+{
+  "rappel_obligatoire_avant_redaction": {
+    "lecture_imperative": [
+      "1. Lire intégralement PROMPT_Alpha_19.11.26.md ET la mise à jour incluse dans prompt_alpha_a_jour ci-dessous.",
+      "2. Respecter l'intervalle GLOBAL par cours : viser 85–95 Ko de texte médical pur (soit ~95–115 Ko de fichier JSON) sans quota rigide par partie — répartir le texte proportionnellement à l'importance clinique des parties.",
+      "3. Produire graduellement 1 cours complet par requête (Phase A, puis Cours 1, Cours 2...) en français médical académique, phrases verbales exclusives (0 phrase nominale), zéro prose générique ou patronnée.",
+      "4. Utiliser uniquement les guillemets typographiques français « … » dans les valeurs texte JSON (jamais de guillemet droit non échappé).",
+      "5. Zéro arbre décisionnel graphique (.fm-canvas) : ne générer aucun schéma décisionnel."
+    ],
+    "specificites_locales_ssp": [
+      "Circuit NON_MONOGRAPHIQUE : conserver strictement l'architecture en Leçons Suisses Structurées (14 points adaptés), SANS JAMAIS utiliser de titres ou de plan maladie artificiel (interdiction de Physiopathologie / Approche syndromique / Diagnostic positif).",
+      "Couvrir 100 % des notions obligatoires listées dans phase_b[*].plan[*].notions_obligatoires pour Patient polymorbide et polymédiqué (O3.4).",
+      "Cascade posologique suisse à 4 paliers obligatoire : 1. AIPS Swissmedic (n° 5 chiffres) -> 2. Compendium.ch -> 3. Sociétés savantes & CHU suisses (HUG, CHUV, Inselspital, USZ, USB, OFSP, ASSM, SSMIG, Tox Info Suisse 145) -> 4. Sociétés savantes européennes."
+    ]
+  },
+  "meta": {
+    "rang_gravite": 23,
+    "ssp": "SSP_198",
+    "code_profiles": "O3.4",
+    "nom_francais": "Patient polymorbide et polymédiqué",
+    "circuit": "NON_MONOGRAPHIQUE",
+    "police_obligatoire": "Atkinson Hyperlegible",
+    "calibre_cible": "80–100 Ko texte pur",
+    "arbres_decisionnels_autorises": false,
+    "mode_redaction": "Neon Deep Research",
+    "nb_chapitres_total": 16,
+    "defauts_audit_initial": [
+      "Incomplet (11/16 cours)",
+      "Faux plan maladie (11 f.)",
+      "2430 phrases nominales",
+      "Termes chantier (10 f.)"
+    ]
+  },
+  "sommaire": {
+    "phase_a": {
+      "fichier_html_cible": "LOT_198_Phase_A_V0.html",
+      "titre": "Patient polymorbide et polymédiqué — Vue d'ensemble et orientation clinique (O3.4)"
+    },
+    "phase_b": [
+      {
+        "cours_numero": 1,
+        "titre": "Polymédication inappropriée et cascade prescriptrice",
+        "cim": "Z91.1",
+        "urgence": "semi-urgent"
+      },
+      {
+        "cours_numero": 2,
+        "titre": "Hypotension orthostatique iatrogène",
+        "cim": "I95.1",
+        "urgence": "urgent"
+      },
+      {
+        "cours_numero": 3,
+        "titre": "Insuffisance rénale chronique (IRC) méconnue avec accumulation médicamenteuse",
+        "cim": "N18.9",
+        "urgence": "semi-urgent"
+      },
+      {
+        "cours_numero": 4,
+        "titre": "Syndrome anticholinergique cumulé (charge anticholinergique élevée)",
+        "cim": "T44.3",
+        "urgence": "urgent"
+      },
+      {
+        "cours_numero": 5,
+        "titre": "Non-adhésion thérapeutique liée à la complexité du schéma",
+        "cim": "Z91.1",
+        "urgence": "chronique"
+      },
+      {
+        "cours_numero": 6,
+        "titre": "Hyponatrémie médicamenteuse (thiazidiques, ISRS, carbamazépine)",
+        "cim": "E87.1",
+        "urgence": "urgent"
+      },
+      {
+        "cours_numero": 7,
+        "titre": "Syndrome de fragilité gériatrique (Fried) et décompensation en cascade",
+        "cim": "R54",
+        "urgence": "semi-urgent"
+      },
+      {
+        "cours_numero": 8,
+        "titre": "Interaction médicamenteuse pharmacocinétique (CYP450 / P-gp)",
+        "cim": "T50.9",
+        "urgence": "urgent"
+      },
+      {
+        "cours_numero": 9,
+        "titre": "Insuffisance cardiaque à fraction d'éjection préservée (ICFEp) décompensée par polymédication",
+        "cim": "I50.1",
+        "urgence": "urgent"
+      },
+      {
+        "cours_numero": 10,
+        "titre": "Hémorragie digestive haute sur association AINS + anticoagulant / antiagrégant",
+        "cim": "K92.2",
+        "urgence": "immediate"
+      },
+      {
+        "cours_numero": 11,
+        "titre": "Intoxication aiguë à la digoxine",
+        "cim": "T46.0",
+        "urgence": "immediate"
+      },
+      {
+        "cours_numero": 12,
+        "titre": "Acidose lactique associée à la metformine (MALA)",
+        "cim": "E87.2",
+        "urgence": "immediate"
+      },
+      {
+        "cours_numero": 13,
+        "titre": "Hémorragie grave sous anticoagulant oral (AVK ou AOD)",
+        "cim": "D68.3",
+        "urgence": "immediate"
+      },
+      {
+        "cours_numero": 14,
+        "titre": "Insuffisance rénale aiguë médicamenteuse (« triple whammy »)",
+        "cim": "N17.9",
+        "urgence": "urgent"
+      },
+      {
+        "cours_numero": 15,
+        "titre": "Syndrome sérotoninergique aigu sur association médicamenteuse",
+        "cim": "G90.8",
+        "urgence": "urgent"
+      }
+    ]
+  },
+  "phase_a": {
+    "titre": "Patient polymorbide et polymédiqué — Vue d'ensemble (O3.4)",
+    "plan": [
+      {
+        "point": 1,
+        "titre": "Définition, portée clinique et cadre suisse de la situation",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit NON_MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 2,
+        "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit NON_MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 3,
+        "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit NON_MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 4,
+        "titre": "Démarche d'évaluation structurée et situations différentielles",
+        "description": "Présentation et hiérarchisation des 15 entités de la Cartographie Renouveau."
+      },
+      {
+        "point": 5,
+        "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit NON_MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 6,
+        "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit NON_MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 7,
+        "titre": "Typologie des situations et stratification des priorités",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit NON_MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 8,
+        "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit NON_MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 9,
+        "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit NON_MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 10,
+        "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit NON_MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 11,
+        "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit NON_MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 12,
+        "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit NON_MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 13,
+        "titre": "Points clés essentiels pour la pratique suisse",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit NON_MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 14,
+        "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit NON_MONOGRAPHIQUE, sans arbre décisionnel."
+      }
+    ]
+  },
+  "phase_b": [
+    {
+      "cours_numero": 1,
+      "fichier_html_cible": "LOT_198_Phase_B_V0_DX.1.html",
+      "titre": "Polymédication inappropriée et cascade prescriptrice",
+      "cim": "Z91.1",
+      "urgence": "semi-urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition, portée clinique et cadre suisse de la situation",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Prise chronique simultanée de ≥ 5 médicaments exposant à un risque accru d'interactions, d'effets indésirables et de non-adhésion."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Concerne > 40–50 % des patients > 75 ans en Suisse."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Altérations pharmacocinétiques (baisse du DFG, baisse de l'albumine) et pharmacodynamiques (sensibilité accrue du SNC)."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche d'évaluation structurée et situations différentielles",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Triade néphrotoxique (« triple whammy » : IEC/ARA2 + diurétique + AINS !), cumul anticholinergique, association de 2 psychotropes sédatifs."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Ordonnances multiples (médecin traitant + spécialistes), automédication (AINS, IPP), apparition de symptômes après chaque ajout."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Revue complète du sac de médicaments (« brown bag review »), hypotension orthostatique, sédation, sécheresse buccale."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Typologie des situations et stratification des priorités",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Identification de médicaments potentiellement inappropriés (MPI) ou sans indication active."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Revue structurée avec critères STOPP/START (ou liste de Beers / PRISCUS) + estimation DFG (CKD-EPI) et ionogramme."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Bilan d'adhésion thérapeutique et conciliation médicamenteuse avec la pharmacie."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Arrêt immédiat des molécules en cause si effet indésirable aigu."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Déprescription ciblée progressive (1–2 molécules à la fois, schéma clair pour IPP, benzodiazépines, statines en fin de vie), semainier."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "10–20 % des hospitalisations gériatriques sont liées à des effets indésirables médicamenteux évitables !"
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Réévaluation à chaque transition de soins (sortie d'hôpital) et tous les 6 mois."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Réduction des chutes, confusion et hospitalisations après déprescription."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Médecin traitant, pharmacien, gériatre."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés essentiels pour la pratique suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 2,
+      "fichier_html_cible": "LOT_198_Phase_B_V0_DX.2.html",
+      "titre": "Hypotension orthostatique iatrogène",
+      "cim": "I95.1",
+      "urgence": "urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition, portée clinique et cadre suisse de la situation",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Baisse excessive de la pression artérielle lors du passage en orthostatisme liée à un traitement ou une dysautonomie."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Touche 20–30 % des sujets âgés polymédiqués."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Altération du baroréflexe avec l'âge potentialisée par antihypertenseurs, diurétiques, alpha-bloquants (tamsulosine !), tricycliques, lévodopa."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche d'évaluation structurée et situations différentielles",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Syncope avec traumatisme crânien, bradycardie associée (BAV !), douleur thoracique."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Vertiges, flou visuel, faiblesse des jambes au lever le matin ou postprandial, syncopes brèves."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Mesure de TA et FC couché (après 5 min) puis debout à 1 et 3 min : chute ≥ 20/10 mmHg."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Typologie des situations et stratification des priorités",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Chute tensionnelle ≥ 20/10 mmHg à l'orthostatisme."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Test d'orthostatisme (Schellong simplifié) + revue des médicaments + ECG + ionogramme/créatinine/Hb."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "MAPA 24 h (recherche d'hypotension postprandiale ou HTA nocturne)."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Allonger le patient jambes surélevées si lipothymie, hydratation."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Déprescription/réduction des antihypertenseurs, alpha-bloquants et psychotropes, bas de contention, lever en 3 temps, apports hydrosodés adaptés."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Fracture du col du fémur, hématome sous-dural."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Contrôle tensionnel couché/debout après modification thérapeutique."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Résolution fréquente après ajustement des traitements."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Médecin traitant, cardiologue."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés essentiels pour la pratique suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 3,
+      "fichier_html_cible": "LOT_198_Phase_B_V0_DX.3.html",
+      "titre": "Insuffisance rénale chronique (IRC) méconnue avec accumulation médicamenteuse",
+      "cim": "N18.9",
+      "urgence": "semi-urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition, portée clinique et cadre suisse de la situation",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Diminution chronique du débit de filtration glomérulaire (< 60 mL/min/1,73 m2) modifiant l'élimination des médicaments."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Touche > 25–35 % des > 75 ans (HTA, diabète, néphroangiosclérose)."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "La créatinine peut paraître normale chez le sujet âgé sarcopénique malgré un DFG bas -> toujours calculer le DFG !."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche d'évaluation structurée et situations différentielles",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "DFG < 30 mL/min sous metformine (acidose lactique !) ou sous dabigatran/rivaroxaban."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Prise d'AINS en automédication, metformine, AOD, sulfonylurées, allopurinol."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Œdèmes, HTA, signes de surcharge ou de déshydratation."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Typologie des situations et stratification des priorités",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "DFG < 60 mL/min ou albuminurie persistante > 3 mois."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Créatinine + DFG estimé (CKD-EPI), ionogramme, rapport albumine/créatinine urinaire."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Cystatine C si sarcopénie extrême."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Arrêt des néphrotoxiques et adaptation immédiate des posologies. Correction d'une hypovolémie par cristalloïdes (NaCl 0,9 % ou Ringer-Lactate 500 mL IV réévalué), arrêt immédiat de tout néphrotoxique (AINS, aminosides, metformine, IEC/ARA2 en aigu), levée d'obstacle si post-rénale et correction d'une hyperkaliémie/acidose (NaHCO3 si pH < 7,15)."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Règles des « sick days » (suspendre metformine, IEC/ARA2, diurétiques, SGLT2i en cas de déshydratation/diarrhées !), néphroprotection (iSGLT2, IEC). Néphroprotection chronique : IEC/ARA2 à dose maximale tolérée si protéinurie, iSGLT2 (dapagliflozine 10 mg/j ou empagliflozine 10 mg/j si DFG >= 20–25 mL/min) et contrôle PA < 120–130/80 mmHg."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Insuffisance rénale aiguë sur chronique, intoxications médicamenteuses."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "DFG et K+ tous les 3–6 mois et lors de tout épisode aigu. Diurèse horaire, créatinine/DFG/K+/bicarbonates quotidiens en aigu, puis rapport albumine/créatinine urinaire (RAC) trimestriel."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Ralentissement de la progression si néphroprotection adaptée."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Médecin traitant, néphrologue."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés essentiels pour la pratique suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 4,
+      "fichier_html_cible": "LOT_198_Phase_B_V0_DX.4.html",
+      "titre": "Syndrome anticholinergique cumulé (charge anticholinergique élevée)",
+      "cim": "T44.3",
+      "urgence": "urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition, portée clinique et cadre suisse de la situation",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Toxicité cholinergique centrale et périphérique résultant de l'accumulation de molécules antagonistes muscariniques."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Très fréquent chez le sujet âgé polymédiqué (oxybutynine, amitriptyline, hydroxyzine, métoclopramide, neuroleptiques)."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Blocage des récepteurs muscariniques M1 centraux (confusion, troubles mnésiques) et périphériques (rétention urinaire, constipation, mydriase)."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche d'évaluation structurée et situations différentielles",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Glaucome aigu par fermeture de l'angle, rétention aiguë d'urines, delirium sévère."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Aggravation cognitive récente, constipation opiniâtre, dysurie, sécheresse buccale, vision floue."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Globe vésical, tachycardie, peau sèche, confusion ou hallucinations."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Typologie des situations et stratification des priorités",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Symptômes compatibles + charge anticholinergique élevée régressant à l'arrêt."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Calcul du score de charge anticholinergique (ACB score ≥ 3 = haut risque) + bladder-scan."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "ECBU et ionogramme."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Sondage vésical si globe, arrêt des anticholinergiques."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Substitution par alternatives non anticholinergiques (ex. mirabégron au lieu d'oxybutynine, ISRS au lieu de tricyclique)."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Delirium, fécalome, infection urinaire sur rétention."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Amélioration cognitive après déprescription."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Réversible après arrêt des molécules responsables."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Médecin traitant, pharmacien."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés essentiels pour la pratique suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 5,
+      "fichier_html_cible": "LOT_198_Phase_B_V0_DX.5.html",
+      "titre": "Non-adhésion thérapeutique liée à la complexité du schéma",
+      "cim": "Z91.1",
+      "urgence": "chronique",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition, portée clinique et cadre suisse de la situation",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Écart entre la prescription médicale et la prise effective par le patient, souvent involontaire par complexité ou troubles cognitifs."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Touche 30–50 % des patients polymorbides."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Multiplication des prises quotidiennes (> 2/j), changements fréquents de génériques (boîtes différentes), troubles visuels/cognitifs."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche d'évaluation structurée et situations différentielles",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Arrêt brutal d'un bêtabloquant, d'un corticoïde ou d'un antiépileptique ; double prise accidentelle d'anticoagulant ou d'insuline."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Exploration bienveillante sans jugement, oublis fréquents, accumulation de boîtes non ouvertes à domicile."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Déséquilibre inexpliqué d'une HTA, diabète ou insuffisance cardiaque."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Typologie des situations et stratification des priorités",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Discordance documentée entre prescriptions et prises."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Entretien d'adhésion + vérification des renouvellements en pharmacie + évaluation cognitive/visuelle."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Dosage de taux résiduels ou INR si AVK."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Gestion d'une décompensation (ex. OAP) ou surdosage."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Simplification du schéma (associations fixes, 1 prise/j si possible), semainier préparé en pharmacie ou par CMS/Spitex."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Décompensations cardiaques, AVC sur non-prise d'AOD."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Contrôle régulier du semainier."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Amélioration nette avec semainier et simplification."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Médecin traitant, pharmacien, CMS."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés essentiels pour la pratique suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 6,
+      "fichier_html_cible": "LOT_198_Phase_B_V0_DX.6.html",
+      "titre": "Hyponatrémie médicamenteuse (thiazidiques, ISRS, carbamazépine)",
+      "cim": "E87.1",
+      "urgence": "urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition, portée clinique et cadre suisse de la situation",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Natrémie < 135 mmol/L induite par une sécrétion inappropriée d'ADH (ISRS) ou une perte sodée/altération de dilution (thiazidiques)."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Très fréquente en ambulatoire chez les patients âgés polymédiqués."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Les thiazidiques bloquent la dilution urinaire dans le tube contourné distal ; les ISRS stimulent la libération d'ADH (SIADH)."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche d'évaluation structurée et situations différentielles",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Na+ < 120 mmol/L, convulsions, coma -> hyponatrémie aiguë sévère nécessitant NaCl 3 % !"
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Introduction récente (< 2–4 semaines) d'hydrochlorothiazide, chlorthalidone, indapamide ou ISRS, apports hydriques excessifs."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Asthénie, nausées, troubles de l'équilibre, confusion (souvent euvolémique)."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Typologie des situations et stratification des priorités",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Hyponatrémie hypo-osmolaire sous molécule imputable après exclusion des autres causes."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Ionogramme sanguin et urinaire, osmolarité sanguine et urinaire, TSH, cortisol (exclure hypothyroïdie/insuffisance surrénalienne)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Radiographie thoracique si SIADH inexpliqué (cancer pulmonaire)."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Si aiguë sévère/symptomatique : NaCl 3 % IV (max +6 à +8 mmol/L par 24 h pour éviter la myélinolyse centropontine !) ; sinon arrêt du thiazidique/ISRS + restriction hydrique."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Remplacement par une autre classe thérapeutique (ex. inhibiteur calcique au lieu du thiazidique)."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Chutes, convulsions, myélinolyse centropontine si correction trop rapide !"
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Ionogramme toutes les 4–6 h en phase aiguë, puis à J7 après introduction d'un ISRS/thiazidique."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Normalisation en quelques jours après arrêt du médicament."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Médecin traitant, médecine interne."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés essentiels pour la pratique suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 7,
+      "fichier_html_cible": "LOT_198_Phase_B_V0_DX.7.html",
+      "titre": "Syndrome de fragilité gériatrique (Fried) et décompensation en cascade",
+      "cim": "R54",
+      "urgence": "semi-urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition, portée clinique et cadre suisse de la situation",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "État de vulnérabilité physiologique diminuant la réserve homéostatique face aux stresseurs mineurs."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "10–15 % des > 65 ans, > 25–40 % après 85 ans."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Altération multi-systémique (musculaire, immunitaire, neuroendocrinienne) exposant à des décompensations en cascade."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche d'évaluation structurée et situations différentielles",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Événement aigu mineur (cystite, changement de médicament) précipitant une perte d'autonomie brutale."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Fatigue chronique, réduction des activités, perte de poids, hospitalisations répétées."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Score de Fried ≥ 3 ou Clinical Frailty Scale (CFS) ≥ 5 ; vitesse de marche lente."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Typologie des situations et stratification des priorités",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Critères de Fried ≥ 3 ou CFS ≥ 5."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Évaluation gériatrique standardisée (EGS) multidimensionnelle (cognition, nutrition, mobilité, médication, social)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Bilan biologique de base (NFS, TSH, vit. D, DFG, albumine)."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Prise en charge précoce de tout facteur décompensant tout en évitant la iatrogénie."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Plan de soins personnalisé : exercice adapté, nutrition protéique, déprescription, définition des objectifs de soins (directives anticipées)."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Dépendance irréversible, institutionnalisation, mortalité."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Suivi gériatrique coordonné."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "La pré-fragilité et la fragilité débutante sont partiellement réversibles."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Médecin traitant, gériatre, CMS/Spitex."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés essentiels pour la pratique suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 8,
+      "fichier_html_cible": "LOT_198_Phase_B_V0_DX.8.html",
+      "titre": "Interaction médicamenteuse pharmacocinétique (CYP450 / P-gp)",
+      "cim": "T50.9",
+      "urgence": "urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition, portée clinique et cadre suisse de la situation",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Modification significative de la concentration d'un médicament par inhibition ou induction enzymatique (CYP3A4, CYP2C9) ou de la P-gp."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Fréquente lors de l'ajout d'un antibiotique, antifongique ou phytothérapie (millepertuis) chez un patient chronique."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Ex. : clarithromycine + simvastatine -> rhabdomyolyse ; clarithromycine + colchicine -> toxicité mortelle ; amiodarone + warfarine/digoxine -> surdosage."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche d'évaluation structurée et situations différentielles",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Hémorragie sous anticoagulants, BAV complet sous digoxine, rhabdomyolyse."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Ajout récent d'un traitement ponctuel (antibiotique, azolé) ou d'un produit en vente libre (millepertuis !)."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Signes de surdosage (saignements, bradycardie, myalgies) ou d'inefficacité brutale."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Typologie des situations et stratification des priorités",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Chronologie compatible + interaction pharmacocinétique documentée."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Vérification systématique des interactions (ex. Pharmavista / Compendium suisse), INR, digoxinémie, CK, ECG."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Dosages plasmatiques ciblés."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Arrêt de l'inhibiteur ou adaptation de dose du substrat, traitement de la toxicité."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Éducation sur l'automédication (millepertuis, pamplemousse, AINS) et logiciel d'alerte d'interactions."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Toxicité d'organe grave ou rejet de greffe (sous millepertuis !)."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Contrôle biologique (INR, créatinine, CK) après tout ajout médicamenteux."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Réversible après arrêt de l'interaction."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Médecin traitant, pharmacien."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés essentiels pour la pratique suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 9,
+      "fichier_html_cible": "LOT_198_Phase_B_V0_DX.9.html",
+      "titre": "Insuffisance cardiaque à fraction d'éjection préservée (ICFEp) décompensée par polymédication",
+      "cim": "I50.1",
+      "urgence": "urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition, portée clinique et cadre suisse de la situation",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Syndrome d'insuffisance cardiaque (FEVG ≥ 50 %) précipité ou aggravé par des médicaments favorisant la rétention hydrosodée ou la FA."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Forme majoritaire d'insuffisance cardiaque chez la femme âgée hypertendue polymorbide."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Dysfonction diastolique ventriculaire gauche très sensible aux variations de précharge et à la perte de systole auriculaire (FA)."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche d'évaluation structurée et situations différentielles",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Œdème aigu du poumon (SpO2 < 90 %), choc cardiogénique."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Prise d'AINS pour arthrose ou corticoïdes, prise de poids rapide, dyspnée d'effort puis orthopnée."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Crépitants bilatéraux, œdèmes des membres inférieurs, turgescence jugulaire, galop B4."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Typologie des situations et stratification des priorités",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Symptômes d'IC + NT-proBNP élevé + FEVG ≥ 50 % avec anomalies structurelles/diastoliques."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "NT-proBNP / BNP, échocardiographie (FEVG ≥ 50 %, dysfonction diastolique), radiographie thoracique, ECG."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Créatinine, ionogramme (avant et après diurétiques)."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Furosémide IV, oxygénothérapie si hypoxémie, arrêt immédiat des AINS/corticoïdes."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Inhibiteur SGLT2 (empagliflozine/dapagliflozine : traitement modificateur de pronostic dans l'ICFEp !), diurétique de l'anse à la dose minimale, contrôle TA et FA."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "OAP récidivants, syndrome cardiorénal."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Poids quotidien à domicile, créatinine/K+."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Amélioré par les iSGLT2 et l'éviction des AINS."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Médecin traitant, cardiologue."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés essentiels pour la pratique suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 10,
+      "fichier_html_cible": "LOT_198_Phase_B_V0_DX.10.html",
+      "titre": "Hémorragie digestive haute sur association AINS + anticoagulant / antiagrégant",
+      "cim": "K92.2",
+      "urgence": "immediate",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition, portée clinique et cadre suisse de la situation",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Saignement gastroduodénal ulcéreux favorisé par l'inhibition des prostaglandines protectrices (AINS) combinée aux antithrombotiques."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Cause majeure d'hémorragie grave iatrogène chez les > 75 ans."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Synergie toxique entre lésion muqueuse par AINS/aspirine et trouble de l'hémostase par anticoagulant/clopidogrel."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche d'évaluation structurée et situations différentielles",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Hématémèse abondante, choc hémorragique, chute d'Hb > 20–30 g/L."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Prise d'AINS (souvent en vente libre !), aspirine + AOD/AVK, épigastralgies (parfois absentes sous AINS !), méléna, malaise."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Pâleur, tachycardie, hypotension orthostatique ou choc, méléna au toucher rectal."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Typologie des situations et stratification des priorités",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Saignement extériorisé ou anémie aiguë + lésion ulcéreuse à l'OGD."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "NFS, groupe sanguin/RAI, bilan hémostase (INR), créatinine, gastroscopie (OGD) en urgence (< 12–24 h)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Angio-CT si hémorragie massive non contrôlée."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Remplissage, transfusion si Hb < 70–80 g/L (ou < 90 si coronarien), IPP IV forte dose, réversion de l'anticoagulant si hémorragie menaçante, hémostase endoscopique."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Arrêt définitif des AINS, réévaluation du rapport bénéfice/risque des antithrombotiques, IPP au long cours si double antiagrégation ou ATCD d'ulcère sous antithrombotique."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Choc hémorragique, décompensation coronarienne sur anémie, décès."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Hémodynamique et Hb rapprochées."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Mortalité 5–10 % chez le sujet âgé polymorbide."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Urgences, gastro-entérologue, médecin traitant."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés essentiels pour la pratique suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 11,
+      "fichier_html_cible": "LOT_198_Phase_B_V0_DX.11.html",
+      "titre": "Intoxication aiguë à la digoxine",
+      "cim": "T46.0",
+      "urgence": "immediate",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition, portée clinique et cadre suisse de la situation",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Surdosage symptomatique en digoxine entraînant troubles digestifs, neurologiques et troubles graves du rythme/conduction cardiaque."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Fréquente chez le sujet âgé insuffisant rénal traité pour FA ou insuffisance cardiaque."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Inhibition de la pompe Na+/K+ ATPase -> hypercalcémie intracellulaire (hyperexcitabilité) + hypertonie vagale (bloc AV) + hyperkaliémie dans les formes aiguës."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche d'évaluation structurée et situations différentielles",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Tachycardie atriale avec bloc, tachycardie ventriculaire bidirectionnelle, BAV complet, hyperkaliémie > 5,5 mmol/L !"
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Anorexie, nausées, vomissements, troubles visuels (halos jaune-vert = xanthopsie), introduction récente d'amiodarone ou épisode de gastro-entérite."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Bradycardie sévère, pouls irrégulier, confusion."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Typologie des situations et stratification des priorités",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Signes cliniques + arythmie/BAV + digoxinémie élevée (ou normale mais hypokaliémie !)."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "ECG (aspect en « cupule digitalique » = imprégnation, mais arythmies/BAV = toxicité !), digoxinémie, ionogramme (K+, Mg2+), créatinine."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Monitoring télémétrique continu."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Arrêt digoxine, correction d'une hypokaliémie (attention : si hyperkaliémie, NE PAS donner de calcium IV classiquement ou prudence, traiter par insuline-glucose), fragments Fab anti-digoxine (DigiFab) si arythmie menaçante ou K+ > 5,0–5,5 mmol/L !"
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Réévaluation de la nécessité de la digoxine (préférer bêtabloquant)."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Fibrillation ventriculaire, asystolie."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Soins intensifs avec monitoring ECG continu."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Excellent si administration précoce des anticorps anti-digoxine."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Soins intensifs, cardiologue."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés essentiels pour la pratique suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 12,
+      "fichier_html_cible": "LOT_198_Phase_B_V0_DX.12.html",
+      "titre": "Acidose lactique associée à la metformine (MALA)",
+      "cim": "E87.2",
+      "urgence": "immediate",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition, portée clinique et cadre suisse de la situation",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Acidose métabolique à trou anionique augmenté et lactates > 5 mmol/L par accumulation de metformine lors d'une insuffisance rénale aiguë."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Rare mais mortalité élevée (30–50 %) ; presque toujours évitable en appliquant les « sick days rules »."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Inhibition du complexe I mitochondrial hépatique bloquant la néoglucogenèse à partir du lactate."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche d'évaluation structurée et situations différentielles",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "pH < 7,10, lactates > 5–10 mmol/L, choc réfractaire, anurie."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Diarrhées/vomissements, fièvre, prise d'AINS ou produit de contraste iodé sans arrêt de la metformine."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Polypnée de Kussmaul, douleurs abdominales, vomissements, hypothermie, hypotension, confusion."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Typologie des situations et stratification des priorités",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "pH < 7,35 + lactates > 5 mmol/L + IRA sous metformine."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Gazométrie artérielle + lactates, ionogramme (trou anionique élevé), créatinine, glycémie."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Dosage plasmatique de metformine (confirmation a posteriori)."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Arrêt immédiat metformine, réanimation volémique, hémodialyse en urgence (épure la metformine et corrige l'acidose) si pH < 7,10 ou lactates > 10–15 mmol/L ou choc."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Éducation aux « sick days », contre-indication de la metformine si DFG < 30 mL/min."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Choc vasoplégique réfractaire, défaillance multiviscérale."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Soins intensifs, gazométries répétées."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Amélioré par l'hémodialyse précoce."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Soins intensifs, néphrologue, médecin traitant."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés essentiels pour la pratique suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 13,
+      "fichier_html_cible": "LOT_198_Phase_B_V0_DX.13.html",
+      "titre": "Hémorragie grave sous anticoagulant oral (AVK ou AOD)",
+      "cim": "D68.3",
+      "urgence": "immediate",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition, portée clinique et cadre suisse de la situation",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Saignement mettant en jeu le pronostic vital ou fonctionnel (intracrânien, digestif massif, rétropéritonéal) chez un patient anticoagulé."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Complication iatrogène mortelle la plus fréquente en urgence."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Accumulation des AOD (dabigatran : élimination rénale 80 % ; rivaroxaban/apixaban) ou chute des facteurs II, VII, IX, X (AVK)."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche d'évaluation structurée et situations différentielles",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Localisation intracrânienne, instabilité hémodynamique, Hb < 70 g/L."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Type d'anticoagulant, heure de dernière prise, traumatisme, IRA récente, ajout d'antibiotique."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Choc hémorragique, déficit neurologique (hémorragie cérébrale !), hématome rétropéritonéal (psoas)."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Typologie des situations et stratification des priorités",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Hémorragie grave confirmée sous anticoagulant."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "NFS, groupe/RAI, TP/INR, TCA, créatinine/DFG, dosage spécifique anti-Xa ou temps de thrombine si AOD, CT ciblé."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Aucune attente des dosages si hémorragie vitale évidente."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "AVK : PPSB (concentré de complexe prothrombinique) + vitamine K 10 mg IV ; Dabigatran : idarucizumab (Praxbind) ; Anti-Xa (rivaroxaban/apixaban) : andexanet alfa ou PPSB haute dose ; transfusion."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Réévaluation stricte du score HAS-BLED vs CHA2DS2-VASc avant toute reprise."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Décès, thrombose de rebond après réversion."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Contrôle INR/hémostase et Hb."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Dépend de la localisation (intracrânienne = grave) et de la rapidité de réversion."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Urgences, hémostase, cardiologue."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés essentiels pour la pratique suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 14,
+      "fichier_html_cible": "LOT_198_Phase_B_V0_DX.14.html",
+      "titre": "Insuffisance rénale aiguë médicamenteuse (« triple whammy »)",
+      "cim": "N17.9",
+      "urgence": "urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition, portée clinique et cadre suisse de la situation",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Détérioration brutale de la fonction rénale par vasoconstriction de l'artériole afférente (AINS) et vasodilatation de l'efférente (IEC/ARA2) sur hypovolémie (diurétique)."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Cause classique d'IRA communautaire évitable chez le sujet âgé hypertendu/arthrosique."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Les prostaglandines maintiennent la dilatation afférente et l'angiotensine II la constriction efférente ; bloquer les deux effondre le DFG."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche d'évaluation structurée et situations différentielles",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Hyperkaliémie > 6,0 mmol/L (ECG !), anurie, OAP."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Prise récente d'AINS (ibuprofène, diclofénac) chez un patient sous IEC/ARA2 + diurétique, oligurie."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Déshydratation ou œdèmes, hypotension ou TA normale."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Typologie des situations et stratification des priorités",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Critères KDIGO d'IRA + exposition au triple whammy sans obstacle post-rénal."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Créatinine (élévation ≥ 26,5 µmol/L ou ≥ 1,5× base), ionogramme (K+ !), ECG, sédiment urinaire, échographie rénale (exclure obstacle !)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Fraction d'excrétion du sodium."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Arrêt immédiat des 3 classes (AINS, IEC/ARA2, diurétique si hypovolémie), réhydratation prudente par cristalloïdes, traitement d'une hyperkaliémie. Correction d'une hypovolémie par cristalloïdes (NaCl 0,9 % ou Ringer-Lactate 500 mL IV réévalué), arrêt immédiat de tout néphrotoxique (AINS, aminosides, metformine, IEC/ARA2 en aigu), levée d'obstacle si post-rénale et correction d'une hyperkaliémie/acidose (NaHCO3 si pH < 7,15)."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Interdiction définitive des AINS, reprise progressive de l'IEC/diurétique après récupération rénale. Néphroprotection chronique : IEC/ARA2 à dose maximale tolérée si protéinurie, iSGLT2 (dapagliflozine 10 mg/j ou empagliflozine 10 mg/j si DFG >= 20–25 mL/min) et contrôle PA < 120–130/80 mmHg."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Hyperkaliémie fatale, dialyse transitoire."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Créatinine et K+ quotidiens jusqu'à normalisation. Diurèse horaire, créatinine/DFG/K+/bicarbonates quotidiens en aigu, puis rapport albumine/créatinine urinaire (RAC) trimestriel."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Récupération habituelle en quelques jours si prise en charge précoce."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Médecin traitant, néphrologue."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés essentiels pour la pratique suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 15,
+      "fichier_html_cible": "LOT_198_Phase_B_V0_DX.15.html",
+      "titre": "Syndrome sérotoninergique aigu sur association médicamenteuse",
+      "cim": "G90.8",
+      "urgence": "urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition, portée clinique et cadre suisse de la situation",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Toxicité aiguë par hyperstimulation des récepteurs sérotoninergiques centraux et périphériques."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Sous-diagnostiqué chez les patients polymédiqués recevant antidépresseur + antalgique (tramadol/fentanyl) ou antiémétique."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Excès de sérotonine synaptique (inhibition recapture + libération accrue ou IMAO)."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche d'évaluation structurée et situations différentielles",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Hyperthermie > 40 °C, rigidité généralisée, rhabdomyolyse, convulsions -> urgence vitale !"
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Ajout ou augmentation récente d'un agent sérotoninergique (tramadol chez un patient sous citalopram/venlafaxine !)."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Critères de Hunter : CLONUS spontané ou inductible (cheville) + hyperréflexie + agitation, sueurs profuses, tachycardie, hyperthermie, mydriase, diarrhées."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Typologie des situations et stratification des priorités",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Critères de Hunter positifs + exposition sérotoninergique."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Diagnostic CLINIQUE (critères de Hunter) ; CK, ionogramme, créatinine, bilan hépatique, ECG (exclure syndrome malin des neuroleptiques : rigidité « en tuyau de plomb » vs clonus !)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Hémocultures/PL si doute avec méningite/sepsis."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Arrêt immédiat de tous les agents sérotoninergiques, hydratation IV, refroidissement, benzodiazépines (lorazépam) contre agitation/hypertonie, cyproheptadine si sévère."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Éviter l'association tramadol + ISRS/IRSN à l'avenir."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Hyperthermie maligne-like, CIVD, insuffisance rénale sur rhabdomyolyse."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Température, constantes et CK pendant 24–48 h."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Résolution en 24–72 h dans la majorité des cas."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Urgences, médecine interne, psychiatre."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés essentiels pour la pratique suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    }
+  ],
+  "prompt_alpha_a_jour": "# MISSION : CORRECTION ET COMPLÉTION DES 248 SSP SUISSES (3 975 ENTITÉS + 248 CHAPITRES 0)\n\n## § 0. IDENTIFICATION, SIGNATURE & RÈGLES DE CONTINUITÉ — BLOQUANT ABSOLU\n1. **Identification obligatoire** en tête de première réponse :\n   - HEURE DE DÉBUT : AAAA-MM-JJ HH:MM (Europe/Zurich)\n   - MODÈLE : nom exact du modèle (ex. ANTIGRAVITY ORCHESTRATOR NEON)\n   - PLATEFORME : plateforme exacte (ex. ANTIGRAVITY)\n   - Ajouter la même ligne à `1_Claude AI/IDENTIFICATION_AGENTS.md`. Si incertitude, s'arrêter.\n2. **Signature IA fixe en bas à droite de TOUT HTML produit ou modifié** (juste avant `</body>`, en GRAS MAJUSCULE) :\n   `<div id=\"signature-ia\" style=\"position:fixed;right:12px;bottom:10px;z-index:9999;background:#fff;border:2px solid #000;padding:4px 10px;font:700 12px/1.3 Arial,sans-serif;text-transform:uppercase;color:#000\">DÉBUT : AAAA-MM-JJ HH:MM (EUROPE/ZURICH) · MODÈLE : <NOM> · PLATEFORME : <PLATEFORME></div>`\n   - **Seul Vial peut autoriser le retrait de ce bloc.** Un agent qui reprend un fichier signé ajoute sa propre ligne sous la précédente sans jamais effacer l'existante.\n3. **Continuité & transparence** :\n   - **Redémarrage propre à partir de `SSP_248`** : tous les cours précédemment modifiés ont été restaurés à l'état initial (`6941513`). Enchaîner continûment **`SSP_248 → SSP_033`**, puis **`SSP_001 → SSP_032`**.\n   - **Toujours afficher le raisonnement visible** en français dans chaque réponse.\n   - **Veille & relance GitHub** : commiter et pousser sur `origin main` après chaque SSP (ou lot <= 5 SSP) avec l'état à jour dans `SUIVI_PRODUCTION.csv`, `HANDOFF_AFFINAGE.md` et `HANDOFF_IA_COMPLET.md`.\n   - **Suivi graphique temps réel** : maintenir à jour le tableau de bord visuel temps réel des réalisations achevées et en cours.\n\n## § 1. RÈGLES ACTUALISÉES (PRIMENT SUR LE PROMPT ALPHA 19.11.26)\n1. **Nombre de cours par SSP** : **1 cours par entité de la Cartographie Renouveau** (15 à 24 entités par SSP, 3 975 au total) + le Chapitre 0 (`Phase_A`), dans l'ordre exact des `Cours 1 … N` de `SSP_nnn/NOTIONS.md` / `NOTIONS.json`.\n2. **QUALITÉ CLINIQUE MAXIMALE & ZÉRO MÉDIOCRITÉ (BLOQUANT ABSOLU — Consigne Vial 20.11.26)** :\n   - **Interdiction absolue de toute prose patronnée / générique** : aucune phrase-cadre où seul le nom de la pathologie change d'un cours à l'autre, aucun remplissage artificiel pour atteindre le calibre. La médiocrité clinique est dangereuse et entraîne un rejet immédiat.\n   - Chaque cours (`Phase_A` et `DX.1..N`) doit être **rédigé sur mesure** pour son entité exacte, avec : raisonnement physiopathologique et sémiologique réel, seuils numériques précis, diagnostics différentiels discriminants, posologies et contre-indications sourcées (Compendium.ch / AIPS, Tox Info Suisse, OFSP, ASSM, sociétés savantes suisses), vignettes cliniques authentiques et QCM exigeants de niveau Examen Fédéral Suisse.\n3. **INTERDICTION DES ARBRES DÉCISIONNELS (Consigne Vial 20.11.26)** :\n   - **Ne générer AUCUN arbre décisionnel ni algorithme graphique (`.fm-canvas`, SVG décisionnel, etc.)** dans `Phase_A` ou dans les `DX.n` — l'auteur (Vial) les réalisera lui-même.\n4. **Calibre texte pur actualisé (Consigne Vial 20.11.26)** :\n   - **80 à 100 Ko de texte pur UTF-8 par fichier** (`81 920` à `102 400` octets, calibre du Prompt Alpha confirmé par Vial le 20.11.2026 à 21:20, mesuré fenêtres comprises, hors balises HTML, CSS, JS, SVG et images).\n   - HTML hors images (`controle3.py`) : **`40 000` à `100 000` octets** (alerte).\n   - Densité maximale : zéro remplissage, zéro phrase pouvant figurer telle quelle dans un autre cours, zéro phrase de gabarit de `cartographie_DATA.json`.\n5. **Phrases verbales exclusives (BLOQUANT)** :\n   - Chaque phrase (texte, fenêtres, listes, légendes `<figcaption>`, cellules narratives `<td>`) contient un verbe conjugué reconnu. **Zéro phrase nominale.**\n4. **Médicaments cliquables d'emblée & Fenêtres centrées PK/PD à 2 onglets (Consigne Vial 20.11.26)** :\n   - Dès qu'un médicament est évoqué, il devient cliquable (`<a class=\"ouvre med-chip\" href=\"#f-...\">`).\n   - Chaque `<section class=\"fenetre mb\" id=\"f-...\"><div class=\"fen\">` s'ouvre au centre de l'écran et contient **2 onglets** :\n     * **Onglet 1 (`data-tab=\"pk\"`)** : Pharmacocinétique + **Courbe vectorielle SVG $C(t)$** + **4 paramètres cliniciens mis en évidence** (`.pkpd-kpis`).\n     * **Onglet 2 (`data-tab=\"pd\"`)** : Pharmacodynamique & Clinique + **Courbe vectorielle SVG $E(C)$** + posologies/précautions/grossesse suisses (Compendium.ch / AIPS).\n5. **Images** : uniquement à l'intérieur des `<section class=\"fenetre\">`, jamais hors fenêtre (licences selon Prompt Alpha § 4). Ne comptent pas dans le calibre.\n6. **Zéro terminologie de chantier visible** : aucun texte visible (ni `<title>`) ne doit contenir `LOT`, `V0`, `Phase A/B`, `DX.n`, `Appel A/B`, `Partie n`. Seuls les noms de fichiers gardent le format Alpha (`LOT_nnn_Phase_A_V0.html`, `LOT_nnn_Phase_B_V0_DX.i.html`).\n7. **Circuits & Plans** :\n   - `MONOGRAPHIQUE` (189 SSP) : plan maladie en 14 points (Prompt Alpha § 3.1).\n   - `NON_MONOGRAPHIQUE` (52 SSP) : Leçon en 12 à 14 points adaptés (Prompt Alpha § 3.2). **Jamais** de plan maladie ni de titres « Physiopathologie / Approche syndromique / Diagnostic positif » artificiels.\n   - `MIXTE` (7 SSP) : Prompt Alpha § 3.3, chaque fichier déclare `<meta name=\"ssp-circuit\" content=\"...\">`.\n8. **Correctifs Frontend v2 / Architecture `_sources/` (`UNIQUE.html` & `_polices/`)** :\n   - **Arborescence propre par SSP** : à la racine de `SSP_nnn/`, seul **`SSP_nnn_<code>_UNIQUE.html`** (plus le sous-dossier **`_sources/`**) est visible. Tous les fichiers sources (`LOT_nnn_*.html`, `images/`, `NOTIONS.*`, `MANIFESTE.json`, `DECISION*`, `paquet.json`, `_archive_avant_alpha/`) sont rangés dans `SSP_nnn/_sources/` sans rien supprimer.\n   - **Barre haute amovible (`gabarit_unique.html`)** : `#topbar` compacte 1 ligne (~42 px) avec pilule active, fil d'Ariane section, boutons `◀`/`▶`, tiroir overlay amovible `#dd-drawer` (`☰ Diagnostics (N) ▾` + option `📌 Épingler`) contenant `nav#nav` en colonnes égales (`32 px`, teinte unique par cours), et bouton `▴ Masquer barre` + pilule flottante `#btn-show-bar`.\n   - **Zéro dédoublement & navigation `#...` 100 % fonctionnelle (`forme.js`)** : script `forme.js` exécuté sous `DOMContentLoaded` et injecté par `assembler_unique.py`/`inliner.py` après `</head>` et avant `#signature-ia`/`</body>` ; intercepteur global appelant `e.preventDefault()` sur 100 % des `href^=\"#\"` (bloque le rechargement `srcdoc` + `file://`).\n   - **Modales centrées `<div class=\"fen\">` & désaturation (`forme.css` / `optimiser_ssp.py`)** : ouverture via classe `.fm-open` (plus `:target` en repli) avec pile `modalStack` et bouton `Fermer ✕` sticky (sans `history.back()`), auto-enveloppement `<div class=\"fen\">`, tableaux hors modale déplacés vers `<section class=\"fenetre fm-tab-fen\">` déclenchés par cartes `.fm-encart-fen`, citations `<sup class=\"r\"><a>` compactées en `[N]` avec modale aperçu `#fm-src-modal` empilable (`fm-stack-top`), puces médicaments `a.ouvre.med-chip` (`℞ ...`, `white-space: nowrap`, compatible accents français), repli du plan latéral desktop `#fm-plan-toggle`, îlots discontinus (`margin-bottom: 30px`) et padding bas `5.5rem` protégeant la lecture au-dessus de `#signature-ia`.\n   - **HTML unique** : ne jamais l'écrire à la main ; toujours exécuter `optimiser_ssp.py` puis `assembler_unique.py nnn`.\n\n## § 2. ARCHIVAGE & WORKFLOW PAR SSP (P0 → P4)\n- **Zéro suppression** : avant d'écraser ou renommer un fichier source existant, archiver dans `SSP_nnn/_sources/_archive_avant_alpha/`.\n- **P0 (Préparer)** : lire circuit (`catalogue_248.json`), entités (`NOTIONS.md`/`NOTIONS.json`), `memoire_zero_token.py --digest --lot nnn`, écrire `PLAN_ENTITES.md`.\n- **P1 (Décider)** : noter dans `DECISION.md` (Corriger / Réécrire si mécanique, faux plan maladie ou `< 30 Ko` / Créer).\n- **P2 (Produire)** : `LOT_nnn_Phase_A_V0.html` + `LOT_nnn_Phase_B_V0_DX.1..N.html`, 100 % des notions de `NOTIONS.json` expliquées et sourcées (Compendium.ch / AIPS, OFSP, ASSM, CC, LAMal, LAVI, Smarter Medicine), sans aucune phrase gabarit de la cartographie.\n- **P3 (Portes de Contrôle + Optimisation + Assemblage + Audit Chrome)** :\n  1. `controle3.py --script-ok` → **`VERT {}`** (si `paquet.json` présent ; `--script-ok` requis car `_sources/` référence `../../_polices/forme.js`)\n  2. `verif_aips.py` → **`OK`** (si `paquet.json` présent) et `restaurer_fond.py --verifier` → **`exit=0`**\n  3. `python _outils/optimiser_ssp.py nnn` → migration vers `_sources/`, tableaux déplacés en `<div class=\"fen\">`, teintes non bleues `--fm-a`\n  4. `python _outils/verif_mission.py nnn` → **100 % fichiers `PASS`** (`errors: []`)\n  5. `python _outils/assembler_unique.py nnn` → **`(1 + N) / (1 + N) onglets`** à la racine de `SSP_nnn/`\n  6. `python _outils/notions.py verifier nnn` → **`0 NON`** + copier `rapport_notions.csv` dans `SSP_nnn/_sources/`\n  7. `python _outils/audit_unique_browser.py nnn --all-tabs` → **`PASS` sur 100 % des onglets en Chrome headless réel**\n  8. Ajouter ligne dans `SUIVI_PRODUCTION.csv` + `git commit` + `git push origin main`.\n- **P4 (Affinage)** : consigner tout doute clinique/posologique non vérifié dans `1_Claude AI/HANDOFF_AFFINAGE.md` sous `## SSP_nnn`.\n\n## § 3. MISSION 2 — SSP 001 → 032\n- Extraire les cours depuis `SSP_nnn_<code>_UNIQUE.html` (JSON `data` gzip+base64, marqueurs `@@IMG:…@@`, `@@FONT:…@@`) après archivage des anciens `LOT_nnn_*.html` dans `_archive_avant_alpha/`.\n- Le frontend reste identique ; auditer le contenu avec la même sévérité (attention : `SSP_013` G13 = `NON_MONOGRAPHIQUE`, `SSP_014` G14 = `MIXTE`).\n- Produire `1_Claude AI/AUDIT_001-032.md` et corriger tous les ❌.\n\n## § 4. LES 12 BLOCAGES ROUGE (REJET IMMÉDIAT)\n1. Identification absente ou incertaine.\n2. Signature `#signature-ia` absente, modifiée ou supprimée.\n3. Entité de la Cartographie sans cours.\n4. Fichier hors intervalle `80–100 Ko` de texte pur (tout cours ; un cours de 30–50 Ko est à enrichir).\n5. Toute phrase nominale.\n6. Toute notion au verdict `NON`.\n7. Phrase gabarit de `cartographie_DATA.json` recopiée dans un cours.\n8. Plan maladie appliqué à une Leçon `NON_MONOGRAPHIQUE`.\n9. Terme de chantier visible (`LOT`, `V0`, `Phase A/B`, `DX.n`, `Appel`, `Partie n`).\n10. Posologie sans source de la cascade suisse.\n11. Image hors `<section class=\"fenetre\">`.\n12. Fichier supprimé au lieu d'être archivé.\n\n## § 5. ANNEXE CIRCUITS (248 SSP)\n- **NON_MONOGRAPHIQUE (52)** : 013 · 065 · 069 · 176 · 180 · 181 · 182 · 184 · 185 · 186 · 192 · 194 · 195 · 198 · 200 · 203 · 204 · 205 · 206 · 207 · 208 · 209 · 210 · 211 · 212 · 213 · 214 · 215 · 216 · 217 · 218 · 219 · 220 · 221 · 222 · 224 · 225 · 226 · 227 · 232 · 233 · 235 · 236 · 237 · 238 · 239 · 240 · 241 · 242 · 243 · 246 · 247.\n- **MIXTE (7)** : 014 · 165 · 174 · 175 · 190 · 202 · 223.\n- **MONOGRAPHIQUE (189)** : tous les autres SSP."
+}

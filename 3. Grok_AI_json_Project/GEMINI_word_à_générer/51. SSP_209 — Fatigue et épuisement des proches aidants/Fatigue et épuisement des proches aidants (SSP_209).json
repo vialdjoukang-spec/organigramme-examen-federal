@@ -1,0 +1,2445 @@
+{
+  "rappel_obligatoire_avant_redaction": {
+    "lecture_imperative": [
+      "1. Lire intégralement PROMPT_Alpha_19.11.26.md ET la mise à jour incluse dans prompt_alpha_a_jour ci-dessous.",
+      "2. Respecter l'intervalle GLOBAL par cours : viser 85–95 Ko de texte médical pur (soit ~95–115 Ko de fichier JSON) sans quota rigide par partie — répartir le texte proportionnellement à l'importance clinique des parties.",
+      "3. Produire graduellement 1 cours complet par requête (Phase A, puis Cours 1, Cours 2...) en français médical académique, phrases verbales exclusives (0 phrase nominale), zéro prose générique ou patronnée.",
+      "4. Utiliser uniquement les guillemets typographiques français « … » dans les valeurs texte JSON (jamais de guillemet droit non échappé).",
+      "5. Zéro arbre décisionnel graphique (.fm-canvas) : ne générer aucun schéma décisionnel."
+    ],
+    "specificites_locales_ssp": [
+      "Circuit NON_MONOGRAPHIQUE : conserver strictement l'architecture en Leçons Suisses Structurées (14 points adaptés), SANS JAMAIS utiliser de titres ou de plan maladie artificiel (interdiction de Physiopathologie / Approche syndromique / Diagnostic positif).",
+      "Couvrir 100 % des notions obligatoires listées dans phase_b[*].plan[*].notions_obligatoires pour Fatigue et épuisement des proches aidants (O5.1).",
+      "Cascade posologique suisse à 4 paliers obligatoire : 1. AIPS Swissmedic (n° 5 chiffres) -> 2. Compendium.ch -> 3. Sociétés savantes & CHU suisses (HUG, CHUV, Inselspital, USZ, USB, OFSP, ASSM, SSMIG, Tox Info Suisse 145) -> 4. Sociétés savantes européennes."
+    ]
+  },
+  "meta": {
+    "rang_gravite": 51,
+    "ssp": "SSP_209",
+    "code_profiles": "O5.1",
+    "nom_francais": "Fatigue et épuisement des proches aidants",
+    "circuit": "NON_MONOGRAPHIQUE",
+    "police_obligatoire": "Atkinson Hyperlegible",
+    "calibre_cible": "80–100 Ko texte pur",
+    "arbres_decisionnels_autorises": false,
+    "mode_redaction": "Neon Deep Research",
+    "nb_chapitres_total": 16,
+    "defauts_audit_initial": [
+      "Incomplet (11/16 cours)",
+      "Faux plan maladie (11 f.)",
+      "225 phrases nominales",
+      "Termes chantier (11 f.)"
+    ]
+  },
+  "sommaire": {
+    "phase_a": {
+      "fichier_html_cible": "LOT_209_Phase_A_V0.html",
+      "titre": "Fatigue et épuisement des proches aidants — Vue d'ensemble et orientation clinique (O5.1)"
+    },
+    "phase_b": [
+      {
+        "cours_numero": 1,
+        "titre": "Syndrome d'épuisement du proche aidant (fardeau chronique / caregiver burden)",
+        "cim": "Z63.6",
+        "urgence": "semi-urgent"
+      },
+      {
+        "cours_numero": 2,
+        "titre": "Trouble du sommeil chronique de l'aidant (hypervigilance nocturne)",
+        "cim": "G47.0",
+        "urgence": "chronique"
+      },
+      {
+        "cours_numero": 3,
+        "titre": "Épisode dépressif caractérisé ou trouble anxieux chez le proche aidant",
+        "cim": "F32.9",
+        "urgence": "urgent"
+      },
+      {
+        "cours_numero": 4,
+        "titre": "Troubles musculo-squelettiques (lombalgies / tendinopathies) liés aux transferts",
+        "cim": "M54.5",
+        "urgence": "chronique"
+      },
+      {
+        "cours_numero": 5,
+        "titre": "Négligence de sa propre santé somatique par l'aidant (maladies chroniques décompensées)",
+        "cim": "Z91.1",
+        "urgence": "semi-urgent"
+      },
+      {
+        "cours_numero": 6,
+        "titre": "Isolement social et précarisation financière du proche aidant",
+        "cim": "Z60.2",
+        "urgence": "chronique"
+      },
+      {
+        "cours_numero": 7,
+        "titre": "Deuil anticipé ou deuil prolongé complexe de l'aidant",
+        "cim": "F43.8",
+        "urgence": "semi-urgent"
+      },
+      {
+        "cours_numero": 8,
+        "titre": "Anémie ferriprive ou hypothyroïdie somatique méconnue chez l'aidant fatigué",
+        "cim": "D50.9",
+        "urgence": "chronique"
+      },
+      {
+        "cours_numero": 9,
+        "titre": "Mésusage d'alcool ou de benzodiazépines par l'aidant (stratégie d'adaptation)",
+        "cim": "F13.1",
+        "urgence": "semi-urgent"
+      },
+      {
+        "cours_numero": 10,
+        "titre": "Conflit familial et mésentente sur la répartition des soins ou l'entrée en EMS",
+        "cim": "Z63.8",
+        "urgence": "chronique"
+      },
+      {
+        "cours_numero": 11,
+        "titre": "Idéation suicidaire aiguë ou risque de passage à l'acte (y compris suicide élargi) chez l'aidant",
+        "cim": "R45.8",
+        "urgence": "immediate"
+      },
+      {
+        "cours_numero": 12,
+        "titre": "Décompensation somatique aiguë de l'aidant (SCA, AVC, infection grave) laissant le patient seul",
+        "cim": "Z74.2",
+        "urgence": "immediate"
+      },
+      {
+        "cours_numero": 13,
+        "titre": "Passage à l'acte agressif ou maltraitance aiguë par perte de contrôle de l'aidant épuisé",
+        "cim": "T74.1",
+        "urgence": "urgent"
+      },
+      {
+        "cours_numero": 14,
+        "titre": "Crise d'angoisse aiguë ou attaque de panique de l'aidant à domicile",
+        "cim": "F41.0",
+        "urgence": "urgent"
+      },
+      {
+        "cours_numero": 15,
+        "titre": "Erreur médicamenteuse grave commise par un aidant épuisé envers le patient",
+        "cim": "T50.9",
+        "urgence": "urgent"
+      }
+    ]
+  },
+  "phase_a": {
+    "titre": "Fatigue et épuisement des proches aidants — Vue d'ensemble (O5.1)",
+    "plan": [
+      {
+        "point": 1,
+        "titre": "Définition, portée clinique et cadre suisse de la situation",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit NON_MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 2,
+        "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit NON_MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 3,
+        "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit NON_MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 4,
+        "titre": "Démarche d'évaluation structurée et situations différentielles",
+        "description": "Présentation et hiérarchisation des 15 entités de la Cartographie Renouveau."
+      },
+      {
+        "point": 5,
+        "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit NON_MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 6,
+        "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit NON_MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 7,
+        "titre": "Typologie des situations et stratification des priorités",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit NON_MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 8,
+        "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit NON_MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 9,
+        "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit NON_MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 10,
+        "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit NON_MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 11,
+        "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit NON_MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 12,
+        "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit NON_MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 13,
+        "titre": "Points clés essentiels pour la pratique suisse",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit NON_MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 14,
+        "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit NON_MONOGRAPHIQUE, sans arbre décisionnel."
+      }
+    ]
+  },
+  "phase_b": [
+    {
+      "cours_numero": 1,
+      "fichier_html_cible": "LOT_209_Phase_B_V0_DX.1.html",
+      "titre": "Syndrome d'épuisement du proche aidant (fardeau chronique / caregiver burden)",
+      "cim": "Z63.6",
+      "urgence": "semi-urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition, portée clinique et cadre suisse de la situation",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Épuisement physique, émotionnel et social progressif résultant de l'accompagnement prolongé d'un proche malade ou dépendant."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Touche > 40–60 % des proches aidants principaux (conjoint âgé ou enfant adulte) s'occupant d'un patient dément ou palliatif."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Stress chronique continu (privation de sommeil, isolement, perte de rôle social) entraînant une activation prolongée de l'axe corticotrope."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche d'évaluation structurée et situations différentielles",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Dépression majeure, idées suicidaires, pensées de violence envers le patient (« peur de perdre le contrôle ») -> répit d'urgence !"
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Fatigue persistante, sentiment de ne plus avoir de temps pour soi, irritabilité, culpabilité à l'idée de demander de l'aide."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Score de Zarit ≥ 21–40 (fardeau modéré à sévère), cernes, tension musculaire, TA parfois élevée."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Typologie des situations et stratification des priorités",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Épuisement objectivé directement lié à la charge d'aide."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Échelle de Zarit (ou Mini-Zarit) + bilan somatique propre à l'aidant (les aidants négligent souvent leur propre santé !)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Bilan biologique simple de fatigue (NFS, TSH, ferritine)."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Organisation rapide d'un court séjour de répit ou relai CMS si seuil de rupture."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Déculpabiliser l'aidant, mobiliser les ressources cantonales (CMS/Spitex, foyers de jour, bénévoles, allocations pour impotent AVS/AI, congé pour proches aidants en Suisse), groupes de parole."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Morbi-mortalité accrue de l'aidant, institutionnalisation en urgence du patient."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Consultation dédiée à l'aidant seul sans le patient."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Nette amélioration dès la mise en place de répit régulier."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Médecin traitant, CMS/Spitex, Pro Infirmis / Pro Senectute / Association Alzheimer."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés essentiels pour la pratique suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 2,
+      "fichier_html_cible": "LOT_209_Phase_B_V0_DX.2.html",
+      "titre": "Trouble du sommeil chronique de l'aidant (hypervigilance nocturne)",
+      "cim": "G47.0",
+      "urgence": "chronique",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition, portée clinique et cadre suisse de la situation",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Privation ou fragmentation chronique du sommeil de l'aidant liée aux besoins nocturnes ou à l'angoisse pour le proche."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Présente chez > 60 % des aidants de patients atteints de démence ou en soins palliatifs."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Fragmentation du sommeil lent profond et paradoxal -> dette de sommeil chronique et troubles cognitifs/humeur."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche d'évaluation structurée et situations différentielles",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Somnolence au volant, automédication par benzodiazépines (risque de ne plus entendre le proche ou de chute !)."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Réveils 3–5×/nuit, hypervigilance permanente (« je dors d'un œil »), somnolence diurne."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Fatigue, irritabilité, troubles attentionnels."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Typologie des situations et stratification des priorités",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Insomnie secondaire aux contraintes nocturnes d'aide."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Agenda du sommeil et évaluation des causes nocturnes chez le patient (incontinence, douleur, agitation nocturne)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Aucune."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "En l'absence d'urgence vitale, rassurer le patient, soulager les symptômes (paracétamol 1 g PO si besoin, max 3–4 g/j) et éviter toute antibiothérapie ou examen superflu (Smarter Medicine Suisse)."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Traiter les causes nocturnes chez le patient (couches haute capacité, antalgie, mélatonine/traitement des SCPD), garde de nuit (Croix-Rouge/CMS) ou lit de répit ponctuel, hygiène du sommeil (éviter somnifères !)."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Accidents domestiques/routiers, épuisement aigu."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Réévaluation de la qualité du sommeil après aide nocturne."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Réversible dès restauration de nuits complètes."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Médecin traitant, CMS, Croix-Rouge suisse."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés essentiels pour la pratique suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 3,
+      "fichier_html_cible": "LOT_209_Phase_B_V0_DX.3.html",
+      "titre": "Épisode dépressif caractérisé ou trouble anxieux chez le proche aidant",
+      "cim": "F32.9",
+      "urgence": "urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition, portée clinique et cadre suisse de la situation",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Troubles de l'humeur ou anxieux cliniquement significatifs survenant chez un aidant soumis à un stress prolongé et un deuil anticipé."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Touche 20–35 % des proches aidants de patients chroniques graves."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Impuissance apprise, deuil blanc (perte relationnelle du proche dément encore vivant), isolement."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche d'évaluation structurée et situations différentielles",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Idéation suicidaire, désespoir majeur, désir de « partir ensemble » (suicide altruiste / élargi chez conjoints âgés !) -> urgence psychiatrique !"
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Tristesse, anhédonie, pleurs fréquents, sentiment d'échec, perte d'appétit, anxiété d'anticipation."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Score PHQ-9 / GAD-7 élevé, ralentissement ou agitation."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Typologie des situations et stratification des priorités",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Critères DSM-5 d'épisode dépressif ou trouble anxieux généralisé."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Entretien clinique individuel + PHQ-9 + évaluation du risque suicidaire."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "TSH, NFS (exclure hypothyroïdie/anémie)."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Prise en charge psychiatrique urgente si risque suicidaire."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Psychothérapie de soutien/TCC, ISRS si modéré à sévère, allègement impératif de la charge d'aidant."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Suicide, abandon de soins propres, rupture du maintien à domicile."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Suivi rapproché à J7–J14 puis mensuel."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Bonne réponse au traitement combiné (soutien + antidépresseur + répit)."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Médecin traitant, psychiatre/psychologue, CMS."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés essentiels pour la pratique suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 4,
+      "fichier_html_cible": "LOT_209_Phase_B_V0_DX.4.html",
+      "titre": "Troubles musculo-squelettiques (lombalgies / tendinopathies) liés aux transferts",
+      "cim": "M54.5",
+      "urgence": "chronique",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition, portée clinique et cadre suisse de la situation",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Atteintes mécaniques rachidiennes ou péri-articulaires secondaires aux manœuvres répétées de soulèvement et de transfert."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Très fréquentes chez les conjoints aidants âgés."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Surcharge discale lombaire et de la coiffe des rotateurs lors de ports en flexion/rotation."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche d'évaluation structurée et situations différentielles",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Sciatique paralysante, queue de cheval, fracture ostéoporotique aiguë chez une aidante âgée."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Lombalgies mécaniques, douleurs d'épaule, absence de lève-personne ou de formation aux transferts."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Contracture paravertébrale, examen neurologique des MI (exclure sciatique déficitaire)."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Typologie des situations et stratification des priorités",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Lombalgie/tendinopathie mécanique liée aux soins."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Examen clinique ; pas d'imagerie sans drapeaux rouges."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Évaluation ergothérapeutique au domicile."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Antalgie simple, maintien d'activité douce, arrêt immédiat des ports lourds."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Installation de matériel adapté (lit médicalisé électrique, lève-personne/verticalisateur, disque de transfert), formation aux gestes et postures, intervention CMS pour toilettes/levers."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Hernie discale, fracture vertébrale, incapacité de l'aidant."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Réévaluation après adaptation ergothérapeutique."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Guérison rapide dès arrêt des ports manuels."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Médecin traitant, ergothérapeute, physiothérapeute."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés essentiels pour la pratique suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 5,
+      "fichier_html_cible": "LOT_209_Phase_B_V0_DX.5.html",
+      "titre": "Négligence de sa propre santé somatique par l'aidant (maladies chroniques décompensées)",
+      "cim": "Z91.1",
+      "urgence": "semi-urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition, portée clinique et cadre suisse de la situation",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Report ou abandon des soins préventifs et curatifs personnels par un proche aidant entièrement centré sur le malade."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Les aidants âgés ont un risque de mortalité augmenté s'ils présentent eux-mêmes des comorbidités non suivies."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Manque de temps, impossibilité de laisser le patient seul pendant ses propres consultations."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche d'évaluation structurée et situations différentielles",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Signes cardiovasculaires ou oncologiques négligés chez l'aidant."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Rendez-vous médicaux annulés, dépistages en retard, douleurs thoraciques ou dyspnée minimisées."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Contrôle TA, poids, examen ciblé de l'aidant."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Typologie des situations et stratification des priorités",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Défaut de suivi médical personnel lié au rôle d'aidant."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Bilan de suivi des maladies chroniques propres à l'aidant."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Aucune."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Prise en charge d'une décompensation aiguë (HTA sévère, diabète)."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Organiser une garde temporaire du patient (Croix-Rouge/bénévole) pour permettre à l'aidant d'honorer ses propres consultations et examens."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Hospitalisation évitable de l'aidant entraînant crise du domicile."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Planifier une consultation annuelle dédiée à l'aidant."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Stabilisation dès reprise du suivi."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Médecin traitant, réseau d'aide."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés essentiels pour la pratique suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 6,
+      "fichier_html_cible": "LOT_209_Phase_B_V0_DX.6.html",
+      "titre": "Isolement social et précarisation financière du proche aidant",
+      "cim": "Z60.2",
+      "urgence": "chronique",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition, portée clinique et cadre suisse de la situation",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Rétrécissement du réseau social et perte de revenus secondaires aux contraintes temporelles de l'aidance."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Fréquent chez les aidants en âge actif (femmes 45–65 ans, « génération sandwich »)."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Absence de soupape relationnelle et stress financier aggravant l'épuisement."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche d'évaluation structurée et situations différentielles",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Précarité extrême, isolement complet."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Arrêt des sorties, perte de contact avec amis, difficultés financières, conflit travail-famille."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Signes de fatigue et isolement."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Typologie des situations et stratification des priorités",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Isolement/précarité liés à l'aidance."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Évaluation sociale."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Aucune."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Aucune."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Informer sur les droits en Suisse : congé payé de courte durée (3 j/événement, max 10 j/an) et congé de prise en charge d'enfant gravement malade (14 semaines), bonifications pour tâches d'assistance AVS, accueil de jour."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Dépression, précarité durable."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Suivi médico-social."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Amélioration avec mobilisation des aides financières et sociales."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Assistant social, Pro Senectute, médecin traitant."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés essentiels pour la pratique suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 7,
+      "fichier_html_cible": "LOT_209_Phase_B_V0_DX.7.html",
+      "titre": "Deuil anticipé ou deuil prolongé complexe de l'aidant",
+      "cim": "F43.8",
+      "urgence": "semi-urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition, portée clinique et cadre suisse de la situation",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Processus émotionnel de perte vécu avant le décès (deuil anticipé/deuil blanc) ou persistant de façon invalidante > 6–12 mois après le décès."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Fréquent chez les conjoints fusionnels après des années d'aidance intense."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Réorganisation identitaire brutale lorsque le rôle d'aidant s'arrête."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche d'évaluation structurée et situations différentielles",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Idées suicidaires (« envie de le rejoindre ») -> prise en charge psychiatrique urgente !"
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Culpabilité, sentiment de vide, incapacité à se projeter, évitement ou idéalisation extrême."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Détresse émotionnelle, troubles du sommeil."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Typologie des situations et stratification des priorités",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Souffrance psychique prolongée liée à la perte."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Entretien clinique, différencier deuil normal vs trouble de deuil prolongé vs dépression."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Aucune."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Évaluation du risque suicidaire."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Soutien psychologique, groupes d'entraide pour endeuillés, visite de suivi post-décès systématique par le médecin traitant (bonnes pratiques palliatives !)."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Dépression sévère, surmortalité du conjoint survivant dans les 6 premiers mois."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Contact systématique à 1–3 mois après le décès du patient."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Résolution progressive avec accompagnement."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Médecin traitant, psychologue, équipes de soins palliatifs."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés essentiels pour la pratique suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 8,
+      "fichier_html_cible": "LOT_209_Phase_B_V0_DX.8.html",
+      "titre": "Anémie ferriprive ou hypothyroïdie somatique méconnue chez l'aidant fatigué",
+      "cim": "D50.9",
+      "urgence": "chronique",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition, portée clinique et cadre suisse de la situation",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Cause organique traitable de fatigue évoluant parallèlement au fardeau d'aidant."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Très fréquentes chez les femmes aidantes (carence martiale) ou seniors (hypothyroïdie, SAOS)."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Défaut de transport d'O2 ou ralentissement métabolique majorant l'asthénie psychique."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche d'évaluation structurée et situations différentielles",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Anémie ferriprive chez l'homme ou femme ménopausée -> bilan digestif (gastro-coloscopie) !"
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Fatigue disproportionnée, dyspnée d'effort, frilosité, ménorragies, ronflements."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Pâleur, bradycardie, examen thyroïdien."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Typologie des situations et stratification des priorités",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Anomalie biologique objectivée expliquant une part de la fatigue."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "NFS, ferritine, CRP, TSH, glycémie, créatinine."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Polygraphie si suspicion de SAOS."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Transfusion CGR uniquement si Hb < 70 g/L (ou < 80 g/L si cardiopathie ischémique) ; sinon supplémentation martiale orale (sulfate ferreux 80–100 mg de fer élément/j un jour sur deux) ou carboxymaltose ferrique IV (500–1000 mg sur 15 min) si malabsorption ou intolérance."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Traitement étiologique (fer oral/IV, lévothyroxine) en parallèle du soutien à l'aidance. Poursuite du fer oral 3 mois après normalisation de l'Hb pour reconstituer les réserves et traitement étiologique (endoscopie digestive si homme ou femme ménopausée)."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Aggravation de l'épuisement."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Contrôle biologique à 2–3 mois. Réticulocytes à J7–J10 (crise réticulocytaire), hémoglobine à 4 semaines (hausse >= 10–20 g/L) et ferritine à 3 mois (cible > 50–100 µg/L)."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Amélioration nette de l'énergie après correction."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Médecin traitant."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés essentiels pour la pratique suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 9,
+      "fichier_html_cible": "LOT_209_Phase_B_V0_DX.9.html",
+      "titre": "Mésusage d'alcool ou de benzodiazépines par l'aidant (stratégie d'adaptation)",
+      "cim": "F13.1",
+      "urgence": "semi-urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition, portée clinique et cadre suisse de la situation",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Consommation croissante de sédatifs ou d'alcool pour faire face au stress et à l'insomnie de l'aidance."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Sous-déclarée par honte."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Tolérance et dépendance pharmacologique aux benzodiazépines/alcool."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche d'évaluation structurée et situations différentielles",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Erreurs d'administration de médicaments au patient, chutes nocturnes, sevrage."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Demandes répétées de renouvellement de somnifères, alcool le soir « pour décompresser »."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Sédation, tremblements, HTA."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Typologie des situations et stratification des priorités",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Mésusage documenté secondaire au stress."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Entretien bienveillant non jugeant (AUDIT-C), bilan hépatique."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Aucune."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Sevrage encadré si dépendance physique."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Sevrage progressif des benzodiazépines, alternatives TCC-I, mise en place de répit pour réduire la source de stress."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Dépendance, accidents, mise en danger du patient."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Réévaluation clinique programmée à 2–6 semaines avec contrôle de la tolérance thérapeutique et de l'observance."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Favorable si la charge d'aidant est allégée."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Médecin traitant, addictologue."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés essentiels pour la pratique suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 10,
+      "fichier_html_cible": "LOT_209_Phase_B_V0_DX.10.html",
+      "titre": "Conflit familial et mésentente sur la répartition des soins ou l'entrée en EMS",
+      "cim": "Z63.8",
+      "urgence": "chronique",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition, portée clinique et cadre suisse de la situation",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Tensions intrafamiliales aiguës ou chroniques autour de l'organisation des soins et des décisions d'orientation d'un parent dépendant."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Très fréquent dans les fratries lors de l'aggravation d'une démence."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Clivage entre l'aidant quotidien (épuisé, réaliste) et les proches éloignés (dans le déni ou la culpabilité)."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche d'évaluation structurée et situations différentielles",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Rupture de soins ou maltraitance par conflit paralysant."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Sentiment d'injustice de l'aidant, accusations mutuelles, blocage des démarches EMS."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Détresse de l'aidant."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Typologie des situations et stratification des priorités",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Conflit familial identifié comme facteur majeur d'épuisement."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Organisation d'un entretien familial structuré (« table ronde ») avec le médecin traitant et le CMS."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Médiation familiale."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Rappel du primat de la volonté du patient (ou de son représentant thérapeutique légal)."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Réunion de réseau objective exposant les faits médicaux et la charge réelle, répartition concrète des tâches ou validation collégiale du projet EMS."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Rupture familiale, burn-out de l'aidant."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Suivi après réunion familiale."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Apaisement fréquent après médiation médicale neutre."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Médecin traitant, CMS, médiateur."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés essentiels pour la pratique suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 11,
+      "fichier_html_cible": "LOT_209_Phase_B_V0_DX.11.html",
+      "titre": "Idéation suicidaire aiguë ou risque de passage à l'acte (y compris suicide élargi) chez l'aidant",
+      "cim": "R45.8",
+      "urgence": "immediate",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition, portée clinique et cadre suisse de la situation",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Crise suicidaire aiguë chez un aidant épuisé, avec parfois intention de mettre fin aux jours du proche dépendant (« suicide altruiste »)."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Risque réel chez les couples âgés isolés face à une démence ou un cancer terminal."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Désespoir total, épuisement cognitif et fusion émotionnelle pathologique."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche d'évaluation structurée et situations différentielles",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Scénario précis, accès à une arme/médicaments, intention de « ne pas laisser le conjoint seul » -> hospitalisation immédiate des DEUX personnes !"
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Propos désespérés, dons d'objets, rédaction de testament, mention d'armes ou médicaments stockés."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Évaluation immédiate RUD (Risque, Urgence, Dangerosité) ; vérifier l'accès aux moyens létaux."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Typologie des situations et stratification des priorités",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Crise suicidaire aiguë active."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Évaluation psychiatrique d'urgence."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Aucune."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Ne pas laisser l'aidant seul, hospitalisation psychiatrique (volontaire ou PAFA si refus et danger imminent) ET mise en sécurité immédiate du patient dépendant (hospitalisation/accueil d'urgence)."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Traitement antidépresseur, psychothérapie, relais institutionnel définitif (EMS) pour le patient."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Décès de l'aidant et/ou du patient."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Surveillance psychiatrique continue."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Sauvetage par intervention rapide et séparation de la charge."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Urgences psychiatriques, APEA, médecin traitant."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés essentiels pour la pratique suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 12,
+      "fichier_html_cible": "LOT_209_Phase_B_V0_DX.12.html",
+      "titre": "Décompensation somatique aiguë de l'aidant (SCA, AVC, infection grave) laissant le patient seul",
+      "cim": "Z74.2",
+      "urgence": "immediate",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition, portée clinique et cadre suisse de la situation",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Pathologie médicale aiguë frappant brutalement l'aidant principal et privant instantanément la personne dépendante d'assistance."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Situation fréquente aux urgences (aidant hospitalisé pour fracture, infarctus, AVC)."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Vulnérabilité cardiovasculaire accrue des aidants chroniquement stressés."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche d'évaluation structurée et situations différentielles",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Patient dépendant diabétique insulinotraité, dément ou grabataire laissé seul sans aide -> risque vital rapide !"
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "L'aidant arrive en ambulance et s'inquiète surtout pour son conjoint resté seul à la maison !"
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Prise en charge urgente de la pathologie de l'aidant + recueil des coordonnées du patient resté seul."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Typologie des situations et stratification des priorités",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Double urgence médicale et sociale."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Bilan urgent de l'aidant + contact immédiat avec le CMS/police/famille pour vérifier l'état du patient à domicile."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Aucune."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Soins aigus de l'aidant + activation immédiate du réseau (CMS, lit d'accueil temporaire d'urgence ou admission du patient)."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Planification de sortie sécurisée pour le binôme."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Accident ou déshydratation du patient isolé à domicile."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Coordination service social hospitalier."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Bon si le dépistage de la situation d'aidant est fait dès l'admission aux urgences."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Urgences, service social, CMS."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés essentiels pour la pratique suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 13,
+      "fichier_html_cible": "LOT_209_Phase_B_V0_DX.13.html",
+      "titre": "Passage à l'acte agressif ou maltraitance aiguë par perte de contrôle de l'aidant épuisé",
+      "cim": "T74.1",
+      "urgence": "urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition, portée clinique et cadre suisse de la situation",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Rupture brutale du contrôle émotionnel d'un aidant épuisé conduisant à des violences verbales ou physiques envers le proche."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Facteur déclenchant majeur : troubles comportementaux nocturnes d'une démence + épuisement extrême."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Saturation des capacités d'autorégulation frontale par privation de sommeil et stress."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche d'évaluation structurée et situations différentielles",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Violences physiques répétées, danger immédiat pour le patient -> séparation immédiate par hospitalisation !"
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Aveux parfois culpabilisés de l'aidant (« j'ai peur de lui faire du mal ») ou constat d'ecchymoses."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Examen du patient (lésions ?) et évaluation émotionnelle de l'aidant."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Typologie des situations et stratification des priorités",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Situation de crise avec risque imminent ou avéré de maltraitance."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Évaluation médico-sociale urgente."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Aucune."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Séparer immédiatement le binôme sans diaboliser l'aidant en crise (hospitalisation de répit du patient), traiter les SCPD du patient."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Mise en place d'aides professionnelles massives ou entrée en EMS, soutien psychologique à l'aidant."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Traumatisme grave du patient."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Suivi rapproché avec APEA si nécessaire."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Prévention efficace de la récidive dès séparation temporaire et répit."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Médecin traitant, gériatrie, CMS, APEA."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés essentiels pour la pratique suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 14,
+      "fichier_html_cible": "LOT_209_Phase_B_V0_DX.14.html",
+      "titre": "Crise d'angoisse aiguë ou attaque de panique de l'aidant à domicile",
+      "cim": "F41.0",
+      "urgence": "urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition, portée clinique et cadre suisse de la situation",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Épisode paroxystique d'anxiété intense avec symptômes neurovégétatifs sévères survenant sur fond d'épuisement."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Fréquente aux urgences chez les proches aidants."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Décharge sympathique aiguë + hyperventilation."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche d'évaluation structurée et situations différentielles",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Douleur thoracique atypique chez aidant > 50 ans ou avec FRCV -> ECG et troponine/D-dimères avant de conclure à l'angoisse !"
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Début brutal, peur de mourir ou de devenir fou, contexte de surcharge d'aidance."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Tachycardie, tachypnée, SpO2 normale, tremblements, paresthésies."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Typologie des situations et stratification des priorités",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Critères d'attaque de panique après exclusion d'une urgence cardiorespiratoire."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "ECG, constantes (SpO2, TA), bilan ciblé selon âge/FRCV."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Aucune."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Réassurance calme, respiration lente, benzodiazépine ponctuelle (lorazépam 1 mg) si détresse majeure, organisation d'un relais immédiat pour le proche."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Traitement de fond de l'épuisement et du trouble anxieux."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Récidives, agoraphobie."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Suivi à 48–72 h."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Résolution rapide."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Médecin traitant, urgences, CMS."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés essentiels pour la pratique suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 15,
+      "fichier_html_cible": "LOT_209_Phase_B_V0_DX.15.html",
+      "titre": "Erreur médicamenteuse grave commise par un aidant épuisé envers le patient",
+      "cim": "T50.9",
+      "urgence": "urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition, portée clinique et cadre suisse de la situation",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Administration inappropriée d'un traitement au patient par son proche aidant suite à la fatigue ou la complexité du schéma."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Fréquente avec les médicaments à marge thérapeutique étroite (insuline, morphine, warfarine, digoxine)."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Double prise ou confusion de flacons/stylos par défaut d'attention."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche d'évaluation structurée et situations différentielles",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Coma, dépression respiratoire, hypoglycémie sévère -> urgence vitale pour le patient !"
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Aidant épuisé gérant seul 10–15 médicaments, malaise/somnolence brutale du patient."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Signes de surdosage chez le patient (hypoglycémie, myosis/bradypnée, saignement)."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Typologie des situations et stratification des priorités",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Erreur d'administration identifiée."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Glycémie, bilan toxique/biologique du patient selon molécule."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Vérification du semainier."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Antidote/réanimation du patient (glucose, naloxone) sans culpabiliser l'aidant."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Retirer la préparation des médicaments à l'aidant : semainier préparé par pharmacie et administration supervisée par CMS/Spitex."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Décès iatrogène du patient, effondrement moral de l'aidant."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Surveillance hospitalière du patient."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Prévention totale une fois la gestion médicamenteuse déléguée."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Urgences, pharmacien, CMS, médecin traitant."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés essentiels pour la pratique suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    }
+  ],
+  "prompt_alpha_a_jour": "# MISSION : CORRECTION ET COMPLÉTION DES 248 SSP SUISSES (3 975 ENTITÉS + 248 CHAPITRES 0)\n\n## § 0. IDENTIFICATION, SIGNATURE & RÈGLES DE CONTINUITÉ — BLOQUANT ABSOLU\n1. **Identification obligatoire** en tête de première réponse :\n   - HEURE DE DÉBUT : AAAA-MM-JJ HH:MM (Europe/Zurich)\n   - MODÈLE : nom exact du modèle (ex. ANTIGRAVITY ORCHESTRATOR NEON)\n   - PLATEFORME : plateforme exacte (ex. ANTIGRAVITY)\n   - Ajouter la même ligne à `1_Claude AI/IDENTIFICATION_AGENTS.md`. Si incertitude, s'arrêter.\n2. **Signature IA fixe en bas à droite de TOUT HTML produit ou modifié** (juste avant `</body>`, en GRAS MAJUSCULE) :\n   `<div id=\"signature-ia\" style=\"position:fixed;right:12px;bottom:10px;z-index:9999;background:#fff;border:2px solid #000;padding:4px 10px;font:700 12px/1.3 Arial,sans-serif;text-transform:uppercase;color:#000\">DÉBUT : AAAA-MM-JJ HH:MM (EUROPE/ZURICH) · MODÈLE : <NOM> · PLATEFORME : <PLATEFORME></div>`\n   - **Seul Vial peut autoriser le retrait de ce bloc.** Un agent qui reprend un fichier signé ajoute sa propre ligne sous la précédente sans jamais effacer l'existante.\n3. **Continuité & transparence** :\n   - **Redémarrage propre à partir de `SSP_248`** : tous les cours précédemment modifiés ont été restaurés à l'état initial (`6941513`). Enchaîner continûment **`SSP_248 → SSP_033`**, puis **`SSP_001 → SSP_032`**.\n   - **Toujours afficher le raisonnement visible** en français dans chaque réponse.\n   - **Veille & relance GitHub** : commiter et pousser sur `origin main` après chaque SSP (ou lot <= 5 SSP) avec l'état à jour dans `SUIVI_PRODUCTION.csv`, `HANDOFF_AFFINAGE.md` et `HANDOFF_IA_COMPLET.md`.\n   - **Suivi graphique temps réel** : maintenir à jour le tableau de bord visuel temps réel des réalisations achevées et en cours.\n\n## § 1. RÈGLES ACTUALISÉES (PRIMENT SUR LE PROMPT ALPHA 19.11.26)\n1. **Nombre de cours par SSP** : **1 cours par entité de la Cartographie Renouveau** (15 à 24 entités par SSP, 3 975 au total) + le Chapitre 0 (`Phase_A`), dans l'ordre exact des `Cours 1 … N` de `SSP_nnn/NOTIONS.md` / `NOTIONS.json`.\n2. **QUALITÉ CLINIQUE MAXIMALE & ZÉRO MÉDIOCRITÉ (BLOQUANT ABSOLU — Consigne Vial 20.11.26)** :\n   - **Interdiction absolue de toute prose patronnée / générique** : aucune phrase-cadre où seul le nom de la pathologie change d'un cours à l'autre, aucun remplissage artificiel pour atteindre le calibre. La médiocrité clinique est dangereuse et entraîne un rejet immédiat.\n   - Chaque cours (`Phase_A` et `DX.1..N`) doit être **rédigé sur mesure** pour son entité exacte, avec : raisonnement physiopathologique et sémiologique réel, seuils numériques précis, diagnostics différentiels discriminants, posologies et contre-indications sourcées (Compendium.ch / AIPS, Tox Info Suisse, OFSP, ASSM, sociétés savantes suisses), vignettes cliniques authentiques et QCM exigeants de niveau Examen Fédéral Suisse.\n3. **INTERDICTION DES ARBRES DÉCISIONNELS (Consigne Vial 20.11.26)** :\n   - **Ne générer AUCUN arbre décisionnel ni algorithme graphique (`.fm-canvas`, SVG décisionnel, etc.)** dans `Phase_A` ou dans les `DX.n` — l'auteur (Vial) les réalisera lui-même.\n4. **Calibre texte pur actualisé (Consigne Vial 20.11.26)** :\n   - **80 à 100 Ko de texte pur UTF-8 par fichier** (`81 920` à `102 400` octets, calibre du Prompt Alpha confirmé par Vial le 20.11.2026 à 21:20, mesuré fenêtres comprises, hors balises HTML, CSS, JS, SVG et images).\n   - HTML hors images (`controle3.py`) : **`40 000` à `100 000` octets** (alerte).\n   - Densité maximale : zéro remplissage, zéro phrase pouvant figurer telle quelle dans un autre cours, zéro phrase de gabarit de `cartographie_DATA.json`.\n5. **Phrases verbales exclusives (BLOQUANT)** :\n   - Chaque phrase (texte, fenêtres, listes, légendes `<figcaption>`, cellules narratives `<td>`) contient un verbe conjugué reconnu. **Zéro phrase nominale.**\n4. **Médicaments cliquables d'emblée & Fenêtres centrées PK/PD à 2 onglets (Consigne Vial 20.11.26)** :\n   - Dès qu'un médicament est évoqué, il devient cliquable (`<a class=\"ouvre med-chip\" href=\"#f-...\">`).\n   - Chaque `<section class=\"fenetre mb\" id=\"f-...\"><div class=\"fen\">` s'ouvre au centre de l'écran et contient **2 onglets** :\n     * **Onglet 1 (`data-tab=\"pk\"`)** : Pharmacocinétique + **Courbe vectorielle SVG $C(t)$** + **4 paramètres cliniciens mis en évidence** (`.pkpd-kpis`).\n     * **Onglet 2 (`data-tab=\"pd\"`)** : Pharmacodynamique & Clinique + **Courbe vectorielle SVG $E(C)$** + posologies/précautions/grossesse suisses (Compendium.ch / AIPS).\n5. **Images** : uniquement à l'intérieur des `<section class=\"fenetre\">`, jamais hors fenêtre (licences selon Prompt Alpha § 4). Ne comptent pas dans le calibre.\n6. **Zéro terminologie de chantier visible** : aucun texte visible (ni `<title>`) ne doit contenir `LOT`, `V0`, `Phase A/B`, `DX.n`, `Appel A/B`, `Partie n`. Seuls les noms de fichiers gardent le format Alpha (`LOT_nnn_Phase_A_V0.html`, `LOT_nnn_Phase_B_V0_DX.i.html`).\n7. **Circuits & Plans** :\n   - `MONOGRAPHIQUE` (189 SSP) : plan maladie en 14 points (Prompt Alpha § 3.1).\n   - `NON_MONOGRAPHIQUE` (52 SSP) : Leçon en 12 à 14 points adaptés (Prompt Alpha § 3.2). **Jamais** de plan maladie ni de titres « Physiopathologie / Approche syndromique / Diagnostic positif » artificiels.\n   - `MIXTE` (7 SSP) : Prompt Alpha § 3.3, chaque fichier déclare `<meta name=\"ssp-circuit\" content=\"...\">`.\n8. **Correctifs Frontend v2 / Architecture `_sources/` (`UNIQUE.html` & `_polices/`)** :\n   - **Arborescence propre par SSP** : à la racine de `SSP_nnn/`, seul **`SSP_nnn_<code>_UNIQUE.html`** (plus le sous-dossier **`_sources/`**) est visible. Tous les fichiers sources (`LOT_nnn_*.html`, `images/`, `NOTIONS.*`, `MANIFESTE.json`, `DECISION*`, `paquet.json`, `_archive_avant_alpha/`) sont rangés dans `SSP_nnn/_sources/` sans rien supprimer.\n   - **Barre haute amovible (`gabarit_unique.html`)** : `#topbar` compacte 1 ligne (~42 px) avec pilule active, fil d'Ariane section, boutons `◀`/`▶`, tiroir overlay amovible `#dd-drawer` (`☰ Diagnostics (N) ▾` + option `📌 Épingler`) contenant `nav#nav` en colonnes égales (`32 px`, teinte unique par cours), et bouton `▴ Masquer barre` + pilule flottante `#btn-show-bar`.\n   - **Zéro dédoublement & navigation `#...` 100 % fonctionnelle (`forme.js`)** : script `forme.js` exécuté sous `DOMContentLoaded` et injecté par `assembler_unique.py`/`inliner.py` après `</head>` et avant `#signature-ia`/`</body>` ; intercepteur global appelant `e.preventDefault()` sur 100 % des `href^=\"#\"` (bloque le rechargement `srcdoc` + `file://`).\n   - **Modales centrées `<div class=\"fen\">` & désaturation (`forme.css` / `optimiser_ssp.py`)** : ouverture via classe `.fm-open` (plus `:target` en repli) avec pile `modalStack` et bouton `Fermer ✕` sticky (sans `history.back()`), auto-enveloppement `<div class=\"fen\">`, tableaux hors modale déplacés vers `<section class=\"fenetre fm-tab-fen\">` déclenchés par cartes `.fm-encart-fen`, citations `<sup class=\"r\"><a>` compactées en `[N]` avec modale aperçu `#fm-src-modal` empilable (`fm-stack-top`), puces médicaments `a.ouvre.med-chip` (`℞ ...`, `white-space: nowrap`, compatible accents français), repli du plan latéral desktop `#fm-plan-toggle`, îlots discontinus (`margin-bottom: 30px`) et padding bas `5.5rem` protégeant la lecture au-dessus de `#signature-ia`.\n   - **HTML unique** : ne jamais l'écrire à la main ; toujours exécuter `optimiser_ssp.py` puis `assembler_unique.py nnn`.\n\n## § 2. ARCHIVAGE & WORKFLOW PAR SSP (P0 → P4)\n- **Zéro suppression** : avant d'écraser ou renommer un fichier source existant, archiver dans `SSP_nnn/_sources/_archive_avant_alpha/`.\n- **P0 (Préparer)** : lire circuit (`catalogue_248.json`), entités (`NOTIONS.md`/`NOTIONS.json`), `memoire_zero_token.py --digest --lot nnn`, écrire `PLAN_ENTITES.md`.\n- **P1 (Décider)** : noter dans `DECISION.md` (Corriger / Réécrire si mécanique, faux plan maladie ou `< 30 Ko` / Créer).\n- **P2 (Produire)** : `LOT_nnn_Phase_A_V0.html` + `LOT_nnn_Phase_B_V0_DX.1..N.html`, 100 % des notions de `NOTIONS.json` expliquées et sourcées (Compendium.ch / AIPS, OFSP, ASSM, CC, LAMal, LAVI, Smarter Medicine), sans aucune phrase gabarit de la cartographie.\n- **P3 (Portes de Contrôle + Optimisation + Assemblage + Audit Chrome)** :\n  1. `controle3.py --script-ok` → **`VERT {}`** (si `paquet.json` présent ; `--script-ok` requis car `_sources/` référence `../../_polices/forme.js`)\n  2. `verif_aips.py` → **`OK`** (si `paquet.json` présent) et `restaurer_fond.py --verifier` → **`exit=0`**\n  3. `python _outils/optimiser_ssp.py nnn` → migration vers `_sources/`, tableaux déplacés en `<div class=\"fen\">`, teintes non bleues `--fm-a`\n  4. `python _outils/verif_mission.py nnn` → **100 % fichiers `PASS`** (`errors: []`)\n  5. `python _outils/assembler_unique.py nnn` → **`(1 + N) / (1 + N) onglets`** à la racine de `SSP_nnn/`\n  6. `python _outils/notions.py verifier nnn` → **`0 NON`** + copier `rapport_notions.csv` dans `SSP_nnn/_sources/`\n  7. `python _outils/audit_unique_browser.py nnn --all-tabs` → **`PASS` sur 100 % des onglets en Chrome headless réel**\n  8. Ajouter ligne dans `SUIVI_PRODUCTION.csv` + `git commit` + `git push origin main`.\n- **P4 (Affinage)** : consigner tout doute clinique/posologique non vérifié dans `1_Claude AI/HANDOFF_AFFINAGE.md` sous `## SSP_nnn`.\n\n## § 3. MISSION 2 — SSP 001 → 032\n- Extraire les cours depuis `SSP_nnn_<code>_UNIQUE.html` (JSON `data` gzip+base64, marqueurs `@@IMG:…@@`, `@@FONT:…@@`) après archivage des anciens `LOT_nnn_*.html` dans `_archive_avant_alpha/`.\n- Le frontend reste identique ; auditer le contenu avec la même sévérité (attention : `SSP_013` G13 = `NON_MONOGRAPHIQUE`, `SSP_014` G14 = `MIXTE`).\n- Produire `1_Claude AI/AUDIT_001-032.md` et corriger tous les ❌.\n\n## § 4. LES 12 BLOCAGES ROUGE (REJET IMMÉDIAT)\n1. Identification absente ou incertaine.\n2. Signature `#signature-ia` absente, modifiée ou supprimée.\n3. Entité de la Cartographie sans cours.\n4. Fichier hors intervalle `80–100 Ko` de texte pur (tout cours ; un cours de 30–50 Ko est à enrichir).\n5. Toute phrase nominale.\n6. Toute notion au verdict `NON`.\n7. Phrase gabarit de `cartographie_DATA.json` recopiée dans un cours.\n8. Plan maladie appliqué à une Leçon `NON_MONOGRAPHIQUE`.\n9. Terme de chantier visible (`LOT`, `V0`, `Phase A/B`, `DX.n`, `Appel`, `Partie n`).\n10. Posologie sans source de la cascade suisse.\n11. Image hors `<section class=\"fenetre\">`.\n12. Fichier supprimé au lieu d'être archivé.\n\n## § 5. ANNEXE CIRCUITS (248 SSP)\n- **NON_MONOGRAPHIQUE (52)** : 013 · 065 · 069 · 176 · 180 · 181 · 182 · 184 · 185 · 186 · 192 · 194 · 195 · 198 · 200 · 203 · 204 · 205 · 206 · 207 · 208 · 209 · 210 · 211 · 212 · 213 · 214 · 215 · 216 · 217 · 218 · 219 · 220 · 221 · 222 · 224 · 225 · 226 · 227 · 232 · 233 · 235 · 236 · 237 · 238 · 239 · 240 · 241 · 242 · 243 · 246 · 247.\n- **MIXTE (7)** : 014 · 165 · 174 · 175 · 190 · 202 · 223.\n- **MONOGRAPHIQUE (189)** : tous les autres SSP."
+}

@@ -1,0 +1,2444 @@
+{
+  "rappel_obligatoire_avant_redaction": {
+    "lecture_imperative": [
+      "1. Lire intégralement PROMPT_Alpha_19.11.26.md ET la mise à jour incluse dans prompt_alpha_a_jour ci-dessous.",
+      "2. Respecter l'intervalle GLOBAL par cours : viser 85–95 Ko de texte médical pur (soit ~95–115 Ko de fichier JSON) sans quota rigide par partie — répartir le texte proportionnellement à l'importance clinique des parties.",
+      "3. Produire graduellement 1 cours complet par requête (Phase A, puis Cours 1, Cours 2...) en français médical académique, phrases verbales exclusives (0 phrase nominale), zéro prose générique ou patronnée.",
+      "4. Utiliser uniquement les guillemets typographiques français « … » dans les valeurs texte JSON (jamais de guillemet droit non échappé).",
+      "5. Zéro arbre décisionnel graphique (.fm-canvas) : ne générer aucun schéma décisionnel."
+    ],
+    "specificites_locales_ssp": [
+      "Circuit MONOGRAPHIQUE : respecter le plan maladie en 14 points avec socle généralités (1-3), démarche diagnostique (4-10), prise en charge posologique suisse intégrale (11) et QCM Examen Fédéral (14).",
+      "Couvrir 100 % des notions obligatoires listées dans phase_b[*].plan[*].notions_obligatoires pour Variations du développement sexuel (S4.1).",
+      "Cascade posologique suisse à 4 paliers obligatoire : 1. AIPS Swissmedic (n° 5 chiffres) -> 2. Compendium.ch -> 3. Sociétés savantes & CHU suisses (HUG, CHUV, Inselspital, USZ, USB, OFSP, ASSM, SSMIG, Tox Info Suisse 145) -> 4. Sociétés savantes européennes."
+    ]
+  },
+  "meta": {
+    "rang_gravite": 239,
+    "ssp": "SSP_062",
+    "code_profiles": "S4.1",
+    "nom_francais": "Variations du développement sexuel",
+    "circuit": "MONOGRAPHIQUE",
+    "police_obligatoire": "Atkinson Hyperlegible",
+    "calibre_cible": "80–100 Ko texte pur",
+    "arbres_decisionnels_autorises": false,
+    "mode_redaction": "Neon Deep Research",
+    "nb_chapitres_total": 16,
+    "defauts_audit_initial": [
+      "Incomplet (11/16 cours)",
+      "33 phrases nominales",
+      "Termes chantier (11 f.)"
+    ]
+  },
+  "sommaire": {
+    "phase_a": {
+      "fichier_html_cible": "LOT_062_Phase_A_V0.html",
+      "titre": "Variations du développement sexuel — Vue d'ensemble et orientation clinique (S4.1)"
+    },
+    "phase_b": [
+      {
+        "cours_numero": 1,
+        "titre": "Retard pubertaire simple (constitutionnel)",
+        "cim": "E30.0",
+        "urgence": "chronique"
+      },
+      {
+        "cours_numero": 2,
+        "titre": "Thélarche prématurée isolée / adrénarche prématurée bénigne",
+        "cim": "E30.8",
+        "urgence": "chronique"
+      },
+      {
+        "cours_numero": 3,
+        "titre": "Puberté précoce centrale idiopathique",
+        "cim": "E30.1",
+        "urgence": "semi-urgent"
+      },
+      {
+        "cours_numero": 4,
+        "titre": "Syndrome de Klinefelter (47,XXY)",
+        "cim": "Q98.0",
+        "urgence": "chronique"
+      },
+      {
+        "cours_numero": 5,
+        "titre": "Syndrome de Turner (45,X)",
+        "cim": "Q96.9",
+        "urgence": "chronique"
+      },
+      {
+        "cours_numero": 6,
+        "titre": "Hyperplasie congénitale des surrénales (HCS) forme non classique (tardive)",
+        "cim": "E25.0",
+        "urgence": "semi-urgent"
+      },
+      {
+        "cours_numero": 7,
+        "titre": "Hypospadias isolé du garçon",
+        "cim": "Q54.9",
+        "urgence": "semi-urgent"
+      },
+      {
+        "cours_numero": 8,
+        "titre": "Cryptorchidie (testicule non descendu)",
+        "cim": "Q53.9",
+        "urgence": "semi-urgent"
+      },
+      {
+        "cours_numero": 9,
+        "titre": "Syndrome d'insensibilité complète aux androgènes (CAIS)",
+        "cim": "E34.5",
+        "urgence": "semi-urgent"
+      },
+      {
+        "cours_numero": 10,
+        "titre": "Syndrome de Kallmann (hypogonadisme hypogonadotrope congénital avec anosmie)",
+        "cim": "E23.0",
+        "urgence": "chronique"
+      },
+      {
+        "cours_numero": 11,
+        "titre": "Hyperplasie congénitale des surrénales forme classique avec syndrome de perte de sel",
+        "cim": "E25.0",
+        "urgence": "immediate"
+      },
+      {
+        "cours_numero": 12,
+        "titre": "Craniopharyngiome ou tumeur hypothalamo-hypophysaire avec puberté précoce ou retard pubertaire aigu",
+        "cim": "D44.4",
+        "urgence": "urgent"
+      },
+      {
+        "cours_numero": 13,
+        "titre": "Tumeur gonadique ou surrénalienne virilisante / féminisante (puberté précoce périphérique)",
+        "cim": "C74.0",
+        "urgence": "urgent"
+      },
+      {
+        "cours_numero": 14,
+        "titre": "Hématocolpos sur imperforation hyménéale",
+        "cim": "Q52.3",
+        "urgence": "urgent"
+      },
+      {
+        "cours_numero": 15,
+        "titre": "Torsion d'un testicule ectopique ou intra-abdominal (cryptorchide)",
+        "cim": "N44.0",
+        "urgence": "immediate"
+      }
+    ]
+  },
+  "phase_a": {
+    "titre": "Variations du développement sexuel — Vue d'ensemble (S4.1)",
+    "plan": [
+      {
+        "point": 1,
+        "titre": "Définition nosologique et périmètre clinique",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 2,
+        "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 3,
+        "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 4,
+        "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+        "description": "Présentation et hiérarchisation des 15 entités de la Cartographie Renouveau."
+      },
+      {
+        "point": 5,
+        "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 6,
+        "titre": "Examen physique systématique région par région",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 7,
+        "titre": "Approche syndromique et stratification de gravité",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 8,
+        "titre": "Diagnostic positif, scores cliniques et critères validés",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 9,
+        "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 10,
+        "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 11,
+        "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 12,
+        "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 13,
+        "titre": "Points clés indispensables à retenir",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 14,
+        "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      }
+    ]
+  },
+  "phase_b": [
+    {
+      "cours_numero": 1,
+      "fichier_html_cible": "LOT_062_Phase_B_V0_DX.1.html",
+      "titre": "Retard pubertaire simple (constitutionnel)",
+      "cim": "E30.0",
+      "urgence": "chronique",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Absence de démarrage pubertaire à l'âge limite (pas de développement mammaire B2 à 13 ans chez la fille, volume testiculaire < 4 mL à 14 ans chez le garçon)."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Touche ~2–3 % des adolescents, nettement plus fréquent chez le garçon."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Activation physiologiquement tardive de l'axe gonadotrope hypothalamo-hypophysaire (GnRH), souvent héréditaire."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Céphalées, troubles visuels (hémianopsie), cassure de courbe staturale, anosmie, cryptorchidie bilatérale."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Ralentissement statural prépubertaire, taille parentale normale, ATCD familial de puberté tardive chez un parent."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Stade de Tanner prépubertaire (G1/B1), vitesse de croissance harmonieuse, examen neurologique et olfactif normal."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Diagnostic d'exclusion après bilan rassurant et âge osseux retardé."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Âge osseux (radiographie main/poignet gauche : retardé par rapport à l'âge chronologique) + bilan hormonal (FSH, LH, testostérone/œstradiol, IGF-1, TSH, prolactine, cœliaquie)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Test au GnRH ou IRM hypothalamo-hypophysaire uniquement si doute avec hypogonadisme."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Réassurance psychologique de l'adolescent."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Surveillance clinique tous les 6 mois ; si retentissement psychologique majeur chez le garçon > 14,5 ans : courte cure de testostérone IM (3–6 mois) pour amorcer la puberté."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Détresse psychosociale, pic de masse osseuse légèrement réduit si très tardif."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Courbe de croissance et stades de Tanner tous les 6 mois."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Taille finale adulte normale atteinte plus tardivement."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Pédiatre, endocrinologue pédiatre, médecin traitant."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 2,
+      "fichier_html_cible": "LOT_062_Phase_B_V0_DX.2.html",
+      "titre": "Thélarche prématurée isolée / adrénarche prématurée bénigne",
+      "cim": "E30.8",
+      "urgence": "chronique",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Développement isolé des seins avant 8 ans (thélarche) ou de la pilosité pubienne/axillaire avant 8–9 ans (adrénarche) sans autre signe pubertaire."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Très fréquentes en pédiatrie ambulatoire (pic thélarche < 2–3 ans, adrénarche 6–8 ans)."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Activation transitoire FSH-dépendante (thélarche) ou maturation précoce de la zone réticulée surrénalienne (DHEA-S)."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Accélération rapide de la croissance staturale, virilisation (clitoridomégalie, acné sévère : tumeur surrénalienne/HCS !), âge osseux très avancé."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Poussée mammaire isolée ou pilosité pubienne/odeur apocrine sans accélération de la vitesse de croissance ni règles."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Stade Tanner B2 isolé ou P2 isolé sans développement mammaire/testiculaire ni clitoridomégalie."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Absence d'activation globale de l'axe gonadotrope et âge osseux normal."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Suivi clinique de la courbe de croissance et âge osseux ; 17-OH-progestérone et DHEA-S si adrénarche rapide."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Échographie pelvienne (longueur utérine < 35 mm rassurante)."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Pas de traitement."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Réassurance parentale et suivi clinique simple."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Évolution vers une puberté précoce vraie dans ~10–15 % des thélarches."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Contrôle croissance et Tanner à 6 mois."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Strictement bénin, taille finale normale."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Pédiatre, endocrinologue pédiatre."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 3,
+      "fichier_html_cible": "LOT_062_Phase_B_V0_DX.3.html",
+      "titre": "Puberté précoce centrale idiopathique",
+      "cim": "E30.1",
+      "urgence": "semi-urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Activation prématurée de l'axe hypothalamo-hypophyso-gonadique (< 8 ans fille, < 9 ans garçon)."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "10x plus fréquente chez la fille (90 % idiopathique) ; chez le garçon, > 50 % ont une cause organique cérébrale !"
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Sécrétion pulsatile précoce de GnRH entraînant LH/FSH élevées, maturation gonadique et soudure précoce des cartilages de conjugaison."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Tout garçon avec puberté précoce (IRM cérébrale OBLIGATOIRE !), fille < 6 ans, signes neurologiques/visuels."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Développement mammaire < 8 ans ou augmentation volume testiculaire (>= 4 mL) < 9 ans, accélération staturale brutale."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Tanner >= B2 ou G2 précoce, accélération vitesse de croissance (> 6–7 cm/an)."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Réponse LH pubertaire au test GnRH."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Test de stimulation au GnRH (pic LH > 5 UI/L) + âge osseux avancé + échographie pelvienne (utérus > 35 mm) + IRM cérébrale (systématique chez garçon et fille < 6 ans)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "17-OH-progestérone, hCG, AFP pour exclure causes périphériques."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Aucun traitement d'urgence."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Analogues de la GnRH retard (triptoréline/leuproréline IM) pour freiner la puberté et préserver la taille adulte."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Petite taille adulte définitive par soudure épiphysaire précoce, difficultés psychosociales."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Croissance, Tanner et âge osseux tous les 6 mois sous analogues."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Reprise pubertaire normale à l'arrêt du traitement vers 11–12 ans."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Endocrinologue pédiatre, pédiatre."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 4,
+      "fichier_html_cible": "LOT_062_Phase_B_V0_DX.4.html",
+      "titre": "Syndrome de Klinefelter (47,XXY)",
+      "cim": "Q98.0",
+      "urgence": "chronique",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Aneuploïdie des chromosomes sexuels caractérisée par un chromosome X surnuméraire chez un sujet de phénotype masculin."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Fréquent (~1/600 naissances masculines), mais largement sous-diagnostiqué jusqu'à l'âge adulte (infertilité)."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Dysgénésie progressive des tubes séminifères et fibrose testiculaire dès la puberté."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Risque accru de cancer du sein masculin, tumeurs germinales médiastinales, ostéoporose, diabète."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Retard pubertaire partiel, gynécomastie, difficultés d'apprentissage/langage, infertilité à l'âge adulte."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Grande taille avec membres longs (macroskélie), petits testicules très fermes (< 4–6 mL), pilosité rare, gynécomastie."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Caryotype 47,XXY (ou mosaïque 46,XY/47,XXY)."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Caryotype sanguin standard (47,XXY) + bilan hormonal (FSH/LH très élevées, testostérone basse/limite)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Spermogramme à l'âge adulte (azoospermie quasi constante)."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Aucun traitement urgent."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Substitution par testostérone dès la puberté/âge adulte, accompagnement orthophonique/scolaire, préservation de fertilité (TESE) discutée chez l'adolescent/jeune adulte."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Ostéoporose, syndrome métabolique, thromboembolie, infertilité."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Hématocrite, PSA, testostérone et ostéodensitométrie sous substitution."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Vie normale sous substitution hormonale et prise en charge précoce."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Endocrinologue, généticien, uro-andrologue, pédiatre."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 5,
+      "fichier_html_cible": "LOT_062_Phase_B_V0_DX.5.html",
+      "titre": "Syndrome de Turner (45,X)",
+      "cim": "Q96.9",
+      "urgence": "chronique",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Monosomie X complète ou partielle (ou mosaïque) chez un sujet de phénotype féminin."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Incidence ~1/2500 naissances féminines."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Haplo-insuffisance du gène SHOX (petite taille) et apoptose ovocytaire précoce (bandelettes fibreuses ovariennes)."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Coarctation aortique, bicuspidie aortique avec risque de dissection aortique (surtout si grossesse !), HTA."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Petite taille inexpliquée dès l'enfance, retard pubertaire/aménorrhée primaire, lymphœdème néonatal des mains/pieds."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Petite taille harmonieuse, cou palmé (pterygium colli), thorax en bouclier, cubitus valgus, nævi multiples."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Caryotype confirmant la monosomie X."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Caryotype sanguin (45,X ou mosaïque) + bilan cardiaque systématique (ETT + IRM aortique) + bilan rénal (rein en fer à cheval)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "FSH/LH très élevées, AMH effondrée."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Prise en charge cardiologique urgente si coarctation ou dilatation aortique."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Hormone de croissance (GH) dès l'enfance pour la taille + induction pubertaire par œstrogènes vers 11–12 ans puis œstroprogestatif substitutif."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Dissection aortique, ostéoporose, hypothyroïdie auto-immune, surdité."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Surveillance cardiaque (IRM aortique), thyroïdienne, auditive et métabolique à vie."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Bonne qualité de vie avec prise en charge multidisciplinaire précoce."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Endocrinologue pédiatre/adulte, cardiologue, généticien."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 6,
+      "fichier_html_cible": "LOT_062_Phase_B_V0_DX.6.html",
+      "titre": "Hyperplasie congénitale des surrénales (HCS) forme non classique (tardive)",
+      "cim": "E25.0",
+      "urgence": "semi-urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Déficit autosomique récessif partiel en 21-hydroxylase (CYP21A2) entraînant un excès d'androgènes surrénaliens sans perte de sel."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Forme non classique fréquente (~1/1000 à 1/200 dans certaines populations), miment un SOPK."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Blocage partiel de la stéroïdogenèse surrénalienne détournant les précurseurs vers la voie des androgènes."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Forme classique méconnue avec insuffisance surrénalienne aiguë (rare dans forme non classique)."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Pilosité pubienne précoce (< 8 ans), acné sévère, hirsutisme, oligoménorrhée/infertilité chez la jeune femme."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Signes d'hyperandrogénie modérée (score de Ferriman-Gallwey), pas d'ambiguïté génitale à la naissance."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Élévation typique de la 17-OH-progestérone après Synacthène."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Dosage matinal de la 17-OH-progestérone basale (> 6 nmol/L) puis test au Synacthène (ACTH) (> 30 nmol/L)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Analyse génétique du gène CYP21A2 (indispensable pour conseil génétique préconceptionnel)."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Pas de traitement d'urgence dans la forme non classique."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Contraception œstroprogestative ± antiandrogènes (ou hydrocortisone/dexaméthasone faible dose si désir de grossesse)."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Hypofertilité, avance de maturation osseuse chez l'enfant."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Suivi clinique androgénique et conseil génétique avant grossesse."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Excellent pronostic."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Endocrinologue, gynécologue, généticien."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 7,
+      "fichier_html_cible": "LOT_062_Phase_B_V0_DX.7.html",
+      "titre": "Hypospadias isolé du garçon",
+      "cim": "Q54.9",
+      "urgence": "semi-urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Malformation congénitale de l'urètre masculin avec méat situé sur la face ventrale du gland ou de la verge."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Très fréquent (~1/250–300 naissances masculines)."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Défaut de fermeture de la gouttière urétrale durant la vie fœtale."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Hypospadias postérieur (périnéal) + cryptorchidie uni/bilatérale -> évoquer une variation du développement sexuel (DSD) !"
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Découverte néonatale ; jet urinaire dévié vers le bas, prépuce incomplet en 'tablier dorsal'."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Méat ventral (balanique, pénien ou périnéal), courbure ventrale (chordée), prépuce fendu ventralement."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Constat clinique néonatal."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Examen clinique néonatal ; caryotype + bilan hormonal/échographie pelvienne UNIQUEMENT si hypospadias sévère ou cryptorchidie associée."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "NE PAS circoncire l'enfant (le prépuce sert de greffon chirurgical !)."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Vérifier la miction spontanée en maternité."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Correction chirurgicale (urétroplastie) entre 6 et 18 mois si forme pénienne/fonctionnelle."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Fistule urétrocutanée, sténose du méat post-opératoire."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Suivi urologique pédiatrique post-opératoire."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Excellent pronostic fonctionnel et esthétique."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Urologue pédiatre, pédiatre."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 8,
+      "fichier_html_cible": "LOT_062_Phase_B_V0_DX.8.html",
+      "titre": "Cryptorchidie (testicule non descendu)",
+      "cim": "Q53.9",
+      "urgence": "semi-urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Défaut de migration d'un ou des deux testicules le long du trajet normal de descente jusqu'au scrotum."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Présente chez ~3 % des nouveau-nés à terme (et 1 % à 1 an)."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Température abdominale/inguinale trop élevée altérant les cellules germinales et augmentant le risque tumoral."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Cryptorchidie bilatérale non palpable + hypospadias (urgence DSD/HCS !) ; torsion d'un testicule ectopique inguinal."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Bourse vide unilatérale ou bilatérale à la naissance ou en consultation pédiatrique."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Distinction cruciale entre testicule non descendu vrai et testicule ascenseur/rétractile (descend facilement au fond de la bourse et y reste)."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Testicule non abaissable au fond du scrotum à l'âge de 6 mois."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Diagnostic CLINIQUE (l'échographie est peu utile pour localiser un testicule non palpable) ; cœlioscopie exploratrice si non palpable."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Si bilatéral non palpable chez nouveau-né : caryotype, 17-OH-P, testostérone, AMH/inhibine B en urgence."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Bilan endocrinien/génétique néonatal si bilatéral non palpable."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Orchidopexie chirurgicale idéale entre 6 et 12 mois (au plus tard 18 mois) pour préserver fertilité et faciliter surveillance tumorale."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Hypofertilité, cancer du testicule (risque x4–5, persiste même après orchidopexie mais détectable par autopalpation), torsion."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Autopalpation testiculaire mensuelle enseignée à l'adolescence."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Bon pronostic si orchidopexie précoce (< 18 mois)."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Pédiatre, chirurgien/urologue pédiatre."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 9,
+      "fichier_html_cible": "LOT_062_Phase_B_V0_DX.9.html",
+      "titre": "Syndrome d'insensibilité complète aux androgènes (CAIS)",
+      "cim": "E34.5",
+      "urgence": "semi-urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Variation du développement sexuel 46,XY par mutation du gène du récepteur aux androgènes (lié à l'X)."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Rare (~1/20 000 à 1/60 000 naissances XY)."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Résistance totale des tissus cibles aux androgènes malgré testicules fonctionnels (testostérone élevée convertie en œstrogènes -> développement mammaire ; AMH normale -> absence d'utérus)."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Risque de gonadoblastome/séminome testiculaire après la puberté (~5–10 %)."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Aménorrhée primaire chez une adolescente au développement mammaire normal mais sans pilosité pubienne/axillaire, ou hernie inguinale bilatérale contenant des gonades chez une petite fille."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Organes génitaux externes féminins normaux, vagin court en cul-de-sac, absence de pilosité sexuelle."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Caryotype 46,XY + phénotype féminin + mutation AR."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Caryotype 46,XY + testostérone élevée + échographie/IRM pelvienne (absence d'utérus et d'ovaires, testicules intra-abdominaux/inguinaux)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Séquençage du gène AR."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Accompagnement psychologique spécialisé et annonce adaptée et bienveillante."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Gonadectomie discutée APRÈS la puberté spontanée (ou surveillance IRM), puis hormonothérapie substitutive œstrogénique ; dilatation vaginale douce si nécessaire."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Tumeur germinale gonadique, ostéoporose sans substitution, détresse identitaire."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Suivi endocrinologique, psychologique et imagerie gonadique."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Excellente qualité de vie avec prise en charge multidisciplinaire respectueuse."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Équipe multidisciplinaire DSD (endocrinologue, gynécologue, psychologue, généticien)."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 10,
+      "fichier_html_cible": "LOT_062_Phase_B_V0_DX.10.html",
+      "titre": "Syndrome de Kallmann (hypogonadisme hypogonadotrope congénital avec anosmie)",
+      "cim": "E23.0",
+      "urgence": "chronique",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Hypogonadisme hypogonadotrope congénital associé à une anosmie par défaut de migration embryologique des neurones à GnRH et des bulbes olfactifs."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Rare (~1/10 000 garçons, 1/50 000 filles)."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Mutations (ANOS1/KAL1, FGFR1, PROKR2...) bloquant la migration conjointe le long des nerfs olfactifs."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Ostéoporose sévère à l'âge adulte en l'absence de traitement."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Absence totale de puberté, anosmie souvent méconnue par le patient, parfois micropénis/cryptorchidie néonatale."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Impubérisme complet, olfactométrie anormale, parfois syncinésies en miroir ou agénésie rénale unilatérale."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Hypogonadisme hypogonadotrope + anosmie/aplasie bulbes olfactifs."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "LH, FSH et stéroïdes sexuels très bas + IRM cérébrale (hypoplasie/aplasie des bulbes olfactifs et sillons olfactifs)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Olfactométrie, échographie rénale, panel génétique."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Pas d'urgence vitale."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Induction pubertaire par testostérone (garçon) ou œstroprogestatifs (fille) ; et si désir de fertilité : pompe à GnRH ou gonadotrophines (hCG + FSH) permettant d'obtenir une spermatogenèse/ovulation !."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Ostéoporose, infertilité réversible sous gonadotrophines."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Suivi hormonal et densité osseuse."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Fertilité souvent restaurée par gonadotrophines/GnRH."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Endocrinologue, généticien, spécialiste fertilité."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 11,
+      "fichier_html_cible": "LOT_062_Phase_B_V0_DX.11.html",
+      "titre": "Hyperplasie congénitale des surrénales forme classique avec syndrome de perte de sel",
+      "cim": "E25.0",
+      "urgence": "immediate",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Déficit complet ou sévère en 21-hydroxylase provoquant déficit en cortisol et aldostérone et excès majeur d'androgènes fœtaux."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Incidence ~1/15 000 naissances ; dépistée systématiquement au test de Guthrie (J3–J4) en Suisse."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Déficit en aldostérone -> fuite rénale de sodium -> déshydratation hypovolémique, hyponatrémie, hyperkaliémie et acidose vers J7–J15."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Choc hypovolémique, arythmie hyperkaliémique, arrêt cardiaque, hypoglycémie."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Nouveau-né avec vomissements, léthargie, perte de poids sévère entre J7 et J21 (ou ambiguïté génitale néonatale chez la fille XX)."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Déshydratation sévère, choc, hyperpigmentation, organes génitaux atypiques chez la fille (Prader I–V)."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "17-OH-progestérone effondrée vers le haut + perte de sel."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Ionogramme en urgence (Na+ bas, K+ élevé, acidose), glycémie, 17-OH-progestérone très élevée, rénine élevée, caryotype si ambiguïté."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Dépistage néonatal suisse (Guthrie)."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Réanimation hydroélectrolytique immédiate (NaCl 0,9 % + glucose) + HYDROCORTISONE IV haute dose immédiate + correction hyperkaliémie."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Substitution à vie par hydrocortisone + fludrocortisone + supplémentation NaCl chez le nourrisson ; éducation aux doses de stress."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Crise d'insuffisance surrénalienne aiguë mortelle lors d'infections."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Croissance, rénine, 17-OH-P et ionogramme réguliers."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Excellent pronostic vital et statural sous traitement bien suivi."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Endocrinologue pédiatre, néonatologue, réanimateur."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 12,
+      "fichier_html_cible": "LOT_062_Phase_B_V0_DX.12.html",
+      "titre": "Craniopharyngiome ou tumeur hypothalamo-hypophysaire avec puberté précoce ou retard pubertaire aigu",
+      "cim": "D44.4",
+      "urgence": "urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Tumeur suprasellaire comprimant le chiasma optique, la tige pituitaire et l'hypothalamus."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Tumeur suprasellaire la plus fréquente de l'enfant."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Destruction ou compression des neurones hypothalamiques et de l'hypophyse."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Hypertension intracrânienne aiguë, insuffisance corticotrope aiguë, cécité."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Retard pubertaire ou puberté précoce (hamartome), céphalées matinales, vomissements, baisse visuelle, polyuro-polydipsie."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Hémianopsie bitemporale, œdème papillaire, cassure staturale."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Masse sellaire/suprasellaire kystique et calcifiée à l'IRM."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "IRM cérébrale centrée sur la région hypothalamo-hypophysaire en urgence."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Bilan hypophysaire complet (cortisol, TSH/T4L, IGF-1, prolactine, ionogramme/osmolarité)."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Substitution urgente par hydrocortisone (avant thyroxine !) si déficit corticotrope, mannitol/corticoïdes si HTIC, décompression neurochirurgicale."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Exérèse chirurgicale ± radiothérapie, substitution panhypopituitarisme à vie."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Cécité, obésité hypothalamique morbide, diabète insipide permanent."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "IRM et bilan endocrinien/ophtalmologique rapproché."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Survie > 90 % mais séquelles endocriniennes fréquentes."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Neurochirurgien, endocrinologue pédiatre, ophtalmologue."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 13,
+      "fichier_html_cible": "LOT_062_Phase_B_V0_DX.13.html",
+      "titre": "Tumeur gonadique ou surrénalienne virilisante / féminisante (puberté précoce périphérique)",
+      "cim": "C74.0",
+      "urgence": "urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Tumeur sécrétante autonome d'androgènes ou d'œstrogènes (corticosurrénalome, tumeur de Leydig/granulosa, tumeur à hCG)."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Rare mais gravissime (corticosurrénalome malin chez l'enfant)."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Sécrétion tumorale autonome de stéroïdes sexuels freinant LH/FSH par rétrocontrôle négatif."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Métastases pulmonaires/hépatiques, syndrome de Cushing sévère."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Apparition rapide en quelques mois de pilosité pubienne, acné, mue de la voix, clitoridomégalie ou gynécomastie, HTA."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Signes de virilisation/féminisation marqués, masse abdominale ou testiculaire asymétrique, HTA (syndrome de Cushing associé)."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Masse tumorale identifiée avec sécrétion autonome stéroïdienne."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Testostérone/œstradiol très élevés avec LH/FSH effondrées + DHEA-S + échographie/TDM abdominale et testiculaire."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "hCG, AFP (tumeur germinale sécrétante)."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Bilan d'extension rapide et résection chirurgicale oncologique en centre spécialisé."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Mitotane/chimiothérapie si corticosurrénalome malin."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Insuffisance surrénalienne post-opératoire, récidive tumorale."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Suivi oncologique et hormonal strict."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Excellent si tumeur bénigne ; réservé si corticosurrénalome avancé."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Oncologue pédiatre, endocrinologue pédiatre, chirurgien pédiatrique."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 14,
+      "fichier_html_cible": "LOT_062_Phase_B_V0_DX.14.html",
+      "titre": "Hématocolpos sur imperforation hyménéale",
+      "cim": "Q52.3",
+      "urgence": "urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Accumulation de sang menstruel dans le vagin (et l'utérus : hématométrie) en amont d'un hymen imperforé."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Malformation congénitale gynécologique simple mais source d'errance diagnostique aux urgences."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Obstruction complète de l'orifice vaginal empêchant l'évacuation des menstruations dès la ménarche."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Rétention urinaire aiguë avec hydronéphrose, endométriose secondaire par reflux tubaire."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Jeune fille de 13–15 ans avec caractères sexuels secondaires normaux (B4P4), pas de règles, douleurs pelviennes cycliques croissantes, dysurie/rétention aiguë d'urines."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Masse hypogastrique douloureuse, et à l'inspection vulvaire : membrane hyménéale bombante bleutée."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Hymen bombant bleuté + hématocolpos échographique."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Inspection vulvaire simple + échographie pelvienne (vagin distendu par un contenu échogène)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Aucune imagerie complexe nécessaire sauf doute avec cloison vaginale haute."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Sondage vésical si rétention urinaire + hyménéotomie/hyménectomie chirurgicale sous courte anesthésie."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Aucune récidive après ouverture."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Infection secondaire (pyocolpos), endométriose."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Contrôle post-opératoire simple."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Guérison complète et fertilité préservée."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Gynécologue, chirurgien pédiatrique, urgentiste."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 15,
+      "fichier_html_cible": "LOT_062_Phase_B_V0_DX.15.html",
+      "titre": "Torsion d'un testicule ectopique ou intra-abdominal (cryptorchide)",
+      "cim": "N44.0",
+      "urgence": "immediate",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Torsion du cordon spermatique d'un testicule non descendu situé dans le canal inguinal ou l'abdomen."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Risque de torsion nettement plus élevé sur testicule cryptorchide."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Ischémie testiculaire aiguë simulant une hernie étranglée ou une appendicite."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Nécrose testiculaire irréversible en > 6 heures."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Douleur inguinale ou de fosse iliaque brutale intense, nausées, vomissements."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Tuméfaction inguinale très douloureuse avec HÉMISCRTOTUM HOMOLATÉRAL VIDE (signe clé !)."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Découverte per-opératoire du testicule tordu."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Exploration chirurgicale en urgence immédiate (échographie Doppler inguinale seulement si disponible sans délai)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Bilan pré-opératoire rapide."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Détorsion chirurgicale en urgence (< 6 h) + orchidopexie (ou orchidectomie si nécrosé) + fixation controlatérale."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Suivi fertilité et hormonal si testicule unique."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Perte du testicule, atrophie."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Contrôle cicatriciel et échographique à distance."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Sauvetage testiculaire si chirurgie < 6 h."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Urologue, chirurgien pédiatrique, urgentiste."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    }
+  ],
+  "prompt_alpha_a_jour": "# MISSION : CORRECTION ET COMPLÉTION DES 248 SSP SUISSES (3 975 ENTITÉS + 248 CHAPITRES 0)\n\n## § 0. IDENTIFICATION, SIGNATURE & RÈGLES DE CONTINUITÉ — BLOQUANT ABSOLU\n1. **Identification obligatoire** en tête de première réponse :\n   - HEURE DE DÉBUT : AAAA-MM-JJ HH:MM (Europe/Zurich)\n   - MODÈLE : nom exact du modèle (ex. ANTIGRAVITY ORCHESTRATOR NEON)\n   - PLATEFORME : plateforme exacte (ex. ANTIGRAVITY)\n   - Ajouter la même ligne à `1_Claude AI/IDENTIFICATION_AGENTS.md`. Si incertitude, s'arrêter.\n2. **Signature IA fixe en bas à droite de TOUT HTML produit ou modifié** (juste avant `</body>`, en GRAS MAJUSCULE) :\n   `<div id=\"signature-ia\" style=\"position:fixed;right:12px;bottom:10px;z-index:9999;background:#fff;border:2px solid #000;padding:4px 10px;font:700 12px/1.3 Arial,sans-serif;text-transform:uppercase;color:#000\">DÉBUT : AAAA-MM-JJ HH:MM (EUROPE/ZURICH) · MODÈLE : <NOM> · PLATEFORME : <PLATEFORME></div>`\n   - **Seul Vial peut autoriser le retrait de ce bloc.** Un agent qui reprend un fichier signé ajoute sa propre ligne sous la précédente sans jamais effacer l'existante.\n3. **Continuité & transparence** :\n   - **Redémarrage propre à partir de `SSP_248`** : tous les cours précédemment modifiés ont été restaurés à l'état initial (`6941513`). Enchaîner continûment **`SSP_248 → SSP_033`**, puis **`SSP_001 → SSP_032`**.\n   - **Toujours afficher le raisonnement visible** en français dans chaque réponse.\n   - **Veille & relance GitHub** : commiter et pousser sur `origin main` après chaque SSP (ou lot <= 5 SSP) avec l'état à jour dans `SUIVI_PRODUCTION.csv`, `HANDOFF_AFFINAGE.md` et `HANDOFF_IA_COMPLET.md`.\n   - **Suivi graphique temps réel** : maintenir à jour le tableau de bord visuel temps réel des réalisations achevées et en cours.\n\n## § 1. RÈGLES ACTUALISÉES (PRIMENT SUR LE PROMPT ALPHA 19.11.26)\n1. **Nombre de cours par SSP** : **1 cours par entité de la Cartographie Renouveau** (15 à 24 entités par SSP, 3 975 au total) + le Chapitre 0 (`Phase_A`), dans l'ordre exact des `Cours 1 … N` de `SSP_nnn/NOTIONS.md` / `NOTIONS.json`.\n2. **QUALITÉ CLINIQUE MAXIMALE & ZÉRO MÉDIOCRITÉ (BLOQUANT ABSOLU — Consigne Vial 20.11.26)** :\n   - **Interdiction absolue de toute prose patronnée / générique** : aucune phrase-cadre où seul le nom de la pathologie change d'un cours à l'autre, aucun remplissage artificiel pour atteindre le calibre. La médiocrité clinique est dangereuse et entraîne un rejet immédiat.\n   - Chaque cours (`Phase_A` et `DX.1..N`) doit être **rédigé sur mesure** pour son entité exacte, avec : raisonnement physiopathologique et sémiologique réel, seuils numériques précis, diagnostics différentiels discriminants, posologies et contre-indications sourcées (Compendium.ch / AIPS, Tox Info Suisse, OFSP, ASSM, sociétés savantes suisses), vignettes cliniques authentiques et QCM exigeants de niveau Examen Fédéral Suisse.\n3. **INTERDICTION DES ARBRES DÉCISIONNELS (Consigne Vial 20.11.26)** :\n   - **Ne générer AUCUN arbre décisionnel ni algorithme graphique (`.fm-canvas`, SVG décisionnel, etc.)** dans `Phase_A` ou dans les `DX.n` — l'auteur (Vial) les réalisera lui-même.\n4. **Calibre texte pur actualisé (Consigne Vial 20.11.26)** :\n   - **80 à 100 Ko de texte pur UTF-8 par fichier** (`81 920` à `102 400` octets, calibre du Prompt Alpha confirmé par Vial le 20.11.2026 à 21:20, mesuré fenêtres comprises, hors balises HTML, CSS, JS, SVG et images).\n   - HTML hors images (`controle3.py`) : **`40 000` à `100 000` octets** (alerte).\n   - Densité maximale : zéro remplissage, zéro phrase pouvant figurer telle quelle dans un autre cours, zéro phrase de gabarit de `cartographie_DATA.json`.\n5. **Phrases verbales exclusives (BLOQUANT)** :\n   - Chaque phrase (texte, fenêtres, listes, légendes `<figcaption>`, cellules narratives `<td>`) contient un verbe conjugué reconnu. **Zéro phrase nominale.**\n4. **Médicaments cliquables d'emblée & Fenêtres centrées PK/PD à 2 onglets (Consigne Vial 20.11.26)** :\n   - Dès qu'un médicament est évoqué, il devient cliquable (`<a class=\"ouvre med-chip\" href=\"#f-...\">`).\n   - Chaque `<section class=\"fenetre mb\" id=\"f-...\"><div class=\"fen\">` s'ouvre au centre de l'écran et contient **2 onglets** :\n     * **Onglet 1 (`data-tab=\"pk\"`)** : Pharmacocinétique + **Courbe vectorielle SVG $C(t)$** + **4 paramètres cliniciens mis en évidence** (`.pkpd-kpis`).\n     * **Onglet 2 (`data-tab=\"pd\"`)** : Pharmacodynamique & Clinique + **Courbe vectorielle SVG $E(C)$** + posologies/précautions/grossesse suisses (Compendium.ch / AIPS).\n5. **Images** : uniquement à l'intérieur des `<section class=\"fenetre\">`, jamais hors fenêtre (licences selon Prompt Alpha § 4). Ne comptent pas dans le calibre.\n6. **Zéro terminologie de chantier visible** : aucun texte visible (ni `<title>`) ne doit contenir `LOT`, `V0`, `Phase A/B`, `DX.n`, `Appel A/B`, `Partie n`. Seuls les noms de fichiers gardent le format Alpha (`LOT_nnn_Phase_A_V0.html`, `LOT_nnn_Phase_B_V0_DX.i.html`).\n7. **Circuits & Plans** :\n   - `MONOGRAPHIQUE` (189 SSP) : plan maladie en 14 points (Prompt Alpha § 3.1).\n   - `NON_MONOGRAPHIQUE` (52 SSP) : Leçon en 12 à 14 points adaptés (Prompt Alpha § 3.2). **Jamais** de plan maladie ni de titres « Physiopathologie / Approche syndromique / Diagnostic positif » artificiels.\n   - `MIXTE` (7 SSP) : Prompt Alpha § 3.3, chaque fichier déclare `<meta name=\"ssp-circuit\" content=\"...\">`.\n8. **Correctifs Frontend v2 / Architecture `_sources/` (`UNIQUE.html` & `_polices/`)** :\n   - **Arborescence propre par SSP** : à la racine de `SSP_nnn/`, seul **`SSP_nnn_<code>_UNIQUE.html`** (plus le sous-dossier **`_sources/`**) est visible. Tous les fichiers sources (`LOT_nnn_*.html`, `images/`, `NOTIONS.*`, `MANIFESTE.json`, `DECISION*`, `paquet.json`, `_archive_avant_alpha/`) sont rangés dans `SSP_nnn/_sources/` sans rien supprimer.\n   - **Barre haute amovible (`gabarit_unique.html`)** : `#topbar` compacte 1 ligne (~42 px) avec pilule active, fil d'Ariane section, boutons `◀`/`▶`, tiroir overlay amovible `#dd-drawer` (`☰ Diagnostics (N) ▾` + option `📌 Épingler`) contenant `nav#nav` en colonnes égales (`32 px`, teinte unique par cours), et bouton `▴ Masquer barre` + pilule flottante `#btn-show-bar`.\n   - **Zéro dédoublement & navigation `#...` 100 % fonctionnelle (`forme.js`)** : script `forme.js` exécuté sous `DOMContentLoaded` et injecté par `assembler_unique.py`/`inliner.py` après `</head>` et avant `#signature-ia`/`</body>` ; intercepteur global appelant `e.preventDefault()` sur 100 % des `href^=\"#\"` (bloque le rechargement `srcdoc` + `file://`).\n   - **Modales centrées `<div class=\"fen\">` & désaturation (`forme.css` / `optimiser_ssp.py`)** : ouverture via classe `.fm-open` (plus `:target` en repli) avec pile `modalStack` et bouton `Fermer ✕` sticky (sans `history.back()`), auto-enveloppement `<div class=\"fen\">`, tableaux hors modale déplacés vers `<section class=\"fenetre fm-tab-fen\">` déclenchés par cartes `.fm-encart-fen`, citations `<sup class=\"r\"><a>` compactées en `[N]` avec modale aperçu `#fm-src-modal` empilable (`fm-stack-top`), puces médicaments `a.ouvre.med-chip` (`℞ ...`, `white-space: nowrap`, compatible accents français), repli du plan latéral desktop `#fm-plan-toggle`, îlots discontinus (`margin-bottom: 30px`) et padding bas `5.5rem` protégeant la lecture au-dessus de `#signature-ia`.\n   - **HTML unique** : ne jamais l'écrire à la main ; toujours exécuter `optimiser_ssp.py` puis `assembler_unique.py nnn`.\n\n## § 2. ARCHIVAGE & WORKFLOW PAR SSP (P0 → P4)\n- **Zéro suppression** : avant d'écraser ou renommer un fichier source existant, archiver dans `SSP_nnn/_sources/_archive_avant_alpha/`.\n- **P0 (Préparer)** : lire circuit (`catalogue_248.json`), entités (`NOTIONS.md`/`NOTIONS.json`), `memoire_zero_token.py --digest --lot nnn`, écrire `PLAN_ENTITES.md`.\n- **P1 (Décider)** : noter dans `DECISION.md` (Corriger / Réécrire si mécanique, faux plan maladie ou `< 30 Ko` / Créer).\n- **P2 (Produire)** : `LOT_nnn_Phase_A_V0.html` + `LOT_nnn_Phase_B_V0_DX.1..N.html`, 100 % des notions de `NOTIONS.json` expliquées et sourcées (Compendium.ch / AIPS, OFSP, ASSM, CC, LAMal, LAVI, Smarter Medicine), sans aucune phrase gabarit de la cartographie.\n- **P3 (Portes de Contrôle + Optimisation + Assemblage + Audit Chrome)** :\n  1. `controle3.py --script-ok` → **`VERT {}`** (si `paquet.json` présent ; `--script-ok` requis car `_sources/` référence `../../_polices/forme.js`)\n  2. `verif_aips.py` → **`OK`** (si `paquet.json` présent) et `restaurer_fond.py --verifier` → **`exit=0`**\n  3. `python _outils/optimiser_ssp.py nnn` → migration vers `_sources/`, tableaux déplacés en `<div class=\"fen\">`, teintes non bleues `--fm-a`\n  4. `python _outils/verif_mission.py nnn` → **100 % fichiers `PASS`** (`errors: []`)\n  5. `python _outils/assembler_unique.py nnn` → **`(1 + N) / (1 + N) onglets`** à la racine de `SSP_nnn/`\n  6. `python _outils/notions.py verifier nnn` → **`0 NON`** + copier `rapport_notions.csv` dans `SSP_nnn/_sources/`\n  7. `python _outils/audit_unique_browser.py nnn --all-tabs` → **`PASS` sur 100 % des onglets en Chrome headless réel**\n  8. Ajouter ligne dans `SUIVI_PRODUCTION.csv` + `git commit` + `git push origin main`.\n- **P4 (Affinage)** : consigner tout doute clinique/posologique non vérifié dans `1_Claude AI/HANDOFF_AFFINAGE.md` sous `## SSP_nnn`.\n\n## § 3. MISSION 2 — SSP 001 → 032\n- Extraire les cours depuis `SSP_nnn_<code>_UNIQUE.html` (JSON `data` gzip+base64, marqueurs `@@IMG:…@@`, `@@FONT:…@@`) après archivage des anciens `LOT_nnn_*.html` dans `_archive_avant_alpha/`.\n- Le frontend reste identique ; auditer le contenu avec la même sévérité (attention : `SSP_013` G13 = `NON_MONOGRAPHIQUE`, `SSP_014` G14 = `MIXTE`).\n- Produire `1_Claude AI/AUDIT_001-032.md` et corriger tous les ❌.\n\n## § 4. LES 12 BLOCAGES ROUGE (REJET IMMÉDIAT)\n1. Identification absente ou incertaine.\n2. Signature `#signature-ia` absente, modifiée ou supprimée.\n3. Entité de la Cartographie sans cours.\n4. Fichier hors intervalle `80–100 Ko` de texte pur (tout cours ; un cours de 30–50 Ko est à enrichir).\n5. Toute phrase nominale.\n6. Toute notion au verdict `NON`.\n7. Phrase gabarit de `cartographie_DATA.json` recopiée dans un cours.\n8. Plan maladie appliqué à une Leçon `NON_MONOGRAPHIQUE`.\n9. Terme de chantier visible (`LOT`, `V0`, `Phase A/B`, `DX.n`, `Appel`, `Partie n`).\n10. Posologie sans source de la cascade suisse.\n11. Image hors `<section class=\"fenetre\">`.\n12. Fichier supprimé au lieu d'être archivé.\n\n## § 5. ANNEXE CIRCUITS (248 SSP)\n- **NON_MONOGRAPHIQUE (52)** : 013 · 065 · 069 · 176 · 180 · 181 · 182 · 184 · 185 · 186 · 192 · 194 · 195 · 198 · 200 · 203 · 204 · 205 · 206 · 207 · 208 · 209 · 210 · 211 · 212 · 213 · 214 · 215 · 216 · 217 · 218 · 219 · 220 · 221 · 222 · 224 · 225 · 226 · 227 · 232 · 233 · 235 · 236 · 237 · 238 · 239 · 240 · 241 · 242 · 243 · 246 · 247.\n- **MIXTE (7)** : 014 · 165 · 174 · 175 · 190 · 202 · 223.\n- **MONOGRAPHIQUE (189)** : tous les autres SSP."
+}

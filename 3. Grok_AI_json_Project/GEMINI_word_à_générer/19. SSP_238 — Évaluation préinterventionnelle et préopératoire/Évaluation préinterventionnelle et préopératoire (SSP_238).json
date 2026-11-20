@@ -1,0 +1,2600 @@
+{
+  "rappel_obligatoire_avant_redaction": {
+    "lecture_imperative": [
+      "1. Lire intégralement PROMPT_Alpha_19.11.26.md ET la mise à jour incluse dans prompt_alpha_a_jour ci-dessous.",
+      "2. Respecter l'intervalle GLOBAL par cours : viser 85–95 Ko de texte médical pur (soit ~95–115 Ko de fichier JSON) sans quota rigide par partie — répartir le texte proportionnellement à l'importance clinique des parties.",
+      "3. Produire graduellement 1 cours complet par requête (Phase A, puis Cours 1, Cours 2...) en français médical académique, phrases verbales exclusives (0 phrase nominale), zéro prose générique ou patronnée.",
+      "4. Utiliser uniquement les guillemets typographiques français « … » dans les valeurs texte JSON (jamais de guillemet droit non échappé).",
+      "5. Zéro arbre décisionnel graphique (.fm-canvas) : ne générer aucun schéma décisionnel."
+    ],
+    "specificites_locales_ssp": [
+      "Circuit NON_MONOGRAPHIQUE : conserver strictement l'architecture en Leçons Suisses Structurées (14 points adaptés), SANS JAMAIS utiliser de titres ou de plan maladie artificiel (interdiction de Physiopathologie / Approche syndromique / Diagnostic positif).",
+      "Couvrir 100 % des notions obligatoires listées dans phase_b[*].plan[*].notions_obligatoires pour Évaluation préinterventionnelle et préopératoire (O7.16).",
+      "Cascade posologique suisse à 4 paliers obligatoire : 1. AIPS Swissmedic (n° 5 chiffres) -> 2. Compendium.ch -> 3. Sociétés savantes & CHU suisses (HUG, CHUV, Inselspital, USZ, USB, OFSP, ASSM, SSMIG, Tox Info Suisse 145) -> 4. Sociétés savantes européennes."
+    ]
+  },
+  "meta": {
+    "rang_gravite": 19,
+    "ssp": "SSP_238",
+    "code_profiles": "O7.16",
+    "nom_francais": "Évaluation préinterventionnelle et préopératoire",
+    "circuit": "NON_MONOGRAPHIQUE",
+    "police_obligatoire": "Atkinson Hyperlegible",
+    "calibre_cible": "80–100 Ko texte pur",
+    "arbres_decisionnels_autorises": false,
+    "mode_redaction": "Neon Deep Research",
+    "nb_chapitres_total": 17,
+    "defauts_audit_initial": [
+      "Incomplet (11/17 cours)",
+      "Faux plan maladie (11 f.)",
+      "587 phrases nominales",
+      "Termes chantier (11 f.)"
+    ]
+  },
+  "sommaire": {
+    "phase_a": {
+      "fichier_html_cible": "LOT_238_Phase_A_V0.html",
+      "titre": "Évaluation préinterventionnelle et préopératoire — Vue d'ensemble et orientation clinique (O7.16)"
+    },
+    "phase_b": [
+      {
+        "cours_numero": 1,
+        "titre": "Évaluation anesthésique préopératoire standard (classification ASA)",
+        "cim": "Z01.8",
+        "urgence": "semi-urgent"
+      },
+      {
+        "cours_numero": 2,
+        "titre": "Bilan cardiovasculaire préopératoire (score RCRI de Lee, MET)",
+        "cim": "Z01.8",
+        "urgence": "semi-urgent"
+      },
+      {
+        "cours_numero": 3,
+        "titre": "Gestion périopératoire des anticoagulants et antiagrégants",
+        "cim": "Z79.0",
+        "urgence": "urgent"
+      },
+      {
+        "cours_numero": 4,
+        "titre": "Gestion préopératoire du diabète et des antidiabétiques",
+        "cim": "E11.9",
+        "urgence": "semi-urgent"
+      },
+      {
+        "cours_numero": 5,
+        "titre": "Évaluation respiratoire préopératoire (BPCO, SAOS, tabac)",
+        "cim": "J44.9",
+        "urgence": "semi-urgent"
+      },
+      {
+        "cours_numero": 6,
+        "titre": "Dépistage et correction d'une anémie préopératoire (Patient Blood Management)",
+        "cim": "D50.9",
+        "urgence": "semi-urgent"
+      },
+      {
+        "cours_numero": 7,
+        "titre": "Évaluation gériatrique préopératoire (fragilité, delirium)",
+        "cim": "R54",
+        "urgence": "semi-urgent"
+      },
+      {
+        "cours_numero": 8,
+        "titre": "Évaluation de la fonction rénale et prévention de l'IRA post-opératoire",
+        "cim": "N18.9",
+        "urgence": "semi-urgent"
+      },
+      {
+        "cours_numero": 9,
+        "titre": "Préparation cutanée, décolonisation SARM et antibioprophylaxie chirurgicale",
+        "cim": "Z29.2",
+        "urgence": "semi-urgent"
+      },
+      {
+        "cours_numero": 10,
+        "titre": "Dépistage d'antécédent ou risque d'hyperthermie maligne",
+        "cim": "T88.3",
+        "urgence": "urgent"
+      },
+      {
+        "cours_numero": 11,
+        "titre": "Angor instable ou rétrécissement aortique serré symptomatique en préopératoire",
+        "cim": "I35.0",
+        "urgence": "immediate"
+      },
+      {
+        "cours_numero": 12,
+        "titre": "Trouble de coagulation majeur ou surdosage anticoagulant avant chirurgie urgente",
+        "cim": "D68.3",
+        "urgence": "immediate"
+      },
+      {
+        "cours_numero": 13,
+        "titre": "Décompensation respiratoire ou hypoxémie sévère découverte en préopératoire",
+        "cim": "J96.0",
+        "urgence": "immediate"
+      },
+      {
+        "cours_numero": 14,
+        "titre": "Infection active non contrôlée avant pose de prothèse ou implant",
+        "cim": "A41.9",
+        "urgence": "urgent"
+      },
+      {
+        "cours_numero": 15,
+        "titre": "Hyperkaliémie sévère ou déséquilibre métabolique aigu préopératoire",
+        "cim": "E87.5",
+        "urgence": "immediate"
+      },
+      {
+        "cours_numero": 16,
+        "titre": "Voie aérienne difficile prévue (Mallampati IV, limitation ouverture buccale)",
+        "cim": "J39.8",
+        "urgence": "urgent"
+      }
+    ]
+  },
+  "phase_a": {
+    "titre": "Évaluation préinterventionnelle et préopératoire — Vue d'ensemble (O7.16)",
+    "plan": [
+      {
+        "point": 1,
+        "titre": "Définition, portée clinique et cadre suisse de la situation",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit NON_MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 2,
+        "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit NON_MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 3,
+        "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit NON_MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 4,
+        "titre": "Démarche d'évaluation structurée et situations différentielles",
+        "description": "Présentation et hiérarchisation des 16 entités de la Cartographie Renouveau."
+      },
+      {
+        "point": 5,
+        "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit NON_MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 6,
+        "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit NON_MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 7,
+        "titre": "Typologie des situations et stratification des priorités",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit NON_MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 8,
+        "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit NON_MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 9,
+        "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit NON_MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 10,
+        "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit NON_MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 11,
+        "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit NON_MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 12,
+        "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit NON_MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 13,
+        "titre": "Points clés essentiels pour la pratique suisse",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit NON_MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 14,
+        "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit NON_MONOGRAPHIQUE, sans arbre décisionnel."
+      }
+    ]
+  },
+  "phase_b": [
+    {
+      "cours_numero": 1,
+      "fichier_html_cible": "LOT_238_Phase_B_V0_DX.1.html",
+      "titre": "Évaluation anesthésique préopératoire standard (classification ASA)",
+      "cim": "Z01.8",
+      "urgence": "semi-urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition, portée clinique et cadre suisse de la situation",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Bilan clinique ciblé visant à évaluer l'état général (ASA I–V), les voies aériennes et les risques périopératoires."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Réalisée avant toute anesthésie générale, locorégionale ou sédation."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Identification des réserves physiologiques et des comorbidités décompensables par le stress chirurgical."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche d'évaluation structurée et situations différentielles",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Sténose aortique serrée symptomatique, angor instable, infection respiratoire aiguë."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Antécédents anesthésiques (NVPO, intubation difficile, allergies), médicaments, jeûne, capacité d'effort."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Score de Mallampati, distance thyro-mentonnière, ouverture buccale, auscultation cardiopulmonaire, dentition."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Typologie des situations et stratification des priorités",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Attribution du score ASA et plan d'anesthésie partagé avec le patient."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Anamnèse et examen clinique structurés (pas de bilan sanguin/ECG/Rx thorax « de routine » chez patient sain ASA I–II !)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Examens ciblés uniquement selon comorbidités et invasivité de la chirurgie (guidelines ESAIC/SSAR)."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Si pathologie aiguë instable découverte : reporter la chirurgie élective pour stabilisation."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Consignes de jeûne moderne (solides 6 h, liquides clairs 2 h), prémédication raisonnée."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Morbidité périopératoire évitable, intubation impossible imprévue."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Réévaluation le jour de l'intervention (Time-Out)."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Réduit significativement les annulations de dernière minute et complications."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Anesthésiste, chirurgien, médecin de famille."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés essentiels pour la pratique suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 2,
+      "fichier_html_cible": "LOT_238_Phase_B_V0_DX.2.html",
+      "titre": "Bilan cardiovasculaire préopératoire (score RCRI de Lee, MET)",
+      "cim": "Z01.8",
+      "urgence": "semi-urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition, portée clinique et cadre suisse de la situation",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Évaluation du risque ischémique et hémodynamique avant chirurgie non cardiaque."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Les complications cardiaques représentent ~30–40 % de la mortalité périopératoire."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Le stress chirurgical augmente la demande en O2 myocardique, la coagulabilité et les variations tensionnelles."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche d'évaluation structurée et situations différentielles",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "SCA récent (< 30 j), insuffisance cardiaque décompensée, arythmie grave, valvulopathie sévère."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Capacité fonctionnelle (< 4 MET = incapacité à monter 2 étages), angor, dyspnée, antécédents CV."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Auscultation (souffle aortique !), pouls périphériques, signes de surcharge."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Typologie des situations et stratification des priorités",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Stratification en risque faible (< 1 %), intermédiaire ou élevé guidant la nécessité d'examens."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Score RCRI de Lee + ECG 12 dérivations si >= 65 ans ou facteurs de risque pour chirurgie à risque intermédiaire/élevé."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Troponines hs pré/post-op (dépistage MINS) et NT-proBNP chez patients à haut risque ; ETT si souffle suspect."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Pas de revascularisation coronarienne prophylactique avant chirurgie si maladie coronarienne stable."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Poursuivre bêtabloquants et statines chroniques ; éviter d'introduire un bêtabloquant juste avant l'opération."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Infarctus périopératoire (souvent silencieux : MINS), OAP, arrêt cardiaque."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Surveillance troponines à 24–48 h post-op chez patients à haut risque."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Une optimisation préopératoire ciblée réduit nettement les MACE."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Cardiologue, anesthésiste, médecin de famille."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés essentiels pour la pratique suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 3,
+      "fichier_html_cible": "LOT_238_Phase_B_V0_DX.3.html",
+      "titre": "Gestion périopératoire des anticoagulants et antiagrégants",
+      "cim": "Z79.0",
+      "urgence": "urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition, portée clinique et cadre suisse de la situation",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Planification de l'arrêt, du relais éventuel (bridging) ou du maintien des antithrombotiques avant un geste."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Situation quotidienne en médecine périopératoire."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Pharmacocinétique spécifique : AOD (clairance rénale, 24–72 h), AVK (5 jours), aspirine/P2Y12 (5–7 jours)."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche d'évaluation structurée et situations différentielles",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Stent coronarien récent (< 1–3 mois), valve mécanique mitrale, chirurgie urgente sous AOD/AVK."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Indication précise (FA, valve mécanique, MTEV récente, stent coronarien), fonction rénale."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Signes de saignement actif ou d'hématomes."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Typologie des situations et stratification des priorités",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Plan personnalisé écrit croisant risque hémorragique du geste et risque thrombotique."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Créatinine/DFG (essentiel pour AOD !), INR (AVK), hémogramme/plaquettes."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Dosage spécifique anti-Xa (rivaroxaban/apixaban) ou temps de thrombine (dabigatran) si urgence."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Maintenir l'aspirine si prévention secondaire sauf neurochirurgie/chirurgie à très haut risque ; pas de bridging HBPM systématique sous AOD ni FA à risque faible/modéré !."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Remettre un calendrier écrit daté d'arrêt et de reprise post-opératoire."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Hémorragie post-opératoire grave, AVC embolique ou thrombose de stent."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Vérification de la reprise sécurisée dès hémostase acquise."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Les protocoles standardisés réduisent à la fois saignements et thromboses."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Anesthésiste, chirurgien, cardiologue, médecin de famille."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés essentiels pour la pratique suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 4,
+      "fichier_html_cible": "LOT_238_Phase_B_V0_DX.4.html",
+      "titre": "Gestion préopératoire du diabète et des antidiabétiques",
+      "cim": "E11.9",
+      "urgence": "semi-urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition, portée clinique et cadre suisse de la situation",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Adaptation des traitements hypoglycémiants et de l'insulinothérapie en vue d'un jeûne et d'une chirurgie."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "15–20 % des patients opérés sont diabétiques."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Le stress chirurgical induit une insulinorésistance ; les iSGLT2 favorisent l'acidocétose euglycémique sous jeûne."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche d'évaluation structurée et situations différentielles",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "HbA1c > 8.5–9 % avant chirurgie élective (risque infectieux accru), acidocétose."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Schéma complet (insuline basale/prandiale, iSGLT2, metformine, aGLP-1), épisodes d'hypoglycémie."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Poids, recherche de neuropathie autonome (gastroparésie !)."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Typologie des situations et stratification des priorités",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Protocole d'adaptation périopératoire établi selon la durée du jeûne."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "HbA1c récente (< 3 mois), glycémie à jeun, fonction rénale (metformine/iSGLT2)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Cétonémie si patient sous iSGLT2 avec nausées ou malaise post-op."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Arrêter iSGLT2 3–4 jours avant chirurgie majeure ; ajuster aGLP-1 selon risque d'inhalation ; maintenir 50–80 % de l'insuline basale le matin (jamais zéro insuline chez DT1 !)."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Passer en premier au programme opératoire le matin."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Hypoglycémie peropératoire, acidocétose euglycémique, infection du site opératoire."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Glycémies capillaires horaires/biquotidiennes (cible 6–10 mmol/l)."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Réduit les infections de plaie et la durée de séjour."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Anesthésiste, diabétologue, médecin de famille."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés essentiels pour la pratique suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 5,
+      "fichier_html_cible": "LOT_238_Phase_B_V0_DX.5.html",
+      "titre": "Évaluation respiratoire préopératoire (BPCO, SAOS, tabac)",
+      "cim": "J44.9",
+      "urgence": "semi-urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition, portée clinique et cadre suisse de la situation",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Identification et optimisation des facteurs de risque de complications pulmonaires post-opératoires (CPP)."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Les CPP (atélectasie, pneumonie, insuffisance respiratoire) sont aussi fréquentes que les complications cardiaques."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "L'anesthésie générale réduit la CRF, altère la clairance mucociliaire et déprime les centres respiratoires."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche d'évaluation structurée et situations différentielles",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Exacerbation aiguë de BPCO, SpO2 < 90 %, chirurgie thoracique/abdominale haute avec VEMS très bas."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Dyspnée, toux productive, tabagisme (PA), ronflements/apnées (score STOP-BANG pour SAOS)."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Auscultation pulmonaire, SpO2 en air ambiant, morphotype cervical."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Typologie des situations et stratification des priorités",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Stratification du risque de CPP et dépistage du SAOS."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Score STOP-BANG + spirométrie uniquement si BPCO/asthme non caractérisé ou résection pulmonaire."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Gazométrie artérielle et test de marche/DLCO avant chirurgie thoracique."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Reporter une chirurgie élective en cas d'infection respiratoire aiguë ou d'exacerbation. Bronchodilatateurs inhalés (salbutamol 2,5–5 mg + ipratropium 0,5 mg en nébulisation /4–6 h), prednisone 40 mg/j PO pendant 5 jours, O2 titré pour cible SpO2 88–92 %, VNI si pH < 7,35 et PaCO2 > 6,0 kPa, et amoxicilline/clavulanate 1 g 3×/j PO 5–7 j si expectorations purulentes."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Sevrage tabagique (>= 4–8 sem idéalement), optimisation bronchodilatateurs, apport de sa CPAP à l'hôpital. Sevrage tabagique (varénicline ou substituts nicotiniques), LAMA (tiotropium 18 µg/j ou 2,5 µg 2×/j) + LABA (indacatérol ou formotérol) +/- CSI si éosinophiles >= 0,30 G/L, réhabilitation respiratoire et vaccins."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Atélectasie, pneumonie nosocomiale, réintubation, apnées post-opératoires sous morphiniques."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Kinésithérapie respiratoire pré/post-opératoire et surveillance SpO2 continue si SAOS. Gazométrie artérielle à H1 sous O2/VNI, spirométrie à distance (VEMS/CVF < 0,70) et vérification de la technique d'inhalation."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Prévention efficace des complications respiratoires post-opératoires."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Anesthésiste, pneumologue, médecin traitant."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés essentiels pour la pratique suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 6,
+      "fichier_html_cible": "LOT_238_Phase_B_V0_DX.6.html",
+      "titre": "Dépistage et correction d'une anémie préopératoire (Patient Blood Management)",
+      "cim": "D50.9",
+      "urgence": "semi-urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition, portée clinique et cadre suisse de la situation",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Recherche systématique et traitement étiologique de l'anémie 3–4 semaines avant chirurgie à risque de saignement."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Présente chez 20–40 % des patients avant chirurgie majeure (orthopédie, viscérale, cardiaque)."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Optimisation de la masse érythrocytaire endogène évitant les risques immunologiques et infectieux des transfusions."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche d'évaluation structurée et situations différentielles",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Anémie sévère (< 80 g/l), saignement actif digestif/gynécologique non exploré."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Fatigue, dyspnée d'effort, pertes sanguines occultes (digestives, gynécologiques)."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Pâleur, tachycardie."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Typologie des situations et stratification des priorités",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Hb < 130 g/l (H) ou < 120 g/l (F) (ou < 130 g/l pour les deux sexes selon certains protocoles PBM)."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Hémogramme + ferritine + saturation transferrine + CRP + vitamine B12/folates + créatinine."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Exploration endoscopique si anémie ferriprive inexpliquée chez l'adulte > 50 ans."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Si carence martiale avant chirurgie proche (< 4 sem) : perfusion de fer IV (carboxymaltose ferrique). Transfusion CGR uniquement si Hb < 70 g/L (ou < 80 g/L si cardiopathie ischémique) ; sinon supplémentation martiale orale (sulfate ferreux 80–100 mg de fer élément/j un jour sur deux) ou carboxymaltose ferrique IV (500–1000 mg sur 15 min) si malabsorption ou intolérance."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Érythropoïétine (EPO) dans certaines indications orthopédiques ; acide tranexamique peropératoire. Poursuite du fer oral 3 mois après normalisation de l'Hb pour reconstituer les réserves et traitement étiologique (endoscopie digestive si homme ou femme ménopausée)."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Transfusion allogénique évitable, ischémie myocardique, infection post-opératoire."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Contrôle de l'hémoglobine avant l'intervention. Réticulocytes à J7–J10 (crise réticulocytaire), hémoglobine à 4 semaines (hausse >= 10–20 g/L) et ferritine à 3 mois (cible > 50–100 µg/L)."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Réduit les transfusions périopératoires de 40–50 %."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Médecin de famille, anesthésiste, chirurgien, hématologue."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés essentiels pour la pratique suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 7,
+      "fichier_html_cible": "LOT_238_Phase_B_V0_DX.7.html",
+      "titre": "Évaluation gériatrique préopératoire (fragilité, delirium)",
+      "cim": "R54",
+      "urgence": "semi-urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition, portée clinique et cadre suisse de la situation",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Évaluation multidimensionnelle du sujet âgé (> 70–75 ans) avant chirurgie pour anticiper le delirium et la perte d'autonomie."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Le delirium post-opératoire touche 15–50 % des patients âgés après chirurgie majeure."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Réserve cognitive et physiologique réduite vulnérable à l'inflammation chirurgicale et aux sédatifs."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche d'évaluation structurée et situations différentielles",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Fragilité sévère (CFS >= 6–7), dénutrition majeure, démence avancée (réévaluer balance bénéfice/risque)."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Autonomie (AVQ), chutes récentes, troubles mnésiques, nutrition, audition/vision, souhaits de soins."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Clinical Frailty Scale (CFS), Mini-Cog, vitesse de marche, poids."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Typologie des situations et stratification des priorités",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Identification d'une vulnérabilité nécessitant préhabilitation et prévention du delirium."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Dépistage cognitif + nutritionnel (NRS-2002 / albumine) + revue médicamenteuse."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Discussion multidisciplinaire (chirurgien-gériatre-anesthésiste) des objectifs de soins."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Éviter benzodiazépines, anticholinergiques et jeûne hydrique prolongé."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Préhabilitation nutritionnelle/physique, lunettes/appareils auditifs dès le réveil, mobilisation précoce."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Delirium post-opératoire, institutionnalisation, déclin fonctionnel irréversible."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Dépistage quotidien du delirium (CAM/4AT) en post-opératoire."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Les parcours ortho-gériatriques réduisent la mortalité et le delirium de ~30 %."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Gériatre, anesthésiste, chirurgien, proche aidant."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés essentiels pour la pratique suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 8,
+      "fichier_html_cible": "LOT_238_Phase_B_V0_DX.8.html",
+      "titre": "Évaluation de la fonction rénale et prévention de l'IRA post-opératoire",
+      "cim": "N18.9",
+      "urgence": "semi-urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition, portée clinique et cadre suisse de la situation",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Dépistage d'une néphropathie préexistante et protection rénale périopératoire."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "L'IRA post-opératoire survient dans 5–15 % des chirurgies majeures."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Hypoperfusion rénale peropératoire, néphrotoxines (AINS, aminosides, iode) et blocage SRAA."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche d'évaluation structurée et situations différentielles",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "DFG < 30 ml/min, hyperkaliémie préopératoire, anurie."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Antécédents rénaux, prise d'AINS, IEC/ARA2, diurétiques, metformine."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "État d'hydratation, TA basale, œdèmes."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Typologie des situations et stratification des priorités",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "MRC identifiée nécessitant protocole de néphroprotection."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Créatinine, DFG (CKD-EPI) et ionogramme préopératoires chez tout patient à risque ou > 60 ans avant chirurgie majeure."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Adaptation posologique des antibiotiques, HBPM et antalgiques selon le DFG."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Suspendre IEC/ARA2 le matin de l'intervention (sauf indication stricte) pour éviter l'hypotension à l'induction. Correction d'une hypovolémie par cristalloïdes (NaCl 0,9 % ou Ringer-Lactate 500 mL IV réévalué), arrêt immédiat de tout néphrotoxique (AINS, aminosides, metformine, IEC/ARA2 en aigu), levée d'obstacle si post-rénale et correction d'une hyperkaliémie/acidose (NaHCO3 si pH < 7,15)."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Proscrire les AINS en post-opératoire chez l'insuffisant rénal ; maintenir normovolémie. Néphroprotection chronique : IEC/ARA2 à dose maximale tolérée si protéinurie, iSGLT2 (dapagliflozine 10 mg/j ou empagliflozine 10 mg/j si DFG >= 20–25 mL/min) et contrôle PA < 120–130/80 mmHg."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Insuffisance rénale aiguë nécessitant dialyse, hyperkaliémie, surcharge."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Contrôle créatinine/ionogramme à J1–J2 post-opératoire. Diurèse horaire, créatinine/DFG/K+/bicarbonates quotidiens en aigu, puis rapport albumine/créatinine urinaire (RAC) trimestriel."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Prévention efficace par éviction des néphrotoxiques et stabilité hémodynamique."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Anesthésiste, néphrologue, chirurgien."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés essentiels pour la pratique suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 9,
+      "fichier_html_cible": "LOT_238_Phase_B_V0_DX.9.html",
+      "titre": "Préparation cutanée, décolonisation SARM et antibioprophylaxie chirurgicale",
+      "cim": "Z29.2",
+      "urgence": "semi-urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition, portée clinique et cadre suisse de la situation",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Ensemble des mesures microbiologiques préopératoires réduisant la charge bactérienne avant incision."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Recommandations standard Swissnoso pour la chirurgie propre et propre-contaminée."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "La majorité des ISO proviennent de la flore endogène cutanée ou muqueuse du patient."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche d'évaluation structurée et situations différentielles",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Infection active à distance (ex. infection urinaire avant prothèse de hanche -> reporter !)."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Antécédents de portage SARM, furonculose, infections actives (dentaire, urinaire, cutanée)."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Inspection de la zone opératoire (lésions cutanées, intertrigo, plaies)."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Typologie des situations et stratification des priorités",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Validation de l'absence de foyer infectieux actif et protocole d'antibioprophylaxie adapté."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Dépistage SARM ciblé si facteurs de risque ; dépistage S. aureus avant chirurgie cardiaque/orthopédique prothétique."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "ECBU uniquement si symptômes urinaires (ne pas dépister/traiter bactériurie asymptomatique sauf chirurgie urologique)."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Antibioprophylaxie (céfazoline 2 g IV) administrée dans les 30–60 min avant incision (vancomycine si allergie/SARM)."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Décolonisation nasale à la mupirocine + douches chlorhexidine si portage S. aureus ; tonte (jamais rasage !)."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Infection de prothèse, choc septique, antibiorésistance si prophylaxie prolongée à tort (> 24 h)."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Traçabilité de l'heure d'injection dans la checklist du bloc."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Réduit le taux d'ISO de > 50 %."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Chirurgien, anesthésiste, hygiène hospitalière."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés essentiels pour la pratique suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 10,
+      "fichier_html_cible": "LOT_238_Phase_B_V0_DX.10.html",
+      "titre": "Dépistage d'antécédent ou risque d'hyperthermie maligne",
+      "cim": "T88.3",
+      "urgence": "urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition, portée clinique et cadre suisse de la situation",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Risque de crise hypermétabolique musculaire déclenchée par les anesthésiques volatils ou la succinylcholine."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Prévalence génétique ~1/2000, crise clinique ~1/30'000–100'000 anesthésies."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Mutation autosomique dominante (gène RYR1 le plus souvent) libérant massivement du Ca2+ du réticulum sarcoplasmique."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche d'évaluation structurée et situations différentielles",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Antécédent familial avéré au 1er degré non encore exploré."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Antécédents personnels ou familiaux d'accident anesthésique (fièvre peropératoire, rhabdomyolyse, décès inexpliqué)."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Recherche de myopathie associée (central core disease), taux de CK basal parfois élevé."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Typologie des situations et stratification des priorités",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Susceptibilité connue ou fortement suspectée imposant une anesthésie sans agent déclenchant."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Enquête familiale détaillée et orientation vers centre de référence (test de contracture halothane-caféine / génétique RYR1)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Dosage des CK basales (sensibilité limitée)."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Si doute avant chirurgie urgente : utiliser anesthésie intraveineuse totale (TIVA propofol) sans halogénés ni succinylcholine, et préparer le dantrolène."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Remise d'une carte d'alerte anesthésique et dépistage familial."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Crise d'hyperthermie maligne (hypercapnie, rigidité, rhabdomyolyse, hyperkaliémie, décès)."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Monitorage strict EtCO2 et température centrale en peropératoire."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Risque quasi nul si éviction stricte des agents déclenchants."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Anesthésiste, centre suisse d'hyperthermie maligne (Bâle), généticien."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés essentiels pour la pratique suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 11,
+      "fichier_html_cible": "LOT_238_Phase_B_V0_DX.11.html",
+      "titre": "Angor instable ou rétrécissement aortique serré symptomatique en préopératoire",
+      "cim": "I35.0",
+      "urgence": "immediate",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition, portée clinique et cadre suisse de la situation",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Découverte lors du bilan préopératoire d'une coronaropathie instable ou sténose aortique critique (< 1 cm²)."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Exposition majeure à une mortalité périopératoire de 10–20 % si opéré sans précaution."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Incapacité à augmenter le débit cardiaque face à la vasoplégie anesthésique -> ischémie myocardique et arrêt."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche d'évaluation structurée et situations différentielles",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Syncope récente, OAP, douleur thoracique au repos."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Angor de repos ou d'aggravation récente, syncope d'effort, dyspnée NYHA III–IV."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Souffle systolique rude irradiant aux carotides avec abolition du B2, pouls tardus et parvus."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Typologie des situations et stratification des priorités",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Valvulopathie serrée symptomatique ou SCA contre-indiquant toute chirurgie non vitale."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Échocardiographie transthoracique urgente (gradient, surface valvulaire) + ECG + troponines."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Coronarographie si angor instable."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Annuler/reporter immédiatement l'intervention élective ; adresser en cardiologie pour TAVI/RVA ou revascularisation."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Si chirurgie vitale absolument non différable : monitorage invasif avancé et anesthésie dédiée en centre tertiaire."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Arrêt cardiaque à l'induction anesthésique, choc cardiogénique."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Réévaluation cardiologique avant reprogrammation chirurgicale. Télémétrie continue 24–48 h, troponine T hs (H0/H1–H3), créatinine/K+ à 48 h, échocardiographie (FEVG) et bilan lipidique à 4–6 semaines."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Pronostic transformé par le traitement cardiaque préalable."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Cardiologue, anesthésiste, chirurgien."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés essentiels pour la pratique suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 12,
+      "fichier_html_cible": "LOT_238_Phase_B_V0_DX.12.html",
+      "titre": "Trouble de coagulation majeur ou surdosage anticoagulant avant chirurgie urgente",
+      "cim": "D68.3",
+      "urgence": "immediate",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition, portée clinique et cadre suisse de la situation",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Coagulopathie sévère (INR > 2–3, AOD actif récent, thrombopénie < 50 G/l) face à une urgence chirurgicale."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Situation critique fréquente en traumatologie et chirurgie viscérale urgente."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Risque d'hémorragie massive peropératoire ou d'hématome périmédullaire si rachianesthésie."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche d'évaluation structurée et situations différentielles",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Urgence vitale/hémorragique ou traumatisme crânien sous anticoagulant."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Heure exacte de dernière prise d'AOD/AVK/HBPM, hépatopathie, saignements spontanés."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Ecchymoses, pétéchies, épistaxis, saignement actif."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Typologie des situations et stratification des priorités",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Déficit hémostatique incompatible avec l'hémostase chirurgicale."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "INR/TP, TCA, fibrinogène, plaquettes, créatinine, dosage spécifique AOD si disponible."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Thromboélastométrie (ROTEM/TEG) au bloc opératoire."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "AVK : concentré de complexe prothrombinique (PCC 4 facteurs) + vitamine K IV ; dabigatran : idarucizumab ; anti-Xa : andexanet alfa ou PCC."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Contre-indiquer l'anesthésie péridurale/rachidienne jusqu'à normalisation."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Choc hémorragique peropératoire, hématome rachidien compressif."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Contrôle biologique post-réversion et surveillance du saignement post-opératoire."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Permet une chirurgie urgente sécurisée."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Anesthésiste, hématologue/hémostase, chirurgien."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés essentiels pour la pratique suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 13,
+      "fichier_html_cible": "LOT_238_Phase_B_V0_DX.13.html",
+      "titre": "Décompensation respiratoire ou hypoxémie sévère découverte en préopératoire",
+      "cim": "J96.0",
+      "urgence": "immediate",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition, portée clinique et cadre suisse de la situation",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Découverte d'une SpO2 < 90 % ou d'une détresse respiratoire lors de l'évaluation préopératoire."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Expose à un échec de sevrage ventilatoire et à une mortalité périopératoire élevée."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Shunt intrapulmonaire, hypoventilation ou surcharge vasculaire pulmonaire."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche d'évaluation structurée et situations différentielles",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Cyanose, hypercapnie avec somnolence, instabilité hémodynamique."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Dyspnée récente, orthopnée, toux fébrile, douleur pleurétique, œdème unilatéral de jambe."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Tachypnée, tirage, crépitants, sibilances ou silence auscultatoire."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Typologie des situations et stratification des priorités",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Insuffisance respiratoire aiguë non expliquée et non stabilisée."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Gazométrie artérielle + radiographie thoracique + ECG/NT-proBNP/D-dimères selon clinique."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Angio-CT thoracique si suspicion d'embolie pulmonaire."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Reporter la chirurgie élective, administrer O2 titré et traiter la cause (OAP, pneumonie, EP)."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Optimisation respiratoire complète avant nouvelle date opératoire."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "SDRA, hypoxie peropératoire, séjour prolongé aux soins intensifs."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Surveillance SpO2 et gazométrique en milieu hospitalier."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Évite une catastrophe anesthésique."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Anesthésiste, pneumologue, urgentiste."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés essentiels pour la pratique suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 14,
+      "fichier_html_cible": "LOT_238_Phase_B_V0_DX.14.html",
+      "titre": "Infection active non contrôlée avant pose de prothèse ou implant",
+      "cim": "A41.9",
+      "urgence": "urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition, portée clinique et cadre suisse de la situation",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Présence d'une infection aiguë (urinaire symptomatique, dentaire, cutanée, sepsis) avant chirurgie prothétique."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Première cause d'infection hématogène précoce sur matériel étranger."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Adhésion bactérienne et formation de biofilm irréversible sur les implants métalliques/vasculaires."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche d'évaluation structurée et situations différentielles",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Signes de sepsis, bactériémie."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Fièvre, frissons, brûlures mictionnelles, douleur dentaire, plaie suintante."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Fièvre, examen ORL/dentaire/cutané, foyer pulmonaire ou urinaire."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Typologie des situations et stratification des priorités",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Foyer infectieux actif confirmé cliniquement ou microbiologiquement."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Hémocultures, ECBU, CRP/leucocytes et prélèvement du foyer suspecté."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Radiographie panoramique dentaire si suspicion de granulome avant prothèse/valve."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Reporter l'implantation élective et traiter complètement l'infection par antibiothérapie adaptée. Bundle 1 h : hémocultures (2 paires) + lactates, remplissage cristalloïdes équilibrés (Ringer-Lactate 30 mL/kg IV sur 3 h), antibiothérapie IV large spectre < 1 h (pipéracilline/tazobactam 4,5 g IV/6 h ou ceftriaxone 2 g/j + métronidazole 500 mg/8 h) et noradrénaline IVSE (0,05–1 µg/kg/min) si PAM < 65 mmHg."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Réévaluer la guérison clinique et biologique avant de reprogrammer. Désescalade antibiotique ciblée à 48–72 h selon antibiogramme pour une durée totale de 5–7 jours et contrôle du foyer infectieux (drainage/chirurgie)."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Infection de prothèse nécessitant dépose, reprise lourde et antibiothérapie prolongée."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Suivi clinique jusqu'à résolution complète. Lactatémie de contrôle à H2–H4 (clairance > 10–20 %), diurèse horaire (> 0,5 mL/kg/h), créatinine et procalcitonine."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Mesure simple évitant des complications catastrophiques."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Chirurgien, infectiologue, anesthésiste."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés essentiels pour la pratique suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 15,
+      "fichier_html_cible": "LOT_238_Phase_B_V0_DX.15.html",
+      "titre": "Hyperkaliémie sévère ou déséquilibre métabolique aigu préopératoire",
+      "cim": "E87.5",
+      "urgence": "immediate",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition, portée clinique et cadre suisse de la situation",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Découverte d'une kaliémie >= 6.0 mmol/l (ou > 5.5 avec anomalies ECG) avant une intervention."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Fréquente chez l'insuffisant rénal, le patient sous IEC/ARA2/spironolactone ou en rhabdomyolyse."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Dépolarisation membranaire myocardique abaissant le potentiel de repos ; la succinylcholine ajoute +0.5–1 mmol/l."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche d'évaluation structurée et situations différentielles",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Ondes T amples pointues, élargissement du QRS, onde sinusoïdale à l'ECG."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Asthénie, paresthésies, oligoanurie, médicaments hyperkaliémiants."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Bradycardie, faiblesse musculaire, signes de surcharge."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Typologie des situations et stratification des priorités",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Hyperkaliémie vraie confirmée menaçant le rythme cardiaque."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "ECG 12 dérivations immédiat + contrôle ionogramme (exclure pseudohyperkaliémie sur hémolyse) + gazométrie/créatinine."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Recherche de globe vésical ou acidose métabolique."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Gluconate de calcium 10 % IV (stabilisation membranaire immédiate) + insuline-glucose IV + nébulisation salbutamol + diurétique/dialyse."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Proscrire la succinylcholine ; corriger la kaliémie avant toute chirurgie non vitale."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Asystolie, fibrillation ventriculaire peropératoire."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Monitorage ECG continu et contrôle K+ à 1–2 h."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Normalisation rapide permettant une anesthésie sûre."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Anesthésiste, néphrologue, urgentiste."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés essentiels pour la pratique suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 16,
+      "fichier_html_cible": "LOT_238_Phase_B_V0_DX.16.html",
+      "titre": "Voie aérienne difficile prévue (Mallampati IV, limitation ouverture buccale)",
+      "cim": "J39.8",
+      "urgence": "urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition, portée clinique et cadre suisse de la situation",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Détection préopératoire de critères anatomiques ou pathologiques prédisant une ventilation/intubation difficile."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "La gestion non anticipée des voies aériennes reste une cause majeure de mortalité anesthésique."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Obstruction anatomique (tumeur ORL, obésité morbide, raideur cervicale, rétrognathisme) empêchant l'alignement des axes."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche d'évaluation structurée et situations différentielles",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Stridor inspiratoire, dyspnée de décubitus (masse médiastinale/laryngée)."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Antécédent d'intubation difficile, radiothérapie cervicale, SAOS, dysphonie, dysphagie."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Mallampati III–IV, ouverture buccale < 3 cm, distance thyro-mentonnière < 6 cm, mobilité cervicale réduite."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Typologie des situations et stratification des priorités",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Prédiction forte de voie aérienne difficile nécessitant stratégie spécifique."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Score combiné prédictif + nasofibroscopie ORL ou CT cervical si pathologie tumorale/compressive."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Évaluation échographique de l'espace pré-trachéal si obésité."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Préparer chariot d'intubation difficile, vidéolaryngoscope, fibroscope souple (intubation vigile sous anesthésie locale) et équipe ORL si besoin."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Remettre une carte/attestation d'intubation difficile au patient après l'intervention."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Hypoxie cérébrale, cricothyroïdotomie de sauvetage, décès."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Extubation sécurisée sous surveillance stricte (risque d'œdème post-extubation)."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Sécurité maximale lorsque la difficulté est anticipée."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Anesthésiste, ORL, chirurgien."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés essentiels pour la pratique suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    }
+  ],
+  "prompt_alpha_a_jour": "# MISSION : CORRECTION ET COMPLÉTION DES 248 SSP SUISSES (3 975 ENTITÉS + 248 CHAPITRES 0)\n\n## § 0. IDENTIFICATION, SIGNATURE & RÈGLES DE CONTINUITÉ — BLOQUANT ABSOLU\n1. **Identification obligatoire** en tête de première réponse :\n   - HEURE DE DÉBUT : AAAA-MM-JJ HH:MM (Europe/Zurich)\n   - MODÈLE : nom exact du modèle (ex. ANTIGRAVITY ORCHESTRATOR NEON)\n   - PLATEFORME : plateforme exacte (ex. ANTIGRAVITY)\n   - Ajouter la même ligne à `1_Claude AI/IDENTIFICATION_AGENTS.md`. Si incertitude, s'arrêter.\n2. **Signature IA fixe en bas à droite de TOUT HTML produit ou modifié** (juste avant `</body>`, en GRAS MAJUSCULE) :\n   `<div id=\"signature-ia\" style=\"position:fixed;right:12px;bottom:10px;z-index:9999;background:#fff;border:2px solid #000;padding:4px 10px;font:700 12px/1.3 Arial,sans-serif;text-transform:uppercase;color:#000\">DÉBUT : AAAA-MM-JJ HH:MM (EUROPE/ZURICH) · MODÈLE : <NOM> · PLATEFORME : <PLATEFORME></div>`\n   - **Seul Vial peut autoriser le retrait de ce bloc.** Un agent qui reprend un fichier signé ajoute sa propre ligne sous la précédente sans jamais effacer l'existante.\n3. **Continuité & transparence** :\n   - **Redémarrage propre à partir de `SSP_248`** : tous les cours précédemment modifiés ont été restaurés à l'état initial (`6941513`). Enchaîner continûment **`SSP_248 → SSP_033`**, puis **`SSP_001 → SSP_032`**.\n   - **Toujours afficher le raisonnement visible** en français dans chaque réponse.\n   - **Veille & relance GitHub** : commiter et pousser sur `origin main` après chaque SSP (ou lot <= 5 SSP) avec l'état à jour dans `SUIVI_PRODUCTION.csv`, `HANDOFF_AFFINAGE.md` et `HANDOFF_IA_COMPLET.md`.\n   - **Suivi graphique temps réel** : maintenir à jour le tableau de bord visuel temps réel des réalisations achevées et en cours.\n\n## § 1. RÈGLES ACTUALISÉES (PRIMENT SUR LE PROMPT ALPHA 19.11.26)\n1. **Nombre de cours par SSP** : **1 cours par entité de la Cartographie Renouveau** (15 à 24 entités par SSP, 3 975 au total) + le Chapitre 0 (`Phase_A`), dans l'ordre exact des `Cours 1 … N` de `SSP_nnn/NOTIONS.md` / `NOTIONS.json`.\n2. **QUALITÉ CLINIQUE MAXIMALE & ZÉRO MÉDIOCRITÉ (BLOQUANT ABSOLU — Consigne Vial 20.11.26)** :\n   - **Interdiction absolue de toute prose patronnée / générique** : aucune phrase-cadre où seul le nom de la pathologie change d'un cours à l'autre, aucun remplissage artificiel pour atteindre le calibre. La médiocrité clinique est dangereuse et entraîne un rejet immédiat.\n   - Chaque cours (`Phase_A` et `DX.1..N`) doit être **rédigé sur mesure** pour son entité exacte, avec : raisonnement physiopathologique et sémiologique réel, seuils numériques précis, diagnostics différentiels discriminants, posologies et contre-indications sourcées (Compendium.ch / AIPS, Tox Info Suisse, OFSP, ASSM, sociétés savantes suisses), vignettes cliniques authentiques et QCM exigeants de niveau Examen Fédéral Suisse.\n3. **INTERDICTION DES ARBRES DÉCISIONNELS (Consigne Vial 20.11.26)** :\n   - **Ne générer AUCUN arbre décisionnel ni algorithme graphique (`.fm-canvas`, SVG décisionnel, etc.)** dans `Phase_A` ou dans les `DX.n` — l'auteur (Vial) les réalisera lui-même.\n4. **Calibre texte pur actualisé (Consigne Vial 20.11.26)** :\n   - **80 à 100 Ko de texte pur UTF-8 par fichier** (`81 920` à `102 400` octets, calibre du Prompt Alpha confirmé par Vial le 20.11.2026 à 21:20, mesuré fenêtres comprises, hors balises HTML, CSS, JS, SVG et images).\n   - HTML hors images (`controle3.py`) : **`40 000` à `100 000` octets** (alerte).\n   - Densité maximale : zéro remplissage, zéro phrase pouvant figurer telle quelle dans un autre cours, zéro phrase de gabarit de `cartographie_DATA.json`.\n5. **Phrases verbales exclusives (BLOQUANT)** :\n   - Chaque phrase (texte, fenêtres, listes, légendes `<figcaption>`, cellules narratives `<td>`) contient un verbe conjugué reconnu. **Zéro phrase nominale.**\n4. **Médicaments cliquables d'emblée & Fenêtres centrées PK/PD à 2 onglets (Consigne Vial 20.11.26)** :\n   - Dès qu'un médicament est évoqué, il devient cliquable (`<a class=\"ouvre med-chip\" href=\"#f-...\">`).\n   - Chaque `<section class=\"fenetre mb\" id=\"f-...\"><div class=\"fen\">` s'ouvre au centre de l'écran et contient **2 onglets** :\n     * **Onglet 1 (`data-tab=\"pk\"`)** : Pharmacocinétique + **Courbe vectorielle SVG $C(t)$** + **4 paramètres cliniciens mis en évidence** (`.pkpd-kpis`).\n     * **Onglet 2 (`data-tab=\"pd\"`)** : Pharmacodynamique & Clinique + **Courbe vectorielle SVG $E(C)$** + posologies/précautions/grossesse suisses (Compendium.ch / AIPS).\n5. **Images** : uniquement à l'intérieur des `<section class=\"fenetre\">`, jamais hors fenêtre (licences selon Prompt Alpha § 4). Ne comptent pas dans le calibre.\n6. **Zéro terminologie de chantier visible** : aucun texte visible (ni `<title>`) ne doit contenir `LOT`, `V0`, `Phase A/B`, `DX.n`, `Appel A/B`, `Partie n`. Seuls les noms de fichiers gardent le format Alpha (`LOT_nnn_Phase_A_V0.html`, `LOT_nnn_Phase_B_V0_DX.i.html`).\n7. **Circuits & Plans** :\n   - `MONOGRAPHIQUE` (189 SSP) : plan maladie en 14 points (Prompt Alpha § 3.1).\n   - `NON_MONOGRAPHIQUE` (52 SSP) : Leçon en 12 à 14 points adaptés (Prompt Alpha § 3.2). **Jamais** de plan maladie ni de titres « Physiopathologie / Approche syndromique / Diagnostic positif » artificiels.\n   - `MIXTE` (7 SSP) : Prompt Alpha § 3.3, chaque fichier déclare `<meta name=\"ssp-circuit\" content=\"...\">`.\n8. **Correctifs Frontend v2 / Architecture `_sources/` (`UNIQUE.html` & `_polices/`)** :\n   - **Arborescence propre par SSP** : à la racine de `SSP_nnn/`, seul **`SSP_nnn_<code>_UNIQUE.html`** (plus le sous-dossier **`_sources/`**) est visible. Tous les fichiers sources (`LOT_nnn_*.html`, `images/`, `NOTIONS.*`, `MANIFESTE.json`, `DECISION*`, `paquet.json`, `_archive_avant_alpha/`) sont rangés dans `SSP_nnn/_sources/` sans rien supprimer.\n   - **Barre haute amovible (`gabarit_unique.html`)** : `#topbar` compacte 1 ligne (~42 px) avec pilule active, fil d'Ariane section, boutons `◀`/`▶`, tiroir overlay amovible `#dd-drawer` (`☰ Diagnostics (N) ▾` + option `📌 Épingler`) contenant `nav#nav` en colonnes égales (`32 px`, teinte unique par cours), et bouton `▴ Masquer barre` + pilule flottante `#btn-show-bar`.\n   - **Zéro dédoublement & navigation `#...` 100 % fonctionnelle (`forme.js`)** : script `forme.js` exécuté sous `DOMContentLoaded` et injecté par `assembler_unique.py`/`inliner.py` après `</head>` et avant `#signature-ia`/`</body>` ; intercepteur global appelant `e.preventDefault()` sur 100 % des `href^=\"#\"` (bloque le rechargement `srcdoc` + `file://`).\n   - **Modales centrées `<div class=\"fen\">` & désaturation (`forme.css` / `optimiser_ssp.py`)** : ouverture via classe `.fm-open` (plus `:target` en repli) avec pile `modalStack` et bouton `Fermer ✕` sticky (sans `history.back()`), auto-enveloppement `<div class=\"fen\">`, tableaux hors modale déplacés vers `<section class=\"fenetre fm-tab-fen\">` déclenchés par cartes `.fm-encart-fen`, citations `<sup class=\"r\"><a>` compactées en `[N]` avec modale aperçu `#fm-src-modal` empilable (`fm-stack-top`), puces médicaments `a.ouvre.med-chip` (`℞ ...`, `white-space: nowrap`, compatible accents français), repli du plan latéral desktop `#fm-plan-toggle`, îlots discontinus (`margin-bottom: 30px`) et padding bas `5.5rem` protégeant la lecture au-dessus de `#signature-ia`.\n   - **HTML unique** : ne jamais l'écrire à la main ; toujours exécuter `optimiser_ssp.py` puis `assembler_unique.py nnn`.\n\n## § 2. ARCHIVAGE & WORKFLOW PAR SSP (P0 → P4)\n- **Zéro suppression** : avant d'écraser ou renommer un fichier source existant, archiver dans `SSP_nnn/_sources/_archive_avant_alpha/`.\n- **P0 (Préparer)** : lire circuit (`catalogue_248.json`), entités (`NOTIONS.md`/`NOTIONS.json`), `memoire_zero_token.py --digest --lot nnn`, écrire `PLAN_ENTITES.md`.\n- **P1 (Décider)** : noter dans `DECISION.md` (Corriger / Réécrire si mécanique, faux plan maladie ou `< 30 Ko` / Créer).\n- **P2 (Produire)** : `LOT_nnn_Phase_A_V0.html` + `LOT_nnn_Phase_B_V0_DX.1..N.html`, 100 % des notions de `NOTIONS.json` expliquées et sourcées (Compendium.ch / AIPS, OFSP, ASSM, CC, LAMal, LAVI, Smarter Medicine), sans aucune phrase gabarit de la cartographie.\n- **P3 (Portes de Contrôle + Optimisation + Assemblage + Audit Chrome)** :\n  1. `controle3.py --script-ok` → **`VERT {}`** (si `paquet.json` présent ; `--script-ok` requis car `_sources/` référence `../../_polices/forme.js`)\n  2. `verif_aips.py` → **`OK`** (si `paquet.json` présent) et `restaurer_fond.py --verifier` → **`exit=0`**\n  3. `python _outils/optimiser_ssp.py nnn` → migration vers `_sources/`, tableaux déplacés en `<div class=\"fen\">`, teintes non bleues `--fm-a`\n  4. `python _outils/verif_mission.py nnn` → **100 % fichiers `PASS`** (`errors: []`)\n  5. `python _outils/assembler_unique.py nnn` → **`(1 + N) / (1 + N) onglets`** à la racine de `SSP_nnn/`\n  6. `python _outils/notions.py verifier nnn` → **`0 NON`** + copier `rapport_notions.csv` dans `SSP_nnn/_sources/`\n  7. `python _outils/audit_unique_browser.py nnn --all-tabs` → **`PASS` sur 100 % des onglets en Chrome headless réel**\n  8. Ajouter ligne dans `SUIVI_PRODUCTION.csv` + `git commit` + `git push origin main`.\n- **P4 (Affinage)** : consigner tout doute clinique/posologique non vérifié dans `1_Claude AI/HANDOFF_AFFINAGE.md` sous `## SSP_nnn`.\n\n## § 3. MISSION 2 — SSP 001 → 032\n- Extraire les cours depuis `SSP_nnn_<code>_UNIQUE.html` (JSON `data` gzip+base64, marqueurs `@@IMG:…@@`, `@@FONT:…@@`) après archivage des anciens `LOT_nnn_*.html` dans `_archive_avant_alpha/`.\n- Le frontend reste identique ; auditer le contenu avec la même sévérité (attention : `SSP_013` G13 = `NON_MONOGRAPHIQUE`, `SSP_014` G14 = `MIXTE`).\n- Produire `1_Claude AI/AUDIT_001-032.md` et corriger tous les ❌.\n\n## § 4. LES 12 BLOCAGES ROUGE (REJET IMMÉDIAT)\n1. Identification absente ou incertaine.\n2. Signature `#signature-ia` absente, modifiée ou supprimée.\n3. Entité de la Cartographie sans cours.\n4. Fichier hors intervalle `80–100 Ko` de texte pur (tout cours ; un cours de 30–50 Ko est à enrichir).\n5. Toute phrase nominale.\n6. Toute notion au verdict `NON`.\n7. Phrase gabarit de `cartographie_DATA.json` recopiée dans un cours.\n8. Plan maladie appliqué à une Leçon `NON_MONOGRAPHIQUE`.\n9. Terme de chantier visible (`LOT`, `V0`, `Phase A/B`, `DX.n`, `Appel`, `Partie n`).\n10. Posologie sans source de la cascade suisse.\n11. Image hors `<section class=\"fenetre\">`.\n12. Fichier supprimé au lieu d'être archivé.\n\n## § 5. ANNEXE CIRCUITS (248 SSP)\n- **NON_MONOGRAPHIQUE (52)** : 013 · 065 · 069 · 176 · 180 · 181 · 182 · 184 · 185 · 186 · 192 · 194 · 195 · 198 · 200 · 203 · 204 · 205 · 206 · 207 · 208 · 209 · 210 · 211 · 212 · 213 · 214 · 215 · 216 · 217 · 218 · 219 · 220 · 221 · 222 · 224 · 225 · 226 · 227 · 232 · 233 · 235 · 236 · 237 · 238 · 239 · 240 · 241 · 242 · 243 · 246 · 247.\n- **MIXTE (7)** : 014 · 165 · 174 · 175 · 190 · 202 · 223.\n- **MONOGRAPHIQUE (189)** : tous les autres SSP."
+}

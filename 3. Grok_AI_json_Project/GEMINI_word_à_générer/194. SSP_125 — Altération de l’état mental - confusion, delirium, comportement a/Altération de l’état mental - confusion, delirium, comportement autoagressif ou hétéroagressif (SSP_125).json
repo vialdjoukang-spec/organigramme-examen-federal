@@ -1,0 +1,2444 @@
+{
+  "rappel_obligatoire_avant_redaction": {
+    "lecture_imperative": [
+      "1. Lire intégralement PROMPT_Alpha_19.11.26.md ET la mise à jour incluse dans prompt_alpha_a_jour ci-dessous.",
+      "2. Respecter l'intervalle GLOBAL par cours : viser 85–95 Ko de texte médical pur (soit ~95–115 Ko de fichier JSON) sans quota rigide par partie — répartir le texte proportionnellement à l'importance clinique des parties.",
+      "3. Produire graduellement 1 cours complet par requête (Phase A, puis Cours 1, Cours 2...) en français médical académique, phrases verbales exclusives (0 phrase nominale), zéro prose générique ou patronnée.",
+      "4. Utiliser uniquement les guillemets typographiques français « … » dans les valeurs texte JSON (jamais de guillemet droit non échappé).",
+      "5. Zéro arbre décisionnel graphique (.fm-canvas) : ne générer aucun schéma décisionnel."
+    ],
+    "specificites_locales_ssp": [
+      "Circuit MONOGRAPHIQUE : respecter le plan maladie en 14 points avec socle généralités (1-3), démarche diagnostique (4-10), prise en charge posologique suisse intégrale (11) et QCM Examen Fédéral (14).",
+      "Couvrir 100 % des notions obligatoires listées dans phase_b[*].plan[*].notions_obligatoires pour Altération de l’état mental : confusion, delirium, comportement autoagressif ou hétéroagressif (S9.9).",
+      "Cascade posologique suisse à 4 paliers obligatoire : 1. AIPS Swissmedic (n° 5 chiffres) -> 2. Compendium.ch -> 3. Sociétés savantes & CHU suisses (HUG, CHUV, Inselspital, USZ, USB, OFSP, ASSM, SSMIG, Tox Info Suisse 145) -> 4. Sociétés savantes européennes."
+    ]
+  },
+  "meta": {
+    "rang_gravite": 194,
+    "ssp": "SSP_125",
+    "code_profiles": "S9.9",
+    "nom_francais": "Altération de l’état mental : confusion, delirium, comportement autoagressif ou hétéroagressif",
+    "circuit": "MONOGRAPHIQUE",
+    "police_obligatoire": "Atkinson Hyperlegible",
+    "calibre_cible": "80–100 Ko texte pur",
+    "arbres_decisionnels_autorises": false,
+    "mode_redaction": "Neon Deep Research",
+    "nb_chapitres_total": 16,
+    "defauts_audit_initial": [
+      "Incomplet (11/16 cours)",
+      "194 phrases nominales",
+      "Termes chantier (10 f.)"
+    ]
+  },
+  "sommaire": {
+    "phase_a": {
+      "fichier_html_cible": "LOT_125_Phase_A_V0.html",
+      "titre": "Altération de l’état mental : confusion, delirium, comportement autoagressif ou hétéroagressif — Vue d'ensemble et orientation clinique (S9.9)"
+    },
+    "phase_b": [
+      {
+        "cours_numero": 1,
+        "titre": "Infection aiguë du sujet âgé révélée par un delirium (infection urinaire, pneumonie)",
+        "cim": "F05.9",
+        "urgence": "urgent"
+      },
+      {
+        "cours_numero": 2,
+        "titre": "Trouble métabolique ou hydro-électrolytique (hyponatrémie, hypercalcémie, déshydratation)",
+        "cim": "E87.1",
+        "urgence": "urgent"
+      },
+      {
+        "cours_numero": 3,
+        "titre": "Iatrogénie médicamenteuse (anticholinergiques, benzodiazépines, opiacés, corticoïdes)",
+        "cim": "T50.9",
+        "urgence": "urgent"
+      },
+      {
+        "cours_numero": 4,
+        "titre": "Rétention aiguë d'urine ou fécalome (delirium réflexe gériatrique)",
+        "cim": "R33",
+        "urgence": "urgent"
+      },
+      {
+        "cours_numero": 5,
+        "titre": "Syndrome de sevrage alcoolique ou aux benzodiazépines (forme modérée)",
+        "cim": "F10.3",
+        "urgence": "urgent"
+      },
+      {
+        "cours_numero": 6,
+        "titre": "Amnésie globale transitoire (ictus amnésique idiopathique)",
+        "cim": "G45.4",
+        "urgence": "semi-urgent"
+      },
+      {
+        "cours_numero": 7,
+        "titre": "Démence vasculaire ou maladie d'Alzheimer décompensée (syndrome crépusculaire)",
+        "cim": "F01.9",
+        "urgence": "chronique"
+      },
+      {
+        "cours_numero": 8,
+        "titre": "Encéphalopathie hypercapnique (décompensation de BPCO)",
+        "cim": "J96.0",
+        "urgence": "urgent"
+      },
+      {
+        "cours_numero": 9,
+        "titre": "Encéphalopathie hépatique / urémique subaiguë",
+        "cim": "K72.9",
+        "urgence": "urgent"
+      },
+      {
+        "cours_numero": 10,
+        "titre": "Encéphalopathie d'Hashimoto / vascularite cérébrale / maladie de Creutzfeldt-Jakob",
+        "cim": "G04.8",
+        "urgence": "urgent"
+      },
+      {
+        "cours_numero": 11,
+        "titre": "Méningite ou méningo-encéphalite aiguë bactérienne / herpétique",
+        "cim": "G03.9",
+        "urgence": "immediate"
+      },
+      {
+        "cours_numero": 12,
+        "titre": "Accident vasculaire cérébral aigu (AVC) ou hémorragie intracérébrale",
+        "cim": "I64",
+        "urgence": "immediate"
+      },
+      {
+        "cours_numero": 13,
+        "titre": "Hypoglycémie neuroglycopénique sévère (coma / confusion aiguë)",
+        "cim": "E16.2",
+        "urgence": "immediate"
+      },
+      {
+        "cours_numero": 14,
+        "titre": "Intoxication médicamenteuse volontaire ou accidentelle (opiacés, BZD, tricycliques, CO)",
+        "cim": "T50.9",
+        "urgence": "immediate"
+      },
+      {
+        "cours_numero": 15,
+        "titre": "Hématome intracrânien post-traumatique sous anticoagulants (HSD / HED)",
+        "cim": "S06.5",
+        "urgence": "immediate"
+      }
+    ]
+  },
+  "phase_a": {
+    "titre": "Altération de l’état mental : confusion, delirium, comportement autoagressif ou hétéroagressif — Vue d'ensemble (S9.9)",
+    "plan": [
+      {
+        "point": 1,
+        "titre": "Définition nosologique et périmètre clinique",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 2,
+        "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 3,
+        "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 4,
+        "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+        "description": "Présentation et hiérarchisation des 15 entités de la Cartographie Renouveau."
+      },
+      {
+        "point": 5,
+        "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 6,
+        "titre": "Examen physique systématique région par région",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 7,
+        "titre": "Approche syndromique et stratification de gravité",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 8,
+        "titre": "Diagnostic positif, scores cliniques et critères validés",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 9,
+        "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 10,
+        "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 11,
+        "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 12,
+        "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 13,
+        "titre": "Points clés indispensables à retenir",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 14,
+        "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      }
+    ]
+  },
+  "phase_b": [
+    {
+      "cours_numero": 1,
+      "fichier_html_cible": "LOT_125_Phase_B_V0_DX.1.html",
+      "titre": "Infection aiguë du sujet âgé révélée par un delirium (infection urinaire, pneumonie)",
+      "cim": "F05.9",
+      "urgence": "urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Syndrome confusionnel aigu (delirium) déclenché par une infection bactérienne ou virale chez un patient âgé à réserve cognitive réduite."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Représente 30–40 % des delirium du sujet âgé."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Passage de cytokines pro-inflammatoires (IL-1, IL-6, TNF-alpha) à travers la barrière hémato-encéphalique perturbant la neurotransmission cholinergique."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Sepsis grave, choc septique, hypoxémie."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Début aigu sur 24–48 h, inversion du rythme veille-sommeil, hallucinations, agitation ou forme hypoactive (somnolence, piège !)."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "CAM positif (inattention, fluctuation) ; rechercher foyer pulmonaire, abdominal, cutané (érysipèle) ; attention à ne pas attribuer trop vite à une bactériurie asymptomatique !"
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "CAM positif + infection documentée."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "CRP, NFS, hémocultures si fièvre/frissons, radiographie thoracique, culture d'urine (uniquement si symptômes ou exclusion d'autres foyers !)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Ionogramme, créatinine (déshydratation associée)."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Antibiothérapie ciblée, réhydratation, mesures non pharmacologiques (lunettes, appareil auditif, calme, présence familiale). Antibiothérapie probabiliste suisse (SSI) : amoxicilline 1 g 3×/j PO (ambulatoire sans comorbidité) ou amoxicilline/clavulanate 1 g 3×/j PO / 1,2–2,2 g 3×/j IV + clarithromycine 500 mg 2×/j PO/IV si sévère ou suspicion atypique (5–7 jours selon stabilité), O2 pour SpO2 >= 92 % et paracétamol 1 g 4×/j PO."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Prévention des récidives, vaccination (grippe, pneumocoque). Relais oral dès apyrexie et stabilité hémodynamique à J2–J3, hydratation >= 1,5 L/j et vaccination antipneumococcique/grippale ultérieure."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Hospitalisation si sepsis, hypoxémie ou maintien impossible à domicile."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Score CAM quotidien, température, CRP. Réévaluation clinique à 48–72 h (fièvre, FR, SpO2, CRP), et radiographie thoracique de contrôle à 6 semaines si >= 50 ans ou fumeur."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Rémission en quelques jours après traitement de l'infection."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Gériatre, médecin de famille."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 2,
+      "fichier_html_cible": "LOT_125_Phase_B_V0_DX.2.html",
+      "titre": "Trouble métabolique ou hydro-électrolytique (hyponatrémie, hypercalcémie, déshydratation)",
+      "cim": "E87.1",
+      "urgence": "urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Encéphalopathie métabolique aiguë/subaiguë par dysnatrémie, dyscalcémie, insuffisance rénale aiguë (urémie) ou hypercapnie."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Très fréquente chez le sujet âgé sous thiazidiques, ISRS, carbamazépine ou avec néoplasie."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Œdème cellulaire cérébral (hyponatrémie aiguë) ou dépression de l'excitabilité neuronale (hypercalcémie)."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Hyponatrémie < 120 mmol/L avec convulsions/coma, hypercalcémie > 3,5 mmol/L."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Confusion progressive, nausées, faiblesse, polyurie (hypercalcémie), prise de diurétiques ou ISRS récente."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Pli cutané (déshydratation) ou euvolémie (SIADH), fasciculations/myoclonies (urémie)."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Trouble ionique/métabolique sévère expliquant la confusion."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Ionogramme complet (Na, K, Ca corrigé/ionisé, Mg), créatinine/urée, glycémie, gazométrie (PaCO2 !), osmolarité plasmatique et urinaire."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "TSH, cortisol si hyponatrémie euvolémique."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Correction étiologique : restriction hydrique si SIADH léger ; NaCl 3 % uniquement si hyponatrémie aiguë symptomatique grave (max 6–8 mmol/L/24 h pour éviter la myélinolyse centropontine !) ; hydratation + bisphosphonate si hypercalcémie."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Arrêt du médicament causal (thiazidique, ISRS)."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Hospitalisation en médecine interne."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Ionogramme toutes les 4–6 h lors de la correction d'une dysnatrémie sévère."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Récupération complète si correction prudente."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Médecin interniste, gériatre."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 3,
+      "fichier_html_cible": "LOT_125_Phase_B_V0_DX.3.html",
+      "titre": "Iatrogénie médicamenteuse (anticholinergiques, benzodiazépines, opiacés, corticoïdes)",
+      "cim": "T50.9",
+      "urgence": "urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Confusion aiguë induite par un médicament psychotrope, anticholinergique ou par interaction/surdosage (insuffisance rénale)."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Impliquée dans 15–30 % des delirium hospitaliers et ambulatoires."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Blocage cholinergique muscarinique central (atropiniques, tricycliques, antihistaminiques, oxybutynine) ou hyper-GABAergie."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Syndrome anticholinergique sévère, dépression respiratoire, sevrage brutal si arrêt non progressif des BZD chroniques."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Introduction récente d'un somnifère, opiacé, corticoïde, fluoroquinolone, ou accumulation sur IRA (gabapentine, baclofène !)."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Sécheresse buccale, mydriase, globe vésical (syndrome anticholinergique), myosis/bradypnée (opiacés)."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Chronologie compatible avec un médicament confusiogène."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Revue médicamenteuse exhaustive + créatinine/DFG."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Dosage plasmatique si lithium, digoxine ou antiépileptiques."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Arrêt immédiat des anticholinergiques/opiacés non indispensables ; diminution progressive si BZD chronique ; physostigmine uniquement en USI si intoxication anticholinergique grave."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Déprescription selon critères STOPP/START."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Ambulatoire ou hospitalisation selon gravité."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Disparition de la confusion en 24–72 h après élimination."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Excellent pronostic."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Médecin de famille, gériatre, pharmacien."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 4,
+      "fichier_html_cible": "LOT_125_Phase_B_V0_DX.4.html",
+      "titre": "Rétention aiguë d'urine ou fécalome (delirium réflexe gériatrique)",
+      "cim": "R33",
+      "urgence": "urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Syndrome confusionnel aigu déclenché par une douleur viscérale profonde (distension vésicale ou rectale) non exprimée verbalement."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Cause bénigne mais extrêmement fréquente d'agitation nocturne en EMS/hôpital."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Afférences nociceptives viscérales déclenchant une décharge sympathique et confusionnelle."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Insuffisance rénale post-rénale, syndrome occlusif sur fécalome."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Agitation soudaine, patient qui tire sur sa couche/draps, absence de miction ou de selles depuis plusieurs jours, prise d'opiacés/anticholinergiques."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Voussure hypogastrique mate et douloureuse à la palpation (globe vésical) ; ampoule rectale pleine de selles dures au TR (fécalome)."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Globe > 400–500 mL ou fécalome confirmé avec résolution rapide de la confusion après évacuation."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "BladderScan (échographie vésicale au lit) + toucher rectal."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Créatinine/ionogramme si rétention prolongée (surveiller syndrome de levée d'obstacle !)."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Sondage vésical évacuateur ou évacuation douce du fécalome (lavement/extraction digitale)."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Prévention (laxatifs osmotiques sous opiacés, traitement HBP)."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Ambulatoire/EMS sauf IRA post-rénale nécessitant surveillance de la diurèse."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Diurèse horaire post-sondage (compenser si polyurie de levée d'obstacle)."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Retour au calme spectaculaire en quelques heures."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Médecin de famille, gériatre, urologue."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 5,
+      "fichier_html_cible": "LOT_125_Phase_B_V0_DX.5.html",
+      "titre": "Syndrome de sevrage alcoolique ou aux benzodiazépines (forme modérée)",
+      "cim": "F10.3",
+      "urgence": "urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "État confusionnel débutant avec hyperactivité autonome suite à l'interruption d'un toxique dépresseur du SNC."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Fréquent à J1–J3 d'une hospitalisation chirurgicale ou médicale non planifiée."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Rebond glutamatergique et noradrénergique."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Évolution vers delirium tremens ou crises convulsives de sevrage."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Consommation quotidienne d'alcool/BZD interrompue brutalement, tremblements, anxiété, sueurs, hallucinations visuelles."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Tachycardie, HTA, tremblement d'attitude, sueurs, score CIWA-Ar élevé."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Confusion + dysautonomie après arrêt d'alcool/BZD."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Score CIWA-Ar, ionogramme, Mg, glycémie, bilan hépatique."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Aucun."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Benzodiazépines (oxazépam/diazépam) selon CIWA-Ar + vitamine B1 (thiamine) IV/PO systématique."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Projet de soins addictologiques."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Hospitalisation recommandée."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Score CIWA-Ar toutes les 2–4 h, ionogramme (Mg2+, K+, PO43-), glycémie et bilan hépatique."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Résolution en 3–5 jours."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Médecin interniste, addictologue."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 6,
+      "fichier_html_cible": "LOT_125_Phase_B_V0_DX.6.html",
+      "titre": "Amnésie globale transitoire (ictus amnésique idiopathique)",
+      "cim": "G45.4",
+      "urgence": "semi-urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Amnésie antérograde et rétrograde récente isolée, brutale et transitoire (< 24 h), sans aucun autre déficit neurologique."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Incidence 5–10/100 000/an, pic entre 50 et 70 ans."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Dysfonctionnement transitoire de la région hippocampique CA1 (dépression corticale envahissante, souvent après stress émotionnel, effort ou bain froid)."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Déficit focal (AVC !), fièvre, traumatisme crânien, crises répétitives courtes (< 1 h = amnésie épileptique transitoire !)."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Répétition incessante des mêmes questions (« Où sommes-nous ? Qu'est-ce qu'on fait ? »), déclenchée par émotion/effort/eau froide ; le patient sait qui il est et conduit/agit normalement."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Examen neurologique strictement NORMAL (sauf l'amnésie de fixation)."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Amnésie antérograde isolée < 24 h avec examen neurologique normal par ailleurs."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Diagnostic CLINIQUE (critères de Hodges et Warlow) ; glycémie capillaire ; IRM cérébrale (normale ou minuscule hypersignal punctiforme hippocampique en diffusion à H24–48)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "EEG si épisodes brefs répétés (épilepsie)."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Réassurance du patient et de la famille, surveillance simple jusqu'à récupération."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Aucun traitement préventif nécessaire (récidive faible ~5–10 % sur la vie)."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Observation quelques heures aux urgences jusqu'à reprise de la mémorisation."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Vérifier la récupération complète."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Bénin, guérison complète en < 24 h (laisse une lacune mnésique de la durée de l'épisode)."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Neurologue, médecin d'urgence."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 7,
+      "fichier_html_cible": "LOT_125_Phase_B_V0_DX.7.html",
+      "titre": "Démence vasculaire ou maladie d'Alzheimer décompensée (syndrome crépusculaire)",
+      "cim": "F01.9",
+      "urgence": "chronique",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Altération chronique des fonctions cognitives avec décompensation confusionnelle subaiguë lors d'un déménagement ou d'une hospitalisation."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Très fréquente chez les patients > 75 ans."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Perte des repères environnementaux habituels sur un cerveau ayant perdu sa plasticité adaptative."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Aggravation brutale en quelques heures (toujours chercher un delirium surajouté !)."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Déclin cognitif préexistant, aggravation le soir (« sundowning »), désorientation temporo-spatiale."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "MoCA/MMSE altérés, absence de signe aigu somatique après bilan."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Démence sous-jacente avec facteur environnemental déclenchant."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Bilan minimal d'exclusion d'un delirium surajouté."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "IRM cérébrale si diagnostic de démence non encore posé."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Réorientation douce, maintien des repères (objets familiers, lumière tamisée, présence proche), éviter toute contention ou sédation lourde."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Adaptation du domicile/EMS, soutien aux aidants."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Éviter l'hospitalisation si possible (aggrave la confusion !)."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Évaluation cognitive de base à distance de l'épisode."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Retour à l'état basal cognitif en quelques jours après retour au calme."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Gériatre, médecin de famille."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 8,
+      "fichier_html_cible": "LOT_125_Phase_B_V0_DX.8.html",
+      "titre": "Encéphalopathie hypercapnique (décompensation de BPCO)",
+      "cim": "J96.0",
+      "urgence": "urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Narcose au CO2 par hypoventilation alvéolaire aiguë entraînant acidose respiratoire et vasodilatation cérébrale."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Classique chez le patient BPCO sévère lors d'une exacerbation ou sous O2 haut débit non titré."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "L'hypercapnie aiguë abaisse le pH du LCR et déprime l'état de conscience."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Coma hypercapnique, arrêt respiratoire."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "BPCO connue, somnolence progressive, céphalées matinales, confusion, O2 mis à fort débit."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Astérixis (flapping tremor), somnolence, cyanose chaude, sueurs, tirage ou hypopnée."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Acidose respiratoire hypercapnique avec encéphalopathie."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Gazométrie artérielle immédiate (PaCO2 > 45–50 mmHg, pH < 7,35) + radiographie thoracique."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Ionogramme, CRP."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Ventilation non invasive (VNI/BiPAP) urgente ! Oxygénothérapie titrée pour cible SpO2 88–92 % uniquement, bronchodilatateurs, corticoïdes."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Oxygénothérapie de longue durée / VNI nocturne si indication."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Soins intensifs / pneumologie."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Gazométrie à H1–H2 sous VNI."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Réveil rapide dès la baisse de la PaCO2 sous VNI."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Pneumologue, médecine intensive."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 9,
+      "fichier_html_cible": "LOT_125_Phase_B_V0_DX.9.html",
+      "titre": "Encéphalopathie hépatique / urémique subaiguë",
+      "cim": "K72.9",
+      "urgence": "urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Altération métabolique de la conscience par accumulation d'ammoniac (cirrhose) ou toxines urémiques (IRA/IRC terminale)."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Fréquente chez le cirrhotique et l'insuffisant rénal."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Neurotoxicité astrocytaire et déséquilibre GABA/glutamate."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Coma hépatique, péricardite urémique, hyperkaliémie."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Hépatopathie ou néphropathie connue, inversion du sommeil, ralentissement, nausées."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Astérixis, foetor hepaticus, givre urémique (rare), frottement péricardique (urgence dialyse !)."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Encéphalopathie avec astérixis sur défaillance hépatique ou rénale."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Créatinine, urée, ionogramme, bilan hépatique, bilan infectieux (ponction d'ascite !)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Ammoniémie."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Lactulose + rifaximine + traitement du facteur déclenchant (hépatique) ; dialyse urgente si encéphalopathie urémique."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Suivi hépatologique ou néphrologique."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Hospitalisation en médecine/gastro/néphrologie."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Vigilance, créatinine, selles."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Réversible sous traitement."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Hépatologue, néphrologue."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 10,
+      "fichier_html_cible": "LOT_125_Phase_B_V0_DX.10.html",
+      "titre": "Encéphalopathie d'Hashimoto / vascularite cérébrale / maladie de Creutzfeldt-Jakob",
+      "cim": "G04.8",
+      "urgence": "urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Altération mentale rapidement progressive (< 6 mois) due à une encéphalopathie auto-immune sensible aux corticoïdes (SREAT/Hashimoto), vascularite ou maladie à prions."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Rare mais diagnostic différentiel capital devant une confusion/démence subaiguë."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Réaction auto-immune corticosensible (SREAT) ou accumulation de prion PrPSc."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Évolution rapide vers le mutisme akinétique."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Déclin cognitif rapide en semaines, fluctuations, hallucinations, sursauts myocloniques, absence d'infection."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Myoclonies, ataxie, signes pyramidaux/extrapyramidaux."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Critères IRM/LCR/EEG spécifiques."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "IRM cérébrale (diffusion : hypersignal cortical en ruban et noyaux gris dans MCJ), EEG (complexes périodiques), PL (protéine 14-3-3, RT-QuIC, anticorps), anticorps anti-TPO/TG."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Bilan auto-immun et paranéoplasique complet."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Test thérapeutique par corticoïdes IV haute dose (méthylprednisolone) si encéphalopathie auto-immune suspectée (après exclusion infectieuse). Hémocultures immédiates puis dexaméthasone 10 mg IV/6 h (4 jours) avant/avec ceftriaxone 2 g 2×/j IV + amoxicilline 2 g IV/4 h (si > 50 ans ou immunodéprimé pour Listeria) +/- aciclovir 10 mg/kg IV/8 h si encéphalite suspectée ; ponction lombaire sans retarder les antibiotiques."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Immunosuppression si auto-immune ; soins palliatifs si MCJ. Chimioprophylaxie des sujets contacts si méningocoque (ciprofloxacine 500 mg PO dose unique ou rifampicine 600 mg 2×/j × 2 j) et déclaration obligatoire OFSP < 24 h."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Hospitalisation en neurologie."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Évolution clinique et EEG. Surveillance neurologique (GCS), audition (audiogramme post-méningite à pneumocoque), fonction rénale sous aciclovir et CRP."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Excellent pronostic si SREAT traitée ; fatal en quelques mois si MCJ."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Neurologue."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 11,
+      "fichier_html_cible": "LOT_125_Phase_B_V0_DX.11.html",
+      "titre": "Méningite ou méningo-encéphalite aiguë bactérienne / herpétique",
+      "cim": "G03.9",
+      "urgence": "immediate",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Infection aiguë des méninges et/ou du parenchyme cérébral engageant le pronostic vital en quelques heures."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Urgence absolue (pneumocoque, méningocoque, Listeria chez > 50 ans/immunodéprimé, HSV-1)."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Œdème cérébral, HTIC, vascularite septique et nécrose corticale."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Purpura extensif, coma (GCS < 12), déficit focal, convulsions -> CT AVANT PL, MAIS ANTIBIOTIQUES AVANT CT !"
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Fièvre, céphalées intenses, confusion/somnolence, photophobie, vomissements."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Raideur de nuque (signes de Kernig/Brudzinski — parfois absents chez le sujet âgé ou comateux !), purpura fulminans (méningocoque !)."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Pléiocytose du LCR + clinique compatible."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Hémocultures puis ponction lombaire (sauf contre-indication -> CT d'abord) : LCR trouble, hyperprotéinorachie, hypoglycorachie, PN neutrophiles (bactérienne) vs lymphocytaire (virale)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "PCR multiplex LCR."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Dexaméthasone 10 mg IV + ceftriaxone 2 g IV (+ amoxicilline si > 50 ans/immunodéprimé pour Listeria ; + aciclovir 10 mg/kg/8 h si encéphalite) IMMÉDIATEMENT !"
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Isolement gouttelettes 24 h et chimioprophylaxie des contacts si méningocoque."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Soins intensifs / médecine."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "GCS, constantes, audition (surdité post-pneumocoque)."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Pronostic directement lié à la précocité de la première dose d'antibiotique (< 1 h)."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Infectiologue, médecine intensive, neurologue."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 12,
+      "fichier_html_cible": "LOT_125_Phase_B_V0_DX.12.html",
+      "titre": "Accident vasculaire cérébral aigu (AVC) ou hémorragie intracérébrale",
+      "cim": "I64",
+      "urgence": "immediate",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Ischémie ou hémorragie cérébrale aiguë provoquant un déficit brutal et/ou une altération de la vigilance."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Première cause de handicap acquis et 3e cause de mortalité."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Occlusion artérielle (thrombus) ou rupture vasculaire (HTA, angiopathie amyloïde, anévrisme)."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Coma, engagement, thrombose du tronc basilaire (fluctuation puis quadriplégie/locked-in)."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Heure exacte du début (ou dernière fois vu normal !), facteurs de risque CV, anticoagulants."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "FAST/NIHSS : asymétrie faciale, déficit moteur/sensitif, aphasie, hémianopsie, ataxie, trouble de conscience."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Lésion ischémique (ou absence d'hémorragie dans les délais) / hémorragique à l'imagerie."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "CT cérébral sans injection + angio-CT des vaisseaux cérébraux en URGENCE ABSOLUE (ou IRM stroke)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Glycémie capillaire immédiate (exclure hypoglycémie mimant un AVC !)."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Si ischémique : thrombolyse IV (< 4,5 h) et/ou thrombectomie mécanique (< 6–24 h si occlusion proximale) ; si hémorragique : contrôle strict de la TA (< 140 mmHg) et antagonisation des anticoagulants."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Prévention secondaire et neuroréhabilitation."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Stroke Unit / soins intensifs."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "NIHSS, TA, déglutition avant toute alimentation."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "« Time is brain » : 1,9 million de neurones perdus par minute."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Neurologue (Stroke Unit), neuroradiologue interventionnel."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 13,
+      "fichier_html_cible": "LOT_125_Phase_B_V0_DX.13.html",
+      "titre": "Hypoglycémie neuroglycopénique sévère (coma / confusion aiguë)",
+      "cim": "E16.2",
+      "urgence": "immediate",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Souffrance cérébrale aiguë par glycémie < 2,5–3,0 mmol/L se manifestant par confusion, agressivité, déficit focal ou coma."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Urgence métabolique la plus fréquente et la plus rapidement réversible."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Arrêt de l'apport énergétique neuronal."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Coma prolongé, convulsions, séquelles anoxo-glycémiques."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Diabète traité (insuline, sulfonylurée), alcoolisation à jeun, erreur de dose."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Confusion, agitation ou coma profond, sueurs froides (parfois absentes si neuropathie autonome !), Babinski bilatéral possible."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Glycémie basse avec récupération rapide après resucrage."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Glycémie capillaire IMMÉDIATE (< 1 min)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Glycémie veineuse de confirmation."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Glucose 30–40 % IV (ex. 20–40 mL) ou glucagon 1 mg IM/SC/nasal si pas de voie veineuse, puis relais perfusion G5–G10 % si sulfonylurée."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Réévaluation du schéma antidiabétique."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Hospitalisation 24 h si sulfonylurée ou alcoolisation sévère."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Glycémies capillaires horaires initiales."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Réveil spectaculaire immédiat sur l'aiguille."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Médecin d'urgence, diabétologue."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 14,
+      "fichier_html_cible": "LOT_125_Phase_B_V0_DX.14.html",
+      "titre": "Intoxication médicamenteuse volontaire ou accidentelle (opiacés, BZD, tricycliques, CO)",
+      "cim": "T50.9",
+      "urgence": "immediate",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Dépression du SNC ou délire toxique par surdosage de médicaments psychotropes, stupéfiants ou gaz toxiques."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Motif très fréquent aux urgences."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Interaction spécifique sur récepteurs opioïdes (myosis, bradypnée), GABA (coma calme), cholinergiques ou canaux sodiques (tricycliques)."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Dépression respiratoire sévère, QRS > 100 ms à l'ECG (tricycliques -> bicarbonates IV !), hyperthermie."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Boîtes vides retrouvées, contexte suicidaire ou erreur thérapeutique."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Identifier le toxidrome : opiacé (myosis + FR < 12), anticholinergique (mydriase + peau sèche + globe + délire), cholinergique (myosis + hypersécrétion)."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Toxidrome compatible ou dosage positif."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "ECG 12 dérivations SYSTÉMATIQUE + glycémie + gazométrie + paracétamolémie systématique (toxique caché !) + HbCO."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Toxiques urinaires (utilité limitée en urgence aiguë)."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Sécurisation ABCDE : naloxone IV titrée si toxidrome opiacé ; bicarbonates de sodium IV si QRS large sur tricycliques ; N-acétylcystéine si paracétamol ; O2 100 % si CO ; éviter le flumazénil en routine si co-ingestion de tricycliques (convulsions !)."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Évaluation psychiatrique après stabilisation si geste suicidaire."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Soins intensifs / surveillance continue."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "FR, SpO2, ECG, vigilance."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Excellent pronostic si prise en charge respiratoire et antidotique précoce."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Médecin d'urgence, Tox Info Suisse (145), psychiatre."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 15,
+      "fichier_html_cible": "LOT_125_Phase_B_V0_DX.15.html",
+      "titre": "Hématome intracrânien post-traumatique sous anticoagulants (HSD / HED)",
+      "cim": "S06.5",
+      "urgence": "immediate",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Saignement intracrânien aigu compressif suite à un choc crânien parfois oublié chez le sujet sous AVK ou AOD."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Mortalité majeure si retard d'antagonisation."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "L'anticoagulation empêche l'hémostase spontanée des veines ponts sous-durales."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Engagement cérébral."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Prise d'AVK/AOD/antiagrégants, chute récente, céphalée, confusion progressive puis coma."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "GCS fluctuant ou en baisse, anisocorie, déficit moteur."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Hématome intracrânien au CT."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "CT cérébral sans injection EN URGENCE + INR / anti-Xa."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Aucun."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Antagonisation IMMÉDIATE (PPSB + vitamine K si AVK ; idarucizumab si dabigatran ; andexanet alfa ou PPSB si anti-Xa) + avis neurochirurgical urgent pour évacuation."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Réévaluation du rapport bénéfice/risque de l'anticoagulation à distance."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Soins intensifs / neurochirurgie."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "GCS, pupilles, CT de contrôle."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Dépend du GCS initial et de la rapidité d'antagonisation."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Neurochirurgien, médecine intensive."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    }
+  ],
+  "prompt_alpha_a_jour": "# MISSION : CORRECTION ET COMPLÉTION DES 248 SSP SUISSES (3 975 ENTITÉS + 248 CHAPITRES 0)\n\n## § 0. IDENTIFICATION, SIGNATURE & RÈGLES DE CONTINUITÉ — BLOQUANT ABSOLU\n1. **Identification obligatoire** en tête de première réponse :\n   - HEURE DE DÉBUT : AAAA-MM-JJ HH:MM (Europe/Zurich)\n   - MODÈLE : nom exact du modèle (ex. ANTIGRAVITY ORCHESTRATOR NEON)\n   - PLATEFORME : plateforme exacte (ex. ANTIGRAVITY)\n   - Ajouter la même ligne à `1_Claude AI/IDENTIFICATION_AGENTS.md`. Si incertitude, s'arrêter.\n2. **Signature IA fixe en bas à droite de TOUT HTML produit ou modifié** (juste avant `</body>`, en GRAS MAJUSCULE) :\n   `<div id=\"signature-ia\" style=\"position:fixed;right:12px;bottom:10px;z-index:9999;background:#fff;border:2px solid #000;padding:4px 10px;font:700 12px/1.3 Arial,sans-serif;text-transform:uppercase;color:#000\">DÉBUT : AAAA-MM-JJ HH:MM (EUROPE/ZURICH) · MODÈLE : <NOM> · PLATEFORME : <PLATEFORME></div>`\n   - **Seul Vial peut autoriser le retrait de ce bloc.** Un agent qui reprend un fichier signé ajoute sa propre ligne sous la précédente sans jamais effacer l'existante.\n3. **Continuité & transparence** :\n   - **Redémarrage propre à partir de `SSP_248`** : tous les cours précédemment modifiés ont été restaurés à l'état initial (`6941513`). Enchaîner continûment **`SSP_248 → SSP_033`**, puis **`SSP_001 → SSP_032`**.\n   - **Toujours afficher le raisonnement visible** en français dans chaque réponse.\n   - **Veille & relance GitHub** : commiter et pousser sur `origin main` après chaque SSP (ou lot <= 5 SSP) avec l'état à jour dans `SUIVI_PRODUCTION.csv`, `HANDOFF_AFFINAGE.md` et `HANDOFF_IA_COMPLET.md`.\n   - **Suivi graphique temps réel** : maintenir à jour le tableau de bord visuel temps réel des réalisations achevées et en cours.\n\n## § 1. RÈGLES ACTUALISÉES (PRIMENT SUR LE PROMPT ALPHA 19.11.26)\n1. **Nombre de cours par SSP** : **1 cours par entité de la Cartographie Renouveau** (15 à 24 entités par SSP, 3 975 au total) + le Chapitre 0 (`Phase_A`), dans l'ordre exact des `Cours 1 … N` de `SSP_nnn/NOTIONS.md` / `NOTIONS.json`.\n2. **QUALITÉ CLINIQUE MAXIMALE & ZÉRO MÉDIOCRITÉ (BLOQUANT ABSOLU — Consigne Vial 20.11.26)** :\n   - **Interdiction absolue de toute prose patronnée / générique** : aucune phrase-cadre où seul le nom de la pathologie change d'un cours à l'autre, aucun remplissage artificiel pour atteindre le calibre. La médiocrité clinique est dangereuse et entraîne un rejet immédiat.\n   - Chaque cours (`Phase_A` et `DX.1..N`) doit être **rédigé sur mesure** pour son entité exacte, avec : raisonnement physiopathologique et sémiologique réel, seuils numériques précis, diagnostics différentiels discriminants, posologies et contre-indications sourcées (Compendium.ch / AIPS, Tox Info Suisse, OFSP, ASSM, sociétés savantes suisses), vignettes cliniques authentiques et QCM exigeants de niveau Examen Fédéral Suisse.\n3. **INTERDICTION DES ARBRES DÉCISIONNELS (Consigne Vial 20.11.26)** :\n   - **Ne générer AUCUN arbre décisionnel ni algorithme graphique (`.fm-canvas`, SVG décisionnel, etc.)** dans `Phase_A` ou dans les `DX.n` — l'auteur (Vial) les réalisera lui-même.\n4. **Calibre texte pur actualisé (Consigne Vial 20.11.26)** :\n   - **80 à 100 Ko de texte pur UTF-8 par fichier** (`81 920` à `102 400` octets, calibre du Prompt Alpha confirmé par Vial le 20.11.2026 à 21:20, mesuré fenêtres comprises, hors balises HTML, CSS, JS, SVG et images).\n   - HTML hors images (`controle3.py`) : **`40 000` à `100 000` octets** (alerte).\n   - Densité maximale : zéro remplissage, zéro phrase pouvant figurer telle quelle dans un autre cours, zéro phrase de gabarit de `cartographie_DATA.json`.\n5. **Phrases verbales exclusives (BLOQUANT)** :\n   - Chaque phrase (texte, fenêtres, listes, légendes `<figcaption>`, cellules narratives `<td>`) contient un verbe conjugué reconnu. **Zéro phrase nominale.**\n4. **Médicaments cliquables d'emblée & Fenêtres centrées PK/PD à 2 onglets (Consigne Vial 20.11.26)** :\n   - Dès qu'un médicament est évoqué, il devient cliquable (`<a class=\"ouvre med-chip\" href=\"#f-...\">`).\n   - Chaque `<section class=\"fenetre mb\" id=\"f-...\"><div class=\"fen\">` s'ouvre au centre de l'écran et contient **2 onglets** :\n     * **Onglet 1 (`data-tab=\"pk\"`)** : Pharmacocinétique + **Courbe vectorielle SVG $C(t)$** + **4 paramètres cliniciens mis en évidence** (`.pkpd-kpis`).\n     * **Onglet 2 (`data-tab=\"pd\"`)** : Pharmacodynamique & Clinique + **Courbe vectorielle SVG $E(C)$** + posologies/précautions/grossesse suisses (Compendium.ch / AIPS).\n5. **Images** : uniquement à l'intérieur des `<section class=\"fenetre\">`, jamais hors fenêtre (licences selon Prompt Alpha § 4). Ne comptent pas dans le calibre.\n6. **Zéro terminologie de chantier visible** : aucun texte visible (ni `<title>`) ne doit contenir `LOT`, `V0`, `Phase A/B`, `DX.n`, `Appel A/B`, `Partie n`. Seuls les noms de fichiers gardent le format Alpha (`LOT_nnn_Phase_A_V0.html`, `LOT_nnn_Phase_B_V0_DX.i.html`).\n7. **Circuits & Plans** :\n   - `MONOGRAPHIQUE` (189 SSP) : plan maladie en 14 points (Prompt Alpha § 3.1).\n   - `NON_MONOGRAPHIQUE` (52 SSP) : Leçon en 12 à 14 points adaptés (Prompt Alpha § 3.2). **Jamais** de plan maladie ni de titres « Physiopathologie / Approche syndromique / Diagnostic positif » artificiels.\n   - `MIXTE` (7 SSP) : Prompt Alpha § 3.3, chaque fichier déclare `<meta name=\"ssp-circuit\" content=\"...\">`.\n8. **Correctifs Frontend v2 / Architecture `_sources/` (`UNIQUE.html` & `_polices/`)** :\n   - **Arborescence propre par SSP** : à la racine de `SSP_nnn/`, seul **`SSP_nnn_<code>_UNIQUE.html`** (plus le sous-dossier **`_sources/`**) est visible. Tous les fichiers sources (`LOT_nnn_*.html`, `images/`, `NOTIONS.*`, `MANIFESTE.json`, `DECISION*`, `paquet.json`, `_archive_avant_alpha/`) sont rangés dans `SSP_nnn/_sources/` sans rien supprimer.\n   - **Barre haute amovible (`gabarit_unique.html`)** : `#topbar` compacte 1 ligne (~42 px) avec pilule active, fil d'Ariane section, boutons `◀`/`▶`, tiroir overlay amovible `#dd-drawer` (`☰ Diagnostics (N) ▾` + option `📌 Épingler`) contenant `nav#nav` en colonnes égales (`32 px`, teinte unique par cours), et bouton `▴ Masquer barre` + pilule flottante `#btn-show-bar`.\n   - **Zéro dédoublement & navigation `#...` 100 % fonctionnelle (`forme.js`)** : script `forme.js` exécuté sous `DOMContentLoaded` et injecté par `assembler_unique.py`/`inliner.py` après `</head>` et avant `#signature-ia`/`</body>` ; intercepteur global appelant `e.preventDefault()` sur 100 % des `href^=\"#\"` (bloque le rechargement `srcdoc` + `file://`).\n   - **Modales centrées `<div class=\"fen\">` & désaturation (`forme.css` / `optimiser_ssp.py`)** : ouverture via classe `.fm-open` (plus `:target` en repli) avec pile `modalStack` et bouton `Fermer ✕` sticky (sans `history.back()`), auto-enveloppement `<div class=\"fen\">`, tableaux hors modale déplacés vers `<section class=\"fenetre fm-tab-fen\">` déclenchés par cartes `.fm-encart-fen`, citations `<sup class=\"r\"><a>` compactées en `[N]` avec modale aperçu `#fm-src-modal` empilable (`fm-stack-top`), puces médicaments `a.ouvre.med-chip` (`℞ ...`, `white-space: nowrap`, compatible accents français), repli du plan latéral desktop `#fm-plan-toggle`, îlots discontinus (`margin-bottom: 30px`) et padding bas `5.5rem` protégeant la lecture au-dessus de `#signature-ia`.\n   - **HTML unique** : ne jamais l'écrire à la main ; toujours exécuter `optimiser_ssp.py` puis `assembler_unique.py nnn`.\n\n## § 2. ARCHIVAGE & WORKFLOW PAR SSP (P0 → P4)\n- **Zéro suppression** : avant d'écraser ou renommer un fichier source existant, archiver dans `SSP_nnn/_sources/_archive_avant_alpha/`.\n- **P0 (Préparer)** : lire circuit (`catalogue_248.json`), entités (`NOTIONS.md`/`NOTIONS.json`), `memoire_zero_token.py --digest --lot nnn`, écrire `PLAN_ENTITES.md`.\n- **P1 (Décider)** : noter dans `DECISION.md` (Corriger / Réécrire si mécanique, faux plan maladie ou `< 30 Ko` / Créer).\n- **P2 (Produire)** : `LOT_nnn_Phase_A_V0.html` + `LOT_nnn_Phase_B_V0_DX.1..N.html`, 100 % des notions de `NOTIONS.json` expliquées et sourcées (Compendium.ch / AIPS, OFSP, ASSM, CC, LAMal, LAVI, Smarter Medicine), sans aucune phrase gabarit de la cartographie.\n- **P3 (Portes de Contrôle + Optimisation + Assemblage + Audit Chrome)** :\n  1. `controle3.py --script-ok` → **`VERT {}`** (si `paquet.json` présent ; `--script-ok` requis car `_sources/` référence `../../_polices/forme.js`)\n  2. `verif_aips.py` → **`OK`** (si `paquet.json` présent) et `restaurer_fond.py --verifier` → **`exit=0`**\n  3. `python _outils/optimiser_ssp.py nnn` → migration vers `_sources/`, tableaux déplacés en `<div class=\"fen\">`, teintes non bleues `--fm-a`\n  4. `python _outils/verif_mission.py nnn` → **100 % fichiers `PASS`** (`errors: []`)\n  5. `python _outils/assembler_unique.py nnn` → **`(1 + N) / (1 + N) onglets`** à la racine de `SSP_nnn/`\n  6. `python _outils/notions.py verifier nnn` → **`0 NON`** + copier `rapport_notions.csv` dans `SSP_nnn/_sources/`\n  7. `python _outils/audit_unique_browser.py nnn --all-tabs` → **`PASS` sur 100 % des onglets en Chrome headless réel**\n  8. Ajouter ligne dans `SUIVI_PRODUCTION.csv` + `git commit` + `git push origin main`.\n- **P4 (Affinage)** : consigner tout doute clinique/posologique non vérifié dans `1_Claude AI/HANDOFF_AFFINAGE.md` sous `## SSP_nnn`.\n\n## § 3. MISSION 2 — SSP 001 → 032\n- Extraire les cours depuis `SSP_nnn_<code>_UNIQUE.html` (JSON `data` gzip+base64, marqueurs `@@IMG:…@@`, `@@FONT:…@@`) après archivage des anciens `LOT_nnn_*.html` dans `_archive_avant_alpha/`.\n- Le frontend reste identique ; auditer le contenu avec la même sévérité (attention : `SSP_013` G13 = `NON_MONOGRAPHIQUE`, `SSP_014` G14 = `MIXTE`).\n- Produire `1_Claude AI/AUDIT_001-032.md` et corriger tous les ❌.\n\n## § 4. LES 12 BLOCAGES ROUGE (REJET IMMÉDIAT)\n1. Identification absente ou incertaine.\n2. Signature `#signature-ia` absente, modifiée ou supprimée.\n3. Entité de la Cartographie sans cours.\n4. Fichier hors intervalle `80–100 Ko` de texte pur (tout cours ; un cours de 30–50 Ko est à enrichir).\n5. Toute phrase nominale.\n6. Toute notion au verdict `NON`.\n7. Phrase gabarit de `cartographie_DATA.json` recopiée dans un cours.\n8. Plan maladie appliqué à une Leçon `NON_MONOGRAPHIQUE`.\n9. Terme de chantier visible (`LOT`, `V0`, `Phase A/B`, `DX.n`, `Appel`, `Partie n`).\n10. Posologie sans source de la cascade suisse.\n11. Image hors `<section class=\"fenetre\">`.\n12. Fichier supprimé au lieu d'être archivé.\n\n## § 5. ANNEXE CIRCUITS (248 SSP)\n- **NON_MONOGRAPHIQUE (52)** : 013 · 065 · 069 · 176 · 180 · 181 · 182 · 184 · 185 · 186 · 192 · 194 · 195 · 198 · 200 · 203 · 204 · 205 · 206 · 207 · 208 · 209 · 210 · 211 · 212 · 213 · 214 · 215 · 216 · 217 · 218 · 219 · 220 · 221 · 222 · 224 · 225 · 226 · 227 · 232 · 233 · 235 · 236 · 237 · 238 · 239 · 240 · 241 · 242 · 243 · 246 · 247.\n- **MIXTE (7)** : 014 · 165 · 174 · 175 · 190 · 202 · 223.\n- **MONOGRAPHIQUE (189)** : tous les autres SSP."
+}

@@ -1,0 +1,2444 @@
+{
+  "rappel_obligatoire_avant_redaction": {
+    "lecture_imperative": [
+      "1. Lire intégralement PROMPT_Alpha_19.11.26.md ET la mise à jour incluse dans prompt_alpha_a_jour ci-dessous.",
+      "2. Respecter l'intervalle GLOBAL par cours : viser 85–95 Ko de texte médical pur (soit ~95–115 Ko de fichier JSON) sans quota rigide par partie — répartir le texte proportionnellement à l'importance clinique des parties.",
+      "3. Produire graduellement 1 cours complet par requête (Phase A, puis Cours 1, Cours 2...) en français médical académique, phrases verbales exclusives (0 phrase nominale), zéro prose générique ou patronnée.",
+      "4. Utiliser uniquement les guillemets typographiques français « … » dans les valeurs texte JSON (jamais de guillemet droit non échappé).",
+      "5. Zéro arbre décisionnel graphique (.fm-canvas) : ne générer aucun schéma décisionnel."
+    ],
+    "specificites_locales_ssp": [
+      "Circuit MONOGRAPHIQUE : respecter le plan maladie en 14 points avec socle généralités (1-3), démarche diagnostique (4-10), prise en charge posologique suisse intégrale (11) et QCM Examen Fédéral (14).",
+      "Couvrir 100 % des notions obligatoires listées dans phase_b[*].plan[*].notions_obligatoires pour Perte de vision aiguë ou progressive (rapide, lente, temporaire ou partielle) (S1.2).",
+      "Cascade posologique suisse à 4 paliers obligatoire : 1. AIPS Swissmedic (n° 5 chiffres) -> 2. Compendium.ch -> 3. Sociétés savantes & CHU suisses (HUG, CHUV, Inselspital, USZ, USB, OFSP, ASSM, SSMIG, Tox Info Suisse 145) -> 4. Sociétés savantes européennes."
+    ]
+  },
+  "meta": {
+    "rang_gravite": 195,
+    "ssp": "SSP_018",
+    "code_profiles": "S1.2",
+    "nom_francais": "Perte de vision aiguë ou progressive (rapide, lente, temporaire ou partielle)",
+    "circuit": "MONOGRAPHIQUE",
+    "police_obligatoire": "Atkinson Hyperlegible",
+    "calibre_cible": "80–100 Ko texte pur",
+    "arbres_decisionnels_autorises": false,
+    "mode_redaction": "Neon Deep Research",
+    "nb_chapitres_total": 16,
+    "defauts_audit_initial": [
+      "Incomplet (11/16 cours)",
+      "192 phrases nominales",
+      "Termes chantier (11 f.)"
+    ]
+  },
+  "sommaire": {
+    "phase_a": {
+      "fichier_html_cible": "LOT_018_Phase_A_V0.html",
+      "titre": "Perte de vision aiguë ou progressive (rapide, lente, temporaire ou partielle) — Vue d'ensemble et orientation clinique (S1.2)"
+    },
+    "phase_b": [
+      {
+        "cours_numero": 1,
+        "titre": "Cataracte sénile (nucléaire, corticale ou sous-capsulaire postérieure)",
+        "cim": "H25.9",
+        "urgence": "chronique"
+      },
+      {
+        "cours_numero": 2,
+        "titre": "Dégénérescence maculaire liée à l'âge (DMLA sèche atrophique ou humide exsudative)",
+        "cim": "H35.3",
+        "urgence": "semi-urgent"
+      },
+      {
+        "cours_numero": 3,
+        "titre": "Vices de réfraction non corrigés (myopie, hypermétropie, astigmatisme, presbytie)",
+        "cim": "H52.7",
+        "urgence": "chronique"
+      },
+      {
+        "cours_numero": 4,
+        "titre": "Glaucome chronique à angle ouvert (GPAO)",
+        "cim": "H40.1",
+        "urgence": "chronique"
+      },
+      {
+        "cours_numero": 5,
+        "titre": "Rétinopathie diabétique (non proliférante, proliférante) et œdème maculaire diabétique",
+        "cim": "H36.0",
+        "urgence": "semi-urgent"
+      },
+      {
+        "cours_numero": 6,
+        "titre": "Névrite optique rétrobulbaire (NORB) démyélinisante",
+        "cim": "H46",
+        "urgence": "urgent"
+      },
+      {
+        "cours_numero": 7,
+        "titre": "Occlusion de la veine centrale de la rétine (OVCR) ou d'une branche veineuse (OBVR)",
+        "cim": "H34.8",
+        "urgence": "urgent"
+      },
+      {
+        "cours_numero": 8,
+        "titre": "Aura migraineuse visuelle (scotome scintillant)",
+        "cim": "G43.1",
+        "urgence": "chronique"
+      },
+      {
+        "cours_numero": 9,
+        "titre": "Choriorétinopathie séreuse centrale (CRSC)",
+        "cim": "H35.7",
+        "urgence": "chronique"
+      },
+      {
+        "cours_numero": 10,
+        "titre": "Rétinopathie pigmentaire (dystrophie héréditaire des bâtonnets et des cônes)",
+        "cim": "H35.5",
+        "urgence": "chronique"
+      },
+      {
+        "cours_numero": 11,
+        "titre": "Occlusion de l'artère centrale de la rétine (OACR) ou amaurose fugace (AIT rétinien)",
+        "cim": "H34.1",
+        "urgence": "immediate"
+      },
+      {
+        "cours_numero": 12,
+        "titre": "Neuropathie optique ischémique antérieure aiguë artéritique (NOIAA sur maladie de Horton / artérite à cellules géantes)",
+        "cim": "M31.6",
+        "urgence": "immediate"
+      },
+      {
+        "cours_numero": 13,
+        "titre": "Décollement de rétine rhegmatogène (DRR) ou déchirure rétinienne",
+        "cim": "H33.0",
+        "urgence": "urgent"
+      },
+      {
+        "cours_numero": 14,
+        "titre": "Hémorragie intravitréenne aiguë",
+        "cim": "H43.1",
+        "urgence": "urgent"
+      },
+      {
+        "cours_numero": 15,
+        "titre": "Hémianopsie latérale homonyme aiguë (AVC ischémique ou hémorragique rétro-chiasmatique)",
+        "cim": "H53.4",
+        "urgence": "immediate"
+      }
+    ]
+  },
+  "phase_a": {
+    "titre": "Perte de vision aiguë ou progressive (rapide, lente, temporaire ou partielle) — Vue d'ensemble (S1.2)",
+    "plan": [
+      {
+        "point": 1,
+        "titre": "Définition nosologique et périmètre clinique",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 2,
+        "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 3,
+        "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 4,
+        "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+        "description": "Présentation et hiérarchisation des 15 entités de la Cartographie Renouveau."
+      },
+      {
+        "point": 5,
+        "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 6,
+        "titre": "Examen physique systématique région par région",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 7,
+        "titre": "Approche syndromique et stratification de gravité",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 8,
+        "titre": "Diagnostic positif, scores cliniques et critères validés",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 9,
+        "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 10,
+        "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 11,
+        "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 12,
+        "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 13,
+        "titre": "Points clés indispensables à retenir",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 14,
+        "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      }
+    ]
+  },
+  "phase_b": [
+    {
+      "cours_numero": 1,
+      "fichier_html_cible": "LOT_018_Phase_B_V0_DX.1.html",
+      "titre": "Cataracte sénile (nucléaire, corticale ou sous-capsulaire postérieure)",
+      "cim": "H25.9",
+      "urgence": "chronique",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Opacification progressive du cristallin liée au vieillissement entraînant une baisse visuelle, un éblouissement et une myopisation d'indice."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Première cause de cécité réversible dans le monde ; chirurgie la plus pratiquée en Suisse."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Modification oxydative et agrégation des cristallines insolubles avec perte de transparence et augmentation de l'indice de réfraction du noyau."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Baisse visuelle brutale, douleur oculaire, amputation du champ visuel ou métamorphopsies (rechercher une DMLA associée)."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Baisse d'acuité visuelle progressive de loin, photophobie/halos (phares la nuit), voile brumeux, amélioration paradoxale transitoire de la vision de près."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Acuité visuelle diminuée non améliorable par la réfraction seule, lueur pupillaire atténuée, opacité cristallinienne visible à la lampe à fente après dilatation."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Opacification cristallinienne concordante avec la baisse d'acuité visuelle mesurée."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Examen ophtalmologique complet à la lampe à fente et fond d'œil dilaté ; biométrie oculaire (calcul d'implant) en préopératoire."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "OCT maculaire préopératoire systématique pour éliminer une maculopathie sous-jacente."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Aucune urgence (sauf cataracte intumescente phacomorphe) ; adaptation temporaire des verres."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Phacoémulsification par ultrasons avec pose d'implant intraoculaire en chambre postérieure sous anesthésie topique/locorégionale."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Rupture capsulaire postérieure peropératoire, endophtalmie aiguë post-opératoire, opacification capsulaire secondaire."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Contrôles post-opératoires à J1, J7 et M1 avec collyres antibiotiques et anti-inflammatoires."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Récupération visuelle excellente (> 95 %) en l'absence de pathologie rétinienne ou optique associée."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Ophtalmologue, opticien."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 2,
+      "fichier_html_cible": "LOT_018_Phase_B_V0_DX.2.html",
+      "titre": "Dégénérescence maculaire liée à l'âge (DMLA sèche atrophique ou humide exsudative)",
+      "cim": "H35.3",
+      "urgence": "semi-urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Vieillissement pathologique de la macula caractérisé par des drusen, une atrophie géographique (forme sèche) ou une néovascularisation choroïdienne (forme humide)."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Prévalence ~8–10 % après 65 ans et > 25 % après 80 ans ; facteurs de risque : âge, tabac, génétique (CFH)."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Accumulation de lipofuscine dans l'épithélium pigmentaire rétinien (drusen), hypoxie externe et sécrétion de VEGF induisant des néovaisseaux perméables."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Apparition ou aggravation brutale de métamorphopsies (urgence ophtalmologique sous quelques jours pour injection d'anti-VEGF)."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Forme sèche : baisse lente de la vision de près ; forme exsudative : apparition rapide de métamorphopsies (lignes ondulées) et scotome central."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Grille d'Amsler (ondulation des lignes, tache sombre centrale), fond d'œil (drusen séreux, remaniements pigmentaires, hémorragies ou exsudats maculaires)."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Drusen/atrophie ou néovaisseaux maculaires objectivés à l'OCT chez un sujet > 50 ans."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "OCT maculaire (fluide sous-rétinien/intrarétinien, décollement de l'épithélium pigmentaire) et OCT-angiographie."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Angiographie à la fluorescéine et au vert d'indocyanine (ICG) si doute diagnostique (vasculopathie polypoïdale)."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Injections intravitréennes (IVT) d'anti-VEGF (ranibizumab, aflibercept, faricimab) en urgence relative dans la forme exsudative."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Arrêt du tabac, supplémentation AREDS2 (lutéine, zéaxanthine, zinc, vitamines C/E), schéma Treat-and-Extend d'IVT, rééducation basse vision."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Hémorragie sous-maculaire massive, cicatrice disciforme fibreuse, perte de l'autonomie de lecture et conduite."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Autosurveillance régulière sur grille d'Amsler, contrôles OCT mensuels ou bimestriels."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Conservation de la vision périphérique (pas de cécité totale) ; pronostic central transformé par les anti-VEGF."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Ophtalmologue rétinologue, orthoptiste basse vision, ergothérapeute."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 3,
+      "fichier_html_cible": "LOT_018_Phase_B_V0_DX.3.html",
+      "titre": "Vices de réfraction non corrigés (myopie, hypermétropie, astigmatisme, presbytie)",
+      "cim": "H52.7",
+      "urgence": "chronique",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Inadéquation entre la longueur axiale du globe oculaire et la puissance dioptrique cornéo-cristallinienne (amétropie) ou perte de l'accommodation (presbytie)."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Affecte plus de la moitié de la population générale ; presbytie universelle dès 45 ans."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Focalisation de l'image en avant de la rétine (myopie), en arrière (hypermétropie) ou selon deux méridiens focaux distincts (astigmatisme)."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Absence d'amélioration au trou sténopéique, myopisation rapide unilatérale (cataracte nucléaire ou diabète décompensé), kératocône."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Flou visuel progressif de loin (myopie) ou de près avec fatigue visuelle (presbytie, hypermétropie)."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Mesure de l'acuité visuelle de loin (Monoyer/ETDRS) et de près (Parinaud) avec normalisation complète au trou sténopéique."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Restitution d'une acuité visuelle à 10/10 (1,0) et Parinaud 2 après correction optique."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Autoréfractométrie, skiascopie (chez l'enfant sous cycloplégie) et réfraction subjective."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Topographie cornéenne si astigmatisme irrégulier évolutif (dépistage du kératocône)."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Prescription de verres correcteurs (sphériques, cylindriques ou progressifs)."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Lunettes, lentilles de contact ou chirurgie réfractive (LASIK, PKR, implant phaque)."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Amblyopie chez l'enfant si anisométropie non corrigée avant 6–8 ans ; complications infectieuses sous lentilles."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Contrôle ophtalmologique périodique (dépistage glaucome et rétine du myope fort)."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Excellent après équipement optique."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Ophtalmologue, optométriste, opticien."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 4,
+      "fichier_html_cible": "LOT_018_Phase_B_V0_DX.4.html",
+      "titre": "Glaucome chronique à angle ouvert (GPAO)",
+      "cim": "H40.1",
+      "urgence": "chronique",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Neuropathie optique antérieure chronique progressive par apoptose des cellules ganglionnaires rétiniennes, avec angle irido-cornéen ouvert en gonioscopie."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "2 % de la population > 40 ans ; facteurs de risque : hypertonie oculaire (> 21 mmHg), antécédents familiaux, mélanodermie, myopie forte, cornée fine."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Résistance accrue à l'écoulement de l'humeur aqueuse dans le trabéculum -> hypertonie oculaire -> souffrance mécanique et ischémique des axones au niveau de la lame criblée."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Scotome arqué de Bjerrum ou ressaut nasal menaçant le point de fixation, pression intraoculaire très élevée."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Totalement indolore et asymptomatique jusqu'aux stades avancés (conservation prolongée de l'acuité centrale)."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Tonométrie à aplanation de Goldmann, pachymétrie cornéenne, gonioscopie (angle ouvert), fond d'œil (excavation papillaire accrue C/D > 0,5, asymétrique, hémorragie papillaire)."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Excavation papillaire glaucomateuse corrélée à un déficit fasciculaire du champ visuel et amincissement RNFL à l'OCT, avec angle ouvert."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Périmétrie automatisée standard (champ visuel Humphrey/Octopus) et OCT de la couche des fibres nerveuses rétiniennes (RNFL)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Courbe diurne de PIO si suspicion de glaucome à pression normale."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Instauration d'un collyre hypotonisant de 1re intention (analogue des prostaglandines le soir ou bêtabloquant) ou trabéculoplastie laser sélective (SLT)."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Atteinte de la PIO cible individuelle par collyres combinés, laser SLT ou chirurgie filtrante (trabéculectomie, sclérectomie profonde)."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Cécité irréversible par perte finale de l'îlot central de vision en cas d'inobservance."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Contrôle PIO, fond d'œil, OCT RNFL et champ visuel tous les 4 à 6 mois."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Stabilisation du champ visuel si la PIO cible est maintenue au long cours."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Ophtalmologue."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 5,
+      "fichier_html_cible": "LOT_018_Phase_B_V0_DX.5.html",
+      "titre": "Rétinopathie diabétique (non proliférante, proliférante) et œdème maculaire diabétique",
+      "cim": "H36.0",
+      "urgence": "semi-urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Microangiopathie rétinienne secondaire à l'hyperglycémie chronique associant hyperperméabilité capillaire (œdème maculaire) et occlusion capillaire (ischémie -> néovaisseaux)."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Première cause de cécité chez l'adulte en âge de travailler (< 60 ans) ; corrélée à l'ancienneté du diabète, l'HbA1c et l'HTA."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Perte des péricytes, épaississement de la membrane basale, rupture de la barrière hémato-rétinienne (exsudats) et hypoxie rétinienne induisant la sécrétion de VEGF."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Néovaisseaux pré-papillaires, rubéose irienne (glaucome néovasculaire), hémorragie intravitréenne, baisse rapide d'acuité lors d'une rééquilibration glycémique trop brutale."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Longtemps asymptomatique ; flou visuel progressif (œdème maculaire) ou pluie de suie / voile rouge-noir brutal (hémorragie du vitré)."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Fond d'œil dilaté : microanévrismes, hémorragies ponctuées/en flammèches, exsudats secs lipidiques, nodules cotonneux, AMIR, néovaisseaux pré-rétiniens ou pré-papillaires."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Lésions microvasculaires caractéristiques au fond d'œil et épaississement maculaire kystique à l'OCT."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Rétinophotographies du fond d'œil, OCT maculaire (quantification de l'œdème) et OCT-angiographie / angiographie à la fluorescéine."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Échographie en mode B si hémorragie intravitréenne dense empêchant de voir la rétine (rechercher un décollement tractionnel)."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "IVT d'anti-VEGF ou d'implants de dexaméthasone si œdème maculaire central ; panphotocoagulation rétinienne au laser (PPR) si rétinopathie proliférante."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Équilibre progressif de l'HbA1c (< 7 %) et strict de la pression artérielle (< 130/80 mmHg) ; vitrectomie si hémorragie persistante ou décollement tractionnel."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Glaucome néovasculaire réfractaire, décollement de rétine tractionnel, cécité."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Fond d'œil annuel systématique chez tout diabétique (plus rapproché selon le stade et pendant la grossesse)."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Prévention de > 90 % des cécités grâce au dépistage annuel et aux traitements par laser/anti-VEGF."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Ophtalmologue, diabétologue, médecin traitant."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 6,
+      "fichier_html_cible": "LOT_018_Phase_B_V0_DX.6.html",
+      "titre": "Névrite optique rétrobulbaire (NORB) démyélinisante",
+      "cim": "H46",
+      "urgence": "urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Inflammation démyélinisante aiguë du nerf optique, le plus souvent rétrobulbaire (« le patient ne voit rien et le médecin non plus » au fond d'œil initial)."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Mode d'entrée dans 20 % des scléroses en plaques (SEP) ; prédominance féminine (3:1), âge 20–40 ans."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Démyélinisation inflammatoire focale des axones du nerf optique ralentissant la conduction saltatoire et altérant la vision des couleurs et des contrastes."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Atteinte bilatérale simultanée, cécité complète sans récupération, œdème papillaire sévère (rechercher anticorps anti-AQP4 [NMOSD] ou anti-MOG)."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Baisse visuelle installée en quelques jours, douleur rétro-orbitaire déclenchée par la mobilisation du globe, phénomène d'Uhthoff (aggravation à la chaleur/effort)."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Déficit pupillaire afférent relatif (DPAR / signe de Marcus Gunn) constant, dyschromatopsie d'axe rouge-vert, fond d'œil normal dans 2/3 des cas (papillite dans 1/3)."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Baisse visuelle douloureuse aux mouvements + Marcus Gunn + hypersignal du nerf optique à l'IRM."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "IRM cérébrale et des nerfs optiques avec gadolinium (hypersignal et prise de contraste du nerf optique + recherche de dissémination spatiale/temporelle selon McDonald), champ visuel (scotome central ou cæco-central)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Ponction lombaire (bandes oligoclonales), potentiels évoqués visuels (allongement de l'onde P100), sérologies anti-MOG et anti-AQP4."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Bolus de méthylprednisolone IV (1 g/j pendant 3 à 5 jours) qui accélère la récupération visuelle (la corticothérapie orale seule à faible dose est contre-indiquée)."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Traitement de fond immunomodulateur de la SEP si critères de McDonald remplis."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Séquelles à type de pâleur papillaire temporale et baisse de sensibilité aux contrastes ; rechutes (SEP/NMOSD)."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Acuité visuelle, champ visuel, OCT RNFL/GCC et suivi IRM neurologique."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Récupération visuelle spontanée ou sous corticoïdes dans > 90 % des cas en 4 à 8 semaines (dans la SEP classique)."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Neurologue, ophtalmologue."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 7,
+      "fichier_html_cible": "LOT_018_Phase_B_V0_DX.7.html",
+      "titre": "Occlusion de la veine centrale de la rétine (OVCR) ou d'une branche veineuse (OBVR)",
+      "cim": "H34.8",
+      "urgence": "urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Interruption du retour veineux rétinien au niveau de la lame criblée (OVCR) ou d'un croisement artério-veineux (OBVR), de forme œdémateuse ou ischémique."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Deuxième vasculopathie rétinienne après la rétinopathie diabétique ; survient après 55 ans (HTA, glaucome chronique, athérosclérose)."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Compression de la veine par l'artère sclérosée partageant la même gaine adventitielle -> stase, thrombose luminale, hémorragies et œdème maculaire VEGF-dépendant."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Acuité < 1/10, déficit pupillaire afférent marqué, nombreux nodules cotonneux (forme ischémique à haut risque de glaucome néovasculaire à 3 mois)."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Baisse visuelle unilatérale soudaine, indolore, souvent découverte au réveil, d'intensité variable selon le caractère ischémique."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Fond d'œil : dilatation et tortuosité veineuses, hémorragies rétiniennes en flammèches et en taches dans les 4 quadrants (OVCR) ou un secteur (OBVR), nodules cotonneux, œdème papillaire et maculaire."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Aspect typique du fond d'œil associant tortuosité veineuse et hémorragies diffuses ou sectorielles."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "OCT maculaire (œdème maculaire cystoïde) et angiographie à la fluorescéine (évaluation des territoires de non-perfusion capillaire) ; mesure de la PIO et de la PA."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Bilan de thrombophilie et d'hyperviscosité uniquement chez le sujet jeune (< 50 ans) ou en cas d'atteinte bilatérale."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Injections intravitréennes d'anti-VEGF ou d'implant de dexaméthasone contre l'œdème maculaire ; photocoagulation panrétinienne si néovascularisation dans les formes ischémiques."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Contrôle strict de l'HTA et dépistage/traitement d'un glaucome à angle ouvert sous-jacent (facteur de risque majeur)."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Glaucome néovasculaire dit « des 100 jours » par rubéose irienne, maculopathie chronique."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Contrôle mensuel (gonioscopie pour dépister la rubéose irienne, OCT) les 6 premiers mois."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Bon dans les formes non ischémiques sous IVT ; réservé dans les formes ischémiques sévères."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Ophtalmologue, médecin traitant, cardiologue."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 8,
+      "fichier_html_cible": "LOT_018_Phase_B_V0_DX.8.html",
+      "titre": "Aura migraineuse visuelle (scotome scintillant)",
+      "cim": "G43.1",
+      "urgence": "chronique",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Déficit neurologique visuel cortical entièrement réversible lié à la dépression corticale envahissante occipitale, suivi ou non de céphalée migraineuse."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Concerne ~25–30 % des patients migraineux ; peut survenir isolément sans céphalée chez le sujet plus âgé (aura typique sans céphalée)."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Onde de dépolarisation neuronale et gliale se propageant à 3 mm/min sur le cortex visuel strié (V1) suivie d'une oligémie transitoire."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Amaurose strictement monoculaire brutale (AIT rétinien), déficit négatif d'emblée brutal, durée > 60 min, premier épisode après 50 ans."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Spectre de fortification scintillant en zigzag à marche centrifuge progressive sur 15–30 min, persistant les yeux fermés, suivi d'une céphalée pulsatile."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Examen ophtalmologique et neurologique strictement normal après l'épisode."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Sémiologie visuelle positive et progressive typique chez un patient migraineux avec examen normal."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Diagnostic clinique selon les critères ICHD-3 (caractère positif, progression graduelle >= 5 min, durée 5–60 min)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "IRM cérébrale et écho-Doppler carotidien en cas d'aura atypique, prolongée ou inaugurale après 50 ans."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "AINS dès le début de l'aura ; triptans uniquement au démarrage de la phase céphalalgique (jamais pendant l'aura)."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Éviction des contraceptifs œstroprogestatifs (risque accru d'AVC ischémique dans la migraine avec aura), prophylaxie si crises fréquentes."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "État de mal migraineux, infarctus migraineux exceptionnel."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Calendrier des crises migraineuses."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Bénin et totalement réversible."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Médecin traitant, neurologue."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 9,
+      "fichier_html_cible": "LOT_018_Phase_B_V0_DX.9.html",
+      "titre": "Choriorétinopathie séreuse centrale (CRSC)",
+      "cim": "H35.7",
+      "urgence": "chronique",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Décollement séreux de la rétine neurosensorielle maculaire par hyperperméabilité choroïdienne et fuite à travers l'épithélium pigmentaire."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Homme de 30 à 50 ans, personnalité de type A / stress, prise de corticoïdes (quelle que soit la voie : inhalée, nasale, cutanée, orale)."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Pachychoroïde et dysfonction de la barrière de l'épithélium pigmentaire rétinien aggravée par l'hypercorticisme endogène ou exogène."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Hémorragies maculaires ou drusen chez un sujet > 50 ans (exclure une DMLA néovasculaire ou une vasculopathie polypoïdale)."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Tache grise centrale, métamorphopsies modérées, micropsie (objets paraissant plus petits), baisse visuelle améliorée par un verre convexe (+)."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Bulle de décollement séreux maculaire bien limitée au fond d'œil, sans hémorragie."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Bulle de décollement séreux neurosensoriel maculaire à l'OCT avec point de fuite angiographique."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "OCT maculaire (décollement séreux rétinien + choroïde épaissie) et angiographie à la fluorescéine (point de fuite en « jet de vapeur » ou « tache d'encre »)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Angiographie au vert d'indocyanine (ICG) si forme chronique."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Arrêt de toute corticothérapie non vitale et gestion du stress ; abstention initiale (résorption spontanée fréquente)."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Photothérapie dynamique (PDT) demi-dose ou laser micropulsé si persistance au-delà de 3–4 mois."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Passage à la chronicité avec atrophie de l'épithélium pigmentaire."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Contrôle OCT à 1 et 3 mois."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Résorption spontanée dans 80–90 % des cas en 3 mois, mais récidives possibles (30–50 %)."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Ophtalmologue."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 10,
+      "fichier_html_cible": "LOT_018_Phase_B_V0_DX.10.html",
+      "titre": "Rétinopathie pigmentaire (dystrophie héréditaire des bâtonnets et des cônes)",
+      "cim": "H35.5",
+      "urgence": "chronique",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Groupe hétérogène de dystrophies rétiniennes héréditaires caractérisées par la dégénérescence progressive des photorécepteurs (bâtonnets puis cônes)."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Prévalence ~1/4000 ; transmission autosomique dominante, récessive ou liée à l'X ; syndrome d'Usher si surdité associée."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Mutations de gènes phototransducteurs ou structuraux (rhodopsine, RPE65, USH2A) entraînant l'apoptose des bâtonnets périphériques puis des cônes centraux."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Surdité neurosensorielle associée (syndrome d'Usher), troubles cardiaques ou ataxie (Refsum, Kearns-Sayre)."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Héméralopie dès l'enfance/adolescence, maladresse par perte du champ périphérique, antécédents familiaux."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Triade classique au fond d'œil : ostéoblastes pigmentés en moyenne périphérie, grêlure des vaisseaux rétiniens et pâleur cireuse de la papille."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Triade du fond d'œil + champ visuel tubulaire + extinction de l'ERG."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Électrorétinogramme (ERG) plein champ (extinction précoce de la réponse scotopique puis photopique), champ visuel cinétique de Goldmann et autofluorescence."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Panel génétique par séquençage haut débit (NGS) pour identifier la mutation (notamment RPE65 éligible à la thérapie génique)."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Annonce diagnostique accompagnée, protection solaire par verres filtrants."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Thérapie génique sous-rétinienne (voretigene neparvovec / Luxturna) si mutation bi-allélique de RPE65 ; rééducation basse vision et prise en charge de l'œdème maculaire ou cataracte associés."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Handicap visuel légal, perte de l'aptitude à la conduite automobile."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Suivi annuel du champ visuel et de l'OCT maculaire."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Évolution lente sur plusieurs décennies ; vision centrale souvent longtemps préservée."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Ophtalmologue spécialisé en génétique, généticien, centre basse vision."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 11,
+      "fichier_html_cible": "LOT_018_Phase_B_V0_DX.11.html",
+      "titre": "Occlusion de l'artère centrale de la rétine (OACR) ou amaurose fugace (AIT rétinien)",
+      "cim": "H34.1",
+      "urgence": "immediate",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Infarctus aigu de la rétine interne par oblitération thrombo-embolique de l'artère centrale de la rétine (branche de l'artère ophtalmique, territoire carotidien interne)."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Sujet > 60 ans athéromateux (sténose carotidienne interne), cardiopathie emboligène (FA) ou artérite à cellules géantes (Horton dans 5 % des cas)."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Ischémie aiguë des couches internes de la rétine entraînant un œdème intracellulaire blanchâtre ; la fovéola, dépourvue de couches internes et vascularisée par la choroïde, garde sa coloration rouge (« macula rouge cerise »)."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Céphalée temporale, claudication de la mâchoire, induration de l'artère temporale (maladie de Horton menaçant l'œil adelphe)."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Perte visuelle monoculaire soudaine (« rideau noir »), complète et indolore, parfois précédée d'épisodes d'amaurose fugace."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Acuité visuelle effondrée (décompte des doigts ou perception lumineuse), mydriase aréactive directe avec réflexe consensuel conservé (Marcus Gunn majeur), fond d'œil pâle laiteux avec tache rouge cerise maculaire et rétrécissement artériel diffus."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Cécité monoculaire brutale indolore + DPAR + œdème rétinien ischémique avec macula rouge cerise."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "VS/CRP en urgence absolue (exclure Horton), admission directe en Stroke Unit : angio-CT/IRM cérébrale et des troncs supra-aortiques, ECG/Holter, échocardiographie."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "OCT maculaire (hyperréflectivité des couches internes) et angiographie à la fluorescéine (allongement majeur du temps bras-rétine)."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Urgence neurovasculaire (fenêtre < 4h30 pour discuter thrombolyse IV selon protocole local), hypotonisation oculaire, antiagrégation plaquettaire ; bolus de méthylprednisolone immédiat si suspicion de Horton."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Endartériectomie carotidienne si sténose serrée symptomatique (> 50–70 %), anticoagulation si FA, statine haute intensité."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "AVC hémisphérique constitué dans les jours suivants (risque maximal la 1re semaine), cécité définitive de l'œil atteint, néovascularisation irienne."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Monitoring en Stroke Unit, contrôle ophtalmologique à 1 mois (dépistage rubéose irienne)."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Pronostic visuel sombre si occlusion > 90–240 min ; pronostic vital/cérébral dépend du bilan étiologique immédiat."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Neurologue vasculaire, ophtalmologue, chirurgien vasculaire, cardiologue."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 12,
+      "fichier_html_cible": "LOT_018_Phase_B_V0_DX.12.html",
+      "titre": "Neuropathie optique ischémique antérieure aiguë artéritique (NOIAA sur maladie de Horton / artérite à cellules géantes)",
+      "cim": "M31.6",
+      "urgence": "immediate",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Infarctus de la tête du nerf optique par vascularite granulomateuse oblitérante des artères ciliaires postérieures courtes (maladie de Horton)."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Survient exclusivement après 50 ans (pic 70–80 ans) ; risque de bilatéralisation cécitante de 30 à 50 % en quelques jours sans traitement."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Infiltrat pan-artéritique à cellules géantes multinucléées détruisant la limitante élastique interne des branches des carotides externe et ophtalmique."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Épisodes d'amaurose fugace ou diplopie transitoire chez un patient > 50 ans avec syndrome inflammatoire = prodrome de cécité imminente."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Amaurose fugace ou baisse visuelle brutale indolore, précédée de céphalées temporales inhabituelles, hyperesthésie du cuir chevelu (signe du peigne), claudication massétérine, pseudopolyarthrite rhizomélique, altération de l'état général."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Acuité effondrée, déficit altitudinal ou global du champ visuel, Marcus Gunn, œdème papillaire pâle blanc crayeux au fond d'œil, artère temporale indurée/non pulsatile."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Clinique + syndrome inflammatoire biologique + signe du halo à l'écho-Doppler ou granulome à la biopsie d'artère temporale."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "VS et CRP en urgence, échographie-Doppler des artères temporales (signe du halo hypoéchogène) et biopsie de l'artère temporale (dans les 7–14 j sans retarder le traitement)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Angio-flurographie rétinienne (retard majeur de remplissage choroïdien pathognomonique) et PET-CT des gros vaisseaux."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Bolus de méthylprednisolone IV (500 à 1000 mg/j pendant 3 jours) débuté IMMÉDIATEMENT dès la suspicion clinique, avant même la biopsie."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Relais par prednisone orale (1 mg/kg/j) à décroissance lente sur 12–24 mois + tocilizumab (anti-IL-6R) en épargne cortisonique + prévention de l'ostéoporose."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Cécité bilatérale définitive et irréversible, AVC vertébro-basilaire, aortite."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Acuité visuelle de l'œil sain, CRP/VS mensuelles, glycémie et tension artérielle sous corticoïdes."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "La perte visuelle constituée récupère peu, mais le traitement précoce protège efficacement l'œil controlatéral."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Médecin interniste/rhumatologue, ophtalmologue, médecin traitant."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 13,
+      "fichier_html_cible": "LOT_018_Phase_B_V0_DX.13.html",
+      "titre": "Décollement de rétine rhegmatogène (DRR) ou déchirure rétinienne",
+      "cim": "H33.0",
+      "urgence": "urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Séparation entre la rétine neurosensorielle et l'épithélium pigmentaire par passage de liquide vitréen à travers une déchirure rétinienne (rhegma)."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Incidence ~1/10 000/an ; facteurs de risque majeurs : myopie forte, pseudophaquie (chirurgie de cataracte), traumatisme oculaire, antécédent sur l'œil adelphe."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Décollement postérieur du vitré exerçant une traction vitréo-rétinienne périphérique -> déchirure à clapet -> irruption de vitré liquéfié dans l'espace sous-rétinien."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Décollement avec macula encore attachée (« macula on ») = urgence chirurgicale dans les 24 h avant que le soulèvement n'atteigne la fovéa."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Apparition récente de myodésopsies (pluie de suie) et phosphènes (éclairs lumineux fixes), suivie d'un voile noir périphérique progressant vers le centre."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Acuité visuelle conservée si « macula on » ou effondrée si « macula off », hypotonie oculaire relative, pigment de Shafer (tabac) dans le vitré antérieur, rétine soulevée mobile grise au fond d'œil dilaté au verre à 3 miroirs."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Visualisation du soulèvement rétinien et de la ou des déchirures causales (lois de Lincoff)."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Examen du fond d'œil dilaté des 2 yeux au verre à 3 miroirs de Goldmann avec indentation sclérale et OCT maculaire (statut macula on/off)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Échographie oculaire en mode B si hémorragie intravitréenne associée masquant le fond d'œil."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Si déchirure isolée sans décollement : barrage au laser Argon immédiat ; si décollement constitué : positionnement préopératoire et chirurgie (vitrectomie + retinopexie + tamponnement par gaz ou huile de silicone, ou cryo-indentation)."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Positionnement post-opératoire strict, contre-indication absolue aux voyages en avion/altitude et au protoxyde d'azote tant qu'une bulle de gaz intraoculaire est présente."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Prolifération vitréo-rétinienne (PVR) entraînant une récidive, cataracte post-vitrectomie, hypertonie oculaire."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Contrôles ophtalmologiques rapprochés de la réapplication rétinienne et de l'œil controlatéral."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Réapplication anatomique > 90 % ; pronostic visuel excellent si opéré au stade « macula on », récupération partielle si « macula off »."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Chirurgien vitréo-rétinien, ophtalmologue."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 14,
+      "fichier_html_cible": "LOT_018_Phase_B_V0_DX.14.html",
+      "titre": "Hémorragie intravitréenne aiguë",
+      "cim": "H43.1",
+      "urgence": "urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Irruption de sang dans la cavité vitréenne à partir de vaisseaux rétiniens normaux (déchirure) ou de néovaisseaux anormaux."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Étiologies principales : rétinopathie diabétique proliférante, déchirure rétinienne sur décollement postérieur du vitré, OVCR ischémique, syndrome de Terson (HSA), traumatisme."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Saignement par traction vitréenne sur un vaisseau pontant une déchirure ou rupture de néovaisseaux fragiles dépourvus de jonctions serrées."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Déchirure ou décollement de rétine sous-jacent masqué par le sang, céphalée brutale (syndrome de Terson sur rupture d'anévrisme intracrânien)."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Impression de pluie de suie ou de filaments rouges suivie d'un brouillard sombre massif et indolore."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Acuité réduite selon la densité de l'hémorragie, lueur pupillaire absente ou rouge sombre, fond d'œil inexplorable ou voilé, recherche de rubéose irienne."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Présence d'hématies dans le vitré à la lampe à fente et échos intravitréens mobiles à l'échographie B."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Échographie oculaire en mode B en urgence (obligatoire si fond d'œil invisible pour éliminer une déchirure à clapet ou un décollement de rétine)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Examen du fond d'œil de l'œil controlatéral (oriente vers une rétinopathie diabétique ou une occlusion veineuse)."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Vitrectomie en urgence si décollement de rétine associé à l'échographie B ; sinon repos semi-assis, boissons abondantes et traitement de la cause (laser PPR/anti-VEGF dès éclaircissement)."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Vitrectomie secondaire si non-résorption après 4 à 8 semaines ou chez le diabétique de type 1."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Décollement de rétine méconnu, glaucome fantôme (érythroclastique) ou néovasculaire."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Échographies B répétées chaque semaine tant que la rétine n'est pas visible."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Dépend de l'étiologie maculaire et rétinienne sous-jacente."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Ophtalmologue rétinologue, diabétologue."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 15,
+      "fichier_html_cible": "LOT_018_Phase_B_V0_DX.15.html",
+      "titre": "Hémianopsie latérale homonyme aiguë (AVC ischémique ou hémorragique rétro-chiasmatique)",
+      "cim": "H53.4",
+      "urgence": "immediate",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Déficit campimétrique binoculaire congruant affectant l'hémichamp controlatéral à une lésion des voies optiques rétro-chiasmatiques (bandelette optique, radiations optiques ou cortex occipital)."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Sujet vasculaire ; territoire de l'artère cérébrale postérieure (cortex calcarin avec épargne maculaire fréquente) ou sylvienne (radiations optiques)."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Après décussation des fibres nasales au chiasma, la voie rétro-chiasmatique droite véhicule l'intégralité de l'hémichamp visuel gauche des deux yeux."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Alexie sans agraphie (lésion occipitale gauche + splénium du corps calleux), anosognosie visuelle de cécité corticale (syndrome d'Anton), hémiparésie."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Installation brutale ; le patient heurte les obstacles d'un côté ou perd le début/la fin des lignes à la lecture, tout en attribuant souvent la gêne à un seul œil."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Champ visuel par confrontation au doigt en testant chaque œil séparément (déficit homonyme respectant le méridien vertical), acuité visuelle centrale et réflexes photomoteurs normaux (si lésion occipitale)."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Déficit homonyme respectant le méridien vertical corrélé à une lésion ischémique ou hémorragique rétro-chiasmatique à l'imagerie."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "IRM cérébrale (diffusion, FLAIR, T2*, TOF) ou angio-CT cérébral en urgence absolue (filière thrombolyse)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Périmétrie automatisée en phase subaiguë (confirme l'hémianopsie ou quadranopsie homonyme)."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Alerte AVC, thrombolyse IV (< 4h30) et/ou thrombectomie mécanique selon l'occlusion artérielle, hospitalisation en Stroke Unit."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Prévention secondaire cardiovasculaire, rééducation neuro-visuelle compensatory par saccades d'exploration, interdiction de conduite automobile."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Transformation hémorragique, chutes, perte d'autonomie et inaptitude légale à la conduite."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Score NIHSS, périmétrie de contrôle à 3 et 6 mois."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Récupération variable (partielle dans les 3 premiers mois) ; compensation fonctionnelle par rééducation orthoptique."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Neurologue vasculaire, ophtalmologue, orthoptiste, ergothérapeute."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    }
+  ],
+  "prompt_alpha_a_jour": "# MISSION : CORRECTION ET COMPLÉTION DES 248 SSP SUISSES (3 975 ENTITÉS + 248 CHAPITRES 0)\n\n## § 0. IDENTIFICATION, SIGNATURE & RÈGLES DE CONTINUITÉ — BLOQUANT ABSOLU\n1. **Identification obligatoire** en tête de première réponse :\n   - HEURE DE DÉBUT : AAAA-MM-JJ HH:MM (Europe/Zurich)\n   - MODÈLE : nom exact du modèle (ex. ANTIGRAVITY ORCHESTRATOR NEON)\n   - PLATEFORME : plateforme exacte (ex. ANTIGRAVITY)\n   - Ajouter la même ligne à `1_Claude AI/IDENTIFICATION_AGENTS.md`. Si incertitude, s'arrêter.\n2. **Signature IA fixe en bas à droite de TOUT HTML produit ou modifié** (juste avant `</body>`, en GRAS MAJUSCULE) :\n   `<div id=\"signature-ia\" style=\"position:fixed;right:12px;bottom:10px;z-index:9999;background:#fff;border:2px solid #000;padding:4px 10px;font:700 12px/1.3 Arial,sans-serif;text-transform:uppercase;color:#000\">DÉBUT : AAAA-MM-JJ HH:MM (EUROPE/ZURICH) · MODÈLE : <NOM> · PLATEFORME : <PLATEFORME></div>`\n   - **Seul Vial peut autoriser le retrait de ce bloc.** Un agent qui reprend un fichier signé ajoute sa propre ligne sous la précédente sans jamais effacer l'existante.\n3. **Continuité & transparence** :\n   - **Redémarrage propre à partir de `SSP_248`** : tous les cours précédemment modifiés ont été restaurés à l'état initial (`6941513`). Enchaîner continûment **`SSP_248 → SSP_033`**, puis **`SSP_001 → SSP_032`**.\n   - **Toujours afficher le raisonnement visible** en français dans chaque réponse.\n   - **Veille & relance GitHub** : commiter et pousser sur `origin main` après chaque SSP (ou lot <= 5 SSP) avec l'état à jour dans `SUIVI_PRODUCTION.csv`, `HANDOFF_AFFINAGE.md` et `HANDOFF_IA_COMPLET.md`.\n   - **Suivi graphique temps réel** : maintenir à jour le tableau de bord visuel temps réel des réalisations achevées et en cours.\n\n## § 1. RÈGLES ACTUALISÉES (PRIMENT SUR LE PROMPT ALPHA 19.11.26)\n1. **Nombre de cours par SSP** : **1 cours par entité de la Cartographie Renouveau** (15 à 24 entités par SSP, 3 975 au total) + le Chapitre 0 (`Phase_A`), dans l'ordre exact des `Cours 1 … N` de `SSP_nnn/NOTIONS.md` / `NOTIONS.json`.\n2. **QUALITÉ CLINIQUE MAXIMALE & ZÉRO MÉDIOCRITÉ (BLOQUANT ABSOLU — Consigne Vial 20.11.26)** :\n   - **Interdiction absolue de toute prose patronnée / générique** : aucune phrase-cadre où seul le nom de la pathologie change d'un cours à l'autre, aucun remplissage artificiel pour atteindre le calibre. La médiocrité clinique est dangereuse et entraîne un rejet immédiat.\n   - Chaque cours (`Phase_A` et `DX.1..N`) doit être **rédigé sur mesure** pour son entité exacte, avec : raisonnement physiopathologique et sémiologique réel, seuils numériques précis, diagnostics différentiels discriminants, posologies et contre-indications sourcées (Compendium.ch / AIPS, Tox Info Suisse, OFSP, ASSM, sociétés savantes suisses), vignettes cliniques authentiques et QCM exigeants de niveau Examen Fédéral Suisse.\n3. **INTERDICTION DES ARBRES DÉCISIONNELS (Consigne Vial 20.11.26)** :\n   - **Ne générer AUCUN arbre décisionnel ni algorithme graphique (`.fm-canvas`, SVG décisionnel, etc.)** dans `Phase_A` ou dans les `DX.n` — l'auteur (Vial) les réalisera lui-même.\n4. **Calibre texte pur actualisé (Consigne Vial 20.11.26)** :\n   - **80 à 100 Ko de texte pur UTF-8 par fichier** (`81 920` à `102 400` octets, calibre du Prompt Alpha confirmé par Vial le 20.11.2026 à 21:20, mesuré fenêtres comprises, hors balises HTML, CSS, JS, SVG et images).\n   - HTML hors images (`controle3.py`) : **`40 000` à `100 000` octets** (alerte).\n   - Densité maximale : zéro remplissage, zéro phrase pouvant figurer telle quelle dans un autre cours, zéro phrase de gabarit de `cartographie_DATA.json`.\n5. **Phrases verbales exclusives (BLOQUANT)** :\n   - Chaque phrase (texte, fenêtres, listes, légendes `<figcaption>`, cellules narratives `<td>`) contient un verbe conjugué reconnu. **Zéro phrase nominale.**\n4. **Médicaments cliquables d'emblée & Fenêtres centrées PK/PD à 2 onglets (Consigne Vial 20.11.26)** :\n   - Dès qu'un médicament est évoqué, il devient cliquable (`<a class=\"ouvre med-chip\" href=\"#f-...\">`).\n   - Chaque `<section class=\"fenetre mb\" id=\"f-...\"><div class=\"fen\">` s'ouvre au centre de l'écran et contient **2 onglets** :\n     * **Onglet 1 (`data-tab=\"pk\"`)** : Pharmacocinétique + **Courbe vectorielle SVG $C(t)$** + **4 paramètres cliniciens mis en évidence** (`.pkpd-kpis`).\n     * **Onglet 2 (`data-tab=\"pd\"`)** : Pharmacodynamique & Clinique + **Courbe vectorielle SVG $E(C)$** + posologies/précautions/grossesse suisses (Compendium.ch / AIPS).\n5. **Images** : uniquement à l'intérieur des `<section class=\"fenetre\">`, jamais hors fenêtre (licences selon Prompt Alpha § 4). Ne comptent pas dans le calibre.\n6. **Zéro terminologie de chantier visible** : aucun texte visible (ni `<title>`) ne doit contenir `LOT`, `V0`, `Phase A/B`, `DX.n`, `Appel A/B`, `Partie n`. Seuls les noms de fichiers gardent le format Alpha (`LOT_nnn_Phase_A_V0.html`, `LOT_nnn_Phase_B_V0_DX.i.html`).\n7. **Circuits & Plans** :\n   - `MONOGRAPHIQUE` (189 SSP) : plan maladie en 14 points (Prompt Alpha § 3.1).\n   - `NON_MONOGRAPHIQUE` (52 SSP) : Leçon en 12 à 14 points adaptés (Prompt Alpha § 3.2). **Jamais** de plan maladie ni de titres « Physiopathologie / Approche syndromique / Diagnostic positif » artificiels.\n   - `MIXTE` (7 SSP) : Prompt Alpha § 3.3, chaque fichier déclare `<meta name=\"ssp-circuit\" content=\"...\">`.\n8. **Correctifs Frontend v2 / Architecture `_sources/` (`UNIQUE.html` & `_polices/`)** :\n   - **Arborescence propre par SSP** : à la racine de `SSP_nnn/`, seul **`SSP_nnn_<code>_UNIQUE.html`** (plus le sous-dossier **`_sources/`**) est visible. Tous les fichiers sources (`LOT_nnn_*.html`, `images/`, `NOTIONS.*`, `MANIFESTE.json`, `DECISION*`, `paquet.json`, `_archive_avant_alpha/`) sont rangés dans `SSP_nnn/_sources/` sans rien supprimer.\n   - **Barre haute amovible (`gabarit_unique.html`)** : `#topbar` compacte 1 ligne (~42 px) avec pilule active, fil d'Ariane section, boutons `◀`/`▶`, tiroir overlay amovible `#dd-drawer` (`☰ Diagnostics (N) ▾` + option `📌 Épingler`) contenant `nav#nav` en colonnes égales (`32 px`, teinte unique par cours), et bouton `▴ Masquer barre` + pilule flottante `#btn-show-bar`.\n   - **Zéro dédoublement & navigation `#...` 100 % fonctionnelle (`forme.js`)** : script `forme.js` exécuté sous `DOMContentLoaded` et injecté par `assembler_unique.py`/`inliner.py` après `</head>` et avant `#signature-ia`/`</body>` ; intercepteur global appelant `e.preventDefault()` sur 100 % des `href^=\"#\"` (bloque le rechargement `srcdoc` + `file://`).\n   - **Modales centrées `<div class=\"fen\">` & désaturation (`forme.css` / `optimiser_ssp.py`)** : ouverture via classe `.fm-open` (plus `:target` en repli) avec pile `modalStack` et bouton `Fermer ✕` sticky (sans `history.back()`), auto-enveloppement `<div class=\"fen\">`, tableaux hors modale déplacés vers `<section class=\"fenetre fm-tab-fen\">` déclenchés par cartes `.fm-encart-fen`, citations `<sup class=\"r\"><a>` compactées en `[N]` avec modale aperçu `#fm-src-modal` empilable (`fm-stack-top`), puces médicaments `a.ouvre.med-chip` (`℞ ...`, `white-space: nowrap`, compatible accents français), repli du plan latéral desktop `#fm-plan-toggle`, îlots discontinus (`margin-bottom: 30px`) et padding bas `5.5rem` protégeant la lecture au-dessus de `#signature-ia`.\n   - **HTML unique** : ne jamais l'écrire à la main ; toujours exécuter `optimiser_ssp.py` puis `assembler_unique.py nnn`.\n\n## § 2. ARCHIVAGE & WORKFLOW PAR SSP (P0 → P4)\n- **Zéro suppression** : avant d'écraser ou renommer un fichier source existant, archiver dans `SSP_nnn/_sources/_archive_avant_alpha/`.\n- **P0 (Préparer)** : lire circuit (`catalogue_248.json`), entités (`NOTIONS.md`/`NOTIONS.json`), `memoire_zero_token.py --digest --lot nnn`, écrire `PLAN_ENTITES.md`.\n- **P1 (Décider)** : noter dans `DECISION.md` (Corriger / Réécrire si mécanique, faux plan maladie ou `< 30 Ko` / Créer).\n- **P2 (Produire)** : `LOT_nnn_Phase_A_V0.html` + `LOT_nnn_Phase_B_V0_DX.1..N.html`, 100 % des notions de `NOTIONS.json` expliquées et sourcées (Compendium.ch / AIPS, OFSP, ASSM, CC, LAMal, LAVI, Smarter Medicine), sans aucune phrase gabarit de la cartographie.\n- **P3 (Portes de Contrôle + Optimisation + Assemblage + Audit Chrome)** :\n  1. `controle3.py --script-ok` → **`VERT {}`** (si `paquet.json` présent ; `--script-ok` requis car `_sources/` référence `../../_polices/forme.js`)\n  2. `verif_aips.py` → **`OK`** (si `paquet.json` présent) et `restaurer_fond.py --verifier` → **`exit=0`**\n  3. `python _outils/optimiser_ssp.py nnn` → migration vers `_sources/`, tableaux déplacés en `<div class=\"fen\">`, teintes non bleues `--fm-a`\n  4. `python _outils/verif_mission.py nnn` → **100 % fichiers `PASS`** (`errors: []`)\n  5. `python _outils/assembler_unique.py nnn` → **`(1 + N) / (1 + N) onglets`** à la racine de `SSP_nnn/`\n  6. `python _outils/notions.py verifier nnn` → **`0 NON`** + copier `rapport_notions.csv` dans `SSP_nnn/_sources/`\n  7. `python _outils/audit_unique_browser.py nnn --all-tabs` → **`PASS` sur 100 % des onglets en Chrome headless réel**\n  8. Ajouter ligne dans `SUIVI_PRODUCTION.csv` + `git commit` + `git push origin main`.\n- **P4 (Affinage)** : consigner tout doute clinique/posologique non vérifié dans `1_Claude AI/HANDOFF_AFFINAGE.md` sous `## SSP_nnn`.\n\n## § 3. MISSION 2 — SSP 001 → 032\n- Extraire les cours depuis `SSP_nnn_<code>_UNIQUE.html` (JSON `data` gzip+base64, marqueurs `@@IMG:…@@`, `@@FONT:…@@`) après archivage des anciens `LOT_nnn_*.html` dans `_archive_avant_alpha/`.\n- Le frontend reste identique ; auditer le contenu avec la même sévérité (attention : `SSP_013` G13 = `NON_MONOGRAPHIQUE`, `SSP_014` G14 = `MIXTE`).\n- Produire `1_Claude AI/AUDIT_001-032.md` et corriger tous les ❌.\n\n## § 4. LES 12 BLOCAGES ROUGE (REJET IMMÉDIAT)\n1. Identification absente ou incertaine.\n2. Signature `#signature-ia` absente, modifiée ou supprimée.\n3. Entité de la Cartographie sans cours.\n4. Fichier hors intervalle `80–100 Ko` de texte pur (tout cours ; un cours de 30–50 Ko est à enrichir).\n5. Toute phrase nominale.\n6. Toute notion au verdict `NON`.\n7. Phrase gabarit de `cartographie_DATA.json` recopiée dans un cours.\n8. Plan maladie appliqué à une Leçon `NON_MONOGRAPHIQUE`.\n9. Terme de chantier visible (`LOT`, `V0`, `Phase A/B`, `DX.n`, `Appel`, `Partie n`).\n10. Posologie sans source de la cascade suisse.\n11. Image hors `<section class=\"fenetre\">`.\n12. Fichier supprimé au lieu d'être archivé.\n\n## § 5. ANNEXE CIRCUITS (248 SSP)\n- **NON_MONOGRAPHIQUE (52)** : 013 · 065 · 069 · 176 · 180 · 181 · 182 · 184 · 185 · 186 · 192 · 194 · 195 · 198 · 200 · 203 · 204 · 205 · 206 · 207 · 208 · 209 · 210 · 211 · 212 · 213 · 214 · 215 · 216 · 217 · 218 · 219 · 220 · 221 · 222 · 224 · 225 · 226 · 227 · 232 · 233 · 235 · 236 · 237 · 238 · 239 · 240 · 241 · 242 · 243 · 246 · 247.\n- **MIXTE (7)** : 014 · 165 · 174 · 175 · 190 · 202 · 223.\n- **MONOGRAPHIQUE (189)** : tous les autres SSP."
+}

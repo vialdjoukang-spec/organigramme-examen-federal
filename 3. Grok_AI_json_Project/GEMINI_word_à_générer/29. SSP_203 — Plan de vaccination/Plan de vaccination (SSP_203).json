@@ -1,0 +1,2445 @@
+{
+  "rappel_obligatoire_avant_redaction": {
+    "lecture_imperative": [
+      "1. Lire intégralement PROMPT_Alpha_19.11.26.md ET la mise à jour incluse dans prompt_alpha_a_jour ci-dessous.",
+      "2. Respecter l'intervalle GLOBAL par cours : viser 85–95 Ko de texte médical pur (soit ~95–115 Ko de fichier JSON) sans quota rigide par partie — répartir le texte proportionnellement à l'importance clinique des parties.",
+      "3. Produire graduellement 1 cours complet par requête (Phase A, puis Cours 1, Cours 2...) en français médical académique, phrases verbales exclusives (0 phrase nominale), zéro prose générique ou patronnée.",
+      "4. Utiliser uniquement les guillemets typographiques français « … » dans les valeurs texte JSON (jamais de guillemet droit non échappé).",
+      "5. Zéro arbre décisionnel graphique (.fm-canvas) : ne générer aucun schéma décisionnel."
+    ],
+    "specificites_locales_ssp": [
+      "Circuit NON_MONOGRAPHIQUE : conserver strictement l'architecture en Leçons Suisses Structurées (14 points adaptés), SANS JAMAIS utiliser de titres ou de plan maladie artificiel (interdiction de Physiopathologie / Approche syndromique / Diagnostic positif).",
+      "Couvrir 100 % des notions obligatoires listées dans phase_b[*].plan[*].notions_obligatoires pour Plan de vaccination (O4.2).",
+      "Cascade posologique suisse à 4 paliers obligatoire : 1. AIPS Swissmedic (n° 5 chiffres) -> 2. Compendium.ch -> 3. Sociétés savantes & CHU suisses (HUG, CHUV, Inselspital, USZ, USB, OFSP, ASSM, SSMIG, Tox Info Suisse 145) -> 4. Sociétés savantes européennes."
+    ]
+  },
+  "meta": {
+    "rang_gravite": 29,
+    "ssp": "SSP_203",
+    "code_profiles": "O4.2",
+    "nom_francais": "Plan de vaccination",
+    "circuit": "NON_MONOGRAPHIQUE",
+    "police_obligatoire": "Atkinson Hyperlegible",
+    "calibre_cible": "80–100 Ko texte pur",
+    "arbres_decisionnels_autorises": false,
+    "mode_redaction": "Neon Deep Research",
+    "nb_chapitres_total": 16,
+    "defauts_audit_initial": [
+      "Incomplet (11/16 cours)",
+      "Faux plan maladie (11 f.)",
+      "1475 phrases nominales",
+      "Termes chantier (10 f.)"
+    ]
+  },
+  "sommaire": {
+    "phase_a": {
+      "fichier_html_cible": "LOT_203_Phase_A_V0.html",
+      "titre": "Plan de vaccination — Vue d'ensemble et orientation clinique (O4.2)"
+    },
+    "phase_b": [
+      {
+        "cours_numero": 1,
+        "titre": "Vaccination de base du nourrisson et de l'enfant (plan suisse OFSP)",
+        "cim": "Z23",
+        "urgence": "chronique"
+      },
+      {
+        "cours_numero": 2,
+        "titre": "Rappels vaccinaux de l'adulte (dTpa, FSME, grippe saisonnière)",
+        "cim": "Z24.0",
+        "urgence": "chronique"
+      },
+      {
+        "cours_numero": 3,
+        "titre": "Vaccination de l'adolescent (HPV, méningocoques, rattrapage ROR/varicelle/VHB)",
+        "cim": "Z25.8",
+        "urgence": "chronique"
+      },
+      {
+        "cours_numero": 4,
+        "titre": "Vaccination de la femme enceinte (coqueluche dTpa, grippe, VRS)",
+        "cim": "Z26.8",
+        "urgence": "chronique"
+      },
+      {
+        "cours_numero": 5,
+        "titre": "Vaccination du patient immunodéprimé ou asplénique",
+        "cim": "Z26.8",
+        "urgence": "semi-urgent"
+      },
+      {
+        "cours_numero": 6,
+        "titre": "Vaccination du voyageur (fièvre jaune, hépatite A, typhoïde, rage)",
+        "cim": "Z24.1",
+        "urgence": "chronique"
+      },
+      {
+        "cours_numero": 7,
+        "titre": "Rattrapage vaccinal de l'adulte non vacciné ou migrant (statut inconnu)",
+        "cim": "Z27.8",
+        "urgence": "chronique"
+      },
+      {
+        "cours_numero": 8,
+        "titre": "Vaccination professionnelle (personnel de santé : VHB, grippe, ROR, varicelle, dTpa)",
+        "cim": "Z24.6",
+        "urgence": "chronique"
+      },
+      {
+        "cours_numero": 9,
+        "titre": "Hésitation vaccinale ou refus vaccinal parental / individuel",
+        "cim": "Z28.8",
+        "urgence": "chronique"
+      },
+      {
+        "cours_numero": 10,
+        "titre": "Vaccination post-exposition (prophylaxie rage, tétanos sur plaie, rougeole, VHB)",
+        "cim": "Z23",
+        "urgence": "urgent"
+      },
+      {
+        "cours_numero": 11,
+        "titre": "Choc anaphylactique post-vaccinal immédiat",
+        "cim": "T88.6",
+        "urgence": "immediate"
+      },
+      {
+        "cours_numero": 12,
+        "titre": "Malaise vaso-vagal sévère avec traumatisme crânien post-injection",
+        "cim": "R55",
+        "urgence": "urgent"
+      },
+      {
+        "cours_numero": 13,
+        "titre": "Syndrome de Guillain-Barré ou myélite post-vaccinale (rare)",
+        "cim": "G61.0",
+        "urgence": "immediate"
+      },
+      {
+        "cours_numero": 14,
+        "titre": "Myopéricardite post-vaccinale à ARNm (sujet jeune)",
+        "cim": "I40.9",
+        "urgence": "urgent"
+      },
+      {
+        "cours_numero": 15,
+        "titre": "Convulsions fébriles post-vaccinales du nourrisson",
+        "cim": "R56.0",
+        "urgence": "urgent"
+      }
+    ]
+  },
+  "phase_a": {
+    "titre": "Plan de vaccination — Vue d'ensemble (O4.2)",
+    "plan": [
+      {
+        "point": 1,
+        "titre": "Définition, portée clinique et cadre suisse de la situation",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit NON_MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 2,
+        "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit NON_MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 3,
+        "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit NON_MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 4,
+        "titre": "Démarche d'évaluation structurée et situations différentielles",
+        "description": "Présentation et hiérarchisation des 15 entités de la Cartographie Renouveau."
+      },
+      {
+        "point": 5,
+        "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit NON_MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 6,
+        "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit NON_MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 7,
+        "titre": "Typologie des situations et stratification des priorités",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit NON_MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 8,
+        "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit NON_MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 9,
+        "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit NON_MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 10,
+        "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit NON_MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 11,
+        "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit NON_MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 12,
+        "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit NON_MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 13,
+        "titre": "Points clés essentiels pour la pratique suisse",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit NON_MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 14,
+        "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit NON_MONOGRAPHIQUE, sans arbre décisionnel."
+      }
+    ]
+  },
+  "phase_b": [
+    {
+      "cours_numero": 1,
+      "fichier_html_cible": "LOT_203_Phase_B_V0_DX.1.html",
+      "titre": "Vaccination de base du nourrisson et de l'enfant (plan suisse OFSP)",
+      "cim": "Z23",
+      "urgence": "chronique",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition, portée clinique et cadre suisse de la situation",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Programme systématique d'immunisation protégeant contre les maladies infectieuses graves de l'enfance selon les recommandations OFSP/CFV."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Couverture vaccinale élevée en Suisse mais poches de sous-vaccination (rougeole, coqueluche)."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Primovaccination en 2 doses rapprochées (2 et 4 mois) + rappel à 12 mois (schéma 2+1) pour l'hexavalent et le pneumocoque conjugué."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche d'évaluation structurée et situations différentielles",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Réaction anaphylactique antérieure à un composant, immunodépression sévère (contre-indique vaccins vivants ROR/varicelle !)."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Vérification du carnet de vaccination, âge exact, allergies graves antérieures, immunodépression familiale."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Enfant en bon état général ; un rhume banal sans fièvre élevée N'EST PAS une contre-indication à la vaccination !"
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Typologie des situations et stratification des priorités",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Indication vaccinale conforme au calendrier OFSP."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Vérification du carnet de santé / carnet de vaccination électronique ; aucun test sérologique pré-vaccinal requis."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Aucune."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Surveillance de 15 min post-injection (kit adrénaline disponible)."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Plan suisse : hexavalent + PCV13/15 à 2, 4, 12 mois ; ROR + varicelle (recommandée de base dès 2023 !) à 9 et 12 mois ; méningocoque ACWY/B ; rappel dTPa-IPV à 4–7 ans et 11–15 ans + HPV."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Réaction locale ou fièvre bénigne transitoire."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Traçabilité lot/date dans le carnet."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Protection durable > 90–95 %."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Pédiatre, médecin de famille, santé scolaire."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés essentiels pour la pratique suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 2,
+      "fichier_html_cible": "LOT_203_Phase_B_V0_DX.2.html",
+      "titre": "Rappels vaccinaux de l'adulte (dTpa, FSME, grippe saisonnière)",
+      "cim": "Z24.0",
+      "urgence": "chronique",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition, portée clinique et cadre suisse de la situation",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Maintien de l'immunité contre le tétanos, la diphtérie, la coqueluche, l'encéphalite à tiques (FSME) et la grippe chez l'adulte."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Toute la Suisse (sauf Tessin partiellement/Genève variable selon mise à jour OFSP -> quasi toute la Suisse est zone à risque FSME !)."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Déclin progressif des titres d'anticorps antitétaniques et anticoquelucheux nécessitant des rappels espacés."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche d'évaluation structurée et situations différentielles",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Plaie souillée chez un adulte non à jour (> 5–10 ans selon risque) -> rappel + immunoglobulines antitétaniques si < 3 doses !"
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Date du dernier rappel dT, contact prévu avec un nourrisson < 6 mois (rappel coqueluche dTpa !), exposition aux tiques."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Vérification du carnet de vaccination."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Typologie des situations et stratification des priorités",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Rappel indiqué selon l'âge et l'exposition."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Analyse du carnet vaccinal ; si carnet perdu et doute : ne pas craindre de revacciner (ou dosage Ac antitétaniques)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Sérologie varicelle/rougeole si statut inconnu chez adulte né après 1963."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Prophylaxie tétanos sur plaie aiguë selon statut."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "dT à 25 (avec coqueluche dTpa !), 45, 65 ans puis tous les 10 ans ; FSME (3 doses puis rappel tous les 10 ans en Suisse !) ; grippe annuelle dès 65 ans ou comorbidités ; zona (Shingrix) dès 65 ans ; VRS dès 75 ans / à risque."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Tétanos, méningo-encéphalite à tiques (FSME)."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Mise à jour du carnet vaccinal."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Protection optimale."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Médecin traitant, pharmacien (habilité dans de nombreux cantons suisses)."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés essentiels pour la pratique suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 3,
+      "fichier_html_cible": "LOT_203_Phase_B_V0_DX.3.html",
+      "titre": "Vaccination de l'adolescent (HPV, méningocoques, rattrapage ROR/varicelle/VHB)",
+      "cim": "Z25.8",
+      "urgence": "chronique",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition, portée clinique et cadre suisse de la situation",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Immunisation ciblée de l'adolescent avant les expositions sexuelles et sociales à risque."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Le HPV est responsable de cancers du col, anus, oropharynx et condylomes."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Réponse immunitaire optimale avant 15 ans permettant un schéma à 2 doses au lieu de 3."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche d'évaluation structurée et situations différentielles",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Syncope vaso-vagale fréquente chez l'adolescent après injection -> garder assis/allongé 15 min !"
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Âge (11–14 ans idéal), vérification des 2 doses de ROR, varicelle (si jamais eue -> 2 doses !), hépatite B."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Consultation préventive de l'adolescent."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Typologie des situations et stratification des priorités",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Âge et statut vaccinal conformes aux recommandations OFSP."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Revue du carnet de vaccination."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Aucune sérologie pré-HPV nécessaire."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Prévention des malaises vagaux post-injection."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "HPV 9-valent (2 doses 11–14 ans, rattrapage jusqu'à 26 ans), dTpa-IPV (11–15 ans), méningocoque ACWY (11–15 ans), hépatite B si non faite."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Malaise vagal avec chute post-vaccination."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Rappel de la 2e dose à 6 mois."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Efficacité > 90 % contre les génotypes HPV oncogènes vaccinaux."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Pédiatre, médecin traitant, service de santé scolaire."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés essentiels pour la pratique suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 4,
+      "fichier_html_cible": "LOT_203_Phase_B_V0_DX.4.html",
+      "titre": "Vaccination de la femme enceinte (coqueluche dTpa, grippe, VRS)",
+      "cim": "Z26.8",
+      "urgence": "chronique",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition, portée clinique et cadre suisse de la situation",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Immunisation maternelle pendant la grossesse visant à protéger la mère et le nouveau-né durant ses premiers mois de vie."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Les nourrissons < 3 mois ont la mortalité la plus élevée par coqueluche et grippe/VRS."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Transfert actif transplacentaire d'IgG maternelles dès le 2e–3e trimestre ; les vaccins VIVANTS (ROR, varicelle, fièvre jaune) sont CONTRE-INDIQUÉS pendant la grossesse !."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche d'évaluation structurée et situations différentielles",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Exposition à la rubéole ou varicelle chez une femme enceinte séronégative non vaccinée !"
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Terme de grossesse, statut ROR/varicelle pré-conceptionnel, entourage du futur bébé (stratégie cocooning pour le père/grands-parents)."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Suivi obstétrical normal."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Typologie des situations et stratification des priorités",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Grossesse en cours justifiant la protection materno-fœtale."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Vérification du carnet vaccinal et sérologies pré-natales."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Aucune."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Immunoglobulines anti-VZV (Varitect) si femme enceinte séronégative exposée à la varicelle !."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "dTpa à chaque grossesse (2e trimestre), grippe saisonnière (quel que soit le trimestre), vaccin VRS maternel (32–36 SA) ou nirsévimab au nouveau-né ; ROR/varicelle en post-partum immédiat si séronégative."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Coqueluche maligne du nouveau-né."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Traçabilité dans le dossier obstétrical."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Protection passive du nourrisson > 90 % contre coqueluche sévère."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Gynécologue-obstétricien, sage-femme, médecin traitant."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés essentiels pour la pratique suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 5,
+      "fichier_html_cible": "LOT_203_Phase_B_V0_DX.5.html",
+      "titre": "Vaccination du patient immunodéprimé ou asplénique",
+      "cim": "Z26.8",
+      "urgence": "semi-urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition, portée clinique et cadre suisse de la situation",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Adaptation du plan vaccinal avant ou pendant une immunosuppression (biothérapies, chimiothérapie, greffe) ou asplénie."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Risque majeur d'infections invasives à germes encapsulés (pneumocoque, méningocoque, Haemophilus) chez l'asplénique."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "La rate élimine les bactéries encapsulées opsonisées ; les vaccins vivants peuvent provoquer une infection vaccinale disséminée chez l'immunodéprimé."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche d'évaluation structurée et situations différentielles",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Fièvre chez un patient asplénique -> antibiothérapie urgente immédiate (risque de sepsis fulminant OPSI) !"
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Splénectomie prévue ou traumatique, maladie auto-immune avant anti-TNF/rituximab, VIH (selon CD4), greffe."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Cicatrice de splénectomie, bilan infectieux préalable."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Typologie des situations et stratification des priorités",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Indication d'immunisation renforcée et éviction des vaccins vivants."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Bilan sérologique pré-immunosuppression (VHB, VHA, varicelle, rougeole, VIH) et revue vaccinale."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Contrôle du taux de CD4 chez patient VIH (ROR possible si CD4 > 200)."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Si splénectomie urgente : vacciner idéalement 2 semaines avant, ou à J14 post-opératoire."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Pneumocoques (PCV13/15/20), méningocoques ACWY + B, Hib, grippe annuelle, COVID-19, Shingrix (vaccin zona recombinant NON vivant !), vaccination de l'entourage (cocooning)."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Sepsis fulminant post-splénectomie (OPSI), zona disséminé."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Titres sérologiques post-vaccinaux (VHB) et rappels méningocoques."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Réduction majeure des infections invasives."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Infectiologue, spécialiste (rhumatologue/hématologue), médecin traitant."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés essentiels pour la pratique suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 6,
+      "fichier_html_cible": "LOT_203_Phase_B_V0_DX.6.html",
+      "titre": "Vaccination du voyageur (fièvre jaune, hépatite A, typhoïde, rage)",
+      "cim": "Z24.1",
+      "urgence": "chronique",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition, portée clinique et cadre suisse de la situation",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Immunisation et prophylaxie ciblées selon la destination, la durée et le type de séjour."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Très fréquente en Suisse (voyages tropicaux)."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Immunité acquise en 10 jours pour la fièvre jaune (valable à vie sauf exceptions), 2–4 semaines pour hépatite A."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche d'évaluation structurée et situations différentielles",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Contre-indications à la fièvre jaune : nourrisson < 9 mois, grossesse, immunodépression, maladie du thymus, allergie sévère à l'œuf."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Pays visités, zones rurales/urbaines, altitude, durée, grossesse, immunosuppression, âge (> 60 ans : prudence fièvre jaune !)."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Vérification du carnet de vaccination de base."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Typologie des situations et stratification des priorités",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Plan vaccinal personnalisé selon destination."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Recommandations actualisées (HealthyTravel.ch en Suisse !)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Sérologie VHA si né avant 1960 ou originaire de zone endémique."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "En l'absence d'urgence vitale, rassurer le patient, soulager les symptômes (paracétamol 1 g PO si besoin, max 3–4 g/j) et éviter toute antibiothérapie ou examen superflu (Smarter Medicine Suisse)."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Hépatite A (quasi tous pays en développement), fièvre jaune (Afrique/Amérique du Sud, centre agréé), typhoïde, méningocoque ACWY (pèlerinage/ceinture méningite), rage (séjours ruraux/vélos), chimioprophylaxie paludisme si indiquée."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Maladie viscérale/neurotrope exceptionnelle du vaccin fièvre jaune (> 60 ans)."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Délivrance du carnet jaune OMS."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Excellente protection."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Centre de médecine des voyages (Unisanté/HUG/Swiss TPH), médecin traitant."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés essentiels pour la pratique suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 7,
+      "fichier_html_cible": "LOT_203_Phase_B_V0_DX.7.html",
+      "titre": "Rattrapage vaccinal de l'adulte non vacciné ou migrant (statut inconnu)",
+      "cim": "Z27.8",
+      "urgence": "chronique",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition, portée clinique et cadre suisse de la situation",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Mise à jour complète de l'immunité chez une personne sans carnet vaccinal ou incomplètement vaccinée."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Fréquent chez les jeunes adultes, migrants, demandeurs d'asile."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "La mémoire immunitaire persiste malgré un intervalle long : « toute dose compte »."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche d'évaluation structurée et situations différentielles",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Femme en âge de procréer : exclure grossesse avant ROR/varicelle et recommander contraception 1 mois !"
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Origine géographique, antécédents de varicelle/rougeole, grossesse éventuelle."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Examen général, cicatrice de BCG éventuelle."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Typologie des situations et stratification des priorités",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Statut vaccinal incomplet ou absent."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Bilan ciblé chez migrants : VHB (AgHBs, anti-HBs, anti-HBc), sérologie varicelle si doute, dépistage VIH/TB selon origine."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Aucune."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "En l'absence d'urgence vitale, rassurer le patient, soulager les symptômes (paracétamol 1 g PO si besoin, max 3–4 g/j) et éviter toute antibiothérapie ou examen superflu (Smarter Medicine Suisse)."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Rattrapage en 3 visites (M0, M1–2, M6–12) : dTpa-IPV, ROR (2 doses à ≥ 1 mois d'intervalle), varicelle si non immun, hépatite B (3 doses), HPV jusqu'à 26 ans."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Épidémies de rougeole ou diphtérie en foyer non vacciné."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Planifier les rappels sur carnet remis au patient."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Immunité complète acquise."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Médecin traitant, consultations pour migrants."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés essentiels pour la pratique suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 8,
+      "fichier_html_cible": "LOT_203_Phase_B_V0_DX.8.html",
+      "titre": "Vaccination professionnelle (personnel de santé : VHB, grippe, ROR, varicelle, dTpa)",
+      "cim": "Z24.6",
+      "urgence": "chronique",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition, portée clinique et cadre suisse de la situation",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Immunisation spécifique des professionnels exposés aux liquides biologiques et aux patients vulnérables."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Obligation de protection des travailleurs et des patients en milieu de soins."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Séroconversion VHB vérifiée par anti-HBs ≥ 100 UI/L ; les non-répondeurs reçoivent des doses supplémentaires."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche d'évaluation structurée et situations différentielles",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Accident d'exposition au sang (AES) chez un soignant non immun contre VHB -> immunoglobulines + vaccination dans les 24–48 h !"
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Profession (soignant, laboratoire, petite enfance), antécédent de varicelle."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Revue du carnet."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Typologie des situations et stratification des priorités",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Exposition professionnelle justifiant immunité vérifiée."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Titrage anti-HBs 4–8 semaines après fin de schéma VHB, sérologie varicelle si doute."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Aucune."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Protocole AES si piqûre/projection."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "VHB (avec contrôle anti-HBs ≥ 100 UI/L), ROR (2 doses), varicelle (2 doses), dTpa tous les 10 ans en pédiatrie/néonatologie, grippe annuelle."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Transmission nosocomiale (grippe, rougeole) ou hépatite B professionnelle."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Suivi médecine du personnel."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Protection durable."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Médecine du travail, médecin traitant."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés essentiels pour la pratique suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 9,
+      "fichier_html_cible": "LOT_203_Phase_B_V0_DX.9.html",
+      "titre": "Hésitation vaccinale ou refus vaccinal parental / individuel",
+      "cim": "Z28.8",
+      "urgence": "chronique",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition, portée clinique et cadre suisse de la situation",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Retard d'acceptation ou refus de certains vaccins malgré la disponibilité des services de vaccination."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Touche 10–20 % des parents à des degrés divers en Suisse."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Biais cognitifs, désinformation (mythe ROR-autisme réfuté), peur des adjuvants/effets secondaires."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche d'évaluation structurée et situations différentielles",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Exposition réelle à un cas de rougeole ou plaie tétanigène chez un sujet non vacciné !"
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Explorer les craintes précises avec respect (« Qu'est-ce qui vous inquiète le plus dans ce vaccin ? »)."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Relation de confiance médecin-patient."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Typologie des situations et stratification des priorités",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Refus ou report vaccinal exprimé."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Entretien motivationnel structuré (Ask-Tell-Ask)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Documentation écrite fiable (InfoVac Suisse !)."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "En cas d'exposition aiguë (rougeole/tétanos/rage), expliquer l'urgence vitale de la prophylaxie."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Proposer une priorisation (ex. commencer par DTP/pneumocoques), laisser la porte ouverte, documenter le refus éclairé dans le dossier."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Foyers épidémiques (rougeole, coqueluche)."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Réaborder sereinement aux visites suivantes."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "De nombreux parents hésitants acceptent ultérieurement dans un climat de confiance."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Médecin traitant, pédiatre, plateforme InfoVac."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés essentiels pour la pratique suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 10,
+      "fichier_html_cible": "LOT_203_Phase_B_V0_DX.10.html",
+      "titre": "Vaccination post-exposition (prophylaxie rage, tétanos sur plaie, rougeole, VHB)",
+      "cim": "Z23",
+      "urgence": "urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition, portée clinique et cadre suisse de la situation",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Administration urgente d'un vaccin (± immunoglobulines spécifiques) après un contact infectant avéré pour bloquer l'incubation."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Situations rares mais critiques : morsure de chauve-souris ou animal en zone d'endémie rabique, plaie souillée, contact rougeole < 72 h."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "L'incubation plus longue que la réponse vaccinale (rage, VHB) ou l'apport d'Ig passives bloque la dissémination."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche d'évaluation structurée et situations différentielles",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Morsure par chauve-souris en Suisse (seul réservoir rabique autochtone !) ou chien à l'étranger -> urgence absolue même sans saignement franc !"
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Type d'exposition, délai exact (< 72 h pour rougeole, < 6 j Ig VZV), statut vaccinal antérieur."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Inspection et lavage abondant de la plaie."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Typologie des situations et stratification des priorités",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Exposition à haut risque documentée."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Évaluation du risque selon recommandations OFSP ; sérologie basale si AES."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Aucune attente de résultat pour traiter une suspicion de rage."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Rage : lavage 15 min + vaccin J0, J3, J7, J14 (+ Ig antirabiques si non vacciné) ; Rougeole : ROR < 72 h ; Tétanos : dT + Ig si plaie à risque et < 3 doses ou statut inconnu."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Achèvement complet du schéma post-exposition."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Rage déclarée = mortalité ~100 %."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Suivi des injections J3, J7, J14."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Efficacité ~100 % si protocole respecté à temps."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Urgences, centre antirabique / médecine des voyages."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés essentiels pour la pratique suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 11,
+      "fichier_html_cible": "LOT_203_Phase_B_V0_DX.11.html",
+      "titre": "Choc anaphylactique post-vaccinal immédiat",
+      "cim": "T88.6",
+      "urgence": "immediate",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition, portée clinique et cadre suisse de la situation",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Réaction d'hypersensibilité immédiate IgE-médiée (ou pseudo-allergique) systémique sévère après injection vaccinale."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Exceptionnelle (~1 cas par million de doses) ; motif de la surveillance de 15 min."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Dégranulation mastocytaire massive (histamine, tryptase) provoquant vasodilatation et bronchoconstriction."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche d'évaluation structurée et situations différentielles",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Atteinte des voies aériennes (stridor/dysphonie) ou collapsus -> adrénaline IM sans aucun délai !"
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Injection vaccinale dans les 5–30 dernières minutes."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Détresse respiratoire (stridor laryngé, sibilants), hypotension/tachycardie, éruption urticarienne généralisée, œdème facial/glotte, douleurs abdominales."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Typologie des situations et stratification des priorités",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Critères cliniques d'anaphylaxie post-injection."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Diagnostic CLINIQUE d'urgence ; dosage de la tryptase sérique à 1–2 h (après stabilisation) pour confirmation allergologique."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Bilan allergologique à distance (PEG, polysorbate, gélatine)."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "ADRÉNALINE IM immédiate face antéro-latérale de cuisse (0,01 mg/kg, max 0,5 mg adulte ; 0,15 mg < 30 kg, 0,3 mg 30–50 kg, répétable à 5–15 min), position allongée jambes surélevées, O2, remplissage NaCl 0,9 %, appel 144."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Déclaration de pharmacovigilance (Swissmedic ElViS), bilan allergologique avant toute dose ultérieure."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Arrêt cardiorespiratoire anoxique, réaction biphasique (surveillance 6–12 h)."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Monitoring hospitalier 6–12 h."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Guérison rapide si adrénaline IM précoce."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Urgences, allergologue."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés essentiels pour la pratique suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 12,
+      "fichier_html_cible": "LOT_203_Phase_B_V0_DX.12.html",
+      "titre": "Malaise vaso-vagal sévère avec traumatisme crânien post-injection",
+      "cim": "R55",
+      "urgence": "urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition, portée clinique et cadre suisse de la situation",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Syncope réflexe bénigne déclenchée par la douleur ou l'anxiété de l'injection, pouvant causer un traumatisme lors de la chute."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Effet indésirable aigu le plus fréquent chez l'adolescent (HPV, méningocoques)."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Hypertonie vagale transitoire avec bradycardie et vasodilatation périphérique ; absence de bronchospasme ou d'urticaire (différence clé avec anaphylaxie !)."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche d'évaluation structurée et situations différentielles",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Chute avec traumatisme crânien, perte de connaissance prolongée > 1–2 min, dyspnée/urticaire."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Pâleur, nausées, sensation de chaleur, vision tunnel quelques secondes/minutes après la piqûre."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Bradycardie (vs tachycardie dans l'anaphylaxie !), peau froide et moite, récupération immédiate dès mise en décubitus."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Typologie des situations et stratification des priorités",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Syncope brève avec bradycardie et récupération rapide à l'horizontale sans signes cutanés/respiratoires."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Clinique (constantes : TA, FC, SpO2) ; examen neurologique si choc crânien."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "ECG si atypique."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Allonger immédiatement jambes surélevées, rassurer, vérifier l'absence de plaie/commotion."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Vacciner les doses suivantes en position allongée."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Traumatisme crânien ou dentaire en cas de chute debout."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Réévaluation clinique et biologique SI (NFS, CRP, créatinine, électrolytes) à 24–72 h selon l'évolution."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Totalement bénin."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Cabinet médical."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés essentiels pour la pratique suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 13,
+      "fichier_html_cible": "LOT_203_Phase_B_V0_DX.13.html",
+      "titre": "Syndrome de Guillain-Barré ou myélite post-vaccinale (rare)",
+      "cim": "G61.0",
+      "urgence": "immediate",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition, portée clinique et cadre suisse de la situation",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Polyradiculonévrite aiguë inflammatoire démyélinisante survenant rarement après une stimulation immunitaire (infection surtout, exceptionnellement vaccin)."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Beaucoup plus fréquente après une infection (Campylobacter, grippe) qu'après vaccination (~1/1 000 000)."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Mimétisme moléculaire déclenchant une attaque auto-immune des gaines de myéline périphériques."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche d'évaluation structurée et situations différentielles",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Atteinte bulbaire (troubles de déglutition), baisse de la capacité vitale -> risque d'intubation urgente !"
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Vaccination dans les 1–6 semaines précédentes, paresthésies distales puis faiblesse ascendante des jambes."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Paraparésie puis tétraparésie flasque symétrique, ARÉFLEXIE ostéotendineuse, parfois diplégie faciale."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Typologie des situations et stratification des priorités",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Paralysie ascendante aréflexique + dissociation albumino-cytologique."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Ponction lombaire (dissociation albumino-cytologique : hyperprotéinorachie sans pléiocytose) + ENMG."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Mesure répétée de la capacité vitale respiratoire (CV)."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Hospitalisation, monitoring respiratoire (intubation si CV < 15–20 mL/kg), immunoglobulines IV (IgIV) ou plasmaphérèse."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Rééducation motrice, déclaration Swissmedic."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Insuffisance respiratoire, dysautonomie cardiaque."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "CV toutes les 4–6 h en phase ascendante."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Récupération > 80 % en quelques mois."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Urgences, neurologie, soins intensifs."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés essentiels pour la pratique suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 14,
+      "fichier_html_cible": "LOT_203_Phase_B_V0_DX.14.html",
+      "titre": "Myopéricardite post-vaccinale à ARNm (sujet jeune)",
+      "cim": "I40.9",
+      "urgence": "urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition, portée clinique et cadre suisse de la situation",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Inflammation myocardique/péricardique aiguë survenant dans la semaine suivant une vaccination par ARNm."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Incidence ~1–10/100 000 chez l'homme jeune après 2e dose ; évolution généralement bénigne et spontanément résolutive."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Réaction inflammatoire immunitaire transitoire du myocarde."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche d'évaluation structurée et situations différentielles",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Troubles du rythme ventriculaire, dysfonction VG sévère -> soins intensifs !"
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Douleur thoracique rétrosternale positionnelle (soulagée penché en avant), dyspnée, palpitations 2–7 jours après injection."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Souvent normal, parfois frottement péricardique ou tachycardie."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Typologie des situations et stratification des priorités",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Douleur thoracique post-vaccinale + troponine élevée ± anomalies ECG/IRM après exclusion d'un SCA."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "ECG (sus-décalage ST concave diffus sans miroir, sous-décalage PQ), troponine ultrasensible, CRP, échocardiographie."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "IRM cardiaque (œdème/rehaussement tardif sous-épicardique)."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Repos strict, antalgie, colchicine ± AINS si péricardite prédominante, surveillance télémétrique si troponine élevée."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Contre-indication au sport intense pendant 3 mois après myocardite, déclaration pharmacovigilance."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Exceptionnellement arythmies ou dysfonction VG résiduelle."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Contrôle troponine et échocardiographie avant reprise du sport."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Guérison complète dans > 95 % des cas."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Cardiologue, urgences."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés essentiels pour la pratique suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 15,
+      "fichier_html_cible": "LOT_203_Phase_B_V0_DX.15.html",
+      "titre": "Convulsions fébriles post-vaccinales du nourrisson",
+      "cim": "R56.0",
+      "urgence": "urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition, portée clinique et cadre suisse de la situation",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Crise convulsive généralisée brève (< 15 min) associée à une fièvre post-vaccinale sans infection du SNC."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Survient chez 2–5 % des enfants ; pic avec le ROR-varicelle entre J7 et J12."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Hyperexcitabilité neuronale transitoire induite par l'élévation rapide de la température corporelle."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche d'évaluation structurée et situations différentielles",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Crise focale, durée > 15 min, récidive dans les 24 h (crise complexe) ou âge < 6 mois -> exclure méningite !"
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Vaccination récente, pic fébrile, crise tonico-clonique brève (< 5–15 min), récupération rapide."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Enfant réactif après phase post-critique brève, absence de signe méningé ou de déficit focal (crise simple)."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Typologie des situations et stratification des priorités",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Crise généralisée brève fébrile avec retour à l'état basal."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Examen clinique complet pour exclure une infection focale ou méningite ; aucun bilan si crise fébrile simple typique > 12 mois."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Ponction lombaire si signes méningés ou < 6–12 mois non vacciné."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Position latérale de sécurité ; si crise > 5 min : midazolam buccal/intranasal (ou diazépam intrarectal) ; antipyrétiques pour le confort (ne préviennent pas la récidive)."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Rassurer les parents (pas d'épilepsie, pas de contre-indication aux vaccins suivants !), paracétamol prophylactique si méningocoque B."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "État de mal fébrile (rare)."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Observation quelques heures aux urgences si 1re crise."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Excellent, sans séquelle neurologique."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Pédiatre, urgences pédiatriques."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés essentiels pour la pratique suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    }
+  ],
+  "prompt_alpha_a_jour": "# MISSION : CORRECTION ET COMPLÉTION DES 248 SSP SUISSES (3 975 ENTITÉS + 248 CHAPITRES 0)\n\n## § 0. IDENTIFICATION, SIGNATURE & RÈGLES DE CONTINUITÉ — BLOQUANT ABSOLU\n1. **Identification obligatoire** en tête de première réponse :\n   - HEURE DE DÉBUT : AAAA-MM-JJ HH:MM (Europe/Zurich)\n   - MODÈLE : nom exact du modèle (ex. ANTIGRAVITY ORCHESTRATOR NEON)\n   - PLATEFORME : plateforme exacte (ex. ANTIGRAVITY)\n   - Ajouter la même ligne à `1_Claude AI/IDENTIFICATION_AGENTS.md`. Si incertitude, s'arrêter.\n2. **Signature IA fixe en bas à droite de TOUT HTML produit ou modifié** (juste avant `</body>`, en GRAS MAJUSCULE) :\n   `<div id=\"signature-ia\" style=\"position:fixed;right:12px;bottom:10px;z-index:9999;background:#fff;border:2px solid #000;padding:4px 10px;font:700 12px/1.3 Arial,sans-serif;text-transform:uppercase;color:#000\">DÉBUT : AAAA-MM-JJ HH:MM (EUROPE/ZURICH) · MODÈLE : <NOM> · PLATEFORME : <PLATEFORME></div>`\n   - **Seul Vial peut autoriser le retrait de ce bloc.** Un agent qui reprend un fichier signé ajoute sa propre ligne sous la précédente sans jamais effacer l'existante.\n3. **Continuité & transparence** :\n   - **Redémarrage propre à partir de `SSP_248`** : tous les cours précédemment modifiés ont été restaurés à l'état initial (`6941513`). Enchaîner continûment **`SSP_248 → SSP_033`**, puis **`SSP_001 → SSP_032`**.\n   - **Toujours afficher le raisonnement visible** en français dans chaque réponse.\n   - **Veille & relance GitHub** : commiter et pousser sur `origin main` après chaque SSP (ou lot <= 5 SSP) avec l'état à jour dans `SUIVI_PRODUCTION.csv`, `HANDOFF_AFFINAGE.md` et `HANDOFF_IA_COMPLET.md`.\n   - **Suivi graphique temps réel** : maintenir à jour le tableau de bord visuel temps réel des réalisations achevées et en cours.\n\n## § 1. RÈGLES ACTUALISÉES (PRIMENT SUR LE PROMPT ALPHA 19.11.26)\n1. **Nombre de cours par SSP** : **1 cours par entité de la Cartographie Renouveau** (15 à 24 entités par SSP, 3 975 au total) + le Chapitre 0 (`Phase_A`), dans l'ordre exact des `Cours 1 … N` de `SSP_nnn/NOTIONS.md` / `NOTIONS.json`.\n2. **QUALITÉ CLINIQUE MAXIMALE & ZÉRO MÉDIOCRITÉ (BLOQUANT ABSOLU — Consigne Vial 20.11.26)** :\n   - **Interdiction absolue de toute prose patronnée / générique** : aucune phrase-cadre où seul le nom de la pathologie change d'un cours à l'autre, aucun remplissage artificiel pour atteindre le calibre. La médiocrité clinique est dangereuse et entraîne un rejet immédiat.\n   - Chaque cours (`Phase_A` et `DX.1..N`) doit être **rédigé sur mesure** pour son entité exacte, avec : raisonnement physiopathologique et sémiologique réel, seuils numériques précis, diagnostics différentiels discriminants, posologies et contre-indications sourcées (Compendium.ch / AIPS, Tox Info Suisse, OFSP, ASSM, sociétés savantes suisses), vignettes cliniques authentiques et QCM exigeants de niveau Examen Fédéral Suisse.\n3. **INTERDICTION DES ARBRES DÉCISIONNELS (Consigne Vial 20.11.26)** :\n   - **Ne générer AUCUN arbre décisionnel ni algorithme graphique (`.fm-canvas`, SVG décisionnel, etc.)** dans `Phase_A` ou dans les `DX.n` — l'auteur (Vial) les réalisera lui-même.\n4. **Calibre texte pur actualisé (Consigne Vial 20.11.26)** :\n   - **80 à 100 Ko de texte pur UTF-8 par fichier** (`81 920` à `102 400` octets, calibre du Prompt Alpha confirmé par Vial le 20.11.2026 à 21:20, mesuré fenêtres comprises, hors balises HTML, CSS, JS, SVG et images).\n   - HTML hors images (`controle3.py`) : **`40 000` à `100 000` octets** (alerte).\n   - Densité maximale : zéro remplissage, zéro phrase pouvant figurer telle quelle dans un autre cours, zéro phrase de gabarit de `cartographie_DATA.json`.\n5. **Phrases verbales exclusives (BLOQUANT)** :\n   - Chaque phrase (texte, fenêtres, listes, légendes `<figcaption>`, cellules narratives `<td>`) contient un verbe conjugué reconnu. **Zéro phrase nominale.**\n4. **Médicaments cliquables d'emblée & Fenêtres centrées PK/PD à 2 onglets (Consigne Vial 20.11.26)** :\n   - Dès qu'un médicament est évoqué, il devient cliquable (`<a class=\"ouvre med-chip\" href=\"#f-...\">`).\n   - Chaque `<section class=\"fenetre mb\" id=\"f-...\"><div class=\"fen\">` s'ouvre au centre de l'écran et contient **2 onglets** :\n     * **Onglet 1 (`data-tab=\"pk\"`)** : Pharmacocinétique + **Courbe vectorielle SVG $C(t)$** + **4 paramètres cliniciens mis en évidence** (`.pkpd-kpis`).\n     * **Onglet 2 (`data-tab=\"pd\"`)** : Pharmacodynamique & Clinique + **Courbe vectorielle SVG $E(C)$** + posologies/précautions/grossesse suisses (Compendium.ch / AIPS).\n5. **Images** : uniquement à l'intérieur des `<section class=\"fenetre\">`, jamais hors fenêtre (licences selon Prompt Alpha § 4). Ne comptent pas dans le calibre.\n6. **Zéro terminologie de chantier visible** : aucun texte visible (ni `<title>`) ne doit contenir `LOT`, `V0`, `Phase A/B`, `DX.n`, `Appel A/B`, `Partie n`. Seuls les noms de fichiers gardent le format Alpha (`LOT_nnn_Phase_A_V0.html`, `LOT_nnn_Phase_B_V0_DX.i.html`).\n7. **Circuits & Plans** :\n   - `MONOGRAPHIQUE` (189 SSP) : plan maladie en 14 points (Prompt Alpha § 3.1).\n   - `NON_MONOGRAPHIQUE` (52 SSP) : Leçon en 12 à 14 points adaptés (Prompt Alpha § 3.2). **Jamais** de plan maladie ni de titres « Physiopathologie / Approche syndromique / Diagnostic positif » artificiels.\n   - `MIXTE` (7 SSP) : Prompt Alpha § 3.3, chaque fichier déclare `<meta name=\"ssp-circuit\" content=\"...\">`.\n8. **Correctifs Frontend v2 / Architecture `_sources/` (`UNIQUE.html` & `_polices/`)** :\n   - **Arborescence propre par SSP** : à la racine de `SSP_nnn/`, seul **`SSP_nnn_<code>_UNIQUE.html`** (plus le sous-dossier **`_sources/`**) est visible. Tous les fichiers sources (`LOT_nnn_*.html`, `images/`, `NOTIONS.*`, `MANIFESTE.json`, `DECISION*`, `paquet.json`, `_archive_avant_alpha/`) sont rangés dans `SSP_nnn/_sources/` sans rien supprimer.\n   - **Barre haute amovible (`gabarit_unique.html`)** : `#topbar` compacte 1 ligne (~42 px) avec pilule active, fil d'Ariane section, boutons `◀`/`▶`, tiroir overlay amovible `#dd-drawer` (`☰ Diagnostics (N) ▾` + option `📌 Épingler`) contenant `nav#nav` en colonnes égales (`32 px`, teinte unique par cours), et bouton `▴ Masquer barre` + pilule flottante `#btn-show-bar`.\n   - **Zéro dédoublement & navigation `#...` 100 % fonctionnelle (`forme.js`)** : script `forme.js` exécuté sous `DOMContentLoaded` et injecté par `assembler_unique.py`/`inliner.py` après `</head>` et avant `#signature-ia`/`</body>` ; intercepteur global appelant `e.preventDefault()` sur 100 % des `href^=\"#\"` (bloque le rechargement `srcdoc` + `file://`).\n   - **Modales centrées `<div class=\"fen\">` & désaturation (`forme.css` / `optimiser_ssp.py`)** : ouverture via classe `.fm-open` (plus `:target` en repli) avec pile `modalStack` et bouton `Fermer ✕` sticky (sans `history.back()`), auto-enveloppement `<div class=\"fen\">`, tableaux hors modale déplacés vers `<section class=\"fenetre fm-tab-fen\">` déclenchés par cartes `.fm-encart-fen`, citations `<sup class=\"r\"><a>` compactées en `[N]` avec modale aperçu `#fm-src-modal` empilable (`fm-stack-top`), puces médicaments `a.ouvre.med-chip` (`℞ ...`, `white-space: nowrap`, compatible accents français), repli du plan latéral desktop `#fm-plan-toggle`, îlots discontinus (`margin-bottom: 30px`) et padding bas `5.5rem` protégeant la lecture au-dessus de `#signature-ia`.\n   - **HTML unique** : ne jamais l'écrire à la main ; toujours exécuter `optimiser_ssp.py` puis `assembler_unique.py nnn`.\n\n## § 2. ARCHIVAGE & WORKFLOW PAR SSP (P0 → P4)\n- **Zéro suppression** : avant d'écraser ou renommer un fichier source existant, archiver dans `SSP_nnn/_sources/_archive_avant_alpha/`.\n- **P0 (Préparer)** : lire circuit (`catalogue_248.json`), entités (`NOTIONS.md`/`NOTIONS.json`), `memoire_zero_token.py --digest --lot nnn`, écrire `PLAN_ENTITES.md`.\n- **P1 (Décider)** : noter dans `DECISION.md` (Corriger / Réécrire si mécanique, faux plan maladie ou `< 30 Ko` / Créer).\n- **P2 (Produire)** : `LOT_nnn_Phase_A_V0.html` + `LOT_nnn_Phase_B_V0_DX.1..N.html`, 100 % des notions de `NOTIONS.json` expliquées et sourcées (Compendium.ch / AIPS, OFSP, ASSM, CC, LAMal, LAVI, Smarter Medicine), sans aucune phrase gabarit de la cartographie.\n- **P3 (Portes de Contrôle + Optimisation + Assemblage + Audit Chrome)** :\n  1. `controle3.py --script-ok` → **`VERT {}`** (si `paquet.json` présent ; `--script-ok` requis car `_sources/` référence `../../_polices/forme.js`)\n  2. `verif_aips.py` → **`OK`** (si `paquet.json` présent) et `restaurer_fond.py --verifier` → **`exit=0`**\n  3. `python _outils/optimiser_ssp.py nnn` → migration vers `_sources/`, tableaux déplacés en `<div class=\"fen\">`, teintes non bleues `--fm-a`\n  4. `python _outils/verif_mission.py nnn` → **100 % fichiers `PASS`** (`errors: []`)\n  5. `python _outils/assembler_unique.py nnn` → **`(1 + N) / (1 + N) onglets`** à la racine de `SSP_nnn/`\n  6. `python _outils/notions.py verifier nnn` → **`0 NON`** + copier `rapport_notions.csv` dans `SSP_nnn/_sources/`\n  7. `python _outils/audit_unique_browser.py nnn --all-tabs` → **`PASS` sur 100 % des onglets en Chrome headless réel**\n  8. Ajouter ligne dans `SUIVI_PRODUCTION.csv` + `git commit` + `git push origin main`.\n- **P4 (Affinage)** : consigner tout doute clinique/posologique non vérifié dans `1_Claude AI/HANDOFF_AFFINAGE.md` sous `## SSP_nnn`.\n\n## § 3. MISSION 2 — SSP 001 → 032\n- Extraire les cours depuis `SSP_nnn_<code>_UNIQUE.html` (JSON `data` gzip+base64, marqueurs `@@IMG:…@@`, `@@FONT:…@@`) après archivage des anciens `LOT_nnn_*.html` dans `_archive_avant_alpha/`.\n- Le frontend reste identique ; auditer le contenu avec la même sévérité (attention : `SSP_013` G13 = `NON_MONOGRAPHIQUE`, `SSP_014` G14 = `MIXTE`).\n- Produire `1_Claude AI/AUDIT_001-032.md` et corriger tous les ❌.\n\n## § 4. LES 12 BLOCAGES ROUGE (REJET IMMÉDIAT)\n1. Identification absente ou incertaine.\n2. Signature `#signature-ia` absente, modifiée ou supprimée.\n3. Entité de la Cartographie sans cours.\n4. Fichier hors intervalle `80–100 Ko` de texte pur (tout cours ; un cours de 30–50 Ko est à enrichir).\n5. Toute phrase nominale.\n6. Toute notion au verdict `NON`.\n7. Phrase gabarit de `cartographie_DATA.json` recopiée dans un cours.\n8. Plan maladie appliqué à une Leçon `NON_MONOGRAPHIQUE`.\n9. Terme de chantier visible (`LOT`, `V0`, `Phase A/B`, `DX.n`, `Appel`, `Partie n`).\n10. Posologie sans source de la cascade suisse.\n11. Image hors `<section class=\"fenetre\">`.\n12. Fichier supprimé au lieu d'être archivé.\n\n## § 5. ANNEXE CIRCUITS (248 SSP)\n- **NON_MONOGRAPHIQUE (52)** : 013 · 065 · 069 · 176 · 180 · 181 · 182 · 184 · 185 · 186 · 192 · 194 · 195 · 198 · 200 · 203 · 204 · 205 · 206 · 207 · 208 · 209 · 210 · 211 · 212 · 213 · 214 · 215 · 216 · 217 · 218 · 219 · 220 · 221 · 222 · 224 · 225 · 226 · 227 · 232 · 233 · 235 · 236 · 237 · 238 · 239 · 240 · 241 · 242 · 243 · 246 · 247.\n- **MIXTE (7)** : 014 · 165 · 174 · 175 · 190 · 202 · 223.\n- **MONOGRAPHIQUE (189)** : tous les autres SSP."
+}

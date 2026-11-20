@@ -1,0 +1,2444 @@
+{
+  "rappel_obligatoire_avant_redaction": {
+    "lecture_imperative": [
+      "1. Lire intégralement PROMPT_Alpha_19.11.26.md ET la mise à jour incluse dans prompt_alpha_a_jour ci-dessous.",
+      "2. Respecter l'intervalle GLOBAL par cours : viser 85–95 Ko de texte médical pur (soit ~95–115 Ko de fichier JSON) sans quota rigide par partie — répartir le texte proportionnellement à l'importance clinique des parties.",
+      "3. Produire graduellement 1 cours complet par requête (Phase A, puis Cours 1, Cours 2...) en français médical académique, phrases verbales exclusives (0 phrase nominale), zéro prose générique ou patronnée.",
+      "4. Utiliser uniquement les guillemets typographiques français « … » dans les valeurs texte JSON (jamais de guillemet droit non échappé).",
+      "5. Zéro arbre décisionnel graphique (.fm-canvas) : ne générer aucun schéma décisionnel."
+    ],
+    "specificites_locales_ssp": [
+      "Circuit MONOGRAPHIQUE : respecter le plan maladie en 14 points avec socle généralités (1-3), démarche diagnostique (4-10), prise en charge posologique suisse intégrale (11) et QCM Examen Fédéral (14).",
+      "Couvrir 100 % des notions obligatoires listées dans phase_b[*].plan[*].notions_obligatoires pour Altération de la voix (enrouement, aphonie, dysphonie) (S1.3).",
+      "Cascade posologique suisse à 4 paliers obligatoire : 1. AIPS Swissmedic (n° 5 chiffres) -> 2. Compendium.ch -> 3. Sociétés savantes & CHU suisses (HUG, CHUV, Inselspital, USZ, USB, OFSP, ASSM, SSMIG, Tox Info Suisse 145) -> 4. Sociétés savantes européennes."
+    ]
+  },
+  "meta": {
+    "rang_gravite": 187,
+    "ssp": "SSP_019",
+    "code_profiles": "S1.3",
+    "nom_francais": "Altération de la voix (enrouement, aphonie, dysphonie)",
+    "circuit": "MONOGRAPHIQUE",
+    "police_obligatoire": "Atkinson Hyperlegible",
+    "calibre_cible": "80–100 Ko texte pur",
+    "arbres_decisionnels_autorises": false,
+    "mode_redaction": "Neon Deep Research",
+    "nb_chapitres_total": 16,
+    "defauts_audit_initial": [
+      "Incomplet (11/16 cours)",
+      "245 phrases nominales",
+      "Termes chantier (11 f.)"
+    ]
+  },
+  "sommaire": {
+    "phase_a": {
+      "fichier_html_cible": "LOT_019_Phase_A_V0.html",
+      "titre": "Altération de la voix (enrouement, aphonie, dysphonie) — Vue d'ensemble et orientation clinique (S1.3)"
+    },
+    "phase_b": [
+      {
+        "cours_numero": 1,
+        "titre": "Laryngite aiguë virale catarrhale",
+        "cim": "J04.0",
+        "urgence": "chronique"
+      },
+      {
+        "cours_numero": 2,
+        "titre": "Dysphonie dysfonctionnelle (forçage vocal / dysphonie par tension musculaire)",
+        "cim": "R49.0",
+        "urgence": "chronique"
+      },
+      {
+        "cours_numero": 3,
+        "titre": "Lésions bénignes exophytiques des cordes vocales (nodules, polypes, pseudomyxome de Reinke)",
+        "cim": "J38.1",
+        "urgence": "chronique"
+      },
+      {
+        "cours_numero": 4,
+        "titre": "Laryngite chronique par reflux laryngopharyngé (RLP)",
+        "cim": "K21.9",
+        "urgence": "chronique"
+      },
+      {
+        "cours_numero": 5,
+        "titre": "Paralysie récurrentielle unilatérale (nerf laryngé inférieur)",
+        "cim": "J38.0",
+        "urgence": "semi-urgent"
+      },
+      {
+        "cours_numero": 6,
+        "titre": "Carcinome épidermoïde du larynx (glottique, sus-glottique ou sous-glottique)",
+        "cim": "C32.9",
+        "urgence": "urgent"
+      },
+      {
+        "cours_numero": 7,
+        "titre": "Presbyphonie (atrophie vocale liée à l'âge)",
+        "cim": "R49.8",
+        "urgence": "chronique"
+      },
+      {
+        "cours_numero": 8,
+        "titre": "Granulome laryngé post-intubation ou de contact",
+        "cim": "J38.7",
+        "urgence": "chronique"
+      },
+      {
+        "cours_numero": 9,
+        "titre": "Dysphonie spasmodique (dystonie focale laryngée en adduction ou abduction)",
+        "cim": "G24.9",
+        "urgence": "chronique"
+      },
+      {
+        "cours_numero": 10,
+        "titre": "Papillomatose respiratoire récurrente (laryngée à HPV 6 et 11)",
+        "cim": "D14.1",
+        "urgence": "semi-urgent"
+      },
+      {
+        "cours_numero": 11,
+        "titre": "Épiglottite aiguë (supraglottite infectieuse obstructive)",
+        "cim": "J05.1",
+        "urgence": "immediate"
+      },
+      {
+        "cours_numero": 12,
+        "titre": "Laryngite sous-glottique aiguë dyspnéisante de l'enfant (faux-croup / laryngo-trachéite virale)",
+        "cim": "J05.0",
+        "urgence": "urgent"
+      },
+      {
+        "cours_numero": 13,
+        "titre": "Œdème laryngé anaphylactique ou angio-œdème bradykinique des voies aériennes supérieures",
+        "cim": "T78.3",
+        "urgence": "immediate"
+      },
+      {
+        "cours_numero": 14,
+        "titre": "Paralysie laryngée bilatérale en adduction (syndrome de Gerhardt / diplégie récurrentielle)",
+        "cim": "J38.0",
+        "urgence": "immediate"
+      },
+      {
+        "cours_numero": 15,
+        "titre": "Traumatisme laryngo-trachéal externe ou interne (fracture laryngée, brûlure thermique/caustique d'inhalation)",
+        "cim": "S12.8",
+        "urgence": "immediate"
+      }
+    ]
+  },
+  "phase_a": {
+    "titre": "Altération de la voix (enrouement, aphonie, dysphonie) — Vue d'ensemble (S1.3)",
+    "plan": [
+      {
+        "point": 1,
+        "titre": "Définition nosologique et périmètre clinique",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 2,
+        "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 3,
+        "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 4,
+        "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+        "description": "Présentation et hiérarchisation des 15 entités de la Cartographie Renouveau."
+      },
+      {
+        "point": 5,
+        "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 6,
+        "titre": "Examen physique systématique région par région",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 7,
+        "titre": "Approche syndromique et stratification de gravité",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 8,
+        "titre": "Diagnostic positif, scores cliniques et critères validés",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 9,
+        "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 10,
+        "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 11,
+        "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 12,
+        "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 13,
+        "titre": "Points clés indispensables à retenir",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 14,
+        "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      }
+    ]
+  },
+  "phase_b": [
+    {
+      "cours_numero": 1,
+      "fichier_html_cible": "LOT_019_Phase_B_V0_DX.1.html",
+      "titre": "Laryngite aiguë virale catarrhale",
+      "cim": "J04.0",
+      "urgence": "chronique",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Inflammation aiguë infectieuse (rhinovirus, influenza, parainfluenza) de la muqueuse laryngée et des cordes vocales."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Très fréquente en période automno-hivernale, associée à une rhinopharyngite."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Œdème et hyperhémie de l'espace de Reinke alourdissant la masse vibrante des cordes vocales (voix grave, voilée ou éteinte)."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Persistance de la dysphonie > 2 à 3 semaines (impose une laryngoscopie), stridor inspiratoire, dysphagie/hypersialorrhée."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Enrouement ou aphonie d'installation rapide dans un contexte de rhume, toux sèche irritative, fébricule, durée < 10–14 jours."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Examen oropharyngé rassurant, absence de stridor ou de signes de lutte respiratoire ; nasofibroscopie non nécessaire en phase aiguë simple."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Dysphonie aiguë post-rhinopharyngée résolutive en moins de 2 semaines."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Diagnostic purement clinique en l'absence de signes d'alarme."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Nasofibroscopie laryngée obligatoire si la dysphonie dépasse 15–21 jours."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Repos vocal relatif (éviter de chuchoter car cela met les cordes en tension), hydratation, humidification, éviction du tabac ; pas d'antibiotiques."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Prévention du forçage vocal secondaire pendant la convalescence."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Passage au forçage vocal dysfonctionnel si sollicitation vocale maintenue pendant l'épisode aigu."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Vérifier la guérison complète à 2–3 semaines."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Guérison complète sans séquelle en 7 à 14 jours."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Médecin de premier recours, ORL si persistance > 3 semaines."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 2,
+      "fichier_html_cible": "LOT_019_Phase_B_V0_DX.2.html",
+      "titre": "Dysphonie dysfonctionnelle (forçage vocal / dysphonie par tension musculaire)",
+      "cim": "R49.0",
+      "urgence": "chronique",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Trouble de la fonction vocale lié à un comportement de malmenage ou surmenage vocal avec hypertonie des muscles laryngés intrinsèques et extrinsèques."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Prédominance féminine, professions à forte charge vocale (enseignants)."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Déséquilibre pneumo-phono-résonantiel avec serrage supraglottique et défaut d'affrontement glottique postérieur pouvant induire secondairement des nodules."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Dysphonie permanente non améliorée au repos, tabagisme/alcoolisme, otalgie réflexe, hémoptysie."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Fatigabilité vocale progressive au fil de la journée et de la semaine, améliorée le week-end et pendant les vacances, hemmage, paresthésies pharyngées."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Posture cervicale tendue, respiration thoracique supérieure ; laryngoscopie/stroboscopie : cordes vocales mobiles sans lésion tumorale, fente glottique postérieure ou en sablier."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Dysphonie chronique fluctuante avec hypercinésie laryngée stroboscopique après exclusion d'une lésion organique."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Vidéolaryngostroboscopie par l'ORL/phoniatre et bilan logopédique/orthophonique vocal."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "pH-impédancemétrie si suspicion de reflux laryngopharyngé cofacteur."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Hygiène vocale (hydratation, arrêt du hemmage, pauses vocales)."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Rééducation vocale logopédique (souffle abdomino-diaphragmatique, pose de la voix, détente cervico-scapulaire)."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Apparition secondaire de nodules des cordes vocales (kissing nodules), incapacité professionnelle."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Suivi phoniatrique et logopédique."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Excellent avec rééducation vocale bien conduite."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "ORL/phoniatre, logopédiste/orthophoniste."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 3,
+      "fichier_html_cible": "LOT_019_Phase_B_V0_DX.3.html",
+      "titre": "Lésions bénignes exophytiques des cordes vocales (nodules, polypes, pseudomyxome de Reinke)",
+      "cim": "J38.1",
+      "urgence": "chronique",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Remaniements bénins de la muqueuse et de l'espace de Reinke des plis vocaux secondaires au traumatisme vibratoire ou à l'intoxication tabagique."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Nodules : femmes jeunes et enfants ; polypes : adultes après effort vocal aigu ; pseudomyxome de Reinke : grands fumeurs > 45 ans."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Épaississement épithélial et fibrose basale au tiers moyen (nodules), lésion exophytique angiomateuse/fibreuse (polype) ou accumulation gélatineuse dans tout l'espace de Reinke (tabac)."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Leucoplasie bourgeonnante, ulcération, diminution de l'onde muqueuse stroboscopique ou immobilité cordale (cancer)."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Voix rauque, éraillée, bitonale (polype) ou très grave masculinisée chez une fumeuse (Reinke)."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Nasofibroscopie et stroboscopie : nodules bilatéraux symétriques à l'union 1/3 antérieur–2/3 postérieurs ; polype unilatéral ; boudins œdémateux bilatéraux (Reinke), mobilité cordale conservée."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Visualisation directe de la lésion bénigne avec conservation de l'onde muqueuse en stroboscopie."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Nasofibroscopie et vidéostroboscopie laryngée."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Laryngoscopie directe en suspension sous anesthésie générale à visée diagnostique et thérapeutique."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Sevrage tabagique impératif (surtout œdème de Reinke), repos vocal."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Nodules : rééducation logopédique en 1re intention ; polypes et œdème de Reinke volumineux : microchirurgie laryngée en suspension encadrée de logopédie."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Dyspnée laryngée si pseudomyxome de Reinke géant obstructif ; synéchie de la commissure antérieure post-chirurgicale."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Contrôle laryngoscopique post-opératoire et surveillance des fumeurs."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Très bon après sevrage tabagique, microchirurgie et rééducation."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "ORL, logopédiste, tabacologue."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 4,
+      "fichier_html_cible": "LOT_019_Phase_B_V0_DX.4.html",
+      "titre": "Laryngite chronique par reflux laryngopharyngé (RLP)",
+      "cim": "K21.9",
+      "urgence": "chronique",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Inflammation chronique de la muqueuse laryngée postérieure induite par la remontée d'acide gastrique et de pepsine au-delà du sphincter supérieur de l'œsophage."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Très fréquent en consultation ORL ; souvent présent sans pyrosis typique (« reflux silencieux »)."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "L'épithélium laryngé, dépourvu d'anhydrase carbonique protectrice contrairement à l'œsophage, est lésé par de faibles quantités de pepsine activée à pH acide ou faiblement acide."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Dysphagie organique, amaigrissement, tabagisme (toujours éliminer un carcinome pharyngo-laryngé avant d'attribuer une dysphonie au reflux)."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Enrouement prédominant au réveil, raclement de gorge (hemmage) chronique, sensation de corps étranger pharyngé (globus), toux sèche post-prandiale."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Score RSI (Reflux Symptom Index) et RFS (Reflux Finding Score) en nasofibroscopie : érythème et œdème inter-aryténoïdien, pachydermie postérieure, granulome de l'apophyse vocale."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Concordance symptômes (RSI > 13) + signes laryngoscopiques postérieurs (RFS > 7) + réponse aux mesures anti-reflux."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Nasofibroscopie laryngée ; pH-impédancemétrie œsophagienne des 24 h à double sonde en cas de doute ou résistance au traitement."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Gastroscopie en cas de signes d'alarme digestifs ou RGO ancien."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Mesures hygiéno-diététiques (surélévation de la tête du lit, dîner 3 h avant le coucher, réduction alcool/café/graisses), alginates post-prandiaux."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "IPP à l'essai pendant 8 semaines si RGO associé, rééducation vocale et éviction du hemmage en cas de granulome aryténoïdien."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Ulcère de contact et granulome récidivant de l'apophyse vocale, spasmes laryngés."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Réévaluation clinique et nasofibroscopique à 2–3 mois."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Amélioration progressive avec le respect durable des règles hygiéno-diététiques."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "ORL, gastro-entérologue, médecin traitant."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 5,
+      "fichier_html_cible": "LOT_019_Phase_B_V0_DX.5.html",
+      "titre": "Paralysie récurrentielle unilatérale (nerf laryngé inférieur)",
+      "cim": "J38.0",
+      "urgence": "semi-urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Immobilité d'un hémi-larynx par lésion du nerf vague (X) ou du nerf laryngé récurrent sur son trajet basi-crânien, cervical ou médiastinal."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Étiologies : chirurgicale (thyroïdectomie, carotide, œsophage, chirurgie cardio-thoracique), néoplasique (cancer bronchique/médiastinal sous la crosse aortique à gauche, thyroïde, œsophage), ou idiopathique/virale."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Le nerf récurrent gauche descend dans le thorax sous la crosse de l'aorte (fenêtre aorto-pulmonaire) tandis que le droit contourne l'artère sous-clavière droite."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Paralysie gauche chez un fumeur (cancer bronchopulmonaire avec adénopathie de la fenêtre aorto-pulmonaire), syndrome du trou déchiré postérieur."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Dysphonie brutale post-opératoire ou d'installation rapide avec voix faible, soufflée, bitonale, essoufflement phonatoire et toux à la déglutition des liquides."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Nasofibroscopie : corde vocale immobile en position paramédiane ou intermédiaire, défaut d'affrontement glottique en phonation ; examen des autres paires crâniennes (IX, XI, XII) et palpation cervicale."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Immobilité laryngée unilatérale documentée en nasofibroscopie avec bilan d'imagerie complet du trajet du X et du récurrent."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Nasofibroscopie laryngée + CT-scan cervico-thoracique injecté allant de la base du crâne jusqu'au médiastin inférieur (fenêtre aorto-pulmonaire)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "IRM de la base du crâne si atteinte vagale haute associée (paralysie du voile du palais)."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Rééducation logopédique précoce (compensation par la corde saine et prévention des fausses routes : menton fléchi vers le côté paralysé)."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Médialisation de la corde vocale par injection intracordale (acide hyaluronique, graisse) ou thyroplastie de type I d'Isshiki si défaut glottique persistant à 6–12 mois."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Pneumonie d'inhalation par insuffisance glottique, découverte d'un cancer thoracique ou cervical avancé."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Suivi ORL à 1, 3 et 6 mois (récupération possible dans les formes idiopathiques ou par neurapraxie)."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Bonne récupération vocale par rééducation ou médialisation ; pronostic lié à l'étiologie sous-jacente."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "ORL, logopédiste, radiologue, oncologue/chirurgien thoracique selon la cause."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 6,
+      "fichier_html_cible": "LOT_019_Phase_B_V0_DX.6.html",
+      "titre": "Carcinome épidermoïde du larynx (glottique, sus-glottique ou sous-glottique)",
+      "cim": "C32.9",
+      "urgence": "urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Tumeur maligne épithéliale développée aux dépens de la muqueuse laryngée (étage glottique le plus fréquent et le plus précocement symptomatique)."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Homme > 50 ans, intoxication alcoolo-tabagique synergique ; le cancer glottique est révélé tôt par la dysphonie (excellent pronostic au stade T1)."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Séquence dysplasie légère -> sévère/carcinome in situ -> carcinome épidermoïde infiltrant ; l'étage glottique est très pauvre en lymphatiques (peu d'adénopathies au stade T1)."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Dyspnée laryngée avec stridor (tumeur obstructive T3/T4), otalgie unilatérale à tympan normal, adénopathie cervicale dure fixée."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Dysphonie chronique permanente, progressive, > 3 semaines chez un fumeur ; plus tardivement : odynophagie, otalgie réflexe homolatérale, dyspnée inspiratoire."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Nasofibroscopie : lésion bourgeonnante, ulcéro-infiltrante ou leucoplasique d'une corde vocale, évaluation précise de la mobilité cordale et aryténoïdienne (fixation = stade T3), palpation des aires ganglionnaires cervicales."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Confirmation histologique de carcinome épidermoïde sur biopsie en laryngoscopie directe en suspension."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Panendoscopie des voies aérodigestives supérieures (VADS) sous anesthésie générale avec biopsies (recherche de cancer synchrone dans 10–15 % des cas) + CT cervico-thoracique injecté."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "IRM laryngée (invasion cartilagineuse) et PET-CT pour les stades localement avancés."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Sécurisation des voies aériennes si dyspnée (désobstruction laser ou trachéotomie), bilan nutritionnel et dentaire pré-thérapeutique."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Colloque multidisciplinaire : cordectomie transorale au laser CO2 ou radiothérapie exclusive (T1–T2) ; protocole de préservation laryngée (radio-chimiothérapie) ou laryngectomie totale + curage (T3–T4)."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Asphyxie tumorale, fistule pharyngo-cutanée post-laryngectomie, radionécrose cartilagineuse."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Surveillance clinique et nasofibroscopique trimestrielle les 2 premières années puis semestrielle pendant 5 ans, sevrage alcoolo-tabagique."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Survie à 5 ans > 85–90 % pour les cancers glottiques T1N0 ; ~50 % pour les stades avancés."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "ORL/chirurgien cervico-facial, radio-oncologue, oncologue, logopédiste (voix œsophagienne/implant phonatoire)."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 7,
+      "fichier_html_cible": "LOT_019_Phase_B_V0_DX.7.html",
+      "titre": "Presbyphonie (atrophie vocale liée à l'âge)",
+      "cim": "R49.8",
+      "urgence": "chronique",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Modification physiologique ou pathologique de la voix liée au vieillissement laryngé et respiratoire."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Fréquent après 70 ans, facteur d'isolement social."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Sarcopénie du muscle vocal, raréfaction des fibres élastiques et d'acide hyaluronique de la lamina propria, donnant des cordes vocales arquées (bowing)."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Lésion muqueuse focale, immobilité unilatérale ou symptômes neurologiques (maladie de Parkinson)."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Baisse progressive de l'intensité vocale, fatigue à la conversation, élévation du fondamental chez l'homme âgé."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Nasofibroscopie : aspect arqué concavité interne des deux cordes vocales avec fente fusiforme en phonation, mobilité conservée."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Aspect arqué bilatéral symétrique des cordes vocales chez un sujet âgé sans lésion organique."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Vidéolaryngostroboscopie après exclusion d'une lésion tumorale ou neurologique."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Évaluation de la déglutition si fausses routes associées (presbyphagie)."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Rassurance et conseils d'hygiène vocale."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Rééducation orthophonique tonifiante ; laryngoplastie d'injection si insuffisance glottique marquée."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Isolement communicationnel, fausses routes si presbyphagie conjointe."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Suivi ORL et orthophonique."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Amélioration de l'endurance vocale par la rééducation."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "ORL, logopédiste."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 8,
+      "fichier_html_cible": "LOT_019_Phase_B_V0_DX.8.html",
+      "titre": "Granulome laryngé post-intubation ou de contact",
+      "cim": "J38.7",
+      "urgence": "chronique",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Réaction inflammatoire granulomateuse bénigne développée sur le périchondre dénudé du processus vocal du cartilage aryténoïde."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Survient quelques semaines après une intubation prolongée/traumatique ou chez l'homme présentant un reflux laryngopharyngé et un coup de glotte."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Le muco-périchondre très fin recouvrant l'apophyse vocale s'ulcère sous la pression de la sonde d'intubation ou du martèlement aryténoïdien + acide."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Localisation aux 2/3 antérieurs membraneux ou infiltration (suspecter un carcinome épidermoïde)."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Dysphonie modérée, gêne pharyngée unilatérale, sensation de corps étranger et besoin de se racler la gorge dans les semaines suivant une anesthésie générale."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Nasofibroscopie : masse arrondie lisse, sessile ou pédiculée, implantée strictement sur le tiers postérieur (cartilagineux) de la corde vocale."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Lésion exophytique typique de l'apophyse vocale en nasofibroscopie."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Nasofibroscopie laryngée."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Biopsie-exérèse uniquement si doute diagnostique avec une tumeur maligne ou obstruction respiratoire (fort taux de récidive post-chirurgicale)."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Traitement médical de 1re intention : IPP + corticoïdes inhalés + suppression absolue du hemmage."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Rééducation logopédique (attaque vocale douce) ; injection de toxine botulique dans le muscle thyro-aryténoïdien si granulome réfractaire."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Récidive fréquente (> 50 %) en cas d'exérèse chirurgicale isolée sans correction des facteurs causaux."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Contrôle nasofibroscopique à 6–8 semaines jusqu'à régression complète."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Guérison sous traitement médical et logopédique en quelques mois."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "ORL, logopédiste."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 9,
+      "fichier_html_cible": "LOT_019_Phase_B_V0_DX.9.html",
+      "titre": "Dysphonie spasmodique (dystonie focale laryngée en adduction ou abduction)",
+      "cim": "G24.9",
+      "urgence": "chronique",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Dystonie focale neurologique d'action touchant les muscles intrinsèques du larynx (forme en adduction dans 85 % des cas : muscle thyro-aryténoïdien)."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Maladie rare débutant entre 30 et 50 ans, prédominance féminine."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Dysfonctionnement des noyaux gris centraux entraînant des co-contractions dystoniques involontaires spécifiques à la tâche de phonation conversationnelle."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Dysarthrie globale, dysphagie, signes pyramidaux ou cérébelleux (exclure SLA ou maladie de Wilson chez le jeune)."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Voix étranglée, forcée, entrecoupée d'arrêts vocaux involontaires, paradoxalement améliorée lors du rire, de la toux, du chant ou de la voix de tête."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Absence de lésion muqueuse en nasofibroscopie, spasmes d'hyper-adduction glottique visibles pendant les phrases voisées, examen neurologique à la recherche d'autres dystonies (blépharospasme)."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Spasmes laryngés tâche-spécifiques en nasofibroscopie et hyperactivité dystonique à l'EMG laryngé."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Vidéolaryngoscopie dynamique lors d'épreuves phonatoires standardisées et électromyographie laryngée."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "IRM cérébrale si dystonie non isolée ou atypique."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Explication du caractère neurologique (souvent errance diagnostique psychiatrique préalable)."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Injections répétées (tous les 3 à 6 mois) de toxine botulique de type A dans les muscles thyro-aryténoïdiens sous guidage EMG."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Voix soufflée et discrètes fausses routes aux liquides transitoires pendant 1 à 2 semaines après l'injection de toxine."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Suivi conjoint ORL/phoniatre et neurologue tous les 3–6 mois."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Contrôle symptomatique remarquable sous injections périodiques de toxine botulique."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "ORL/phoniatre, neurologue, logopédiste."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 10,
+      "fichier_html_cible": "LOT_019_Phase_B_V0_DX.10.html",
+      "titre": "Papillomatose respiratoire récurrente (laryngée à HPV 6 et 11)",
+      "cim": "D14.1",
+      "urgence": "semi-urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Prolifération épithéliale bénigne exophytique récidivante de l'arbre laryngo-trachéal induite par les papillomavirus humains (HPV 6 et 11)."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Distribution bimodale : forme juvénile (transmission verticale materno-fœtale, plus agressive) et forme de l'adulte (20–40 ans)."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Infection de la couche basale de l'épithélium de transition squamo-cilié laryngé par HPV 6/11 (rarement 16/18 avec risque de dégénérescence)."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Stridor, tirage sus-sternal (obstruction glottique), extension trachéale, transformation maligne (HPV 11/16)."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Dysphonie chronique s'aggravant progressivement, puis dyspnée inspiratoire d'effort ou stridor chez l'enfant."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Nasofibroscopie : lésions bourgeonnantes multiples, framboisées ou en grappes de raisin, à axes vasculaires ponctués sur les cordes vocales et la commissure."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Aspect endoscopique en grappes + confirmation histologique de papillome malpighien et PCR HPV."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Nasofibroscopie puis laryngo-trachéo-bronchoscopie sous AG avec biopsie, typage HPV et score de Derkay."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "CT thoracique en cas de suspicion de dissémination parenchymateuse pulmonaire."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Désobstruction chirurgicale prudente en microchirurgie laryngée (microdébrideur, laser CO2/KTP) en épargnant le ligament vocal et en évitant à tout prix la trachéotomie (qui favorise la dissémination trachéale)."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Débridements endoscopiques itératifs, adjuvants (bévacizumab intralésionnel/systémique, cidofovir) et vaccination anti-HPV nonavalente (Gardasil 9)."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Asphyxie laryngée, synéchies glottiques cicatricielles iatrogènes, extension trachéo-bronchique."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Surveillance nasofibroscopique régulière selon la cinétique de repousse."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Maladie chronique à récidives multiples ; prévention primaire majeure par la vaccination anti-HPV généralisée."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "ORL pédiatrique/adulte, phoniatre, logopédiste."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 11,
+      "fichier_html_cible": "LOT_019_Phase_B_V0_DX.11.html",
+      "titre": "Épiglottite aiguë (supraglottite infectieuse obstructive)",
+      "cim": "J05.1",
+      "urgence": "immediate",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Cellulite bactérienne suraiguë de l'épiglotte et des replis ary-épiglottiques menaçant d'asphyxie brutale par obstruction supraglottique."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Devenue rare chez l'enfant depuis la vaccination anti-Haemophilus influenzae b, mais toujours observée chez l'adulte (Streptococcus pneumoniae, S. pyogenes, S. aureus, Hib)."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Œdème inflammatoire fulminant du tissu sous-muqueux lâche de la face linguale de l'épiglotte et des aryténoïdes basculant en clapet sur l'orifice glottique."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Stridor, tirage, cyanose, épuisement respiratoire, agitation ou bradypnée pré-arrêt."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Début brutal en quelques heures : odynophagie atroce, impossibilité d'avaler sa salive, fièvre élevée, voix couverte étouffée (et non rauque)."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Patient angoissé, assis penché en avant bouche ouverte avec hypersialorrhée et stridor inspiratoire ; INTERDICTION d'allonger le patient ou d'examiner la gorge à l'abaisse-langue chez l'enfant (risque de laryngospasme réflexe mortel)."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Visualisation directe de l'épiglotte inflammatoire obstructive lors de l'intubation/nasofibroscopie."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Diagnostic clinique ; chez l'adulte stable uniquement : nasofibroscopie prudente en salle d'urgence/bloc montrant une épiglotte tuméfiée rouge cerise ; hémocultures après sécurisation des voies aériennes."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Radiographie cervicale de profil (signe du pouce) uniquement si patient parfaitement stable et sans retarder la prise en charge (jamais chez un enfant instable)."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Laisser le patient assis, O2 humidifié, appel immédiat anesthésiste + chirurgien ORL au bloc opératoire pour intubation orotrachéale vigile sous fibroscopie (chariot de cricothyroïdotomie/trachéotomie prêt), ceftriaxone IV (ou amoxicilline-clavulanate) + corticoïdes IV."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Extubation après 48–72 h d'antibiothérapie après vérification de la fuite autour du ballonnet et régression de l'œdème ; antibioprophylaxie de l'entourage par rifampicine si Hib avec jeune enfant non vacciné au foyer."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Arrêt hypoxique par obstruction complète des voies aériennes, abcès épiglottique, choc septique."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Soins intensifs (intubé ou surveillance scopée continue si forme modérée de l'adulte)."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Excellent si les voies aériennes sont sécurisées à temps ; létal en cas de retard."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Intensiviste, ORL, médecin traitant (vérification du statut vaccinal Hib)."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 12,
+      "fichier_html_cible": "LOT_019_Phase_B_V0_DX.12.html",
+      "titre": "Laryngite sous-glottique aiguë dyspnéisante de l'enfant (faux-croup / laryngo-trachéite virale)",
+      "cim": "J05.0",
+      "urgence": "urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Inflammation virale aiguë (Parainfluenza 1–3, VRS) de la sous-glotte chez le nourrisson et le petit enfant."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Cause la plus fréquente de dyspnée laryngée aiguë fébrile entre 6 mois et 3 ans, pic automno-hivernal."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "La région sous-glottique, entourée de l'anneau cartilagineux inextensible du cricoïde, est la zone la plus étroite des voies aériennes du nourrisson : 1 mm d'œdème réduit la surface luminale de > 60 % (loi de Poiseuille R ~ 1/r^4)."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Stridor au repos persistant, tirage marqué, pâleur/cyanose, hypotonie, résistance aux corticoïdes et à l'adrénaline (suspecter une trachéite bactérienne à S. aureus ou un corps étranger)."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Rhinopharyngite banale depuis 24–48 h, réveil nocturne brutal avec toux rauque aboyante, voix enrouée et bruit inspiratoire (stridor)."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Évaluation de la gravité par le score de Westley : stridor au repos ou à l'agitation, tirage intercostal/sus-sternal, entrée d'air, cyanose, conscience ; pas de dysphagie ni bavage."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Triade toux aboyante + dysphonie rauque + stridor inspiratoire chez un enfant de 6 mois–3 ans."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Diagnostic strictement clinique (aucun examen complémentaire ni radiographie en routine pour ne pas faire pleurer l'enfant et aggraver l'obstruction)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Radiographie cervicale de face (signe du clocher sous-glottique) uniquement dans les formes atypiques après stabilisation."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Calmer l'enfant dans les bras des parents, dexaméthasone orale (0,15 à 0,6 mg/kg dose unique) ou bétaméthasone ; si stridor au repos (modéré à sévère) : nébulisation d'adrénaline (épinéphrine) et surveillance hospitalière >= 2–4 h (effet rebond)."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Éducation des parents aux signes de lutte et mesures d'apaisement en cas de récidive nocturne."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Effet rebond après fin d'action de l'adrénaline nébulisée (à 2 h), surinfection en laryngo-trachéo-bronchite bactérienne pseudomembraneuse."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Score de Westley, fréquence respiratoire, SpO2 pendant au moins 2 à 4 h après nébulisation d'adrénaline."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Évolution favorable en 48–72 h dans > 95 % des cas."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Pédiatre."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 13,
+      "fichier_html_cible": "LOT_019_Phase_B_V0_DX.13.html",
+      "titre": "Œdème laryngé anaphylactique ou angio-œdème bradykinique des voies aériennes supérieures",
+      "cim": "T78.3",
+      "urgence": "immediate",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Œdème sous-muqueux aigu de la filière pharyngo-laryngée d'origine histaminique (anaphylaxie) ou bradykinique (IEC, déficit en C1-inhibiteur)."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Allergènes alimentaires/médicamenteux/hyménoptères (histaminique) ou prise d'inhibiteurs de l'enzyme de conversion (IEC, parfois après des années de traitement bien toléré)."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Vasodilatation et hyperperméabilité capillaire médiées par l'histamine (dégranulation mastocytaire IgE) ou par accumulation de bradykinine (défaut de dégradation par l'ECA ou déficit en C1-INH)."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Dysphonie, dysphagie salivaire ou stridor lors d'un angio-œdème = critère d'adrénaline IM immédiate et d'intubation précoce avant que le larynx ne devienne intubable."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Apparition rapide d'un enrouement, d'une sensation de gorge qui se resserre, associée à un œdème labial/lingual ; rechercher urticaire/prurit (histaminique) ou prise d'IEC/antécédents familiaux (bradykinique)."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Dysphonie, stridor, œdème de la luette, de la langue ou du plancher buccal ; prise des constantes hémodynamiques (choc anaphylactique associé)."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Œdème pharyngo-laryngé aigu objectivé cliniquement et en nasofibroscopie."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Diagnostic clinique immédiat ; dosage de la tryptase sérique (à 30–120 min) si anaphylaxie, dosage C4 et C1-INH pondéral/fonctionnel à distance si suspicion bradykinique."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Nasofibroscopie prudente pour évaluer l'œdème aryténoïdien et épiglottique."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Adrénaline IM (0,3–0,5 mg face antéro-latérale de cuisse) immédiate en 1re intention + O2 + remplissage ; si angio-œdème bradykinique (IEC ou héréditaire, résistant à l'adrénaline/corticoïdes/antihistaminiques) : icatibant SC (antagoniste des récepteurs B2 de la bradykinine) ou concentré de C1-INH IV ; intubation vigile précoce ou cricothyroïdotomie si asphyxie."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Arrêt définitif et contre-indication à vie des IEC (et prudence sartan) ; prescription d'auto-injecteurs d'adrénaline (EpiPen) et bilan allergologique si anaphylaxie."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Asphyxie par intubation impossible (cannot intubate, cannot oxygenate), réaction anaphylactique biphasique."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Surveillance hospitalière scopée de 12 à 24 h."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Favorable si sécurisation précoce des voies aériennes et traitement ciblé."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Allergologue/immunologue, ORL, médecin traitant."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 14,
+      "fichier_html_cible": "LOT_019_Phase_B_V0_DX.14.html",
+      "titre": "Paralysie laryngée bilatérale en adduction (syndrome de Gerhardt / diplégie récurrentielle)",
+      "cim": "J38.0",
+      "urgence": "immediate",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Immobilité bilatérale des deux cordes vocales en position paramédiane par lésion des deux nerfs récurrents ou ankylose crico-aryténoïdienne bilatérale."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Complication redoutée de la thyroïdectomie totale, des tumeurs thyroïdiennes/œsophagiennes invasives ou de l'intubation prolongée."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Les deux cordes vocales immobilisées en fermeture paramédiane permettent l'affrontement phonatoire (voix conservée) mais réduisent la fente glottique respiratoire à une fente millimétrique."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Épuisement respiratoire, hypercapnie, décompensation brutale lors d'une infection virale intercurrente."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Apparition dès l'extubation après thyroïdectomie totale ou progressivement d'un stridor inspiratoire bruyant avec dyspnée au moindre effort."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Stridor inspiratoire, tirage sus-sternal et intercostal, voix étonnamment conservée ; nasofibroscopie : les deux cordes vocales sont proches de la ligne médiane et ne s'ouvrent pas à l'inspiration."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Défaut d'abduction bilatéral des cordes vocales réduisant la filière glottique en nasofibroscopie."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Nasofibroscopie laryngée en urgence."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "CT cervico-thoracique et EMG laryngé (hors urgence vitale immédiate)."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Oxygénothérapie, corticoïdes IV, nébulisation d'adrénaline ; réintubation avec sonde de petit calibre ou trachéotomie chirurgicale en urgence."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Cordotomie postérieure transverse au laser CO2 ou aryténoïdectomie partielle pour élargir la filière respiratoire postérieure (au prix d'un affaiblissement de la voix)."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Arrêt respiratoire asphyxique à l'extubation."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Soins intensifs ou continus post-opératoires."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Décanulation possible après chirurgie d'élargissement glottique postérieur."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "ORL/chirurgien cervico-facial, logopédiste."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 15,
+      "fichier_html_cible": "LOT_019_Phase_B_V0_DX.15.html",
+      "titre": "Traumatisme laryngo-trachéal externe ou interne (fracture laryngée, brûlure thermique/caustique d'inhalation)",
+      "cim": "S12.8",
+      "urgence": "immediate",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Lésion traumatique contondante/pénétrante du squelette cartilagineux laryngé ou brûlure thermique/chimique de la muqueuse laryngée par inhalation de fumées."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Choc direct sur le cou (ceinture de sécurité, corde à linge, strangulation) ou victime d'incendie en espace clos."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Hématome sous-muqueux, luxation aryténoïdienne, fracture du cartilage thyroïde/cricoïde avec brèche muqueuse (emphysème) ou œdème thermique progressif."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Tout enrouement chez un brûlé de la face/cou impose une intubation orotrachéale préventive immédiate avant que l'œdème massif n'empêche l'exposition glottique."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Traumatisme antérieur du cou ou exposition aux fumées d'incendie, modification immédiate ou progressive de la voix, douleur cervicale antérieure, odynophagie."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Voix rauque ou aphonie, stridor, crépitation neigeuse d'emphysème sous-cutané cervical, perte du relief de la pomme d'Adam, vibrisses nasales brûlées et suie dans les crachats."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Brèche muqueuse, hématome/œdème laryngé ou fracture cartilagineuse en nasofibroscopie et au CT."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Nasofibroscopie prudente (si patient stable) et CT-scan cervical en coupes fines (bilan des fractures cartilagineuses thyro-cricoïdiennes)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Mesure de la carboxyhémoglobine (HbCO) et des lactates (intoxication au cyanure) en cas d'inhalation de fumées."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Sécurisation précoce des voies aériennes : intubation prudente sous contrôle fibroscopique par un opérateur senior ou trachéotomie sous anesthésie locale si fracture laryngée instable/désinsertion crico-trachéale."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Réparation chirurgicale précoce des fractures déplacées du cartilage thyroïde/cricoïde (< 24–48 h) pour prévenir les sténoses laryngées séquellaires."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Désinsertion laryngo-trachéale complète lors d'une intubation à l'aveugle, médiastinite, sténose laryngo-trachéale chronique."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Soins intensifs, surveillance de l'emphysème sous-cutané."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Le pronostic vocal et respiratoire dépend de la précocité de la réduction anatomique des fractures."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "ORL/chirurgien cervico-facial, intensiviste, logopédiste."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    }
+  ],
+  "prompt_alpha_a_jour": "# MISSION : CORRECTION ET COMPLÉTION DES 248 SSP SUISSES (3 975 ENTITÉS + 248 CHAPITRES 0)\n\n## § 0. IDENTIFICATION, SIGNATURE & RÈGLES DE CONTINUITÉ — BLOQUANT ABSOLU\n1. **Identification obligatoire** en tête de première réponse :\n   - HEURE DE DÉBUT : AAAA-MM-JJ HH:MM (Europe/Zurich)\n   - MODÈLE : nom exact du modèle (ex. ANTIGRAVITY ORCHESTRATOR NEON)\n   - PLATEFORME : plateforme exacte (ex. ANTIGRAVITY)\n   - Ajouter la même ligne à `1_Claude AI/IDENTIFICATION_AGENTS.md`. Si incertitude, s'arrêter.\n2. **Signature IA fixe en bas à droite de TOUT HTML produit ou modifié** (juste avant `</body>`, en GRAS MAJUSCULE) :\n   `<div id=\"signature-ia\" style=\"position:fixed;right:12px;bottom:10px;z-index:9999;background:#fff;border:2px solid #000;padding:4px 10px;font:700 12px/1.3 Arial,sans-serif;text-transform:uppercase;color:#000\">DÉBUT : AAAA-MM-JJ HH:MM (EUROPE/ZURICH) · MODÈLE : <NOM> · PLATEFORME : <PLATEFORME></div>`\n   - **Seul Vial peut autoriser le retrait de ce bloc.** Un agent qui reprend un fichier signé ajoute sa propre ligne sous la précédente sans jamais effacer l'existante.\n3. **Continuité & transparence** :\n   - **Redémarrage propre à partir de `SSP_248`** : tous les cours précédemment modifiés ont été restaurés à l'état initial (`6941513`). Enchaîner continûment **`SSP_248 → SSP_033`**, puis **`SSP_001 → SSP_032`**.\n   - **Toujours afficher le raisonnement visible** en français dans chaque réponse.\n   - **Veille & relance GitHub** : commiter et pousser sur `origin main` après chaque SSP (ou lot <= 5 SSP) avec l'état à jour dans `SUIVI_PRODUCTION.csv`, `HANDOFF_AFFINAGE.md` et `HANDOFF_IA_COMPLET.md`.\n   - **Suivi graphique temps réel** : maintenir à jour le tableau de bord visuel temps réel des réalisations achevées et en cours.\n\n## § 1. RÈGLES ACTUALISÉES (PRIMENT SUR LE PROMPT ALPHA 19.11.26)\n1. **Nombre de cours par SSP** : **1 cours par entité de la Cartographie Renouveau** (15 à 24 entités par SSP, 3 975 au total) + le Chapitre 0 (`Phase_A`), dans l'ordre exact des `Cours 1 … N` de `SSP_nnn/NOTIONS.md` / `NOTIONS.json`.\n2. **QUALITÉ CLINIQUE MAXIMALE & ZÉRO MÉDIOCRITÉ (BLOQUANT ABSOLU — Consigne Vial 20.11.26)** :\n   - **Interdiction absolue de toute prose patronnée / générique** : aucune phrase-cadre où seul le nom de la pathologie change d'un cours à l'autre, aucun remplissage artificiel pour atteindre le calibre. La médiocrité clinique est dangereuse et entraîne un rejet immédiat.\n   - Chaque cours (`Phase_A` et `DX.1..N`) doit être **rédigé sur mesure** pour son entité exacte, avec : raisonnement physiopathologique et sémiologique réel, seuils numériques précis, diagnostics différentiels discriminants, posologies et contre-indications sourcées (Compendium.ch / AIPS, Tox Info Suisse, OFSP, ASSM, sociétés savantes suisses), vignettes cliniques authentiques et QCM exigeants de niveau Examen Fédéral Suisse.\n3. **INTERDICTION DES ARBRES DÉCISIONNELS (Consigne Vial 20.11.26)** :\n   - **Ne générer AUCUN arbre décisionnel ni algorithme graphique (`.fm-canvas`, SVG décisionnel, etc.)** dans `Phase_A` ou dans les `DX.n` — l'auteur (Vial) les réalisera lui-même.\n4. **Calibre texte pur actualisé (Consigne Vial 20.11.26)** :\n   - **80 à 100 Ko de texte pur UTF-8 par fichier** (`81 920` à `102 400` octets, calibre du Prompt Alpha confirmé par Vial le 20.11.2026 à 21:20, mesuré fenêtres comprises, hors balises HTML, CSS, JS, SVG et images).\n   - HTML hors images (`controle3.py`) : **`40 000` à `100 000` octets** (alerte).\n   - Densité maximale : zéro remplissage, zéro phrase pouvant figurer telle quelle dans un autre cours, zéro phrase de gabarit de `cartographie_DATA.json`.\n5. **Phrases verbales exclusives (BLOQUANT)** :\n   - Chaque phrase (texte, fenêtres, listes, légendes `<figcaption>`, cellules narratives `<td>`) contient un verbe conjugué reconnu. **Zéro phrase nominale.**\n4. **Médicaments cliquables d'emblée & Fenêtres centrées PK/PD à 2 onglets (Consigne Vial 20.11.26)** :\n   - Dès qu'un médicament est évoqué, il devient cliquable (`<a class=\"ouvre med-chip\" href=\"#f-...\">`).\n   - Chaque `<section class=\"fenetre mb\" id=\"f-...\"><div class=\"fen\">` s'ouvre au centre de l'écran et contient **2 onglets** :\n     * **Onglet 1 (`data-tab=\"pk\"`)** : Pharmacocinétique + **Courbe vectorielle SVG $C(t)$** + **4 paramètres cliniciens mis en évidence** (`.pkpd-kpis`).\n     * **Onglet 2 (`data-tab=\"pd\"`)** : Pharmacodynamique & Clinique + **Courbe vectorielle SVG $E(C)$** + posologies/précautions/grossesse suisses (Compendium.ch / AIPS).\n5. **Images** : uniquement à l'intérieur des `<section class=\"fenetre\">`, jamais hors fenêtre (licences selon Prompt Alpha § 4). Ne comptent pas dans le calibre.\n6. **Zéro terminologie de chantier visible** : aucun texte visible (ni `<title>`) ne doit contenir `LOT`, `V0`, `Phase A/B`, `DX.n`, `Appel A/B`, `Partie n`. Seuls les noms de fichiers gardent le format Alpha (`LOT_nnn_Phase_A_V0.html`, `LOT_nnn_Phase_B_V0_DX.i.html`).\n7. **Circuits & Plans** :\n   - `MONOGRAPHIQUE` (189 SSP) : plan maladie en 14 points (Prompt Alpha § 3.1).\n   - `NON_MONOGRAPHIQUE` (52 SSP) : Leçon en 12 à 14 points adaptés (Prompt Alpha § 3.2). **Jamais** de plan maladie ni de titres « Physiopathologie / Approche syndromique / Diagnostic positif » artificiels.\n   - `MIXTE` (7 SSP) : Prompt Alpha § 3.3, chaque fichier déclare `<meta name=\"ssp-circuit\" content=\"...\">`.\n8. **Correctifs Frontend v2 / Architecture `_sources/` (`UNIQUE.html` & `_polices/`)** :\n   - **Arborescence propre par SSP** : à la racine de `SSP_nnn/`, seul **`SSP_nnn_<code>_UNIQUE.html`** (plus le sous-dossier **`_sources/`**) est visible. Tous les fichiers sources (`LOT_nnn_*.html`, `images/`, `NOTIONS.*`, `MANIFESTE.json`, `DECISION*`, `paquet.json`, `_archive_avant_alpha/`) sont rangés dans `SSP_nnn/_sources/` sans rien supprimer.\n   - **Barre haute amovible (`gabarit_unique.html`)** : `#topbar` compacte 1 ligne (~42 px) avec pilule active, fil d'Ariane section, boutons `◀`/`▶`, tiroir overlay amovible `#dd-drawer` (`☰ Diagnostics (N) ▾` + option `📌 Épingler`) contenant `nav#nav` en colonnes égales (`32 px`, teinte unique par cours), et bouton `▴ Masquer barre` + pilule flottante `#btn-show-bar`.\n   - **Zéro dédoublement & navigation `#...` 100 % fonctionnelle (`forme.js`)** : script `forme.js` exécuté sous `DOMContentLoaded` et injecté par `assembler_unique.py`/`inliner.py` après `</head>` et avant `#signature-ia`/`</body>` ; intercepteur global appelant `e.preventDefault()` sur 100 % des `href^=\"#\"` (bloque le rechargement `srcdoc` + `file://`).\n   - **Modales centrées `<div class=\"fen\">` & désaturation (`forme.css` / `optimiser_ssp.py`)** : ouverture via classe `.fm-open` (plus `:target` en repli) avec pile `modalStack` et bouton `Fermer ✕` sticky (sans `history.back()`), auto-enveloppement `<div class=\"fen\">`, tableaux hors modale déplacés vers `<section class=\"fenetre fm-tab-fen\">` déclenchés par cartes `.fm-encart-fen`, citations `<sup class=\"r\"><a>` compactées en `[N]` avec modale aperçu `#fm-src-modal` empilable (`fm-stack-top`), puces médicaments `a.ouvre.med-chip` (`℞ ...`, `white-space: nowrap`, compatible accents français), repli du plan latéral desktop `#fm-plan-toggle`, îlots discontinus (`margin-bottom: 30px`) et padding bas `5.5rem` protégeant la lecture au-dessus de `#signature-ia`.\n   - **HTML unique** : ne jamais l'écrire à la main ; toujours exécuter `optimiser_ssp.py` puis `assembler_unique.py nnn`.\n\n## § 2. ARCHIVAGE & WORKFLOW PAR SSP (P0 → P4)\n- **Zéro suppression** : avant d'écraser ou renommer un fichier source existant, archiver dans `SSP_nnn/_sources/_archive_avant_alpha/`.\n- **P0 (Préparer)** : lire circuit (`catalogue_248.json`), entités (`NOTIONS.md`/`NOTIONS.json`), `memoire_zero_token.py --digest --lot nnn`, écrire `PLAN_ENTITES.md`.\n- **P1 (Décider)** : noter dans `DECISION.md` (Corriger / Réécrire si mécanique, faux plan maladie ou `< 30 Ko` / Créer).\n- **P2 (Produire)** : `LOT_nnn_Phase_A_V0.html` + `LOT_nnn_Phase_B_V0_DX.1..N.html`, 100 % des notions de `NOTIONS.json` expliquées et sourcées (Compendium.ch / AIPS, OFSP, ASSM, CC, LAMal, LAVI, Smarter Medicine), sans aucune phrase gabarit de la cartographie.\n- **P3 (Portes de Contrôle + Optimisation + Assemblage + Audit Chrome)** :\n  1. `controle3.py --script-ok` → **`VERT {}`** (si `paquet.json` présent ; `--script-ok` requis car `_sources/` référence `../../_polices/forme.js`)\n  2. `verif_aips.py` → **`OK`** (si `paquet.json` présent) et `restaurer_fond.py --verifier` → **`exit=0`**\n  3. `python _outils/optimiser_ssp.py nnn` → migration vers `_sources/`, tableaux déplacés en `<div class=\"fen\">`, teintes non bleues `--fm-a`\n  4. `python _outils/verif_mission.py nnn` → **100 % fichiers `PASS`** (`errors: []`)\n  5. `python _outils/assembler_unique.py nnn` → **`(1 + N) / (1 + N) onglets`** à la racine de `SSP_nnn/`\n  6. `python _outils/notions.py verifier nnn` → **`0 NON`** + copier `rapport_notions.csv` dans `SSP_nnn/_sources/`\n  7. `python _outils/audit_unique_browser.py nnn --all-tabs` → **`PASS` sur 100 % des onglets en Chrome headless réel**\n  8. Ajouter ligne dans `SUIVI_PRODUCTION.csv` + `git commit` + `git push origin main`.\n- **P4 (Affinage)** : consigner tout doute clinique/posologique non vérifié dans `1_Claude AI/HANDOFF_AFFINAGE.md` sous `## SSP_nnn`.\n\n## § 3. MISSION 2 — SSP 001 → 032\n- Extraire les cours depuis `SSP_nnn_<code>_UNIQUE.html` (JSON `data` gzip+base64, marqueurs `@@IMG:…@@`, `@@FONT:…@@`) après archivage des anciens `LOT_nnn_*.html` dans `_archive_avant_alpha/`.\n- Le frontend reste identique ; auditer le contenu avec la même sévérité (attention : `SSP_013` G13 = `NON_MONOGRAPHIQUE`, `SSP_014` G14 = `MIXTE`).\n- Produire `1_Claude AI/AUDIT_001-032.md` et corriger tous les ❌.\n\n## § 4. LES 12 BLOCAGES ROUGE (REJET IMMÉDIAT)\n1. Identification absente ou incertaine.\n2. Signature `#signature-ia` absente, modifiée ou supprimée.\n3. Entité de la Cartographie sans cours.\n4. Fichier hors intervalle `80–100 Ko` de texte pur (tout cours ; un cours de 30–50 Ko est à enrichir).\n5. Toute phrase nominale.\n6. Toute notion au verdict `NON`.\n7. Phrase gabarit de `cartographie_DATA.json` recopiée dans un cours.\n8. Plan maladie appliqué à une Leçon `NON_MONOGRAPHIQUE`.\n9. Terme de chantier visible (`LOT`, `V0`, `Phase A/B`, `DX.n`, `Appel`, `Partie n`).\n10. Posologie sans source de la cascade suisse.\n11. Image hors `<section class=\"fenetre\">`.\n12. Fichier supprimé au lieu d'être archivé.\n\n## § 5. ANNEXE CIRCUITS (248 SSP)\n- **NON_MONOGRAPHIQUE (52)** : 013 · 065 · 069 · 176 · 180 · 181 · 182 · 184 · 185 · 186 · 192 · 194 · 195 · 198 · 200 · 203 · 204 · 205 · 206 · 207 · 208 · 209 · 210 · 211 · 212 · 213 · 214 · 215 · 216 · 217 · 218 · 219 · 220 · 221 · 222 · 224 · 225 · 226 · 227 · 232 · 233 · 235 · 236 · 237 · 238 · 239 · 240 · 241 · 242 · 243 · 246 · 247.\n- **MIXTE (7)** : 014 · 165 · 174 · 175 · 190 · 202 · 223.\n- **MONOGRAPHIQUE (189)** : tous les autres SSP."
+}

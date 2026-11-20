@@ -1,0 +1,2599 @@
+{
+  "rappel_obligatoire_avant_redaction": {
+    "lecture_imperative": [
+      "1. Lire intégralement PROMPT_Alpha_19.11.26.md ET la mise à jour incluse dans prompt_alpha_a_jour ci-dessous.",
+      "2. Respecter l'intervalle GLOBAL par cours : viser 85–95 Ko de texte médical pur (soit ~95–115 Ko de fichier JSON) sans quota rigide par partie — répartir le texte proportionnellement à l'importance clinique des parties.",
+      "3. Produire graduellement 1 cours complet par requête (Phase A, puis Cours 1, Cours 2...) en français médical académique, phrases verbales exclusives (0 phrase nominale), zéro prose générique ou patronnée.",
+      "4. Utiliser uniquement les guillemets typographiques français « … » dans les valeurs texte JSON (jamais de guillemet droit non échappé).",
+      "5. Zéro arbre décisionnel graphique (.fm-canvas) : ne générer aucun schéma décisionnel."
+    ],
+    "specificites_locales_ssp": [
+      "Circuit MONOGRAPHIQUE : respecter le plan maladie en 14 points avec socle généralités (1-3), démarche diagnostique (4-10), prise en charge posologique suisse intégrale (11) et QCM Examen Fédéral (14).",
+      "Couvrir 100 % des notions obligatoires listées dans phase_b[*].plan[*].notions_obligatoires pour Brûlures, lésions dues au froid (S8.2).",
+      "Cascade posologique suisse à 4 paliers obligatoire : 1. AIPS Swissmedic (n° 5 chiffres) -> 2. Compendium.ch -> 3. Sociétés savantes & CHU suisses (HUG, CHUV, Inselspital, USZ, USB, OFSP, ASSM, SSMIG, Tox Info Suisse 145) -> 4. Sociétés savantes européennes."
+    ]
+  },
+  "meta": {
+    "rang_gravite": 119,
+    "ssp": "SSP_106",
+    "code_profiles": "S8.2",
+    "nom_francais": "Brûlures, lésions dues au froid",
+    "circuit": "MONOGRAPHIQUE",
+    "police_obligatoire": "Atkinson Hyperlegible",
+    "calibre_cible": "80–100 Ko texte pur",
+    "arbres_decisionnels_autorises": false,
+    "mode_redaction": "Neon Deep Research",
+    "nb_chapitres_total": 17,
+    "defauts_audit_initial": [
+      "Incomplet (11/17 cours)",
+      "1192 phrases nominales",
+      "Termes chantier (11 f.)"
+    ]
+  },
+  "sommaire": {
+    "phase_a": {
+      "fichier_html_cible": "LOT_106_Phase_A_V0.html",
+      "titre": "Brûlures, lésions dues au froid — Vue d'ensemble et orientation clinique (S8.2)"
+    },
+    "phase_b": [
+      {
+        "cours_numero": 1,
+        "titre": "Brûlure thermique superficielle (1er degré)",
+        "cim": "T30.1",
+        "urgence": "semi-urgent"
+      },
+      {
+        "cours_numero": 2,
+        "titre": "Brûlure thermique du 2e degré superficiel",
+        "cim": "T30.2",
+        "urgence": "semi-urgent"
+      },
+      {
+        "cours_numero": 3,
+        "titre": "Brûlure thermique du 2e degré profond",
+        "cim": "T30.2",
+        "urgence": "urgent"
+      },
+      {
+        "cours_numero": 4,
+        "titre": "Gelure superficielle (engélure / gelure de degré 1–2)",
+        "cim": "T33.9",
+        "urgence": "semi-urgent"
+      },
+      {
+        "cours_numero": 5,
+        "titre": "Brûlure chimique cutanée (acide ou base)",
+        "cim": "T26.9",
+        "urgence": "urgent"
+      },
+      {
+        "cours_numero": 6,
+        "titre": "Brûlure électrique à bas voltage (< 1000 V)",
+        "cim": "T75.4",
+        "urgence": "urgent"
+      },
+      {
+        "cours_numero": 7,
+        "titre": "Pied de tranchée (pied d'immersion non gélive)",
+        "cim": "T69.0",
+        "urgence": "semi-urgent"
+      },
+      {
+        "cours_numero": 8,
+        "titre": "Coup de soleil sévère / Lucite aiguë",
+        "cim": "L55.1",
+        "urgence": "semi-urgent"
+      },
+      {
+        "cours_numero": 9,
+        "titre": "Gelure profonde (degré 3–4) avec nécrose tissulaire",
+        "cim": "T34.9",
+        "urgence": "urgent"
+      },
+      {
+        "cours_numero": 10,
+        "titre": "Brûlure du 3e degré localisée (escarre cartonée)",
+        "cim": "T30.3",
+        "urgence": "urgent"
+      },
+      {
+        "cours_numero": 11,
+        "titre": "Brûlure grave étendue (> 20 % SCB) avec choc des brûlés",
+        "cim": "T31.2",
+        "urgence": "immediate"
+      },
+      {
+        "cours_numero": 12,
+        "titre": "Brûlure des voies aériennes supérieures et inhalation de fumées",
+        "cim": "T59.8",
+        "urgence": "immediate"
+      },
+      {
+        "cours_numero": 13,
+        "titre": "Syndrome des loges sur brûlure circulaire profonde",
+        "cim": "T79.6",
+        "urgence": "immediate"
+      },
+      {
+        "cours_numero": 14,
+        "titre": "Hypothermie sévère accidentelle (stade III–IV suisse)",
+        "cim": "T68",
+        "urgence": "immediate"
+      },
+      {
+        "cours_numero": 15,
+        "titre": "Électrisation à haut voltage (> 1000 V) avec rhabdomyolyse",
+        "cim": "T75.4",
+        "urgence": "urgent"
+      },
+      {
+        "cours_numero": 16,
+        "titre": "Brûlure chimique oculaire aiguë",
+        "cim": "T26.6",
+        "urgence": "immediate"
+      }
+    ]
+  },
+  "phase_a": {
+    "titre": "Brûlures, lésions dues au froid — Vue d'ensemble (S8.2)",
+    "plan": [
+      {
+        "point": 1,
+        "titre": "Définition nosologique et périmètre clinique",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 2,
+        "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 3,
+        "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 4,
+        "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+        "description": "Présentation et hiérarchisation des 16 entités de la Cartographie Renouveau."
+      },
+      {
+        "point": 5,
+        "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 6,
+        "titre": "Examen physique systématique région par région",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 7,
+        "titre": "Approche syndromique et stratification de gravité",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 8,
+        "titre": "Diagnostic positif, scores cliniques et critères validés",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 9,
+        "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 10,
+        "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 11,
+        "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 12,
+        "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 13,
+        "titre": "Points clés indispensables à retenir",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 14,
+        "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      }
+    ]
+  },
+  "phase_b": [
+    {
+      "cours_numero": 1,
+      "fichier_html_cible": "LOT_106_Phase_B_V0_DX.1.html",
+      "titre": "Brûlure thermique superficielle (1er degré)",
+      "cim": "T30.1",
+      "urgence": "semi-urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Lésion thermique épidermique pure sans phlyctène ni atteinte du derme."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Très fréquente (exposition solaire, liquide tiède, contact bref)."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Vasodilatation dermique réactionnelle médiée par les prostaglandines sans nécrose basale."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Surface corporelle brûlée (SCB) très étendue chez le nourrisson, signes de coup de chaleur."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Exposition solaire ou thermique récente, douleur à type de cuisson, absence de cloque."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Érythème vif, peau sèche, chaude, douloureuse au toucher, blanchissant à la vitropression."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Érythème douloureux sans phlyctène après exposition thermique/UV."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Diagnostic purement clinique (règle des 9 de Wallace ou paume de la main = 1 %)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Aucun examen complémentaire nécessaire."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Refroidissement immédiat à l'eau tempérée (15–20 °C pendant 15–20 min), hydratation topique, antalgie."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Photoprotection stricte pendant la phase de desquamation."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Prise en charge ambulatoire ; pas d'hospitalisation."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Surveillance de l'apparition secondaire de phlyctènes dans les 24 premières heures."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Guérison spontanée ad integrum en 3 à 7 jours."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Médecin de premier recours, pharmacien."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 2,
+      "fichier_html_cible": "LOT_106_Phase_B_V0_DX.2.html",
+      "titre": "Brûlure thermique du 2e degré superficiel",
+      "cim": "T30.2",
+      "urgence": "semi-urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Destruction de l'épiderme et de la partie superficielle du derme respectant les annexes pilo-sébacées."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Brûlure la plus fréquente consultant aux urgences (liquide chaud, flamme brève)."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Exsudation plasmatique soulevant l'épiderme en phlyctènes ; réépithélialisation à partir des annexes intactes."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "SCB > 10 % adulte (> 5 % enfant), localisation face/mains/pieds/périnée/circulaire, suspicion de maltraitance."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Contact avec eau bouillante, huile, vapeur ; douleur intense immédiate."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Phlyctènes à paroi fine, sous-sol rouge vif/rosé, très douloureux, suintant, blanchissant à la vitropression."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Phlyctènes avec derme rosé, sensible et bien vascularisé."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Évaluation clinique de la profondeur (test de sensibilité à la piqûre et vitropression) et de la SCB."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Prélèvement bactériologique uniquement si signes d'infection secondaire (jamais en systématique initial)."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Refroidissement précoce, débridement doux des phlyctènes rompues, pansement gras ou hydrocolloïde/argentique."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Réfection des pansements toutes les 48 h, antalgie avant soins, vérification antitétanique."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Ambulatoire si SCB limitée et non compliquée ; hospitalisation si critère de gravité."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Surveillance de la réépithélialisation et des signes locaux d'infection (érythème extensif, pus, fièvre)."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Cicatrisation en 10 à 14 jours sans cicatrice hypertrophique habituelle."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Médecin de premier recours, consultation spécialisée plaies et cicatrisation."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 3,
+      "fichier_html_cible": "LOT_106_Phase_B_V0_DX.3.html",
+      "titre": "Brûlure thermique du 2e degré profond",
+      "cim": "T30.2",
+      "urgence": "urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Destruction épidermique et du derme profond ne laissant que rares annexes résiduelles."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Fréquente après contact prolongé avec liquide épais, graisse ou flamme."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Thrombose de la microcirculation dermique pouvant s'approfondir en 3e degré dans les 48–72 h (zone de stase de Jackson)."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Localisation fonctionnelle (mains, visage, plis de flexion), brûlure circulaire."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Contact prolongé à haute température, douleur parfois modérée par atteinte des terminaisons nerveuses."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Fond blanc-rosé ou rouge terne, hypoesthésie au toucher, absence ou lenteur du blanchiment à la vitropression."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Derme pâle/marbré peu sensible et peu vascularisé."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Évaluation clinique spécialisée répétée à J2–J5 (la profondeur évolue)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Laser Doppler (LDI) dans certains centres de brûlés pour prédire le potentiel de cicatrisation spontanée."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Pansement antiseptique/gras stérile, antalgie multimodale, avis rapide en centre de brûlés."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Si pas de cicatrisation à J14–J21 : excision tangentielle et greffe de peau mince ; compression cicatricielle."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Hospitalisation fréquente en chirurgie plastique ou centre de brûlés ; risque de cicatrice rétractile."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Évaluation de la profondeur à 48–72 h puis suivi de la cicatrisation."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Cicatrisation lente (> 21 jours) avec risque majeur de cicatrice hypertrophique/chéloïde sans greffe."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Centre des brûlés, chirurgien plasticien, ergothérapeute."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 4,
+      "fichier_html_cible": "LOT_106_Phase_B_V0_DX.4.html",
+      "titre": "Gelure superficielle (engélure / gelure de degré 1–2)",
+      "cim": "T33.9",
+      "urgence": "semi-urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Congélation des tissus superficiels (épiderme et derme superficiel) sans nécrose profonde."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Fréquente en Suisse (alpinisme, ski, personnes sans-abri en hiver)."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Vasoconstriction intense, formation de cristaux de glace extracellulaires et lésion endothéliale au réchauffement."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Phlyctènes hémorragiques (degré 3–4), peau violacée/noire insensible, hypothermie générale associée."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Exposition prolongée au froid < 0 °C, vent, humidité ; engourdissement puis douleur lancinante au réchauffement."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Degré 1 : pâleur puis érythème/œdème ; Degré 2 : phlyctènes à liquide clair après réchauffement."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Atteinte acrale post-exposition au froid avec phlyctènes claires ou érythème sans nécrose."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Diagnostic clinique ; classification de Cauchy (degrés 1–4) évaluée après réchauffement complet."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Aucun examen nécessaire pour les degrés 1–2 isolés."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Réchauffement rapide en bain d'eau tiède à 37–39 °C pendant 30 min (jamais de friction à la neige !), ibuprofène, antalgie."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Protection contre toute réexposition au froid (un cycle gel-dégel-regel est catastrophique)."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Ambulatoire si degré 1–2 limité ; hospitalisation si étendu ou suspicion de degré 3–4."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Surveillance de l'évolution des phlyctènes et de la sensibilité distale."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Guérison en 2–4 semaines ; séquelle fréquente : hypersensibilité chronique au froid."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Médecin de premier recours, médecine de montagne."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 5,
+      "fichier_html_cible": "LOT_106_Phase_B_V0_DX.5.html",
+      "titre": "Brûlure chimique cutanée (acide ou base)",
+      "cim": "T26.9",
+      "urgence": "urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Destruction cutanée par réaction chimique (nécrose de coagulation par acide, nécrose de liquéfaction par base)."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Accidents domestiques (soude caustique, détartrants) ou professionnels."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Les bases pénètrent plus profondément que les acides par saponification des lipides membranaires."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Atteinte oculaire associée, ingestion caustique, acide fluorhydrique (risque d'hypocalcémie mortelle !)."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Nature exacte du produit (fiche de données de sécurité), durée de contact, heure de l'accident."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Lésion souvent profonde, indolore initialement (base), coloration variable (jaune nitrique, noire sulfurique)."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Exposition chimique documentée avec lésion cutanée évolutive."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Clinique + mesure du pH cutané au papier pH après lavage ; calcémie urgente si acide fluorhydrique."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Bilan hydro-électrolytique si surface importante ou agent toxique systémique."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Déshabillage immédiat (gants protecteurs), lavage abondant à l'eau courante tiède >= 20–30 min ; gluconate de calcium gel si HF."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Soins locaux de brûlure, greffe si atteinte profonde."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Hospitalisation si surface étendue, localisation fonctionnelle ou agent à toxicité systémique."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Contrôle du pH jusqu'à neutralité, surveillance de l'approfondissement à J2."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Dépend de la précocité du lavage ; risque cicatriciel important pour les bases."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Tox Info Suisse (145), centre des brûlés, médecine du travail."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 6,
+      "fichier_html_cible": "LOT_106_Phase_B_V0_DX.6.html",
+      "titre": "Brûlure électrique à bas voltage (< 1000 V)",
+      "cim": "T75.4",
+      "urgence": "urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Brûlure par passage de courant domestique (230 V en Suisse) avec points d'entrée et de sortie."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Accidents domestiques (enfants mordant un câble, bricolage) ou professionnels."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Dégagement de chaleur par effet Joule le long des tissus à plus forte résistance (os, peau) ; risque de fibrillation."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Perte de connaissance, anomalie ECG, grossesse, courant > 1000 V (haut voltage), douleur thoracique."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Voltage, durée du contact, perte de connaissance, tétanisation, chute secondaire."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Petite escarre sèche en cratère au point d'entrée (doigt, commissure labiale) et de sortie."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Point d'entrée/sortie électrique + bilan ECG."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "ECG 12 dérivations systématique à l'admission."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Troponine et CK uniquement si ECG anormal, perte de connaissance, douleur thoracique ou brûlure étendue."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Monitoring ECG 24 h uniquement si facteurs de risque (ECG anormal, PdC, > 1000 V) ; soins locaux de la plaie."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Surveillance de la commissure labiale chez l'enfant (risque d'hémorragie de l'artère labiale à J7–J14 à la chute d'escarre)."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Sortie possible si 230 V, asymptomatique, ECG normal et pas de PdC."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Surveillance clinique locale et rythmique si indiquée."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Excellent pronostic si ECG initial normal et bas voltage."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Médecin de premier recours, pédiatre/chirurgien plasticien si lèvre."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 7,
+      "fichier_html_cible": "LOT_106_Phase_B_V0_DX.7.html",
+      "titre": "Pied de tranchée (pied d'immersion non gélive)",
+      "cim": "T69.0",
+      "urgence": "semi-urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Neuropathie et vasculopathie périphérique par immersion prolongée dans l'eau froide (0–15 °C) sans congélation."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Militaires, randonneurs, sans-abri exposés à des chaussures mouillées pendant > 12–48 h."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Vasoconstriction prolongée suivie d'hyperhémie réactionnelle douloureuse et lésion des fibres nerveuses."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Surinfection bactérienne/fongique, ulcérations, nécrose parcellaire."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Port de chaussures humides au froid pendant plusieurs jours, engourdissement puis douleur brûlante."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Pied pâle, froid, insensible puis rouge, œdématié, hyperalgique au réchauffement, pouls conservés."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Exposition froid-humide prolongée + phase hyperhémique douloureuse sans nécrose."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Diagnostic clinique d'anamnèse et d'inspection."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Doppler artériel si doute sur une artériopathie ou gelure vraie."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Séchage doux, réchauffement progressif (pas d'eau chaude), élévation du membre, antalgie neuropathique (prégabaline)."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Chaussage adapté, éviction du froid et de l'humidité."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Hospitalisation si surinfection ou douleur incontrôlable."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Surveillance cutanée, trophique et neurologique."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Récupération lente sur plusieurs semaines ; paresthésies résiduelles fréquentes."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Médecin de famille, angiologue."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 8,
+      "fichier_html_cible": "LOT_106_Phase_B_V0_DX.8.html",
+      "titre": "Coup de soleil sévère / Lucite aiguë",
+      "cim": "L55.1",
+      "urgence": "semi-urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Réaction inflammatoire aiguë de la peau induite par les rayonnements ultraviolets (UVB surtout)."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Très fréquent en été et en haute altitude (neige) en Suisse."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Dommages directs de l'ADN kératinocytaire (sunburn cells) et libération de cytokines pro-inflammatoires."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Fièvre, frissons, céphalées, vomissements (insolation/coup de chaleur), SCB étendue chez l'enfant."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Exposition solaire intense sans protection, délai d'apparition de 4 à 12 h, pic à 24 h."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Érythème bien délimité aux zones photo-exposées, œdème, parfois phlyctènes (2e degré)."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Érythème/phlyctènes strictement limités aux zones exposées aux UV."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Diagnostic clinique."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Aucun examen nécessaire sauf signes systémiques de déshydratation."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Hydratation orale, dermocorticoïdes de classe modérée à forte sur 2–3 jours, paracétamol/AINS, compresses fraîches."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Éducation à la photoprotection (SPF 50+, vêtements, horaires)."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Ambulatoire sauf déshydratation sévère ou enfant en bas âge."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Évolution de la douleur et des signes généraux à 24–48 h."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Guérison en 5–7 jours après desquamation ; augmente le risque ultérieur de mélanome."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Médecin de famille, dermatologue."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 9,
+      "fichier_html_cible": "LOT_106_Phase_B_V0_DX.9.html",
+      "titre": "Gelure profonde (degré 3–4) avec nécrose tissulaire",
+      "cim": "T34.9",
+      "urgence": "urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Congélation touchant toute l'épaisseur du derme jusqu'aux tissus sous-cutanés, muscles et os."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Alpinisme extrême, hypothermie accidentelle prolongée."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Thrombose microvasculaire irréversible et nécrose ischémique délimitée sur plusieurs semaines."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Hypothermie systémique associée, sepsis sur surinfection de nécrose."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Exposition prolongée à grand froid, perte totale de sensibilité, réchauffement parfois déjà initié."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Phlyctènes hémorragiques (degré 3) ou absence de phlyctène avec peau gris-bleu/noire dure et froide (degré 4)."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Phlyctènes hémorragiques ou nécrose sèche distale après réchauffement."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Scintigraphie osseuse au Tc-99m ou angio-IRM/angio-CT à J2–J5 pour définir la ligne de démarcation."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Bilan biologique complet (CK, fonction rénale, coagulation) et prélèvements si infection."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Réchauffement rapide à 37–39 °C, iloprost IV (prostacycline) si < 48–72 h, ibuprofène, prophylaxie antitétanique."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Attente de la démarcation spontanée (« frostbite in January, amputate in July ») avant chirurgie."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Hospitalisation en centre spécialisé (CHUV/HUG/Inselspital) ; complications : ostéomyélite, gangrène."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Surveillance vasculaire et infectieuse quotidienne."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Amputation fréquente dans les degrés 3–4 étendus ; l'iloprost précoce réduit le taux d'amputation."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Centre spécialisé médecine de montagne, chirurgie plastique/orthopédique."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 10,
+      "fichier_html_cible": "LOT_106_Phase_B_V0_DX.10.html",
+      "titre": "Brûlure du 3e degré localisée (escarre cartonée)",
+      "cim": "T30.3",
+      "urgence": "urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Carbonisation ou nécrose de toute l'épaisseur cutanée (épiderme, derme, annexes) atteignant l'hypoderme."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Contact prolongé (flamme, métal en fusion, patient inconscient sur radiateur)."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Coagulation complète des protéines dermiques et des terminaisons nerveuses (zone indolore)."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Brûlure circulaire d'un membre ou du thorax (effet garrot), SCB > 10 %, inhalation de fumées."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Contact thermique prolongé ou flamme directe, absence de douleur au centre de la lésion."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Plaque sèche, dure, cartonée, blanche nacrée, brune ou noire, insensible à la piqûre, sans blanchiment."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Peau cartonnée insensible ne saignant pas à la scarification."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Diagnostic clinique (test de la piqûre négatif, aspect cartonné)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Bilan pré-opératoire si indication d'excision-greffe."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Protection stérile, avis chirurgical rapide ; escarrotomie de décharge urgente si brûlure circulaire."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Excision précoce et greffe de peau mince autologue ; rééducation et vêtements compressifs."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Hospitalisation en chirurgie plastique ou centre de brûlés."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Surveillance vasculaire distale (pouls, SpO2) si atteinte des membres."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Ne cicatrise pas spontanément (sauf < 1–2 cm par rétraction) ; séquelles esthétiques et fonctionnelles."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Chirurgien plasticien, ergothérapeute."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 11,
+      "fichier_html_cible": "LOT_106_Phase_B_V0_DX.11.html",
+      "titre": "Brûlure grave étendue (> 20 % SCB) avec choc des brûlés",
+      "cim": "T31.2",
+      "urgence": "immediate",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Brûlure thermique touchant > 20 % de la surface corporelle totale (SCT) chez l'adulte (> 10 % enfant/sujet âgé)."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Incendies domestiques, explosions de gaz, accidents industriels."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Fuite capillaire systémique massive (choc hypovolémique distributif), œdème généralisé et hypermétabolisme."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Choc réfractaire, détresse respiratoire, brûlure des voies aériennes, rhabdomyolyse."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Surface estimée par règle des 9 de Wallace, circonstances en milieu clos, poids du patient."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Hypotension, tachycardie, hypothermie rapide, lésions étendues mixtes 2e/3e degré."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "SCT > 20 % (adulte) avec instabilité ou besoin de réanimation IV."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Calcul précis de la SCT brûlée et gazométrie artérielle + lactates + HbCO."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Bilan complet (ionogramme, créatinine, CK, groupe sanguin, radiographie thoracique)."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Voie veineuse de gros calibre, formule de Parkland (4 mL × kg × % SCT de Ringer Lactate sur 24 h, moitié en 8 h), réchauffement."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Excisions-greffes séquentielles, nutrition hypercalorique/hyperprotéinée, rééducation intensive."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Transfert immédiat en centre national des brûlés (CHUV Lausanne ou USZ Zurich)."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Diurèse horaire cible 0,5–1 mL/kg/h, lactates, pression artérielle, température."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Pronostic lié à l'âge, la SCT et la présence d'une inhalation de fumées (score de Baux)."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Centre des brûlés (CHUV/USZ), médecine intensive."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 12,
+      "fichier_html_cible": "LOT_106_Phase_B_V0_DX.12.html",
+      "titre": "Brûlure des voies aériennes supérieures et inhalation de fumées",
+      "cim": "T59.8",
+      "urgence": "immediate",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Lésion thermique supraglottique et/ou lésion chimique bronchopulmonaire par inhalation de gaz chauds et suies."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Présente chez 10–20 % des brûlés en milieu clos ; double la mortalité."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Œdème laryngé progressif sur 6–24 h (obstruction brutale) et toxicité systémique du CO et HCN."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Stridor, dyspnée aiguë, trouble de conscience (CO/cyanure), brûlure faciale circonférentielle."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Incendie en espace clos, explosion, dysphonie, toux avec crachats noirâtres."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Suies dans les narines/oropharynx, vibrisses nasales roussies, raucité de la voix, stridor, sibilants."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Signes cliniques d'inhalation + œdème laryngé à la nasofibroscopie."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Nasofibroscopie ORL précoce (œdème glottique/supraglottique) et dosage de HbCO et lactates (> 8 mmol/L = suspect cyanure)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Bronchoscopie souple (suies sous-glottiques), radiographie thoracique (souvent normale initialement)."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Intubation orotrachéale précoce préventive avant fermeture des voies aériennes, O2 100 %, hydroxocobalamine si cyanure."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Toilette bronchique, ventilation protectrice en soins intensifs."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Soins intensifs / centre des brûlés ; complications : SDRA, pneumopathie bactérienne."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Gazométrie, lactates, HbCO, radiographie thoracique."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Facteur pronostique majeur aggravant la mortalité des grands brûlés."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Réanimation, ORL, centre des brûlés."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 13,
+      "fichier_html_cible": "LOT_106_Phase_B_V0_DX.13.html",
+      "titre": "Syndrome des loges sur brûlure circulaire profonde",
+      "cim": "T79.6",
+      "urgence": "immediate",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Compression vasculaire ou ventilatoire par une peau brûlée au 3e degré circonférentielle rigide lors de l'œdème."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Complique les brûlures circulaires des membres, du cou ou du thorax."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "L'œdème sous-jacent augmente la pression tissulaire alors que l'escarre est inextensible."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Disparition du pouls distal, paralysie distale, compression thoracique asphyxiante."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Brûlure profonde circonférentielle récente, douleur profonde croissante, paresthésies distales."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Membre tendu, refroidissement distal, abolition des pouls/signal Doppler, désaturation/pressions ventilatoires hautes si thorax."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Brûlure circulaire profonde avec signes d'ischémie ou gêne ventilatoire."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Diagnostic clinique urgent (+ Doppler de poche distal) ; ne pas attendre l'ischémie constituée."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Mesure de pression intracompartimentale si doute diagnostique."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Escarrotomie (incision de décharge longitudinale jusqu'au tissu sain) en urgence au bloc ou en salle de déchoquage."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Couverture ultérieure par greffe de peau."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Hospitalisation en centre de brûlés ; complication : amputation ou nécrose musculaire."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Pouls distaux, temps de recoloration, SpO2 digitale."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Sauvetage du membre si escarrotomie réalisée < 6 h."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Chirurgien plasticien/traumatologue, centre des brûlés."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 14,
+      "fichier_html_cible": "LOT_106_Phase_B_V0_DX.14.html",
+      "titre": "Hypothermie sévère accidentelle (stade III–IV suisse)",
+      "cim": "T68",
+      "urgence": "immediate",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Abaissement involontaire de la température centrale < 28 °C (stade III : inconscient ; stade IV : mort apparente)."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Accidents d'avalanche, noyade en eau froide, exposition hivernale prolongée."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Dépression métabolique cérébrale (permettant une survie sans séquelle après ACR prolongé) et irritabilité myocardique."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Arrêt cardiorespiratoire hypothermique, kaliémie > 12 mmol/L (critère de futilité)."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Durée d'exposition au froid, ensevelissement sous avalanche (poche d'air ?), temps écoulé."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Inconscience (III) ou absence de pouls/respiration (IV), bradycardie extrême, rigidité, mydriase possible."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Température centrale < 28 °C et tableau clinique stade III/IV."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Thermométrie centrale (œsophagienne ou épitympanique dédiée) + ECG (onde J d'Osborn) + kaliémie."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Gazométrie, lactates, coagulation."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Manipulation très douce (risque de FV), réchauffement actif externe + interne par ECMO/CEC si ACR ou instabilité (stade III–IV)."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Réanimation post-ECMO et prise en charge des gelures associées."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Transport direct vers centre ECMO (CHUV, HUG, Inselspital, USZ) sans arrêter la RCP avant réchauffement (« nobody is dead until warm and dead »)."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Température œsophagienne, kaliémie, rythme cardiaque."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Survie neurologique intacte possible même après plusieurs heures de RCP sous ECMO."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Rega, médecine intensive, chirurgie cardiaque."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 15,
+      "fichier_html_cible": "LOT_106_Phase_B_V0_DX.15.html",
+      "titre": "Électrisation à haut voltage (> 1000 V) avec rhabdomyolyse",
+      "cim": "T75.4",
+      "urgence": "urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Passage d'un courant > 1000 V (lignes CFF 15 kV, haute tension) provoquant des nécroses profondes étendues."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Accidents professionnels, ferroviaires ou sports (arc électrique)."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Effet Joule maximal le long des axes vasculo-nerveux et osseux provoquant rhabdomyolyse massive et thromboses."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Arrêt cardiaque initial, syndrome des loges, hyperkaliémie, insuffisance rénale aiguë."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Contexte de haute tension ou arc électrique, projection/chute associée."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Points d'entrée/sortie carbonisés, loges musculaires tendues, urines foncées (myoglobinurie)."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Exposition > 1000 V avec élévation massive des CK et lésions profondes."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "ECG, CK sériques (souvent > 10 000 U/L), kaliémie, créatinine, myoglobinurie."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "CT traumatique si chute de grande hauteur associée."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Hyperhydratation IV précoce (objectif diurèse 100–200 mL/h), aponévrotomies de décharge, parages chirurgicaux répétés."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Chirurgie reconstructrice, appareillage prothétique si amputation."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Soins intensifs / centre de brûlés ; complications : amputation, IRA, neuropathies tardives."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Diurèse, kaliémie, CK, pouls distaux."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Morbidité fonctionnelle lourde (amputations fréquentes)."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Centre des brûlés, soins intensifs."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 16,
+      "fichier_html_cible": "LOT_106_Phase_B_V0_DX.16.html",
+      "titre": "Brûlure chimique oculaire aiguë",
+      "cim": "T26.6",
+      "urgence": "immediate",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Projection d'agent corrosif (base surtout : chaux, soude, ciment ; ou acide) sur la cornée et la conjonctive."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Accidents domestiques (déboucheurs, eau de Javel) et chantiers (ciment, chaux)."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Les bases pénètrent la chambre antérieure en quelques minutes et détruisent les cellules souches limbiques."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Cornée opaque porcelaine, ischémie limbique > 50 % (grade IV de Roper-Hall/Dua)."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Nature du produit, port de lentilles (à retirer immédiatement), délai avant lavage."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Blépharospasme intense, douleur, hyperhémie conjonctivale ou ischémie limbique blanche (signe de gravité majeure !)."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Projection chimique oculaire avec pH anormal ou kératite/ischémie limbique."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Mesure du pH du cul-de-sac conjonctival au papier pH après lavage, puis examen à la lampe à fente (fluorescéine)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Aucun examen biologique nécessaire."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Lavage oculaire immédiat et continu >= 15–30 min (NaCl 0,9 % ou Ringer ou eau, éversion des paupières) jusqu'à pH = 7,0."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Collyres corticoïdes précoces (courte durée), vitamine C, cycloplégiques, greffe de membrane amniotique si sévère."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Hospitalisation en ophtalmologie si grade III–IV."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "pH conjonctival post-lavage, épithélialisation cornéenne, pression intraoculaire."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Dépend strictement du délai d'initiation du lavage sur les lieux."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Ophtalmologue en urgence."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    }
+  ],
+  "prompt_alpha_a_jour": "# MISSION : CORRECTION ET COMPLÉTION DES 248 SSP SUISSES (3 975 ENTITÉS + 248 CHAPITRES 0)\n\n## § 0. IDENTIFICATION, SIGNATURE & RÈGLES DE CONTINUITÉ — BLOQUANT ABSOLU\n1. **Identification obligatoire** en tête de première réponse :\n   - HEURE DE DÉBUT : AAAA-MM-JJ HH:MM (Europe/Zurich)\n   - MODÈLE : nom exact du modèle (ex. ANTIGRAVITY ORCHESTRATOR NEON)\n   - PLATEFORME : plateforme exacte (ex. ANTIGRAVITY)\n   - Ajouter la même ligne à `1_Claude AI/IDENTIFICATION_AGENTS.md`. Si incertitude, s'arrêter.\n2. **Signature IA fixe en bas à droite de TOUT HTML produit ou modifié** (juste avant `</body>`, en GRAS MAJUSCULE) :\n   `<div id=\"signature-ia\" style=\"position:fixed;right:12px;bottom:10px;z-index:9999;background:#fff;border:2px solid #000;padding:4px 10px;font:700 12px/1.3 Arial,sans-serif;text-transform:uppercase;color:#000\">DÉBUT : AAAA-MM-JJ HH:MM (EUROPE/ZURICH) · MODÈLE : <NOM> · PLATEFORME : <PLATEFORME></div>`\n   - **Seul Vial peut autoriser le retrait de ce bloc.** Un agent qui reprend un fichier signé ajoute sa propre ligne sous la précédente sans jamais effacer l'existante.\n3. **Continuité & transparence** :\n   - **Redémarrage propre à partir de `SSP_248`** : tous les cours précédemment modifiés ont été restaurés à l'état initial (`6941513`). Enchaîner continûment **`SSP_248 → SSP_033`**, puis **`SSP_001 → SSP_032`**.\n   - **Toujours afficher le raisonnement visible** en français dans chaque réponse.\n   - **Veille & relance GitHub** : commiter et pousser sur `origin main` après chaque SSP (ou lot <= 5 SSP) avec l'état à jour dans `SUIVI_PRODUCTION.csv`, `HANDOFF_AFFINAGE.md` et `HANDOFF_IA_COMPLET.md`.\n   - **Suivi graphique temps réel** : maintenir à jour le tableau de bord visuel temps réel des réalisations achevées et en cours.\n\n## § 1. RÈGLES ACTUALISÉES (PRIMENT SUR LE PROMPT ALPHA 19.11.26)\n1. **Nombre de cours par SSP** : **1 cours par entité de la Cartographie Renouveau** (15 à 24 entités par SSP, 3 975 au total) + le Chapitre 0 (`Phase_A`), dans l'ordre exact des `Cours 1 … N` de `SSP_nnn/NOTIONS.md` / `NOTIONS.json`.\n2. **QUALITÉ CLINIQUE MAXIMALE & ZÉRO MÉDIOCRITÉ (BLOQUANT ABSOLU — Consigne Vial 20.11.26)** :\n   - **Interdiction absolue de toute prose patronnée / générique** : aucune phrase-cadre où seul le nom de la pathologie change d'un cours à l'autre, aucun remplissage artificiel pour atteindre le calibre. La médiocrité clinique est dangereuse et entraîne un rejet immédiat.\n   - Chaque cours (`Phase_A` et `DX.1..N`) doit être **rédigé sur mesure** pour son entité exacte, avec : raisonnement physiopathologique et sémiologique réel, seuils numériques précis, diagnostics différentiels discriminants, posologies et contre-indications sourcées (Compendium.ch / AIPS, Tox Info Suisse, OFSP, ASSM, sociétés savantes suisses), vignettes cliniques authentiques et QCM exigeants de niveau Examen Fédéral Suisse.\n3. **INTERDICTION DES ARBRES DÉCISIONNELS (Consigne Vial 20.11.26)** :\n   - **Ne générer AUCUN arbre décisionnel ni algorithme graphique (`.fm-canvas`, SVG décisionnel, etc.)** dans `Phase_A` ou dans les `DX.n` — l'auteur (Vial) les réalisera lui-même.\n4. **Calibre texte pur actualisé (Consigne Vial 20.11.26)** :\n   - **80 à 100 Ko de texte pur UTF-8 par fichier** (`81 920` à `102 400` octets, calibre du Prompt Alpha confirmé par Vial le 20.11.2026 à 21:20, mesuré fenêtres comprises, hors balises HTML, CSS, JS, SVG et images).\n   - HTML hors images (`controle3.py`) : **`40 000` à `100 000` octets** (alerte).\n   - Densité maximale : zéro remplissage, zéro phrase pouvant figurer telle quelle dans un autre cours, zéro phrase de gabarit de `cartographie_DATA.json`.\n5. **Phrases verbales exclusives (BLOQUANT)** :\n   - Chaque phrase (texte, fenêtres, listes, légendes `<figcaption>`, cellules narratives `<td>`) contient un verbe conjugué reconnu. **Zéro phrase nominale.**\n4. **Médicaments cliquables d'emblée & Fenêtres centrées PK/PD à 2 onglets (Consigne Vial 20.11.26)** :\n   - Dès qu'un médicament est évoqué, il devient cliquable (`<a class=\"ouvre med-chip\" href=\"#f-...\">`).\n   - Chaque `<section class=\"fenetre mb\" id=\"f-...\"><div class=\"fen\">` s'ouvre au centre de l'écran et contient **2 onglets** :\n     * **Onglet 1 (`data-tab=\"pk\"`)** : Pharmacocinétique + **Courbe vectorielle SVG $C(t)$** + **4 paramètres cliniciens mis en évidence** (`.pkpd-kpis`).\n     * **Onglet 2 (`data-tab=\"pd\"`)** : Pharmacodynamique & Clinique + **Courbe vectorielle SVG $E(C)$** + posologies/précautions/grossesse suisses (Compendium.ch / AIPS).\n5. **Images** : uniquement à l'intérieur des `<section class=\"fenetre\">`, jamais hors fenêtre (licences selon Prompt Alpha § 4). Ne comptent pas dans le calibre.\n6. **Zéro terminologie de chantier visible** : aucun texte visible (ni `<title>`) ne doit contenir `LOT`, `V0`, `Phase A/B`, `DX.n`, `Appel A/B`, `Partie n`. Seuls les noms de fichiers gardent le format Alpha (`LOT_nnn_Phase_A_V0.html`, `LOT_nnn_Phase_B_V0_DX.i.html`).\n7. **Circuits & Plans** :\n   - `MONOGRAPHIQUE` (189 SSP) : plan maladie en 14 points (Prompt Alpha § 3.1).\n   - `NON_MONOGRAPHIQUE` (52 SSP) : Leçon en 12 à 14 points adaptés (Prompt Alpha § 3.2). **Jamais** de plan maladie ni de titres « Physiopathologie / Approche syndromique / Diagnostic positif » artificiels.\n   - `MIXTE` (7 SSP) : Prompt Alpha § 3.3, chaque fichier déclare `<meta name=\"ssp-circuit\" content=\"...\">`.\n8. **Correctifs Frontend v2 / Architecture `_sources/` (`UNIQUE.html` & `_polices/`)** :\n   - **Arborescence propre par SSP** : à la racine de `SSP_nnn/`, seul **`SSP_nnn_<code>_UNIQUE.html`** (plus le sous-dossier **`_sources/`**) est visible. Tous les fichiers sources (`LOT_nnn_*.html`, `images/`, `NOTIONS.*`, `MANIFESTE.json`, `DECISION*`, `paquet.json`, `_archive_avant_alpha/`) sont rangés dans `SSP_nnn/_sources/` sans rien supprimer.\n   - **Barre haute amovible (`gabarit_unique.html`)** : `#topbar` compacte 1 ligne (~42 px) avec pilule active, fil d'Ariane section, boutons `◀`/`▶`, tiroir overlay amovible `#dd-drawer` (`☰ Diagnostics (N) ▾` + option `📌 Épingler`) contenant `nav#nav` en colonnes égales (`32 px`, teinte unique par cours), et bouton `▴ Masquer barre` + pilule flottante `#btn-show-bar`.\n   - **Zéro dédoublement & navigation `#...` 100 % fonctionnelle (`forme.js`)** : script `forme.js` exécuté sous `DOMContentLoaded` et injecté par `assembler_unique.py`/`inliner.py` après `</head>` et avant `#signature-ia`/`</body>` ; intercepteur global appelant `e.preventDefault()` sur 100 % des `href^=\"#\"` (bloque le rechargement `srcdoc` + `file://`).\n   - **Modales centrées `<div class=\"fen\">` & désaturation (`forme.css` / `optimiser_ssp.py`)** : ouverture via classe `.fm-open` (plus `:target` en repli) avec pile `modalStack` et bouton `Fermer ✕` sticky (sans `history.back()`), auto-enveloppement `<div class=\"fen\">`, tableaux hors modale déplacés vers `<section class=\"fenetre fm-tab-fen\">` déclenchés par cartes `.fm-encart-fen`, citations `<sup class=\"r\"><a>` compactées en `[N]` avec modale aperçu `#fm-src-modal` empilable (`fm-stack-top`), puces médicaments `a.ouvre.med-chip` (`℞ ...`, `white-space: nowrap`, compatible accents français), repli du plan latéral desktop `#fm-plan-toggle`, îlots discontinus (`margin-bottom: 30px`) et padding bas `5.5rem` protégeant la lecture au-dessus de `#signature-ia`.\n   - **HTML unique** : ne jamais l'écrire à la main ; toujours exécuter `optimiser_ssp.py` puis `assembler_unique.py nnn`.\n\n## § 2. ARCHIVAGE & WORKFLOW PAR SSP (P0 → P4)\n- **Zéro suppression** : avant d'écraser ou renommer un fichier source existant, archiver dans `SSP_nnn/_sources/_archive_avant_alpha/`.\n- **P0 (Préparer)** : lire circuit (`catalogue_248.json`), entités (`NOTIONS.md`/`NOTIONS.json`), `memoire_zero_token.py --digest --lot nnn`, écrire `PLAN_ENTITES.md`.\n- **P1 (Décider)** : noter dans `DECISION.md` (Corriger / Réécrire si mécanique, faux plan maladie ou `< 30 Ko` / Créer).\n- **P2 (Produire)** : `LOT_nnn_Phase_A_V0.html` + `LOT_nnn_Phase_B_V0_DX.1..N.html`, 100 % des notions de `NOTIONS.json` expliquées et sourcées (Compendium.ch / AIPS, OFSP, ASSM, CC, LAMal, LAVI, Smarter Medicine), sans aucune phrase gabarit de la cartographie.\n- **P3 (Portes de Contrôle + Optimisation + Assemblage + Audit Chrome)** :\n  1. `controle3.py --script-ok` → **`VERT {}`** (si `paquet.json` présent ; `--script-ok` requis car `_sources/` référence `../../_polices/forme.js`)\n  2. `verif_aips.py` → **`OK`** (si `paquet.json` présent) et `restaurer_fond.py --verifier` → **`exit=0`**\n  3. `python _outils/optimiser_ssp.py nnn` → migration vers `_sources/`, tableaux déplacés en `<div class=\"fen\">`, teintes non bleues `--fm-a`\n  4. `python _outils/verif_mission.py nnn` → **100 % fichiers `PASS`** (`errors: []`)\n  5. `python _outils/assembler_unique.py nnn` → **`(1 + N) / (1 + N) onglets`** à la racine de `SSP_nnn/`\n  6. `python _outils/notions.py verifier nnn` → **`0 NON`** + copier `rapport_notions.csv` dans `SSP_nnn/_sources/`\n  7. `python _outils/audit_unique_browser.py nnn --all-tabs` → **`PASS` sur 100 % des onglets en Chrome headless réel**\n  8. Ajouter ligne dans `SUIVI_PRODUCTION.csv` + `git commit` + `git push origin main`.\n- **P4 (Affinage)** : consigner tout doute clinique/posologique non vérifié dans `1_Claude AI/HANDOFF_AFFINAGE.md` sous `## SSP_nnn`.\n\n## § 3. MISSION 2 — SSP 001 → 032\n- Extraire les cours depuis `SSP_nnn_<code>_UNIQUE.html` (JSON `data` gzip+base64, marqueurs `@@IMG:…@@`, `@@FONT:…@@`) après archivage des anciens `LOT_nnn_*.html` dans `_archive_avant_alpha/`.\n- Le frontend reste identique ; auditer le contenu avec la même sévérité (attention : `SSP_013` G13 = `NON_MONOGRAPHIQUE`, `SSP_014` G14 = `MIXTE`).\n- Produire `1_Claude AI/AUDIT_001-032.md` et corriger tous les ❌.\n\n## § 4. LES 12 BLOCAGES ROUGE (REJET IMMÉDIAT)\n1. Identification absente ou incertaine.\n2. Signature `#signature-ia` absente, modifiée ou supprimée.\n3. Entité de la Cartographie sans cours.\n4. Fichier hors intervalle `80–100 Ko` de texte pur (tout cours ; un cours de 30–50 Ko est à enrichir).\n5. Toute phrase nominale.\n6. Toute notion au verdict `NON`.\n7. Phrase gabarit de `cartographie_DATA.json` recopiée dans un cours.\n8. Plan maladie appliqué à une Leçon `NON_MONOGRAPHIQUE`.\n9. Terme de chantier visible (`LOT`, `V0`, `Phase A/B`, `DX.n`, `Appel`, `Partie n`).\n10. Posologie sans source de la cascade suisse.\n11. Image hors `<section class=\"fenetre\">`.\n12. Fichier supprimé au lieu d'être archivé.\n\n## § 5. ANNEXE CIRCUITS (248 SSP)\n- **NON_MONOGRAPHIQUE (52)** : 013 · 065 · 069 · 176 · 180 · 181 · 182 · 184 · 185 · 186 · 192 · 194 · 195 · 198 · 200 · 203 · 204 · 205 · 206 · 207 · 208 · 209 · 210 · 211 · 212 · 213 · 214 · 215 · 216 · 217 · 218 · 219 · 220 · 221 · 222 · 224 · 225 · 226 · 227 · 232 · 233 · 235 · 236 · 237 · 238 · 239 · 240 · 241 · 242 · 243 · 246 · 247.\n- **MIXTE (7)** : 014 · 165 · 174 · 175 · 190 · 202 · 223.\n- **MONOGRAPHIQUE (189)** : tous les autres SSP."
+}

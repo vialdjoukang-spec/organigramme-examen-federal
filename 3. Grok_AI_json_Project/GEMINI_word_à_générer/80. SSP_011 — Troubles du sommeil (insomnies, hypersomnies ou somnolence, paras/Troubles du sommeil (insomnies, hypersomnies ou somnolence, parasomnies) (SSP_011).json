@@ -1,0 +1,3219 @@
+{
+  "rappel_obligatoire_avant_redaction": {
+    "lecture_imperative": [
+      "1. Lire intégralement PROMPT_Alpha_19.11.26.md ET la mise à jour incluse dans prompt_alpha_a_jour ci-dessous.",
+      "2. Respecter l'intervalle GLOBAL par cours : viser 85–95 Ko de texte médical pur (soit ~95–115 Ko de fichier JSON) sans quota rigide par partie — répartir le texte proportionnellement à l'importance clinique des parties.",
+      "3. Produire graduellement 1 cours complet par requête (Phase A, puis Cours 1, Cours 2...) en français médical académique, phrases verbales exclusives (0 phrase nominale), zéro prose générique ou patronnée.",
+      "4. Utiliser uniquement les guillemets typographiques français « … » dans les valeurs texte JSON (jamais de guillemet droit non échappé).",
+      "5. Zéro arbre décisionnel graphique (.fm-canvas) : ne générer aucun schéma décisionnel."
+    ],
+    "specificites_locales_ssp": [
+      "Circuit MONOGRAPHIQUE : respecter le plan maladie en 14 points avec socle généralités (1-3), démarche diagnostique (4-10), prise en charge posologique suisse intégrale (11) et QCM Examen Fédéral (14).",
+      "Couvrir 100 % des notions obligatoires listées dans phase_b[*].plan[*].notions_obligatoires pour Troubles du sommeil (insomnies, hypersomnies ou somnolence, parasomnies) (G11).",
+      "Cascade posologique suisse à 4 paliers obligatoire : 1. AIPS Swissmedic (n° 5 chiffres) -> 2. Compendium.ch -> 3. Sociétés savantes & CHU suisses (HUG, CHUV, Inselspital, USZ, USB, OFSP, ASSM, SSMIG, Tox Info Suisse 145) -> 4. Sociétés savantes européennes."
+    ]
+  },
+  "meta": {
+    "rang_gravite": 80,
+    "ssp": "SSP_011",
+    "code_profiles": "G11",
+    "nom_francais": "Troubles du sommeil (insomnies, hypersomnies ou somnolence, parasomnies)",
+    "circuit": "MONOGRAPHIQUE",
+    "police_obligatoire": "Atkinson Hyperlegible",
+    "calibre_cible": "80–100 Ko texte pur",
+    "arbres_decisionnels_autorises": false,
+    "mode_redaction": "Neon Deep Research",
+    "nb_chapitres_total": 21,
+    "defauts_audit_initial": [
+      "Incomplet (11/21 cours)",
+      "192 phrases nominales",
+      "Termes chantier (11 f.)"
+    ]
+  },
+  "sommaire": {
+    "phase_a": {
+      "fichier_html_cible": "LOT_011_Phase_A_V0.html",
+      "titre": "Troubles du sommeil (insomnies, hypersomnies ou somnolence, parasomnies) — Vue d'ensemble et orientation clinique (G11)"
+    },
+    "phase_b": [
+      {
+        "cours_numero": 1,
+        "titre": "Insomnie chronique primaire",
+        "cim": "F51.0",
+        "urgence": "chronique"
+      },
+      {
+        "cours_numero": 2,
+        "titre": "Syndrome d'apnées-hypopnées obstructives du sommeil (SAOS)",
+        "cim": "G47.3",
+        "urgence": "chronique"
+      },
+      {
+        "cours_numero": 3,
+        "titre": "Insomnie aiguë situationnelle",
+        "cim": "G47.0",
+        "urgence": "semi-urgent"
+      },
+      {
+        "cours_numero": 4,
+        "titre": "Syndrome des jambes sans repos (SJSR / maladie de Willis-Ekbom)",
+        "cim": "G25.8",
+        "urgence": "chronique"
+      },
+      {
+        "cours_numero": 5,
+        "titre": "Insomnie secondaire à un trouble dépressif ou anxieux",
+        "cim": "F32.9",
+        "urgence": "semi-urgent"
+      },
+      {
+        "cours_numero": 6,
+        "titre": "Syndrome de retard de phase du sommeil",
+        "cim": "G47.2",
+        "urgence": "chronique"
+      },
+      {
+        "cours_numero": 7,
+        "titre": "Travail posté / décalage horaire (trouble circadien)",
+        "cim": "G47.2",
+        "urgence": "chronique"
+      },
+      {
+        "cours_numero": 8,
+        "titre": "Troubles du comportement en sommeil paradoxal (RBD)",
+        "cim": "G47.5",
+        "urgence": "semi-urgent"
+      },
+      {
+        "cours_numero": 9,
+        "titre": "Somnambulisme et terreurs nocturnes (parasomnies NREM)",
+        "cim": "F51.3",
+        "urgence": "chronique"
+      },
+      {
+        "cours_numero": 10,
+        "titre": "Insomnie iatrogène ou liée aux substances",
+        "cim": "G47.0",
+        "urgence": "semi-urgent"
+      },
+      {
+        "cours_numero": 11,
+        "titre": "Bruxisme nocturne",
+        "cim": "F45.8",
+        "urgence": "chronique"
+      },
+      {
+        "cours_numero": 12,
+        "titre": "Narcolepsie de type 1 (avec cataplexie)",
+        "cim": "G47.4",
+        "urgence": "semi-urgent"
+      },
+      {
+        "cours_numero": 13,
+        "titre": "Syndrome d'apnées centrales du sommeil (respiration de Cheyne-Stokes)",
+        "cim": "G47.3",
+        "urgence": "semi-urgent"
+      },
+      {
+        "cours_numero": 14,
+        "titre": "Hypersomnie idiopathique",
+        "cim": "G47.1",
+        "urgence": "chronique"
+      },
+      {
+        "cours_numero": 15,
+        "titre": "Somnolence sévère au volant avec accident ou quasi-accident",
+        "cim": "R40.0",
+        "urgence": "urgent"
+      },
+      {
+        "cours_numero": 16,
+        "titre": "Syndrome obésité-hypoventilation en décompensation hypercapnique aiguë",
+        "cim": "E66.2",
+        "urgence": "immediate"
+      },
+      {
+        "cours_numero": 17,
+        "titre": "Épilepsie nocturne frontale ou état de mal nocturne",
+        "cim": "G40.3",
+        "urgence": "urgent"
+      },
+      {
+        "cours_numero": 18,
+        "titre": "Delirium tremens avec inversion nycthémérale et agitation",
+        "cim": "F10.4",
+        "urgence": "immediate"
+      },
+      {
+        "cours_numero": 19,
+        "titre": "Insomnie totale inaugurale d'un épisode maniaque aigu",
+        "cim": "F30.1",
+        "urgence": "urgent"
+      },
+      {
+        "cours_numero": 20,
+        "titre": "Parasomnie violente avec mise en danger physique (blessure grave nocturne)",
+        "cim": "G47.5",
+        "urgence": "urgent"
+      }
+    ]
+  },
+  "phase_a": {
+    "titre": "Troubles du sommeil (insomnies, hypersomnies ou somnolence, parasomnies) — Vue d'ensemble (G11)",
+    "plan": [
+      {
+        "point": 1,
+        "titre": "Définition nosologique et périmètre clinique",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 2,
+        "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 3,
+        "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 4,
+        "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+        "description": "Présentation et hiérarchisation des 20 entités de la Cartographie Renouveau."
+      },
+      {
+        "point": 5,
+        "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 6,
+        "titre": "Examen physique systématique région par région",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 7,
+        "titre": "Approche syndromique et stratification de gravité",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 8,
+        "titre": "Diagnostic positif, scores cliniques et critères validés",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 9,
+        "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 10,
+        "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 11,
+        "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 12,
+        "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 13,
+        "titre": "Points clés indispensables à retenir",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 14,
+        "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      }
+    ]
+  },
+  "phase_b": [
+    {
+      "cours_numero": 1,
+      "fichier_html_cible": "LOT_011_Phase_B_V0_DX.1.html",
+      "titre": "Insomnie chronique primaire",
+      "cim": "F51.0",
+      "urgence": "chronique",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Plainte d'insatisfaction quant à la quantité ou qualité du sommeil (>= 3 nuits/semaine pendant >= 3 mois) malgré des conditions adéquates."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Prévalence ~10 % de la population adulte en Suisse ; plus fréquente chez la femme et le sujet âgé."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Hyperéveil cortical et somatique (modèle des 3P de Spielman : facteurs prédisposants, précipitants, perpétuants comportementaux)."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Idéation suicidaire (dépression sévère), somnolence diurne excessive au volant, pauses respiratoires observées."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Latence d'endormissement, réveils nocturnes/précoces, hygiène du sommeil, temps passé au lit, retentissement diurne (fatigue plutôt que somnolence)."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Examen clinique et neurologique normaux ; rechercher signes d'anxiété, dysthyroïdie ou SAOS."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Critères DSM-5 / ICSD-3 (>= 3 mois, >= 3 nuits/semaine, retentissement diurne) après exclusion d'une cause organique/psychiatrique."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Agenda du sommeil sur 2 semaines et questionnaires (ISI, Epworth) ; la polysomnographie n'est PAS indiquée en routine !"
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Actigraphie si suspicion de trouble circadien ; TSH si signes cliniques."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Éviter d'instaurer d'emblée des benzodiazépines au long cours ; règles d'hygiène du sommeil."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Thérapie cognitivo-comportementale de l'insomnie (TCC-I) = traitement de 1re intention ! (restriction du temps au lit, contrôle du stimulus) ; mélatonine LP > 55 ans ou daridorexant si échec."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Dépendance aux benzodiazépines/Z-drugs, chutes chez le sujet âgé, épisode dépressif caractérisé."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Score ISI, agenda du sommeil, sevrage progressif des hypnotiques."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Amélioration durable dans 70-80 % des cas sous TCC-I bien conduite."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Médecin traitant, psychologue formé à la TCC-I, centre du sommeil."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 2,
+      "fichier_html_cible": "LOT_011_Phase_B_V0_DX.2.html",
+      "titre": "Syndrome d'apnées-hypopnées obstructives du sommeil (SAOS)",
+      "cim": "G47.3",
+      "urgence": "chronique",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Collapsus répétés complets (apnées) ou partiels (hypopnées) des voies aériennes supérieures pendant le sommeil avec désaturations et micro-éveils."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Prévalence 10-20 % chez l'adulte (jusqu'à 50 % chez l'homme > 50 ans selon seuils IAH) ; sous-diagnostiqué."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Réduction du tonus des muscles dilatateurs du pharynx (génioglosse) au sommeil -> hypoxie intermittente -> activation sympathique, stress oxydatif, HTA."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Accident/somnolence au volant (aptitude à la conduite !), insuffisance cardiaque/coronaropathie, HTAP."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Ronflement sonore, apnées constatées par le conjoint, nycturie, céphalées matinales, somnolence diurne (score d'Epworth > 10)."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Obésité (IMC, tour de cou > 40-43 cm), rétrognathie, hypertrophie amygdalienne, score de Mallampati III-IV, HTA."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "IAH >= 5/h + somnolence/symptômes ou IAH >= 15/h isolé (sévère si >= 30/h)."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Polygraphie respiratoire nocturne (ambulatoire) ou polysomnographie (gold standard si comorbidités ou doute) : IAH >= 5/h avec symptômes ou >= 15/h."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Questionnaire STOP-BANG et échelle d'Epworth pour le dépistage."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Conseil immédiat d'abstention de conduite automobile si somnolence sévère jusqu'à traitement efficace."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Pression positive continue (CPAP) nocturne si SAOS modéré-sévère (IAH >= 15) ou symptomatique ; orthèse d'avancée mandibulaire (OAM) si léger-modéré ou intolérance CPAP ; perte de poids."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "HTA résistante, FA, AVC, infarctus, accidents de la route."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Observance CPAP (>= 4 h/nuit), IAH résiduel, score d'Epworth, réévaluation aptitude à la conduite."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Normalisation du risque accidentel et amélioration tensionnelle sous CPAP bien suivie."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Pneumologue / centre du sommeil, ligue pulmonaire cantonale (appareillage CPAP), médecin traitant."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 3,
+      "fichier_html_cible": "LOT_011_Phase_B_V0_DX.3.html",
+      "titre": "Insomnie aiguë situationnelle",
+      "cim": "G47.0",
+      "urgence": "semi-urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Trouble du sommeil de durée < 3 mois déclenché par un événement stressant aigu (deuil, conflit, hospitalisation, examen)."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Touche 30-50 % des adultes chaque année de manière transitoire."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Activation transitoire de l'axe corticotrope (CRH/cortisol) et du système sympathique perturbant l'architecture du sommeil."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Idées suicidaires, passage à la chronicité par conditionnement négatif au lit."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Facteur déclenchant récent et datable, rumination au coucher, durée < 3 mois."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Normal ; évaluer l'état psychique et l'absence de syndrome dépressif sévère."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Insomnie < 3 mois clairement liée à un stresseur aigu."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Diagnostic clinique ; aucun examen paraclinique nécessaire."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Agenda du sommeil si persistance > 4 semaines."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Réassurance, hygiène du sommeil, contrôle du stimulus ; hypnotique (zolpidem/zopiclone) uniquement si détresse majeure et STRICTEMENT < 2-4 semaines."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Prévenir la chronicisation en évitant de compenser par des siestes ou de rester éveillé au lit."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Évolution vers une insomnie chronique ou un trouble anxio-dépressif."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Réévaluation à 2-4 semaines (surtout si hypnotique prescrit)."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Résolution spontanée habituelle dès la diminution du stresseur."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Médecin traitant."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 4,
+      "fichier_html_cible": "LOT_011_Phase_B_V0_DX.4.html",
+      "titre": "Syndrome des jambes sans repos (SJSR / maladie de Willis-Ekbom)",
+      "cim": "G25.8",
+      "urgence": "chronique",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Trouble sensorimoteur circadien caractérisé par un besoin irrépressible de bouger les jambes accompagné de paresthésies/dysesthésies."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Prévalence 5-10 % en population adulte, plus fréquent chez la femme, pendant la grossesse et dans l'IRC."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Dysfonction dopaminergique centrale liée à une carence martiale cérébrale (le fer est cofacteur de la tyrosine hydroxylase)."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Déficit sensitivomoteur objectif (polyneuropathie), syndrome d'augmentation sous agonistes dopaminergiques."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Critères URGE : besoin urgent de bouger les jambes, aggravé au repos/immobilité, soulagé par le mouvement/marche, recrudescence vespérale/nocturne."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Examen neurologique normal dans la forme idiopathique ; rechercher polyneuropathie associée."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "4 critères cardinaux + exclusion des imitateurs (crampes, akathisie, insuffisance veineuse, neuropathie)."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Diagnostic clinique (5 critères IRLSSG) + bilan martial systématique (ferritine, saturation de la transferrine) + créatinine."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Polysomnographie rarement nécessaire (mouvements périodiques des membres dans 80 % des cas)."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Marche, étirements, bains tièdes/froids ; arrêt des médicaments aggravants (antidépresseurs ISRS/IRSN, neuroleptiques, anti-H1 sédatifs)."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Supplémentation en fer si ferritine < 75 µg/L (PO ou IV) ; en 1re ligne pharmacologique actuelle : ligands alpha-2-delta (prégabaline/gabapentine) préférés aux agonistes dopaminergiques (pramipexole) en raison du risque d'augmentation."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Insomnie chronique sévère, phénomène d'augmentation sous dopaminergiques."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Contrôle de la ferritine à 3 mois et dépistage du phénomène d'augmentation."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Très bonne amélioration après correction martiale ou traitement adapté."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Médecin traitant, neurologue."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 5,
+      "fichier_html_cible": "LOT_011_Phase_B_V0_DX.5.html",
+      "titre": "Insomnie secondaire à un trouble dépressif ou anxieux",
+      "cim": "F32.9",
+      "urgence": "semi-urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Trouble du sommeil symptomatique d'un épisode dépressif caractérisé ou d'un trouble anxieux généralisé."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "80-90 % des patients dépressifs présentent une plainte de sommeil ; relation bidirectionnelle."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Hyperactivité de l'axe corticotrope, réduction du sommeil lent profond et raccourcissement de la latence du sommeil paradoxal dans la dépression."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Idéation suicidaire active avec scénario, délire mélancolique, perte pondérale majeure."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Réveil précoce vers 3-4 h du matin avec impossibilité de se rendormir (mélancolique), anhédonie, tristesse, ruminations anxieuses vespérales."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Ralentissement psychomoteur ou agitation anxieuse ; évaluer systématiquement le risque suicidaire."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Critères DSM-5 d'épisode dépressif caractérisé ou trouble anxieux associés à l'insomnie."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Évaluation psychiatrique clinique + bilan minimal (TSH, FSC) pour exclure une cause somatique."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Échelles PHQ-9 / GAD-7."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Prise en charge du risque suicidaire ; éviter les benzodiazépines isolées au long cours."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Psychothérapie + antidépresseur adapté (ex. mirtazapine ou trazodone si insomnie marquée, ou ISRS le matin + TCC-I)."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Passage à l'acte suicidaire, chronicisation dépressive."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Réévaluation à J7-J14 après initiation d'un antidépresseur (levée d'inhibition)."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Le sommeil se normalise parallèlement à la rémission thymique."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Médecin traitant, psychiatre, psychothérapeute."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 6,
+      "fichier_html_cible": "LOT_011_Phase_B_V0_DX.6.html",
+      "titre": "Syndrome de retard de phase du sommeil",
+      "cim": "G47.2",
+      "urgence": "chronique",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Trouble du rythme circadien caractérisé par un endormissement et un réveil spontanés retardés de > 2 heures par rapport aux horaires sociaux."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Prévalence 7-16 % chez les adolescents et jeunes adultes."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Allongement ou décalage de phase de l'horloge biologique (noyau suprachiasmatique) et retard de sécrétion nocturne de mélatonine (DLMO)."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Absentéisme scolaire/professionnel majeur, prise excessive de stimulants/caféine."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Impossibilité de s'endormir avant 2-4 h du matin en semaine, réveil très difficile pour l'école/travail, mais sommeil de durée et qualité NORMALES le week-end/vacances !"
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Normal ; fatigue matinale scolaire/professionnelle."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Décalage chronique > 2 h avec sommeil normal en horaire libre (agenda/actigraphie)."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Agenda du sommeil sur 2 semaines (incluant week-ends/vacances) +/- actigraphie sur 7-14 jours."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Polysomnographie inutile sauf suspicion de SAOS/narcolepsie associée."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Éviction des écrans et lumière bleue 1-2 h avant l'heure cible de coucher."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Luminothérapie matinale (10 000 lux pendant 30-45 min dès le réveil) + mélatonine à faible dose (0,5-3 mg) 4-6 h avant le coucher habituel + chronothérapie progressive."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Échec scolaire, syndrome dépressif secondaire."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Agenda du sommeil de suivi."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Bon si adhésion stricte aux synchroniseurs (lumière matinale + horaires réguliers y compris week-end)."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Médecin traitant, pédiatre, spécialiste du sommeil."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 7,
+      "fichier_html_cible": "LOT_011_Phase_B_V0_DX.7.html",
+      "titre": "Travail posté / décalage horaire (trouble circadien)",
+      "cim": "G47.2",
+      "urgence": "chronique",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Insomnie et/ou somnolence excessive secondaire à des horaires de travail empiétant sur la période biologique de sommeil (travail de nuit/3x8)."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Concerne 15-20 % des travailleurs en Suisse ; 20-30 % développent un syndrome du travailleur posté."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Conflit entre le rythme circadien endogène (lumière/mélatonine) et les contraintes socioprofessionnelles, entraînant une dette chronique de sommeil."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Endormissement au volant après garde/poste de nuit."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Somnolence pendant le poste de nuit, sommeil diurne fragmenté et court (< 5-6 h), erreurs professionnelles ou endormissements au retour en voiture."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Normal ; rechercher comorbidités métaboliques et cardiovasculaires."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Symptômes d'insomnie/somnolence >= 3 mois temporellement liés aux horaires de travail posté."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Agenda du sommeil et questionnaires (Epworth) ; exclure un SAOS concomitant."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Actigraphie."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Sieste prophylactique (20-30 min) avant le poste de nuit ; caféine uniquement en début de poste (pas dans les 4-6 h avant le coucher diurne)."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Lunettes filtrant la lumière bleue au retour du travail le matin, chambre noire/silencieuse, mélatonine avant le sommeil diurne ; aménagement rotation horaire (sens horaire)."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Accidents de trajet/travail, syndrome métabolique, troubles digestifs et cardiovasculaires."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Suivi par médecine du travail (aptitude au travail de nuit)."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Amélioration nette lors du retour à des horaires diurnes."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Médecin du travail, médecin traitant."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 8,
+      "fichier_html_cible": "LOT_011_Phase_B_V0_DX.8.html",
+      "titre": "Troubles du comportement en sommeil paradoxal (RBD)",
+      "cim": "G47.5",
+      "urgence": "semi-urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Parasomnie du sommeil paradoxal caractérisée par la perte de l'atonie musculaire physiologique (RSWA), permettant au patient de 'vivre' ses rêves."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Prévalence ~1 % chez les > 60 ans, nette prédominance masculine ; forme secondaire fréquente sous ISRS."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Dégénérescence des noyaux du tronc cérébral régulant l'atonie en sommeil paradoxal (locus subcoeruleus) ; prodrome fréquent d'alpha-synucléinopathies (Parkinson, DCL, AMS)."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Traumatismes graves du patient ou du conjoint pendant le sommeil."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Cris, coups de poing/pied en deuxième partie de nuit (sommeil paradoxal), blessures du conjoint ou chute du lit, souvenir précis du rêve correspondant."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Rechercher des signes parkinsoniens subtils (hyposmie, micrographie, rigidité, constipation)."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Épisodes moteurs liés aux rêves + confirmation polysomnographique d'une perte d'atonie en sommeil paradoxal."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Polysomnographie vidéo au laboratoire du sommeil montrant l'absence d'atonie en sommeil paradoxal (RSWA) et les comportements moteurs."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "IRM cérébrale si suspicion de lésion du tronc cérébral."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Sécurisation immédiate de la chambre (abaisser le matelas, retirer objets dangereux, lits séparés temporairement)."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Mélatonine à libération prolongée (3-12 mg) en 1re intention ou clonazépam faible dose (0,25-1 mg) si échec ; arrêt si possible des ISRS aggravants."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Fractures/hématomes nocturnes, évolution vers maladie de Parkinson ou démence à corps de Lewy (> 70-80 % à 10-15 ans)."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Suivi neurologique annuel (dépistage synucléinopathie)."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Symptômes bien contrôlés par mélatonine/clonazépam ; pronostic à long terme lié au risque neurodégénératif."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Neurologue, centre du sommeil."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 9,
+      "fichier_html_cible": "LOT_011_Phase_B_V0_DX.9.html",
+      "titre": "Somnambulisme et terreurs nocturnes (parasomnies NREM)",
+      "cim": "F51.3",
+      "urgence": "chronique",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Parasomnies d'éveil survenant lors du sommeil lent profond (stade N3), caractérisées par une dissociation entre éveil moteur/végétatif et sommeil cortical."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Très fréquent chez l'enfant (10-15 % pour somnambulisme), persiste chez 1-3 % des adultes ; forte composante génétique."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Éveil incomplet du sommeil lent profond dans le 1er tiers de la nuit, favorisé par la privation de sommeil, la fièvre, l'alcool ou le SAOS."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Survenue stéréotypée plusieurs fois par nuit ou à tout moment de la nuit -> suspecter épilepsie frontale nocturne !"
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Survenue 1-2 h après l'endormissement, cri perçant et tachycardie/mydriase sans contact (terreur nocturne) ou déambulation automatique (somnambulisme), amnésie totale au réveil."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Normal ; rechercher facteurs favorisants (hypertrophie amygdalienne/SAOS chez l'enfant)."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Épisodes typiques en 1er tiers de nuit avec confusion et amnésie matinale."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Diagnostic clinique ; vidéo-polysomnographie avec montage EEG complet uniquement si début tardif adulte, forme violente ou doute avec épilepsie."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Vidéo domestique réalisée par les parents/conjoint."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Ne pas réveiller brutalement l'enfant (risque d'agitation), raccompagner doucement au lit ; sécuriser fenêtres/escaliers."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Éviter la privation de sommeil (horaires réguliers), traiter un SAOS sous-jacent ; clonazépam ou TCC/hypnose uniquement si formes dangereuses de l'adulte."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Chutes d'escaliers ou défenestration dans les formes sévères."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Tenue d'un calendrier des épisodes."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Disparition spontanée à la puberté dans la grande majorité des cas pédiatriques."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Pédiatre, médecin traitant, centre du sommeil si forme adulte/atypique."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 10,
+      "fichier_html_cible": "LOT_011_Phase_B_V0_DX.10.html",
+      "titre": "Insomnie iatrogène ou liée aux substances",
+      "cim": "G47.0",
+      "urgence": "semi-urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Perturbation de l'endormissement ou de la continuité du sommeil induite directement par un médicament ou une substance psychoactive."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Très fréquent en pratique ambulatoire et hospitalière (corticoïdes, caféine tardive, alcool)."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Antagonisme des récepteurs à l'adénosine (caféine), stimulation adrénergique/dopaminergique, ou effet rebond cholinergique/glutamatergique en 2e moitié de nuit (alcool)."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Sevrage alcoolique aigu (tremblements, sueurs -> risque de delirium tremens)."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Consommation de caféine/boissons énergisantes après 14 h, alcool le soir (endormissement rapide puis réveils vers 3 h), corticoïdes le soir, ISRS, décongestionnants."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Rechercher signes de sevrage ou d'imprégnation toxique/alcoolique."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Relation chronologique claire entre exposition/modification de dose et insomnie."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Anamnèse pharmacologique et toxicologique exhaustive + agenda du sommeil."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Gamma-GT / CDT si suspicion de mésusage d'alcool."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Décaler les prises stimulantes (corticoïdes, ISRS, diurétiques) le matin ; arrêt progressif de la caféine tardive et de l'alcool vespéral."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Substitution thérapeutique si médicament indispensable mal toléré, éducation sur les effets de l'alcool sur le sommeil."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Cercle vicieux alcool-insomnie ou hypnotiques-insomnie rebond."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Réévaluation à 2-3 semaines après adaptation horaire/sevrage."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Normalisation rapide du sommeil après correction du facteur iatrogène."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Médecin traitant, pharmacien, addictologue si dépendance."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 11,
+      "fichier_html_cible": "LOT_011_Phase_B_V0_DX.11.html",
+      "titre": "Bruxisme nocturne",
+      "cim": "F45.8",
+      "urgence": "chronique",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Activité motrice répétitive des muscles masticateurs pendant le sommeil caractérisée par un serrement ou grincement dentaire."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Prévalence ~8 % chez l'adulte, jusqu'à 15-20 % chez l'enfant ; souvent associé au stress et aux ISRS."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Micro-éveils végétatifs nocturnes déclenchant une activation rythmique des muscles masséters et temporaux."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Blocage aigu de l'ATM, association fréquente avec SAOS ou RGO nocturne."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Bruit de grincement rapporté par le partenaire, douleur/fatigue des mâchoires et céphalées temporales au réveil."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Usure prématurée de l'émail dentaire, hypertrophie des masséters, sensibilité de l'articulation temporo-mandibulaire (ATM), empreintes dentaires sur la langue."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Grincement nocturne rapporté + facettes d'usure dentaire / douleur masticatrice matinale."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Diagnostic clinique et odontologique ; polysomnographie avec EMG massétérin uniquement si suspicion de SAOS ou forme sévère."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Bilan dentaire complet."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Relaxation musculaire, chaleur locale sur les masséters."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Gouttière occlusale nocturne sur mesure (protection dentaire), gestion du stress, réduction caféine/alcool/tabac, adaptation si induit par ISRS."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Fractures dentaires, dysfonction douloureuse chronique de l'ATM."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Suivi dentaire régulier et usure de la gouttière."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Bénin ; protection efficace des dents par la gouttière."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Médecin-dentiste, médecin traitant, physiothérapeute maxillo-facial."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 12,
+      "fichier_html_cible": "LOT_011_Phase_B_V0_DX.12.html",
+      "titre": "Narcolepsie de type 1 (avec cataplexie)",
+      "cim": "G47.4",
+      "urgence": "semi-urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Hypersomnie centrale rare due à une perte sélective des neurones à hypocrétine/orexine de l'hypothalamus latéral."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Prévalence ~25-50/100 000, début typique à l'adolescence ou chez l'adulte jeune (15-25 ans), forte association HLA-DQB1*06:02."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Destruction probablement auto-immune des neurones à hypocrétine-1 entraînant une instabilité des transitions veille-sommeil et des intrusions de sommeil paradoxal."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Accidents de la route/travail, cataplexies fréquentes avec chutes traumatiques."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Accès de sommeil irrépressibles diurnes (siestes courtes rafraîchissantes), cataplexie (chute brutale du tonus musculaire déclenchée par le rire/émotion avec conscience conservée !), paralysies du sommeil, hallucinations hypnagogiques."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Normal hors accès ; lors d'une cataplexie : aréflexie transitoire avec conscience intacte."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Somnolence >= 3 mois + cataplexie + TILE positif (ou hypocrétine-1 LCR effondrée)."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Polysomnographie nocturne suivie du Test Itératif de Latence d'Endormissement (TILE / MSLT : latence moyenne <= 8 min et >= 2 endormissements en sommeil paradoxal SOREMP) ; dosage hypocrétine-1 dans le LCR (<= 110 pg/mL)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Typage HLA-DQB1*06:02 (sensible mais non spécifique)."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Interdiction temporaire de conduite automobile jusqu'à stabilisation thérapeutique."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Éveil : modafinil, pitolisant (antagoniste H3) ou solriamfétol ; cataplexie : oxybate de sodium (GHB) ou venlafaxine/clomipramine ; siestes programmées."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Accidents, surpoids, retentissement scolaire/professionnel majeur."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Suivi spécialisé semestriel, évaluation aptitude à la conduite."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Maladie chronique à vie mais qualité de vie nettement restaurée sous traitement."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Centre de médecine du sommeil, neurologue, médecin traitant."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 13,
+      "fichier_html_cible": "LOT_011_Phase_B_V0_DX.13.html",
+      "titre": "Syndrome d'apnées centrales du sommeil (respiration de Cheyne-Stokes)",
+      "cim": "G47.3",
+      "urgence": "semi-urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Arrêts respiratoires nocturnes par défaut transitoire de la commande respiratoire centrale (sans effort inspiratoire), souvent en crescendo-decrescendo (Cheyne-Stokes)."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Présent chez 25-40 % des patients avec insuffisance cardiaque systolique sévère (FEVG < 35 %), après AVC ou sous opioïdes chroniques."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Instabilité de la boucle de rétrocontrôle du CO2 (hyperventilation -> hypocapnie sous le seuil apnéique -> apnée centrale) favorisée par l'allongement du temps circulatoire."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Décompensation cardiaque aiguë, arythmies ventriculaires nocturnes."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Dyspnée paroxystique nocturne, sommeil fragmenté, respiration cyclique observée par le conjoint, insuffisance cardiaque connue ou traitement opioïde."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Signes d'insuffisance cardiaque gauche/globale, orthopnée."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "IAH >= 5/h avec > 50 % d'événements centraux et morphologie Cheyne-Stokes à la polysomnographie."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Polysomnographie complète (absence de mouvements thoraco-abdominaux pendant les apnées) + échocardiographie (FEVG)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "NT-proBNP, gazométrie artérielle."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Optimisation urgente du traitement de l'insuffisance cardiaque."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Traitement optimal de la cardiopathie (IEC/ARNI, bêtabloquants, SGLT2i, CRT) ; réduction des opioïdes si iatrogène ; attention : ventilation auto-asservie (ASV) CONTRE-INDIQUÉE si FEVG <= 45 % (étude SERVE-HF) !"
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Mortalité cardiovasculaire accrue, œdème aigu du poumon."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Suivi cardiologique et pneumologique rapproché."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Lié au pronostic de la cardiopathie sous-jacente."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Cardiologue, pneumologue / centre du sommeil."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 14,
+      "fichier_html_cible": "LOT_011_Phase_B_V0_DX.14.html",
+      "titre": "Hypersomnie idiopathique",
+      "cim": "G47.1",
+      "urgence": "chronique",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Hypersomnie centrale rare d'étiologie inconnue caractérisée par une somnolence diurne excessive malgré un sommeil nocturne normal ou prolongé."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Prévalence estimée ~2-5/100 000, début chez l'adulte jeune (15-30 ans)."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Mécanisme mal élucidé (possible hyperactivité GABAergique endogène), sans déficit en hypocrétine."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Accidents de la route liés à la somnolence."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Besoin de sommeil > 10-11 h/24 h, inertie/ivresse du sommeil très marquée au réveil, siestes diurnes longues (> 1 h) NON rafraîchissantes (différence clé avec la narcolepsie !), absence de cataplexie."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Normal ; exclure hypothyroïdie, carence martiale, dépression atypique."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Critères ICSD-3 après exclusion stricte d'une dette chronique de sommeil, d'un SAOS et d'une dépression."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Actigraphie + polysomnographie suivie d'un TILE (latence <= 8 min avec < 2 SOREMP) ou enregistrement continu 24 h (>= 660 min de sommeil)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Bilan biologique d'exclusion (TSH, ferritine, B12, toxiques)."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Évaluation de l'aptitude à la conduite."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Modafinil, méthylphénidate, pitolisant ou oxybate de sodium."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Désinsertion professionnelle/scolaire."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Suivi régulier au centre du sommeil."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Évolution chronique, amélioration partielle sous éveillants."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Centre du sommeil, neurologue, médecin traitant."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 15,
+      "fichier_html_cible": "LOT_011_Phase_B_V0_DX.15.html",
+      "titre": "Somnolence sévère au volant avec accident ou quasi-accident",
+      "cim": "R40.0",
+      "urgence": "urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Hypovigilance diurne aiguë ou sévère exposant le patient et les tiers à un risque imminent d'accident de la route ou du travail."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "La somnolence est impliquée dans 15-20 % des accidents mortels sur autoroute en Europe."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Micro-sommeils involontaires de quelques secondes lors de tâches monotones par dette de sommeil ou pathologie respiratoire/centrale."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Conducteur professionnel (poids lourds, transports publics) ou récidive d'accidents."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Épisodes d'endormissement au feu rouge, sorties de voie involontaires, accidents/quasi-accidents, prise de sédatifs/alcool, ronflements."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Score d'Epworth (souvent >= 15), signes de SAOS, examen neurologique."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Somnolence pathologique objectivée mettant en jeu la sécurité."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Polygraphie/polysomnographie en urgence rapide + Test de Maintien de l'Éveil (MWT) pour valider la reprise de la conduite."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Bilan toxique/médicamenteux et biologique (TSH, glycémie)."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Notification orale et écrite au dossier de l'interdiction temporaire de conduire (art. 15d LCR en Suisse ; devoir d'information du médecin !)."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Traitement étiologique rapide (CPAP, arrêt des sédatifs, éveillants) puis test MWT avant autorisation de reprise."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Polytraumatisme mortel."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Contrôle MWT et observance CPAP."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Reprise de la conduite possible dès normalisation objective sous traitement."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Médecin traitant, centre du sommeil, médecin-conseil circulation routière (OCV/SAN)."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 16,
+      "fichier_html_cible": "LOT_011_Phase_B_V0_DX.16.html",
+      "titre": "Syndrome obésité-hypoventilation en décompensation hypercapnique aiguë",
+      "cim": "E66.2",
+      "urgence": "immediate",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Décompensation respiratoire aiguë d'un syndrome obésité-hypoventilation (IMC >= 30 kg/m2 + PaCO2 diurne > 45 mmHg), souvent associée à un SAOS."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Touche 10-20 % des patients obèses adressés pour SAOS sévère ; mortalité élevée si non traité."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Charge mécanique thoraco-abdominale + diminution du drive ventilatoire central + apnées obstructives -> hypoventilation alvéolaire nocturne puis diurne -> narcose au CO2."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Coma hypercapnique, acidose respiratoire décompensée (pH < 7,25), cœur pulmonaire aigu."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Somnolence extrême voire obnubilation, céphalées matinales intenses, dyspnée d'effort, œdèmes des membres inférieurs, infection respiratoire déclenchante."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Obésité morbide, cyanose, astérixis (flapping tremor hypercapnique), tirage, signes d'insuffisance cardiaque droite."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "IMC >= 30 + hypercapnie diurne + exclusion d'une autre cause (BPCO, neuromusculaire)."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Gazométrie artérielle en urgence (hypercapnie PaCO2 > 45-60 mmHg, acidose respiratoire, bicarbonates élevés témoignant de la chronicité)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Radiographie thoracique, ECG/échocardiographie (HTAP/VD), polygraphie après stabilisation."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Ventilation non invasive (VNI BiPAP) en urgence aux soins continus/intensifs ; oxygénothérapie prudente (cible SpO2 88-92 % pour éviter d'aggraver l'hypercapnie !)."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "VNI nocturne au long cours (ou CPAP après stabilisation), perte pondérale majeure (chirurgie bariatrique/agonistes GLP-1)."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Arrêt respiratoire hypercapnique, HTAP sévère, défaillance droite."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Gazométries répétées sous VNI, niveau de conscience."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Survie nettement améliorée sous VNI nocturne."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Soins intensifs, pneumologue, ligue pulmonaire, centre de l'obésité."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 17,
+      "fichier_html_cible": "LOT_011_Phase_B_V0_DX.17.html",
+      "titre": "Épilepsie nocturne frontale ou état de mal nocturne",
+      "cim": "G40.3",
+      "urgence": "urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Épilepsie focale (souvent lobe frontal : SHE / NFLE) se manifestant exclusivement ou préférentiellement pendant le sommeil."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Rare mais diagnostic différentiel majeur et souvent méconnu des parasomnies NREM chez l'adulte."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Décharges épileptiques focales frontales déclenchées par les oscillations du sommeil lent (stade N2)."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Crises subintrantes (état de mal épileptique), généralisation tonico-clonique, déficit post-critique."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Épisodes brefs (10-60 secondes), stéréotypés, survenant PLUSIEURS FOIS par nuit et à n'importe quel moment de la nuit, posture dystonique ou pédalage."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Posture tonique asymétrique, mouvements hyperkinétiques brusques, morsure de langue/perte d'urine possibles."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Enregistrement vidéo-EEG critique ou intercritique typique."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Vidéo-polysomnographie avec montage EEG étendu (10-20) + IRM cérébrale protocole épilepsie."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "EEG standard de veille souvent normal (peut nécessiter privation de sommeil)."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Si état de mal : benzodiazépine IV (lorazépam/midazolam) + antiépileptique IV (lévétiracétam/valproate)."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Antiépileptique ciblé (carbamazépine/oxcarbazépine très efficaces dans les formes frontales, ou lévétiracétam)."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "SUDEP (mort subite inattendue dans l'épilepsie), traumatismes nocturnes."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Suivi neurologique, dosage plasmatique si carbamazépine, interdiction de conduite jusqu'à 1 an sans crise."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Bon contrôle sous carbamazépine dans 60-70 % des cas."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Neurologue / épileptologue, centre du sommeil."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 18,
+      "fichier_html_cible": "LOT_011_Phase_B_V0_DX.18.html",
+      "titre": "Delirium tremens avec inversion nycthémérale et agitation",
+      "cim": "F10.4",
+      "urgence": "immediate",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Complication gravissime du sevrage alcoolique caractérisée par un syndrome confusionnel agité et une tempête neurovégétative."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Survient chez ~5 % des patients en sevrage alcoolique non traité ; mortalité 1-5 % sous traitement (15-20 % sans)."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Levée brutale de l'inhibition GABAergique de l'alcool + hyperactivité glutamatergique (NMDA) et noradrénergique."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Hyperthermie > 39 °C, collapsus cardiovasculaire, crises convulsives de sevrage, rhabdomyolyse."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Arrêt ou réduction brutale d'une consommation chronique d'alcool 48-96 h auparavant, insomnie absolue, angoisse."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Désorientation temporo-spatiale, hallucinations visuelles (zoopsies) et tactiles, tremblements amples, sueurs profuses, fièvre, tachycardie, HTA."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Confusion aiguë + syndrome végétatif majeur dans les 2-5 jours suivant un sevrage alcoolique."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Diagnostic clinique (score CIWA-Ar) + ionogramme (hypokaliémie, hypomagnésémie, hyponatrémie), glycémie, bilan hépatique, CK, CT cérébral si trauma crânien."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Alcoolémie (peut déjà être nulle)."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Hospitalisation en soins continus/intensifs : benzodiazépines IV à doses titrées (diazépam ou lorazépam) jusqu'à sédation calme + thiamine (vitamine B1) IV AVANT tout glucose (prévention Gayet-Wernicke !) + réhydratation."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Projet de soins addictologiques après résolution de la phase aiguë."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Encéphalopathie de Gayet-Wernicke, pneumopathie d'inhalation, arythmies, décès."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Score CIWA-Ar horaire, monitoring cardiorespiratoire, ionogramme."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Résolution en 3-7 jours sous benzodiazépines bien titrées."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Urgences, soins intensifs, addictologue, médecin traitant."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 19,
+      "fichier_html_cible": "LOT_011_Phase_B_V0_DX.19.html",
+      "titre": "Insomnie totale inaugurale d'un épisode maniaque aigu",
+      "cim": "F30.1",
+      "urgence": "urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Décompensation thymique aiguë du trouble bipolaire caractérisée par une réduction drastique du besoin de sommeil sans fatigue diurne."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Trouble bipolaire I touche ~1 % de la population ; la privation de sommeil est à la fois symptôme et déclencheur de manie."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Hyperdopaminergie mésolimbique et dérégulation des gènes de l'horloge circadienne (CLOCK/BMAL1)."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Mise en danger (conduite imprudente, conduites sexuelles/financières à risque), hétéro-agressivité, caractéristiques psychotiques."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Patient ne dormant plus depuis plusieurs nuits SANS se plaindre de fatigue, logorrhée, projets grandioses, achats inconsidérés, arrêt d'un thymorégulateur."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Exaltation de l'humeur ou irritabilité, fuite des idées, tachypsychie, agitation psychomotrice, désinhibition."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Critères DSM-5 d'épisode maniaque (>= 7 jours ou hospitalisation nécessaire) avec réduction du besoin de sommeil."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Évaluation psychiatrique urgente + bilan somatique d'exclusion (toxiques urinaires/cocaïne/amphétamines, TSH, lithémie si traité)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Imagerie cérébrale uniquement si début tardif > 45 ans ou signe neurologique focal."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Hospitalisation psychiatrique (PAFA/FU si refus et mise en danger), arrêt de tout antidépresseur, antipsychotique atypique (olanzapine, quétiapine, aripiprazole, rispéridone) +/- benzodiazépine pour restaurer le sommeil."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Thymorégulateur au long cours (lithium, valproate hors femme en âge de procréer, quétiapine) + psychoéducation (régularité stricte du sommeil)."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Ruine financière, accidents, virage dépressif post-maniaque à haut risque suicidaire."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Heures de sommeil quotidiennes (excellent marqueur de réponse thérapeutique !), lithémie."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Rémission en quelques semaines sous traitement, rechutes fréquentes si arrêt du traitement ou dette de sommeil."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Psychiatre, hôpital psychiatrique, médecin traitant."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 20,
+      "fichier_html_cible": "LOT_011_Phase_B_V0_DX.20.html",
+      "titre": "Parasomnie violente avec mise en danger physique (blessure grave nocturne)",
+      "cim": "G47.5",
+      "urgence": "urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Épisode paroxystique nocturne à haut potentiel traumatique (somnambulisme violent, RBD sévère ou automatisme épileptique)."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Rare mais source de traumatismes graves voire médico-légaux."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Dissociation veille-sommeil avec activation motrice complexe sans contrôle exécutif frontal."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Traumatisme crânien ou rachidien lors de l'épisode, consommation de Z-drugs (somnambulisme sous zolpidem)."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Traumatisme nocturne (chute fenêtre/escalier, blessure du partenaire), amnésie ou souvenir onirique, facteurs déclenchants (alcool, zolpidem, privation de sommeil)."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Bilan traumatologique des blessures, examen neurologique complet."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Corrélation anamnestique et vidéo-polysomnographique."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Vidéo-polysomnographie en urgence différée avec EEG complet pour trancher entre parasomnie NREM, RBD et épilepsie frontale."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Toxiques urinaires (alcool, hypnotiques), IRM cérébrale."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Sécurisation immédiate de l'environnement de sommeil, arrêt impératif de tout Z-drug (zolpidem) ou alcool, clonazépam transitoire si risque imminent."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Traitement spécifique selon le diagnostic final (RBD vs NREM vs épilepsie)."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Polytraumatisme, hématome sous-dural, blessure grave d'un tiers."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Suivi rapproché en médecine du sommeil."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Risque de récidive maîtrisé dès sécurisation et traitement ciblé."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Centre du sommeil, neurologue, urgences/traumatologie."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    }
+  ],
+  "prompt_alpha_a_jour": "# MISSION : CORRECTION ET COMPLÉTION DES 248 SSP SUISSES (3 975 ENTITÉS + 248 CHAPITRES 0)\n\n## § 0. IDENTIFICATION, SIGNATURE & RÈGLES DE CONTINUITÉ — BLOQUANT ABSOLU\n1. **Identification obligatoire** en tête de première réponse :\n   - HEURE DE DÉBUT : AAAA-MM-JJ HH:MM (Europe/Zurich)\n   - MODÈLE : nom exact du modèle (ex. ANTIGRAVITY ORCHESTRATOR NEON)\n   - PLATEFORME : plateforme exacte (ex. ANTIGRAVITY)\n   - Ajouter la même ligne à `1_Claude AI/IDENTIFICATION_AGENTS.md`. Si incertitude, s'arrêter.\n2. **Signature IA fixe en bas à droite de TOUT HTML produit ou modifié** (juste avant `</body>`, en GRAS MAJUSCULE) :\n   `<div id=\"signature-ia\" style=\"position:fixed;right:12px;bottom:10px;z-index:9999;background:#fff;border:2px solid #000;padding:4px 10px;font:700 12px/1.3 Arial,sans-serif;text-transform:uppercase;color:#000\">DÉBUT : AAAA-MM-JJ HH:MM (EUROPE/ZURICH) · MODÈLE : <NOM> · PLATEFORME : <PLATEFORME></div>`\n   - **Seul Vial peut autoriser le retrait de ce bloc.** Un agent qui reprend un fichier signé ajoute sa propre ligne sous la précédente sans jamais effacer l'existante.\n3. **Continuité & transparence** :\n   - **Redémarrage propre à partir de `SSP_248`** : tous les cours précédemment modifiés ont été restaurés à l'état initial (`6941513`). Enchaîner continûment **`SSP_248 → SSP_033`**, puis **`SSP_001 → SSP_032`**.\n   - **Toujours afficher le raisonnement visible** en français dans chaque réponse.\n   - **Veille & relance GitHub** : commiter et pousser sur `origin main` après chaque SSP (ou lot <= 5 SSP) avec l'état à jour dans `SUIVI_PRODUCTION.csv`, `HANDOFF_AFFINAGE.md` et `HANDOFF_IA_COMPLET.md`.\n   - **Suivi graphique temps réel** : maintenir à jour le tableau de bord visuel temps réel des réalisations achevées et en cours.\n\n## § 1. RÈGLES ACTUALISÉES (PRIMENT SUR LE PROMPT ALPHA 19.11.26)\n1. **Nombre de cours par SSP** : **1 cours par entité de la Cartographie Renouveau** (15 à 24 entités par SSP, 3 975 au total) + le Chapitre 0 (`Phase_A`), dans l'ordre exact des `Cours 1 … N` de `SSP_nnn/NOTIONS.md` / `NOTIONS.json`.\n2. **QUALITÉ CLINIQUE MAXIMALE & ZÉRO MÉDIOCRITÉ (BLOQUANT ABSOLU — Consigne Vial 20.11.26)** :\n   - **Interdiction absolue de toute prose patronnée / générique** : aucune phrase-cadre où seul le nom de la pathologie change d'un cours à l'autre, aucun remplissage artificiel pour atteindre le calibre. La médiocrité clinique est dangereuse et entraîne un rejet immédiat.\n   - Chaque cours (`Phase_A` et `DX.1..N`) doit être **rédigé sur mesure** pour son entité exacte, avec : raisonnement physiopathologique et sémiologique réel, seuils numériques précis, diagnostics différentiels discriminants, posologies et contre-indications sourcées (Compendium.ch / AIPS, Tox Info Suisse, OFSP, ASSM, sociétés savantes suisses), vignettes cliniques authentiques et QCM exigeants de niveau Examen Fédéral Suisse.\n3. **INTERDICTION DES ARBRES DÉCISIONNELS (Consigne Vial 20.11.26)** :\n   - **Ne générer AUCUN arbre décisionnel ni algorithme graphique (`.fm-canvas`, SVG décisionnel, etc.)** dans `Phase_A` ou dans les `DX.n` — l'auteur (Vial) les réalisera lui-même.\n4. **Calibre texte pur actualisé (Consigne Vial 20.11.26)** :\n   - **80 à 100 Ko de texte pur UTF-8 par fichier** (`81 920` à `102 400` octets, calibre du Prompt Alpha confirmé par Vial le 20.11.2026 à 21:20, mesuré fenêtres comprises, hors balises HTML, CSS, JS, SVG et images).\n   - HTML hors images (`controle3.py`) : **`40 000` à `100 000` octets** (alerte).\n   - Densité maximale : zéro remplissage, zéro phrase pouvant figurer telle quelle dans un autre cours, zéro phrase de gabarit de `cartographie_DATA.json`.\n5. **Phrases verbales exclusives (BLOQUANT)** :\n   - Chaque phrase (texte, fenêtres, listes, légendes `<figcaption>`, cellules narratives `<td>`) contient un verbe conjugué reconnu. **Zéro phrase nominale.**\n4. **Médicaments cliquables d'emblée & Fenêtres centrées PK/PD à 2 onglets (Consigne Vial 20.11.26)** :\n   - Dès qu'un médicament est évoqué, il devient cliquable (`<a class=\"ouvre med-chip\" href=\"#f-...\">`).\n   - Chaque `<section class=\"fenetre mb\" id=\"f-...\"><div class=\"fen\">` s'ouvre au centre de l'écran et contient **2 onglets** :\n     * **Onglet 1 (`data-tab=\"pk\"`)** : Pharmacocinétique + **Courbe vectorielle SVG $C(t)$** + **4 paramètres cliniciens mis en évidence** (`.pkpd-kpis`).\n     * **Onglet 2 (`data-tab=\"pd\"`)** : Pharmacodynamique & Clinique + **Courbe vectorielle SVG $E(C)$** + posologies/précautions/grossesse suisses (Compendium.ch / AIPS).\n5. **Images** : uniquement à l'intérieur des `<section class=\"fenetre\">`, jamais hors fenêtre (licences selon Prompt Alpha § 4). Ne comptent pas dans le calibre.\n6. **Zéro terminologie de chantier visible** : aucun texte visible (ni `<title>`) ne doit contenir `LOT`, `V0`, `Phase A/B`, `DX.n`, `Appel A/B`, `Partie n`. Seuls les noms de fichiers gardent le format Alpha (`LOT_nnn_Phase_A_V0.html`, `LOT_nnn_Phase_B_V0_DX.i.html`).\n7. **Circuits & Plans** :\n   - `MONOGRAPHIQUE` (189 SSP) : plan maladie en 14 points (Prompt Alpha § 3.1).\n   - `NON_MONOGRAPHIQUE` (52 SSP) : Leçon en 12 à 14 points adaptés (Prompt Alpha § 3.2). **Jamais** de plan maladie ni de titres « Physiopathologie / Approche syndromique / Diagnostic positif » artificiels.\n   - `MIXTE` (7 SSP) : Prompt Alpha § 3.3, chaque fichier déclare `<meta name=\"ssp-circuit\" content=\"...\">`.\n8. **Correctifs Frontend v2 / Architecture `_sources/` (`UNIQUE.html` & `_polices/`)** :\n   - **Arborescence propre par SSP** : à la racine de `SSP_nnn/`, seul **`SSP_nnn_<code>_UNIQUE.html`** (plus le sous-dossier **`_sources/`**) est visible. Tous les fichiers sources (`LOT_nnn_*.html`, `images/`, `NOTIONS.*`, `MANIFESTE.json`, `DECISION*`, `paquet.json`, `_archive_avant_alpha/`) sont rangés dans `SSP_nnn/_sources/` sans rien supprimer.\n   - **Barre haute amovible (`gabarit_unique.html`)** : `#topbar` compacte 1 ligne (~42 px) avec pilule active, fil d'Ariane section, boutons `◀`/`▶`, tiroir overlay amovible `#dd-drawer` (`☰ Diagnostics (N) ▾` + option `📌 Épingler`) contenant `nav#nav` en colonnes égales (`32 px`, teinte unique par cours), et bouton `▴ Masquer barre` + pilule flottante `#btn-show-bar`.\n   - **Zéro dédoublement & navigation `#...` 100 % fonctionnelle (`forme.js`)** : script `forme.js` exécuté sous `DOMContentLoaded` et injecté par `assembler_unique.py`/`inliner.py` après `</head>` et avant `#signature-ia`/`</body>` ; intercepteur global appelant `e.preventDefault()` sur 100 % des `href^=\"#\"` (bloque le rechargement `srcdoc` + `file://`).\n   - **Modales centrées `<div class=\"fen\">` & désaturation (`forme.css` / `optimiser_ssp.py`)** : ouverture via classe `.fm-open` (plus `:target` en repli) avec pile `modalStack` et bouton `Fermer ✕` sticky (sans `history.back()`), auto-enveloppement `<div class=\"fen\">`, tableaux hors modale déplacés vers `<section class=\"fenetre fm-tab-fen\">` déclenchés par cartes `.fm-encart-fen`, citations `<sup class=\"r\"><a>` compactées en `[N]` avec modale aperçu `#fm-src-modal` empilable (`fm-stack-top`), puces médicaments `a.ouvre.med-chip` (`℞ ...`, `white-space: nowrap`, compatible accents français), repli du plan latéral desktop `#fm-plan-toggle`, îlots discontinus (`margin-bottom: 30px`) et padding bas `5.5rem` protégeant la lecture au-dessus de `#signature-ia`.\n   - **HTML unique** : ne jamais l'écrire à la main ; toujours exécuter `optimiser_ssp.py` puis `assembler_unique.py nnn`.\n\n## § 2. ARCHIVAGE & WORKFLOW PAR SSP (P0 → P4)\n- **Zéro suppression** : avant d'écraser ou renommer un fichier source existant, archiver dans `SSP_nnn/_sources/_archive_avant_alpha/`.\n- **P0 (Préparer)** : lire circuit (`catalogue_248.json`), entités (`NOTIONS.md`/`NOTIONS.json`), `memoire_zero_token.py --digest --lot nnn`, écrire `PLAN_ENTITES.md`.\n- **P1 (Décider)** : noter dans `DECISION.md` (Corriger / Réécrire si mécanique, faux plan maladie ou `< 30 Ko` / Créer).\n- **P2 (Produire)** : `LOT_nnn_Phase_A_V0.html` + `LOT_nnn_Phase_B_V0_DX.1..N.html`, 100 % des notions de `NOTIONS.json` expliquées et sourcées (Compendium.ch / AIPS, OFSP, ASSM, CC, LAMal, LAVI, Smarter Medicine), sans aucune phrase gabarit de la cartographie.\n- **P3 (Portes de Contrôle + Optimisation + Assemblage + Audit Chrome)** :\n  1. `controle3.py --script-ok` → **`VERT {}`** (si `paquet.json` présent ; `--script-ok` requis car `_sources/` référence `../../_polices/forme.js`)\n  2. `verif_aips.py` → **`OK`** (si `paquet.json` présent) et `restaurer_fond.py --verifier` → **`exit=0`**\n  3. `python _outils/optimiser_ssp.py nnn` → migration vers `_sources/`, tableaux déplacés en `<div class=\"fen\">`, teintes non bleues `--fm-a`\n  4. `python _outils/verif_mission.py nnn` → **100 % fichiers `PASS`** (`errors: []`)\n  5. `python _outils/assembler_unique.py nnn` → **`(1 + N) / (1 + N) onglets`** à la racine de `SSP_nnn/`\n  6. `python _outils/notions.py verifier nnn` → **`0 NON`** + copier `rapport_notions.csv` dans `SSP_nnn/_sources/`\n  7. `python _outils/audit_unique_browser.py nnn --all-tabs` → **`PASS` sur 100 % des onglets en Chrome headless réel**\n  8. Ajouter ligne dans `SUIVI_PRODUCTION.csv` + `git commit` + `git push origin main`.\n- **P4 (Affinage)** : consigner tout doute clinique/posologique non vérifié dans `1_Claude AI/HANDOFF_AFFINAGE.md` sous `## SSP_nnn`.\n\n## § 3. MISSION 2 — SSP 001 → 032\n- Extraire les cours depuis `SSP_nnn_<code>_UNIQUE.html` (JSON `data` gzip+base64, marqueurs `@@IMG:…@@`, `@@FONT:…@@`) après archivage des anciens `LOT_nnn_*.html` dans `_archive_avant_alpha/`.\n- Le frontend reste identique ; auditer le contenu avec la même sévérité (attention : `SSP_013` G13 = `NON_MONOGRAPHIQUE`, `SSP_014` G14 = `MIXTE`).\n- Produire `1_Claude AI/AUDIT_001-032.md` et corriger tous les ❌.\n\n## § 4. LES 12 BLOCAGES ROUGE (REJET IMMÉDIAT)\n1. Identification absente ou incertaine.\n2. Signature `#signature-ia` absente, modifiée ou supprimée.\n3. Entité de la Cartographie sans cours.\n4. Fichier hors intervalle `80–100 Ko` de texte pur (tout cours ; un cours de 30–50 Ko est à enrichir).\n5. Toute phrase nominale.\n6. Toute notion au verdict `NON`.\n7. Phrase gabarit de `cartographie_DATA.json` recopiée dans un cours.\n8. Plan maladie appliqué à une Leçon `NON_MONOGRAPHIQUE`.\n9. Terme de chantier visible (`LOT`, `V0`, `Phase A/B`, `DX.n`, `Appel`, `Partie n`).\n10. Posologie sans source de la cascade suisse.\n11. Image hors `<section class=\"fenetre\">`.\n12. Fichier supprimé au lieu d'être archivé.\n\n## § 5. ANNEXE CIRCUITS (248 SSP)\n- **NON_MONOGRAPHIQUE (52)** : 013 · 065 · 069 · 176 · 180 · 181 · 182 · 184 · 185 · 186 · 192 · 194 · 195 · 198 · 200 · 203 · 204 · 205 · 206 · 207 · 208 · 209 · 210 · 211 · 212 · 213 · 214 · 215 · 216 · 217 · 218 · 219 · 220 · 221 · 222 · 224 · 225 · 226 · 227 · 232 · 233 · 235 · 236 · 237 · 238 · 239 · 240 · 241 · 242 · 243 · 246 · 247.\n- **MIXTE (7)** : 014 · 165 · 174 · 175 · 190 · 202 · 223.\n- **MONOGRAPHIQUE (189)** : tous les autres SSP."
+}

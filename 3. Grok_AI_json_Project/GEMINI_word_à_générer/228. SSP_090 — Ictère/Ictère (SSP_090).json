@@ -1,0 +1,2444 @@
+{
+  "rappel_obligatoire_avant_redaction": {
+    "lecture_imperative": [
+      "1. Lire intégralement PROMPT_Alpha_19.11.26.md ET la mise à jour incluse dans prompt_alpha_a_jour ci-dessous.",
+      "2. Respecter l'intervalle GLOBAL par cours : viser 85–95 Ko de texte médical pur (soit ~95–115 Ko de fichier JSON) sans quota rigide par partie — répartir le texte proportionnellement à l'importance clinique des parties.",
+      "3. Produire graduellement 1 cours complet par requête (Phase A, puis Cours 1, Cours 2...) en français médical académique, phrases verbales exclusives (0 phrase nominale), zéro prose générique ou patronnée.",
+      "4. Utiliser uniquement les guillemets typographiques français « … » dans les valeurs texte JSON (jamais de guillemet droit non échappé).",
+      "5. Zéro arbre décisionnel graphique (.fm-canvas) : ne générer aucun schéma décisionnel."
+    ],
+    "specificites_locales_ssp": [
+      "Circuit MONOGRAPHIQUE : respecter le plan maladie en 14 points avec socle généralités (1-3), démarche diagnostique (4-10), prise en charge posologique suisse intégrale (11) et QCM Examen Fédéral (14).",
+      "Couvrir 100 % des notions obligatoires listées dans phase_b[*].plan[*].notions_obligatoires pour Ictère (S6.5).",
+      "Cascade posologique suisse à 4 paliers obligatoire : 1. AIPS Swissmedic (n° 5 chiffres) -> 2. Compendium.ch -> 3. Sociétés savantes & CHU suisses (HUG, CHUV, Inselspital, USZ, USB, OFSP, ASSM, SSMIG, Tox Info Suisse 145) -> 4. Sociétés savantes européennes."
+    ]
+  },
+  "meta": {
+    "rang_gravite": 228,
+    "ssp": "SSP_090",
+    "code_profiles": "S6.5",
+    "nom_francais": "Ictère",
+    "circuit": "MONOGRAPHIQUE",
+    "police_obligatoire": "Atkinson Hyperlegible",
+    "calibre_cible": "80–100 Ko texte pur",
+    "arbres_decisionnels_autorises": false,
+    "mode_redaction": "Neon Deep Research",
+    "nb_chapitres_total": 16,
+    "defauts_audit_initial": [
+      "Incomplet (11/16 cours)",
+      "44 phrases nominales",
+      "Termes chantier (11 f.)"
+    ]
+  },
+  "sommaire": {
+    "phase_a": {
+      "fichier_html_cible": "LOT_090_Phase_A_V0.html",
+      "titre": "Ictère — Vue d'ensemble et orientation clinique (S6.5)"
+    },
+    "phase_b": [
+      {
+        "cours_numero": 1,
+        "titre": "Ictère physiologique / au lait maternel du nouveau-né",
+        "cim": "P59.9",
+        "urgence": "chronique"
+      },
+      {
+        "cours_numero": 2,
+        "titre": "Syndrome de Gilbert",
+        "cim": "E80.4",
+        "urgence": "chronique"
+      },
+      {
+        "cours_numero": 3,
+        "titre": "Lithiase de la voie biliaire principale (cholédocholithiase)",
+        "cim": "K80.5",
+        "urgence": "urgent"
+      },
+      {
+        "cours_numero": 4,
+        "titre": "Cancer de la tête du pancréas / cholangiocarcinome (ictère nu progressif)",
+        "cim": "C25.0",
+        "urgence": "urgent"
+      },
+      {
+        "cours_numero": 5,
+        "titre": "Hépatite virale aiguë (VHA, VHB, VHE)",
+        "cim": "B15.9",
+        "urgence": "semi-urgent"
+      },
+      {
+        "cours_numero": 6,
+        "titre": "Décompensation ictérique d'une cirrhose hépatique (alcoolique / MASLD / virale)",
+        "cim": "K74.6",
+        "urgence": "urgent"
+      },
+      {
+        "cours_numero": 7,
+        "titre": "Hépatite médicamenteuse ou toxique (DILI — paracétamol, amox-clav, AINS, phytothérapie)",
+        "cim": "K71.6",
+        "urgence": "urgent"
+      },
+      {
+        "cours_numero": 8,
+        "titre": "Anémie hémolytique aiguë ou chronique (ictère à bilirubine libre)",
+        "cim": "D59.9",
+        "urgence": "urgent"
+      },
+      {
+        "cours_numero": 9,
+        "titre": "Cholangite sclérosante primitive (CSP) / cholangite biliaire primitive (CBP)",
+        "cim": "K83.0",
+        "urgence": "chronique"
+      },
+      {
+        "cours_numero": 10,
+        "titre": "Atrésie des voies biliaires (ictère cholestatique du nourrisson > 14 jours)",
+        "cim": "Q44.2",
+        "urgence": "urgent"
+      },
+      {
+        "cours_numero": 11,
+        "titre": "Angiocholite aiguë grave (sepsis biliaire)",
+        "cim": "K83.0",
+        "urgence": "immediate"
+      },
+      {
+        "cours_numero": 12,
+        "titre": "Insuffisance hépatique aiguë (hépatite fulminante)",
+        "cim": "K72.0",
+        "urgence": "immediate"
+      },
+      {
+        "cours_numero": 13,
+        "titre": "Crise hémolytique aiguë massive (déficit en G6PD / AHAI / paludisme grave)",
+        "cim": "D59.8",
+        "urgence": "immediate"
+      },
+      {
+        "cours_numero": 14,
+        "titre": "Leptospirose ictéro-hémorragique (maladie de Weil)",
+        "cim": "A27.0",
+        "urgence": "urgent"
+      },
+      {
+        "cours_numero": 15,
+        "titre": "Syndrome de Budd-Chiari aigu (thrombose des veines sus-hépatiques)",
+        "cim": "I82.0",
+        "urgence": "immediate"
+      }
+    ]
+  },
+  "phase_a": {
+    "titre": "Ictère — Vue d'ensemble (S6.5)",
+    "plan": [
+      {
+        "point": 1,
+        "titre": "Définition nosologique et périmètre clinique",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 2,
+        "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 3,
+        "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 4,
+        "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+        "description": "Présentation et hiérarchisation des 15 entités de la Cartographie Renouveau."
+      },
+      {
+        "point": 5,
+        "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 6,
+        "titre": "Examen physique systématique région par région",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 7,
+        "titre": "Approche syndromique et stratification de gravité",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 8,
+        "titre": "Diagnostic positif, scores cliniques et critères validés",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 9,
+        "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 10,
+        "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 11,
+        "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 12,
+        "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 13,
+        "titre": "Points clés indispensables à retenir",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 14,
+        "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      }
+    ]
+  },
+  "phase_b": [
+    {
+      "cours_numero": 1,
+      "fichier_html_cible": "LOT_090_Phase_B_V0_DX.1.html",
+      "titre": "Ictère physiologique / au lait maternel du nouveau-né",
+      "cim": "P59.9",
+      "urgence": "chronique",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Hyperbilirubinémie non conjuguée transitoire liée à l'immaturité hépatique néonatale et au renouvellement des GR fœtaux."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Touche > 60 % des nouveau-nés à terme."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Activité UGT1A1 encore faible, polyglobulie relative et cycle entéro-hépatique accru."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Ictère précoce (< 24 h = hémolyse !), selles décolorées/urines foncées (atrésie des voies biliaires !), léthargie/hypotonie (ictère nucléaire)."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Coloration jaune apparaissant entre J2 et J5, pic J4–J5, selles et urines normales, bonne prise alimentaire."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Ictère céphalo-caudal, nouveau-né tonique et réactif, pas d'hépatosplénomégalie."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Hyperbilirubinémie non conjuguée isolée après 24 h de vie dans les courbes physiologiques."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Bilirubinémie transcutanée (BiliCheck) puis bilirubine totale/conjuguée sérique rapportée aux courbes de Bhutani selon l'âge en heures."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Groupe sanguin mère/enfant et Coombs direct si seuil proche de photothérapie."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Photothérapie intensive si dépassement du seuil d'âge/gestationnel."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Maintien de l'allaitement fréquent (8–12x/j) pour stimuler le transit."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Encéphalopathie hyperbilirubinémique (ictère nucléaire) si taux extrêmes non traités."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Contrôle clinique et bilirubinémie à J3–J5 et à J14 (exclure cholestase si persistance > 14 j !)."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Résolution spontanée en 1–2 semaines (jusqu'à 6 semaines si lait maternel)."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Pédiatre, sage-femme, médecin de famille."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 2,
+      "fichier_html_cible": "LOT_090_Phase_B_V0_DX.2.html",
+      "titre": "Syndrome de Gilbert",
+      "cim": "E80.4",
+      "urgence": "chronique",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Déficit génétique bénin partiel (~30 % d'activité) de la glucuronyltransférase hépatique (UGT1A1)."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Touche 5–10 % de la population européenne."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Polymorphisme promoteur UGT1A1*28 réduisant la conjugaison de la bilirubine lors de l'augmentation du catabolisme/jeûne."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Prurit, selles décolorées, urines foncées, élévation des transaminases/PAL ou anémie."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Subictère conjonctival intermittent après jeûne, effort intense, infection banale ou alcool, strictement asymptomatique par ailleurs."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Subictère conjonctival isolé, examen abdominal normal, urines claires."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Hyperbilirubinémie non conjuguée isolée sans hémolyse ni cytolyse."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Bilirubine totale modérément élevée (< 50–80 µmol/L) avec > 80 % de bilirubine libre, transaminases/PAL/GGT/FSC/réticulocytes strictement normaux."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Test génétique UGT1A1 rarement nécessaire."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Réassurance complète."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Aucun traitement ; attention à certains médicaments métabolisés par UGT1A1 (irinotécan)."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Aucune complication hépatique."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Réévaluation clinique programmée à 2–6 semaines avec contrôle de la tolérance thérapeutique et de l'observance."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Pronostic strictement bénin (même associé à une légère protection cardiovasculaire)."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Médecin de famille."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 3,
+      "fichier_html_cible": "LOT_090_Phase_B_V0_DX.3.html",
+      "titre": "Lithiase de la voie biliaire principale (cholédocholithiase)",
+      "cim": "K80.5",
+      "urgence": "urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Obstruction mécanique du cholédoque par un calcul migré depuis la vésicule biliaire."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Cause bénigne la plus fréquente d'ictère obstructif chez l'adulte."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Obstacle cholédocien -> stase biliaire -> reflux de bilirubine conjuguée et sels biliaires dans le sang."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Fièvre + frissons + douleur HCD + ictère (triade de Charcot = angiocholite aiguë = urgence vitale !)."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Douleur épigastrique/hypochondre droit postprandiale irradiant à l'épaule droite, suivie d'un ictère, urines « bière brune », selles mastic et prurit."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Ictère cutanéo-muqueux, sensibilité HCD (signe de Murphy si cholécystite associée)."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Cholestase + dilatation/calcul de la VBP à l'imagerie."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Bilan hépatique (cholestase : bilirubine conjuguée, PAL, GGT élevées + pic transitoire ASAT/ALAT) + échographie abdominale (dilatation VBP > 7 mm) + écho-endoscopie ou bili-IRM."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "CPRE thérapeutique (diagnostic et extraction)."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Antalgie/antispasmodiques ; si angiocholite : antibiothérapie IV et drainage urgent."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Sphinctérotomie endoscopique et extraction du calcul par CPRE suivie de cholécystectomie laparoscopique."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Angiocholite aiguë, pancréatite aiguë biliaire."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Contrôle normalisation du bilan hépatique post-CPRE."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Guérison complète après CPRE et cholécystectomie."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Gastroentérologue, chirurgien viscéral, médecin de famille."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 4,
+      "fichier_html_cible": "LOT_090_Phase_B_V0_DX.4.html",
+      "titre": "Cancer de la tête du pancréas / cholangiocarcinome (ictère nu progressif)",
+      "cim": "C25.0",
+      "urgence": "urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Obstruction tumorale extrinsèque (adénocarcinome tête du pancréas) ou intrinsèque (cholangiocarcinome, ampullome) de la voie biliaire."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Cause majeure d'ictère obstructif après 60 ans (~1500 cancers du pancréas/an en Suisse)."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Compression progressive et complète du cholédoque distal -> cholestase majeure sans colique."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Angiocholite surajoutée, thrombose porte, cachexie."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Ictère d'installation insidieuse et continue sans douleur, prurit féroce, selles blanches, urines foncées, amaigrissement, diabète récent."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Ictère franc (« jaune-vert »), lésions de grattage, vésicule biliaire distendue indolore palpable (loi de Courvoisier-Terrier)."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Masse pancréatique/biliaire obstructive avec preuve histologique."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Échographie abdominale puis TDM thoraco-abdomino-pelvien injecté (protocole pancréatique) pour bilan d'extension et résécabilité."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Écho-endoscopie avec ponction-biopsie ; CA 19-9 (interprétable seulement après levée de la cholestase)."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Drainage biliaire endoscopique (prothèse par CPRE) si prurit intolérable, angiocholite ou chimiothérapie néoadjuvante."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Duodénopancréatectomie céphalique (Whipple) si résécable + chimiothérapie (FOLFIRINOX) ; soins palliatifs si métastatique."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Angiocholite, dénutrition sévère, sténose duodénale."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Suivi oncologique et nutritionnel (enzymes pancréatiques)."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Pronostic réservé (survie globale à 5 ans ~10–12 %, meilleure si résécable R0)."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Gastroentérologue, chirurgien HPB, oncologue."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 5,
+      "fichier_html_cible": "LOT_090_Phase_B_V0_DX.5.html",
+      "titre": "Hépatite virale aiguë (VHA, VHB, VHE)",
+      "cim": "B15.9",
+      "urgence": "semi-urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Inflammation aiguë nécrosante du parenchyme hépatique due aux virus hépatotropes A, B, E (plus rarement C, EBV, CMV)."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "VHA (voyage, eau/aliments), VHE (viande de porc/gibier mal cuite en Suisse !), VHB (sexuel/sang)."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Lyse immunitaire des hépatocytes infectés -> élévation massive des transaminases et défaut de conjugaison/excrétion biliaire."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Astérixis (flapping tremor), somnolence/confusion ou chute du TP < 50 % (hépatite fulminante !)."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Phase pré-ictérique (asthénie, nausées, dégoût des graisses/tabac, fièvre modérée) suivie d'un ictère avec urines foncées."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Ictère cutanéo-muqueux, hépatomégalie sensible, parfois splénomégalie."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Cytolyse aiguë majeure + sérologie virale aiguë positive."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "ASAT/ALAT très élevées (> 10x N, ALAT > ASAT), TP/INR (marqueur de gravité hépatique !), sérologies IgM anti-VHA, AgHBs/IgM anti-HBc, anti-VHE/PCR VHE, anti-VHC."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Échographie hépatique pour exclure un obstacle."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Repos, hydratation, ARRÊT STRICT de l'alcool et de tout médicament hépatotoxique (paracétamol !) ; transfert centre de greffe si TP < 50 % ou encéphalopathie."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Déclaration obligatoire (VHA/VHB/VHE), vaccination entourage (VHA/VHB), traitement antiviral si VHB sévère."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Hépatite fulminante (< 1 % VHA/VHB, plus fréquente VHE chez femme enceinte), passage à la chronicité (VHB 5 % adulte)."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Contrôle TP et transaminases jusqu'à normalisation ; AgHBs à 6 mois si VHB."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Guérison spontanée > 95–99 % pour VHA, VHE et VHB adulte."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Médecin de famille, gastroentérologue, infectiologue."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 6,
+      "fichier_html_cible": "LOT_090_Phase_B_V0_DX.6.html",
+      "titre": "Décompensation ictérique d'une cirrhose hépatique (alcoolique / MASLD / virale)",
+      "cim": "K74.6",
+      "urgence": "urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Aggravation de l'insuffisance hépatocellulaire sur cirrhose (hépatite alcoolique aiguë, infection, hémorragie, CHC)."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Cause majeure de morbidité et mortalité hépatique en Suisse."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Destruction parenchymateuse et fibrose avancée empêchant la captation, conjugaison et excrétion biliaires."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Encéphalopathie hépatique, fièvre/douleur abdo (infection du liquide d'ascite !), hématémèse (rupture VO), syndrome hépatorénal."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Apparition/aggravation d'un ictère, augmentation du périmètre abdominal (ascite), confusion, inversion du rythme veille-sommeil."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Ictère, angiomes stellaires, érythème palmaire, circulation veineuse collatérale, ascite, astérixis."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Cirrhose connue ou signes clinico-échographiques + ictère de décompensation."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Bilan hépatique, TP/INR, albumine, créatinine, Na+ (score MELD et Child-Pugh) + échographie-Doppler hépatique (thrombose porte ? CHC ?) + ponction d'ascite systématique."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Bilan infectieux complet (hémocultures, ECBU, RP)."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Traitement du facteur déclenchant (antibiotiques si infection d'ascite, lactulose si encéphalopathie), sevrage alcoolique, corticothérapie si hépatite alcoolique sévère (Maddrey ≥ 32)."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Prise en charge addictologique, nutritionnelle, bilan pré-transplantation hépatique si MELD élevé."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Hospitalisation urgente."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Suivi score MELD et dépistage semestriel du CHC par échographie."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Pronostic réservé selon score MELD et abstinence alcoolique."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Hépatologue, médecin de famille, addictologue."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 7,
+      "fichier_html_cible": "LOT_090_Phase_B_V0_DX.7.html",
+      "titre": "Hépatite médicamenteuse ou toxique (DILI — paracétamol, amox-clav, AINS, phytothérapie)",
+      "cim": "K71.6",
+      "urgence": "urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Lésion hépatique aiguë directe dose-dépendante (paracétamol) ou idiosyncrasique (amoxicilline-clavulanate, antituberculeux, plantes)."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Cause majeure d'insuffisance hépatique aiguë médicamenteuse."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Formation de métabolites réactifs toxiques (NAPQI pour le paracétamol) ou réaction immuno-allergique."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "TP < 50 %, encéphalopathie, acidose lactique (paracétamol)."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Anamnèse médicamenteuse minutieuse des 3 derniers mois (incluant automédication, tisanes/compléments alimentaires)."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Ictère, parfois rash/fièvre/hyperéosinophilie (forme immuno-allergique)."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Chronologie compatible + exclusion des autres causes + score RUCAM."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Bilan hépatique (ratio R pour distinguer cytolytique vs cholestatique), TP/INR, paracétamolémie (nomogramme de Rumack-Matthew si surdosage aigu), exclusion virale/auto-immune."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Échographie hépatique pour exclure une obstruction."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "ARRÊT IMMÉDIAT de tout médicament suspect ; N-acétylcystéine (NAC) IV en urgence si intoxication au paracétamol ou DILI sévère."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Contre-indication définitive du médicament incriminé."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Hospitalisation (centre de greffe si insuffisance hépatique aiguë)."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Suivi TP et bilan hépatique jusqu'à résolution complète."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Guérison habituelle après arrêt précoce (parfois cholestase prolongée)."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Médecin de famille, hépatologue, pharmacovigilance."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 8,
+      "fichier_html_cible": "LOT_090_Phase_B_V0_DX.8.html",
+      "titre": "Anémie hémolytique aiguë ou chronique (ictère à bilirubine libre)",
+      "cim": "D59.9",
+      "urgence": "urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Destruction prématurée des érythrocytes libérant de l'hémoglobine transformée en bilirubine non conjuguée."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Causes : auto-immune (AHAI), déficit G6PD, sphérocytose héréditaire, drépanocytose, microangiopathie."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Capacité de conjugaison hépatique dépassée par l'afflux de bilirubine libre."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Anémie aiguë mal tolérée (angor, choc), insuffisance rénale aiguë, schizocytes (MAT)."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Fatigue, dyspnée d'effort, pâleur, subictère, douleurs lombaires/urines foncées si hémolyse intravasculaire (G6PD)."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Pâleur + subictère, splénomégalie, tachycardie."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Anémie régénérative + haptoglobine effondrée + LDH/bilirubine libre élevées."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "FSC + RÉTICULOCYTES (élevés > 120 G/L), LDH élevées, haptoglobine effondrée, bilirubine libre élevée, test de Coombs direct, frottis sanguin."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Dosage G6PD (à distance de la crise), électrophorèse Hb."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Transfusion CGR si mal tolérée ; prednisone 1 mg/kg/j si AHAI chaude ; éviction oxydants si G6PD."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Acide folique quotidien, rituximab/splénectomie si AHAI réfractaire."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Hospitalisation si Hb basse ou hémolyse aiguë rapide."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Suivi Hb et réticulocytes."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Favorable après traitement étiologique."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Hématologue, médecin de famille."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 9,
+      "fichier_html_cible": "LOT_090_Phase_B_V0_DX.9.html",
+      "titre": "Cholangite sclérosante primitive (CSP) / cholangite biliaire primitive (CBP)",
+      "cim": "K83.0",
+      "urgence": "chronique",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Hépatopathies cholestatiques chroniques auto-immunes détruisant les canaux biliaires intra- ou extra-hépatiques."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Rare (~10–20/100 000) ; CSP fortement associée à la rectocolite hémorragique (70 %)."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Destruction progressive des cholangiocytes -> fibrose biliaire et cirrhose."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Angiocholite aiguë sur sténose dominante (CSP), risque élevé de cholangiocarcinome (CSP)."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Prurit féroce chronique précédant l'ictère, fatigue intense, xanthelasma (CBP)."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Ictère tardif, lésions de grattage, hépatosplénomégalie."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Cholestase chronique + AMA+ (CBP) ou bili-IRM typique (CSP)."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "PAL/GGT élevées ; anticorps anti-mitochondries (AMA-M2 > 95 % dans la CBP) ; bili-IRM (aspect en « collier de perles » dans la CSP)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Coloscopie systématique si CSP (dépistage RCUH)."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Prise en charge d'angiocholite si fièvre."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Acide ursodésoxycholique (AUDC 13–15 mg/kg/j) en 1re intention (CBP) ; cholestyramine/rifampicine/bézafibrate pour le prurit ; dilatation endoscopique des sténoses dominantes (CSP)."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Cirrhose biliaire secondaire, ostéoporose, carence vitamines A/D/E/K."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Surveillance bilan hépatique, DEXA et dépistage cholangiocarcinome/CCR."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Survie quasi normale dans la CBP répondeuse à l'AUDC."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Hépatologue, gastroentérologue."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 10,
+      "fichier_html_cible": "LOT_090_Phase_B_V0_DX.10.html",
+      "titre": "Atrésie des voies biliaires (ictère cholestatique du nourrisson > 14 jours)",
+      "cim": "Q44.2",
+      "urgence": "urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Oblitération inflammatoire progressive des voies biliaires extra-hépatiques du nouveau-né."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Urgence pédiatrique absolue (~1/15 000 naissances) : l'intervention de Kasai doit être faite idéalement avant J45–60 !."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Fibrose oblitérante des canaux biliaires conduisant rapidement à une cirrhose biliaire."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Hémorragie intracrânienne sur carence en vitamine K (absence de bile -> malabsorption vit. K !)."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Nouveau-né à terme ictérique au-delà de 14 jours de vie, selles pales/blanches (carte colorimétrique !) et urines colorant la couche."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Ictère verdâtre, hépatomégalie ferme, splénomégalie."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Cholestase néonatale avec selles acholiques confirmée à la cholangiographie."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Bilirubine totale ET CONJUGUÉE (> 20 µmol/L ou > 20 % du total) + échographie hépatique à jeun + cholangiographie peropératoire."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Bilan infectieux/métabolique (alpha-1-antitrypsine, mucoviscidose, galactosémie)."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Vitamine K IM/IV immédiate + transfert urgent en centre d'hépatologie pédiatrique."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Hépato-porto-entérostomie (intervention de Kasai) avant J45–60 ; transplantation hépatique si échec ou cirrhose."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Cirrhose biliaire et hypertension portale."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Suivi hépatologique pédiatrique étroit."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Meilleur pronostic de survie avec foie natif si Kasai < J45."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Pédiatre, hépatologue pédiatre, chirurgien pédiatre."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 11,
+      "fichier_html_cible": "LOT_090_Phase_B_V0_DX.11.html",
+      "titre": "Angiocholite aiguë grave (sepsis biliaire)",
+      "cim": "K83.0",
+      "urgence": "immediate",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Infection bactérienne ascendante de la bile stagnante en amont d'une obstruction biliaire (calcul, sténose, prothèse bouchée)."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Mortalité élevée sans drainage biliaire rapide."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Hyper-pression biliaire favorisant le passage massif de bacilles Gram négatif (E. coli, Klebsiella) et entérocoques dans le sang."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Choc septique, oligurie, confusion."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Douleur de l'hypochondre droit, fièvre > 38.5°C avec grands frissons, ictère."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Triade de Charcot ; si choc septique + confusion = pentade de Reynolds."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Triade de Charcot + cholestase + dilatation/obstacle biliaire."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Hémocultures x2 + bilan hépatique + échographie/TDM abdominal en urgence."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Ne pas retarder les antibiotiques."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Remplissage IV, antibiothérapie IV immédiate (pipéracilline-tazobactam ou ceftriaxone + métronidazole) ET DRAINAGE BILIAIRE URGENT par CPRE (< 12–24 h, ou drainage percutané). Bundle 1 h : hémocultures (2 paires) + lactates, remplissage cristalloïdes équilibrés (Ringer-Lactate 30 mL/kg IV sur 3 h), antibiothérapie IV large spectre < 1 h (pipéracilline/tazobactam 4,5 g IV/6 h ou ceftriaxone 2 g/j + métronidazole 500 mg/8 h) et noradrénaline IVSE (0,05–1 µg/kg/min) si PAM < 65 mmHg."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Cholécystectomie à froid si lithiase vésiculaire. Désescalade antibiotique ciblée à 48–72 h selon antibiogramme pour une durée totale de 5–7 jours et contrôle du foyer infectieux (drainage/chirurgie)."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Hospitalisation immédiate en soins intensifs/gastroentérologie."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Surveillance hémodynamique et défervescence post-CPRE. Lactatémie de contrôle à H2–H4 (clairance > 10–20 %), diurèse horaire (> 0,5 mL/kg/h), créatinine et procalcitonine."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Guérison rapide après drainage efficace."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Gastroentérologue, réanimateur, chirurgien viscéral."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 12,
+      "fichier_html_cible": "LOT_090_Phase_B_V0_DX.12.html",
+      "titre": "Insuffisance hépatique aiguë (hépatite fulminante)",
+      "cim": "K72.0",
+      "urgence": "immediate",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Défaillance hépatique aiguë sévère menaçant le pronostic vital (paracétamol, hépatite B/A/E, champignons, Wilson, auto-immune)."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Mortalité > 50 % sans transplantation hépatique en super-urgence."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Nécrose hépatocytaire massive -> défaut de synthèse des facteurs de coagulation, hypoglycémie, hyperammoniémie et œdème cérébral."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Coma, œdème cérébral/engagement, hypoglycémie sévère, acidose lactique, insuffisance rénale."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Ictère d'apparition rapide, nausées, somnolence, inversion du rythme veille-sommeil, confusion."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Ictère, astérixis (flapping tremor), foetor hepaticus, troubles de conscience."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Ictère + INR > 1.5 + encéphalopathie hépatique sur foie sain."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "TP/INR (< 50 % / > 1.5), facteur V, lactates, ammoniémie, glycémie, toxicologie (paracétamol), sérologies virales, céruloplasmine."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Échographie-Doppler hépatique (exclure syndrome de Budd-Chiari)."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "TRANSFERT IMMÉDIAT EN CENTRE DE TRANSPLANTATION HÉPATIQUE, N-acétylcystéine IV systématique (même hors paracétamol !), correction hypoglycémie, critères de King's College/Clichy pour greffe."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Prévention œdème cérébral et infections."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Hospitalisation immédiate en réanimation."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Monitoring neurologique, lactates, INR et glycémie horaires."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Survie > 75–80 % grâce à la transplantation en super-urgence."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Hépatologue transplanteur, réanimateur."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 13,
+      "fichier_html_cible": "LOT_090_Phase_B_V0_DX.13.html",
+      "titre": "Crise hémolytique aiguë massive (déficit en G6PD / AHAI / paludisme grave)",
+      "cim": "D59.8",
+      "urgence": "immediate",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Destruction intravasculaire massive des globules rouges avec hémoglobinurie et risque de choc/insuffisance rénale."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Classique après fèves/médicaments oxydants (G6PD) ou paludisme à P. falciparum."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Lyse érythrocytaire dépassant la capacité de liaison de l'haptoglobine -> hémoglobinurie tubulotoxique."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Choc anémique, anurie aiguë, paludisme cérébral."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Fièvre, frissons, douleurs lombaires, dyspnée aiguë, pâleur et ictère brutaux, urines couleur « porto »."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Tachycardie, hypotension, pâleur extrême, subictère."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Chute brutale d'Hb avec hémolyse intravasculaire confirmée."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "FSC, réticulocytes, frottis sanguin + goutte épaisse/TDR paludisme (si retour de zone d'endémie !), Coombs direct, ionogramme, créatinine."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Groupe sanguin/RAI en urgence."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Transfusion CGR en urgence si mal tolérée, hyperhydratation IV (prévention tubulopathie), artésunate IV immédiat si paludisme grave, arrêt agent oxydant. Échanges plasmatiques quotidiens en urgence (1,5 volume plasmatique/j avec PFC) jusqu'à plaquettes > 150 G/L pendant 2 j, méthylprednisolone 1 mg/kg/j IV et caplacizumab 10 mg IV avant le 1er échange puis 10 mg/j SC (contre-indication absolue à la transfusion plaquettaire hors hémorragie vitale)."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Liste des médicaments contre-indiqués à vie (G6PD). Rituximab 375 mg/m² IV hebdomadaire × 4 doses pour consolider la rémission immunologique et prévenir les rechutes."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Hospitalisation urgente."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Surveillance diurèse, Hb et créatinine. Plaquettes, LDH, haptoglobine, schizocytes et troponine quotidiens puis dosage trimestriel d'ADAMTS13."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Récupération rapide après arrêt du facteur déclenchant."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Hématologue, urgentiste, infectiologue."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 14,
+      "fichier_html_cible": "LOT_090_Phase_B_V0_DX.14.html",
+      "titre": "Leptospirose ictéro-hémorragique (maladie de Weil)",
+      "cim": "A27.0",
+      "urgence": "urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Zoonose bactérienne (Leptospira interrogans) transmise par l'eau douce souillée d'urine de rongeurs (baignade lac/rivière, égouts)."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Observée en Suisse l'été après sports aquatiques ou inondations."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Vascularite infectieuse hépatique, rénale et pulmonaire."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Hémorragie alvéolaire (hémoptysie), insuffisance rénale aiguë, myocardite."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Fièvre brutale, myalgies intenses des mollets, céphalées, puis ictère et oligurie."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Ictère rouge-orangé (« flamboyant »), suffusion hémorragique conjonctivale bilatérale, purpura."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Tableau typique + PCR/sérologie positive."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "PCR Leptospira (sang J1–J5, urines > J7) + sérologie + créatinine, CK, bilan hépatique, plaquettes."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Hémocultures pour exclure autres sepsis."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Ceftriaxone IV (2 g/j) ou pénicilline G IV (ou doxycycline si forme modérée) + réanimation rénale/respiratoire."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Déclaration et prévention."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Hospitalisation systématique dans la forme de Weil."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Surveillance diurèse, créatinine et fonction respiratoire."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Guérison sans séquelle rénale habituelle."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Infectiologue, réanimateur."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 15,
+      "fichier_html_cible": "LOT_090_Phase_B_V0_DX.15.html",
+      "titre": "Syndrome de Budd-Chiari aigu (thrombose des veines sus-hépatiques)",
+      "cim": "I82.0",
+      "urgence": "immediate",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Obstruction thrombotique des veines hépatiques (souvent sur syndrome myéloprolifératif JAK2+, SAPL, contraception orale)."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Rare mais grave ; 50 % associés à une mutation JAK2 V617F."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Congestion sinusoïdale aiguë -> nécrose centrolobulaire et hypertension portale post-sinusoïdale."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Insuffisance hépatique aiguë, hémorragie variqueuse."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Douleur HCD aiguë, distension abdominale rapide (ascite), ictère, nausées."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Hépatomégalie tendue douloureuse, ascite riche en protéines."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Thrombose des veines sus-hépatiques confirmée au Doppler/TDM."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Écho-Doppler des veines sus-hépatiques et de la VCI en urgence (absence de flux)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "TDM/IRM hépatique et bilan thrombophilie + mutation JAK2."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Anticoagulation thérapeutique immédiate (HBPM/HNF), ponction d'ascite ; angioplastie/stent ou TIPS en urgence si aggravation."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Anticoagulation au long cours et traitement du syndrome myéloprolifératif."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Hospitalisation urgente en hépatologie."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Surveillance fonction hépatique et perméabilité du TIPS."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Survie > 85 % à 5 ans grâce à l'anticoagulation précoce et au TIPS."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Hépatologue, radiologue interventionnel, hématologue."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    }
+  ],
+  "prompt_alpha_a_jour": "# MISSION : CORRECTION ET COMPLÉTION DES 248 SSP SUISSES (3 975 ENTITÉS + 248 CHAPITRES 0)\n\n## § 0. IDENTIFICATION, SIGNATURE & RÈGLES DE CONTINUITÉ — BLOQUANT ABSOLU\n1. **Identification obligatoire** en tête de première réponse :\n   - HEURE DE DÉBUT : AAAA-MM-JJ HH:MM (Europe/Zurich)\n   - MODÈLE : nom exact du modèle (ex. ANTIGRAVITY ORCHESTRATOR NEON)\n   - PLATEFORME : plateforme exacte (ex. ANTIGRAVITY)\n   - Ajouter la même ligne à `1_Claude AI/IDENTIFICATION_AGENTS.md`. Si incertitude, s'arrêter.\n2. **Signature IA fixe en bas à droite de TOUT HTML produit ou modifié** (juste avant `</body>`, en GRAS MAJUSCULE) :\n   `<div id=\"signature-ia\" style=\"position:fixed;right:12px;bottom:10px;z-index:9999;background:#fff;border:2px solid #000;padding:4px 10px;font:700 12px/1.3 Arial,sans-serif;text-transform:uppercase;color:#000\">DÉBUT : AAAA-MM-JJ HH:MM (EUROPE/ZURICH) · MODÈLE : <NOM> · PLATEFORME : <PLATEFORME></div>`\n   - **Seul Vial peut autoriser le retrait de ce bloc.** Un agent qui reprend un fichier signé ajoute sa propre ligne sous la précédente sans jamais effacer l'existante.\n3. **Continuité & transparence** :\n   - **Redémarrage propre à partir de `SSP_248`** : tous les cours précédemment modifiés ont été restaurés à l'état initial (`6941513`). Enchaîner continûment **`SSP_248 → SSP_033`**, puis **`SSP_001 → SSP_032`**.\n   - **Toujours afficher le raisonnement visible** en français dans chaque réponse.\n   - **Veille & relance GitHub** : commiter et pousser sur `origin main` après chaque SSP (ou lot <= 5 SSP) avec l'état à jour dans `SUIVI_PRODUCTION.csv`, `HANDOFF_AFFINAGE.md` et `HANDOFF_IA_COMPLET.md`.\n   - **Suivi graphique temps réel** : maintenir à jour le tableau de bord visuel temps réel des réalisations achevées et en cours.\n\n## § 1. RÈGLES ACTUALISÉES (PRIMENT SUR LE PROMPT ALPHA 19.11.26)\n1. **Nombre de cours par SSP** : **1 cours par entité de la Cartographie Renouveau** (15 à 24 entités par SSP, 3 975 au total) + le Chapitre 0 (`Phase_A`), dans l'ordre exact des `Cours 1 … N` de `SSP_nnn/NOTIONS.md` / `NOTIONS.json`.\n2. **QUALITÉ CLINIQUE MAXIMALE & ZÉRO MÉDIOCRITÉ (BLOQUANT ABSOLU — Consigne Vial 20.11.26)** :\n   - **Interdiction absolue de toute prose patronnée / générique** : aucune phrase-cadre où seul le nom de la pathologie change d'un cours à l'autre, aucun remplissage artificiel pour atteindre le calibre. La médiocrité clinique est dangereuse et entraîne un rejet immédiat.\n   - Chaque cours (`Phase_A` et `DX.1..N`) doit être **rédigé sur mesure** pour son entité exacte, avec : raisonnement physiopathologique et sémiologique réel, seuils numériques précis, diagnostics différentiels discriminants, posologies et contre-indications sourcées (Compendium.ch / AIPS, Tox Info Suisse, OFSP, ASSM, sociétés savantes suisses), vignettes cliniques authentiques et QCM exigeants de niveau Examen Fédéral Suisse.\n3. **INTERDICTION DES ARBRES DÉCISIONNELS (Consigne Vial 20.11.26)** :\n   - **Ne générer AUCUN arbre décisionnel ni algorithme graphique (`.fm-canvas`, SVG décisionnel, etc.)** dans `Phase_A` ou dans les `DX.n` — l'auteur (Vial) les réalisera lui-même.\n4. **Calibre texte pur actualisé (Consigne Vial 20.11.26)** :\n   - **80 à 100 Ko de texte pur UTF-8 par fichier** (`81 920` à `102 400` octets, calibre du Prompt Alpha confirmé par Vial le 20.11.2026 à 21:20, mesuré fenêtres comprises, hors balises HTML, CSS, JS, SVG et images).\n   - HTML hors images (`controle3.py`) : **`40 000` à `100 000` octets** (alerte).\n   - Densité maximale : zéro remplissage, zéro phrase pouvant figurer telle quelle dans un autre cours, zéro phrase de gabarit de `cartographie_DATA.json`.\n5. **Phrases verbales exclusives (BLOQUANT)** :\n   - Chaque phrase (texte, fenêtres, listes, légendes `<figcaption>`, cellules narratives `<td>`) contient un verbe conjugué reconnu. **Zéro phrase nominale.**\n4. **Médicaments cliquables d'emblée & Fenêtres centrées PK/PD à 2 onglets (Consigne Vial 20.11.26)** :\n   - Dès qu'un médicament est évoqué, il devient cliquable (`<a class=\"ouvre med-chip\" href=\"#f-...\">`).\n   - Chaque `<section class=\"fenetre mb\" id=\"f-...\"><div class=\"fen\">` s'ouvre au centre de l'écran et contient **2 onglets** :\n     * **Onglet 1 (`data-tab=\"pk\"`)** : Pharmacocinétique + **Courbe vectorielle SVG $C(t)$** + **4 paramètres cliniciens mis en évidence** (`.pkpd-kpis`).\n     * **Onglet 2 (`data-tab=\"pd\"`)** : Pharmacodynamique & Clinique + **Courbe vectorielle SVG $E(C)$** + posologies/précautions/grossesse suisses (Compendium.ch / AIPS).\n5. **Images** : uniquement à l'intérieur des `<section class=\"fenetre\">`, jamais hors fenêtre (licences selon Prompt Alpha § 4). Ne comptent pas dans le calibre.\n6. **Zéro terminologie de chantier visible** : aucun texte visible (ni `<title>`) ne doit contenir `LOT`, `V0`, `Phase A/B`, `DX.n`, `Appel A/B`, `Partie n`. Seuls les noms de fichiers gardent le format Alpha (`LOT_nnn_Phase_A_V0.html`, `LOT_nnn_Phase_B_V0_DX.i.html`).\n7. **Circuits & Plans** :\n   - `MONOGRAPHIQUE` (189 SSP) : plan maladie en 14 points (Prompt Alpha § 3.1).\n   - `NON_MONOGRAPHIQUE` (52 SSP) : Leçon en 12 à 14 points adaptés (Prompt Alpha § 3.2). **Jamais** de plan maladie ni de titres « Physiopathologie / Approche syndromique / Diagnostic positif » artificiels.\n   - `MIXTE` (7 SSP) : Prompt Alpha § 3.3, chaque fichier déclare `<meta name=\"ssp-circuit\" content=\"...\">`.\n8. **Correctifs Frontend v2 / Architecture `_sources/` (`UNIQUE.html` & `_polices/`)** :\n   - **Arborescence propre par SSP** : à la racine de `SSP_nnn/`, seul **`SSP_nnn_<code>_UNIQUE.html`** (plus le sous-dossier **`_sources/`**) est visible. Tous les fichiers sources (`LOT_nnn_*.html`, `images/`, `NOTIONS.*`, `MANIFESTE.json`, `DECISION*`, `paquet.json`, `_archive_avant_alpha/`) sont rangés dans `SSP_nnn/_sources/` sans rien supprimer.\n   - **Barre haute amovible (`gabarit_unique.html`)** : `#topbar` compacte 1 ligne (~42 px) avec pilule active, fil d'Ariane section, boutons `◀`/`▶`, tiroir overlay amovible `#dd-drawer` (`☰ Diagnostics (N) ▾` + option `📌 Épingler`) contenant `nav#nav` en colonnes égales (`32 px`, teinte unique par cours), et bouton `▴ Masquer barre` + pilule flottante `#btn-show-bar`.\n   - **Zéro dédoublement & navigation `#...` 100 % fonctionnelle (`forme.js`)** : script `forme.js` exécuté sous `DOMContentLoaded` et injecté par `assembler_unique.py`/`inliner.py` après `</head>` et avant `#signature-ia`/`</body>` ; intercepteur global appelant `e.preventDefault()` sur 100 % des `href^=\"#\"` (bloque le rechargement `srcdoc` + `file://`).\n   - **Modales centrées `<div class=\"fen\">` & désaturation (`forme.css` / `optimiser_ssp.py`)** : ouverture via classe `.fm-open` (plus `:target` en repli) avec pile `modalStack` et bouton `Fermer ✕` sticky (sans `history.back()`), auto-enveloppement `<div class=\"fen\">`, tableaux hors modale déplacés vers `<section class=\"fenetre fm-tab-fen\">` déclenchés par cartes `.fm-encart-fen`, citations `<sup class=\"r\"><a>` compactées en `[N]` avec modale aperçu `#fm-src-modal` empilable (`fm-stack-top`), puces médicaments `a.ouvre.med-chip` (`℞ ...`, `white-space: nowrap`, compatible accents français), repli du plan latéral desktop `#fm-plan-toggle`, îlots discontinus (`margin-bottom: 30px`) et padding bas `5.5rem` protégeant la lecture au-dessus de `#signature-ia`.\n   - **HTML unique** : ne jamais l'écrire à la main ; toujours exécuter `optimiser_ssp.py` puis `assembler_unique.py nnn`.\n\n## § 2. ARCHIVAGE & WORKFLOW PAR SSP (P0 → P4)\n- **Zéro suppression** : avant d'écraser ou renommer un fichier source existant, archiver dans `SSP_nnn/_sources/_archive_avant_alpha/`.\n- **P0 (Préparer)** : lire circuit (`catalogue_248.json`), entités (`NOTIONS.md`/`NOTIONS.json`), `memoire_zero_token.py --digest --lot nnn`, écrire `PLAN_ENTITES.md`.\n- **P1 (Décider)** : noter dans `DECISION.md` (Corriger / Réécrire si mécanique, faux plan maladie ou `< 30 Ko` / Créer).\n- **P2 (Produire)** : `LOT_nnn_Phase_A_V0.html` + `LOT_nnn_Phase_B_V0_DX.1..N.html`, 100 % des notions de `NOTIONS.json` expliquées et sourcées (Compendium.ch / AIPS, OFSP, ASSM, CC, LAMal, LAVI, Smarter Medicine), sans aucune phrase gabarit de la cartographie.\n- **P3 (Portes de Contrôle + Optimisation + Assemblage + Audit Chrome)** :\n  1. `controle3.py --script-ok` → **`VERT {}`** (si `paquet.json` présent ; `--script-ok` requis car `_sources/` référence `../../_polices/forme.js`)\n  2. `verif_aips.py` → **`OK`** (si `paquet.json` présent) et `restaurer_fond.py --verifier` → **`exit=0`**\n  3. `python _outils/optimiser_ssp.py nnn` → migration vers `_sources/`, tableaux déplacés en `<div class=\"fen\">`, teintes non bleues `--fm-a`\n  4. `python _outils/verif_mission.py nnn` → **100 % fichiers `PASS`** (`errors: []`)\n  5. `python _outils/assembler_unique.py nnn` → **`(1 + N) / (1 + N) onglets`** à la racine de `SSP_nnn/`\n  6. `python _outils/notions.py verifier nnn` → **`0 NON`** + copier `rapport_notions.csv` dans `SSP_nnn/_sources/`\n  7. `python _outils/audit_unique_browser.py nnn --all-tabs` → **`PASS` sur 100 % des onglets en Chrome headless réel**\n  8. Ajouter ligne dans `SUIVI_PRODUCTION.csv` + `git commit` + `git push origin main`.\n- **P4 (Affinage)** : consigner tout doute clinique/posologique non vérifié dans `1_Claude AI/HANDOFF_AFFINAGE.md` sous `## SSP_nnn`.\n\n## § 3. MISSION 2 — SSP 001 → 032\n- Extraire les cours depuis `SSP_nnn_<code>_UNIQUE.html` (JSON `data` gzip+base64, marqueurs `@@IMG:…@@`, `@@FONT:…@@`) après archivage des anciens `LOT_nnn_*.html` dans `_archive_avant_alpha/`.\n- Le frontend reste identique ; auditer le contenu avec la même sévérité (attention : `SSP_013` G13 = `NON_MONOGRAPHIQUE`, `SSP_014` G14 = `MIXTE`).\n- Produire `1_Claude AI/AUDIT_001-032.md` et corriger tous les ❌.\n\n## § 4. LES 12 BLOCAGES ROUGE (REJET IMMÉDIAT)\n1. Identification absente ou incertaine.\n2. Signature `#signature-ia` absente, modifiée ou supprimée.\n3. Entité de la Cartographie sans cours.\n4. Fichier hors intervalle `80–100 Ko` de texte pur (tout cours ; un cours de 30–50 Ko est à enrichir).\n5. Toute phrase nominale.\n6. Toute notion au verdict `NON`.\n7. Phrase gabarit de `cartographie_DATA.json` recopiée dans un cours.\n8. Plan maladie appliqué à une Leçon `NON_MONOGRAPHIQUE`.\n9. Terme de chantier visible (`LOT`, `V0`, `Phase A/B`, `DX.n`, `Appel`, `Partie n`).\n10. Posologie sans source de la cascade suisse.\n11. Image hors `<section class=\"fenetre\">`.\n12. Fichier supprimé au lieu d'être archivé.\n\n## § 5. ANNEXE CIRCUITS (248 SSP)\n- **NON_MONOGRAPHIQUE (52)** : 013 · 065 · 069 · 176 · 180 · 181 · 182 · 184 · 185 · 186 · 192 · 194 · 195 · 198 · 200 · 203 · 204 · 205 · 206 · 207 · 208 · 209 · 210 · 211 · 212 · 213 · 214 · 215 · 216 · 217 · 218 · 219 · 220 · 221 · 222 · 224 · 225 · 226 · 227 · 232 · 233 · 235 · 236 · 237 · 238 · 239 · 240 · 241 · 242 · 243 · 246 · 247.\n- **MIXTE (7)** : 014 · 165 · 174 · 175 · 190 · 202 · 223.\n- **MONOGRAPHIQUE (189)** : tous les autres SSP."
+}

@@ -1,0 +1,2444 @@
+{
+  "rappel_obligatoire_avant_redaction": {
+    "lecture_imperative": [
+      "1. Lire intégralement PROMPT_Alpha_19.11.26.md ET la mise à jour incluse dans prompt_alpha_a_jour ci-dessous.",
+      "2. Respecter l'intervalle GLOBAL par cours : viser 85–95 Ko de texte médical pur (soit ~95–115 Ko de fichier JSON) sans quota rigide par partie — répartir le texte proportionnellement à l'importance clinique des parties.",
+      "3. Produire graduellement 1 cours complet par requête (Phase A, puis Cours 1, Cours 2...) en français médical académique, phrases verbales exclusives (0 phrase nominale), zéro prose générique ou patronnée.",
+      "4. Utiliser uniquement les guillemets typographiques français « … » dans les valeurs texte JSON (jamais de guillemet droit non échappé).",
+      "5. Zéro arbre décisionnel graphique (.fm-canvas) : ne générer aucun schéma décisionnel."
+    ],
+    "specificites_locales_ssp": [
+      "Circuit MONOGRAPHIQUE : respecter le plan maladie en 14 points avec socle généralités (1-3), démarche diagnostique (4-10), prise en charge posologique suisse intégrale (11) et QCM Examen Fédéral (14).",
+      "Couvrir 100 % des notions obligatoires listées dans phase_b[*].plan[*].notions_obligatoires pour Écoulement vaginal (S4.18).",
+      "Cascade posologique suisse à 4 paliers obligatoire : 1. AIPS Swissmedic (n° 5 chiffres) -> 2. Compendium.ch -> 3. Sociétés savantes & CHU suisses (HUG, CHUV, Inselspital, USZ, USB, OFSP, ASSM, SSMIG, Tox Info Suisse 145) -> 4. Sociétés savantes européennes."
+    ]
+  },
+  "meta": {
+    "rang_gravite": 243,
+    "ssp": "SSP_079",
+    "code_profiles": "S4.18",
+    "nom_francais": "Écoulement vaginal",
+    "circuit": "MONOGRAPHIQUE",
+    "police_obligatoire": "Atkinson Hyperlegible",
+    "calibre_cible": "80–100 Ko texte pur",
+    "arbres_decisionnels_autorises": false,
+    "mode_redaction": "Neon Deep Research",
+    "nb_chapitres_total": 16,
+    "defauts_audit_initial": [
+      "Incomplet (11/16 cours)",
+      "22 phrases nominales",
+      "Termes chantier (11 f.)"
+    ]
+  },
+  "sommaire": {
+    "phase_a": {
+      "fichier_html_cible": "LOT_079_Phase_A_V0.html",
+      "titre": "Écoulement vaginal — Vue d'ensemble et orientation clinique (S4.18)"
+    },
+    "phase_b": [
+      {
+        "cours_numero": 1,
+        "titre": "Vaginose bactérienne (dysbiose à Gardnerella vaginalis)",
+        "cim": "N76.0",
+        "urgence": "chronique"
+      },
+      {
+        "cours_numero": 2,
+        "titre": "Vulvo-vaginite candidosique (mycose à Candida albicans)",
+        "cim": "B37.3",
+        "urgence": "chronique"
+      },
+      {
+        "cours_numero": 3,
+        "titre": "Leucorrhée physiologique",
+        "cim": "N89.8",
+        "urgence": "chronique"
+      },
+      {
+        "cours_numero": 4,
+        "titre": "Vaginite à Trichomonas vaginalis",
+        "cim": "A59.0",
+        "urgence": "semi-urgent"
+      },
+      {
+        "cours_numero": 5,
+        "titre": "Cervicite muco-purulente à Chlamydia trachomatis ou Neisseria gonorrhoeae",
+        "cim": "A56.0",
+        "urgence": "urgent"
+      },
+      {
+        "cours_numero": 6,
+        "titre": "Vaginite atrophique post-ménopausique ou de lactation",
+        "cim": "N95.2",
+        "urgence": "chronique"
+      },
+      {
+        "cours_numero": 7,
+        "titre": "Vulvo-vaginite aspécifique ou à streptocoque du groupe A de la fillette prépubère",
+        "cim": "N76.0",
+        "urgence": "semi-urgent"
+      },
+      {
+        "cours_numero": 8,
+        "titre": "Vaginite inflammatoire desquamative (vaginite aérobie)",
+        "cim": "N76.0",
+        "urgence": "chronique"
+      },
+      {
+        "cours_numero": 9,
+        "titre": "Vulvo-vaginite allergique ou irritative de contact",
+        "cim": "L23.9",
+        "urgence": "chronique"
+      },
+      {
+        "cours_numero": 10,
+        "titre": "Hydrorrhée tubaire (adénocarcinome primitif de la trompe de Fallope)",
+        "cim": "C57.0",
+        "urgence": "semi-urgent"
+      },
+      {
+        "cours_numero": 11,
+        "titre": "Maladie inflammatoire pelvienne aiguë (salpingite / endométrite / abcès tubo-ovarien)",
+        "cim": "N73.9",
+        "urgence": "urgent"
+      },
+      {
+        "cours_numero": 12,
+        "titre": "Choc toxique staphylococcique ou streptococcique à point de départ vaginal (tampon / coupe menstruelle)",
+        "cim": "A48.3",
+        "urgence": "immediate"
+      },
+      {
+        "cours_numero": 13,
+        "titre": "Corps étranger intravaginal oublié compliqué de vaginite putride (tampon, préservatif)",
+        "cim": "T19.2",
+        "urgence": "urgent"
+      },
+      {
+        "cours_numero": 14,
+        "titre": "Rupture prématurée des membranes (RPM) avec hydrorrhée amniotique",
+        "cim": "O42.9",
+        "urgence": "immediate"
+      },
+      {
+        "cours_numero": 15,
+        "titre": "Endométrite aiguë du post-partum ou post-abortum",
+        "cim": "O85",
+        "urgence": "urgent"
+      }
+    ]
+  },
+  "phase_a": {
+    "titre": "Écoulement vaginal — Vue d'ensemble (S4.18)",
+    "plan": [
+      {
+        "point": 1,
+        "titre": "Définition nosologique et périmètre clinique",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 2,
+        "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 3,
+        "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 4,
+        "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+        "description": "Présentation et hiérarchisation des 15 entités de la Cartographie Renouveau."
+      },
+      {
+        "point": 5,
+        "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 6,
+        "titre": "Examen physique systématique région par région",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 7,
+        "titre": "Approche syndromique et stratification de gravité",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 8,
+        "titre": "Diagnostic positif, scores cliniques et critères validés",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 9,
+        "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 10,
+        "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 11,
+        "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 12,
+        "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 13,
+        "titre": "Points clés indispensables à retenir",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 14,
+        "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      }
+    ]
+  },
+  "phase_b": [
+    {
+      "cours_numero": 1,
+      "fichier_html_cible": "LOT_079_Phase_B_V0_DX.1.html",
+      "titre": "Vaginose bactérienne (dysbiose à Gardnerella vaginalis)",
+      "cim": "N76.0",
+      "urgence": "chronique",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Dysbiose vaginale non inflammatoire caractérisée par le remplacement de la flore lactobacillaire protectrice par une flore polymicrobienne anaérobie (Gardnerella vaginalis, Atopobium vaginae, Mobiluncus)."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Cause la plus fréquente de leucorrhées chez la femme en âge de procréer (prévalence 15–30 %)."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Disparition des lactobacilles producteurs d'acide lactique et de H2O2 -> élévation du pH vaginal (> 4.5) et production d'amines volatiles (putrescine, cadavérine, triméthylamine) par les anaérobies."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Grossesse en cours (risque d'accouchement prématuré et de chorioamniotite), geste endo-utérin programmé (pose de DIU, IVG, hystéroscopie : risque d'endométrite)."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Leucorrhées fluides, grisâtres ou blanchâtres, malodorantes (odeur de poisson avarié majorée après un rapport sexuel non protégé ou pendant les règles), sans prurit ni brûlure marqués."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Spéculum : sécrétions homogènes grisâtres tapissant une muqueuse vaginale non érythémateuse (absence d'inflammation)."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Présence d'au moins 3 critères d'Amsel ou score de Nugent >= 7."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Critères d'Amsel (>= 3 sur 4 : leucorrhées grisâtres homogènes, pH > 4.5, Whiff test à la potasse KOH 10 % positif, présence de Clue cells > 20 % à l'état frais) ou score de Nugent >= 7 au Gram."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "PCR vaginale quantitative (Atopobium/Gardnerella) dans les formes récidivantes."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Métronidazole 500 mg 2x/j PO pendant 7 jours (ou gel vaginal 0.75 % 5 j) ou clindamycine crème vaginale / déqualinium chlorure."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Éviction des douches vaginales (facteur causal majeur), probiotiques lactobacillaires vaginaux en relais, pas de traitement systématique du partenaire masculin."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Récidives fréquentes (> 30 % à 3 mois), facilitation de l'acquisition des IST et de la maladie inflammatoire pelvienne."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Contrôle uniquement si persistance des symptômes ou grossesse à haut risque de prématurité."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Guérison clinique immédiate dans > 85 % mais taux élevé de rechute."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Médecin de premier recours, gynécologue, sage-femme."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 2,
+      "fichier_html_cible": "LOT_079_Phase_B_V0_DX.2.html",
+      "titre": "Vulvo-vaginite candidosique (mycose à Candida albicans)",
+      "cim": "B37.3",
+      "urgence": "chronique",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Infection inflammatoire de la muqueuse vulvo-vaginale par des levures du genre Candida (C. albicans dans 85–90 %, C. glabrata dans 5–10 %)."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "75 % des femmes feront au moins un épisode au cours de leur vie ; 5–8 % développent une forme récidivante (>= 4 épisodes/an)."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Germination des blastospores en filaments mycéliens sous l'influence de l'imprégnation œstrogénique (grossesse, phase lutéale), d'une antibiothérapie à large spectre, du diabète ou des inhibiteurs de SGLT2."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Forme récidivante (>= 4/an : rechercher diabète, immunodépression ou Candida non-albicans résistant au fluconazole)."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Prurit vulvo-vaginal intense, brûlures, dyspareunie superficielle, dysurie externe (urine coulant sur la vulve irritée), pertes blanches grumeleuses non malodorantes."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Érythème et œdème vulvo-vaginal vernissé avec fissures interlabiales et enduit blanchâtre épais adhérant aux parois (« fromage blanc / lait caillé ») ; pH vaginal normal (< 4.5)."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Tableau clinique prurigineux + pH normal + mise en évidence de levures/filaments."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Clinique typique + examen direct au microscope (KOH 10 % ou sérum physiologique : filaments pseudomycéliens et levures bourgeonnantes) + pH < 4.5."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Culture mycologique sur milieu de Sabouraud avec antifongigramme si échec thérapeutique ou mycose récidivante."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Antifongique azolé local (clotrimazole ou éconazole ovule + crème vulvaire 1–3 j) ou fluconazole 150 mg PO en dose unique (contre-indiqué pendant la grossesse)."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Si candidose récidivante (>= 4/an) : schéma suppressif par fluconazole 150 mg à J1, J4, J7 puis 1x/semaine pendant 6 mois ; sous-vêtements en coton, toilette externe au savon surgras."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Vulvodynie secondaire par sensibilisation chronique."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Pas de contrôle si guérison clinique."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Guérison en 48–72 h dans > 90 % des épisodes aigus simples."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Médecin de famille, gynécologue."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 3,
+      "fichier_html_cible": "LOT_079_Phase_B_V0_DX.3.html",
+      "titre": "Leucorrhée physiologique",
+      "cim": "N89.8",
+      "urgence": "chronique",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Production physiologique de fluide vaginal résultant du transsudat capillaire vaginal, de la desquamation épithéliale et du mucus endocervical."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Motif très fréquent de consultation et d'inquiétude chez l'adolescente, la femme jeune sous contraception œstroprogestative ou la femme enceinte."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Dominance de Lactobacillus crispatus/jensenii maintenant un pH acide (3.8–4.5) ; pic de glaire filante translucide en période pré-ovulatoire sous l'effet du pic d'estradiol."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Facteurs de risque d'IST justifiant un dépistage de C. trachomatis même en l'absence de signes inflammatoires."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Pertes blanches ou transparentes (jaunissant légèrement en séchant sur les sous-vêtements), inodores, sans prurit, ni brûlure, ni dyspareunie, ni dysurie."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Muqueuse vulvo-vaginale rose pâle parfaitement saine, glaire limpide au col, pH vaginal entre 3.8 et 4.5."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Caractère non inflammatoire, inodore, cyclique, avec flore lactobacillaire pure."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Mesure du pH vaginal (< 4.5) + examen à l'état frais montrant d'abondants bacilles de Döderlein (lactobacilles) et l'absence de leucocytes/pathogènes."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "PCR Chlamydia sur auto-prélèvement vaginal si < 25 ans ou nouveau partenaire."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Rassurance et explication de la physiologie du cycle menstruel ; proscrire tout traitement antifongique ou antibiotique inutile."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Hygiène intime externe simple à l'eau ou au savon doux ; proscrire les douches vaginales et le port permanent de protège-slips parfumés."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Déséquilibre de la flore (vaginose ou mycose iatrogène) si auto-médication intempestive."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Aucune surveillance nécessaire."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "État physiologique normal."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Médecin de premier recours, gynécologue."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 4,
+      "fichier_html_cible": "LOT_079_Phase_B_V0_DX.4.html",
+      "titre": "Vaginite à Trichomonas vaginalis",
+      "cim": "A59.0",
+      "urgence": "semi-urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Infection sexuellement transmissible de la muqueuse vaginale et cervicale par le protozoaire flagellé Trichomonas vaginalis."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Troisième cause de vaginite infectieuse ; fréquemment co-associée à la vaginose bactérienne et aux autres IST."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Parasite extracellulaire adhérant à l'épithélium pavimenteux, induisant une réaction inflammatoire à polynucléaires neutrophiles et une élévation du pH (> 5.0)."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Co-infection par Chlamydia, gonocoque ou VIH ; risque d'accouchement prématuré chez la femme enceinte."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Leucorrhées abondantes jaune-verdâtres, spumeuses (aérées), malodorantes, accompagnées de brûlures vulvo-vaginales vives, de dyspareunie et de dysurie."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Spéculum : muqueuse vaginale très inflammatoire et pétéchiale avec aspect de « col framboisé » (colpitis macularis) ; pH > 5.0."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Identification de T. vaginalis à l'état frais ou par TAAN."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "PCR spécifique T. vaginalis sur écouvillonnage vaginal + examen direct immédiat au sérum physiologique (protozoaires mobiles flagellés piriformes et nombreux leucocytes)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Dépistage complet des autres IST (Chlamydia, gonocoque, VIH, syphilis)."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Métronidazole 500 mg 2x/j PO pendant 7 jours (plus efficace chez la femme que la dose unique de 2 g)."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Traitement simultané obligatoire du/des partenaire(s) sexuel(s) et abstinence jusqu'à la fin du traitement."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Réinfection fréquente si le partenaire n'est pas traité."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Re-dépistage recommandé à 3 mois en raison du taux élevé de réinfection."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Guérison > 90–95 % sous métronidazole 7 jours."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Médecin de famille, gynécologue, centre de santé sexuelle."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 5,
+      "fichier_html_cible": "LOT_079_Phase_B_V0_DX.5.html",
+      "titre": "Cervicite muco-purulente à Chlamydia trachomatis ou Neisseria gonorrhoeae",
+      "cim": "A56.0",
+      "urgence": "urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Infection de l'épithélium cylindrique endocervical par C. trachomatis, N. gonorrhoeae ou M. genitalium."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Paucisymptomatique dans > 70 % des cas chez la femme ; pic d'incidence 15–29 ans."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Infection endocervicale provoquant un exsudat riche en polynucléaires neutrophiles et une fragilité capillaire cervicale."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Douleur pelvienne, douleur à la mobilisation utérine et fièvre signant le passage à une maladie inflammatoire pelvienne (salpingite)."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Modification récente des pertes vaginales (devenues jaunâtres), spotting intermenstruel ou post-coïtal, dysurie (« syndrome urétral aigu » à ECBU stérile), nouveau partenaire."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Spéculum : glaire cervicale louche ou franchement purulente sortant de l'endocol, col œdématié saignant au simple contact de l'écouvillon ; absence de douleur annexielle si non compliquée."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "TAAN positif sur prélèvement cervico-vaginal."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "PCR (TAAN) multiplex C. trachomatis / N. gonorrhoeae / M. genitalium sur écouvillonnage vaginal ou endocervical (+ culture gonocoque pour antibiogramme)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Sérologies VIH, syphilis, VHB/VHC."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Chlamydia : doxycycline 100 mg 2x/j 7 j (ou azithromycine 1 g si grossesse) ; Gonocoque : ceftriaxone 1 g IM/IV unique."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Notification et traitement des partenaires, abstinence 7 jours, contrôle à 3–6 mois."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Salpingite aiguë, stérilité tubaire, grossesse extra-utérine, périhépatite de Fitz-Hugh-Curtis."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Test of cure systématique chez la femme enceinte à 4 semaines."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Excellent pronostic avec prévention des séquelles tubaires si traitée au stade de cervicite."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Médecin traitant, gynécologue, centre IST."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 6,
+      "fichier_html_cible": "LOT_079_Phase_B_V0_DX.6.html",
+      "titre": "Vaginite atrophique post-ménopausique ou de lactation",
+      "cim": "N95.2",
+      "urgence": "chronique",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Inflammation non infectieuse de la muqueuse vaginale amincie par carence œstrogénique, avec remplacement des lactobacilles par une flore entérique."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Touche jusqu'à 50 % des femmes ménopausées non substituées et transitoirement les femmes allaitantes."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Perte des couches superficielles riches en glycogène -> chute des lactobacilles -> pH > 5.0 -> inflammation sous-épithéliale et exsudat leucocytaire."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Saignement post-ménopausique (imposant une échographie endovaginale de l'endomètre), lésion ulcérée ou lichénifiée."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Pertes séro-purulentes jaunâtres peu abondantes, sensation de sécheresse, brûlures, dyspareunie d'intromission, infections urinaires récidivantes."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Muqueuse vaginale fine, pâle ou érythémateuse pétéchiale, perte des plis, pH > 5.0."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Tableau d'atrophie vaginale avec cellules parabasales prédominantes et cultures/PCR spécifiques négatives."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Clinique + pH > 5.0 + état frais (cellules parabasales rondes à gros noyau, nombreux leucocytes, absence de lactobacilles) + exclusion d'IST/mycose."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Frottis cervical et échographie endovaginale si saignement associé."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Œstrogénothérapie locale (estriol crème ou ovules quotidiennement pendant 2–3 semaines puis 2x/semaine en entretien)."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Hydratants vaginaux à l'acide hyaluronique au long cours."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Synéchies vaginales, sténose de l'introït, cystites récidivantes."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Réévaluation clinique à 6–8 semaines."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Restauration rapide de la trophicité, des lactobacilles et d'un pH acide sous estriol local."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Gynécologue, médecin de famille."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 7,
+      "fichier_html_cible": "LOT_079_Phase_B_V0_DX.7.html",
+      "titre": "Vulvo-vaginite aspécifique ou à streptocoque du groupe A de la fillette prépubère",
+      "cim": "N76.0",
+      "urgence": "semi-urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Inflammation vulvo-vaginale de l'enfant prépubère liée à des facteurs d'hygiène/irritants (~75 %) ou à des germes respiratoires/entériques (Streptococcus pyogenes, H. influenzae)."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Motif gynécologique pédiatrique le plus fréquent entre 2 et 8 ans (la candidose est exceptionnelle avant la puberté en dehors du port de couches)."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Absence d'œstrogènes, de pilosité et de développement des grandes lèvres -> muqueuse vulvo-vaginale fine à pH neutre (6.5–7.5) exposée aux irritants et à l'auto-inoculation rhino-pharyngée ou fécale."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Écoulement purulent fétide sanguinolent chronique (corps étranger intravaginal type papier toilette), lésions traumatiques ou découverte d'une IST (suspicion de maltraitance/abus sexuel)."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Érythème vulvaire, prurit (rechercher un prurit anal vespéral d'oxyurose), dysurie externe, taches jaunâtres ou verdâtres dans la culotte, parfois épisode récent d'angine/scarlatine."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Inspection externe douce en position de la grenouille (pas de spéculum) : rougeur vulvaire et péri-anale (aspect en « huit » rouge vif dans l'infection à streptocoque A)."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Clinique + identification éventuelle de S. pyogenes à la culture (ou vaginite irritative aspécifique)."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Écouvillonnage vestibulaire doux pour culture bactériologique standard + scotch-test anal matinal (recherche d'Enterobius vermicularis)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "PCR IST et signalement spécialisé si suspicion d'abus sexuel."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Mesures d'hygiène (essuyage d'avant en arrière, bains de siège à l'eau claire, culottes en coton, arrêt des bains moussants) ; amoxicilline PO 10 jours si S. pyogenes ; mébendazole si oxyurose."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Éducation de l'enfant et des parents aux règles d'hygiène mictionnelle et défécatoire."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Coalescence des petites lèvres, récidives."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Contrôle clinique à 2 semaines si forme infectieuse ou persistante."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Excellent pronostic."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Pédiatre, médecin de famille, gynécologue pédiatrique."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 8,
+      "fichier_html_cible": "LOT_079_Phase_B_V0_DX.8.html",
+      "titre": "Vaginite inflammatoire desquamative (vaginite aérobie)",
+      "cim": "N76.0",
+      "urgence": "chronique",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Syndrome inflammatoire vaginal chronique non lié aux IST classiques, caractérisé par un écoulement purulent, une desquamation des cellules épithéliales et un remplacement des lactobacilles par des bactéries aérobies."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Plus fréquente en périménopause et post-ménopause ; cause classique de vaginite « réfractaire » aux antifongiques et au métronidazole."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Mécanisme immuno-inflammatoire et dysbiotique (Streptococcus agalactiae, S. aureus, E. coli) provoquant un clivage des couches superficielles de l'épithélium."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Atteinte gingivale ou vulvaire synéchiante associée (exclure un lichen plan érosif vulvo-vaginal)."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Leucorrhées purulentes jaunâtres ou verdâtres abondantes, brûlures vaginales chroniques, dyspareunie sévère, échecs répétés du métronidazole et du fluconazole."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Spéculum : érythème vaginal diffus ou pétéchial intense avec exsudat purulent et pH > 4.5 (souvent > 5.5)."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Critères cliniques et microscopiques après exclusion formelle de la trichomonase et des cervicites IST."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Examen à l'état frais / coloration de Gram : absence de lactobacilles, très nombreux polynucléaires neutrophiles et cellules parabasales, cocci Gram + + PCR T. vaginalis et IST négatives."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Biopsie vaginale si suspicion de dermatose bulleuse ou de lichen plan érosif."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Clindamycine crème vaginale 2 % pendant 2 semaines et/ou hydrocortisone intravaginale + œstrogènes locaux."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Traitement d'entretien intermittent par œstrogènes topiques et corticoïdes locaux en cas de rechute."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Sténose vaginale inflammatoire, dyspareunie chronique."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Suivi gynécologique spécialisé à 4–6 semaines."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Évolution chronique nécessitant souvent un traitement d'entretien."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Gynécologue spécialisé en pathologie vulvo-vaginale."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 9,
+      "fichier_html_cible": "LOT_079_Phase_B_V0_DX.9.html",
+      "titre": "Vulvo-vaginite allergique ou irritative de contact",
+      "cim": "L23.9",
+      "urgence": "chronique",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Dermite d'irritation ou eczéma de contact allergique de la vulve et de la muqueuse vaginale déclenché par un agent chimique exogène."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Représente jusqu'à 15–20 % des plaintes vulvo-vaginales chroniques après auto-médications multiples."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Altération de la barrière épithéliale (dermite irritative) ou hypersensibilité retardée de type IV (parfums, conservateurs, benzocaïne, propylène glycol, imidazolés) ou immédiate de type I (latex, liquide séminal)."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Œdème vulvaire aigu et urticaire généralisée post-coïtale (allergie immédiate IgE-médiée au latex ou aux protéines séminales)."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Prurit, sensation de cuisson et suintement clair survenant après l'utilisation d'un nouveau produit d'hygiène, de lingettes, de préservatifs en latex ou de crèmes antifongiques en vente libre."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Érythème et œdème vulvo-vestibulaire, excoriations de grattage, sécrétions vaginales séreuses à pH et flore normaux."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Régression complète des symptômes à l'arrêt des produits suspects avec bilan infectieux négatif."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Anamnèse d'exposition + prélèvements microbiologiques négatifs + épreuve d'éviction totale de tous les topiques."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Tests épicutanés (patch-tests) ou dosage des IgE spécifiques (latex) en allergologie."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Arrêt immédiat de tout produit irritant/sensibilisant, émollients neutres et dermocorticoïde de classe modérée en cure courte sur la vulve."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Préservatifs sans latex (polyuréthane/polyisoprène) si allergie au latex."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Lichénification vulvaire chronique par grattage."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Contrôle clinique à 3–4 semaines."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Guérison complète après éviction de l'allergène."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Gynécologue, dermatologue, allergologue."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 10,
+      "fichier_html_cible": "LOT_079_Phase_B_V0_DX.10.html",
+      "titre": "Hydrorrhée tubaire (adénocarcinome primitif de la trompe de Fallope)",
+      "cim": "C57.0",
+      "urgence": "semi-urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Décharge vaginale intermittente de liquide séreux ou séro-hématique accumulé dans une trompe dilatée (hydrosalpinx) siège d'un carcinome séreux de haut grade."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Pathologie rare en tant qu'entité isolée mais reconnue aujourd'hui comme le point de départ majeur (lésions STIC des franges tubaires) des cancers ovariens/péritonéaux séreux de haut grade (notamment liés à BRCA1/2)."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Obstruction distale de la trompe tumorale -> distension tubaire douloureuse -> vidange brusque rétrograde à travers la cavité utérine et le col (hydrops tubae profluens)."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Ascite, carcinose péritonéale, antécédents familiaux de cancer du sein ou de l'ovaire (mutation BRCA1/2)."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Triade pathognomonique de Latzko : écoulement vaginal aqueux clair ou rosé abondant en giclée, douleurs pelviennes coliques soulagées par l'écoulement, et masse annexielle chez une femme de 50–70 ans."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Spéculum : écoulement séreux fluide issu du col ; TV : masse latéro-utérine annexielle."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Masse tubaire complexe à l'IRM + confirmation histopathologique chirurgicale."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Échographie endovaginale (masse annexielle tubuliforme en « saucisse » avec végétations endoluminales hypervascularisées) + IRM pelvienne + dosage du CA-125."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "CT thoraco-abdomino-pelvien de stadification et consultation d'oncogénétique (BRCA)."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Adressage rapide en centre de référence d'oncologie gynécologique."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Chirurgie de stadification/cytoréduction complète + chimiothérapie par carboplatine-paclitaxel +/- inhibiteur de PARP (olaparib) ou bévacizumab."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Dissémination péritonéale précoce."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Surveillance clinique, CA-125 et imagerie en oncologie."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Pronostic superposable à celui du carcinome séreux ovarien de même stade FIGO ; nettement amélioré par les inhibiteurs de PARP en cas de mutation BRCA/HRD."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Oncologue gynécologique, oncologue médical, généticien."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 11,
+      "fichier_html_cible": "LOT_079_Phase_B_V0_DX.11.html",
+      "titre": "Maladie inflammatoire pelvienne aiguë (salpingite / endométrite / abcès tubo-ovarien)",
+      "cim": "N73.9",
+      "urgence": "urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Infection polymicrobienne ascendante du tractus génital supérieur (endomètre, trompes de Fallope, ovaires et péritoine pelvien) à partir d'une cervicite ou d'une vaginose."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Touche principalement les femmes de 15 à 30 ans sexuellement actives ; C. trachomatis et N. gonorrhoeae en cause dans ~50 % des cas, associés aux anaérobies et entérobactéries."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Franchissement de la barrière cervicale -> endométrite -> endosalpingite destructrice des cellules ciliées tubaires -> exsudat purulent dans le Douglas ou formation d'un pyosalpinx / abcès tubo-ovarien."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Abcès tubo-ovarien (masse annexielle, CRP très élevée), pelvipéritonite / rupture d'abcès (choc septique), grossesse en cours."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Douleur pelvienne basse bilatérale récente (< 2 semaines), dyspareunie profonde d'apparition récente, leucorrhées purulentes ou métrorragies, fièvre et frissons."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Spéculum : cervicite muco-purulente ; TV : douleur exquise à la mobilisation du col utérin (« signe du chandelier ») et à la palpation des culs-de-sac annexiels (empâtement ou masse)."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Douleur pelvienne + douleur à la mobilisation utérine/annexielle + signes inflammatoires cervicaux et biologiques."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "PCR Chlamydia/gonocoque/M. genitalium endocervicale + culture + FSC, CRP, bêta-hCG (exclure GEU) + échographie pelvienne endovaginale (rechercher abcès tubo-ovarien)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "CT abdomino-pelvien injecté si doute avec une appendicite/diverticulite ou pour cartographier un abcès tubo-ovarien ; laparoscopie diagnostique/thérapeutique."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Antibiothérapie probabiliste immédiate (sans attendre les résultats) : ceftriaxone 1 g IM/IV unique + doxycycline 100 mg 2x/j PO 14 j + métronidazole 500 mg 2x/j PO 14 j (en ambulatoire si forme non compliquée)."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Dépistage et traitement des partenaires sexuels ; retrait d'un DIU uniquement si absence d'amélioration à 48–72 h ou sepsis sévère."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Hospitalisation si abcès tubo-ovarien (antibiothérapie IV + drainage radiologique ou coelioscopique si > 3–4 cm), grossesse ou vomissements ; séquelles : infertilité tubaire (10–20 %), GEU (x 6), douleurs pelviennes chroniques."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Réévaluation clinique obligatoire à 48–72 h (tolérance et efficacité) ; contrôle microbiologique à 3 mois."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Pronostic tubaire directement lié à la précocité de l'antibiothérapie."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Gynécologue, médecin de premier recours."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 12,
+      "fichier_html_cible": "LOT_079_Phase_B_V0_DX.12.html",
+      "titre": "Choc toxique staphylococcique ou streptococcique à point de départ vaginal (tampon / coupe menstruelle)",
+      "cim": "A48.3",
+      "urgence": "immediate",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Choc toxinique aigu déclenché par les superantigènes (TSST-1, entérotoxines) produits par Staphylococcus aureus colonisant un dispositif intravaginal (tampon, coupe menstruelle) ou par Streptococcus pyogenes."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Rare (~1 / 100 000 femmes en âge de procréer) mais potentiellement fulminant (mortalité 5–10 %)."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Le superantigène TSST-1 traverse la muqueuse vaginale et active de façon polyclonale non spécifique 20 % des lymphocytes T (liaison directe CMH-II / chaîne V-bêta du TCR) -> orage cytokinique (TNF-alpha, IL-1, IL-2) -> fuite capillaire et vasoplégie."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Défaillance multiviscérale (>= 3 organes : insuffisance rénale aiguë, CIVD, SDRA, cytolyse hépatique, rhabdomyolyse)."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Début brutal pendant les règles (port prolongé de tampon > 6 h) : fièvre >= 38.9 °C, malaise intense, vomissements, diarrhée aqueuse, myalgies intenses, confusion."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Hypotension artérielle / choc distributif, érythrodermie diffuse en « coup de soleil » (desquamation palmo-plantaire à J7–J14), hyperhémie conjonctivale et pharyngée (« langue framboisée »), muqueuse vaginale inflammatoire avec présence d'un tampon."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Critères diagnostiques du CDC : fièvre, érythrodermie, hypotension et atteinte d'au moins 3 systèmes d'organes."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Examen au spéculum avec retrait immédiat du tampon/corps étranger et mise en culture (recherche de S. aureus et gène TSST-1) + hémocultures + bilan de défaillance d'organes (lactates, créatinine, bilan hépatique, CPK, crase)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Hémocultures souvent négatives dans le choc staphylococcique (médié par la toxine), positives dans ~60 % des chocs streptococciques."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Retrait immédiat du tampon + réanimation hémodynamique en soins intensifs (remplissage cristalloïdes, noradrénaline) + antibiothérapie IV associant une bêta-lactamine anti-staphylococcique (flucloxacilline/céfazoline ou vancomycine) ET de la clindamycine (inhibe la synthèse ribosomale de la toxine)."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Interdiction définitive de l'usage des tampons et coupes menstruelles (risque élevé de récidive par défaut d'anticorps neutralisants anti-TSST-1)."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Nécrose périphérique, insuffisance rénale, décès."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Monitoring invasif en réanimation."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Survie > 95 % si retrait de la source toxinique et réanimation + clindamycine précoces."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Médecin urgentiste, réanimateur, gynécologue, infectiologue."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 13,
+      "fichier_html_cible": "LOT_079_Phase_B_V0_DX.13.html",
+      "titre": "Corps étranger intravaginal oublié compliqué de vaginite putride (tampon, préservatif)",
+      "cim": "T19.2",
+      "urgence": "urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Rétention prolongée d'un corps étranger (tampon périodique oublié en fin de règles, préservatif, éponge contraceptive, ou petit jouet chez l'enfant) dans la cavité vaginale."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Cause très fréquente aux urgences gynécologiques devant des leucorrhées subites extrêmement fétides."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Prolifération massive de bactéries anaérobies et aérobies au sein du corps étranger imbibé de sang et de sécrétions, avec irritation et parfois ulcération de la muqueuse des culs-de-sac."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Fièvre, érythrodermie ou hypotension (début de syndrome du choc toxique), ulcération vaginale profonde."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Apparition en quelques jours de pertes brunâtres ou purulentes d'une odeur nauséabonde envahissante, parfois accompagnées de petits saignements et d'une gêne pelvienne."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Examen au spéculum : odeur fétide caractéristique dès l'introduction du spéculum, visualisation du corps étranger logé profondément dans le cul-de-sac vaginal postérieur."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Visualisation et extraction directe du corps étranger."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Examen au spéculum permettant à la fois le diagnostic et le geste thérapeutique."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Chez la fillette prépubère : vaginoscopie au bloc opératoire ou lavage vaginal au cathéter souple si un fragment de papier toilette ou petit objet est suspecté."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Extraction complète à la pince sous spéculum + nettoyage vaginal doux au sérum physiologique ou antiseptique gynécologique (pas d'antibiothérapie systémique nécessaire en l'absence de fièvre ou de cellulite/PID)."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Information sur les signes d'alerte infectieux."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Endométrite/salpingite ou ulcération vaginale si oubli très prolongé."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Disparition complète de l'odeur et de l'écoulement en 24–48 h après le retrait."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Guérison immédiate et complète."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Médecin de premier recours, gynécologue, urgentiste."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 14,
+      "fichier_html_cible": "LOT_079_Phase_B_V0_DX.14.html",
+      "titre": "Rupture prématurée des membranes (RPM) avec hydrorrhée amniotique",
+      "cim": "O42.9",
+      "urgence": "immediate",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Ouverture spontanée du chorion et de l'amnios avant le début du travail obstétrical (à terme >= 37 SA ou avant terme < 37 SA)."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Complique ~8–10 % des grossesses à terme et ~3 % des grossesses avant 37 SA (responsable d'un tiers des accouchements prématurés)."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Fragilisation collagénique des membranes fœtales (souvent précipitée par une infection vaginale/cervicale ascendante, une distension utérine ou une béance cervicale) entraînant la perte du liquide amniotique."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Procidence du cordon ombilical (bradycardie fœtale brutale), chorioamniotite aiguë (fièvre maternelle, tachycardie fœtale, liquide teinté/purulent, utérus douloureux), décollement placentaire."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Perte soudaine ou continue d'un liquide clair, tiède, inodore ou à odeur fade de javel, mouillant les vêtements chez une femme enceinte."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Examen au spéculum stérile (éviter le toucher vaginal digital qui augmente le risque infectieux) : liquide amniotique s'écoulant de l'orifice cervical (majoré à la toux)."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Visualisation franche d'écoulement amniotique au col et/ou test IGFBP-1/PAMG-1 positif."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Spéculum stérile + test immunochromatographique rapide (IGFBP-1 / PAMG-1 : AmniSure, Actim PROM) + écouvillonnage vaginal (Streptocoque B et bactériologie) + CTG + échographie obstétricale (présentation fœtale et index amniotique)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "FSC et CRP maternelles."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Hospitalisation en maternité ; si < 34 SA sans infection : corticothérapie de maturation pulmonaire fœtale (bêtaméthasone) + antibioprophylaxie + tocolyse courte (48 h) +/- sulfate de magnésium neuroprotecteur (< 32 SA) ; si >= 37 SA ou chorioamniotite : déclenchement du travail et antibioprophylaxie anti-SGB."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Surveillance hospitalière materno-fœtale jusqu'à l'accouchement."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Prématurité, infection néonatale précoce, sepsis maternel, oligoamnios sévère avec hypoplasie pulmonaire si RPM très précoce (< 22–24 SA)."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "CTG pluriquotidien, température maternelle toutes les 4–6 h, leucocytes/CRP 2–3x/semaine."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Pronostic directement corrélé au terme gestationnel lors de la rupture et à l'absence de chorioamniotite."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Obstétricien, sage-femme, néonatologue."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 15,
+      "fichier_html_cible": "LOT_079_Phase_B_V0_DX.15.html",
+      "titre": "Endométrite aiguë du post-partum ou post-abortum",
+      "cim": "O85",
+      "urgence": "urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Infection bactérienne polymicrobienne de la déciduale et du myomètre survenant après un accouchement (surtout par césarienne), une fausse couche ou une IVG."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Complique 1–3 % des accouchements par voie basse et jusqu'à 5–10 % des césariennes en cours de travail sans antibioprophylaxie."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Ascension de germes de la flore vaginale et périnéale (Streptocoques A et B, E. coli, entérocoques, anaérobies type Bacteroides) colonisant la plaie placentaire et les caillots intracavitaires."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Sepsis puerpéral fulminant à Streptococcus pyogenes (groupe A), thrombophlébite pelvienne suppurée des veines ovariennes (fièvre hectique persistante sous antibiotiques), rétention placentaire infectée."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Apparition à J3–J10 du post-partum de fièvre (>= 38.5 °C), frissons, douleurs pelviennes basses, lochies devenues purulentes, brunâtres (« chocolat ») et malodorantes."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Subinvolution utérine (fond utérin trop haut pour le jour du post-partum), utérus mou et très douloureux à la palpation abdominale et à la mobilisation au TV."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Triade du post-partum : fièvre + gros utérus douloureux + lochies fétides."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Prélèvement endocervical/lochies pour culture + hémocultures + FSC, CRP + échographie pelvienne (recherche de rétention placentaire)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "CT abdomino-pelvien injecté si persistance de la fièvre > 48–72 h d'antibiothérapie (recherche d'abcès pelvien ou de thrombophlébite de la veine ovarienne)."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Antibiothérapie à large spectre (amoxicilline-acide clavulanique ou clindamycine + gentamicine IV dans les formes sévères, compatible avec l'allaitement) + utérotonique ; aspiration chirurgicale prudente sous couverture antibiotique si rétention placentaire."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Anticoagulation curative associée en cas de thrombophlébite pelvienne septique."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Choc septique, synéchies utérines (syndrome d'Asherman), infertilité secondaire."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Courbe thermique, involution utérine quotidienne, aspect des lochies et CRP."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Défervescence rapide en 24–48 h sous antibiothérapie adaptée."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Obstétricien, sage-femme, infectiologue."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    }
+  ],
+  "prompt_alpha_a_jour": "# MISSION : CORRECTION ET COMPLÉTION DES 248 SSP SUISSES (3 975 ENTITÉS + 248 CHAPITRES 0)\n\n## § 0. IDENTIFICATION, SIGNATURE & RÈGLES DE CONTINUITÉ — BLOQUANT ABSOLU\n1. **Identification obligatoire** en tête de première réponse :\n   - HEURE DE DÉBUT : AAAA-MM-JJ HH:MM (Europe/Zurich)\n   - MODÈLE : nom exact du modèle (ex. ANTIGRAVITY ORCHESTRATOR NEON)\n   - PLATEFORME : plateforme exacte (ex. ANTIGRAVITY)\n   - Ajouter la même ligne à `1_Claude AI/IDENTIFICATION_AGENTS.md`. Si incertitude, s'arrêter.\n2. **Signature IA fixe en bas à droite de TOUT HTML produit ou modifié** (juste avant `</body>`, en GRAS MAJUSCULE) :\n   `<div id=\"signature-ia\" style=\"position:fixed;right:12px;bottom:10px;z-index:9999;background:#fff;border:2px solid #000;padding:4px 10px;font:700 12px/1.3 Arial,sans-serif;text-transform:uppercase;color:#000\">DÉBUT : AAAA-MM-JJ HH:MM (EUROPE/ZURICH) · MODÈLE : <NOM> · PLATEFORME : <PLATEFORME></div>`\n   - **Seul Vial peut autoriser le retrait de ce bloc.** Un agent qui reprend un fichier signé ajoute sa propre ligne sous la précédente sans jamais effacer l'existante.\n3. **Continuité & transparence** :\n   - **Redémarrage propre à partir de `SSP_248`** : tous les cours précédemment modifiés ont été restaurés à l'état initial (`6941513`). Enchaîner continûment **`SSP_248 → SSP_033`**, puis **`SSP_001 → SSP_032`**.\n   - **Toujours afficher le raisonnement visible** en français dans chaque réponse.\n   - **Veille & relance GitHub** : commiter et pousser sur `origin main` après chaque SSP (ou lot <= 5 SSP) avec l'état à jour dans `SUIVI_PRODUCTION.csv`, `HANDOFF_AFFINAGE.md` et `HANDOFF_IA_COMPLET.md`.\n   - **Suivi graphique temps réel** : maintenir à jour le tableau de bord visuel temps réel des réalisations achevées et en cours.\n\n## § 1. RÈGLES ACTUALISÉES (PRIMENT SUR LE PROMPT ALPHA 19.11.26)\n1. **Nombre de cours par SSP** : **1 cours par entité de la Cartographie Renouveau** (15 à 24 entités par SSP, 3 975 au total) + le Chapitre 0 (`Phase_A`), dans l'ordre exact des `Cours 1 … N` de `SSP_nnn/NOTIONS.md` / `NOTIONS.json`.\n2. **QUALITÉ CLINIQUE MAXIMALE & ZÉRO MÉDIOCRITÉ (BLOQUANT ABSOLU — Consigne Vial 20.11.26)** :\n   - **Interdiction absolue de toute prose patronnée / générique** : aucune phrase-cadre où seul le nom de la pathologie change d'un cours à l'autre, aucun remplissage artificiel pour atteindre le calibre. La médiocrité clinique est dangereuse et entraîne un rejet immédiat.\n   - Chaque cours (`Phase_A` et `DX.1..N`) doit être **rédigé sur mesure** pour son entité exacte, avec : raisonnement physiopathologique et sémiologique réel, seuils numériques précis, diagnostics différentiels discriminants, posologies et contre-indications sourcées (Compendium.ch / AIPS, Tox Info Suisse, OFSP, ASSM, sociétés savantes suisses), vignettes cliniques authentiques et QCM exigeants de niveau Examen Fédéral Suisse.\n3. **INTERDICTION DES ARBRES DÉCISIONNELS (Consigne Vial 20.11.26)** :\n   - **Ne générer AUCUN arbre décisionnel ni algorithme graphique (`.fm-canvas`, SVG décisionnel, etc.)** dans `Phase_A` ou dans les `DX.n` — l'auteur (Vial) les réalisera lui-même.\n4. **Calibre texte pur actualisé (Consigne Vial 20.11.26)** :\n   - **80 à 100 Ko de texte pur UTF-8 par fichier** (`81 920` à `102 400` octets, calibre du Prompt Alpha confirmé par Vial le 20.11.2026 à 21:20, mesuré fenêtres comprises, hors balises HTML, CSS, JS, SVG et images).\n   - HTML hors images (`controle3.py`) : **`40 000` à `100 000` octets** (alerte).\n   - Densité maximale : zéro remplissage, zéro phrase pouvant figurer telle quelle dans un autre cours, zéro phrase de gabarit de `cartographie_DATA.json`.\n5. **Phrases verbales exclusives (BLOQUANT)** :\n   - Chaque phrase (texte, fenêtres, listes, légendes `<figcaption>`, cellules narratives `<td>`) contient un verbe conjugué reconnu. **Zéro phrase nominale.**\n4. **Médicaments cliquables d'emblée & Fenêtres centrées PK/PD à 2 onglets (Consigne Vial 20.11.26)** :\n   - Dès qu'un médicament est évoqué, il devient cliquable (`<a class=\"ouvre med-chip\" href=\"#f-...\">`).\n   - Chaque `<section class=\"fenetre mb\" id=\"f-...\"><div class=\"fen\">` s'ouvre au centre de l'écran et contient **2 onglets** :\n     * **Onglet 1 (`data-tab=\"pk\"`)** : Pharmacocinétique + **Courbe vectorielle SVG $C(t)$** + **4 paramètres cliniciens mis en évidence** (`.pkpd-kpis`).\n     * **Onglet 2 (`data-tab=\"pd\"`)** : Pharmacodynamique & Clinique + **Courbe vectorielle SVG $E(C)$** + posologies/précautions/grossesse suisses (Compendium.ch / AIPS).\n5. **Images** : uniquement à l'intérieur des `<section class=\"fenetre\">`, jamais hors fenêtre (licences selon Prompt Alpha § 4). Ne comptent pas dans le calibre.\n6. **Zéro terminologie de chantier visible** : aucun texte visible (ni `<title>`) ne doit contenir `LOT`, `V0`, `Phase A/B`, `DX.n`, `Appel A/B`, `Partie n`. Seuls les noms de fichiers gardent le format Alpha (`LOT_nnn_Phase_A_V0.html`, `LOT_nnn_Phase_B_V0_DX.i.html`).\n7. **Circuits & Plans** :\n   - `MONOGRAPHIQUE` (189 SSP) : plan maladie en 14 points (Prompt Alpha § 3.1).\n   - `NON_MONOGRAPHIQUE` (52 SSP) : Leçon en 12 à 14 points adaptés (Prompt Alpha § 3.2). **Jamais** de plan maladie ni de titres « Physiopathologie / Approche syndromique / Diagnostic positif » artificiels.\n   - `MIXTE` (7 SSP) : Prompt Alpha § 3.3, chaque fichier déclare `<meta name=\"ssp-circuit\" content=\"...\">`.\n8. **Correctifs Frontend v2 / Architecture `_sources/` (`UNIQUE.html` & `_polices/`)** :\n   - **Arborescence propre par SSP** : à la racine de `SSP_nnn/`, seul **`SSP_nnn_<code>_UNIQUE.html`** (plus le sous-dossier **`_sources/`**) est visible. Tous les fichiers sources (`LOT_nnn_*.html`, `images/`, `NOTIONS.*`, `MANIFESTE.json`, `DECISION*`, `paquet.json`, `_archive_avant_alpha/`) sont rangés dans `SSP_nnn/_sources/` sans rien supprimer.\n   - **Barre haute amovible (`gabarit_unique.html`)** : `#topbar` compacte 1 ligne (~42 px) avec pilule active, fil d'Ariane section, boutons `◀`/`▶`, tiroir overlay amovible `#dd-drawer` (`☰ Diagnostics (N) ▾` + option `📌 Épingler`) contenant `nav#nav` en colonnes égales (`32 px`, teinte unique par cours), et bouton `▴ Masquer barre` + pilule flottante `#btn-show-bar`.\n   - **Zéro dédoublement & navigation `#...` 100 % fonctionnelle (`forme.js`)** : script `forme.js` exécuté sous `DOMContentLoaded` et injecté par `assembler_unique.py`/`inliner.py` après `</head>` et avant `#signature-ia`/`</body>` ; intercepteur global appelant `e.preventDefault()` sur 100 % des `href^=\"#\"` (bloque le rechargement `srcdoc` + `file://`).\n   - **Modales centrées `<div class=\"fen\">` & désaturation (`forme.css` / `optimiser_ssp.py`)** : ouverture via classe `.fm-open` (plus `:target` en repli) avec pile `modalStack` et bouton `Fermer ✕` sticky (sans `history.back()`), auto-enveloppement `<div class=\"fen\">`, tableaux hors modale déplacés vers `<section class=\"fenetre fm-tab-fen\">` déclenchés par cartes `.fm-encart-fen`, citations `<sup class=\"r\"><a>` compactées en `[N]` avec modale aperçu `#fm-src-modal` empilable (`fm-stack-top`), puces médicaments `a.ouvre.med-chip` (`℞ ...`, `white-space: nowrap`, compatible accents français), repli du plan latéral desktop `#fm-plan-toggle`, îlots discontinus (`margin-bottom: 30px`) et padding bas `5.5rem` protégeant la lecture au-dessus de `#signature-ia`.\n   - **HTML unique** : ne jamais l'écrire à la main ; toujours exécuter `optimiser_ssp.py` puis `assembler_unique.py nnn`.\n\n## § 2. ARCHIVAGE & WORKFLOW PAR SSP (P0 → P4)\n- **Zéro suppression** : avant d'écraser ou renommer un fichier source existant, archiver dans `SSP_nnn/_sources/_archive_avant_alpha/`.\n- **P0 (Préparer)** : lire circuit (`catalogue_248.json`), entités (`NOTIONS.md`/`NOTIONS.json`), `memoire_zero_token.py --digest --lot nnn`, écrire `PLAN_ENTITES.md`.\n- **P1 (Décider)** : noter dans `DECISION.md` (Corriger / Réécrire si mécanique, faux plan maladie ou `< 30 Ko` / Créer).\n- **P2 (Produire)** : `LOT_nnn_Phase_A_V0.html` + `LOT_nnn_Phase_B_V0_DX.1..N.html`, 100 % des notions de `NOTIONS.json` expliquées et sourcées (Compendium.ch / AIPS, OFSP, ASSM, CC, LAMal, LAVI, Smarter Medicine), sans aucune phrase gabarit de la cartographie.\n- **P3 (Portes de Contrôle + Optimisation + Assemblage + Audit Chrome)** :\n  1. `controle3.py --script-ok` → **`VERT {}`** (si `paquet.json` présent ; `--script-ok` requis car `_sources/` référence `../../_polices/forme.js`)\n  2. `verif_aips.py` → **`OK`** (si `paquet.json` présent) et `restaurer_fond.py --verifier` → **`exit=0`**\n  3. `python _outils/optimiser_ssp.py nnn` → migration vers `_sources/`, tableaux déplacés en `<div class=\"fen\">`, teintes non bleues `--fm-a`\n  4. `python _outils/verif_mission.py nnn` → **100 % fichiers `PASS`** (`errors: []`)\n  5. `python _outils/assembler_unique.py nnn` → **`(1 + N) / (1 + N) onglets`** à la racine de `SSP_nnn/`\n  6. `python _outils/notions.py verifier nnn` → **`0 NON`** + copier `rapport_notions.csv` dans `SSP_nnn/_sources/`\n  7. `python _outils/audit_unique_browser.py nnn --all-tabs` → **`PASS` sur 100 % des onglets en Chrome headless réel**\n  8. Ajouter ligne dans `SUIVI_PRODUCTION.csv` + `git commit` + `git push origin main`.\n- **P4 (Affinage)** : consigner tout doute clinique/posologique non vérifié dans `1_Claude AI/HANDOFF_AFFINAGE.md` sous `## SSP_nnn`.\n\n## § 3. MISSION 2 — SSP 001 → 032\n- Extraire les cours depuis `SSP_nnn_<code>_UNIQUE.html` (JSON `data` gzip+base64, marqueurs `@@IMG:…@@`, `@@FONT:…@@`) après archivage des anciens `LOT_nnn_*.html` dans `_archive_avant_alpha/`.\n- Le frontend reste identique ; auditer le contenu avec la même sévérité (attention : `SSP_013` G13 = `NON_MONOGRAPHIQUE`, `SSP_014` G14 = `MIXTE`).\n- Produire `1_Claude AI/AUDIT_001-032.md` et corriger tous les ❌.\n\n## § 4. LES 12 BLOCAGES ROUGE (REJET IMMÉDIAT)\n1. Identification absente ou incertaine.\n2. Signature `#signature-ia` absente, modifiée ou supprimée.\n3. Entité de la Cartographie sans cours.\n4. Fichier hors intervalle `80–100 Ko` de texte pur (tout cours ; un cours de 30–50 Ko est à enrichir).\n5. Toute phrase nominale.\n6. Toute notion au verdict `NON`.\n7. Phrase gabarit de `cartographie_DATA.json` recopiée dans un cours.\n8. Plan maladie appliqué à une Leçon `NON_MONOGRAPHIQUE`.\n9. Terme de chantier visible (`LOT`, `V0`, `Phase A/B`, `DX.n`, `Appel`, `Partie n`).\n10. Posologie sans source de la cascade suisse.\n11. Image hors `<section class=\"fenetre\">`.\n12. Fichier supprimé au lieu d'être archivé.\n\n## § 5. ANNEXE CIRCUITS (248 SSP)\n- **NON_MONOGRAPHIQUE (52)** : 013 · 065 · 069 · 176 · 180 · 181 · 182 · 184 · 185 · 186 · 192 · 194 · 195 · 198 · 200 · 203 · 204 · 205 · 206 · 207 · 208 · 209 · 210 · 211 · 212 · 213 · 214 · 215 · 216 · 217 · 218 · 219 · 220 · 221 · 222 · 224 · 225 · 226 · 227 · 232 · 233 · 235 · 236 · 237 · 238 · 239 · 240 · 241 · 242 · 243 · 246 · 247.\n- **MIXTE (7)** : 014 · 165 · 174 · 175 · 190 · 202 · 223.\n- **MONOGRAPHIQUE (189)** : tous les autres SSP."
+}

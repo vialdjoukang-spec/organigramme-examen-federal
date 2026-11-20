@@ -1,0 +1,2599 @@
+{
+  "rappel_obligatoire_avant_redaction": {
+    "lecture_imperative": [
+      "1. Lire intégralement PROMPT_Alpha_19.11.26.md ET la mise à jour incluse dans prompt_alpha_a_jour ci-dessous.",
+      "2. Respecter l'intervalle GLOBAL par cours : viser 85–95 Ko de texte médical pur (soit ~95–115 Ko de fichier JSON) sans quota rigide par partie — répartir le texte proportionnellement à l'importance clinique des parties.",
+      "3. Produire graduellement 1 cours complet par requête (Phase A, puis Cours 1, Cours 2...) en français médical académique, phrases verbales exclusives (0 phrase nominale), zéro prose générique ou patronnée.",
+      "4. Utiliser uniquement les guillemets typographiques français « … » dans les valeurs texte JSON (jamais de guillemet droit non échappé).",
+      "5. Zéro arbre décisionnel graphique (.fm-canvas) : ne générer aucun schéma décisionnel."
+    ],
+    "specificites_locales_ssp": [
+      "Circuit MONOGRAPHIQUE : respecter le plan maladie en 14 points avec socle généralités (1-3), démarche diagnostique (4-10), prise en charge posologique suisse intégrale (11) et QCM Examen Fédéral (14).",
+      "Couvrir 100 % des notions obligatoires listées dans phase_b[*].plan[*].notions_obligatoires pour Histologie, cytologie et tests de génétique moléculaire anormaux (F2.10).",
+      "Cascade posologique suisse à 4 paliers obligatoire : 1. AIPS Swissmedic (n° 5 chiffres) -> 2. Compendium.ch -> 3. Sociétés savantes & CHU suisses (HUG, CHUV, Inselspital, USZ, USB, OFSP, ASSM, SSMIG, Tox Info Suisse 145) -> 4. Sociétés savantes européennes."
+    ]
+  },
+  "meta": {
+    "rang_gravite": 135,
+    "ssp": "SSP_158",
+    "code_profiles": "F2.10",
+    "nom_francais": "Histologie, cytologie et tests de génétique moléculaire anormaux",
+    "circuit": "MONOGRAPHIQUE",
+    "police_obligatoire": "Atkinson Hyperlegible",
+    "calibre_cible": "80–100 Ko texte pur",
+    "arbres_decisionnels_autorises": false,
+    "mode_redaction": "Neon Deep Research",
+    "nb_chapitres_total": 17,
+    "defauts_audit_initial": [
+      "Incomplet (11/17 cours)",
+      "187 phrases nominales",
+      "Termes chantier (11 f.)"
+    ]
+  },
+  "sommaire": {
+    "phase_a": {
+      "fichier_html_cible": "LOT_158_Phase_A_V0.html",
+      "titre": "Histologie, cytologie et tests de génétique moléculaire anormaux — Vue d'ensemble et orientation clinique (F2.10)"
+    },
+    "phase_b": [
+      {
+        "cours_numero": 1,
+        "titre": "Lésion malpighienne intra-épithéliale cervicale (LSIL/HSIL)",
+        "cim": "N87.9",
+        "urgence": "semi-urgent"
+      },
+      {
+        "cours_numero": 2,
+        "titre": "Adénocarcinome ou carcinome épidermoïde sur biopsie d'organe",
+        "cim": "C80.1",
+        "urgence": "semi-urgent"
+      },
+      {
+        "cours_numero": 3,
+        "titre": "Polype adénomateux dysplasique colorectal",
+        "cim": "D12.6",
+        "urgence": "semi-urgent"
+      },
+      {
+        "cours_numero": 4,
+        "titre": "Gastrite chronique à H. pylori avec métaplasie intestinale",
+        "cim": "K29.5",
+        "urgence": "chronique"
+      },
+      {
+        "cours_numero": 5,
+        "titre": "Carcinome prostatique (score de Gleason / ISUP)",
+        "cim": "C61",
+        "urgence": "semi-urgent"
+      },
+      {
+        "cours_numero": 6,
+        "titre": "Carcinome mammaire sur microbiopsie (ER/PR/HER2)",
+        "cim": "C50.9",
+        "urgence": "semi-urgent"
+      },
+      {
+        "cours_numero": 7,
+        "titre": "Cytologie urinaire suspecte de carcinome urothélial",
+        "cim": "C67.9",
+        "urgence": "semi-urgent"
+      },
+      {
+        "cours_numero": 8,
+        "titre": "Prédisposition génétique héréditaire (BRCA1/2 ou syndrome de Lynch)",
+        "cim": "Z15.0",
+        "urgence": "chronique"
+      },
+      {
+        "cours_numero": 9,
+        "titre": "Cytoponction thyroïdienne suspecte ou maligne (Bethesda IV–VI)",
+        "cim": "C73",
+        "urgence": "semi-urgent"
+      },
+      {
+        "cours_numero": 10,
+        "titre": "Dysplasie sévère sur œsophage de Barrett",
+        "cim": "K22.7",
+        "urgence": "semi-urgent"
+      },
+      {
+        "cours_numero": 11,
+        "titre": "Altération moléculaire somatique actionnable (EGFR, BRAF, ALK)",
+        "cim": "C34.9",
+        "urgence": "semi-urgent"
+      },
+      {
+        "cours_numero": 12,
+        "titre": "Leucémie aiguë promyélocytaire t(15;17) PML-RARA avec CIVD",
+        "cim": "C92.4",
+        "urgence": "immediate"
+      },
+      {
+        "cours_numero": 13,
+        "titre": "Microangiopathie thrombotique (MAT / PTT) sur frottis sanguin",
+        "cim": "M31.1",
+        "urgence": "immediate"
+      },
+      {
+        "cours_numero": 14,
+        "titre": "Lymphome agressif de haut grade (Burkitt / DLBCL) avec lyse ou compression",
+        "cim": "C83.7",
+        "urgence": "urgent"
+      },
+      {
+        "cours_numero": 15,
+        "titre": "Rejet aigu cellulaire ou humoral sur biopsie de greffon",
+        "cim": "T86.9",
+        "urgence": "urgent"
+      },
+      {
+        "cours_numero": 16,
+        "titre": "Carcinome bronchique à petites cellules (CBPC) avec urgence thoracique",
+        "cim": "C34.9",
+        "urgence": "urgent"
+      }
+    ]
+  },
+  "phase_a": {
+    "titre": "Histologie, cytologie et tests de génétique moléculaire anormaux — Vue d'ensemble (F2.10)",
+    "plan": [
+      {
+        "point": 1,
+        "titre": "Définition nosologique et périmètre clinique",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 2,
+        "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 3,
+        "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 4,
+        "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+        "description": "Présentation et hiérarchisation des 16 entités de la Cartographie Renouveau."
+      },
+      {
+        "point": 5,
+        "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 6,
+        "titre": "Examen physique systématique région par région",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 7,
+        "titre": "Approche syndromique et stratification de gravité",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 8,
+        "titre": "Diagnostic positif, scores cliniques et critères validés",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 9,
+        "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 10,
+        "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 11,
+        "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 12,
+        "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 13,
+        "titre": "Points clés indispensables à retenir",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 14,
+        "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      }
+    ]
+  },
+  "phase_b": [
+    {
+      "cours_numero": 1,
+      "fichier_html_cible": "LOT_158_Phase_B_V0_DX.1.html",
+      "titre": "Lésion malpighienne intra-épithéliale cervicale (LSIL/HSIL)",
+      "cim": "N87.9",
+      "urgence": "semi-urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Dysplasie épithéliale du col utérin induite par une infection persistante à papillomavirus humain (HPV haut risque)."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Dépistage recommandé en Suisse tous les 3 ans (21–70 ans) ; HPV16/18 responsables de ~70 % des cancers du col."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Intégration virale E6/E7 inactivant p53 et Rb -> progression CIN1 (LSIL) -> CIN2/3 (HSIL) -> carcinome."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Lésion bourgeonnante/ulcérée du col, métrorragies abondantes (carcinome invasif)."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Asymptomatique ; parfois métrorragies post-coïtales si lésion avancée."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Examen au spéculum souvent normal ; colposcopie après acide acétique/Lugol."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Histologie sur biopsie colposcopique (CIN1 vs CIN2/3 vs carcinome)."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Frottis cytologique (Bethesda) + test HPV haut risque + colposcopie avec biopsies dirigées si HSIL/ASC-H/HPV+."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Marquage p16/Ki-67 sur biopsie pour confirmer HSIL (CIN2/3)."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Aucune urgence sauf hémorragie tumorale."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "LSIL/CIN1 : surveillance (régression spontanée > 60 %) ; HSIL/CIN2-3 : conisation (LEEP/anse diathermique) ; vaccination HPV préventive."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Hospitalisation uniquement pour chirurgie oncologique invasive."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Co-testing (cytologie + HPV) à 6–12 mois post-conisation."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Prévention quasi totale du cancer du col par dépistage + conisation + vaccination."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Gynécologue, pathologiste, médecin de famille."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 2,
+      "fichier_html_cible": "LOT_158_Phase_B_V0_DX.2.html",
+      "titre": "Adénocarcinome ou carcinome épidermoïde sur biopsie d'organe",
+      "cim": "C80.1",
+      "urgence": "semi-urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Tumeur épithéliale maligne infiltrant la membrane basale, caractérisée par histologie et immunohistochimie."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Représente > 80 % des cancers de l'adulte (poumon, côlon, sein, prostate, ORL)."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Invasion stromale et dissémination lymphatique/hématogène."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Compression d'organe vital, hypercalcémie, hémorragie, sepsis."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Symptômes variables selon l'organe primitif (masse, saignement, douleur, amaigrissement)."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Examen ciblé de l'organe et des aires ganglionnaires."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Compte-rendu anatomopathologique confirmant l'infiltration et le sous-type."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Biopsie tissulaire + immunohistochimie (TTF-1, CK7/CK20, p40, etc.) + CT/PET-CT de staging TNM."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Biologie moléculaire (NGS) selon le primitif."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Traitement rapide des complications obstructives/compressives."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Stratégie décidée en tumor board : chirurgie curative, radiothérapie, chimiothérapie, immunothérapie ou thérapie ciblée."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Hospitalisation selon gestes chirurgicaux ou complications."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Suivi clinique, biologique et radiologique selon guidelines du primitif."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Dépend du stade TNM et de la biologie tumorale."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Pathologiste, oncologue, chirurgien, médecin de famille."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 3,
+      "fichier_html_cible": "LOT_158_Phase_B_V0_DX.3.html",
+      "titre": "Polype adénomateux dysplasique colorectal",
+      "cim": "D12.6",
+      "urgence": "semi-urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Néoplasie intra-épithéliale bénigne du côlon classée selon le degré de dysplasie et l'architecture."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Très fréquente au dépistage coloscopique après 50 ans."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Dysplasie épithéliale sans franchissement de la musculaire muqueuse (sinon carcinome T1)."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Dysplasie de haut grade ou foyer d'adénocarcinome T1 avec marges envahies / emboles."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Asymptomatique ou sang occulte."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Examen normal."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Histologie précise (tubuleux, tubulo-villeux, festonné sessile, degré de dysplasie)."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Analyse histologique complète du polype réséqué en monobloc avec évaluation des marges (R0)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Coloration immunohistochimique MMR/MSI si contexte familial."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Aucune urgence."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Si R0 bénin : surveillance coloscopique adaptée ; si adénocarcinome T1 à haut risque : résection chirurgicale complémentaire."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Aucune hospitalisation."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Coloscopie de contrôle à 3–10 ans selon risque."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Guérison complète après résection R0."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Gastro-entérologue, pathologiste."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 4,
+      "fichier_html_cible": "LOT_158_Phase_B_V0_DX.4.html",
+      "titre": "Gastrite chronique à H. pylori avec métaplasie intestinale",
+      "cim": "K29.5",
+      "urgence": "chronique",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Inflammation chronique de la muqueuse gastrique à Helicobacter pylori évoluant vers l'atrophie et la métaplasie intestinale."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Prévalence H. pylori ~15–20 % en Suisse, plus élevée chez les migrants."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Inflammation chronique -> perte des glandes fundiques/antrales -> métaplasie intestinale -> risque d'adénocarcinome gastrique."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Anémie ferriprive, amaigrissement, dysphagie, hématémèse."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Dyspepsie épigastrique, parfois asymptomatique."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Examen abdominal normal."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Histologie gastrique objectivant H. pylori et/ou métaplasie intestinale."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "OGD avec biopsies étagées (protocole de Sydney : antre + fundus) + histologie H. pylori."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Test respiratoire à l'urée ou antigène fécal pour confirmer l'éradication (>= 4 semaines post-ATB et >= 2 semaines post-IPP)."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Aucune urgence."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Éradication H. pylori (quadrithérapie bismuthée 10–14 j en Suisse) + surveillance endoscopique si métaplasie étendue (antre + corps)."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Aucune hospitalisation."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Contrôle d'éradication systématique ; OGD tous les 3 ans si métaplasie étendue/histoire familiale."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "L'éradication stoppe la progression et réduit le risque de cancer gastrique."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Gastro-entérologue, pathologiste, médecin de famille."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 5,
+      "fichier_html_cible": "LOT_158_Phase_B_V0_DX.5.html",
+      "titre": "Carcinome prostatique (score de Gleason / ISUP)",
+      "cim": "C61",
+      "urgence": "semi-urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Adénocarcinome acinaire de la prostate diagnostiqué sur biopsies ciblées/systématiques et gradé selon Gleason/ISUP."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Cancer le plus fréquent chez l'homme en Suisse (~6500 cas/an)."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Prolifération androgéno-dépendante des cellules épithéliales prostatiques."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Compression médullaire métastatique, rétention aiguë d'urines, insuffisance rénale obstructive."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Asymptomatique au stade localisé (dépistage PSA) ; troubles mictionnels ou douleurs osseuses si avancé."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Nodule dur indolore au toucher rectal (inconstant)."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Histologie prostatique avec score de Gleason et bilan d'extension."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "IRM multiparamétrique (PI-RADS) + biopsies prostatiques écho-guidées/fusion (score Gleason / groupe ISUP 1 à 5)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Scintigraphie osseuse / PSMA PET-CT et CT si risque intermédiaire défavorable ou haut risque."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Décompression/corticoïdes si compression médullaire ; sondage si RAU."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "ISUP 1 bas risque : surveillance active ; risque intermédiaire/haut : prostatectomie radicale ou radiothérapie + hormonothérapie (ADT)."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Hospitalisation pour chirurgie ou complications métastatiques."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "PSA sérié et suivi onco-urologique."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Survie spécifique à 5 ans > 98 % pour formes localisées."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Urologue, radio-oncologue, oncologue, pathologiste."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 6,
+      "fichier_html_cible": "LOT_158_Phase_B_V0_DX.6.html",
+      "titre": "Carcinome mammaire sur microbiopsie (ER/PR/HER2)",
+      "cim": "C50.9",
+      "urgence": "semi-urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Néoplasie maligne du sein (canalaire/lobulaire) caractérisée par son profil immunohistochimique."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Cancer le plus fréquent chez la femme en Suisse (~6500 cas/an)."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Sous-types intrinsèques : Luminal A/B (ER/PR+), HER2+, Triple négatif (ER-/PR-/HER2-)."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Mastite carcinomateuse (sein inflammatoire), métastases symptomatiques."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Masse mammaire indolore découverte par autopalpation ou mammographie de dépistage."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Nodule dur irrégulier, rétraction cutanée/mamelonnaire, adénopathie axillaire."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Confirmation histologique et profil récepteurs sur microbiopsie."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Triple diagnostic : clinique + mammographie/échographie + microbiopsie au trocart (histologie + ER/PR/HER2/Ki-67)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "IRM mammaire, ganglion sentinelle, test génétique BRCA1/2 si < 40–50 ans ou histoire familiale."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Aucune urgence chirurgicale immédiate ; bilan complet avant traitement."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Chirurgie conservatrice + radiothérapie (ou mastectomie) + hormonothérapie (ER+), anti-HER2 (trastuzumab), chimiothérapie selon sous-type."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Hospitalisation brève pour chirurgie."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Mammographie annuelle, tolérance hormonothérapie (bouffées, ostéopénie) ou cardiotoxicité anti-HER2 (FEVG)."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Survie à 5 ans ~88 % tous stades confondus en Suisse."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Centre du sein (gynécologue, oncologue, radiothérapeute, pathologiste)."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 7,
+      "fichier_html_cible": "LOT_158_Phase_B_V0_DX.7.html",
+      "titre": "Cytologie urinaire suspecte de carcinome urothélial",
+      "cim": "C67.9",
+      "urgence": "semi-urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Détection de cellules urothéliales malignes dans les urines orientant vers une tumeur de vessie ou voie excrétrice supérieure."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Cancer de vessie fréquent chez l'homme fumeur > 60 ans (~1200 cas/an en Suisse)."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Carcinogènes urinaires (tabac, amines aromatiques) -> mutations FGFR3/TP53 -> carcinome in situ (CIS) ou papillaire."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Hématurie caillotante avec rétention urinaire, obstruction urétérale bilatérale."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Hématurie macroscopique indolore, troubles mictionnels irritatifs (CIS), tabagisme."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Examen souvent normal."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Histologie sur copeaux de RTUV (pTa, pT1, CIS vs >= pT2 infiltrant le muscle)."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Cystoscopie rigide/souple + résection transurétrale de vessie (RTUV) + uro-CT multiphasique (haut appareil)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Cytologie urinaire très sensible pour le haut grade/CIS, moins pour le bas grade."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Lavage vésical sur sonde double courant si hématurie caillotante."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Non infiltrant (NMIBC) : RTUV + instillations BCG/mitomycine ; infiltrant (>= T2) : chimiothérapie néoadjuvante + cystectomie."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Hospitalisation pour RTUV ou cystectomie."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Cystoscopies et cytologies régulières (taux de récidive élevé des NMIBC)."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Excellent pronostic pour pTa bas grade ; réservé si >= pT2."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Urologue, oncologue, pathologiste."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 8,
+      "fichier_html_cible": "LOT_158_Phase_B_V0_DX.8.html",
+      "titre": "Prédisposition génétique héréditaire (BRCA1/2 ou syndrome de Lynch)",
+      "cim": "Z15.0",
+      "urgence": "chronique",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Variant pathogène constitutionnel prédisposant aux cancers (BRCA1/2 : sein/ovaire ; Lynch MLH1/MSH2/MSH6/PMS2 : côlon/endomètre)."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "BRCA1/2 ~1/300–1/400 ; syndrome de Lynch ~1/300 en population générale."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Perte de réparation de l'ADN par recombinaison homologue (BRCA) ou mésappariement (MMR/Lynch)."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Découverte fortuite d'un cancer avancé sans dépistage adapté."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Histoire familiale de cancers précoces (< 50 ans), bilatéraux, multiples ou tumeur MSI-H/dMMR."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Examen clinique normal (porteur sain ou patient déjà traité)."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Identification d'un variant pathogène germinal (classe 4/5 ACMG)."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Conseil génétique + séquençage sanguin germinal (panel NGS) ; immunohistochimie MMR/MSI systématique sur tout CCR."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Dépistage en cascade des apparentés du 1er degré."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Aucune urgence."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "BRCA : IRM mammaire annuelle dès 25–30 ans, annexectomie prophylactique dès 35–40 ans ; Lynch : coloscopie tous les 1–2 ans dès 20–25 ans + aspirine."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Hospitalisation uniquement pour chirurgie prophylactique."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Suivi spécialisé à vie en consultation d'oncogénétique."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Réduction majeure de la mortalité par cancer grâce à la prévention."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Oncogénéticien, gynécologue, gastro-entérologue, médecin de famille."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 9,
+      "fichier_html_cible": "LOT_158_Phase_B_V0_DX.9.html",
+      "titre": "Cytoponction thyroïdienne suspecte ou maligne (Bethesda IV–VI)",
+      "cim": "C73",
+      "urgence": "semi-urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Anomalie cytologique d'un nodule thyroïdien orientant vers un carcinome différencié (papillaire 85 %, folliculaire 10 %)."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Incidence en hausse (dépistage échographique), pronostic globalement excellent."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Mutations BRAF V600E, RET/PTC (papillaire) ou RAS (folliculaire)."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Dysphonie (paralysie récurrentielle), croissance rapide (carcinome anaplasique !), stridor."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Nodule cervical souvent fortuit, antécédent d'irradiation cervicale."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Nodule thyroïdien ferme, adénopathie cervicale latérale."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Histologie définitive sur pièce de thyroïdectomie (indispensable pour Bethesda IV afin d'évaluer l'invasion capsulaire)."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Échographie cervicale (score EU-TIRADS) + cytoponction à l'aiguille fine (classification de Bethesda I–VI)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Calcitonine sérique (exclure carcinome médullaire), tests moléculaires si Bethesda III/IV."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Urgence uniquement si compression trachéale (anaplasique/lymphome)."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Lobectomie ou thyroïdectomie totale +/- irathérapie I-131 + freination TSH selon risque."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Hospitalisation courte post-chirurgie (surveillance calcémie/PTH et nerfs récurrents)."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Thyroglobuline + anticorps anti-Tg + échographie cervicale annuels."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Survie à 10 ans > 95 % pour le carcinome papillaire."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Endocrinologue, chirurgien endocrinien, pathologiste, médecine nucléaire."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 10,
+      "fichier_html_cible": "LOT_158_Phase_B_V0_DX.10.html",
+      "titre": "Dysplasie sévère sur œsophage de Barrett",
+      "cim": "K22.7",
+      "urgence": "semi-urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Remplacement de l'épithélium malpighien œsophagien par un épithélium cylindrique intestinal avec dysplasie sévère."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Complication du RGO chronique (5–10 % des RGO), surtout homme > 50 ans en surpoids."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Reflux acido-biliaire chronique -> métaplasie -> dysplasie bas/haut grade -> adénocarcinome œsophagien."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Dysphagie progressive, amaigrissement, hématémèse (adénocarcinome invasif)."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Pyrosis ancien (parfois paradoxalement amélioré par la métaplasie), dysphagie si transformation."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Examen normal."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Confirmation histologique double-lue de dysplasie de haut grade."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "OGD haute définition avec chromoendoscopie + biopsies (protocole de Seattle) + relecture par 2 pathologistes experts !"
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Écho-endoscopie si nodule visible pour évaluer l'invasion sous-muqueuse."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Aucune urgence."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "IPP au long cours + résection endoscopique (EMR/ESD) des lésions visibles + ablation par radiofréquence (RFA) du Barrett résiduel."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Hospitalisation ambulatoire ou courte pour geste endoscopique."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Surveillance endoscopique rapprochée post-éradication."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Éradication endoscopique prévient l'évolution vers l'adénocarcinome invasif."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Gastro-entérologue interventionnel, pathologiste."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 11,
+      "fichier_html_cible": "LOT_158_Phase_B_V0_DX.11.html",
+      "titre": "Altération moléculaire somatique actionnable (EGFR, BRAF, ALK)",
+      "cim": "C34.9",
+      "urgence": "semi-urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Mutation conductrice ('driver') ou réarrangement génique tumoral ciblable par un inhibiteur spécifique."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Exemples majeurs : EGFR (10–15 % CBNPC, plus fréquent non-fumeur), ALK (4 %), BRAF V600E (50 % mélanomes), NTRK."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Activation constitutive d'une voie de signalisation (MAPK, PI3K) dont dépend la survie tumorale ('addiction oncogénique')."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Progression rapide ou métastases cérébrales nécessitant thérapie ciblée à haute pénétration SNC (osimertinib, alectinib)."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Contexte de cancer métastatique/avancé (poumon, mélanome, côlon, thyroïde)."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Selon localisation tumorale."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Identification d'une altération actionnable validée par tumor board moléculaire."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Séquençage NGS tissulaire (ou biopsie liquide sur ADN tumoral circulant) + FISH/IHC."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "PD-L1 pour orienter immunothérapie (souvent peu efficace si EGFR/ALK+)."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Initiation rapide de la thérapie ciblée en cas de maladie symptomatique (réponse souvent spectaculaire en quelques jours)."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Inhibiteur de tyrosine kinase (osimertinib, alectinib, dabrafenib/trametinib) ; rébiopsie à la progression (mécanismes de résistance)."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Hospitalisation si complication tumorale ou toxicité médicamenteuse (pneumopathie interstitielle)."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Imagerie de réponse (RECIST) et toxicités (cutanée, hépatique, QTc, cardiaque)."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Amélioration majeure de la survie sans progression et globale par rapport à la chimiothérapie."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Oncologue, pathologiste moléculaire, tumor board moléculaire."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 12,
+      "fichier_html_cible": "LOT_158_Phase_B_V0_DX.12.html",
+      "titre": "Leucémie aiguë promyélocytaire t(15;17) PML-RARA avec CIVD",
+      "cim": "C92.4",
+      "urgence": "immediate",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Sous-type de LAM (M3) caractérisé par la translocation t(15;17) et une coagulopathie hémorragique fulminante."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Représente 5–10 % des LAM ; touche souvent l'adulte jeune/moyen."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Fusion PML-RARA bloque la différenciation promyélocytaire ; les granulations libèrent facteur tissulaire et activateurs fibrinolytiques -> CIVD + hyperfibrinolyse."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Hémorragie cérébrale ou pulmonaire fatale en quelques heures ; syndrome de différenciation sous ATRA."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Ecchymoses spontanées, gingivorragies, métrorragies, asthénie brutale."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Purpura diffus, saignements aux points de ponction, pâleur."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Morphologie typique (traitement immédiat) confirmée par PML-RARA."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Frottis sanguin/médullaire (promyélocytes hypergranulaires avec corps d'Auer en fagots) + FISH/RT-PCR PML-RARA + hémostase (fibrinogène bas, D-dimères très hauts)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Échocardiographie avant trioxyde d'arsenic (QTc)."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Démarrer ATRA (acide tout-trans-rétinoïque) IMMÉDIATEMENT + transfusions agressives (plaquettes > 30–50 G/L, fibrinogène > 1.5 g/L)."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Association ATRA + trioxyde d'arsenic (ATO) permettant > 90 % de guérison sans chimiothérapie classique."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Soins intensifs hématologiques."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Hémostase et ionogramme (K+, Mg2+, QTc) quotidiens ; dépister syndrome de différenciation (fièvre, dyspnée, œdèmes -> dexaméthasone)."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Meilleur pronostic de toutes les leucémies aiguës (> 90 % guérison) si survie aux 15 premiers jours."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Hématologue, réanimateur, laboratoire d'hématologie."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 13,
+      "fichier_html_cible": "LOT_158_Phase_B_V0_DX.13.html",
+      "titre": "Microangiopathie thrombotique (MAT / PTT) sur frottis sanguin",
+      "cim": "M31.1",
+      "urgence": "immediate",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Occlusion microvasculaire disséminée par agrégats plaquettaires avec fragmentation mécanique des hématies (schizocytes)."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "PTT acquis (déficit auto-immun ADAMTS13 < 10 %) rare (~2–4/million/an) mais mortel à > 90 % sans traitement."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Déficit en ADAMTS13 laisse circuler des multimères géants de facteur Willebrand formant des microthrombi."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Coma, convulsions, infarctus myocardique, arrêt cardiaque."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Asthénie, céphalées, troubles neurologiques fluctuants, douleurs abdominales, purpura."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Ictère, pâleur, pétéchies, déficit neurologique focal transitoire, fièvre."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Anémie hémolytique mécanique (schizocytes) + thrombopénie sans CIVD."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Frottis sanguin (schizocytes > 1 %) + hémolyse (LDH très élevées, haptoglobine effondrée, réticulocytes hauts, Coombs négatif) + score PLASMIC + activité ADAMTS13 (ne pas attendre le résultat !)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Créatinine (plus élevée dans SHU atypique), bilan auto-immun/VIH/grossesse."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Si score PLASMIC >= 5 : échanges plasmatiques quotidiens EN URGENCE + corticoïdes + caplacizumab (+/- rituximab) ; ÉVITER les transfusions plaquettaires sauf hémorragie vitale !"
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Si SHU atypique (ADAMTS13 > 10 %) : éculizumab/ravulizumab (anti-C5)."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Soins intensifs avec voie centrale pour plasmaphérèse."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Plaquettes, LDH et schizocytes quotidiens jusqu'à rémission."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Survie > 85–90 % grâce aux échanges plasmatiques + caplacizumab précoces."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Hématologue, néphrologue, réanimateur."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 14,
+      "fichier_html_cible": "LOT_158_Phase_B_V0_DX.14.html",
+      "titre": "Lymphome agressif de haut grade (Burkitt / DLBCL) avec lyse ou compression",
+      "cim": "C83.7",
+      "urgence": "urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Lymphome B agressif à temps de doublement très rapide menaçant par compression viscérale ou lyse tumorale."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "DLBCL est le LNH le plus fréquent ; Burkitt plus rare mais urgence absolue."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Translocation MYC (Burkitt) entraînant une prolifération cellulaire extrême et une mort cellulaire massive spontanée ou post-chimio."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Syndrome de lyse tumorale spontané (hyperuricémie, hyperkaliémie, hyperphosphatémie, hypocalcémie, IRA), compression médullaire."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Masse rapidement évolutive (abdominale, cervicale, médiastinale), symptômes B, dyspnée."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Masse volumineuse, syndrome cave supérieur, épanchement pleural/ascite."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Confirmation histologique et immunohistochimique rapide."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Biopsie urgente (histologie + IHC + FISH MYC/BCL2/BCL6) + bilan de lyse + LDH + CT/PET-CT."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Ponction lombaire (prophylaxie/bilan SNC dans Burkitt)."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Préphase corticoïde prudente + hyperhydratation IV + rasburicase (uricase recombinante) avant chimiothérapie."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Immunochimiothérapie intensive curative (R-CHOP, DA-EPOCH-R, CODOX-M/IVAC)."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Hospitalisation immédiate pour prévention/traitement de la lyse et compression."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Ionogramme, créatinine, acide urique, phosphore et Ca2+ toutes les 6–12 h à l'initiation."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Taux de guérison élevé (> 60–80 %) malgré la gravité initiale."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Hématologue, néphrologue, réanimateur."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 15,
+      "fichier_html_cible": "LOT_158_Phase_B_V0_DX.15.html",
+      "titre": "Rejet aigu cellulaire ou humoral sur biopsie de greffon",
+      "cim": "T86.9",
+      "urgence": "urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Réaction immunitaire aiguë du receveur dirigée contre les antigènes HLA ou non-HLA d'un organe transplanté."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Survient chez 10–15 % des greffés rénaux la 1re année malgré l'immunosuppression."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Activation des lymphocytes T alloréactifs (rejet cellulaire) ou anticorps anti-HLA spécifiques du donneur DSA (rejet humoral)."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Perte rapide de fonction du greffon (créatinine montante, anurie)."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Souvent asymptomatique (détecté sur bilan de routine) ; parfois fièvre, douleur sur le greffon, oligurie."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Sensibilité du greffon, prise de poids/œdèmes, HTA."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Critères histologiques de Banff sur biopsie de greffon."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Biopsie du greffon en urgence (classification de Banff, C4d) + dosage des DSA (anticorps spécifiques du donneur) + taux résiduels des immunosuppresseurs."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Échographie Doppler du greffon (exclure thrombose ou obstacle urologique)."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Rejet cellulaire : bolus de méthylprednisolone IV 3 jours (+/- ATG si résistant) ; rejet humoral : plasmaphérèse + IgIV (+/- éculizumab)."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Ajustement du traitement immunosuppresseur de fond et vérification de l'adhérence."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Hospitalisation en unité de transplantation."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Créatinine, diurèse, taux résiduels tacrolimus/ciclosporine."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Récupération complète fréquente si traitement précoce du rejet cellulaire ; rejet humoral plus sévère."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Néphrologue/hépatologue/cardiologue de transplantation."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 16,
+      "fichier_html_cible": "LOT_158_Phase_B_V0_DX.16.html",
+      "titre": "Carcinome bronchique à petites cellules (CBPC) avec urgence thoracique",
+      "cim": "C34.9",
+      "urgence": "urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Cancer bronchique neuroendocrine de haut grade à croissance très rapide et chimiosensibilité initiale marquée."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Représente ~13–15 % des cancers bronchiques, quasi exclusivement chez les fumeurs."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Inactivation TP53 et RB1 -> masse hilaire/médiastinale compressive et syndromes paranéoplasiques (SIADH, Cushing)."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Obstruction trachéale/bronchique, hyponatrémie sévère, tamponnade, compression médullaire."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Dyspnée rapidement progressive, œdème du visage/cou (syndrome cave), confusion (hyponatrémie)."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Œdème en pèlerine, circulation veineuse collatérale thoracique, turgescence jugulaire sans pouls."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Histologie + immunohistochimie neuroendocrine."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Biopsie bronchique/EBUS (petites cellules bleues, synaptophysine/chromogranine+, Ki-67 > 80 %) + CT TAP + IRM cérébrale."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Ionogramme, osmolalité (SIADH)."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Chimiothérapie urgente (platine-étoposide) souvent très efficace en 48–72 h sur le syndrome cave + stent cave si détresse + NaCl 3 % si SIADH sévère."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Chimio-immunothérapie (atézolizumab/durvalumab) ; radiothérapie thoracique et prophylactique cérébrale si stade limité."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Hospitalisation urgente."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Surveillance syndrome de lyse tumorale (possible dans CBPC volumineux) et natrémie."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Réponse initiale spectaculaire mais rechutes fréquentes."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Oncologue, pneumologue, radiothérapeute."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    }
+  ],
+  "prompt_alpha_a_jour": "# MISSION : CORRECTION ET COMPLÉTION DES 248 SSP SUISSES (3 975 ENTITÉS + 248 CHAPITRES 0)\n\n## § 0. IDENTIFICATION, SIGNATURE & RÈGLES DE CONTINUITÉ — BLOQUANT ABSOLU\n1. **Identification obligatoire** en tête de première réponse :\n   - HEURE DE DÉBUT : AAAA-MM-JJ HH:MM (Europe/Zurich)\n   - MODÈLE : nom exact du modèle (ex. ANTIGRAVITY ORCHESTRATOR NEON)\n   - PLATEFORME : plateforme exacte (ex. ANTIGRAVITY)\n   - Ajouter la même ligne à `1_Claude AI/IDENTIFICATION_AGENTS.md`. Si incertitude, s'arrêter.\n2. **Signature IA fixe en bas à droite de TOUT HTML produit ou modifié** (juste avant `</body>`, en GRAS MAJUSCULE) :\n   `<div id=\"signature-ia\" style=\"position:fixed;right:12px;bottom:10px;z-index:9999;background:#fff;border:2px solid #000;padding:4px 10px;font:700 12px/1.3 Arial,sans-serif;text-transform:uppercase;color:#000\">DÉBUT : AAAA-MM-JJ HH:MM (EUROPE/ZURICH) · MODÈLE : <NOM> · PLATEFORME : <PLATEFORME></div>`\n   - **Seul Vial peut autoriser le retrait de ce bloc.** Un agent qui reprend un fichier signé ajoute sa propre ligne sous la précédente sans jamais effacer l'existante.\n3. **Continuité & transparence** :\n   - **Redémarrage propre à partir de `SSP_248`** : tous les cours précédemment modifiés ont été restaurés à l'état initial (`6941513`). Enchaîner continûment **`SSP_248 → SSP_033`**, puis **`SSP_001 → SSP_032`**.\n   - **Toujours afficher le raisonnement visible** en français dans chaque réponse.\n   - **Veille & relance GitHub** : commiter et pousser sur `origin main` après chaque SSP (ou lot <= 5 SSP) avec l'état à jour dans `SUIVI_PRODUCTION.csv`, `HANDOFF_AFFINAGE.md` et `HANDOFF_IA_COMPLET.md`.\n   - **Suivi graphique temps réel** : maintenir à jour le tableau de bord visuel temps réel des réalisations achevées et en cours.\n\n## § 1. RÈGLES ACTUALISÉES (PRIMENT SUR LE PROMPT ALPHA 19.11.26)\n1. **Nombre de cours par SSP** : **1 cours par entité de la Cartographie Renouveau** (15 à 24 entités par SSP, 3 975 au total) + le Chapitre 0 (`Phase_A`), dans l'ordre exact des `Cours 1 … N` de `SSP_nnn/NOTIONS.md` / `NOTIONS.json`.\n2. **QUALITÉ CLINIQUE MAXIMALE & ZÉRO MÉDIOCRITÉ (BLOQUANT ABSOLU — Consigne Vial 20.11.26)** :\n   - **Interdiction absolue de toute prose patronnée / générique** : aucune phrase-cadre où seul le nom de la pathologie change d'un cours à l'autre, aucun remplissage artificiel pour atteindre le calibre. La médiocrité clinique est dangereuse et entraîne un rejet immédiat.\n   - Chaque cours (`Phase_A` et `DX.1..N`) doit être **rédigé sur mesure** pour son entité exacte, avec : raisonnement physiopathologique et sémiologique réel, seuils numériques précis, diagnostics différentiels discriminants, posologies et contre-indications sourcées (Compendium.ch / AIPS, Tox Info Suisse, OFSP, ASSM, sociétés savantes suisses), vignettes cliniques authentiques et QCM exigeants de niveau Examen Fédéral Suisse.\n3. **INTERDICTION DES ARBRES DÉCISIONNELS (Consigne Vial 20.11.26)** :\n   - **Ne générer AUCUN arbre décisionnel ni algorithme graphique (`.fm-canvas`, SVG décisionnel, etc.)** dans `Phase_A` ou dans les `DX.n` — l'auteur (Vial) les réalisera lui-même.\n4. **Calibre texte pur actualisé (Consigne Vial 20.11.26)** :\n   - **80 à 100 Ko de texte pur UTF-8 par fichier** (`81 920` à `102 400` octets, calibre du Prompt Alpha confirmé par Vial le 20.11.2026 à 21:20, mesuré fenêtres comprises, hors balises HTML, CSS, JS, SVG et images).\n   - HTML hors images (`controle3.py`) : **`40 000` à `100 000` octets** (alerte).\n   - Densité maximale : zéro remplissage, zéro phrase pouvant figurer telle quelle dans un autre cours, zéro phrase de gabarit de `cartographie_DATA.json`.\n5. **Phrases verbales exclusives (BLOQUANT)** :\n   - Chaque phrase (texte, fenêtres, listes, légendes `<figcaption>`, cellules narratives `<td>`) contient un verbe conjugué reconnu. **Zéro phrase nominale.**\n4. **Médicaments cliquables d'emblée & Fenêtres centrées PK/PD à 2 onglets (Consigne Vial 20.11.26)** :\n   - Dès qu'un médicament est évoqué, il devient cliquable (`<a class=\"ouvre med-chip\" href=\"#f-...\">`).\n   - Chaque `<section class=\"fenetre mb\" id=\"f-...\"><div class=\"fen\">` s'ouvre au centre de l'écran et contient **2 onglets** :\n     * **Onglet 1 (`data-tab=\"pk\"`)** : Pharmacocinétique + **Courbe vectorielle SVG $C(t)$** + **4 paramètres cliniciens mis en évidence** (`.pkpd-kpis`).\n     * **Onglet 2 (`data-tab=\"pd\"`)** : Pharmacodynamique & Clinique + **Courbe vectorielle SVG $E(C)$** + posologies/précautions/grossesse suisses (Compendium.ch / AIPS).\n5. **Images** : uniquement à l'intérieur des `<section class=\"fenetre\">`, jamais hors fenêtre (licences selon Prompt Alpha § 4). Ne comptent pas dans le calibre.\n6. **Zéro terminologie de chantier visible** : aucun texte visible (ni `<title>`) ne doit contenir `LOT`, `V0`, `Phase A/B`, `DX.n`, `Appel A/B`, `Partie n`. Seuls les noms de fichiers gardent le format Alpha (`LOT_nnn_Phase_A_V0.html`, `LOT_nnn_Phase_B_V0_DX.i.html`).\n7. **Circuits & Plans** :\n   - `MONOGRAPHIQUE` (189 SSP) : plan maladie en 14 points (Prompt Alpha § 3.1).\n   - `NON_MONOGRAPHIQUE` (52 SSP) : Leçon en 12 à 14 points adaptés (Prompt Alpha § 3.2). **Jamais** de plan maladie ni de titres « Physiopathologie / Approche syndromique / Diagnostic positif » artificiels.\n   - `MIXTE` (7 SSP) : Prompt Alpha § 3.3, chaque fichier déclare `<meta name=\"ssp-circuit\" content=\"...\">`.\n8. **Correctifs Frontend v2 / Architecture `_sources/` (`UNIQUE.html` & `_polices/`)** :\n   - **Arborescence propre par SSP** : à la racine de `SSP_nnn/`, seul **`SSP_nnn_<code>_UNIQUE.html`** (plus le sous-dossier **`_sources/`**) est visible. Tous les fichiers sources (`LOT_nnn_*.html`, `images/`, `NOTIONS.*`, `MANIFESTE.json`, `DECISION*`, `paquet.json`, `_archive_avant_alpha/`) sont rangés dans `SSP_nnn/_sources/` sans rien supprimer.\n   - **Barre haute amovible (`gabarit_unique.html`)** : `#topbar` compacte 1 ligne (~42 px) avec pilule active, fil d'Ariane section, boutons `◀`/`▶`, tiroir overlay amovible `#dd-drawer` (`☰ Diagnostics (N) ▾` + option `📌 Épingler`) contenant `nav#nav` en colonnes égales (`32 px`, teinte unique par cours), et bouton `▴ Masquer barre` + pilule flottante `#btn-show-bar`.\n   - **Zéro dédoublement & navigation `#...` 100 % fonctionnelle (`forme.js`)** : script `forme.js` exécuté sous `DOMContentLoaded` et injecté par `assembler_unique.py`/`inliner.py` après `</head>` et avant `#signature-ia`/`</body>` ; intercepteur global appelant `e.preventDefault()` sur 100 % des `href^=\"#\"` (bloque le rechargement `srcdoc` + `file://`).\n   - **Modales centrées `<div class=\"fen\">` & désaturation (`forme.css` / `optimiser_ssp.py`)** : ouverture via classe `.fm-open` (plus `:target` en repli) avec pile `modalStack` et bouton `Fermer ✕` sticky (sans `history.back()`), auto-enveloppement `<div class=\"fen\">`, tableaux hors modale déplacés vers `<section class=\"fenetre fm-tab-fen\">` déclenchés par cartes `.fm-encart-fen`, citations `<sup class=\"r\"><a>` compactées en `[N]` avec modale aperçu `#fm-src-modal` empilable (`fm-stack-top`), puces médicaments `a.ouvre.med-chip` (`℞ ...`, `white-space: nowrap`, compatible accents français), repli du plan latéral desktop `#fm-plan-toggle`, îlots discontinus (`margin-bottom: 30px`) et padding bas `5.5rem` protégeant la lecture au-dessus de `#signature-ia`.\n   - **HTML unique** : ne jamais l'écrire à la main ; toujours exécuter `optimiser_ssp.py` puis `assembler_unique.py nnn`.\n\n## § 2. ARCHIVAGE & WORKFLOW PAR SSP (P0 → P4)\n- **Zéro suppression** : avant d'écraser ou renommer un fichier source existant, archiver dans `SSP_nnn/_sources/_archive_avant_alpha/`.\n- **P0 (Préparer)** : lire circuit (`catalogue_248.json`), entités (`NOTIONS.md`/`NOTIONS.json`), `memoire_zero_token.py --digest --lot nnn`, écrire `PLAN_ENTITES.md`.\n- **P1 (Décider)** : noter dans `DECISION.md` (Corriger / Réécrire si mécanique, faux plan maladie ou `< 30 Ko` / Créer).\n- **P2 (Produire)** : `LOT_nnn_Phase_A_V0.html` + `LOT_nnn_Phase_B_V0_DX.1..N.html`, 100 % des notions de `NOTIONS.json` expliquées et sourcées (Compendium.ch / AIPS, OFSP, ASSM, CC, LAMal, LAVI, Smarter Medicine), sans aucune phrase gabarit de la cartographie.\n- **P3 (Portes de Contrôle + Optimisation + Assemblage + Audit Chrome)** :\n  1. `controle3.py --script-ok` → **`VERT {}`** (si `paquet.json` présent ; `--script-ok` requis car `_sources/` référence `../../_polices/forme.js`)\n  2. `verif_aips.py` → **`OK`** (si `paquet.json` présent) et `restaurer_fond.py --verifier` → **`exit=0`**\n  3. `python _outils/optimiser_ssp.py nnn` → migration vers `_sources/`, tableaux déplacés en `<div class=\"fen\">`, teintes non bleues `--fm-a`\n  4. `python _outils/verif_mission.py nnn` → **100 % fichiers `PASS`** (`errors: []`)\n  5. `python _outils/assembler_unique.py nnn` → **`(1 + N) / (1 + N) onglets`** à la racine de `SSP_nnn/`\n  6. `python _outils/notions.py verifier nnn` → **`0 NON`** + copier `rapport_notions.csv` dans `SSP_nnn/_sources/`\n  7. `python _outils/audit_unique_browser.py nnn --all-tabs` → **`PASS` sur 100 % des onglets en Chrome headless réel**\n  8. Ajouter ligne dans `SUIVI_PRODUCTION.csv` + `git commit` + `git push origin main`.\n- **P4 (Affinage)** : consigner tout doute clinique/posologique non vérifié dans `1_Claude AI/HANDOFF_AFFINAGE.md` sous `## SSP_nnn`.\n\n## § 3. MISSION 2 — SSP 001 → 032\n- Extraire les cours depuis `SSP_nnn_<code>_UNIQUE.html` (JSON `data` gzip+base64, marqueurs `@@IMG:…@@`, `@@FONT:…@@`) après archivage des anciens `LOT_nnn_*.html` dans `_archive_avant_alpha/`.\n- Le frontend reste identique ; auditer le contenu avec la même sévérité (attention : `SSP_013` G13 = `NON_MONOGRAPHIQUE`, `SSP_014` G14 = `MIXTE`).\n- Produire `1_Claude AI/AUDIT_001-032.md` et corriger tous les ❌.\n\n## § 4. LES 12 BLOCAGES ROUGE (REJET IMMÉDIAT)\n1. Identification absente ou incertaine.\n2. Signature `#signature-ia` absente, modifiée ou supprimée.\n3. Entité de la Cartographie sans cours.\n4. Fichier hors intervalle `80–100 Ko` de texte pur (tout cours ; un cours de 30–50 Ko est à enrichir).\n5. Toute phrase nominale.\n6. Toute notion au verdict `NON`.\n7. Phrase gabarit de `cartographie_DATA.json` recopiée dans un cours.\n8. Plan maladie appliqué à une Leçon `NON_MONOGRAPHIQUE`.\n9. Terme de chantier visible (`LOT`, `V0`, `Phase A/B`, `DX.n`, `Appel`, `Partie n`).\n10. Posologie sans source de la cascade suisse.\n11. Image hors `<section class=\"fenetre\">`.\n12. Fichier supprimé au lieu d'être archivé.\n\n## § 5. ANNEXE CIRCUITS (248 SSP)\n- **NON_MONOGRAPHIQUE (52)** : 013 · 065 · 069 · 176 · 180 · 181 · 182 · 184 · 185 · 186 · 192 · 194 · 195 · 198 · 200 · 203 · 204 · 205 · 206 · 207 · 208 · 209 · 210 · 211 · 212 · 213 · 214 · 215 · 216 · 217 · 218 · 219 · 220 · 221 · 222 · 224 · 225 · 226 · 227 · 232 · 233 · 235 · 236 · 237 · 238 · 239 · 240 · 241 · 242 · 243 · 246 · 247.\n- **MIXTE (7)** : 014 · 165 · 174 · 175 · 190 · 202 · 223.\n- **MONOGRAPHIQUE (189)** : tous les autres SSP."
+}

@@ -1,0 +1,2447 @@
+{
+  "rappel_obligatoire_avant_redaction": {
+    "lecture_imperative": [
+      "1. Lire intégralement PROMPT_Alpha_19.11.26.md ET la mise à jour incluse dans prompt_alpha_a_jour ci-dessous.",
+      "2. Respecter l'intervalle GLOBAL par cours : viser 85–95 Ko de texte médical pur (soit ~95–115 Ko de fichier JSON) sans quota rigide par partie — répartir le texte proportionnellement à l'importance clinique des parties.",
+      "3. Produire graduellement 1 cours complet par requête (Phase A, puis Cours 1, Cours 2...) en français médical académique, phrases verbales exclusives (0 phrase nominale), zéro prose générique ou patronnée.",
+      "4. Utiliser uniquement les guillemets typographiques français « … » dans les valeurs texte JSON (jamais de guillemet droit non échappé).",
+      "5. Zéro arbre décisionnel graphique (.fm-canvas) : ne générer aucun schéma décisionnel."
+    ],
+    "specificites_locales_ssp": [
+      "Circuit NON_MONOGRAPHIQUE : conserver strictement l'architecture en Leçons Suisses Structurées (14 points adaptés), SANS JAMAIS utiliser de titres ou de plan maladie artificiel (interdiction de Physiopathologie / Approche syndromique / Diagnostic positif).",
+      "Couvrir 100 % des notions obligatoires listées dans phase_b[*].plan[*].notions_obligatoires pour Demande de conseil génétique (O7.25).",
+      "Cascade posologique suisse à 4 paliers obligatoire : 1. AIPS Swissmedic (n° 5 chiffres) -> 2. Compendium.ch -> 3. Sociétés savantes & CHU suisses (HUG, CHUV, Inselspital, USZ, USB, OFSP, ASSM, SSMIG, Tox Info Suisse 145) -> 4. Sociétés savantes européennes.",
+      "Spécificités SSP_247 : LAGH (RS 810.12 : consentement écrit, droit de ne pas savoir art. 8, protection des mineurs art. 16, assurances art. 42-44), LPMA art. 5a (DPI), OPAS art. 12d (DPNI >= 1/1000), classification ACMG/AMP 5 classes (VUS = classe 3)."
+    ]
+  },
+  "meta": {
+    "rang_gravite": 3,
+    "ssp": "SSP_247",
+    "code_profiles": "O7.25",
+    "nom_francais": "Demande de conseil génétique",
+    "circuit": "NON_MONOGRAPHIQUE",
+    "police_obligatoire": "Atkinson Hyperlegible",
+    "calibre_cible": "80–100 Ko texte pur",
+    "arbres_decisionnels_autorises": false,
+    "mode_redaction": "Neon Deep Research",
+    "nb_chapitres_total": 16,
+    "defauts_audit_initial": [
+      "Incomplet (11/16 cours)",
+      "11 squelette(s) <15 Ko",
+      "Faux plan maladie (11 f.)",
+      "145 phrases nominales",
+      "Termes chantier (10 f.)"
+    ]
+  },
+  "sommaire": {
+    "phase_a": {
+      "fichier_html_cible": "LOT_247_Phase_A_V0.html",
+      "titre": "Demande de conseil génétique — Vue d'ensemble et orientation clinique (O7.25)"
+    },
+    "phase_b": [
+      {
+        "cours_numero": 1,
+        "titre": "Conseil génétique en oncogénétique (BRCA1/2, syndrome de Lynch)",
+        "cim": "Z15.0",
+        "urgence": "chronique"
+      },
+      {
+        "cours_numero": 2,
+        "titre": "Conseil génétique prénatal (âge maternel, DPNI, antécédents familiaux)",
+        "cim": "Z31.5",
+        "urgence": "semi-urgent"
+      },
+      {
+        "cours_numero": 3,
+        "titre": "Conseil génétique préconceptionnel (consanguinité, porteur sain)",
+        "cim": "Z31.5",
+        "urgence": "chronique"
+      },
+      {
+        "cours_numero": 4,
+        "titre": "Conseil génétique pour cardiopathie héréditaire (CMH, QT long, Brugada)",
+        "cim": "I42.2",
+        "urgence": "semi-urgent"
+      },
+      {
+        "cours_numero": 5,
+        "titre": "Conseil génétique pour hypercholestérolémie familiale ou hémochromatose",
+        "cim": "E78.0",
+        "urgence": "chronique"
+      },
+      {
+        "cours_numero": 6,
+        "titre": "Conseil génétique pour maladie neurologique héréditaire (Huntington, SLA familiale)",
+        "cim": "G10",
+        "urgence": "chronique"
+      },
+      {
+        "cours_numero": 7,
+        "titre": "Conseil génétique pédiatrique devant retard de développement ou malformation",
+        "cim": "Q89.9",
+        "urgence": "semi-urgent"
+      },
+      {
+        "cours_numero": 8,
+        "titre": "Interprétation d'une variante de signification incertaine (VUS) ou découverte fortuite",
+        "cim": "Z13.7",
+        "urgence": "chronique"
+      },
+      {
+        "cours_numero": 9,
+        "titre": "Cadre légal suisse du conseil génétique (LAGH : consentement, droit de ne pas savoir)",
+        "cim": "Z71.8",
+        "urgence": "chronique"
+      },
+      {
+        "cours_numero": 10,
+        "titre": "Diagnostic préimplantatoire (DPI) selon la LPMA en Suisse",
+        "cim": "Z31.4",
+        "urgence": "chronique"
+      },
+      {
+        "cours_numero": 11,
+        "titre": "Diagnostic prénatal urgent d'anomalie fœtale sévère",
+        "cim": "O35.0",
+        "urgence": "urgent"
+      },
+      {
+        "cours_numero": 12,
+        "titre": "Syncope ou mort subite familiale suspecte de canalopathie héréditaire",
+        "cim": "I45.8",
+        "urgence": "immediate"
+      },
+      {
+        "cours_numero": 13,
+        "titre": "Résultat oncogénétique urgent modifiant une décision chirurgicale immédiate",
+        "cim": "Z15.0",
+        "urgence": "urgent"
+      },
+      {
+        "cours_numero": 14,
+        "titre": "Dépistage néonatal positif urgent (mucoviscidose, PCU, SMA)",
+        "cim": "Z13.0",
+        "urgence": "urgent"
+      },
+      {
+        "cours_numero": 15,
+        "titre": "Détresse psychologique majeure ou culpabilité parentale après annonce génétique",
+        "cim": "F43.0",
+        "urgence": "semi-urgent"
+      }
+    ]
+  },
+  "phase_a": {
+    "titre": "Demande de conseil génétique — Vue d'ensemble (O7.25)",
+    "plan": [
+      {
+        "point": 1,
+        "titre": "Définition, portée clinique et cadre suisse de la situation",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit NON_MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 2,
+        "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit NON_MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 3,
+        "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit NON_MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 4,
+        "titre": "Démarche d'évaluation structurée et situations différentielles",
+        "description": "Présentation et hiérarchisation des 15 entités de la Cartographie Renouveau."
+      },
+      {
+        "point": 5,
+        "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit NON_MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 6,
+        "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit NON_MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 7,
+        "titre": "Typologie des situations et stratification des priorités",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit NON_MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 8,
+        "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit NON_MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 9,
+        "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit NON_MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 10,
+        "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit NON_MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 11,
+        "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit NON_MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 12,
+        "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit NON_MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 13,
+        "titre": "Points clés essentiels pour la pratique suisse",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit NON_MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 14,
+        "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit NON_MONOGRAPHIQUE, sans arbre décisionnel."
+      }
+    ]
+  },
+  "phase_b": [
+    {
+      "cours_numero": 1,
+      "fichier_html_cible": "LOT_247_Phase_B_V0_DX.1.html",
+      "titre": "Conseil génétique en oncogénétique (BRCA1/2, syndrome de Lynch)",
+      "cim": "Z15.0",
+      "urgence": "chronique",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition, portée clinique et cadre suisse de la situation",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Évaluation du risque héréditaire de cancer (sein/ovaire BRCA1/2/PALB2 ; colorectal/endomètre Lynch)."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "5–10 % des cancers du sein et 3–5 % des cancers colorectaux ont une prédisposition monogénique."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Transmission autosomique dominante (50 % de risque pour chaque enfant) de mutations de gènes suppresseurs de tumeurs."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche d'évaluation structurée et situations différentielles",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Cancer actif nécessitant un résultat rapide pour décision chirurgicale ou thérapie ciblée (anti-PARP)."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Arbre généalogique sur 3 générations (types de cancers, âges au diagnostic, bilatéralité, ascendance)."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Examen clinique ciblé selon syndrome (peau, thyroïde, macrocéphalie pour Cowden)."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Typologie des situations et stratification des priorités",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Identification d'une variante pathogène ou stratification du risque familial empirique."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Test génétique constitutionnel (panel NGS) après conseil génétique et consentement écrit LAGH."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Analyse tumorale préalable (IHC MMR / instabilité des microsatellites pour Lynch)."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Ne jamais tester un mineur sans bénéfice médical pédiatrique immédiat."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Surveillance IRM mammaire annuelle dès 25–30 ans, coloscopie tous les 1–2 ans, annexectomie/mastectomie prophylactique, test en cascade des apparentés."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Anxiété majeure, conflits familiaux autour de la transmission de l'information."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Suivi annuel en consultation d'oncogénétique."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Diminution drastique de la mortalité par cancer grâce à la prévention ciblée."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Oncogénéticien, oncologue, gynécologue, gastroentérologue."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés essentiels pour la pratique suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 2,
+      "fichier_html_cible": "LOT_247_Phase_B_V0_DX.2.html",
+      "titre": "Conseil génétique prénatal (âge maternel, DPNI, antécédents familiaux)",
+      "cim": "Z31.5",
+      "urgence": "semi-urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition, portée clinique et cadre suisse de la situation",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Information et accompagnement des futurs parents sur les risques génétiques fœtaux et options diagnostiques."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Proposé systématiquement au 1er trimestre en Suisse (test du 1er trimestre +/- DPNI remboursé si risque >= 1/1000)."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "DPNI (ADN fœtal libre circulant) est un test de DÉPISTAGE (excellente sensibilité pour T21), nécessitant confirmation invasive si positif."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche d'évaluation structurée et situations différentielles",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Clarté nucale >= 3.5 mm ou malformation échographique majeure (indication d'emblée à biopsie de trophoblaste/amniocentèse !)."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Âge maternel, antécédents de fausse couche, anomalies fœtales antérieures, consanguinité, souhaits parentaux."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Échographie du 1er trimestre (clarté nucale, morphologie)."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Typologie des situations et stratification des priorités",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Information libre permettant aux parents d'accepter ou refuser tout dépistage (droit de ne pas savoir)."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Dépistage combiné T1 (clarté nucale + PAPP-A + bêta-hCG) -> DPNI si risque intermédiaire -> caryotype/CGH-array sur PVC/amniocentèse si haut risque."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Dépistage ciblé de porteur (ex. hémoglobinopathies, mucoviscidose) si indiqué."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Si anomalie grave détectée : annonce multidisciplinaire empathique et présentation neutre des options (poursuite avec accueil spécialisé vs IMG)."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Soutien psychologique tout au long de la grossesse."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Risque faible de fausse couche (0.1–0.3 %) après amniocentèse/PVC, détresse décisionnelle."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Coordination étroite entre obstétrique et génétique."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Permet des choix parentaux éclairés conformes aux valeurs du couple."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Gynécologue-obstétricien (médecine fœto-maternelle), généticien."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés essentiels pour la pratique suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 3,
+      "fichier_html_cible": "LOT_247_Phase_B_V0_DX.3.html",
+      "titre": "Conseil génétique préconceptionnel (consanguinité, porteur sain)",
+      "cim": "Z31.5",
+      "urgence": "chronique",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition, portée clinique et cadre suisse de la situation",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Consultation avant conception visant à évaluer le risque de transmission d'une maladie héréditaire."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Fréquent en cas de consanguinité (cousins germains) ou d'antécédent familial de maladie récessive."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "La consanguinité augmente le risque de malformation/maladie récessive de ~2–3 % (population générale) à ~4–6 %."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche d'évaluation structurée et situations différentielles",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Antécédent d'enfant décédé précocement de cause inconnue ou maladie métabolique."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Arbre généalogique détaillé des deux conjoints, origine géographique (thalassémie, Tay-Sachs, drépanocytose)."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Examen physique si l'un des parents présente un signe clinique."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Typologie des situations et stratification des priorités",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Quantification précise du risque de récurrence (ex. 25 % si deux porteurs sains d'une maladie récessive)."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Test du statut de porteur ciblé (ou panel étendu si consanguinité) après consentement LAGH."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Vérification de l'immunité rubéole/varicelle et supplémentation en acide folique 0.4 mg/j."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Présentation des options reproductives : conception naturelle avec ou sans diagnostic prénatal, DPI, don de gamètes."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Planification prénatale sereine avant le début de la grossesse."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Anxiété conjugale, culpabilisation d'un conjoint porteur."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Suivi dès le début de grossesse si projet concret."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Offre un maximum d'options reproductives avant la conception."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Généticien, conseiller en génétique, gynécologue."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés essentiels pour la pratique suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 4,
+      "fichier_html_cible": "LOT_247_Phase_B_V0_DX.4.html",
+      "titre": "Conseil génétique pour cardiopathie héréditaire (CMH, QT long, Brugada)",
+      "cim": "I42.2",
+      "urgence": "semi-urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition, portée clinique et cadre suisse de la situation",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Évaluation génétique familiale devant une cardiomyopathie (CMH, CMD, DAVD) ou canalopathie rythmique."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Cause majeure de mort subite chez le sujet < 35–40 ans."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Transmission autosomique dominante majoritaire (MYH7, MYBPC3, KCNQ1, SCN5A) avec pénétrance variable."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche d'évaluation structurée et situations différentielles",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Syncope récente, tachycardie ventriculaire non soutenue, antécédent familial de mort subite."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Syncopes à l'effort ou émotion, mort subite inexpliquée dans la famille (noyade, accident mono-véhicule)."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Auscultation cardiaque, ECG de toute la parentèle au 1er degré."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Typologie des situations et stratification des priorités",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Mutation pathogène identifiée permettant d'exclure les apparentés non porteurs (fin du suivi !)."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Test génétique d'abord chez le cas index atteint, puis dépistage en cascade ciblé chez les apparentés."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Bilan cardiologique (ECG, Holter, ETT/IRM) régulier des apparentés porteurs ou si gène non trouvé."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Si porteur à haut risque : bêtabloquant, éviction médicaments allongeant le QT, défibrillateur (DAI) si indiqué."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Adaptation de la pratique sportive (éviter compétition intense selon pathologie)."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Mort subite rythmique chez un apparenté non dépisté."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Réévaluation cardiogénétique tous les 1–3 ans."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Le dépistage en cascade sauve littéralement des vies dans la famille."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Cardiologue, généticien, médecin du sport."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés essentiels pour la pratique suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 5,
+      "fichier_html_cible": "LOT_247_Phase_B_V0_DX.5.html",
+      "titre": "Conseil génétique pour hypercholestérolémie familiale ou hémochromatose",
+      "cim": "E78.0",
+      "urgence": "chronique",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition, portée clinique et cadre suisse de la situation",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Dépistage familial de l'hypercholestérolémie familiale (HF : 1/250) ou hémochromatose HFE (1/300)."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "HF touche ~30'000 personnes en Suisse, dont > 80 % restent non diagnostiquées."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "HF : mutation LDLR/ApoB/PCSK9 (autosomique dominante) -> LDL très élevé dès la naissance et infarctus précoce."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche d'évaluation structurée et situations différentielles",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "HF homozygote (LDL > 13 mmol/l, coronaropathie dès l'enfance)."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Infarctus < 55 ans (H) ou < 60 ans (F) dans la famille, LDL > 4.9 mmol/l (HF) ; asthénie, arthralgies, diabète (hémochromatose)."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Xanthomes tendineux (Achille), arc cornéen < 45 ans (HF) ; mélanodermie, hépatomégalie (hémochromatose)."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Typologie des situations et stratification des priorités",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Diagnostic familial confirmé ouvrant le dépistage aux apparentés au 1er degré."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Score DLCN + bilan lipidique familial (HF) ; coefficient de saturation transferrine > 45 % + ferritine + gène HFE C282Y (hémochromatose)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Test génétique LDLR/ApoB/PCSK9 pour dépistage en cascade."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "HF : statine haute intensité précoce (+ ézétimibe / anti-PCSK9) dès l'enfance/adolescence selon LDL."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Hémochromatose : saignées thérapeutiques maintenant ferritine 50–100 µg/l (avant cirrhose)."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Infarctus précoce, cirrhose/CHC (hémochromatose)."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Suivi biologique lipidique ou martial régulier."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Espérance de vie normalisée sous traitement précoce."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Médecin de famille, lipidologue/cardiologue, gastroentérologue, généticien."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés essentiels pour la pratique suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 6,
+      "fichier_html_cible": "LOT_247_Phase_B_V0_DX.6.html",
+      "titre": "Conseil génétique pour maladie neurologique héréditaire (Huntington, SLA familiale)",
+      "cim": "G10",
+      "urgence": "chronique",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition, portée clinique et cadre suisse de la situation",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Accompagnement de personnes asymptomatiques à risque (50 %) d'une maladie neurodégénérative grave sans traitement curatif."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Situation éthique emblématique du droit de savoir et du droit de ne pas savoir."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Chorée de Huntington (expansion CAG >= 36–40 sur HTT) : pénétrance complète, anticipation paternelle."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche d'évaluation structurée et situations différentielles",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Risque suicidaire lors de l'annonce d'un statut porteur positif (ou parfois culpabilité du survivant si négatif !)."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Motivations profondes du test (projet parental, carrière, angoisse de l'incertitude), soutien social, santé mentale."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Évaluation neurologique et psychologique préalable (dépister signes débutants ou dépression sévère)."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Typologie des situations et stratification des priorités",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Demande libre, mûrement réfléchie d'un adulte capable de discernement."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Protocole international en plusieurs consultations espacées (>= 1 mois de réflexion) avec généticien et psychologue/psychiatre."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Remise du résultat exclusivement en personne."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Reporter le test si dépression majeure active non stabilisée."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Soutien psychologique post-annonce quel que soit le résultat ; option DPI sans dévoiler le statut parental (test d'exclusion)."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Dépression sévère, suicide, discrimination sociale."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Suivi psychologique à 1 semaine, 1 mois et long terme."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Le protocole encadré réduit nettement les événements psychologiques graves post-test."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Généticien, neurologue, psychiatre/psychologue."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés essentiels pour la pratique suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 7,
+      "fichier_html_cible": "LOT_247_Phase_B_V0_DX.7.html",
+      "titre": "Conseil génétique pédiatrique devant retard de développement ou malformation",
+      "cim": "Q89.9",
+      "urgence": "semi-urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition, portée clinique et cadre suisse de la situation",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Bilan génétique d'un enfant présentant un retard global de développement, TSA ou malformations congénitales."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Rendement diagnostique actuel de 30–50 % grâce à la CGH-array et au séquençage d'exome (WES)."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Nombreuses causes sont des mutations de novo (risque de récurrence faible ~1 % pour les parents) mais pas toutes."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche d'évaluation structurée et situations différentielles",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Régression psychomotrice (évoquer maladie métabolique traitable !), malformations cardiaques/rénales associées."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Grossesse, accouchement, étapes du développement, antécédents familiaux."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Courbes de croissance (PC !), dysmorphie faciale/extrémités, examen cutané (taches café au lait/hypochromiques) et neurologique."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Typologie des situations et stratification des priorités",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Variant pathogène ou réarrangement chromosomique expliquant le phénotype."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "CGH-array (puce ADN) + X-fragile (garçon) -> puis exome trio (enfant + parents) si négatif."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Bilan métabolique si signes d'alerte ou régression."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Dépister d'emblée les comorbidités associées au syndrome trouvé (cœur, rein, audition, vision)."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Information sur le risque de récurrence pour une future grossesse et orientation vers thérapies précoces (logopédie, ergo)."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Anxiété parentale, culpabilité (expliquer le caractère aléatoire des mutations de novo)."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Suivi pédiatrique et génétique évolutif (les bases de données génétiques s'enrichissent chaque année)."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Soulagement immense des familles face au diagnostic nommé et accès aux aides AI."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Pédiatre, neuropédiatre, généticien."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés essentiels pour la pratique suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 8,
+      "fichier_html_cible": "LOT_247_Phase_B_V0_DX.8.html",
+      "titre": "Interprétation d'une variante de signification incertaine (VUS) ou découverte fortuite",
+      "cim": "Z13.7",
+      "urgence": "chronique",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition, portée clinique et cadre suisse de la situation",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Découverte lors d'un séquençage d'une variation génétique dont l'impact pathogène n'est pas prouvé (classe 3 ACMG) ou d'un gène non lié au motif initial."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Retrouvée dans 10–30 % des panels multi-gènes ; découvertes fortuites actionnables ~1–3 % des exomes."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Classification ACMG en 5 classes : bénigne (1), probablement bénigne (2), VUS (3), probablement pathogène (4), pathogène (5)."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche d'évaluation structurée et situations différentielles",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Risque de chirurgie prophylactique abusive (mastectomie !) sur une simple VUS mal interprétée."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Vérifier ce qui avait été consenti avant le test concernant les découvertes incidentes (LAGH)."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Corréler le phénotype clinique du patient avec le gène concerné."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Typologie des situations et stratification des priorités",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "VUS classée classe 3 = résultat non conclusif, à traiter cliniquement comme négatif (suivi selon histoire familiale)."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Analyse bio-informatique et discussion en colloque de génétique moléculaire ; NE PAS tester la famille pour une VUS (sauf étude de ségrégation encadrée)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Reclassification périodique tous les 2–3 ans."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Dissuader toute décision irréversible basée sur une VUS."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Pour découverte fortuite actionnable (ex. BRCA, LDLR, KCNQ1) : prise en charge préventive adaptée si consentie."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Surtraitement chirurgical inutile, anxiété injustifiée."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Réévaluation génétique à 2–3 ans."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Évite les erreurs médicales liées à la complexité génomique."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Généticien clinicien, biologiste moléculaire, spécialiste d'organe."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés essentiels pour la pratique suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 9,
+      "fichier_html_cible": "LOT_247_Phase_B_V0_DX.9.html",
+      "titre": "Cadre légal suisse du conseil génétique (LAGH : consentement, droit de ne pas savoir)",
+      "cim": "Z71.8",
+      "urgence": "chronique",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition, portée clinique et cadre suisse de la situation",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Ensemble des règles légales protégeant la dignité, l'autodétermination et la confidentialité lors d'analyses génétiques."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Applicable à toutes les analyses génétiques médicales et non médicales en Suisse."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Interdiction de discrimination (employeur, assurance-vie > 400'000 CHF) ; protection stricte des mineurs et du droit de ne pas savoir."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche d'évaluation structurée et situations différentielles",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Tests génétiques directs au consommateur (DTC) achetés sur internet sans conseil médical ni fiabilité clinique."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Vérifier que la demande vient du patient (pas d'un tiers/employeur) et qu'il souhaite connaître le résultat."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Évaluation de la capacité de discernement."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Typologie des situations et stratification des priorités",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Procédure conforme à la LAGH."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Conseil génétique non directif pré- et post-test + consentement écrit explicite (pour tests présymptomatiques/prénataux)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Respect strict du secret médical même vis-à-vis des membres de la famille (le patient transmet l'information à ses proches)."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Ne jamais communiquer un résultat génétique à un assureur ou employeur sans base légale/consentement."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "En cas de refus du patient d'informer ses apparentés sur un risque grave évitable : procédure exceptionnelle via autorité cantonale si besoin."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Sanctions pénales, discrimination assurantielle, rupture familiale."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Archivage sécurisé des résultats."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Garantit la confiance du public dans la médecine génomique."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Généticien, médecin prescripteur, service juridique."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés essentiels pour la pratique suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 10,
+      "fichier_html_cible": "LOT_247_Phase_B_V0_DX.10.html",
+      "titre": "Diagnostic préimplantatoire (DPI) selon la LPMA en Suisse",
+      "cim": "Z31.4",
+      "urgence": "chronique",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition, portée clinique et cadre suisse de la situation",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Analyse génétique d'embryons obtenus par FIV/ICSI avant transfert utérin pour éviter la transmission d'une maladie grave."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Encadré strictement par la Loi sur la procréation médicalement assistée (LPMA)."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Biopsie de quelques cellules du trophectoderme au stade blastocyste (J5) suivie de cryoconservation."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche d'évaluation structurée et situations différentielles",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Demande illégale de sélection de sexe non médical ou de traits non pathologiques (strictement interdit en Suisse)."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Maladie génétique familiale grave connue, réserve ovarienne, âge maternel, convictions éthiques du couple."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Bilan de fertilité du couple."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Typologie des situations et stratification des priorités",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Couple porteur d'une mutation grave éligible au PGT-M / PGT-SR."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Conseil génétique et médecine de la reproduction confirmant l'éligibilité légale (LPMA) + faisabilité moléculaire."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Comparaison avec conception naturelle + diagnostic prénatal (PVC/amniocentèse)."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Prévention du syndrome d'hyperstimulation ovarienne lors de la stimulation FIV."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Prise en charge financière partielle ou non remboursée par LAMal (coût important à discuter)."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Échec d'implantation, erreur diagnostique rare (< 1–2 %, confirmation prénatale parfois proposée)."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Suivi de grossesse obstétrical standard après transfert réussi."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Taux de naissance vivante par transfert de ~40–50 % sans la maladie génétique."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Médecin de la reproduction, généticien, psychologue."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés essentiels pour la pratique suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 11,
+      "fichier_html_cible": "LOT_247_Phase_B_V0_DX.11.html",
+      "titre": "Diagnostic prénatal urgent d'anomalie fœtale sévère",
+      "cim": "O35.0",
+      "urgence": "urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition, portée clinique et cadre suisse de la situation",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Découverte échographique ou génétique d'une malformation majeure ou aneuploïdie sévère en cours de grossesse."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Situation émotionnellement dévastatrice nécessitant coordination rapide obstétrique-génétique."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Caractérisation précise du pronostic fœtal (létalité, handicap sévère, chirurgie néonatale possible)."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche d'évaluation structurée et situations différentielles",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Dépassement des 12 semaines (régime légal d'IMG pour détresse/indication médicale art. 119 CP)."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Âge gestationnel exact, valeurs parentales, soutien familial."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Échographie de référence morphologique détaillée / IRM fœtale."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Typologie des situations et stratification des priorités",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Diagnostic fœtal précis établi et expliqué de manière neutre et bienveillante."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Amniocentèse/PVC rapide (FISH/QF-PCR en 24–48 h + CGH-array) + avis spécialisés (neuropédiatre, chirurgien pédiatre)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Colloque prénatal multidisciplinaire."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Soutien psychologique immédiat ; accompagner librement la décision des parents (poursuite avec soins palliatifs/chirurgie ou IMG)."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Conseil génétique ultérieur pour évaluer le risque de récurrence avant prochaine grossesse."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Détresse psychologique majeure, deuil périnatal compliqué."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Suivi post-partum / post-IMG attentif."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "L'accompagnement multidisciplinaire aide les parents à traverser l'épreuve."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Obstétricien, généticien, pédiatre, psychologue/sage-femme."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés essentiels pour la pratique suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 12,
+      "fichier_html_cible": "LOT_247_Phase_B_V0_DX.12.html",
+      "titre": "Syncope ou mort subite familiale suspecte de canalopathie héréditaire",
+      "cim": "I45.8",
+      "urgence": "immediate",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition, portée clinique et cadre suisse de la situation",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Urgence rythmologique chez un patient ou apparenté présentant une syncope suspecte dans un contexte familial de mort subite."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Jusqu'à 30–40 % des morts subites inexpliquées du sujet jeune ont une cause génétique (autopsie moléculaire)."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Instabilité électrique ventriculaire (torsades de pointes, FV) sur mutation des canaux ioniques (K+, Na+, Ca2+)."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche d'évaluation structurée et situations différentielles",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Syncope à l'effort ou en position couchée, tachycardie ventriculaire, fièvre chez Brugada."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Circonstances de la syncope (effort, natation, réveil par sonnerie, fièvre pour Brugada !), antécédents familiaux."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "ECG 12 dérivations (QTc, aspect Brugada type 1 en V1–V2, onde epsilon), examen cardiaque."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Typologie des situations et stratification des priorités",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Canalopathie héréditaire ou cardiopathie arythmogène suspectée/confirmée."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "ECG immédiat + monitorage télémétrique + test génétique + bilan des apparentés au 1er degré."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Test à l'ajmaline ou épreuve d'effort en milieu cardiologique spécialisé."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Hospitalisation immédiate sous scope si syncope suspecte ; antipyrétiques agressifs si Brugada fébrile ; DAI si arrêt récupéré."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Remise de la liste des médicaments contre-indiqués (CredibleMeds / Brugadadrugs.org)."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Mort subite cardiaque récidivante."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Suivi rythmologique rapproché."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Traitement préventif très efficace (bêtabloquants, DAI)."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Cardiologue rythmologue, généticien, urgentiste."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés essentiels pour la pratique suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 13,
+      "fichier_html_cible": "LOT_247_Phase_B_V0_DX.13.html",
+      "titre": "Résultat oncogénétique urgent modifiant une décision chirurgicale immédiate",
+      "cim": "Z15.0",
+      "urgence": "urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition, portée clinique et cadre suisse de la situation",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Besoin d'un résultat génétique constitutionnel rapide (fast-track) chez une patiente venant de recevoir un diagnostic de cancer."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Pratique courante dans les centres du sein certifiés en Suisse (femme jeune, triple négatif, histoire familiale)."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Évite une seconde chirurgie lourde et oriente vers un traitement systémique ciblé (olaparib)."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche d'évaluation structurée et situations différentielles",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Pression temporelle forte risquant une décision précipitée sans véritable conseil."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Âge, type histologique (triple négatif), projet chirurgical immédiat, souhait de la patiente."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Statut tumoral et état général."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Typologie des situations et stratification des priorités",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Statut BRCA1/2/PALB2 connu avant le geste chirurgical définitif."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Conseil génétique rapide + prélèvement sanguin en circuit « fast-track » (résultat en 10–14 jours)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Discussion en tumor board sénologique."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Si positif : discuter mastectomie bilatérale avec reconstruction immédiate et impact thérapeutique."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Dépistage familial en cascade à planifier dans un second temps après le choc du diagnostic de cancer."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Double chirurgie évitable, détresse psychologique double (cancer + gène)."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Soutien psycho-oncologique dédié."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Optimise la stratégie oncologique dès la première intervention."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Oncologue, chirurgien sénologue, oncogénéticien, psycho-oncologue."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés essentiels pour la pratique suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 14,
+      "fichier_html_cible": "LOT_247_Phase_B_V0_DX.14.html",
+      "titre": "Dépistage néonatal positif urgent (mucoviscidose, PCU, SMA)",
+      "cim": "Z13.0",
+      "urgence": "urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition, portée clinique et cadre suisse de la situation",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Rappel urgent d'un nouveau-né suite à un résultat anormal au dépistage néonatal (11 maladies en Suisse)."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "En Suisse, > 99 % des nouveau-nés sont dépistés (Laboratoire de référence Zurich)."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Une intervention alimentaire ou thérapeutique dans les premiers jours prévient encéphalopathie, décès ou handicap."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche d'évaluation structurée et situations différentielles",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Vomissements/léthargie (galactosémie, déficit MCAD, HCS avec perte de sel !), hypotonie (SMA)."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Alimentation du nouveau-né, selles (iléus méconial), tonus, prise pondérale."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Examen néonatal complet (tonus, ictère, déshydratation, ambiguïté sexuelle pour HCS !)."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Typologie des situations et stratification des priorités",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Maladie métabolique, endocrinienne ou génétique confirmée."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Confirmation diagnostique immédiate en centre pédiatrique tertiaire (test de la sueur, acides aminés, génétique)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Traitement d'urgence dès la suspicion si maladie à décompensation aiguë (HCS -> hydrocortisone !)."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Contacter les parents avec tact et rapidité pour convocation le jour même au centre pédiatrique."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Conseil génétique familial (risque 25 % pour grossesses futures)."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Crise surrénalienne fatale (HCS), encéphalopathie (PCU), perte de motoneurones (SMA)."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Suivi pédiatrique spécialisé au long cours."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Développement normal attendu grâce au dépistage précoce."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Centre de dépistage néonatal, pédiatre, généticien."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés essentiels pour la pratique suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 15,
+      "fichier_html_cible": "LOT_247_Phase_B_V0_DX.15.html",
+      "titre": "Détresse psychologique majeure ou culpabilité parentale après annonce génétique",
+      "cim": "F43.0",
+      "urgence": "semi-urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition, portée clinique et cadre suisse de la situation",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Réaction de détresse aiguë, honte ou culpabilité intense suite à la découverte d'une mutation familiale transmise à un enfant."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Fréquente lors des diagnostics pédiatriques ou de tests présymptomatiques."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Assimilation erronée d'une transmission génétique aléatoire (méiose) à une faute morale personnelle."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche d'évaluation structurée et situations différentielles",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Idéation suicidaire, rupture familiale, rejet de l'enfant atteint."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Auto-accusations, tensions conjugales, évitement du suivi médical, anxiété sévère."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "État émotionnel, signes dépressifs, risque suicidaire."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Typologie des situations et stratification des priorités",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Crise d'adaptation aiguë liée à la culpabilité génétique."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Entretien de soutien empathique + déculpabilisation scientifique claire (personne ne choisit ses gènes)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Orientation vers psychologue spécialisé en génétique."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Valider l'émotion, sécuriser si crise suicidaire et corriger les croyances erronées."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Groupes de soutien de parents et suivi psychologique."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Dépression chronique, divorce, rupture de suivi de l'enfant."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Rendez-vous de reprise à court terme."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "La déculpabilisation active restaure la sérénité familiale."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Généticien, psychologue, pédiatre, associations de patients."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés essentiels pour la pratique suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    }
+  ],
+  "prompt_alpha_a_jour": "# MISSION : CORRECTION ET COMPLÉTION DES 248 SSP SUISSES (3 975 ENTITÉS + 248 CHAPITRES 0)\n\n## § 0. IDENTIFICATION, SIGNATURE & RÈGLES DE CONTINUITÉ — BLOQUANT ABSOLU\n1. **Identification obligatoire** en tête de première réponse :\n   - HEURE DE DÉBUT : AAAA-MM-JJ HH:MM (Europe/Zurich)\n   - MODÈLE : nom exact du modèle (ex. ANTIGRAVITY ORCHESTRATOR NEON)\n   - PLATEFORME : plateforme exacte (ex. ANTIGRAVITY)\n   - Ajouter la même ligne à `1_Claude AI/IDENTIFICATION_AGENTS.md`. Si incertitude, s'arrêter.\n2. **Signature IA fixe en bas à droite de TOUT HTML produit ou modifié** (juste avant `</body>`, en GRAS MAJUSCULE) :\n   `<div id=\"signature-ia\" style=\"position:fixed;right:12px;bottom:10px;z-index:9999;background:#fff;border:2px solid #000;padding:4px 10px;font:700 12px/1.3 Arial,sans-serif;text-transform:uppercase;color:#000\">DÉBUT : AAAA-MM-JJ HH:MM (EUROPE/ZURICH) · MODÈLE : <NOM> · PLATEFORME : <PLATEFORME></div>`\n   - **Seul Vial peut autoriser le retrait de ce bloc.** Un agent qui reprend un fichier signé ajoute sa propre ligne sous la précédente sans jamais effacer l'existante.\n3. **Continuité & transparence** :\n   - **Redémarrage propre à partir de `SSP_248`** : tous les cours précédemment modifiés ont été restaurés à l'état initial (`6941513`). Enchaîner continûment **`SSP_248 → SSP_033`**, puis **`SSP_001 → SSP_032`**.\n   - **Toujours afficher le raisonnement visible** en français dans chaque réponse.\n   - **Veille & relance GitHub** : commiter et pousser sur `origin main` après chaque SSP (ou lot <= 5 SSP) avec l'état à jour dans `SUIVI_PRODUCTION.csv`, `HANDOFF_AFFINAGE.md` et `HANDOFF_IA_COMPLET.md`.\n   - **Suivi graphique temps réel** : maintenir à jour le tableau de bord visuel temps réel des réalisations achevées et en cours.\n\n## § 1. RÈGLES ACTUALISÉES (PRIMENT SUR LE PROMPT ALPHA 19.11.26)\n1. **Nombre de cours par SSP** : **1 cours par entité de la Cartographie Renouveau** (15 à 24 entités par SSP, 3 975 au total) + le Chapitre 0 (`Phase_A`), dans l'ordre exact des `Cours 1 … N` de `SSP_nnn/NOTIONS.md` / `NOTIONS.json`.\n2. **QUALITÉ CLINIQUE MAXIMALE & ZÉRO MÉDIOCRITÉ (BLOQUANT ABSOLU — Consigne Vial 20.11.26)** :\n   - **Interdiction absolue de toute prose patronnée / générique** : aucune phrase-cadre où seul le nom de la pathologie change d'un cours à l'autre, aucun remplissage artificiel pour atteindre le calibre. La médiocrité clinique est dangereuse et entraîne un rejet immédiat.\n   - Chaque cours (`Phase_A` et `DX.1..N`) doit être **rédigé sur mesure** pour son entité exacte, avec : raisonnement physiopathologique et sémiologique réel, seuils numériques précis, diagnostics différentiels discriminants, posologies et contre-indications sourcées (Compendium.ch / AIPS, Tox Info Suisse, OFSP, ASSM, sociétés savantes suisses), vignettes cliniques authentiques et QCM exigeants de niveau Examen Fédéral Suisse.\n3. **INTERDICTION DES ARBRES DÉCISIONNELS (Consigne Vial 20.11.26)** :\n   - **Ne générer AUCUN arbre décisionnel ni algorithme graphique (`.fm-canvas`, SVG décisionnel, etc.)** dans `Phase_A` ou dans les `DX.n` — l'auteur (Vial) les réalisera lui-même.\n4. **Calibre texte pur actualisé (Consigne Vial 20.11.26)** :\n   - **80 à 100 Ko de texte pur UTF-8 par fichier** (`81 920` à `102 400` octets, calibre du Prompt Alpha confirmé par Vial le 20.11.2026 à 21:20, mesuré fenêtres comprises, hors balises HTML, CSS, JS, SVG et images).\n   - HTML hors images (`controle3.py`) : **`40 000` à `100 000` octets** (alerte).\n   - Densité maximale : zéro remplissage, zéro phrase pouvant figurer telle quelle dans un autre cours, zéro phrase de gabarit de `cartographie_DATA.json`.\n5. **Phrases verbales exclusives (BLOQUANT)** :\n   - Chaque phrase (texte, fenêtres, listes, légendes `<figcaption>`, cellules narratives `<td>`) contient un verbe conjugué reconnu. **Zéro phrase nominale.**\n4. **Médicaments cliquables d'emblée & Fenêtres centrées PK/PD à 2 onglets (Consigne Vial 20.11.26)** :\n   - Dès qu'un médicament est évoqué, il devient cliquable (`<a class=\"ouvre med-chip\" href=\"#f-...\">`).\n   - Chaque `<section class=\"fenetre mb\" id=\"f-...\"><div class=\"fen\">` s'ouvre au centre de l'écran et contient **2 onglets** :\n     * **Onglet 1 (`data-tab=\"pk\"`)** : Pharmacocinétique + **Courbe vectorielle SVG $C(t)$** + **4 paramètres cliniciens mis en évidence** (`.pkpd-kpis`).\n     * **Onglet 2 (`data-tab=\"pd\"`)** : Pharmacodynamique & Clinique + **Courbe vectorielle SVG $E(C)$** + posologies/précautions/grossesse suisses (Compendium.ch / AIPS).\n5. **Images** : uniquement à l'intérieur des `<section class=\"fenetre\">`, jamais hors fenêtre (licences selon Prompt Alpha § 4). Ne comptent pas dans le calibre.\n6. **Zéro terminologie de chantier visible** : aucun texte visible (ni `<title>`) ne doit contenir `LOT`, `V0`, `Phase A/B`, `DX.n`, `Appel A/B`, `Partie n`. Seuls les noms de fichiers gardent le format Alpha (`LOT_nnn_Phase_A_V0.html`, `LOT_nnn_Phase_B_V0_DX.i.html`).\n7. **Circuits & Plans** :\n   - `MONOGRAPHIQUE` (189 SSP) : plan maladie en 14 points (Prompt Alpha § 3.1).\n   - `NON_MONOGRAPHIQUE` (52 SSP) : Leçon en 12 à 14 points adaptés (Prompt Alpha § 3.2). **Jamais** de plan maladie ni de titres « Physiopathologie / Approche syndromique / Diagnostic positif » artificiels.\n   - `MIXTE` (7 SSP) : Prompt Alpha § 3.3, chaque fichier déclare `<meta name=\"ssp-circuit\" content=\"...\">`.\n8. **Correctifs Frontend v2 / Architecture `_sources/` (`UNIQUE.html` & `_polices/`)** :\n   - **Arborescence propre par SSP** : à la racine de `SSP_nnn/`, seul **`SSP_nnn_<code>_UNIQUE.html`** (plus le sous-dossier **`_sources/`**) est visible. Tous les fichiers sources (`LOT_nnn_*.html`, `images/`, `NOTIONS.*`, `MANIFESTE.json`, `DECISION*`, `paquet.json`, `_archive_avant_alpha/`) sont rangés dans `SSP_nnn/_sources/` sans rien supprimer.\n   - **Barre haute amovible (`gabarit_unique.html`)** : `#topbar` compacte 1 ligne (~42 px) avec pilule active, fil d'Ariane section, boutons `◀`/`▶`, tiroir overlay amovible `#dd-drawer` (`☰ Diagnostics (N) ▾` + option `📌 Épingler`) contenant `nav#nav` en colonnes égales (`32 px`, teinte unique par cours), et bouton `▴ Masquer barre` + pilule flottante `#btn-show-bar`.\n   - **Zéro dédoublement & navigation `#...` 100 % fonctionnelle (`forme.js`)** : script `forme.js` exécuté sous `DOMContentLoaded` et injecté par `assembler_unique.py`/`inliner.py` après `</head>` et avant `#signature-ia`/`</body>` ; intercepteur global appelant `e.preventDefault()` sur 100 % des `href^=\"#\"` (bloque le rechargement `srcdoc` + `file://`).\n   - **Modales centrées `<div class=\"fen\">` & désaturation (`forme.css` / `optimiser_ssp.py`)** : ouverture via classe `.fm-open` (plus `:target` en repli) avec pile `modalStack` et bouton `Fermer ✕` sticky (sans `history.back()`), auto-enveloppement `<div class=\"fen\">`, tableaux hors modale déplacés vers `<section class=\"fenetre fm-tab-fen\">` déclenchés par cartes `.fm-encart-fen`, citations `<sup class=\"r\"><a>` compactées en `[N]` avec modale aperçu `#fm-src-modal` empilable (`fm-stack-top`), puces médicaments `a.ouvre.med-chip` (`℞ ...`, `white-space: nowrap`, compatible accents français), repli du plan latéral desktop `#fm-plan-toggle`, îlots discontinus (`margin-bottom: 30px`) et padding bas `5.5rem` protégeant la lecture au-dessus de `#signature-ia`.\n   - **HTML unique** : ne jamais l'écrire à la main ; toujours exécuter `optimiser_ssp.py` puis `assembler_unique.py nnn`.\n\n## § 2. ARCHIVAGE & WORKFLOW PAR SSP (P0 → P4)\n- **Zéro suppression** : avant d'écraser ou renommer un fichier source existant, archiver dans `SSP_nnn/_sources/_archive_avant_alpha/`.\n- **P0 (Préparer)** : lire circuit (`catalogue_248.json`), entités (`NOTIONS.md`/`NOTIONS.json`), `memoire_zero_token.py --digest --lot nnn`, écrire `PLAN_ENTITES.md`.\n- **P1 (Décider)** : noter dans `DECISION.md` (Corriger / Réécrire si mécanique, faux plan maladie ou `< 30 Ko` / Créer).\n- **P2 (Produire)** : `LOT_nnn_Phase_A_V0.html` + `LOT_nnn_Phase_B_V0_DX.1..N.html`, 100 % des notions de `NOTIONS.json` expliquées et sourcées (Compendium.ch / AIPS, OFSP, ASSM, CC, LAMal, LAVI, Smarter Medicine), sans aucune phrase gabarit de la cartographie.\n- **P3 (Portes de Contrôle + Optimisation + Assemblage + Audit Chrome)** :\n  1. `controle3.py --script-ok` → **`VERT {}`** (si `paquet.json` présent ; `--script-ok` requis car `_sources/` référence `../../_polices/forme.js`)\n  2. `verif_aips.py` → **`OK`** (si `paquet.json` présent) et `restaurer_fond.py --verifier` → **`exit=0`**\n  3. `python _outils/optimiser_ssp.py nnn` → migration vers `_sources/`, tableaux déplacés en `<div class=\"fen\">`, teintes non bleues `--fm-a`\n  4. `python _outils/verif_mission.py nnn` → **100 % fichiers `PASS`** (`errors: []`)\n  5. `python _outils/assembler_unique.py nnn` → **`(1 + N) / (1 + N) onglets`** à la racine de `SSP_nnn/`\n  6. `python _outils/notions.py verifier nnn` → **`0 NON`** + copier `rapport_notions.csv` dans `SSP_nnn/_sources/`\n  7. `python _outils/audit_unique_browser.py nnn --all-tabs` → **`PASS` sur 100 % des onglets en Chrome headless réel**\n  8. Ajouter ligne dans `SUIVI_PRODUCTION.csv` + `git commit` + `git push origin main`.\n- **P4 (Affinage)** : consigner tout doute clinique/posologique non vérifié dans `1_Claude AI/HANDOFF_AFFINAGE.md` sous `## SSP_nnn`.\n\n## § 3. MISSION 2 — SSP 001 → 032\n- Extraire les cours depuis `SSP_nnn_<code>_UNIQUE.html` (JSON `data` gzip+base64, marqueurs `@@IMG:…@@`, `@@FONT:…@@`) après archivage des anciens `LOT_nnn_*.html` dans `_archive_avant_alpha/`.\n- Le frontend reste identique ; auditer le contenu avec la même sévérité (attention : `SSP_013` G13 = `NON_MONOGRAPHIQUE`, `SSP_014` G14 = `MIXTE`).\n- Produire `1_Claude AI/AUDIT_001-032.md` et corriger tous les ❌.\n\n## § 4. LES 12 BLOCAGES ROUGE (REJET IMMÉDIAT)\n1. Identification absente ou incertaine.\n2. Signature `#signature-ia` absente, modifiée ou supprimée.\n3. Entité de la Cartographie sans cours.\n4. Fichier hors intervalle `80–100 Ko` de texte pur (tout cours ; un cours de 30–50 Ko est à enrichir).\n5. Toute phrase nominale.\n6. Toute notion au verdict `NON`.\n7. Phrase gabarit de `cartographie_DATA.json` recopiée dans un cours.\n8. Plan maladie appliqué à une Leçon `NON_MONOGRAPHIQUE`.\n9. Terme de chantier visible (`LOT`, `V0`, `Phase A/B`, `DX.n`, `Appel`, `Partie n`).\n10. Posologie sans source de la cascade suisse.\n11. Image hors `<section class=\"fenetre\">`.\n12. Fichier supprimé au lieu d'être archivé.\n\n## § 5. ANNEXE CIRCUITS (248 SSP)\n- **NON_MONOGRAPHIQUE (52)** : 013 · 065 · 069 · 176 · 180 · 181 · 182 · 184 · 185 · 186 · 192 · 194 · 195 · 198 · 200 · 203 · 204 · 205 · 206 · 207 · 208 · 209 · 210 · 211 · 212 · 213 · 214 · 215 · 216 · 217 · 218 · 219 · 220 · 221 · 222 · 224 · 225 · 226 · 227 · 232 · 233 · 235 · 236 · 237 · 238 · 239 · 240 · 241 · 242 · 243 · 246 · 247.\n- **MIXTE (7)** : 014 · 165 · 174 · 175 · 190 · 202 · 223.\n- **MONOGRAPHIQUE (189)** : tous les autres SSP."
+}

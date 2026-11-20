@@ -1,0 +1,2445 @@
+{
+  "rappel_obligatoire_avant_redaction": {
+    "lecture_imperative": [
+      "1. Lire intégralement PROMPT_Alpha_19.11.26.md ET la mise à jour incluse dans prompt_alpha_a_jour ci-dessous.",
+      "2. Respecter l'intervalle GLOBAL par cours : viser 85–95 Ko de texte médical pur (soit ~95–115 Ko de fichier JSON) sans quota rigide par partie — répartir le texte proportionnellement à l'importance clinique des parties.",
+      "3. Produire graduellement 1 cours complet par requête (Phase A, puis Cours 1, Cours 2...) en français médical académique, phrases verbales exclusives (0 phrase nominale), zéro prose générique ou patronnée.",
+      "4. Utiliser uniquement les guillemets typographiques français « … » dans les valeurs texte JSON (jamais de guillemet droit non échappé).",
+      "5. Zéro arbre décisionnel graphique (.fm-canvas) : ne générer aucun schéma décisionnel."
+    ],
+    "specificites_locales_ssp": [
+      "Circuit NON_MONOGRAPHIQUE : conserver strictement l'architecture en Leçons Suisses Structurées (14 points adaptés), SANS JAMAIS utiliser de titres ou de plan maladie artificiel (interdiction de Physiopathologie / Approche syndromique / Diagnostic positif).",
+      "Couvrir 100 % des notions obligatoires listées dans phase_b[*].plan[*].notions_obligatoires pour Modification des objectifs thérapeutiques et décisions de fin de vie (O5.2).",
+      "Cascade posologique suisse à 4 paliers obligatoire : 1. AIPS Swissmedic (n° 5 chiffres) -> 2. Compendium.ch -> 3. Sociétés savantes & CHU suisses (HUG, CHUV, Inselspital, USZ, USB, OFSP, ASSM, SSMIG, Tox Info Suisse 145) -> 4. Sociétés savantes européennes."
+    ]
+  },
+  "meta": {
+    "rang_gravite": 50,
+    "ssp": "SSP_210",
+    "code_profiles": "O5.2",
+    "nom_francais": "Modification des objectifs thérapeutiques et décisions de fin de vie",
+    "circuit": "NON_MONOGRAPHIQUE",
+    "police_obligatoire": "Atkinson Hyperlegible",
+    "calibre_cible": "80–100 Ko texte pur",
+    "arbres_decisionnels_autorises": false,
+    "mode_redaction": "Neon Deep Research",
+    "nb_chapitres_total": 16,
+    "defauts_audit_initial": [
+      "Incomplet (11/16 cours)",
+      "Faux plan maladie (11 f.)",
+      "236 phrases nominales",
+      "Termes chantier (11 f.)"
+    ]
+  },
+  "sommaire": {
+    "phase_a": {
+      "fichier_html_cible": "LOT_210_Phase_A_V0.html",
+      "titre": "Modification des objectifs thérapeutiques et décisions de fin de vie — Vue d'ensemble et orientation clinique (O5.2)"
+    },
+    "phase_b": [
+      {
+        "cours_numero": 1,
+        "titre": "Rédaction et mise à jour des directives anticipées (Code civil suisse art. 370)",
+        "cim": "Z71.8",
+        "urgence": "chronique"
+      },
+      {
+        "cours_numero": 2,
+        "titre": "Réorientation d'un projet curatif vers un objectif palliatif exclusif (cancer métastatique réfractaire)",
+        "cim": "Z51.5",
+        "urgence": "semi-urgent"
+      },
+      {
+        "cours_numero": 3,
+        "titre": "Décision de non-réanimation (DNR / NTBR) et limitation des soins invasifs (USI / intubation)",
+        "cim": "Z51.5",
+        "urgence": "semi-urgent"
+      },
+      {
+        "cours_numero": 4,
+        "titre": "Décision collégiale chez un patient incapable de discernement sans directives anticipées (cascade légale CC art. 378)",
+        "cim": "Z71.8",
+        "urgence": "urgent"
+      },
+      {
+        "cours_numero": 5,
+        "titre": "Arrêt ou non-instauration d'une suppléance vitale (dialyse, ventilation, nutrition artificielle)",
+        "cim": "Z51.5",
+        "urgence": "semi-urgent"
+      },
+      {
+        "cours_numero": 6,
+        "titre": "Désactivation d'un défibrillateur automatique implantable (DAI) en fin de vie",
+        "cim": "Z45.0",
+        "urgence": "urgent"
+      },
+      {
+        "cours_numero": 7,
+        "titre": "Déprescription des médicaments préventifs en fin de vie (statines, antihypertenseurs, antidiabétiques)",
+        "cim": "Z51.5",
+        "urgence": "chronique"
+      },
+      {
+        "cours_numero": 8,
+        "titre": "Demande d'assistance au suicide (en Suisse : cadre juridique et éthique ASSM)",
+        "cim": "Z71.8",
+        "urgence": "semi-urgent"
+      },
+      {
+        "cours_numero": 9,
+        "titre": "Refus éclairé de traitement vital par un patient capable de discernement",
+        "cim": "Z53.2",
+        "urgence": "urgent"
+      },
+      {
+        "cours_numero": 10,
+        "titre": "Désaccord éthique majeur entre équipe soignante et proches sur l'obstination déraisonnable",
+        "cim": "Z71.8",
+        "urgence": "urgent"
+      },
+      {
+        "cours_numero": 11,
+        "titre": "Arrêt cardiaque chez un patient sans statut de réanimation clarifié (zone grise aux urgences)",
+        "cim": "I46.9",
+        "urgence": "immediate"
+      },
+      {
+        "cours_numero": 12,
+        "titre": "Détresse respiratoire aiguë terminale lors d'un arrêt de ventilation ou extubation palliative",
+        "cim": "J96.0",
+        "urgence": "immediate"
+      },
+      {
+        "cours_numero": 13,
+        "titre": "Orage rythmique avec chocs répétés d'un DAI chez un patient en phase terminale",
+        "cim": "I47.2",
+        "urgence": "immediate"
+      },
+      {
+        "cours_numero": 14,
+        "titre": "Urgence palliative nécessitant une sédation palliative proportionnée (symptôme réfractaire)",
+        "cim": "Z51.5",
+        "urgence": "urgent"
+      },
+      {
+        "cours_numero": 15,
+        "titre": "Hospitalisation non souhaitée en urgence d'un patient en fin de vie par défaut d'anticipation",
+        "cim": "Z51.5",
+        "urgence": "urgent"
+      }
+    ]
+  },
+  "phase_a": {
+    "titre": "Modification des objectifs thérapeutiques et décisions de fin de vie — Vue d'ensemble (O5.2)",
+    "plan": [
+      {
+        "point": 1,
+        "titre": "Définition, portée clinique et cadre suisse de la situation",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit NON_MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 2,
+        "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit NON_MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 3,
+        "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit NON_MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 4,
+        "titre": "Démarche d'évaluation structurée et situations différentielles",
+        "description": "Présentation et hiérarchisation des 15 entités de la Cartographie Renouveau."
+      },
+      {
+        "point": 5,
+        "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit NON_MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 6,
+        "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit NON_MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 7,
+        "titre": "Typologie des situations et stratification des priorités",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit NON_MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 8,
+        "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit NON_MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 9,
+        "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit NON_MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 10,
+        "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit NON_MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 11,
+        "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit NON_MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 12,
+        "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit NON_MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 13,
+        "titre": "Points clés essentiels pour la pratique suisse",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit NON_MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 14,
+        "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit NON_MONOGRAPHIQUE, sans arbre décisionnel."
+      }
+    ]
+  },
+  "phase_b": [
+    {
+      "cours_numero": 1,
+      "fichier_html_cible": "LOT_210_Phase_B_V0_DX.1.html",
+      "titre": "Rédaction et mise à jour des directives anticipées (Code civil suisse art. 370)",
+      "cim": "Z71.8",
+      "urgence": "chronique",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition, portée clinique et cadre suisse de la situation",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Démarche proactive (Advance Care Planning / ProSA) permettant au patient capable de discernement d'exprimer ses volontés pour les soins futurs."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Recommandée pour tout patient atteint de maladie chronique évolutive, fragile ou âgé, idéalement en dehors d'une crise aiguë."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Respect de l'autonomie du patient ; en Suisse, les directives anticipées sont juridiquement CONTRAIGNANTES pour le médecin sauf doute sur leur libre rédaction ou changement d'avis."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche d'évaluation structurée et situations différentielles",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Rédaction sous pression d'un tiers ou en phase d'incapacité de discernement (non valide !)."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Explorer les valeurs du patient (« qu'est-ce qui donne du sens à votre vie ? », « qu'est-ce qui serait inacceptable ? »), désignation du représentant thérapeutique."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Vérifier la capacité de discernement (comprendre, apprécier, se déterminer, exprimer sa volonté)."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Typologie des situations et stratification des priorités",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Directives anticipées valides intégrées au dossier médical."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Entretien structuré de planification anticipée du projet de soins (ProSA), document écrit, daté et signé."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Implication du représentant thérapeutique lors de l'entretien."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Consultation immédiate des directives lors de toute admission aux urgences."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Réévaluation périodique (changement de stade de maladie) et transmission au médecin traitant/famille/hôpital."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Acharnement thérapeutique (obstination déraisonnable) si absentes."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Mise à jour annuelle ou lors de changement clinique."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Soins mieux alignés avec les valeurs du patient et moindre détresse familiale."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Médecin traitant, soins palliatifs, représentant thérapeutique."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés essentiels pour la pratique suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 2,
+      "fichier_html_cible": "LOT_210_Phase_B_V0_DX.2.html",
+      "titre": "Réorientation d'un projet curatif vers un objectif palliatif exclusif (cancer métastatique réfractaire)",
+      "cim": "Z51.5",
+      "urgence": "semi-urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition, portée clinique et cadre suisse de la situation",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Changement d'objectif thérapeutique lorsque les traitements curatifs ou oncologiques spécifiques deviennent futiles ou plus délétères que bénéfiques."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Situation quotidienne en oncologie, médecine interne et gériatrie."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Balance bénéfice/risque défavorable (toxicité > bénéfice clinique, score ECOG 3–4)."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche d'évaluation structurée et situations différentielles",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Détresse existentielle majeure après annonce de l'arrêt des chimiothérapies (« vous m'abandonnez ? ») -> rassurer : on change d'objectif, on n'arrête JAMAIS les soins !"
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Compréhension par le patient de sa maladie, attentes réalistes, symptômes prioritaires (douleur, dyspnée, fatigue), souhait du lieu de fin de vie."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Statut de performance (ECOG/Karnofsky), signes de progression tumorale."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Typologie des situations et stratification des priorités",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Consensus médico-patient sur l'orientation palliative exclusive."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Colloque multidisciplinaire + entretien d'annonce structuré (protocole SPIKES / EPICES)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Arrêt des examens biologiques/radiologiques inutiles."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Soulagement rapide des symptômes physiques et psychiques."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Arrêt des chimiothérapies/statines/prévention primaire, mise en place de soins palliatifs mobiles ou à domicile, définition du code de réanimation (NTBR/DNR)."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Obstination déraisonnable si transition trop tardive."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Suivi symptomatique régulier."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Meilleure qualité de vie en fin de vie et parfois survie équivalente voire supérieure (Temel et al.)."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Oncologue, équipe mobile de soins palliatifs, médecin traitant, CMS."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés essentiels pour la pratique suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 3,
+      "fichier_html_cible": "LOT_210_Phase_B_V0_DX.3.html",
+      "titre": "Décision de non-réanimation (DNR / NTBR) et limitation des soins invasifs (USI / intubation)",
+      "cim": "Z51.5",
+      "urgence": "semi-urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition, portée clinique et cadre suisse de la situation",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Définition explicite de l'attitude thérapeutique proportionnée en cas d'aggravation aiguë (niveau A/B/C/D ou DNR/DNI)."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Indispensable chez tout patient polymorbide, âgé très fragile (CFS ≥ 6–7) ou en maladie avancée."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "La RCP chez le patient fragile polymorbide a un taux de survie sans séquelle neurologique quasi nul (< 1–2 %)."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche d'évaluation structurée et situations différentielles",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Confusion des équipes assimilant DNR à « arrêt de tout soin » -> documenter précisément les mesures maintenues (ex. soins de confort vs traitement médical maximal sans USI) !"
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Souhaits du patient, compréhension réaliste du pronostic d'une réanimation."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Évaluation de la fragilité (Clinical Frailty Scale) et des réserves physiologiques."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Typologie des situations et stratification des priorités",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Attitude de réanimation et d'admission aux soins intensifs documentée."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Entretien transparent avec le patient (ou représentant thérapeutique) et documentation claire dans le dossier."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Avis d'éthique clinique si désaccord."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Respect strict de l'attitude définie lors d'une décompensation."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Réévaluation à chaque nouvelle hospitalisation."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Acharnement thérapeutique ou sous-traitement inapproprié."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Relecture régulière du statut."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Soins proportionnés respectueux de la dignité."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Médecin traitant, équipe hospitalière/EMS."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés essentiels pour la pratique suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 4,
+      "fichier_html_cible": "LOT_210_Phase_B_V0_DX.4.html",
+      "titre": "Décision collégiale chez un patient incapable de discernement sans directives anticipées (cascade légale CC art. 378)",
+      "cim": "Z71.8",
+      "urgence": "urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition, portée clinique et cadre suisse de la situation",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Processus décisionnel par substitution visant à reconstituer la volonté présumée d'un patient incapable de discernement."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Très fréquent en réanimation, gériatrie aiguë et démence avancée."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Le représentant ne décide PAS selon ses propres préférences, mais selon la VOLONTÉ PRÉSUMÉE et les intérêts du patient (CC art. 378) !."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche d'évaluation structurée et situations différentielles",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Conflit ouvert entre proches de même rang (ex. 2 enfants en désaccord) ou décision manifestement contraire aux intérêts du patient -> saisine de l'APEA !"
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Rechercher propos antérieurs du patient, valeurs de vie, existence de directives anticipées ou mandat pour cause d'inaptitude."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Évaluation formelle de l'incapacité de discernement pour la décision précise."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Typologie des situations et stratification des priorités",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Décision médicale partagée fondée sur la volonté présumée."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Réunion collégiale avec le(s) représentant(s) légal(aux) selon la cascade de l'art. 378 CC."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Saisine du comité d'éthique ou de l'APEA si blocage."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "En urgence vitale immédiate sans représentant joignable, le médecin agit selon les intérêts objectifs et la volonté présumée (CC art. 379)."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Documentation écrite de l'entretien et des arguments retenus."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Détresse morale des proches culpabilisés (« j'ai décidé de le laisser mourir » -> rappeler que c'est la maladie qui cause le décès et que le médecin porte la responsabilité médicale !)."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Accompagnement des proches."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Décision apaisée et juridiquement conforme."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Équipe soignante, APEA si conflit, éthicien."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés essentiels pour la pratique suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 5,
+      "fichier_html_cible": "LOT_210_Phase_B_V0_DX.5.html",
+      "titre": "Arrêt ou non-instauration d'une suppléance vitale (dialyse, ventilation, nutrition artificielle)",
+      "cim": "Z51.5",
+      "urgence": "semi-urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition, portée clinique et cadre suisse de la situation",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Décision de suspendre ou ne pas initier un traitement de maintien en vie (hémodialyse, VNI/intubation, PEG) devenu disproportionné."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Fréquent en insuffisance rénale terminale âgée, SLA avancée, démence sévère, soins intensifs."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "En démence avancée avec dysphagie, la sonde de gastrostomie (PEG) N'AMÉLIORE NI la survie NI la prévention des pneumopathies d'inhalation ni les escarres !."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche d'évaluation structurée et situations différentielles",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Pressions familiales pour poser une PEG en démence terminale par peur « qu'il meure de faim » -> expliquer la physiologie de la fin de vie !"
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Qualité de vie actuelle perçue par le patient, fardeau des séances de dialyse/VNI."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "État général, pronostic à court terme."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Typologie des situations et stratification des priorités",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Consensus d'arrêt ou de non-instauration de suppléance."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Évaluation pluridisciplinaire (néphrologue/pneumologue + soins palliatifs + patient/proches)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Essai thérapeutique limité dans le temps (time-limited trial) avec critères d'arrêt pré-définis."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Si extubation palliative ou arrêt VNI : protocole d'anticipation stricte de la dyspnée/anxiété (morphine + midazolam)."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Soins de bouche, alimentation plaisir manuelle si souhaitée, accompagnement palliatif."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Détresse respiratoire si arrêt ventilatoire non préparé."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Évaluation continue du confort."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Fin de vie digne sans prolongation artificielle de l'agonie."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Spécialiste d'organe, soins palliatifs, médecin traitant."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés essentiels pour la pratique suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 6,
+      "fichier_html_cible": "LOT_210_Phase_B_V0_DX.6.html",
+      "titre": "Désactivation d'un défibrillateur automatique implantable (DAI) en fin de vie",
+      "cim": "Z45.0",
+      "urgence": "urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition, portée clinique et cadre suisse de la situation",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Reprogrammation (désactivation de la fonction choc antitachycardique, tout en gardant la fonction stimulateur/pacemaker !) d'un DAI chez un patient en fin de vie."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Concerne 20–30 % des porteurs de DAI mourant d'insuffisance cardiaque ou cancer ; trop souvent oubliée !"
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Les troubles hydro-électrolytiques et l'hypoxie de l'agonie déclenchent des arythmies entraînant des chocs douloureux répétés."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche d'évaluation structurée et situations différentielles",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Chocs répétés chez un patient agonisant -> poser immédiatement un AIMANT sur le boîtier du DAI en attendant le programmateur !"
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Patient porteur d'un DAI entrant en soins palliatifs ou phase terminale."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Vérifier le boîtier et la carte du dispositif (pacemaker simple vs DAI !)."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Typologie des situations et stratification des priorités",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Accord documenté de désactivation des thérapies antichocs."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Entretien avec le patient/représentant + demande au cardiologue/rythmologue pour désactivation par programmateur."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Application d'un aimant médical (inhibe temporairement les chocs tant qu'il est posé sur le boîtier !)."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Aimant en urgence si orage rythmique en phase terminale."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Maintenir la fonction pacemaker (bradycardie) pour éviter une aggravation brutale de la dyspnée."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Souffrance extrême du patient et traumatisme des proches en cas de chocs agoniques."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Confirmation écrite de la désactivation dans le dossier."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Décès paisible sans chocs."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Cardiologue/rythmologue, soins palliatifs."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés essentiels pour la pratique suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 7,
+      "fichier_html_cible": "LOT_210_Phase_B_V0_DX.7.html",
+      "titre": "Déprescription des médicaments préventifs en fin de vie (statines, antihypertenseurs, antidiabétiques)",
+      "cim": "Z51.5",
+      "urgence": "chronique",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition, portée clinique et cadre suisse de la situation",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Arrêt progressif et réfléchi des traitements de prévention à long terme devenus inutiles ou sources d'effets indésirables à court terme."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Fréquemment oubliée : beaucoup de patients meurent encore sous 8–10 comprimés quotidiens."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Le bénéfice des statines ou du contrôle strict HbA1c/TA prend des années, alors que les risques (hypoglycémie, hypotension, dysphagie aux comprimés) sont immédiats."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche d'évaluation structurée et situations différentielles",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Hypoglycémies sévères sur poursuite d'insuline/sulfonylurée malgré anorexie !"
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Difficulté à avaler les comprimés, fatigue, nausées, hypotensions, hypoglycémies."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "TA souvent basse par amaigrissement/cachexie."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Typologie des situations et stratification des priorités",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Médicaments sans bénéfice à court terme identifiés."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Revue complète des ordonnances selon espérance de vie et objectifs de confort."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Aucune."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Arrêt immédiat des hypoglycémiants et hypotenseurs si malaise."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Arrêter statines, bisphosphonates, vitamine D/calcium, IPP sans indication, aspirine primaire, anticoagulants selon balance risque/confort ; garder uniquement les traitements symptomatiques (antalgiques, anxiolytiques, diurétiques si dyspnée, corticoïdes si œdème cérébral)."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Chutes, hypoglycémies, fausses routes sur comprimés."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Réévaluation hebdomadaire des symptômes."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Allègement majeur du fardeau thérapeutique et amélioration du confort."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Médecin traitant, soins palliatifs, pharmacien."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés essentiels pour la pratique suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 8,
+      "fichier_html_cible": "LOT_210_Phase_B_V0_DX.8.html",
+      "titre": "Demande d'assistance au suicide (en Suisse : cadre juridique et éthique ASSM)",
+      "cim": "Z71.8",
+      "urgence": "semi-urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition, portée clinique et cadre suisse de la situation",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Demande formulée par un patient auprès de son médecin ou d'une organisation (Exit, Dignitas) d'obtenir une substance létale (pentobarbital) pour mettre fin à sa vie."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "~1500–1700 décès/an par suicide assisté en Suisse (~2 % des décès)."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Conditions ASSM/juridiques : capacité de discernement intacte, volonté mûrement réfléchie et constante sans pression extérieure, souffrance insupportable liée à une maladie ou polypathologie grave (et alternatives palliatives discutées !)."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche d'évaluation structurée et situations différentielles",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Demande impulsive lors d'une crise dépressive aiguë ou sous pression familiale, perte de discernement -> exclure !"
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Explorer le sens de la demande (peur de souffrir, de perdre sa dignité, d'être un fardeau, dépression traitable ?) avec empathie et sans jugement."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Évaluation rigoureuse de la capacité de discernement et dépistage d'un épisode dépressif aigu réversible."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Typologie des situations et stratification des priorités",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Demande persistante remplissant les critères légaux et éthiques."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Entretiens répétés, évaluation psychiatrique si doute sur dépression/discernement, proposition systématique de soins palliatifs."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Clause de conscience du médecin (le médecin n'est jamais obligé de prescrire le pentobarbital, mais doit rester à l'écoute ou orienter sans abandonner le patient !)."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Prise en charge immédiate d'une douleur/dyspnée mal contrôlée motivant parfois la demande."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Accompagnement du patient et de ses proches quel que soit le choix du médecin concernant la prescription."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Détresse des proches ou abandon thérapeutique si rejet moralisateur."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Réévaluation du risque suicidaire à J7–J14 (levée d'inhibition), tolérance/QTc/poids/glycémie et maintien >= 6–12 mois après rémission."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Respect de l'autodétermination et du cadre légal suisse."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Médecin traitant, soins palliatifs, psychiatre, Exit/Dignitas si démarche poursuivie."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés essentiels pour la pratique suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 9,
+      "fichier_html_cible": "LOT_210_Phase_B_V0_DX.9.html",
+      "titre": "Refus éclairé de traitement vital par un patient capable de discernement",
+      "cim": "Z53.2",
+      "urgence": "urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition, portée clinique et cadre suisse de la situation",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Décision autonome d'un patient informé de décliner une intervention vitale proposée."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Situations classiques : Témoin de Jéhovah refusant transfusion, patient âgé refusant dialyse ou chirurgie lourde."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Primauté du principe éthique d'autonomie sur la bienfaisance médicale lorsque la capacité de discernement est intacte."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche d'évaluation structurée et situations différentielles",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Doute sur la capacité de discernement en urgence vitale -> avis psychiatrique rapide ou traitement conservatoire si incapacité avérée."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Vérifier que le refus repose sur une information complète, loyale et comprise des conséquences (y compris risque de décès) et non sur un malentendu ou une peur infondée."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Évaluation rigoureuse de la capacité de discernement (exclure delirium, hypoxie, intoxication, dépression sévère altérant le jugement !)."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Typologie des situations et stratification des priorités",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Refus libre et éclairé d'un patient capable de discernement."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Entretien avec témoin soignant, documentation écrite signée du refus éclairé."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Proposer des alternatives acceptables (ex. fer IV/EPO/cell-saver si refus de sang)."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Respecter le refus tout en poursuivant les soins palliatifs/confort et alternatives acceptées."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Ne jamais rompre le lien thérapeutique."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Décès attendu selon évolution naturelle."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Réévaluation si le patient change d'avis (toujours révocable !)."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Respect des droits fondamentaux du patient."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Médecin traitant, équipe hospitalière, éthicien si besoin."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés essentiels pour la pratique suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 10,
+      "fichier_html_cible": "LOT_210_Phase_B_V0_DX.10.html",
+      "titre": "Désaccord éthique majeur entre équipe soignante et proches sur l'obstination déraisonnable",
+      "cim": "Z71.8",
+      "urgence": "urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition, portée clinique et cadre suisse de la situation",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Conflit décisionnel sur la futilité médicale lorsque les proches demandent la poursuite de traitements invasifs jugés disproportionnés par l'équipe."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Fréquent aux soins intensifs et en médecine interne."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Le médecin n'est PAS tenu d'administrer un traitement médicalement futile (contre-indiqué sur le plan physiologique), mais doit communiquer avec empathie."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche d'évaluation structurée et situations différentielles",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Rupture de confiance totale, menaces judiciaires."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Explorer les craintes, la culpabilité, les croyances culturelles/religieuses et le niveau de compréhension des proches."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Constat objectif de l'irréversibilité (défaillance multiviscérale, lésion cérébrale catastrophique)."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Typologie des situations et stratification des priorités",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Impasse décisionnelle nécessitant médiation éthique."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Colloque multidisciplinaire + réunion familiale apaisée + consultation du comité d'éthique clinique de l'hôpital."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Second avis médical indépendant pour rassurer la famille."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Éviter l'escalade thérapeutique futile tout en maintenant les soins de confort et le dialogue."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Accompagnement du cheminement des proches vers l'acceptation (donner un peu de temps sans nuire au patient)."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Souffrance morale des soignants et des proches."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Réévaluation clinique et biologique SI (NFS, CRP, créatinine, électrolytes) à 24–72 h selon l'évolution."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Résolution dans > 90 % des cas via médiation et temps d'écoute."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Soins intensifs, comité d'éthique clinique, aumônerie/soutien spirituel."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés essentiels pour la pratique suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 11,
+      "fichier_html_cible": "LOT_210_Phase_B_V0_DX.11.html",
+      "titre": "Arrêt cardiaque chez un patient sans statut de réanimation clarifié (zone grise aux urgences)",
+      "cim": "I46.9",
+      "urgence": "immediate",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition, portée clinique et cadre suisse de la situation",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Situation critique d'incertitude éthique et médicale lors d'un arrêt cardiorespiratoire sans statut DNR documenté."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Fréquente aux urgences ou lors d'interventions SMUR (144)."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Principe « in dubio pro vita » en urgence absolue tant que les volontés ou la futilité ne sont pas établies."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche d'évaluation structurée et situations différentielles",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Découverte de directives anticipées DNR valides pendant la RCP -> arrêt immédiat des manœuvres !"
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Interroger rapidement témoins/proches sur les maladies sous-jacentes et volontés connues (directives anticipées sur le frigo/dossier)."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Absence de conscience/pouls/respiration, signes de maladie terminale cachectique."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Typologie des situations et stratification des priorités",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Arrêt cardiaque avec statut initialement inconnu."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Vérification rapide du dossier électronique/carte patient pendant la réanimation."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Aucune."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Débuter RCP de base/avancée sauf signes évidents de mort irréversible ou de fin de vie terminale connue ; réévaluer rapidement dès obtention des informations. RCP immédiate 30:2 et défibrillation 150–200 J biphasique si chocable, adrénaline 1 mg IV/3–5 min, amiodarone 300 mg IV après le 3e choc (ou 150 mg IV sur 10 min si TV stable ; sulfate de magnésium 2 g IV sur 10 min si torsade de pointes)."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Débriefing de l'équipe et soutien des proches. Correction des troubles ioniques (K+ > 4,0 mmol/L, Mg2+ > 0,9 mmol/L), bêtabloquant (bisoprolol 2,5–10 mg/j) et évaluation d'implantation d'un défibrillateur (DAI)."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Survie avec lésions anoxiques graves si réanimation inappropriée."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Soins post-réanimation ou accompagnement palliatif si arrêt des manœuvres. Monitorage rythmique continu en soins intensifs, troponine, ionogramme sérié toutes les 4 h et coronarographie/IRM cardiaque étiologique."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Souligne l'importance cruciale d'anticiper le statut DNR en amont."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "SMUR/144, urgences, soins intensifs."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés essentiels pour la pratique suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 12,
+      "fichier_html_cible": "LOT_210_Phase_B_V0_DX.12.html",
+      "titre": "Détresse respiratoire aiguë terminale lors d'un arrêt de ventilation ou extubation palliative",
+      "cim": "J96.0",
+      "urgence": "immediate",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition, portée clinique et cadre suisse de la situation",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Dyspnée ou angoisse aiguë sévère survenant immédiatement après le retrait d'un support ventilatoire invasif ou non invasif décidé collégialement."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Urgence de confort fréquente en soins intensifs et pneumologie palliative."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Hypercapnie et hypoxémie aiguës stimulant violemment les centres respiratoires sans sédation/opioïdes préalables."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche d'évaluation structurée et situations différentielles",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Asphyxie consciente -> urgence absolue de soulagement symptomatique !"
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Décision collégiale validée de retrait de ventilation/extubation palliative."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Tachypnée, tirage, faciès anxieux, stridor post-extubation."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Typologie des situations et stratification des priorités",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Détresse respiratoire aiguë post-retrait ventilatoire."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Évaluation clinique du confort respiratoire (échelle RDOS si patient non communicant)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Aucune."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Bolus IV préventifs puis titration rapide de MORPHINE (réduit la soif d'air !) + MIDAZOLAM (anxiolyse/sédation) ; corticoïdes si risque de stridor ; butylscopolamine si sécrétions."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Accompagnement calme de la famille au chevet."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Souffrance intense du patient et traumatisme des proches si non anticipée."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Évaluation continue au chevet jusqu'à respiration paisible."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Décès paisible en quelques minutes à heures."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Soins intensifs, soins palliatifs."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés essentiels pour la pratique suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 13,
+      "fichier_html_cible": "LOT_210_Phase_B_V0_DX.13.html",
+      "titre": "Orage rythmique avec chocs répétés d'un DAI chez un patient en phase terminale",
+      "cim": "I47.2",
+      "urgence": "immediate",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition, portée clinique et cadre suisse de la situation",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Délivrance répétée de chocs électriques internes par un défibrillateur implantable chez un patient mourant."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Urgence palliative classique lorsque la désactivation du DAI n'a pas été anticipée."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "L'hypoxie, l'acidose et les catécholamines terminales déclenchent des TV/FV détectées par le DAI."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche d'évaluation structurée et situations différentielles",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Chocs multiples -> douleur et terreur extrêmes !"
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Patient en soins palliatifs porteur de DAI présentant des sursauts douloureux répétés et cris."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Boîtier sous-claviculaire gauche palpable, contraction musculaire brutale à chaque choc."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Typologie des situations et stratification des priorités",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Chocs itératifs de DAI en fin de vie."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "ECG/monitoring si disponible, mais agir sans attendre !"
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Aucune."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Fixer un AIMANT MÉDICAL (anneau aimanté) directement sur le boîtier du DAI (inhibe immédiatement les chocs sans éteindre le pacemaker sur la plupart des modèles !), analgésie/sédation (morphine + midazolam), puis désactivation définitive par programmateur. RCP immédiate 30:2 et défibrillation 150–200 J biphasique si chocable, adrénaline 1 mg IV/3–5 min, amiodarone 300 mg IV après le 3e choc (ou 150 mg IV sur 10 min si TV stable ; sulfate de magnésium 2 g IV sur 10 min si torsade de pointes)."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Prévenir par désactivation précoce dès l'entrée en phase palliative terminale. Correction des troubles ioniques (K+ > 4,0 mmol/L, Mg2+ > 0,9 mmol/L), bêtabloquant (bisoprolol 2,5–10 mg/j) et évaluation d'implantation d'un défibrillateur (DAI)."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Traumatisme psychique majeur pour le patient et sa famille."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Vérifier le maintien en place de l'aimant jusqu'au programmateur. Monitorage rythmique continu en soins intensifs, troponine, ionogramme sérié toutes les 4 h et coronarographie/IRM cardiaque étiologique."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Soulagement immédiat dès pose de l'aimant."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Soins palliatifs, cardiologie, urgences."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés essentiels pour la pratique suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 14,
+      "fichier_html_cible": "LOT_210_Phase_B_V0_DX.14.html",
+      "titre": "Urgence palliative nécessitant une sédation palliative proportionnée (symptôme réfractaire)",
+      "cim": "Z51.5",
+      "urgence": "urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition, portée clinique et cadre suisse de la situation",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Administration contrôlée de médicaments sédatifs visant à diminuer la vigilance jusqu'à la perte de conscience si nécessaire pour soulager une détresse réfractaire en fin de vie."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Utilisée dans 10–25 % des décès en unités de soins palliatifs."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Principe éthique du double effet : l'intention est le soulagement du symptôme réfractaire et NON d'abréger la vie (la dose est titrée au minimum efficace !)."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche d'évaluation structurée et situations différentielles",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Asphyxie aiguë, hémoptysie/hématémèse massive terminale -> sédation d'urgence !"
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Échec de tous les traitements symptomatiques spécifiques bien conduits, espérance de vie très courte (heures à quelques jours si sédation continue jusqu'au décès)."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Détresse physique ou existentielle insupportable (RASS cible selon confort)."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Typologie des situations et stratification des priorités",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Symptôme réfractaire documenté."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Validation collégiale + consentement du patient (ou représentant/directives) + documentation claire."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Sédation temporaire (répit 24–48 h) si espérance de vie plus longue."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "MIDAZOLAM en 1re intention (bolus 1–5 mg IV/SC puis perfusion continue titrée selon score RASS, à associer TOUJOURS à la morphine si douleur/dyspnée car le midazolam n'est pas antalgique !), lévomépromazine ou propofol si échec."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Poursuite des soins de bouche et confort, soutien des proches."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Sous-dosage (souffrance persistante) ou surdosage non titré."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Échelle RASS et signes de confort toutes les 15–30 min au début puis 4 h."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Fin de vie apaisée."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Équipe mobile/unité de soins palliatifs, médecin traitant."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés essentiels pour la pratique suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 15,
+      "fichier_html_cible": "LOT_210_Phase_B_V0_DX.15.html",
+      "titre": "Hospitalisation non souhaitée en urgence d'un patient en fin de vie par défaut d'anticipation",
+      "cim": "Z51.5",
+      "urgence": "urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition, portée clinique et cadre suisse de la situation",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Admission en urgence d'un patient en phase terminale suite à un symptôme aigu non anticipé ou à la panique de l'entourage."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Très fréquente le soir et le week-end en l'absence de « kit d'urgence palliative » à domicile."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Manque de coordination et d'information préalable des proches sur les signes de fin de vie."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche d'évaluation structurée et situations différentielles",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Risque d'intubation ou bilans invasifs inappropriés par automatisme aux urgences !"
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Maladie terminale connue, directives anticipées de non-hospitalisation parfois existantes mais introuvables dans la panique."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Évaluation rapide des symptômes de confort (dyspnée, douleur, agitation, globe)."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Typologie des situations et stratification des priorités",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Patient en fin de vie admis par défaut d'anticipation."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Lecture immédiate des directives/dossier et appel du médecin traitant ou équipe palliative."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Aucun bilan sanguin/radiologique inutile."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Contrôle rapide des symptômes par voie SC/IV (morphine, midazolam), accueil calme en chambre individuelle avec les proches, transfert en unité palliative ou retour à domicile avec réseau mobile."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Toujours préparer à domicile une prescription anticipée (« en réserve » SC) et un numéro d'astreinte 24/24."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Décès médicalisé aux urgences contraire aux souhaits du patient."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Confort du patient et des proches."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Réorientation rapide vers un accompagnement adapté."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Urgences, soins palliatifs, CMS."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés essentiels pour la pratique suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    }
+  ],
+  "prompt_alpha_a_jour": "# MISSION : CORRECTION ET COMPLÉTION DES 248 SSP SUISSES (3 975 ENTITÉS + 248 CHAPITRES 0)\n\n## § 0. IDENTIFICATION, SIGNATURE & RÈGLES DE CONTINUITÉ — BLOQUANT ABSOLU\n1. **Identification obligatoire** en tête de première réponse :\n   - HEURE DE DÉBUT : AAAA-MM-JJ HH:MM (Europe/Zurich)\n   - MODÈLE : nom exact du modèle (ex. ANTIGRAVITY ORCHESTRATOR NEON)\n   - PLATEFORME : plateforme exacte (ex. ANTIGRAVITY)\n   - Ajouter la même ligne à `1_Claude AI/IDENTIFICATION_AGENTS.md`. Si incertitude, s'arrêter.\n2. **Signature IA fixe en bas à droite de TOUT HTML produit ou modifié** (juste avant `</body>`, en GRAS MAJUSCULE) :\n   `<div id=\"signature-ia\" style=\"position:fixed;right:12px;bottom:10px;z-index:9999;background:#fff;border:2px solid #000;padding:4px 10px;font:700 12px/1.3 Arial,sans-serif;text-transform:uppercase;color:#000\">DÉBUT : AAAA-MM-JJ HH:MM (EUROPE/ZURICH) · MODÈLE : <NOM> · PLATEFORME : <PLATEFORME></div>`\n   - **Seul Vial peut autoriser le retrait de ce bloc.** Un agent qui reprend un fichier signé ajoute sa propre ligne sous la précédente sans jamais effacer l'existante.\n3. **Continuité & transparence** :\n   - **Redémarrage propre à partir de `SSP_248`** : tous les cours précédemment modifiés ont été restaurés à l'état initial (`6941513`). Enchaîner continûment **`SSP_248 → SSP_033`**, puis **`SSP_001 → SSP_032`**.\n   - **Toujours afficher le raisonnement visible** en français dans chaque réponse.\n   - **Veille & relance GitHub** : commiter et pousser sur `origin main` après chaque SSP (ou lot <= 5 SSP) avec l'état à jour dans `SUIVI_PRODUCTION.csv`, `HANDOFF_AFFINAGE.md` et `HANDOFF_IA_COMPLET.md`.\n   - **Suivi graphique temps réel** : maintenir à jour le tableau de bord visuel temps réel des réalisations achevées et en cours.\n\n## § 1. RÈGLES ACTUALISÉES (PRIMENT SUR LE PROMPT ALPHA 19.11.26)\n1. **Nombre de cours par SSP** : **1 cours par entité de la Cartographie Renouveau** (15 à 24 entités par SSP, 3 975 au total) + le Chapitre 0 (`Phase_A`), dans l'ordre exact des `Cours 1 … N` de `SSP_nnn/NOTIONS.md` / `NOTIONS.json`.\n2. **QUALITÉ CLINIQUE MAXIMALE & ZÉRO MÉDIOCRITÉ (BLOQUANT ABSOLU — Consigne Vial 20.11.26)** :\n   - **Interdiction absolue de toute prose patronnée / générique** : aucune phrase-cadre où seul le nom de la pathologie change d'un cours à l'autre, aucun remplissage artificiel pour atteindre le calibre. La médiocrité clinique est dangereuse et entraîne un rejet immédiat.\n   - Chaque cours (`Phase_A` et `DX.1..N`) doit être **rédigé sur mesure** pour son entité exacte, avec : raisonnement physiopathologique et sémiologique réel, seuils numériques précis, diagnostics différentiels discriminants, posologies et contre-indications sourcées (Compendium.ch / AIPS, Tox Info Suisse, OFSP, ASSM, sociétés savantes suisses), vignettes cliniques authentiques et QCM exigeants de niveau Examen Fédéral Suisse.\n3. **INTERDICTION DES ARBRES DÉCISIONNELS (Consigne Vial 20.11.26)** :\n   - **Ne générer AUCUN arbre décisionnel ni algorithme graphique (`.fm-canvas`, SVG décisionnel, etc.)** dans `Phase_A` ou dans les `DX.n` — l'auteur (Vial) les réalisera lui-même.\n4. **Calibre texte pur actualisé (Consigne Vial 20.11.26)** :\n   - **80 à 100 Ko de texte pur UTF-8 par fichier** (`81 920` à `102 400` octets, calibre du Prompt Alpha confirmé par Vial le 20.11.2026 à 21:20, mesuré fenêtres comprises, hors balises HTML, CSS, JS, SVG et images).\n   - HTML hors images (`controle3.py`) : **`40 000` à `100 000` octets** (alerte).\n   - Densité maximale : zéro remplissage, zéro phrase pouvant figurer telle quelle dans un autre cours, zéro phrase de gabarit de `cartographie_DATA.json`.\n5. **Phrases verbales exclusives (BLOQUANT)** :\n   - Chaque phrase (texte, fenêtres, listes, légendes `<figcaption>`, cellules narratives `<td>`) contient un verbe conjugué reconnu. **Zéro phrase nominale.**\n4. **Médicaments cliquables d'emblée & Fenêtres centrées PK/PD à 2 onglets (Consigne Vial 20.11.26)** :\n   - Dès qu'un médicament est évoqué, il devient cliquable (`<a class=\"ouvre med-chip\" href=\"#f-...\">`).\n   - Chaque `<section class=\"fenetre mb\" id=\"f-...\"><div class=\"fen\">` s'ouvre au centre de l'écran et contient **2 onglets** :\n     * **Onglet 1 (`data-tab=\"pk\"`)** : Pharmacocinétique + **Courbe vectorielle SVG $C(t)$** + **4 paramètres cliniciens mis en évidence** (`.pkpd-kpis`).\n     * **Onglet 2 (`data-tab=\"pd\"`)** : Pharmacodynamique & Clinique + **Courbe vectorielle SVG $E(C)$** + posologies/précautions/grossesse suisses (Compendium.ch / AIPS).\n5. **Images** : uniquement à l'intérieur des `<section class=\"fenetre\">`, jamais hors fenêtre (licences selon Prompt Alpha § 4). Ne comptent pas dans le calibre.\n6. **Zéro terminologie de chantier visible** : aucun texte visible (ni `<title>`) ne doit contenir `LOT`, `V0`, `Phase A/B`, `DX.n`, `Appel A/B`, `Partie n`. Seuls les noms de fichiers gardent le format Alpha (`LOT_nnn_Phase_A_V0.html`, `LOT_nnn_Phase_B_V0_DX.i.html`).\n7. **Circuits & Plans** :\n   - `MONOGRAPHIQUE` (189 SSP) : plan maladie en 14 points (Prompt Alpha § 3.1).\n   - `NON_MONOGRAPHIQUE` (52 SSP) : Leçon en 12 à 14 points adaptés (Prompt Alpha § 3.2). **Jamais** de plan maladie ni de titres « Physiopathologie / Approche syndromique / Diagnostic positif » artificiels.\n   - `MIXTE` (7 SSP) : Prompt Alpha § 3.3, chaque fichier déclare `<meta name=\"ssp-circuit\" content=\"...\">`.\n8. **Correctifs Frontend v2 / Architecture `_sources/` (`UNIQUE.html` & `_polices/`)** :\n   - **Arborescence propre par SSP** : à la racine de `SSP_nnn/`, seul **`SSP_nnn_<code>_UNIQUE.html`** (plus le sous-dossier **`_sources/`**) est visible. Tous les fichiers sources (`LOT_nnn_*.html`, `images/`, `NOTIONS.*`, `MANIFESTE.json`, `DECISION*`, `paquet.json`, `_archive_avant_alpha/`) sont rangés dans `SSP_nnn/_sources/` sans rien supprimer.\n   - **Barre haute amovible (`gabarit_unique.html`)** : `#topbar` compacte 1 ligne (~42 px) avec pilule active, fil d'Ariane section, boutons `◀`/`▶`, tiroir overlay amovible `#dd-drawer` (`☰ Diagnostics (N) ▾` + option `📌 Épingler`) contenant `nav#nav` en colonnes égales (`32 px`, teinte unique par cours), et bouton `▴ Masquer barre` + pilule flottante `#btn-show-bar`.\n   - **Zéro dédoublement & navigation `#...` 100 % fonctionnelle (`forme.js`)** : script `forme.js` exécuté sous `DOMContentLoaded` et injecté par `assembler_unique.py`/`inliner.py` après `</head>` et avant `#signature-ia`/`</body>` ; intercepteur global appelant `e.preventDefault()` sur 100 % des `href^=\"#\"` (bloque le rechargement `srcdoc` + `file://`).\n   - **Modales centrées `<div class=\"fen\">` & désaturation (`forme.css` / `optimiser_ssp.py`)** : ouverture via classe `.fm-open` (plus `:target` en repli) avec pile `modalStack` et bouton `Fermer ✕` sticky (sans `history.back()`), auto-enveloppement `<div class=\"fen\">`, tableaux hors modale déplacés vers `<section class=\"fenetre fm-tab-fen\">` déclenchés par cartes `.fm-encart-fen`, citations `<sup class=\"r\"><a>` compactées en `[N]` avec modale aperçu `#fm-src-modal` empilable (`fm-stack-top`), puces médicaments `a.ouvre.med-chip` (`℞ ...`, `white-space: nowrap`, compatible accents français), repli du plan latéral desktop `#fm-plan-toggle`, îlots discontinus (`margin-bottom: 30px`) et padding bas `5.5rem` protégeant la lecture au-dessus de `#signature-ia`.\n   - **HTML unique** : ne jamais l'écrire à la main ; toujours exécuter `optimiser_ssp.py` puis `assembler_unique.py nnn`.\n\n## § 2. ARCHIVAGE & WORKFLOW PAR SSP (P0 → P4)\n- **Zéro suppression** : avant d'écraser ou renommer un fichier source existant, archiver dans `SSP_nnn/_sources/_archive_avant_alpha/`.\n- **P0 (Préparer)** : lire circuit (`catalogue_248.json`), entités (`NOTIONS.md`/`NOTIONS.json`), `memoire_zero_token.py --digest --lot nnn`, écrire `PLAN_ENTITES.md`.\n- **P1 (Décider)** : noter dans `DECISION.md` (Corriger / Réécrire si mécanique, faux plan maladie ou `< 30 Ko` / Créer).\n- **P2 (Produire)** : `LOT_nnn_Phase_A_V0.html` + `LOT_nnn_Phase_B_V0_DX.1..N.html`, 100 % des notions de `NOTIONS.json` expliquées et sourcées (Compendium.ch / AIPS, OFSP, ASSM, CC, LAMal, LAVI, Smarter Medicine), sans aucune phrase gabarit de la cartographie.\n- **P3 (Portes de Contrôle + Optimisation + Assemblage + Audit Chrome)** :\n  1. `controle3.py --script-ok` → **`VERT {}`** (si `paquet.json` présent ; `--script-ok` requis car `_sources/` référence `../../_polices/forme.js`)\n  2. `verif_aips.py` → **`OK`** (si `paquet.json` présent) et `restaurer_fond.py --verifier` → **`exit=0`**\n  3. `python _outils/optimiser_ssp.py nnn` → migration vers `_sources/`, tableaux déplacés en `<div class=\"fen\">`, teintes non bleues `--fm-a`\n  4. `python _outils/verif_mission.py nnn` → **100 % fichiers `PASS`** (`errors: []`)\n  5. `python _outils/assembler_unique.py nnn` → **`(1 + N) / (1 + N) onglets`** à la racine de `SSP_nnn/`\n  6. `python _outils/notions.py verifier nnn` → **`0 NON`** + copier `rapport_notions.csv` dans `SSP_nnn/_sources/`\n  7. `python _outils/audit_unique_browser.py nnn --all-tabs` → **`PASS` sur 100 % des onglets en Chrome headless réel**\n  8. Ajouter ligne dans `SUIVI_PRODUCTION.csv` + `git commit` + `git push origin main`.\n- **P4 (Affinage)** : consigner tout doute clinique/posologique non vérifié dans `1_Claude AI/HANDOFF_AFFINAGE.md` sous `## SSP_nnn`.\n\n## § 3. MISSION 2 — SSP 001 → 032\n- Extraire les cours depuis `SSP_nnn_<code>_UNIQUE.html` (JSON `data` gzip+base64, marqueurs `@@IMG:…@@`, `@@FONT:…@@`) après archivage des anciens `LOT_nnn_*.html` dans `_archive_avant_alpha/`.\n- Le frontend reste identique ; auditer le contenu avec la même sévérité (attention : `SSP_013` G13 = `NON_MONOGRAPHIQUE`, `SSP_014` G14 = `MIXTE`).\n- Produire `1_Claude AI/AUDIT_001-032.md` et corriger tous les ❌.\n\n## § 4. LES 12 BLOCAGES ROUGE (REJET IMMÉDIAT)\n1. Identification absente ou incertaine.\n2. Signature `#signature-ia` absente, modifiée ou supprimée.\n3. Entité de la Cartographie sans cours.\n4. Fichier hors intervalle `80–100 Ko` de texte pur (tout cours ; un cours de 30–50 Ko est à enrichir).\n5. Toute phrase nominale.\n6. Toute notion au verdict `NON`.\n7. Phrase gabarit de `cartographie_DATA.json` recopiée dans un cours.\n8. Plan maladie appliqué à une Leçon `NON_MONOGRAPHIQUE`.\n9. Terme de chantier visible (`LOT`, `V0`, `Phase A/B`, `DX.n`, `Appel`, `Partie n`).\n10. Posologie sans source de la cascade suisse.\n11. Image hors `<section class=\"fenetre\">`.\n12. Fichier supprimé au lieu d'être archivé.\n\n## § 5. ANNEXE CIRCUITS (248 SSP)\n- **NON_MONOGRAPHIQUE (52)** : 013 · 065 · 069 · 176 · 180 · 181 · 182 · 184 · 185 · 186 · 192 · 194 · 195 · 198 · 200 · 203 · 204 · 205 · 206 · 207 · 208 · 209 · 210 · 211 · 212 · 213 · 214 · 215 · 216 · 217 · 218 · 219 · 220 · 221 · 222 · 224 · 225 · 226 · 227 · 232 · 233 · 235 · 236 · 237 · 238 · 239 · 240 · 241 · 242 · 243 · 246 · 247.\n- **MIXTE (7)** : 014 · 165 · 174 · 175 · 190 · 202 · 223.\n- **MONOGRAPHIQUE (189)** : tous les autres SSP."
+}

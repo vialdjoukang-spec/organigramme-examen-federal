@@ -1,0 +1,3064 @@
+{
+  "rappel_obligatoire_avant_redaction": {
+    "lecture_imperative": [
+      "1. Lire intégralement PROMPT_Alpha_19.11.26.md ET la mise à jour incluse dans prompt_alpha_a_jour ci-dessous.",
+      "2. Respecter l'intervalle GLOBAL par cours : viser 85–95 Ko de texte médical pur (soit ~95–115 Ko de fichier JSON) sans quota rigide par partie — répartir le texte proportionnellement à l'importance clinique des parties.",
+      "3. Produire graduellement 1 cours complet par requête (Phase A, puis Cours 1, Cours 2...) en français médical académique, phrases verbales exclusives (0 phrase nominale), zéro prose générique ou patronnée.",
+      "4. Utiliser uniquement les guillemets typographiques français « … » dans les valeurs texte JSON (jamais de guillemet droit non échappé).",
+      "5. Zéro arbre décisionnel graphique (.fm-canvas) : ne générer aucun schéma décisionnel."
+    ],
+    "specificites_locales_ssp": [
+      "Circuit MONOGRAPHIQUE : respecter le plan maladie en 14 points avec socle généralités (1-3), démarche diagnostique (4-10), prise en charge posologique suisse intégrale (11) et QCM Examen Fédéral (14).",
+      "Couvrir 100 % des notions obligatoires listées dans phase_b[*].plan[*].notions_obligatoires pour Épanchement abdominal ou pleural détecté à l’échographie (F2.18).",
+      "Cascade posologique suisse à 4 paliers obligatoire : 1. AIPS Swissmedic (n° 5 chiffres) -> 2. Compendium.ch -> 3. Sociétés savantes & CHU suisses (HUG, CHUV, Inselspital, USZ, USB, OFSP, ASSM, SSMIG, Tox Info Suisse 145) -> 4. Sociétés savantes européennes."
+    ]
+  },
+  "meta": {
+    "rang_gravite": 82,
+    "ssp": "SSP_166",
+    "code_profiles": "F2.18",
+    "nom_francais": "Épanchement abdominal ou pleural détecté à l’échographie",
+    "circuit": "MONOGRAPHIQUE",
+    "police_obligatoire": "Atkinson Hyperlegible",
+    "calibre_cible": "80–100 Ko texte pur",
+    "arbres_decisionnels_autorises": false,
+    "mode_redaction": "Neon Deep Research",
+    "nb_chapitres_total": 20,
+    "defauts_audit_initial": [
+      "Incomplet (11/20 cours)",
+      "775 phrases nominales",
+      "Termes chantier (11 f.)"
+    ]
+  },
+  "sommaire": {
+    "phase_a": {
+      "fichier_html_cible": "LOT_166_Phase_A_V0.html",
+      "titre": "Épanchement abdominal ou pleural détecté à l’échographie — Vue d'ensemble et orientation clinique (F2.18)"
+    },
+    "phase_b": [
+      {
+        "cours_numero": 1,
+        "titre": "Ascite cirrhotique (hypertension portale)",
+        "cim": "K74.6",
+        "urgence": "semi-urgent"
+      },
+      {
+        "cours_numero": 2,
+        "titre": "Épanchement pleural transsudatif sur insuffisance cardiaque",
+        "cim": "J90",
+        "urgence": "semi-urgent"
+      },
+      {
+        "cours_numero": 3,
+        "titre": "Épanchement pleural parapneumonique simple",
+        "cim": "J90",
+        "urgence": "urgent"
+      },
+      {
+        "cours_numero": 4,
+        "titre": "Épanchement pleural malin (métastatique ou mésothéliome)",
+        "cim": "J91",
+        "urgence": "semi-urgent"
+      },
+      {
+        "cours_numero": 5,
+        "titre": "Carcinose péritonéale avec ascite néoplasique",
+        "cim": "C78.6",
+        "urgence": "semi-urgent"
+      },
+      {
+        "cours_numero": 6,
+        "titre": "Rupture de kyste ovarien bénin (lame d'hémopéritoine)",
+        "cim": "N83.2",
+        "urgence": "urgent"
+      },
+      {
+        "cours_numero": 7,
+        "titre": "Épanchement pleural sur embolie pulmonaire",
+        "cim": "I26.9",
+        "urgence": "urgent"
+      },
+      {
+        "cours_numero": 8,
+        "titre": "Ascite pancréatique (pancréatite / rupture canalaire)",
+        "cim": "K86.1",
+        "urgence": "semi-urgent"
+      },
+      {
+        "cours_numero": 9,
+        "titre": "Ascite et épanchements sur syndrome néphrotique",
+        "cim": "N04.9",
+        "urgence": "chronique"
+      },
+      {
+        "cours_numero": 10,
+        "titre": "Pleurésie tuberculeuse",
+        "cim": "A15.6",
+        "urgence": "semi-urgent"
+      },
+      {
+        "cours_numero": 11,
+        "titre": "Syndrome de Budd-Chiari (thrombose des veines sus-hépatiques)",
+        "cim": "I82.0",
+        "urgence": "urgent"
+      },
+      {
+        "cours_numero": 12,
+        "titre": "Chylothorax et ascite chyleuse",
+        "cim": "I89.8",
+        "urgence": "semi-urgent"
+      },
+      {
+        "cours_numero": 13,
+        "titre": "Péritonite bactérienne spontanée (infection du liquide d'ascite)",
+        "cim": "K65.2",
+        "urgence": "immediate"
+      },
+      {
+        "cours_numero": 14,
+        "titre": "Empyème pleural (épanchement parapneumonique compliqué)",
+        "cim": "J86.9",
+        "urgence": "immediate"
+      },
+      {
+        "cours_numero": 15,
+        "titre": "Hémopéritoine massif (traumatisme abdominal ou GEU rompue)",
+        "cim": "R58",
+        "urgence": "immediate"
+      },
+      {
+        "cours_numero": 16,
+        "titre": "Hémothorax massif (traumatique ou iatrogène)",
+        "cim": "J94.2",
+        "urgence": "immediate"
+      },
+      {
+        "cours_numero": 17,
+        "titre": "Rupture spontanée de l'œsophage (syndrome de Boerhaave)",
+        "cim": "K22.3",
+        "urgence": "immediate"
+      },
+      {
+        "cours_numero": 18,
+        "titre": "Péritonite secondaire sur perforation d'organe creux",
+        "cim": "K65.0",
+        "urgence": "immediate"
+      },
+      {
+        "cours_numero": 19,
+        "titre": "Épanchement pleural compressif avec détresse respiratoire aiguë",
+        "cim": "J90",
+        "urgence": "urgent"
+      }
+    ]
+  },
+  "phase_a": {
+    "titre": "Épanchement abdominal ou pleural détecté à l’échographie — Vue d'ensemble (F2.18)",
+    "plan": [
+      {
+        "point": 1,
+        "titre": "Définition nosologique et périmètre clinique",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 2,
+        "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 3,
+        "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 4,
+        "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+        "description": "Présentation et hiérarchisation des 19 entités de la Cartographie Renouveau."
+      },
+      {
+        "point": 5,
+        "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 6,
+        "titre": "Examen physique systématique région par région",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 7,
+        "titre": "Approche syndromique et stratification de gravité",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 8,
+        "titre": "Diagnostic positif, scores cliniques et critères validés",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 9,
+        "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 10,
+        "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 11,
+        "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 12,
+        "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 13,
+        "titre": "Points clés indispensables à retenir",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 14,
+        "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      }
+    ]
+  },
+  "phase_b": [
+    {
+      "cours_numero": 1,
+      "fichier_html_cible": "LOT_166_Phase_B_V0_DX.1.html",
+      "titre": "Ascite cirrhotique (hypertension portale)",
+      "cim": "K74.6",
+      "urgence": "semi-urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Accumulation de liquide transsudatif pauvre en protéines dans la cavité péritonéale due à l'hypertension portale sinusoïdale."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "~75–80 % des ascites ; survient chez ~50 % des patients cirrhotiques dans les 10 ans suivant le diagnostic."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Hypertension portale sinusoïdale + vasodilatation splanchnique (NO) -> hypovolémie efficace -> activation SRAA/ADH -> rétention hydrosodée ; gradient albumine sérum-ascite (SAAG) >= 11 g/L."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Fièvre, douleur abdominale, encéphalopathie ou dégradation rénale -> ponction d'ascite URGENTE pour exclure une péritonite bactérienne spontanée."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Augmentation du périmètre abdominal, prise de poids, hépatopathie alcoolique, VHC/VHB ou MASLD."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Matité déclive des flancs mobile, signe du flot, circulation veineuse collatérale, angiomes stellaires, œdèmes des membres inférieurs."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "SAAG >= 11 g/L + protéines totales basses (< 25 g/L) chez un patient cirrhotique."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Ponction exploratrice d'ascite systématique à toute nouvelle ascite/hospitalisation : PNN (< 250/mm3), albumine (SAAG >= 11 g/L), protéines totales (< 25 g/L), culture en flacons d'hémoculture."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Échographie abdominale + Doppler porte (foie dysmorphique, splénomégalie, perméabilité porte)."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Paracentèse évacuatrice si ascite tendue avec perfusion d'albumine (8 g par litre soustrait au-delà de 5 L)."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Régime modérément hyposodé (4–6 g NaCl/j) + diurétiques (spironolactone 100 mg/j ± furosémide 40 mg/j) ; arrêt alcool ; bilan de transplantation hépatique."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Péritonite bactérienne spontanée, syndrome hépatorénal, hydrothorax hépatique, hernie ombilicale étranglée."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Poids quotidien (cible -0.5 kg/j sans œdèmes), ionogramme (K+, Na+) et créatinine."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Survie à 2 ans ~50 % après apparition d'une ascite cirrhotique sans transplantation."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Gastro-entérologue/hépatologue, médecin de premier recours, addictologue."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 2,
+      "fichier_html_cible": "LOT_166_Phase_B_V0_DX.2.html",
+      "titre": "Épanchement pleural transsudatif sur insuffisance cardiaque",
+      "cim": "J90",
+      "urgence": "semi-urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Accumulation de liquide transsudatif dans l'espace pleural par élévation de la pression hydrostatique capillaire pulmonaire et systémique."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Très fréquent chez le sujet âgé insuffisant cardiaque ; bilatéral dans ~75 % des cas (souvent prédominant à droite si unilatéral)."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Insuffisance ventriculaire gauche -> hyperpression veineuse pulmonaire -> fuite transsudative dépassant le drainage lymphatique pleural ; critères de Light négatifs."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Fièvre, douleur pleurale unilatérale franche, épanchement unilatéral gauche isolé ou persistance sous diurétiques (ponction diagnostique requise !)."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Dyspnée d'effort, orthopnée, dyspnée paroxystique nocturne, prise de poids, antécédent coronarien/HTA."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Matité basale, abolition du murmure vésiculaire, crépitants, œdèmes des membres inférieurs, turgescence jugulaire."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Insuffisance cardiaque documentée + épanchement transsudatif."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Échographie pleurale + radiographie thoracique + NT-proBNP élevé + échocardiographie ; ponction pleurale inutile si présentation bilatérale symétrique typique répondant aux diurétiques."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Si ponction réalisée : transsudat selon Light (protéines plèvre/sérum < 0.5, LDH plèvre/sérum < 0.6, LDH < 2/3 LSN) ; gradient albumine sérum-plèvre > 12 g/L si diurétiques déjà débutés."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Diurétiques de l'anse (furosémide IV) + O2 ; ponction évacuatrice uniquement si dyspnée réfractaire."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Quadrithérapie de l'insuffisance cardiaque (IEC/ARNI, bêtabloquant, ARM, iSGLT2)."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "OAP, hypoxémie."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Poids, dyspnée, NT-proBNP, ionogramme/créatinine."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Résolution parallèle à la déplétion volémique."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Médecin de premier recours, cardiologue."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 3,
+      "fichier_html_cible": "LOT_166_Phase_B_V0_DX.3.html",
+      "titre": "Épanchement pleural parapneumonique simple",
+      "cim": "J90",
+      "urgence": "urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Épanchement pleural exsudatif stérile réactionnel à une pneumonie bactérienne adjacente, sans envahissement bactérien de la plèvre."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Fréquent dans les pneumonies à pneumocoque, Streptococcus anginosus ou anaérobies."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Inflammation parenchymateuse -> augmentation de la perméabilité capillaire pleurale -> exsudat neutrophilique (pH > 7.20, glucose > 2.2 mmol/L, culture négative)."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Persistance de la fièvre > 48–72 h sous antibiotiques, épanchement cloisonné à l'échographie, pH pleural < 7.20 -> évolution vers empyème."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Toux productive, fièvre, douleur thoracique pleurale (point de côté) dans un contexte de pneumonie."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Fébrile, matité basale, abolition du murmure vésiculaire, souffle pleurétique."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Pneumonie + exsudat neutrophilique stérile avec pH >= 7.20 et glucose >= 2.2 mmol/L."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Échographie pleurale (épaisseur >= 1 cm -> ponction diagnostique !) : biochimie (pH sur gazométrie héparinée, LDH, protéines, glucose), cytologie, Gram et culture."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "CT thoracique injecté si doute sur abcès pulmonaire ou cloisonnement complexe."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Antibiothérapie adaptée à la pneumonie (ex. amoxicilline-clavulanate ou ceftriaxone) ; pas de drainage thoracique nécessaire si pH > 7.20 et volume modéré."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Physiothérapie respiratoire ; contrôle radiologique à 4–6 semaines chez le fumeur > 50 ans (exclure néoplasie sous-jacente)."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Évolution vers empyème pleural nécessitant drainage/chirurgie."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Courbe thermique, CRP, échographie pleurale si non-réponse."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Guérison complète sous antibiothérapie."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Médecin de premier recours, pneumologue."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 4,
+      "fichier_html_cible": "LOT_166_Phase_B_V0_DX.4.html",
+      "titre": "Épanchement pleural malin (métastatique ou mésothéliome)",
+      "cim": "J91",
+      "urgence": "semi-urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Exsudat pleural lié à l'envahissement tumoral direct de la plèvre (carcinome pulmonaire, sein, lymphome, ovaire, mésothéliome)."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Cause principale d'épanchement pleural massif unilatéral chez > 60 ans ; mésothéliome lié à l'amiante."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Métastases pleurales -> obstruction du drainage lymphatique pariétal + sécrétion de VEGF -> exsudat souvent hémorragique et lymphocytaire."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Épanchement massif avec déviation médiastinale controlatérale (détresse respiratoire -> ponction évacuatrice urgente)."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Dyspnée progressive, perte de poids, anorexie, tabagisme, antécédent de cancer, exposition à l'amiante."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Matité d'un hémithorax, abolition des vibrations vocales, adénopathies sus-claviculaires."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Cellules malignes dans le liquide pleural ou biopsie pleurale positive."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Ponction pleurale (exsudat lymphocytaire/hémorragique, cytologie tumorale positive dans ~60 %) + CT thoraco-abdominal ; thoracoscopie médicale avec biopsies pleurales (sensibilité > 95 %) si cytologie négative."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "TEP-CT pour bilan d'extension."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Ponction évacuatrice (max 1–1.5 L par séance pour éviter l'œdème de réexpansion !)."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Traitement oncologique systémique + prise en charge palliative de la dyspnée récidivante (pleurodèse au talc ou cathéter pleural tunnelisé à demeure)."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Récidive rapide, poumon trappé (trapped lung), œdème de réexpansion."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Dyspnée, contrôle radiologique après geste."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Survie médiane 3–12 mois selon tumeur primitive (meilleure pour sein/lymphome)."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Pneumologue, oncologue, soins palliatifs, médecin traitant."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 5,
+      "fichier_html_cible": "LOT_166_Phase_B_V0_DX.5.html",
+      "titre": "Carcinose péritonéale avec ascite néoplasique",
+      "cim": "C78.6",
+      "urgence": "semi-urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Dissémination tumorale sur la séreuse péritonéale générant une ascite exsudative (SAAG < 11 g/L)."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "~10 % des ascites ; première cause d'ascite non cirrhotique chez la femme (cancer ovarien)."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Obstruction des stomates lymphatiques diaphragmatiques + perméabilité capillaire induite par le VEGF -> liquide riche en protéines (> 25 g/L) avec SAAG < 11 g/L."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Occlusion intestinale aiguë sur carcinose."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Distension abdominale progressive, douleurs abdominales, satiété précoce, amaigrissement."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Ascite, nodules péritonéaux/ombilical (nodule de Sœur Marie-Joseph), masse pelvienne."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Cytologie d'ascite positive ou histologie péritonéale confirmant la carcinose."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Ponction d'ascite (SAAG < 11 g/L, protéines > 25 g/L, cytologie maligne) + CT thoraco-abdomino-pelvien + marqueurs (CA-125, CEA) + biopsie péritonéale/laparoscopie."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Échographie pelvienne endovaginale chez la femme."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Paracentèse évacuatrice itérative (diurétiques peu efficaces car pas d'HTP !)."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Chimiothérapie systémique / CHIP selon primitif, ou cathéter péritonéal tunnelisé palliatif."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Occlusions digestives, dénutrition sévère, cachexie."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "État nutritionnel, confort abdominal."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Pronostic réservé dépendant de la chimiosensibilité (meilleur dans le cancer ovarien)."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Oncologue, gynéco-oncologue, chirurgien viscéral, soins palliatifs."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 6,
+      "fichier_html_cible": "LOT_166_Phase_B_V0_DX.6.html",
+      "titre": "Rupture de kyste ovarien bénin (lame d'hémopéritoine)",
+      "cim": "N83.2",
+      "urgence": "urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Rupture d'un kyste folliculaire ou du corps jaune libérant du liquide séreux ou du sang dans le cul-de-sac de Douglas."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Fréquente chez la femme jeune (15–40 ans), souvent en milieu ou seconde phase de cycle (corps jaune hémorragique)."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Rupture de la paroi kystique (parfois après rapport sexuel ou effort) -> irritation péritonéale pelvienne."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Test bêta-hCG positif (exclure GROSSESSE EXTRA-UTÉRINE rompue !), hypotension, chute d'Hb, hémopéritoine abondant remontant dans l'étage sus-mésocolique."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Douleur pelvienne unilatérale brutale, parfois lipothymie vagale, absence de retard de règles (test de grossesse négatif)."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Sensibilité pelvienne latéralisée, défense modérée possible ; constantes stables dans la majorité des cas."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Douleur pelvienne aiguë + liquide libre pelvien + bêta-hCG négatif."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Test de grossesse (bêta-hCG urinaires/sériques OBLIGATOIRE !) + échographie pelvienne/abdominale (lame liquidienne dans le Douglas, kyste collabé) + FSC."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Cœlioscopie diagnostique et hémostatique uniquement si instabilité ou hémopéritoine évolutif."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Surveillance hémodynamique, antalgie simple (paracétamol/AINS) ; traitement conservateur dans > 85 % des cas."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Contraception œstroprogestative si récidives fréquentes de kystes fonctionnels."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Hémopéritoine massif rare (sous anticoagulants)."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Contrôle clinique et Hb à 6–12 h si épanchement modéré."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Résorption spontanée en quelques jours."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Urgences, gynécologue."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 7,
+      "fichier_html_cible": "LOT_166_Phase_B_V0_DX.7.html",
+      "titre": "Épanchement pleural sur embolie pulmonaire",
+      "cim": "I26.9",
+      "urgence": "urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Épanchement pleural réactionnel à une ischémie/infarctus pulmonaire périphérique secondaire à une embolie pulmonaire."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "~30 % des EP présentent un épanchement pleural ; diagnostic souvent retardé si l'épanchement est pris pour une pleurésie infectieuse."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Thrombus distal -> infarctus pulmonaire sous-pleural -> inflammation et perméabilité capillaire pleurale -> exsudat souvent hémorragique."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Hypotension/choc (EP massive), syncope, hypoxémie sévère."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Douleur thoracique pleurale brutale, dyspnée aiguë, facteurs de risque thromboemboliques (immobilisation, chirurgie, cancer, contraception)."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Tachypnée, tachycardie, hypoxémie, signes de TVP unilatérale."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Angio-CT confirmant l'embolie pulmonaire (+ infarctus pulmonaire/épanchement)."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Score de Wells/Genève + D-dimères (si probabilité faible/intermédiaire) + angio-CT thoracique pulmonaire."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Écho-Doppler veineux des membres inférieurs, échocardiographie (cœur pulmonaire aigu)."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Anticoagulation thérapeutique immédiate (AOD ou HBPM) ; thrombolyse si EP à haut risque (choc)."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Anticoagulation ≥ 3 mois (prolongée si facteur non provoqué/récidive/cancer)."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Choc obstructif, HTAP thromboembolique chronique."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Résorption spontanée de l'épanchement sous anticoagulation (ne pas ponctionner sauf doute majeur)."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Bon sous anticoagulation précoce."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Urgences, médecine interne, angiologue/pneumologue."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 8,
+      "fichier_html_cible": "LOT_166_Phase_B_V0_DX.8.html",
+      "titre": "Ascite pancréatique (pancréatite / rupture canalaire)",
+      "cim": "K86.1",
+      "urgence": "semi-urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Accumulation de suc pancréatique dans la cavité péritonéale par rupture d'un pseudokyste ou du canal de Wirsung."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Complique ~2–4 % des pancréatites chroniques (éthyliques) ou aiguës nécrosantes."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Fistule pancréatico-péritonéale -> irruption d'enzymes pancréatiques -> exsudat inflammatoire péritonéal."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Surinfection du liquide ou choc septique."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Ascite récente chez un patient avec pancréatite chronique/aiguë, douleur abdominale modérée, amaigrissement."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Distension abdominale, cachexie fréquente."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Amylase très élevée dans le liquide d'ascite + imagerie pancréatique."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Ponction d'ascite : amylase/lipase du liquide d'ascite très élevée (> 3× normale sérique, souvent > 1000 U/L) + protéines > 25 g/L + SAAG < 11 g/L ; bili-IRM/Wirsungo-IRM ou CT."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "CPRE pour localiser et stenter la brèche canalaire."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Mise au repos digestif / nutrition parentérale ou jéjunale + analogues de la somatostatine (octréotide). Jeûne court avec reprise orale précoce dès tolérance (< 48 h), réhydratation contrôlée par Ringer-Lactate 5–10 mL/kg/h (puis 1,5–3 mL/kg/h selon volémie) et antalgie multimodale (paracétamol 1 g IV/6 h + morphine titrée 2–3 mg IV/5 min) ; pas d'antibiothérapie prophylactique sans nécrose infectée."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Drainage endoscopique (sphinctérotomie/prothèse pancréatique par CPRE) ou chirurgie si échec ; arrêt alcool. Cholécystectomie dans le même séjour si origine biliaire bénigne, sevrage alcoolique total + thiamine 100–300 mg/j ou correction d'une hypertriglycéridémie."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Dénutrition sévère, infection péritonéale, fistule pleurale (pleurésie pancréatique)."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Volume d'ascite, albumine, imagerie de contrôle. Score de gravité à 48 h (CRP, hématocrite, créatinine, diurèse) et TDM abdominale injectée à 72–96 h uniquement si évolution défavorable."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Favorable après fermeture endoscopique de la brèche."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Gastro-entérologue, chirurgien viscéral."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 9,
+      "fichier_html_cible": "LOT_166_Phase_B_V0_DX.9.html",
+      "titre": "Ascite et épanchements sur syndrome néphrotique",
+      "cim": "N04.9",
+      "urgence": "chronique",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Épanchements séreux (ascite, pleurésie bilatérale) intégrés dans un tableau d'œdèmes généralisés secondaires à une fuite protéique glomérulaire massive."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Lésions glomérulaires minimes, glomérulonéphrite extramembraneuse, hyalinose segmentaire et focale, diabète."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Protéinurie > 3.5 g/j -> hypoalbuminémie -> chute de la pression oncotique capillaire + rétention sodée tubulaire primaire (ENaC) -> transsudats séreux."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Thrombose veineuse (veine rénale, EP), péritonite primitive à pneumocoque (fréquente chez l'enfant néphrotique)."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Œdèmes périorbitaires le matin, prise de poids rapide, urines mousseuses."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Œdèmes mous prenant le godet, épanchement pleural bilatéral, ascite."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Syndrome néphrotique biologique + transsudats séreux."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Protéinurie/24h (> 3.5 g/j) + albuminémie (< 30 g/L) + bilan lipidique + créatinine + biopsie rénale chez l'adulte."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Échographie pleurale/abdominale."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Diurétiques (furosémide ± albumine si hypovolémie sévère), restriction sodée."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "IEC/ARA-II + traitement étiologique (corticoïdes/immunosuppresseurs) + anticoagulation prophylactique si albumine < 20 g/L."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Thromboses, infections encapsulées, IRA."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Poids, protéinurie, albuminémie, créatinine."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Régression des épanchements avec la rémission du syndrome néphrotique."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Néphrologue, médecin de premier recours."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 10,
+      "fichier_html_cible": "LOT_166_Phase_B_V0_DX.10.html",
+      "titre": "Pleurésie tuberculeuse",
+      "cim": "A15.6",
+      "urgence": "semi-urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Réaction d'hypersensibilité retardée de la plèvre à Mycobacterium tuberculosis donnant un épanchement exsudatif riche en lymphocytes."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Cause fréquente de pleurésie chez le sujet jeune/migrant en Suisse ; ~5 % des tuberculoses."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Rupture d'un petit foyer sous-pleural -> afflux de lymphocytes T CD4+ -> granulomes épithélioïdes caséeux et sécrétion d'adénosine désaminase (ADA)."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Tuberculose pulmonaire bacillifère associée (contagiosité -> isolement respiratoire !)."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Fièvre subaiguë, sueurs nocturnes, toux sèche, douleur pleurale, perte de poids, origine de zone d'endémie."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Fébricule, syndrome pleural unilatéral."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Granulomes caséeux à la biopsie pleurale et/ou mise en évidence de M. tuberculosis (PCR/culture)."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Ponction pleurale (exsudat lymphocytaire > 80 %, glucose bas, ADA > 40 U/L) + biopsie pleurale (granulomes caséeux, PCR/culture BK > 80 %) + expectorations/LBA pour BK."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Test IGRA (QuantiFERON) sanguin positif (n'élimine ni ne prouve une forme active à lui seul)."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Isolement aérien tant que tuberculose pulmonaire active non exclue."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Quadrithérapie antituberculeuse standard (RIPE : rifampicine, isoniazide, pyrazinamide, éthambutol × 2 mois puis rifampicine + isoniazide × 4 mois)."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Pachypleurite fibreuse séquellaire, dissémination miliaire."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Tolérance hépatique/ophtalmique des antituberculeux, déclaration obligatoire OFSP."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Guérison complète sous traitement bien observé."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Pneumologue, infectiologue, ligue pulmonaire cantonale."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 11,
+      "fichier_html_cible": "LOT_166_Phase_B_V0_DX.11.html",
+      "titre": "Syndrome de Budd-Chiari (thrombose des veines sus-hépatiques)",
+      "cim": "I82.0",
+      "urgence": "urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Obstruction du drainage veineux hépatique (veines sus-hépatiques ou VCI rétrohépatique) entraînant une hypertension portale post-sinusoïdale."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Rare (~1/million/an) ; associé dans > 75 % des cas à un état prothrombotique (syndrome myéloprolifératif JAK2+, SAPL, HPN, œstroprogestatifs)."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Congestion centrolobulaire hépatique -> nécrose hépatocytaire + hyperpression sinusoïdale -> ascite riche en protéines (> 25 g/L) MAIS avec SAAG >= 11 g/L (exception classique !)."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Insuffisance hépatique aiguë fulminante, encéphalopathie hépatique."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Douleur de l'hypocondre droit, ascite d'installation rapide, antécédent thrombotique ou prise de pilule œstroprogestative."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Hépatomégalie douloureuse, ascite tendue, subictère, œdèmes des membres inférieurs si VCI obstruée."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Imagerie montrant l'obstruction des veines sus-hépatiques."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Écho-Doppler des veines sus-hépatiques (absence de flux/thrombus, hypertrophie du lobe caudé) + angio-CT/angio-IRM hépatique + bilan de thrombophilie (JAK2 V617F, HPN, SAPL)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Ponction d'ascite (SAAG >= 11 g/L ET protéines > 25 g/L)."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Anticoagulation thérapeutique immédiate (HBPM/HNF) ; TIPS en urgence si absence de réponse ou forme sévère."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Anticoagulation à vie + traitement du syndrome myéloprolifératif/thrombophilie ; transplantation hépatique si défaillance."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Cirrhose, carcinome hépatocellulaire, défaillance hépatique."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Perméabilité du TIPS, bilan hépatique, FSC."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Survie à 5 ans > 80 % grâce au TIPS et à l'anticoagulation précoce."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Hépatologue, radiologue interventionnel, hématologue."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 12,
+      "fichier_html_cible": "LOT_166_Phase_B_V0_DX.12.html",
+      "titre": "Chylothorax et ascite chyleuse",
+      "cim": "I89.8",
+      "urgence": "semi-urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Épanchement de lymphe (chyle) dans la plèvre ou le péritoine par rupture ou obstruction du canal thoracique ou des lymphatiques mésentériques."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Causes : traumatique/post-chirurgicale (chirurgie thoracique/œsophagienne, 50 %) ou non traumatique (lymphome 70 %, cirrhose, lymphangioléiomyomatose)."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Fuite de chylomicrons riches en triglycérides et lymphocytes T -> aspect laiteux persistant après centrifugation (contrairement à l'empyème)."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Dénutrition rapide, lymphopénie sévère et immunodépression par fuite lymphatique massive (> 1 L/j)."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Chirurgie thoracique/cervicale récente, dyspnée ou ascite indolore, symptômes B (lymphome)."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Syndrome pleural ou ascite ; rechercher adénopathies."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Triglycérides > 1.24 mmol/L dans le liquide pleural/ascitique."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Ponction : liquide laiteux + triglycérides > 1.24 mmol/L (110 mg/dL) et/ou présence de chylomicrons à l'électrophorèse des lipoprotéines."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "CT thoraco-abdominal (recherche lymphome/adénopathies), lymphangiographie IRM."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Drainage si symptomatique + régime sans graisses à chaînes longues (supplémentation en triglycérides à chaînes moyennes - TCM) ou jeûne + nutrition parentérale + octréotide."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Embolisation du canal thoracique par radiologie interventionnelle ou ligature chirurgicale si débit élevé persistant ; traitement du lymphome."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Cachexie, hypogammaglobulinémie, infections."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Débit de drainage, albumine, lymphocytes."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Favorable après colmatage de la brèche ou traitement du lymphome."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Pneumologue, chirurgien thoracique, radiologue interventionnel, hématologue."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 13,
+      "fichier_html_cible": "LOT_166_Phase_B_V0_DX.13.html",
+      "titre": "Péritonite bactérienne spontanée (infection du liquide d'ascite)",
+      "cim": "K65.2",
+      "urgence": "immediate",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Infection spontanée du liquide d'ascite en l'absence de foyer infectieux intra-abdominal chirurgical, définie par >= 250 PNN/mm3 dans l'ascite."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Survient chez 10–30 % des cirrhotiques hospitalisés avec ascite ; germes : E. coli, Klebsiella, streptocoques."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Translocation bactérienne intestinale + déficit d'opsonisation du liquide d'ascite (protéines basses) -> infection péritonéale -> risque majeur de syndrome hépatorénal."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Toute décompensation cirrhotique (encéphalopathie, IRA, hémorragie digestive, fièvre) impose une ponction d'ascite immédiate."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Fièvre, douleur abdominale diffuse, encéphalopathie hépatique d'apparition récente, diarrhée — mais asymptomatique dans 15–30 % des cas !"
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Sensibilité abdominale (parfois absente), fièvre ou hypothermie, astérixis, hypotension."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "PNN dans le liquide d'ascite >= 250/mm3."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Ponction d'ascite en urgence : numération des PNN >= 250/mm3 (0.25 G/L) suffit pour traiter sans attendre la culture ! + inoculation immédiate en flacons d'hémoculture."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Hémocultures périphériques, créatinine, lactate ; exclure une péritonite secondaire (protéines ascite > 10 g/L, glucose < 2.8, LDH > LSN, flore polymicrobienne)."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "1) Antibiothérapie IV immédiate : ceftriaxone 2 g/j IV (ou pipéracilline-tazobactam si nosocomial) pendant 5–7 j ; 2) ALBUMINE IV systématique (1.5 g/kg à J1 puis 1 g/kg à J3) pour prévenir le syndrome hépatorénal !"
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Antibioprophylaxie secondaire au long cours (norfloxacine 400 mg/j ou ciprofloxacine) jusqu'à transplantation/disparition ascite."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Syndrome hépatorénal, choc septique, encéphalopathie sévère."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Ponction d'ascite de contrôle à 48 h (baisse attendue des PNN >= 25 %), créatinine quotidienne."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Survie hospitalière ~80 % grâce à l'association ceftriaxone + albumine ; indication à évaluer une greffe hépatique."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Urgences, gastro-entérologue/hépatologue, soins intensifs."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 14,
+      "fichier_html_cible": "LOT_166_Phase_B_V0_DX.14.html",
+      "titre": "Empyème pleural (épanchement parapneumonique compliqué)",
+      "cim": "J86.9",
+      "urgence": "immediate",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Collection purulente dans la cavité pleurale (ou liquide avec bactéries au Gram/culture, pH < 7.20, glucose < 2.2 mmol/L)."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Complication de pneumonie, bronchoaspiration, chirurgie thoracique ou abcès sous-phrénique."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Invasion bactérienne -> consommation du glucose et production d'acide lactique (pH < 7.20) -> dépôts de fibrine formant des logettes cloisonnées (phase fibrinopurulente puis organisée)."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Aspect purulent à la ponction, pH < 7.20, cloisonnements multiples à l'échographie, sepsis."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Fièvre persistante malgré antibiothérapie pour pneumonie, douleur thoracique, dyspnée, altération de l'état général."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Fièvre hectique, matité, abolition du murmure vésiculaire."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Pus pleural ou exsudat avec pH < 7.20 / germes identifiés."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Ponction pleurale (pus franc, pH < 7.20, glucose < 2.2 mmol/L, LDH > 1000 U/L, Gram/culture) + échographie pleurale (septations) + CT thoracique injecté."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Hémocultures."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "1) DRAINAGE thoracique urgent ; 2) Antibiothérapie IV couvrant anaérobies et germes communautaires/nosocomiaux (amoxicilline-clavulanate ou ceftriaxone + métronidazole) pour 2–4 semaines ; 3) Fibrinolyse intrapleurale (altéplase + dornase alfa) ou thoracoscopie (VATS) si cloisonné."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Kinésithérapie respiratoire intensive, renutrition."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Sepsis, fistule bronchopleurale, pachypleurite restrictive (décortication nécessaire)."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Débit du drain, CRP, courbe thermique, imagerie thoracique."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Guérison sans séquelle si drainage précoce."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Pneumologue, chirurgien thoracique, infectiologue."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 15,
+      "fichier_html_cible": "LOT_166_Phase_B_V0_DX.15.html",
+      "titre": "Hémopéritoine massif (traumatisme abdominal ou GEU rompue)",
+      "cim": "R58",
+      "urgence": "immediate",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Épanchement sanguin abondant dans la cavité péritonéale par rupture d'organe plein (rate, foie), lésion vasculaire ou grossesse extra-utérine rompue."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Première cause de décès évitable dans les traumatismes abdominaux fermés ; GEU rompue = urgence gynécologique vitale."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Rupture parenchymateuse/vasculaire -> saignement actif intrapéritonéal -> choc hypovolémique."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "FAST-écho positive + instabilité hémodynamique -> BLOC OPÉRATOIRE immédiat (pas de CT si instable !)."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Traumatisme abdominal, douleur abdominale brutale irradiant à l'épaule (signe de Kehr), retard de règles/métrorragies chez la femme."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Tachycardie, hypotension, pâleur, défense abdominale, distension."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Liquide libre échographique (Morrison/Douglas) dans un contexte traumatique ou hémorragique aigu."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "E-FAST échographie au lit du malade (espace de Morrison, spléno-rénal, Douglas) + bêta-hCG chez toute femme en âge de procréer + groupe/RAI + gazométrie ; CT injecté uniquement si hémodynamique stable."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Ponction-lavage péritonéal historique (remplacée par FAST)."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Réanimation choc hémorragique (transfusion massive, acide tranexamique) + laparotomie/cœlioscopie d'hémostase urgente ou radio-embolisation splénique/hépatique si stable."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Vaccinations post-splénectomie (pneumocoque, méningocoque, Hib) si splénectomie."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Choc réfractaire, triade létale, syndrome du compartiment abdominal."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Soins intensifs post-opératoires."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Survie excellente si hémostase rapide."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Urgences, chirurgie viscérale/gynécologie, radiologie interventionnelle."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 16,
+      "fichier_html_cible": "LOT_166_Phase_B_V0_DX.16.html",
+      "titre": "Hémothorax massif (traumatique ou iatrogène)",
+      "cim": "J94.2",
+      "urgence": "immediate",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Accumulation rapide de sang (> 1000–1500 mL) dans la cavité pleurale (plaie vasculaire intercostale/mammaire interne, parenchyme pulmonaire, post-ponction/KTC)."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Fréquent dans les traumatismes thoraciques pénétrants ou fermés."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Hémorragie intrapleurale -> choc hypovolémique + compression pulmonaire et refoulement médiastinal (choc mixte hypovolémique et obstructif)."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Débit initial du drain >= 1500 mL ou >= 200 mL/h sur 2–4 h."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Traumatisme thoracique ou geste invasif récent (ponction pleurale, voie centrale sous-clavière), dyspnée brutale, douleur."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Choc (hypotension, tachycardie), matité thoracique unilatérale + abolition du murmure vésiculaire (vs tympanisme du pneumothorax)."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Épanchement pleural sanguinolent massif avec contexte traumatique/iatrogène."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Échographie pleurale (E-FAST) ou radiographie thoracique + gazométrie + groupe/RAI ; angio-CT thoracique si stable."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Hématocrite du liquide pleural > 50 % de l'hématocrite sanguin (définition biologique de l'hémothorax)."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "2 VVP gros calibre + transfusion + DRAINAGE thoracique de gros calibre (28–32 Ch) ; thoracotomie/VATS d'hémostase si débit critère dépassé."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Évacuation complète des caillots pour éviter un fibrothorax ou un empyème secondaire."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Choc hémorragique fatal, hémothorax coagulé, empyème."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Débit horaire du drain thoracique, constantes, Hb."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Bon si drainage et hémostase rapides."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Urgences, chirurgie thoracique, soins intensifs."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 17,
+      "fichier_html_cible": "LOT_166_Phase_B_V0_DX.17.html",
+      "titre": "Rupture spontanée de l'œsophage (syndrome de Boerhaave)",
+      "cim": "K22.3",
+      "urgence": "immediate",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Perforation transmurale de l'œsophage distal (bord postéro-latéral gauche) secondaire à une hyperpression brutale lors de vomissements contre glotte fermée."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Rare mais gravissime ; classique chez l'homme d'âge moyen après repas copieux/alcoolisation."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Irruption de suc gastrique et bactéries buccales dans le médiastin et la plèvre gauche -> médiastinite nécrosante foudroyante et épanchement pleural gauche riche en amylase salivaire."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Épanchement pleural gauche + pneumomédiastin après vomissements -> urgence chirurgicale < 24 h."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Triade de Mackler : vomissements violents suivis d'une douleur thoracique basse déchirante et d'un emphysème sous-cutané cervical."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Détresse respiratoire, choc septique rapide, crépitation neigeuse sus-claviculaire, abolition murmure vésiculaire gauche."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Pneumomédiastin/extravasation œsophagienne au CT après vomissements."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "CT thoracique avec opacification œsophagienne hydrosoluble (fuite de contraste, pneumomédiastin, épanchement pleural gauche)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Ponction pleurale : liquide acide (pH < 6), amylase salivaire très élevée, débris alimentaires."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Jeûne absolu, réanimation choc septique, antibiothérapie IV large spectre + antifongique, drainage pleural et réparation chirurgicale ou prothèse œsophagienne endoscopique en urgence."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Nutrition jéjunale prolongée jusqu'à cicatrisation."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Médiastinite purulente, choc septique réfractaire, SDRA."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Monitorage continu (PA, FC, SpO2, conscience, diurèse > 0,5 mL/kg/h) et réévaluation biologique SI à H2–H6."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Mortalité < 10–15 % si opéré < 24 h, > 40–50 % si retard > 24 h."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Chirurgie viscérale/thoracique, soins intensifs, gastro-entérologie."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 18,
+      "fichier_html_cible": "LOT_166_Phase_B_V0_DX.18.html",
+      "titre": "Péritonite secondaire sur perforation d'organe creux",
+      "cim": "K65.0",
+      "urgence": "immediate",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Inflammation et infection aiguë du péritoine par rupture d'un organe creux digestif (ulcère perforé, diverticulite perforée, appendicite perforée)."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Cause fréquente d'abdomen aigu chirurgical aux urgences."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Irruption d'acide gastrique ou de flore fécale polymicrobienne -> péritonite chimique puis septique."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Contracture abdominale + pneumopéritoine + sepsis."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Douleur abdominale brutale « en coup de poignard », nausées, arrêt du transit."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Ventre de bois (contracture abdominale généralisée), silence auscultatoire, fièvre, tachycardie."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Tableau clinique de péritonite + pneumopéritoine/liquide libre au CT."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "CT abdominal injecté (pneumopéritoine, épanchement libre, site de perforation)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Échographie abdominale (liquide libre avec échos en suspension, artefacts d'air libre sous-phrénique)."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Réanimation, antibiothérapie IV large spectre couvrant BGN et anaérobies, laparotomie/cœlioscopie urgente (lavage péritonéal et traitement de la perforation)."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Prévention ulcère (IPP, arrêt AINS) ou rétablissement de continuité si stomie."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Choc septique, abcès résiduels, occlusions sur brides."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Transit, courbe thermique, CRP."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Bon si chirurgie précoce."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Urgences, chirurgie viscérale."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 19,
+      "fichier_html_cible": "LOT_166_Phase_B_V0_DX.19.html",
+      "titre": "Épanchement pleural compressif avec détresse respiratoire aiguë",
+      "cim": "J90",
+      "urgence": "urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Épanchement pleural de grande abondance entraînant un collapsus pulmonaire total, une compression médiastinale et une insuffisance respiratoire aiguë."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Le plus souvent d'origine néoplasique ou infectieuse (empyème)."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Pression intrapleurale positive -> collapsus alvéolaire (shunt intrapulmonaire) + gêne au retour veineux cave -> hypoxémie et hypotension."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Hypotension (tamponnade pleurale) ou épuisement respiratoire."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Dyspnée de repos, orthopnée majeure, angoisse."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Polypnée, cyanose, SpO2 < 88 %, matité complète d'un hémithorax, déviation trachéale controlatérale."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Détresse respiratoire aiguë + hémithorax opaque avec refoulement médiastinal."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Échographie pleurale au lit du malade + radiographie thoracique + gazométrie."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Analyse biochimique/cytologique du liquide ponctionné."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Oxygénothérapie + thoracentèse évacuatrice ou drainage sous guidage échographique (limiter l'évacuation initiale à 1–1.5 L puis clamper 1 h pour prévenir l'œdème de réexpansion !)."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Traitement étiologique et pleurodèse si récidive maligne."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Œdème pulmonaire de réexpansion, pneumothorax iatrogène."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "SpO2, FR, radiographie post-geste."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Soulagement immédiat de la dyspnée après évacuation."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Urgences, pneumologue."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    }
+  ],
+  "prompt_alpha_a_jour": "# MISSION : CORRECTION ET COMPLÉTION DES 248 SSP SUISSES (3 975 ENTITÉS + 248 CHAPITRES 0)\n\n## § 0. IDENTIFICATION, SIGNATURE & RÈGLES DE CONTINUITÉ — BLOQUANT ABSOLU\n1. **Identification obligatoire** en tête de première réponse :\n   - HEURE DE DÉBUT : AAAA-MM-JJ HH:MM (Europe/Zurich)\n   - MODÈLE : nom exact du modèle (ex. ANTIGRAVITY ORCHESTRATOR NEON)\n   - PLATEFORME : plateforme exacte (ex. ANTIGRAVITY)\n   - Ajouter la même ligne à `1_Claude AI/IDENTIFICATION_AGENTS.md`. Si incertitude, s'arrêter.\n2. **Signature IA fixe en bas à droite de TOUT HTML produit ou modifié** (juste avant `</body>`, en GRAS MAJUSCULE) :\n   `<div id=\"signature-ia\" style=\"position:fixed;right:12px;bottom:10px;z-index:9999;background:#fff;border:2px solid #000;padding:4px 10px;font:700 12px/1.3 Arial,sans-serif;text-transform:uppercase;color:#000\">DÉBUT : AAAA-MM-JJ HH:MM (EUROPE/ZURICH) · MODÈLE : <NOM> · PLATEFORME : <PLATEFORME></div>`\n   - **Seul Vial peut autoriser le retrait de ce bloc.** Un agent qui reprend un fichier signé ajoute sa propre ligne sous la précédente sans jamais effacer l'existante.\n3. **Continuité & transparence** :\n   - **Redémarrage propre à partir de `SSP_248`** : tous les cours précédemment modifiés ont été restaurés à l'état initial (`6941513`). Enchaîner continûment **`SSP_248 → SSP_033`**, puis **`SSP_001 → SSP_032`**.\n   - **Toujours afficher le raisonnement visible** en français dans chaque réponse.\n   - **Veille & relance GitHub** : commiter et pousser sur `origin main` après chaque SSP (ou lot <= 5 SSP) avec l'état à jour dans `SUIVI_PRODUCTION.csv`, `HANDOFF_AFFINAGE.md` et `HANDOFF_IA_COMPLET.md`.\n   - **Suivi graphique temps réel** : maintenir à jour le tableau de bord visuel temps réel des réalisations achevées et en cours.\n\n## § 1. RÈGLES ACTUALISÉES (PRIMENT SUR LE PROMPT ALPHA 19.11.26)\n1. **Nombre de cours par SSP** : **1 cours par entité de la Cartographie Renouveau** (15 à 24 entités par SSP, 3 975 au total) + le Chapitre 0 (`Phase_A`), dans l'ordre exact des `Cours 1 … N` de `SSP_nnn/NOTIONS.md` / `NOTIONS.json`.\n2. **QUALITÉ CLINIQUE MAXIMALE & ZÉRO MÉDIOCRITÉ (BLOQUANT ABSOLU — Consigne Vial 20.11.26)** :\n   - **Interdiction absolue de toute prose patronnée / générique** : aucune phrase-cadre où seul le nom de la pathologie change d'un cours à l'autre, aucun remplissage artificiel pour atteindre le calibre. La médiocrité clinique est dangereuse et entraîne un rejet immédiat.\n   - Chaque cours (`Phase_A` et `DX.1..N`) doit être **rédigé sur mesure** pour son entité exacte, avec : raisonnement physiopathologique et sémiologique réel, seuils numériques précis, diagnostics différentiels discriminants, posologies et contre-indications sourcées (Compendium.ch / AIPS, Tox Info Suisse, OFSP, ASSM, sociétés savantes suisses), vignettes cliniques authentiques et QCM exigeants de niveau Examen Fédéral Suisse.\n3. **INTERDICTION DES ARBRES DÉCISIONNELS (Consigne Vial 20.11.26)** :\n   - **Ne générer AUCUN arbre décisionnel ni algorithme graphique (`.fm-canvas`, SVG décisionnel, etc.)** dans `Phase_A` ou dans les `DX.n` — l'auteur (Vial) les réalisera lui-même.\n4. **Calibre texte pur actualisé (Consigne Vial 20.11.26)** :\n   - **80 à 100 Ko de texte pur UTF-8 par fichier** (`81 920` à `102 400` octets, calibre du Prompt Alpha confirmé par Vial le 20.11.2026 à 21:20, mesuré fenêtres comprises, hors balises HTML, CSS, JS, SVG et images).\n   - HTML hors images (`controle3.py`) : **`40 000` à `100 000` octets** (alerte).\n   - Densité maximale : zéro remplissage, zéro phrase pouvant figurer telle quelle dans un autre cours, zéro phrase de gabarit de `cartographie_DATA.json`.\n5. **Phrases verbales exclusives (BLOQUANT)** :\n   - Chaque phrase (texte, fenêtres, listes, légendes `<figcaption>`, cellules narratives `<td>`) contient un verbe conjugué reconnu. **Zéro phrase nominale.**\n4. **Médicaments cliquables d'emblée & Fenêtres centrées PK/PD à 2 onglets (Consigne Vial 20.11.26)** :\n   - Dès qu'un médicament est évoqué, il devient cliquable (`<a class=\"ouvre med-chip\" href=\"#f-...\">`).\n   - Chaque `<section class=\"fenetre mb\" id=\"f-...\"><div class=\"fen\">` s'ouvre au centre de l'écran et contient **2 onglets** :\n     * **Onglet 1 (`data-tab=\"pk\"`)** : Pharmacocinétique + **Courbe vectorielle SVG $C(t)$** + **4 paramètres cliniciens mis en évidence** (`.pkpd-kpis`).\n     * **Onglet 2 (`data-tab=\"pd\"`)** : Pharmacodynamique & Clinique + **Courbe vectorielle SVG $E(C)$** + posologies/précautions/grossesse suisses (Compendium.ch / AIPS).\n5. **Images** : uniquement à l'intérieur des `<section class=\"fenetre\">`, jamais hors fenêtre (licences selon Prompt Alpha § 4). Ne comptent pas dans le calibre.\n6. **Zéro terminologie de chantier visible** : aucun texte visible (ni `<title>`) ne doit contenir `LOT`, `V0`, `Phase A/B`, `DX.n`, `Appel A/B`, `Partie n`. Seuls les noms de fichiers gardent le format Alpha (`LOT_nnn_Phase_A_V0.html`, `LOT_nnn_Phase_B_V0_DX.i.html`).\n7. **Circuits & Plans** :\n   - `MONOGRAPHIQUE` (189 SSP) : plan maladie en 14 points (Prompt Alpha § 3.1).\n   - `NON_MONOGRAPHIQUE` (52 SSP) : Leçon en 12 à 14 points adaptés (Prompt Alpha § 3.2). **Jamais** de plan maladie ni de titres « Physiopathologie / Approche syndromique / Diagnostic positif » artificiels.\n   - `MIXTE` (7 SSP) : Prompt Alpha § 3.3, chaque fichier déclare `<meta name=\"ssp-circuit\" content=\"...\">`.\n8. **Correctifs Frontend v2 / Architecture `_sources/` (`UNIQUE.html` & `_polices/`)** :\n   - **Arborescence propre par SSP** : à la racine de `SSP_nnn/`, seul **`SSP_nnn_<code>_UNIQUE.html`** (plus le sous-dossier **`_sources/`**) est visible. Tous les fichiers sources (`LOT_nnn_*.html`, `images/`, `NOTIONS.*`, `MANIFESTE.json`, `DECISION*`, `paquet.json`, `_archive_avant_alpha/`) sont rangés dans `SSP_nnn/_sources/` sans rien supprimer.\n   - **Barre haute amovible (`gabarit_unique.html`)** : `#topbar` compacte 1 ligne (~42 px) avec pilule active, fil d'Ariane section, boutons `◀`/`▶`, tiroir overlay amovible `#dd-drawer` (`☰ Diagnostics (N) ▾` + option `📌 Épingler`) contenant `nav#nav` en colonnes égales (`32 px`, teinte unique par cours), et bouton `▴ Masquer barre` + pilule flottante `#btn-show-bar`.\n   - **Zéro dédoublement & navigation `#...` 100 % fonctionnelle (`forme.js`)** : script `forme.js` exécuté sous `DOMContentLoaded` et injecté par `assembler_unique.py`/`inliner.py` après `</head>` et avant `#signature-ia`/`</body>` ; intercepteur global appelant `e.preventDefault()` sur 100 % des `href^=\"#\"` (bloque le rechargement `srcdoc` + `file://`).\n   - **Modales centrées `<div class=\"fen\">` & désaturation (`forme.css` / `optimiser_ssp.py`)** : ouverture via classe `.fm-open` (plus `:target` en repli) avec pile `modalStack` et bouton `Fermer ✕` sticky (sans `history.back()`), auto-enveloppement `<div class=\"fen\">`, tableaux hors modale déplacés vers `<section class=\"fenetre fm-tab-fen\">` déclenchés par cartes `.fm-encart-fen`, citations `<sup class=\"r\"><a>` compactées en `[N]` avec modale aperçu `#fm-src-modal` empilable (`fm-stack-top`), puces médicaments `a.ouvre.med-chip` (`℞ ...`, `white-space: nowrap`, compatible accents français), repli du plan latéral desktop `#fm-plan-toggle`, îlots discontinus (`margin-bottom: 30px`) et padding bas `5.5rem` protégeant la lecture au-dessus de `#signature-ia`.\n   - **HTML unique** : ne jamais l'écrire à la main ; toujours exécuter `optimiser_ssp.py` puis `assembler_unique.py nnn`.\n\n## § 2. ARCHIVAGE & WORKFLOW PAR SSP (P0 → P4)\n- **Zéro suppression** : avant d'écraser ou renommer un fichier source existant, archiver dans `SSP_nnn/_sources/_archive_avant_alpha/`.\n- **P0 (Préparer)** : lire circuit (`catalogue_248.json`), entités (`NOTIONS.md`/`NOTIONS.json`), `memoire_zero_token.py --digest --lot nnn`, écrire `PLAN_ENTITES.md`.\n- **P1 (Décider)** : noter dans `DECISION.md` (Corriger / Réécrire si mécanique, faux plan maladie ou `< 30 Ko` / Créer).\n- **P2 (Produire)** : `LOT_nnn_Phase_A_V0.html` + `LOT_nnn_Phase_B_V0_DX.1..N.html`, 100 % des notions de `NOTIONS.json` expliquées et sourcées (Compendium.ch / AIPS, OFSP, ASSM, CC, LAMal, LAVI, Smarter Medicine), sans aucune phrase gabarit de la cartographie.\n- **P3 (Portes de Contrôle + Optimisation + Assemblage + Audit Chrome)** :\n  1. `controle3.py --script-ok` → **`VERT {}`** (si `paquet.json` présent ; `--script-ok` requis car `_sources/` référence `../../_polices/forme.js`)\n  2. `verif_aips.py` → **`OK`** (si `paquet.json` présent) et `restaurer_fond.py --verifier` → **`exit=0`**\n  3. `python _outils/optimiser_ssp.py nnn` → migration vers `_sources/`, tableaux déplacés en `<div class=\"fen\">`, teintes non bleues `--fm-a`\n  4. `python _outils/verif_mission.py nnn` → **100 % fichiers `PASS`** (`errors: []`)\n  5. `python _outils/assembler_unique.py nnn` → **`(1 + N) / (1 + N) onglets`** à la racine de `SSP_nnn/`\n  6. `python _outils/notions.py verifier nnn` → **`0 NON`** + copier `rapport_notions.csv` dans `SSP_nnn/_sources/`\n  7. `python _outils/audit_unique_browser.py nnn --all-tabs` → **`PASS` sur 100 % des onglets en Chrome headless réel**\n  8. Ajouter ligne dans `SUIVI_PRODUCTION.csv` + `git commit` + `git push origin main`.\n- **P4 (Affinage)** : consigner tout doute clinique/posologique non vérifié dans `1_Claude AI/HANDOFF_AFFINAGE.md` sous `## SSP_nnn`.\n\n## § 3. MISSION 2 — SSP 001 → 032\n- Extraire les cours depuis `SSP_nnn_<code>_UNIQUE.html` (JSON `data` gzip+base64, marqueurs `@@IMG:…@@`, `@@FONT:…@@`) après archivage des anciens `LOT_nnn_*.html` dans `_archive_avant_alpha/`.\n- Le frontend reste identique ; auditer le contenu avec la même sévérité (attention : `SSP_013` G13 = `NON_MONOGRAPHIQUE`, `SSP_014` G14 = `MIXTE`).\n- Produire `1_Claude AI/AUDIT_001-032.md` et corriger tous les ❌.\n\n## § 4. LES 12 BLOCAGES ROUGE (REJET IMMÉDIAT)\n1. Identification absente ou incertaine.\n2. Signature `#signature-ia` absente, modifiée ou supprimée.\n3. Entité de la Cartographie sans cours.\n4. Fichier hors intervalle `80–100 Ko` de texte pur (tout cours ; un cours de 30–50 Ko est à enrichir).\n5. Toute phrase nominale.\n6. Toute notion au verdict `NON`.\n7. Phrase gabarit de `cartographie_DATA.json` recopiée dans un cours.\n8. Plan maladie appliqué à une Leçon `NON_MONOGRAPHIQUE`.\n9. Terme de chantier visible (`LOT`, `V0`, `Phase A/B`, `DX.n`, `Appel`, `Partie n`).\n10. Posologie sans source de la cascade suisse.\n11. Image hors `<section class=\"fenetre\">`.\n12. Fichier supprimé au lieu d'être archivé.\n\n## § 5. ANNEXE CIRCUITS (248 SSP)\n- **NON_MONOGRAPHIQUE (52)** : 013 · 065 · 069 · 176 · 180 · 181 · 182 · 184 · 185 · 186 · 192 · 194 · 195 · 198 · 200 · 203 · 204 · 205 · 206 · 207 · 208 · 209 · 210 · 211 · 212 · 213 · 214 · 215 · 216 · 217 · 218 · 219 · 220 · 221 · 222 · 224 · 225 · 226 · 227 · 232 · 233 · 235 · 236 · 237 · 238 · 239 · 240 · 241 · 242 · 243 · 246 · 247.\n- **MIXTE (7)** : 014 · 165 · 174 · 175 · 190 · 202 · 223.\n- **MONOGRAPHIQUE (189)** : tous les autres SSP."
+}

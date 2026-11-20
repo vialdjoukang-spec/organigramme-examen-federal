@@ -1,0 +1,2754 @@
+{
+  "rappel_obligatoire_avant_redaction": {
+    "lecture_imperative": [
+      "1. Lire intégralement PROMPT_Alpha_19.11.26.md ET la mise à jour incluse dans prompt_alpha_a_jour ci-dessous.",
+      "2. Respecter l'intervalle GLOBAL par cours : viser 85–95 Ko de texte médical pur (soit ~95–115 Ko de fichier JSON) sans quota rigide par partie — répartir le texte proportionnellement à l'importance clinique des parties.",
+      "3. Produire graduellement 1 cours complet par requête (Phase A, puis Cours 1, Cours 2...) en français médical académique, phrases verbales exclusives (0 phrase nominale), zéro prose générique ou patronnée.",
+      "4. Utiliser uniquement les guillemets typographiques français « … » dans les valeurs texte JSON (jamais de guillemet droit non échappé).",
+      "5. Zéro arbre décisionnel graphique (.fm-canvas) : ne générer aucun schéma décisionnel."
+    ],
+    "specificites_locales_ssp": [
+      "Circuit MONOGRAPHIQUE : respecter le plan maladie en 14 points avec socle généralités (1-3), démarche diagnostique (4-10), prise en charge posologique suisse intégrale (11) et QCM Examen Fédéral (14).",
+      "Couvrir 100 % des notions obligatoires listées dans phase_b[*].plan[*].notions_obligatoires pour Enzymes cardiaques anormales (F2.2).",
+      "Cascade posologique suisse à 4 paliers obligatoire : 1. AIPS Swissmedic (n° 5 chiffres) -> 2. Compendium.ch -> 3. Sociétés savantes & CHU suisses (HUG, CHUV, Inselspital, USZ, USB, OFSP, ASSM, SSMIG, Tox Info Suisse 145) -> 4. Sociétés savantes européennes."
+    ]
+  },
+  "meta": {
+    "rang_gravite": 111,
+    "ssp": "SSP_150",
+    "code_profiles": "F2.2",
+    "nom_francais": "Enzymes cardiaques anormales",
+    "circuit": "MONOGRAPHIQUE",
+    "police_obligatoire": "Atkinson Hyperlegible",
+    "calibre_cible": "80–100 Ko texte pur",
+    "arbres_decisionnels_autorises": false,
+    "mode_redaction": "Neon Deep Research",
+    "nb_chapitres_total": 18,
+    "defauts_audit_initial": [
+      "Incomplet (11/18 cours)",
+      "310 phrases nominales",
+      "Termes chantier (10 f.)"
+    ]
+  },
+  "sommaire": {
+    "phase_a": {
+      "fichier_html_cible": "LOT_150_Phase_A_V0.html",
+      "titre": "Enzymes cardiaques anormales — Vue d'ensemble et orientation clinique (F2.2)"
+    },
+    "phase_b": [
+      {
+        "cours_numero": 1,
+        "titre": "Syndrome coronarien aigu sans sus-décalage du ST (NSTEMI)",
+        "cim": "I21.4",
+        "urgence": "immediate"
+      },
+      {
+        "cours_numero": 2,
+        "titre": "Infarctus du myocarde de type 2 (déséquilibre apports/besoins)",
+        "cim": "I21.9",
+        "urgence": "urgent"
+      },
+      {
+        "cours_numero": 3,
+        "titre": "Insuffisance cardiaque aiguë ou chronique décompensée",
+        "cim": "I50.9",
+        "urgence": "urgent"
+      },
+      {
+        "cours_numero": 4,
+        "titre": "Insuffisance rénale chronique avancée (élévation basale)",
+        "cim": "N18.5",
+        "urgence": "chronique"
+      },
+      {
+        "cours_numero": 5,
+        "titre": "Myopéricardite / myocardite aiguë",
+        "cim": "I40.9",
+        "urgence": "urgent"
+      },
+      {
+        "cours_numero": 6,
+        "titre": "Fibrillation auriculaire à réponse ventriculaire rapide",
+        "cim": "I48.9",
+        "urgence": "urgent"
+      },
+      {
+        "cours_numero": 7,
+        "titre": "Cardiomyopathie de stress (syndrome de Tako-Tsubo)",
+        "cim": "I51.8",
+        "urgence": "urgent"
+      },
+      {
+        "cours_numero": 8,
+        "titre": "Rhabdomyolyse sévère (CK totales très élevées)",
+        "cim": "M62.8",
+        "urgence": "urgent"
+      },
+      {
+        "cours_numero": 9,
+        "titre": "Contusion myocardique post-traumatique",
+        "cim": "S26.8",
+        "urgence": "urgent"
+      },
+      {
+        "cours_numero": 10,
+        "titre": "Cardiotoxicité médicamenteuse (anthracyclines, immunothérapie)",
+        "cim": "I42.7",
+        "urgence": "urgent"
+      },
+      {
+        "cours_numero": 11,
+        "titre": "Amylose cardiaque",
+        "cim": "E85.4",
+        "urgence": "semi-urgent"
+      },
+      {
+        "cours_numero": 12,
+        "titre": "Infarctus du myocarde avec sus-décalage du segment ST (STEMI)",
+        "cim": "I21.0",
+        "urgence": "immediate"
+      },
+      {
+        "cours_numero": 13,
+        "titre": "Embolie pulmonaire aiguë à haut risque ou risque intermédiaire-haut",
+        "cim": "I26.9",
+        "urgence": "immediate"
+      },
+      {
+        "cours_numero": 14,
+        "titre": "Dissection aortique aiguë étendue aux coronaires",
+        "cim": "I71.0",
+        "urgence": "immediate"
+      },
+      {
+        "cours_numero": 15,
+        "titre": "Choc septique avec cardiomyopathie septique",
+        "cim": "R57.2",
+        "urgence": "immediate"
+      },
+      {
+        "cours_numero": 16,
+        "titre": "Hémorragie sous-arachnoïdienne ou AVC aigu avec sidération myocardique neurogène",
+        "cim": "I60.9",
+        "urgence": "urgent"
+      },
+      {
+        "cours_numero": 17,
+        "titre": "Crise hypertensive avec souffrance myocardique aiguë",
+        "cim": "I10",
+        "urgence": "urgent"
+      }
+    ]
+  },
+  "phase_a": {
+    "titre": "Enzymes cardiaques anormales — Vue d'ensemble (F2.2)",
+    "plan": [
+      {
+        "point": 1,
+        "titre": "Définition nosologique et périmètre clinique",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 2,
+        "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 3,
+        "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 4,
+        "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+        "description": "Présentation et hiérarchisation des 17 entités de la Cartographie Renouveau."
+      },
+      {
+        "point": 5,
+        "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 6,
+        "titre": "Examen physique systématique région par région",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 7,
+        "titre": "Approche syndromique et stratification de gravité",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 8,
+        "titre": "Diagnostic positif, scores cliniques et critères validés",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 9,
+        "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 10,
+        "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 11,
+        "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 12,
+        "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 13,
+        "titre": "Points clés indispensables à retenir",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 14,
+        "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      }
+    ]
+  },
+  "phase_b": [
+    {
+      "cours_numero": 1,
+      "fichier_html_cible": "LOT_150_Phase_B_V0_DX.1.html",
+      "titre": "Syndrome coronarien aigu sans sus-décalage du ST (NSTEMI)",
+      "cim": "I21.4",
+      "urgence": "immediate",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Nécrose myocardique aiguë par rupture/érosion de plaque athéroscléreuse et thrombose coronaire non occlusive (infarctus de type 1)."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Représente ~70 % des syndromes coronariens aigus en Suisse."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Thrombus plaquettaire sub-occlusif -> ischémie sous-endocardique -> libération de troponine cardiaque T ou I."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Instabilité hémodynamique/choc, douleur réfractaire, arythmies ventriculaires, sous-décalage ST diffus (tronc commun !)."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Angor typique prolongé (> 20 min) au repos ou crescendo, facteurs de risque cardiovasculaire."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Souvent normal ou signes d'insuffisance cardiaque aiguë (crépitants, B3/B4)."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Élévation + cinétique (rise/fall) de troponine hs > 99e percentile + contexte ischémique (symptômes ou ECG/imagerie)."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "ECG 12 dérivations immédiat (< 10 min : sous-décalage ST, inversion T ou ECG normal), troponine hs (H0 et H1/H2 selon algorithme ESC : élévation + cinétique !), échocardiographie."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Score GRACE pour stratifier le délai de coronarographie (< 24 h si haut risque)."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Aspirine (dose de charge 150–300 mg) + inhibiteur P2Y12 (prasugrel/ticagrélor, souvent après coronarographie) + anticoagulation (fondaparinux, énoxaparine ou HNF) + coronarographie dans les 24 h (< 2 h si très haut risque)."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Double antiagrégation 12 mois, statine haute intensité (LDL < 1,4 mmol/L), bêtabloquant, IEC/ARA2, réadaptation cardiaque."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Récidive ischémique, insuffisance cardiaque, arythmies ventriculaires."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Télémétrie continue jusqu'à revascularisation."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Très bon pronostic si revascularisation et prévention secondaire optimales."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Cardiologue interventionnel, USIC, réadaptation cardiaque, médecin traitant."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 2,
+      "fichier_html_cible": "LOT_150_Phase_B_V0_DX.2.html",
+      "titre": "Infarctus du myocarde de type 2 (déséquilibre apports/besoins)",
+      "cim": "I21.9",
+      "urgence": "urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Nécrose myocardique ischémique secondaire à un déséquilibre aigu entre apports et besoins en O2 du myocarde, sans thrombose coronaire aiguë."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Représente 25–35 % des élévations de troponine aux urgences/médecine interne."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Tachycardie (baisse du temps de diastole), hypoxémie, anémie sévère ou hypotension réduisant l'apport d'O2 sur un réseau coronaire parfois sténosé."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Sous-décalage ST marqué, instabilité hémodynamique (nécessitant d'écarter un type 1 associé)."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Contexte aigu intercurrent (fièvre/sepsis, hémorragie, tachycardie, crise hypertensive)."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Signes de la pathologie déclenchante (fièvre, pâleur, tachycardie, HTA)."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Cinétique de troponine + preuve d'ischémie + facteur déclenchant clair de déséquilibre apports/besoins."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Troponine hs (cinétique), ECG, échocardiographie, bilan de la cause (NFS, CRP, gazométrie)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Coronarographie différée uniquement si doute persistant avec un type 1 ou angor résiduel."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "TRAITER LA CAUSE DÉCLENCHANTE en priorité (transfusion si anémie sévère, ralentissement FA, antibiothérapie/remplissage si sepsis, O2) ; NE PAS anticoaguler/double antiagréger à l'aveugle comme un type 1 (risque hémorragique majeur si hémorragie causale !)."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Bilan coronarien à distance selon les facteurs de risque."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Mortalité hospitalière souvent plus élevée que le type 1 en raison de la gravité des comorbidités."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Contrôle clinique, ECG et correction du facteur déclenchant. Télémétrie continue 24–48 h, troponine T hs (H0/H1–H3), créatinine/K+ à 48 h, échocardiographie (FEVG) et bilan lipidique à 4–6 semaines."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Lié au pronostic de la pathologie sous-jacente."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Médecin interniste, cardiologue, médecin traitant."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 3,
+      "fichier_html_cible": "LOT_150_Phase_B_V0_DX.3.html",
+      "titre": "Insuffisance cardiaque aiguë ou chronique décompensée",
+      "cim": "I50.9",
+      "urgence": "urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Dysfonction systolique et/ou diastolique entraînant une élévation des pressions de remplissage et la libération de peptides natriurétiques (BNP, NT-proBNP) et de troponine."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Cause la plus fréquente d'élévation du NT-proBNP aux urgences."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Étirement des cardiomyocytes (atria/ventricules) -> clivage du proBNP en BNP actif et NT-proBNP inactif + apoptose/souffrance sous-endocardique (troponine)."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "OAP asphyxiant, choc cardiogénique, troponine très élevée avec cinétique (SCA déclenchant !)."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Dyspnée, orthopnée, prise de poids, œdèmes des membres inférieurs."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Crépitants pulmonaires, turgescence jugulaire, œdèmes déclives, galop B3."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Tableau congestif + NT-proBNP au-dessus du seuil d'âge + dysfonction à l'ETT."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "NT-proBNP (< 300 ng/L exclut l'IC aiguë ; seuils ajustés à l'âge : > 450 si < 50 ans, > 900 si 50–75 ans, > 1800 si > 75 ans), troponine hs, ECG, ETT, radiographie thoracique."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Créatinine (l'IRC élève le NT-proBNP !), TSH."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Diurétiques de l'anse IV, VNI et nitrés si OAP, recherche du facteur déclenchant (SCA, FA, infection)."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Quadrithérapie de l'insuffisance cardiaque."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Syndrome cardiorénal, choc cardiogénique."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Poids, diurèse, ionogramme, créatinine."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Un NT-proBNP qui baisse > 30 % sous traitement prédit un meilleur pronostic."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Cardiologue, médecin traitant."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 4,
+      "fichier_html_cible": "LOT_150_Phase_B_V0_DX.4.html",
+      "titre": "Insuffisance rénale chronique avancée (élévation basale)",
+      "cim": "N18.5",
+      "urgence": "chronique",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Élévation basale persistante (> 99e percentile) de la troponine hs et du NT-proBNP en l'absence d'événement coronarien aigu chez le patient insuffisant rénal."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Présente chez > 50–70 % des patients avec DFG < 30 mL/min ou hémodialysés."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Diminution de l'élimination rénale des fragments de troponine/NT-proBNP + HVG/fibrose myocardique urémique chronique."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Apparition d'une douleur thoracique ou modification ECG ou VARIATION CINÉTIQUE (> 20 %) entre H0 et H1–H3 -> SCA vrai !"
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "MRC avancée connue, absence de douleur thoracique aiguë."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Examen cardiovasculaire stable."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Troponine hs élevée EN PLATEAU (delta < 20 %) sans clinique ni ECG ischémique chez un patient avec MRC."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Dosage sérié de troponine hs à H0 et H1–H3 (plateau stable vs cinétique aiguë !), ECG comparatif."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Échocardiographie de référence."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Ne pas surtraiter par anticoagulants/antiagrégants en l'absence de cinétique et de clinique. Correction d'une hypovolémie par cristalloïdes (NaCl 0,9 % ou Ringer-Lactate 500 mL IV réévalué), arrêt immédiat de tout néphrotoxique (AINS, aminosides, metformine, IEC/ARA2 en aigu), levée d'obstacle si post-rénale et correction d'une hyperkaliémie/acidose (NaHCO3 si pH < 7,15)."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Prise en charge néphrologique et prévention cardiovasculaire globale (le taux basal élevé reste un marqueur de risque CV). Néphroprotection chronique : IEC/ARA2 à dose maximale tolérée si protéinurie, iSGLT2 (dapagliflozine 10 mg/j ou empagliflozine 10 mg/j si DFG >= 20–25 mL/min) et contrôle PA < 120–130/80 mmHg."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Surdiagnostic de SCA et saignements iatrogènes si la cinétique n'est pas vérifiée."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Noter la valeur basale dans le dossier du patient. Diurèse horaire, créatinine/DFG/K+/bicarbonates quotidiens en aigu, puis rapport albumine/créatinine urinaire (RAC) trimestriel."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Marqueur pronostique de risque cardiovasculaire chronique."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Néphrologue, cardiologue, médecin traitant."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 5,
+      "fichier_html_cible": "LOT_150_Phase_B_V0_DX.5.html",
+      "titre": "Myopéricardite / myocardite aiguë",
+      "cim": "I40.9",
+      "urgence": "urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Inflammation aiguë du myocarde (souvent associée à une péricardite) d'origine virale, auto-immune ou toxique."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Sujet jeune (20–40 ans), prédominance masculine ; virus (entérovirus, parvovirus B19, SARS-CoV-2, adénovirus)."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Lyse cardiomyocytaire virale directe et médiée par la réponse lymphocytaire T -> libération massive de troponine."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Dysfonction VG sévère (myocardite fulminante !), BAV complet, arythmies ventriculaires."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Syndrome viral dans les 1–2 semaines précédentes, douleur thoracique positionnelle (améliorée penché en avant) ou pseudo-angineuse, palpitations."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Fièvre, frottement péricardique éventuel, parfois signes d'insuffisance cardiaque."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Troponine élevée + IRM cardiaque typique + coronaires saines."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Troponine hs très élevée, CRP élevée, ECG (sus-décalage ST concave diffus sans miroir ou troubles de repolarisation), ETT, IRM cardiaque (rehaussement tardif sous-épicardique/mésomyocardique + œdème T2) ; coronarographie/coro-TDM pour exclure un SCA."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Sérologies virales peu contributives sauf VIH/hépatites/Lyme."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Hospitalisation sous télémétrie, repos strict, traitement de l'insuffisance cardiaque si présente ; éviter les AINS à forte dose en cas d'atteinte myocardique prédominante ; colchicine si composante péricardique."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "ÉVICTION STRICTE DU SPORT pendant 3 à 6 mois jusqu'à normalisation complète (IRM/Holter/épreuve d'effort) !."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Myocardite fulminante (ECMO), cardiomyopathie dilatée chronique, mort subite à l'effort."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "IRM cardiaque et Holter à 3–6 mois avant reprise du sport."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Guérison sans séquelle dans > 80–85 % des cas."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Cardiologue, médecine du sport."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 6,
+      "fichier_html_cible": "LOT_150_Phase_B_V0_DX.6.html",
+      "titre": "Fibrillation auriculaire à réponse ventriculaire rapide",
+      "cim": "I48.9",
+      "urgence": "urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Arythmie supraventriculaire rapide et irrégulière entraînant une souffrance myocardique de demande (type 2) et une élévation des peptides natriurétiques."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Arythmie soutenue la plus fréquente (> 2–4 % des adultes, > 10 % après 80 ans)."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Fréquence ventriculaire > 120–150/min réduisant le remplissage diastolique coronaire et augmentant la pression auriculaire (ANP/BNP)."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Instabilité hémodynamique (choc, OAP, angor sévère) -> cardioversion électrique immédiate !"
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Palpitations rapides irrégulières, dyspnée, asthénie, parfois douleur thoracique."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Pouls irrégulièrement irrégulier, tachycardie, déficit pouls-cœur."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "FA documentée à l'ECG + élévation modérée troponine/NT-proBNP."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "ECG 12 dérivations (absence d'ondes P, trémulation de la ligne de base, QRS irréguliers), troponine hs, NT-proBNP, TSH, ionogramme, ETT."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Score CHA2DS2-VA pour l'indication d'anticoagulation."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Si instable : cardioversion électrique synchronisée ; si stable : contrôle de fréquence (bêtabloquant IV/PO, diltiazem si FEVG préservée, digoxine si IC) + anticoagulation selon CHA2DS2-VA / cardioversion. Contrôle de fréquence par métoprolol 2,5–5 mg IV/5 min (max 15 mg) ou diltiazem 0,25 mg/kg IV (ou adénosine 6 mg puis 12 mg IV flash si TSV régulière) ; cardioversion électrique synchronisée 100–200 J si instabilité hémodynamique."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Anticoagulation orale (AOD) si CHA2DS2-VA ≥ 1–2, contrôle de fréquence ou de rythme (antiarythmiques/ablation). Anticoagulation selon CHA2DS2-VA (apixaban 5 mg 2×/j ou rivaroxaban 20 mg/j PO si DFG conservé) et contrôle rythmique (bisoprolol 2,5–10 mg/j ou flécaïnide/amiodarone selon cardiopathie)."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "AVC cardio-embolique, insuffisance cardiaque."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "FC, fonction rénale sous AOD. ECG de contrôle, surveillance kaliémie (cible 4,0–4,5 mmol/L), créatinine (DFG annuel sous AOD) et TSH si amiodarone."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Normalisation de la troponine après ralentissement de la FC."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Cardiologue, médecin traitant."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 7,
+      "fichier_html_cible": "LOT_150_Phase_B_V0_DX.7.html",
+      "titre": "Cardiomyopathie de stress (syndrome de Tako-Tsubo)",
+      "cim": "I51.8",
+      "urgence": "urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Dysfonction systolique aiguë transitoire du ventricule gauche (ballonisation apicale) déclenchée par un stress émotionnel ou physique majeur."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "90 % de femmes post-ménopausées ; représente 1–2 % des suspicions de SCA."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Sidération myocardique par décharge catécholaminergique massive et vasospasme microvasculaire."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Choc cardiogénique, rupture cardiaque, thrombus apical VG, torsades de pointes sur QTc très allongé."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Stress émotionnel brutal (deuil, conflit) ou physique (chirurgie, AVC, asthme grave) précédant une douleur thoracique."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Identique à un SCA ; parfois souffle d'obstruction sous-aortique ou signes d'IC."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Critères InterTAK : ballonisation apicale transitoire + coronaires non obstructives + stress déclenchant."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "ECG (sus-décalage ST puis ondes T négatives profondes géantes avec QTc long !), troponine modérément élevée (disproportionnée vs BNP très élevé !), coronarographie (coronaires saines) + ventriculographie/ETT (akinésie apicale et hyperkinésie basale)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "IRM cardiaque (œdème myocardique sans rehaussement tardif de nécrose)."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Prise en charge initiale comme un SCA jusqu'à la coronarographie ; puis IEC/bêtabloquant (éviter les catécholamines si choc par obstruction VG -> préférer lévosimendan/ECMO !), anticoagulation si thrombus apical."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Contrôle ETT à 4–8 semaines montrant la récupération complète de la FEVG."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Mortalité hospitalière similaire au SCA (~4 %), récidive possible (5 %)."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Télémétrie (QTc long -> torsades) et ETT de contrôle."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Récupération ad integrum de la FEVG en quelques semaines."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Cardiologue, médecin traitant."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 8,
+      "fichier_html_cible": "LOT_150_Phase_B_V0_DX.8.html",
+      "titre": "Rhabdomyolyse sévère (CK totales très élevées)",
+      "cim": "M62.8",
+      "urgence": "urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Lyse aiguë des cellules musculaires striées squelettiques libérant créatine kinase (CK), myoglobine et potassium."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Compression prolongée (chute au sol), traumatisme/crush syndrome, effort extrême, statines, convulsions, hyperthermie."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Destruction du sarcolemme -> libération massive de CK-MM (avec faible fraction CK-MB pouvant prêter à confusion) et myoglobine néphrotoxique."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Hyperkaliémie menaçante, hypocalcémie initiale, insuffisance rénale aiguë oligo-anurique, syndrome des loges."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Chute avec station au sol prolongée, exercice intense inhabituel, statine + fibrate/macrolide, cocaïne."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Myalgies, œdème musculaire tendu, urines foncées (myoglobinurie)."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "CK > 5× normale avec troponine discordante et contexte musculaire."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "CK totales (> 1000–5000 UI/L), troponine hs (normale ou très faiblement élevée -> exclut l'infarctus !), créatinine, ionogramme (K+, Ca2+, PO4-), gazométrie, BU (sang +++ sans GR)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "ECG si hyperkaliémie."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Hyperhydratation IV précoce et massive par cristalloïdes (NaCl 0,9 % ou Ringer, objectif diurèse > 200 mL/h) ; fasciotomie si syndrome des loges ; épuration extrarénale si IRA anurique/hyperK+."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Arrêt du médicament responsable, prévention des récidives."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Nécrose tubulaire aiguë, hyperkaliémie fatale, CIVD."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "CK, créatinine, kaliémie et diurèse horaires/biquotidiennes."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Récupération rénale complète si hydratation précoce."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Urgences, néphrologue, médecine interne."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 9,
+      "fichier_html_cible": "LOT_150_Phase_B_V0_DX.9.html",
+      "titre": "Contusion myocardique post-traumatique",
+      "cim": "S26.8",
+      "urgence": "urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Lésion myocardique mécanique par compression thoracique antéro-postérieure lors d'un traumatisme fermé à haute énergie."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Accidents de la voie publique, chutes de grande hauteur, impacts sportifs violents."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Hémorragie intramyocardique et œdème touchant préférentiellement le ventricule droit (antérieur)."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Arythmie ventriculaire, bloc de branche nouveau, choc cardiogénique, hémopéricarde/tamponnade."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Traumatisme thoracique fermé récent, fracture du sternum ou des côtes antérieures."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Douleur pariétale thoracique, ecchymose précordiale (empreinte ceinture), tachycardie, arythmie."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Traumatisme thoracique + élévation de troponine et/ou anomalies ECG/ETT."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "ECG 12 dérivations + troponine hs à l'admission et à H4–H6 : si ECG normal ET troponine normale = contusion exclue ! Si anormaux : échocardiographie + monitoring télémétrique 24–48 h."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Angio-TDM thoracique (bilan polytraumatisé : exclure rupture aortique !)."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Monitoring ECG 24–48 h, traitement des arythmies ou de la dysfonction VG ; exclure une lésion valvulaire/péricardique chirurgicale."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Suivi échocardiographique si dysfonction initiale."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Rupture myocardique ou valvulaire, arythmies malignes précoces."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Réévaluation de l'EVA douleur à H1 et J7, surveillance rénale/digestive sous AINS et dépistage des drapeaux rouges neurologiques."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Guérison sans séquelle dans la majorité des formes non compliquées."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Urgences, traumatologue, cardiologue."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 10,
+      "fichier_html_cible": "LOT_150_Phase_B_V0_DX.10.html",
+      "titre": "Cardiotoxicité médicamenteuse (anthracyclines, immunothérapie)",
+      "cim": "I42.7",
+      "urgence": "urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Atteinte myocardique directe (anthracyclines, trastuzumab) ou auto-immune (inhibiteurs de points de contrôle immunitaire : anti-PD1/CTLA4)."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Myocardite aux ICI : rare (~1 %) mais mortalité de 30–50 % ! Anthracyclines : dose-dépendante."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Stress oxydatif mitochondrial (anthracyclines) ou infiltration lymphocytaire T CD8+ du myocarde (immunothérapie)."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Élévation de troponine sous immunothérapie (myocardite aux ICI = urgence absolue !), chute FEVG."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Traitement oncologique récent, dyspnée, palpitations, myasthénie/myosite associée (syndrome des 3 M avec ICI !)."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Signes d'insuffisance cardiaque, troubles du rythme, ptosis/diplopie si myasthénie associée aux ICI."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Exposition oncologique + élévation troponine/baisse FEVG/IRM inflammatoire."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Troponine hs, NT-proBNP, ECG, ETT (strain longitudinal global), IRM cardiaque ± biopsie endomyocardique."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "CK (myosite associée aux ICI)."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Myocardite aux ICI : arrêt définitif de l'immunothérapie + BOLUS DE MÉTHYLPREDNISOLONE IV 1000 mg/j × 3 jours en urgence (abatacept/récidive si réfractaire) ; anthracyclines/trastuzumab : IEC + bêtabloquant et suspension oncologique."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Concertation cardio-oncologique pour reprise éventuelle d'alternatives."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Choc cardiogénique, BAV complet fatal (ICI)."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Troponine et ETT sériées sous traitements cardiotoxiques."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Récupération possible si corticoïdes très précoces (ICI) ou IEC/bêtabloquant (anthracyclines)."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Cardio-oncologue, oncologue."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 11,
+      "fichier_html_cible": "LOT_150_Phase_B_V0_DX.11.html",
+      "titre": "Amylose cardiaque",
+      "cim": "E85.4",
+      "urgence": "semi-urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Cardiomyopathie infiltrative restrictive due au dépôt extracellulaire de fibrilles amyloïdes (chaînes légères AL ou transthyrétine ATTR)."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Sous-diagnostiquée chez le sujet âgé avec IC à FEVG préservée (10–15 % des rétrécissements aortiques calcifiés ou ICpEF)."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Infiltration interstitielle rigide -> dysfonction diastolique sévère et toxicité directe des chaînes légères AL sur les cardiomyocytes."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Forme AL (myélome) : urgence hématologique ! Troubles conductifs de haut degré."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Dyspnée, œdèmes, syndrome du canal carpien bilatéral (précède de 5–10 ans !), rupture spontanée du tendon du biceps, neuropathie périphérique."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Insuffisance cardiaque droite/globale, hypotension orthostatique, macroglossie et purpura périorbitaire (forme AL)."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Scintigraphie DPD positive sans gammapathie monoclonale (ATTR) ou biopsie positive avec rouge Congo (biréfringence vert pomme)."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Électrophorèse + immunofixation sang/urines + chaînes légères libres (exclure AL !), scintigraphie osseuse au DPD/PYP (fixation cardiaque intense = ATTR !), ETT (aspect granité, strain apical épargné « cherry on top »), IRM cardiaque."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Biopsie graisse sous-cutanée ou salivaire/myocardique si AL suspectée ; test TTR génétique."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Diurétiques prudents (très sensibles à l'hypovolémie !) ; éviter digoxine et inhibiteurs calciques (toxicité accrue !)."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "ATTR : tafamidis (stabilisateur de transthyrétine) ; AL : chimiothérapie anti-plasmocytaire urgente (daratumumab-CyBorD)."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "BAV complet, FA thromboembolique, insuffisance cardiaque réfractaire."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "NT-proBNP, troponine, ETT, suivi hématologique/cardiologique."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Pronostic transformé par le tafamidis (ATTR) et les anti-CD38 (AL)."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Cardiologue, hématologue, neurologue."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 12,
+      "fichier_html_cible": "LOT_150_Phase_B_V0_DX.12.html",
+      "titre": "Infarctus du myocarde avec sus-décalage du segment ST (STEMI)",
+      "cim": "I21.0",
+      "urgence": "immediate",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Occlusion coronaire aiguë complète par thrombose sur plaque athéroscléreuse, responsable d'une nécrose transmurale."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Urgence cardiologique majeure ; mortalité préhospitalière élevée sans reperfusion rapide."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Occlusion totale -> ischémie transmurale -> sus-décalage ST immédiat, puis libération massive de troponine (pic 12–24 h)."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Choc cardiogénique, BAV complet (infarctus inférieur), FV précoce, complication mécanique (souffle aigu)."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Douleur thoracique rétrosternale constrictive > 20 min irradiant au bras gauche/mâchoire, résistante à la trinitrine, sueurs, nausées."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Angoisse, pâleur, sueurs, parfois râles crépitants (Killip II–III) ou choc cardiogénique (Killip IV)."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Douleur thoracique + sus-décalage ST systématisé -> occlusion coronaire confirmée en salle de cathétérisme."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "ECG 12 dérivations en < 10 min (sus-décalage ST ≥ 1 mm dans ≥ 2 dérivations contiguës, ≥ 2–2,5 mm en V2–V3, ou BBG nouveau avec critères de Sgarbossa) -> CORONAROGRAPHIE IMMÉDIATE sans attendre la troponine !"
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Dérivations V7–V9 (infarctus postérieur) et V3R–V4R (infarctus du VD)."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Appel 144, Aspirine 150–300 mg + Prasugrel/Ticagrélor + Héparine non fractionnée IV + ANGIOPLASTIE PRIMAIRE (PCI) < 90–120 min (ou fibrinolyse IV si délai PCI > 120 min) ; morphine uniquement si douleur intolérable."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Double antiagrégation 12 mois, statine haute intensité, bêtabloquant, IEC/ARA2, réadaptation cardiaque."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "FV/TV, choc cardiogénique, rupture septale/paroi libre/pilier mitral, péricardite."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "USIC 24–48 h sous scope, ETT post-PCI (FEVG)."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "« Time is muscle » : mortalité < 5 % si reperfusion rapide."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "SMUR 144, cardiologue interventionnel, USIC, réadaptation."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 13,
+      "fichier_html_cible": "LOT_150_Phase_B_V0_DX.13.html",
+      "titre": "Embolie pulmonaire aiguë à haut risque ou risque intermédiaire-haut",
+      "cim": "I26.9",
+      "urgence": "immediate",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Embolie pulmonaire aiguë entraînant une ischémie et une dilatation aiguë du ventricule droit (marquées par troponine et BNP positifs)."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Environ 25–30 % des EP hospitalisées présentent une élévation de troponine."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Surcharge barométrique brutale du VD -> augmentation de tension pariétale -> ischémie du VD et libération de troponine/BNP."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "PAS < 90 mmHg (haut risque -> thrombolyse immédiate !), troponine + dilatation VD + tachycardie (surveillance étroite USIC)."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Dyspnée aiguë, syncope, douleur pleurale, facteurs de risque thromboemboliques."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Tachycardie, tachypnée, hypoxémie, hypotension (haut risque) ou normotension avec dysfonction VD (intermédiaire-haut)."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "EP confirmée + troponine élevée et/ou dilatation VD."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Angio-TDM thoracique (ratio VD/VG > 1), ETT (dysfonction VD), troponine hs, BNP/NT-proBNP."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Écho-Doppler veineux des membres inférieurs."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Anticoagulation IV immédiate (HNF ou HBPM) ; thrombolyse systémique si choc/haut risque (ou sauvetage si dégradation secondaire)."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Anticoagulation ≥ 3–6 mois."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Choc obstructif brutal, ACR."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Monitoring continu 24–48 h (risque de décompensation secondaire)."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Favorable sous surveillance et anticoagulation."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Urgences, USIC, angiologue, pneumologue."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 14,
+      "fichier_html_cible": "LOT_150_Phase_B_V0_DX.14.html",
+      "titre": "Dissection aortique aiguë étendue aux coronaires",
+      "cim": "I71.0",
+      "urgence": "immediate",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Extension rétrograde d'une dissection aortique de type A comprimant ou déchirant un ostium coronaire (souvent la coronaire droite)."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Complique ~5–10 % des dissections aortiques de type A."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Compression de l'ostium coronaire par le faux chenal -> ischémie myocardique aiguë associée à la dissection."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Douleur déchirante + asymétrie de pouls + élargissement du médiastin -> NE PAS thrombolyser ni charger en antiagrégants avant angio-TDM !"
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Douleur thoracique déchirante d'emblée maximale migrant dans le dos, syncope, HTA."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Asymétrie tensionnelle/pouls, souffle d'insuffisance aortique, parfois tableau d'infarctus inférieur à l'ECG."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Flap intimal aortique ascendant à l'angio-TDM/ETO."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Angio-TDM aortique en extrême urgence ou ETT/ETO au lit."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Radiographie thoracique (élargissement médiastinal)."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Chirurgie cardiaque immédiate (remplacement aortique + pontage/réimplantation coronaire) ; contrôle PA/FC par bêtabloquant IV. Contrôle strict de la FC (< 60/min) puis de la PAS (100–120 mmHg) par labétalol 20 mg IV puis 0,5–2 mg/min IVSE (ou esmolol 500 µg/kg IV puis 50–200 µg/kg/min) associé si besoin à nicardipine 5–15 mg/h IVSE et morphine 2–4 mg IV ; chirurgie cardiaque ou TEVAR urgente (contre-indication absolue aux anticoagulants)."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Contrôle tensionnel strict à vie. Contrôle tensionnel à vie sous PAS < 120–130 mmHg par bêtabloquant (métoprolol 50–200 mg/j PO) associé à un IEC/ARA2 et statine (atorvastatine 40–80 mg/j PO)."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Hémopéricarde mortel si anticoagulé à tort, tamponnade, choc."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Réanimation cardio-chirurgicale. Monitoring invasif par cathéter artériel radial droit, diurèse horaire (cible > 0,5 mL/kg/h) et angio-TDM aortique de contrôle à M1, M6 puis annuellement."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Survie liée à l'absence d'anticoagulation intempestive et à la chirurgie urgente."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Chirurgien cardiaque, cardiologue, réanimateur."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 15,
+      "fichier_html_cible": "LOT_150_Phase_B_V0_DX.15.html",
+      "titre": "Choc septique avec cardiomyopathie septique",
+      "cim": "R57.2",
+      "urgence": "immediate",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Dysfonction myocardique aiguë réversible compliquant un choc septique, accompagnée d'une élévation de troponine et de NT-proBNP."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Présente chez 30–50 % des patients en choc septique."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Cytokines pro-inflammatoires (TNF-alpha, IL-1beta), NO et dysfonction mitochondriale induisant une sidération myocardique."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Lactates > 4 mmol/L, besoin croissant de noradrénaline, bas débit à l'ETT."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Foyer infectieux (pneumonie, pyélonéphrite, péritonite), fièvre ou hypothermie."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Hypotension persistante malgré remplissage, tachycardie, marbrures, confusion."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Choc septique + dysfonction myocardique réversible à l'ETT."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Hémocultures, lactates, troponine, NT-proBNP, échocardiographie au lit (FEVG abaissée transitoirement)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Imagerie du foyer infectieux."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Antibiothérapie IV < 1 h, contrôle du foyer, remplissage cristalloïdes, noradrénaline (± dobutamine si bas débit persistant)."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Contrôle ETT à distance confirmant la normalisation de la FEVG."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Défaillance multiviscérale, décès."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Réanimation hémodynamique."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "La cardiomyopathie septique est totalement réversible en 7–10 jours chez les survivants."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Réanimation, infectiologue."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 16,
+      "fichier_html_cible": "LOT_150_Phase_B_V0_DX.16.html",
+      "titre": "Hémorragie sous-arachnoïdienne ou AVC aigu avec sidération myocardique neurogène",
+      "cim": "I60.9",
+      "urgence": "urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Souffrance myocardique aiguë induite par une décharge sympathique massive lors d'une HSA ou d'un AVC grave."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Troponine élevée chez 20–30 % des HSA graves."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Lésion insulaire/hypothalamique -> libération massive de noradrénaline dans les terminaisons nerveuses myocardiques -> nécrose en bandes de contraction."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "HSA grave, OAP neurogène, arythmies ventriculaires."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Céphalée en coup de tonnerre, coma, déficit neurologique focal."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Signes neurologiques au premier plan ; parfois OAP neurogène."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "HSA/AVC confirmé + élévation troponine et anomalies ECG/ETT neurogènes."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "TDM cérébrale en priorité, ECG (ondes T négatives géantes, QTc long), troponine, ETT."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Éviter l'anticoagulation/antiagrégation !"
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Traitement neurochirurgical/neurovasculaire prioritaire ; support hémodynamique ; NE PAS anticoaguler."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Rééducation neurologique."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "OAP neurogène, vasospasme cérébral, arythmies."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Réanimation neurochirurgicale."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "L'atteinte cardiaque récupère spontanément si le patient survit à l'atteinte cérébrale."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Neurochirurgien, neurologue, réanimateur."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 17,
+      "fichier_html_cible": "LOT_150_Phase_B_V0_DX.17.html",
+      "titre": "Crise hypertensive avec souffrance myocardique aiguë",
+      "cim": "I10",
+      "urgence": "urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Souffrance myocardique aiguë induite par une élévation critique de la pression artérielle (urgence hypertensive)."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Arrêt brutal des antihypertenseurs, HTA rénovasculaire, phéochromocytome, cocaïne."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Postcharge extrême -> augmentation majeure de la consommation myocardique en O2 et ischémie sous-endocardique."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "OAP, douleur thoracique typique, encéphalopathie hypertensive, dissection aortique."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "HTA connue avec rupture thérapeutique, céphalées, oppression thoracique, dyspnée."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "PA ≥ 180/120 mmHg, recherche d'atteinte d'organes cibles (OAP, fond d'œil stade III–IV, déficit neurologique)."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "PA ≥ 180/120 mmHg + élévation de troponine/atteinte d'organe cible."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "ECG, troponine hs, créatinine, sédiment urinaire, fond d'œil, ETT."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Angio-TDM si suspicion de dissection."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Baisse contrôlée de la PA par voie IV (labétalol, nicardipine, urapidil) : -20 à -25 % de la PAM sur les premières heures (pas de chute brutale !)."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Reprise et optimisation du traitement antihypertenseur oral, recherche d'HTA secondaire."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "OAP, AVC ischémique ou hémorragique, néphroangiosclérose maligne."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Monitoring PA invasif ou rapproché."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Normalisation de la troponine après contrôle tensionnel."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Urgences, cardiologue, médecin traitant."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    }
+  ],
+  "prompt_alpha_a_jour": "# MISSION : CORRECTION ET COMPLÉTION DES 248 SSP SUISSES (3 975 ENTITÉS + 248 CHAPITRES 0)\n\n## § 0. IDENTIFICATION, SIGNATURE & RÈGLES DE CONTINUITÉ — BLOQUANT ABSOLU\n1. **Identification obligatoire** en tête de première réponse :\n   - HEURE DE DÉBUT : AAAA-MM-JJ HH:MM (Europe/Zurich)\n   - MODÈLE : nom exact du modèle (ex. ANTIGRAVITY ORCHESTRATOR NEON)\n   - PLATEFORME : plateforme exacte (ex. ANTIGRAVITY)\n   - Ajouter la même ligne à `1_Claude AI/IDENTIFICATION_AGENTS.md`. Si incertitude, s'arrêter.\n2. **Signature IA fixe en bas à droite de TOUT HTML produit ou modifié** (juste avant `</body>`, en GRAS MAJUSCULE) :\n   `<div id=\"signature-ia\" style=\"position:fixed;right:12px;bottom:10px;z-index:9999;background:#fff;border:2px solid #000;padding:4px 10px;font:700 12px/1.3 Arial,sans-serif;text-transform:uppercase;color:#000\">DÉBUT : AAAA-MM-JJ HH:MM (EUROPE/ZURICH) · MODÈLE : <NOM> · PLATEFORME : <PLATEFORME></div>`\n   - **Seul Vial peut autoriser le retrait de ce bloc.** Un agent qui reprend un fichier signé ajoute sa propre ligne sous la précédente sans jamais effacer l'existante.\n3. **Continuité & transparence** :\n   - **Redémarrage propre à partir de `SSP_248`** : tous les cours précédemment modifiés ont été restaurés à l'état initial (`6941513`). Enchaîner continûment **`SSP_248 → SSP_033`**, puis **`SSP_001 → SSP_032`**.\n   - **Toujours afficher le raisonnement visible** en français dans chaque réponse.\n   - **Veille & relance GitHub** : commiter et pousser sur `origin main` après chaque SSP (ou lot <= 5 SSP) avec l'état à jour dans `SUIVI_PRODUCTION.csv`, `HANDOFF_AFFINAGE.md` et `HANDOFF_IA_COMPLET.md`.\n   - **Suivi graphique temps réel** : maintenir à jour le tableau de bord visuel temps réel des réalisations achevées et en cours.\n\n## § 1. RÈGLES ACTUALISÉES (PRIMENT SUR LE PROMPT ALPHA 19.11.26)\n1. **Nombre de cours par SSP** : **1 cours par entité de la Cartographie Renouveau** (15 à 24 entités par SSP, 3 975 au total) + le Chapitre 0 (`Phase_A`), dans l'ordre exact des `Cours 1 … N` de `SSP_nnn/NOTIONS.md` / `NOTIONS.json`.\n2. **QUALITÉ CLINIQUE MAXIMALE & ZÉRO MÉDIOCRITÉ (BLOQUANT ABSOLU — Consigne Vial 20.11.26)** :\n   - **Interdiction absolue de toute prose patronnée / générique** : aucune phrase-cadre où seul le nom de la pathologie change d'un cours à l'autre, aucun remplissage artificiel pour atteindre le calibre. La médiocrité clinique est dangereuse et entraîne un rejet immédiat.\n   - Chaque cours (`Phase_A` et `DX.1..N`) doit être **rédigé sur mesure** pour son entité exacte, avec : raisonnement physiopathologique et sémiologique réel, seuils numériques précis, diagnostics différentiels discriminants, posologies et contre-indications sourcées (Compendium.ch / AIPS, Tox Info Suisse, OFSP, ASSM, sociétés savantes suisses), vignettes cliniques authentiques et QCM exigeants de niveau Examen Fédéral Suisse.\n3. **INTERDICTION DES ARBRES DÉCISIONNELS (Consigne Vial 20.11.26)** :\n   - **Ne générer AUCUN arbre décisionnel ni algorithme graphique (`.fm-canvas`, SVG décisionnel, etc.)** dans `Phase_A` ou dans les `DX.n` — l'auteur (Vial) les réalisera lui-même.\n4. **Calibre texte pur actualisé (Consigne Vial 20.11.26)** :\n   - **80 à 100 Ko de texte pur UTF-8 par fichier** (`81 920` à `102 400` octets, calibre du Prompt Alpha confirmé par Vial le 20.11.2026 à 21:20, mesuré fenêtres comprises, hors balises HTML, CSS, JS, SVG et images).\n   - HTML hors images (`controle3.py`) : **`40 000` à `100 000` octets** (alerte).\n   - Densité maximale : zéro remplissage, zéro phrase pouvant figurer telle quelle dans un autre cours, zéro phrase de gabarit de `cartographie_DATA.json`.\n5. **Phrases verbales exclusives (BLOQUANT)** :\n   - Chaque phrase (texte, fenêtres, listes, légendes `<figcaption>`, cellules narratives `<td>`) contient un verbe conjugué reconnu. **Zéro phrase nominale.**\n4. **Médicaments cliquables d'emblée & Fenêtres centrées PK/PD à 2 onglets (Consigne Vial 20.11.26)** :\n   - Dès qu'un médicament est évoqué, il devient cliquable (`<a class=\"ouvre med-chip\" href=\"#f-...\">`).\n   - Chaque `<section class=\"fenetre mb\" id=\"f-...\"><div class=\"fen\">` s'ouvre au centre de l'écran et contient **2 onglets** :\n     * **Onglet 1 (`data-tab=\"pk\"`)** : Pharmacocinétique + **Courbe vectorielle SVG $C(t)$** + **4 paramètres cliniciens mis en évidence** (`.pkpd-kpis`).\n     * **Onglet 2 (`data-tab=\"pd\"`)** : Pharmacodynamique & Clinique + **Courbe vectorielle SVG $E(C)$** + posologies/précautions/grossesse suisses (Compendium.ch / AIPS).\n5. **Images** : uniquement à l'intérieur des `<section class=\"fenetre\">`, jamais hors fenêtre (licences selon Prompt Alpha § 4). Ne comptent pas dans le calibre.\n6. **Zéro terminologie de chantier visible** : aucun texte visible (ni `<title>`) ne doit contenir `LOT`, `V0`, `Phase A/B`, `DX.n`, `Appel A/B`, `Partie n`. Seuls les noms de fichiers gardent le format Alpha (`LOT_nnn_Phase_A_V0.html`, `LOT_nnn_Phase_B_V0_DX.i.html`).\n7. **Circuits & Plans** :\n   - `MONOGRAPHIQUE` (189 SSP) : plan maladie en 14 points (Prompt Alpha § 3.1).\n   - `NON_MONOGRAPHIQUE` (52 SSP) : Leçon en 12 à 14 points adaptés (Prompt Alpha § 3.2). **Jamais** de plan maladie ni de titres « Physiopathologie / Approche syndromique / Diagnostic positif » artificiels.\n   - `MIXTE` (7 SSP) : Prompt Alpha § 3.3, chaque fichier déclare `<meta name=\"ssp-circuit\" content=\"...\">`.\n8. **Correctifs Frontend v2 / Architecture `_sources/` (`UNIQUE.html` & `_polices/`)** :\n   - **Arborescence propre par SSP** : à la racine de `SSP_nnn/`, seul **`SSP_nnn_<code>_UNIQUE.html`** (plus le sous-dossier **`_sources/`**) est visible. Tous les fichiers sources (`LOT_nnn_*.html`, `images/`, `NOTIONS.*`, `MANIFESTE.json`, `DECISION*`, `paquet.json`, `_archive_avant_alpha/`) sont rangés dans `SSP_nnn/_sources/` sans rien supprimer.\n   - **Barre haute amovible (`gabarit_unique.html`)** : `#topbar` compacte 1 ligne (~42 px) avec pilule active, fil d'Ariane section, boutons `◀`/`▶`, tiroir overlay amovible `#dd-drawer` (`☰ Diagnostics (N) ▾` + option `📌 Épingler`) contenant `nav#nav` en colonnes égales (`32 px`, teinte unique par cours), et bouton `▴ Masquer barre` + pilule flottante `#btn-show-bar`.\n   - **Zéro dédoublement & navigation `#...` 100 % fonctionnelle (`forme.js`)** : script `forme.js` exécuté sous `DOMContentLoaded` et injecté par `assembler_unique.py`/`inliner.py` après `</head>` et avant `#signature-ia`/`</body>` ; intercepteur global appelant `e.preventDefault()` sur 100 % des `href^=\"#\"` (bloque le rechargement `srcdoc` + `file://`).\n   - **Modales centrées `<div class=\"fen\">` & désaturation (`forme.css` / `optimiser_ssp.py`)** : ouverture via classe `.fm-open` (plus `:target` en repli) avec pile `modalStack` et bouton `Fermer ✕` sticky (sans `history.back()`), auto-enveloppement `<div class=\"fen\">`, tableaux hors modale déplacés vers `<section class=\"fenetre fm-tab-fen\">` déclenchés par cartes `.fm-encart-fen`, citations `<sup class=\"r\"><a>` compactées en `[N]` avec modale aperçu `#fm-src-modal` empilable (`fm-stack-top`), puces médicaments `a.ouvre.med-chip` (`℞ ...`, `white-space: nowrap`, compatible accents français), repli du plan latéral desktop `#fm-plan-toggle`, îlots discontinus (`margin-bottom: 30px`) et padding bas `5.5rem` protégeant la lecture au-dessus de `#signature-ia`.\n   - **HTML unique** : ne jamais l'écrire à la main ; toujours exécuter `optimiser_ssp.py` puis `assembler_unique.py nnn`.\n\n## § 2. ARCHIVAGE & WORKFLOW PAR SSP (P0 → P4)\n- **Zéro suppression** : avant d'écraser ou renommer un fichier source existant, archiver dans `SSP_nnn/_sources/_archive_avant_alpha/`.\n- **P0 (Préparer)** : lire circuit (`catalogue_248.json`), entités (`NOTIONS.md`/`NOTIONS.json`), `memoire_zero_token.py --digest --lot nnn`, écrire `PLAN_ENTITES.md`.\n- **P1 (Décider)** : noter dans `DECISION.md` (Corriger / Réécrire si mécanique, faux plan maladie ou `< 30 Ko` / Créer).\n- **P2 (Produire)** : `LOT_nnn_Phase_A_V0.html` + `LOT_nnn_Phase_B_V0_DX.1..N.html`, 100 % des notions de `NOTIONS.json` expliquées et sourcées (Compendium.ch / AIPS, OFSP, ASSM, CC, LAMal, LAVI, Smarter Medicine), sans aucune phrase gabarit de la cartographie.\n- **P3 (Portes de Contrôle + Optimisation + Assemblage + Audit Chrome)** :\n  1. `controle3.py --script-ok` → **`VERT {}`** (si `paquet.json` présent ; `--script-ok` requis car `_sources/` référence `../../_polices/forme.js`)\n  2. `verif_aips.py` → **`OK`** (si `paquet.json` présent) et `restaurer_fond.py --verifier` → **`exit=0`**\n  3. `python _outils/optimiser_ssp.py nnn` → migration vers `_sources/`, tableaux déplacés en `<div class=\"fen\">`, teintes non bleues `--fm-a`\n  4. `python _outils/verif_mission.py nnn` → **100 % fichiers `PASS`** (`errors: []`)\n  5. `python _outils/assembler_unique.py nnn` → **`(1 + N) / (1 + N) onglets`** à la racine de `SSP_nnn/`\n  6. `python _outils/notions.py verifier nnn` → **`0 NON`** + copier `rapport_notions.csv` dans `SSP_nnn/_sources/`\n  7. `python _outils/audit_unique_browser.py nnn --all-tabs` → **`PASS` sur 100 % des onglets en Chrome headless réel**\n  8. Ajouter ligne dans `SUIVI_PRODUCTION.csv` + `git commit` + `git push origin main`.\n- **P4 (Affinage)** : consigner tout doute clinique/posologique non vérifié dans `1_Claude AI/HANDOFF_AFFINAGE.md` sous `## SSP_nnn`.\n\n## § 3. MISSION 2 — SSP 001 → 032\n- Extraire les cours depuis `SSP_nnn_<code>_UNIQUE.html` (JSON `data` gzip+base64, marqueurs `@@IMG:…@@`, `@@FONT:…@@`) après archivage des anciens `LOT_nnn_*.html` dans `_archive_avant_alpha/`.\n- Le frontend reste identique ; auditer le contenu avec la même sévérité (attention : `SSP_013` G13 = `NON_MONOGRAPHIQUE`, `SSP_014` G14 = `MIXTE`).\n- Produire `1_Claude AI/AUDIT_001-032.md` et corriger tous les ❌.\n\n## § 4. LES 12 BLOCAGES ROUGE (REJET IMMÉDIAT)\n1. Identification absente ou incertaine.\n2. Signature `#signature-ia` absente, modifiée ou supprimée.\n3. Entité de la Cartographie sans cours.\n4. Fichier hors intervalle `80–100 Ko` de texte pur (tout cours ; un cours de 30–50 Ko est à enrichir).\n5. Toute phrase nominale.\n6. Toute notion au verdict `NON`.\n7. Phrase gabarit de `cartographie_DATA.json` recopiée dans un cours.\n8. Plan maladie appliqué à une Leçon `NON_MONOGRAPHIQUE`.\n9. Terme de chantier visible (`LOT`, `V0`, `Phase A/B`, `DX.n`, `Appel`, `Partie n`).\n10. Posologie sans source de la cascade suisse.\n11. Image hors `<section class=\"fenetre\">`.\n12. Fichier supprimé au lieu d'être archivé.\n\n## § 5. ANNEXE CIRCUITS (248 SSP)\n- **NON_MONOGRAPHIQUE (52)** : 013 · 065 · 069 · 176 · 180 · 181 · 182 · 184 · 185 · 186 · 192 · 194 · 195 · 198 · 200 · 203 · 204 · 205 · 206 · 207 · 208 · 209 · 210 · 211 · 212 · 213 · 214 · 215 · 216 · 217 · 218 · 219 · 220 · 221 · 222 · 224 · 225 · 226 · 227 · 232 · 233 · 235 · 236 · 237 · 238 · 239 · 240 · 241 · 242 · 243 · 246 · 247.\n- **MIXTE (7)** : 014 · 165 · 174 · 175 · 190 · 202 · 223.\n- **MONOGRAPHIQUE (189)** : tous les autres SSP."
+}

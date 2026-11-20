@@ -1,0 +1,2444 @@
+{
+  "rappel_obligatoire_avant_redaction": {
+    "lecture_imperative": [
+      "1. Lire intégralement PROMPT_Alpha_19.11.26.md ET la mise à jour incluse dans prompt_alpha_a_jour ci-dessous.",
+      "2. Respecter l'intervalle GLOBAL par cours : viser 85–95 Ko de texte médical pur (soit ~95–115 Ko de fichier JSON) sans quota rigide par partie — répartir le texte proportionnellement à l'importance clinique des parties.",
+      "3. Produire graduellement 1 cours complet par requête (Phase A, puis Cours 1, Cours 2...) en français médical académique, phrases verbales exclusives (0 phrase nominale), zéro prose générique ou patronnée.",
+      "4. Utiliser uniquement les guillemets typographiques français « … » dans les valeurs texte JSON (jamais de guillemet droit non échappé).",
+      "5. Zéro arbre décisionnel graphique (.fm-canvas) : ne générer aucun schéma décisionnel."
+    ],
+    "specificites_locales_ssp": [
+      "Circuit MONOGRAPHIQUE : respecter le plan maladie en 14 points avec socle généralités (1-3), démarche diagnostique (4-10), prise en charge posologique suisse intégrale (11) et QCM Examen Fédéral (14).",
+      "Couvrir 100 % des notions obligatoires listées dans phase_b[*].plan[*].notions_obligatoires pour Nourrisson irritable ou qui pleure (O2.9).",
+      "Cascade posologique suisse à 4 paliers obligatoire : 1. AIPS Swissmedic (n° 5 chiffres) -> 2. Compendium.ch -> 3. Sociétés savantes & CHU suisses (HUG, CHUV, Inselspital, USZ, USB, OFSP, ASSM, SSMIG, Tox Info Suisse 145) -> 4. Sociétés savantes européennes."
+    ]
+  },
+  "meta": {
+    "rang_gravite": 153,
+    "ssp": "SSP_191",
+    "code_profiles": "O2.9",
+    "nom_francais": "Nourrisson irritable ou qui pleure",
+    "circuit": "MONOGRAPHIQUE",
+    "police_obligatoire": "Atkinson Hyperlegible",
+    "calibre_cible": "80–100 Ko texte pur",
+    "arbres_decisionnels_autorises": false,
+    "mode_redaction": "Neon Deep Research",
+    "nb_chapitres_total": 16,
+    "defauts_audit_initial": [
+      "Incomplet (11/16 cours)",
+      "1303 phrases nominales",
+      "Termes chantier (8 f.)"
+    ]
+  },
+  "sommaire": {
+    "phase_a": {
+      "fichier_html_cible": "LOT_191_Phase_A_V0.html",
+      "titre": "Nourrisson irritable ou qui pleure — Vue d'ensemble et orientation clinique (O2.9)"
+    },
+    "phase_b": [
+      {
+        "cours_numero": 1,
+        "titre": "Coliques du nourrisson (pleurs excessifs fonctionnels)",
+        "cim": "R10.4",
+        "urgence": "chronique"
+      },
+      {
+        "cours_numero": 2,
+        "titre": "Otite moyenne aiguë (OMA) du nourrisson",
+        "cim": "H66.9",
+        "urgence": "semi-urgent"
+      },
+      {
+        "cours_numero": 3,
+        "titre": "Poussée dentaire / éruption dentaire",
+        "cim": "K00.7",
+        "urgence": "chronique"
+      },
+      {
+        "cours_numero": 4,
+        "titre": "Infection urinaire / pyélonéphrite du nourrisson",
+        "cim": "N39.0",
+        "urgence": "urgent"
+      },
+      {
+        "cours_numero": 5,
+        "titre": "Œsophagite peptique sur RGO compliqué ou APLV",
+        "cim": "K21.0",
+        "urgence": "semi-urgent"
+      },
+      {
+        "cours_numero": 6,
+        "titre": "Gingivostomatite herpétique aiguë (primo-infection HSV-1)",
+        "cim": "B00.2",
+        "urgence": "semi-urgent"
+      },
+      {
+        "cours_numero": 7,
+        "titre": "Érosion cornéenne ou corps étranger oculaire du nourrisson",
+        "cim": "S05.0",
+        "urgence": "urgent"
+      },
+      {
+        "cours_numero": 8,
+        "titre": "Syndrome du cheveu étrangleur (tourniquet d'orteil, doigt ou verge)",
+        "cim": "T14.1",
+        "urgence": "urgent"
+      },
+      {
+        "cours_numero": 9,
+        "titre": "Syndrome de sevrage néonatal (NAS) ou exposition médicamenteuse maternelle",
+        "cim": "P96.1",
+        "urgence": "urgent"
+      },
+      {
+        "cours_numero": 10,
+        "titre": "Glaucome congénital (buphtalmie, larmoiement, photophobie)",
+        "cim": "Q15.0",
+        "urgence": "urgent"
+      },
+      {
+        "cours_numero": 11,
+        "titre": "Invagination intestinale aiguë (IIA) non compliquée ou débutante",
+        "cim": "K56.1",
+        "urgence": "immediate"
+      },
+      {
+        "cours_numero": 12,
+        "titre": "Hernie inguinale étranglée du nourrisson",
+        "cim": "K40.3",
+        "urgence": "immediate"
+      },
+      {
+        "cours_numero": 13,
+        "titre": "Méningite bactérienne / sepsis du nourrisson",
+        "cim": "G00.9",
+        "urgence": "immediate"
+      },
+      {
+        "cours_numero": 14,
+        "titre": "Tachycardie supraventriculaire (TSV) du nourrisson",
+        "cim": "I47.1",
+        "urgence": "immediate"
+      },
+      {
+        "cours_numero": 15,
+        "titre": "Fracture occulte ou traumatisme crânien sur maltraitance chez le nourrisson irritable",
+        "cim": "T74.1",
+        "urgence": "immediate"
+      }
+    ]
+  },
+  "phase_a": {
+    "titre": "Nourrisson irritable ou qui pleure — Vue d'ensemble (O2.9)",
+    "plan": [
+      {
+        "point": 1,
+        "titre": "Définition nosologique et périmètre clinique",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 2,
+        "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 3,
+        "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 4,
+        "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+        "description": "Présentation et hiérarchisation des 15 entités de la Cartographie Renouveau."
+      },
+      {
+        "point": 5,
+        "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 6,
+        "titre": "Examen physique systématique région par région",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 7,
+        "titre": "Approche syndromique et stratification de gravité",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 8,
+        "titre": "Diagnostic positif, scores cliniques et critères validés",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 9,
+        "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 10,
+        "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 11,
+        "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 12,
+        "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 13,
+        "titre": "Points clés indispensables à retenir",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 14,
+        "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      }
+    ]
+  },
+  "phase_b": [
+    {
+      "cours_numero": 1,
+      "fichier_html_cible": "LOT_191_Phase_B_V0_DX.1.html",
+      "titre": "Coliques du nourrisson (pleurs excessifs fonctionnels)",
+      "cim": "R10.4",
+      "urgence": "chronique",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Accès de pleurs prolongés, intenses et inconsolables survenant sans cause organique chez un nourrisson sain de moins de 4–5 mois (critères de Rome IV)."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Touche 15–25 % des nourrissons ; pic maximal vers 6–8 semaines de vie (attention : pic simultané du syndrome du bébé secoué !)."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Immaturité de la régulation neuro-sensorielle et/ou du microbiote/motilité intestinale."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Fièvre >= 38 °C (< 3 mois !), vomissements bilieux/en jet, rectorragies, cassure pondérale, fontanelle bombée, pleurs constants jour et nuit d'apparition brutale."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Pleurs souvent en fin d'après-midi/soir, jambes repliées sur le ventre, poings serrés, visage rouge, gaz ; alimentation et prise de poids normales."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Examen somatique COMPLET normal (tympans, gorge, orifices herniaires, abdomen, testicules, membres, peau/cheveux sur orteils -> syndrome du cheveu étrangleur !)."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Pleurs récurrents < 5 mois chez un nourrisson vigoureux avec prise pondérale normale."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Diagnostic CLINIQUE d'exclusion (aucun examen complémentaire si examen clinique parfait et croissance normale)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "ECBU uniquement si fièvre ou stagnation pondérale."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Réassurance parentale + prévention EXPLICITE du syndrome du bébé secoué (« si vous êtes à bout, posez le bébé sur le dos dans son lit en sécurité et sortez souffler 5 min » !)."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Portage en écharpe, bercement doux, bruit blanc, probiotique Lactobacillus reuteri DSM 17938 parfois utile chez le bébé allaité ; essai d'éviction PLV 2 semaines uniquement si signes d'allergie associés."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Épuisement parental -> risque de maltraitance (bébé secoué)."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Soutien rapproché des parents par pédiatre/sage-femme."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Guérison spontanée constante vers 3–4 mois."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Pédiatre, sage-femme, puéricultrice."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 2,
+      "fichier_html_cible": "LOT_191_Phase_B_V0_DX.2.html",
+      "titre": "Otite moyenne aiguë (OMA) du nourrisson",
+      "cim": "H66.9",
+      "urgence": "semi-urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Infection bactérienne ou virale aiguë de l'oreille moyenne avec épanchement rétro-tympanique purulent/inflammatoire."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Pic entre 6 et 24 mois ; très fréquente en crèche."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Dysfonction de la trompe d'Eustache (courte et horizontale chez le nourrisson) lors d'une rhinopharyngite -> pullulation (S. pneumoniae, H. influenzae, M. catarrhalis)."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Décollement du pavillon de l'oreille + rougeur/œdème rétro-auriculaire (mastoïdite !), torticolis, fontanelle bombée (méningite !), < 3 mois fébrile."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Rhume récent, réveils nocturnes en pleurs, se frotte/tire l'oreille, fièvre, refus du biberon (douleur à la déglutition)."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Otoscopie : tympan bombant, opaque/jaunâtre ou hyperhémique, perte du triangle lumineux."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Tympan bombant/purulent avec signes aigus."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Otoscopie bilatérale."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Bilan septique complet si nourrisson < 3 mois fébrile."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Antalgie systématique (paracétamol + ibuprofène > 3–6 mois) ; antibiothérapie (amoxicilline 80–90 mg/kg/j) d'emblée si < 2 ans (selon gravité/bilatéralité : en Suisse, obligatoire si < 6 mois, recommandée si < 2 ans bilatérale ou sévère/otorrhée)."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Contrôle à 48–72 h si expectative."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Mastoïdite aiguë, méningite, paralysie faciale, otite séromuqueuse persistante."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Apyrexie et amélioration de la douleur en 48 h."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Guérison rapide sans séquelle."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Pédiatre, ORL si récidivante ou compliquée."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 3,
+      "fichier_html_cible": "LOT_191_Phase_B_V0_DX.3.html",
+      "titre": "Poussée dentaire / éruption dentaire",
+      "cim": "K00.7",
+      "urgence": "chronique",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Processus physiologique d'éruption des dents temporaires à travers la muqueuse gingivale."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Débute typiquement vers 6 mois (incisives inférieures) jusqu'à 24–30 mois."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Inflammation gingivale locale lors de la résorption tissulaire."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Fièvre >= 38,5 °C, diarrhée, pleurs inconsolables -> NE JAMAIS attribuer aux dents sans avoir exclu otite/infection urinaire/virose !"
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Hypersalivation, besoin de mordiller, irritabilité modérée, sommeil un peu agité."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Gencive œdématiée/rouge ou petite pointe blanche palpable ; reste de l'examen normal, température < 38 °C."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Inflammation gingivale isolée sans foyer infectieux."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Examen clinique complet d'exclusion."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Aucune."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Anneau de dentition réfrigéré (non congelé), massage gingival doux, paracétamol si douleur nocturne marquée (éviter gels anesthésiques à la benzocaïne/lidocaïne et colliers d'ambre -> risque d'étouffement !)."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Brossage dès l'apparition de la 1re dent (dentifrice fluoré adapté)."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Aucune (risque des colliers d'ambre !)."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Évolution en quelques jours par dent."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Totalement bénin."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Pédiatre, dentiste dès 1–2 ans."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 4,
+      "fichier_html_cible": "LOT_191_Phase_B_V0_DX.4.html",
+      "titre": "Infection urinaire / pyélonéphrite du nourrisson",
+      "cim": "N39.0",
+      "urgence": "urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Infection bactérienne des voies urinaires (E. coli > 80 %) chez un nourrisson."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "~5–7 % des nourrissons fébriles sans foyer ; plus fréquente chez le garçon < 3 mois non circoncis, puis chez la fille."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Ascension bactérienne périnéale favorisée par un reflux vésico-urétéral ou une uropathie."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Âge < 3 mois, sepsis (teint gris, marbrures, léthargie), vomissements incoercibles."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Fièvre inexpliquée >= 38 °C, irritabilité, pleurs lors des mictions parfois, refus du biberon, vomissements, urines malodorantes."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Examen ORL/pulmonaire normal (fièvre sans foyer !), ictère prolongé possible chez le nouveau-né."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Leucocyturie + bactériurie significative sur prélèvement propre."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Prélèvement d'urine PROPRE (sondage aller-retour, ponction sus-pubienne ou clean-catch ; JAMAIS débuter antibiotiques sur une simple poche à urine contaminée !) pour BU + sédiment + ECBU ; si < 3 mois : hémoculture + CRP +/- PL."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Échographie rénale et des voies urinaires après le 1er épisode fébrile."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "< 3 mois ou sepsis : hospitalisation + antibiothérapie IV (ceftriaxone ou amoxicilline + gentamicine). >= 3 mois état conservé : antibiothérapie PO (céfixime ou amoxicilline-clavulanate) 7–10 jours. Si cystite simple féminine : fosfomycine-trométamol 3 g PO dose unique (ou nitrofurantoïne 100 mg 2×/j × 5 j) ; si pyélonéphrite ou prostatite fébrile : ceftriaxone 2 g/j IV (ou ciprofloxacine 500 mg 2×/j PO si non grave et sensibilité attendue), paracétamol 1 g PO/6 h et levée d'obstacle urgente si rétention."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "UCR (cystographie) si échographie anormale ou récidive. Adaptation selon l'ECBU à 48 h pour une durée totale de 7 jours (pyélonéphrite) ou 14 jours (prostatite) et hydratation > 1,5–2 L/j."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Sepsis, cicatrices rénales, HTA tardive."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Apyrexie attendue à 48–72 h (si persistance : échographie/TDM pour écarter un abcès ou obstacle pyélique)."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Guérison complète sous traitement précoce."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Pédiatre, néphrologue pédiatre."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 5,
+      "fichier_html_cible": "LOT_191_Phase_B_V0_DX.5.html",
+      "titre": "Œsophagite peptique sur RGO compliqué ou APLV",
+      "cim": "K21.0",
+      "urgence": "semi-urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Inflammation de la muqueuse œsophagienne secondaire à un RGO acide pathologique ou une allergie aux protéines du lait de vache."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Beaucoup plus rare que le RGO physiologique (< 5 % des nourrissons consultant pour pleurs)."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Agression acide ou inflammatoire éosinophilique de la muqueuse œsophagienne déclenchant une douleur à la déglutition."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Hématémèse, dysphagie sévère, malaises/apnées."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Bébé affamé qui prend 2–3 gorgées puis hurle et repousse le biberon en se cambrant en arrière (syndrome de Sandifer), sommeil très fragmenté, stagnation pondérale."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Pleurs provoqués, prise pondérale insuffisante, parfois anémie ferriprive."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Amélioration nette sous traitement ciblé ou preuve endoscopique/pH-métrique."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Essai thérapeutique ciblé (éviction PLV 2–4 semaines en 1re intention chez le nourrisson ; ou IPP court 2–4 semaines si œsophagite peptique typique) ; pH-impédancemétrie ou endoscopie si échec."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "NFS/ferritine."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Mesures posturales/épaississement + éviction PLV (eHF) ou oméprazole/ésoméprazole à posologie pédiatrique limitée dans le temps si œsophagite avérée."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Réévaluation à 4 semaines pour éviter le surtraitement par IPP."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Dénutrition, sténose peptique (exceptionnelle)."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Courbe de poids et disparition des pleurs aux repas."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Guérison rapide dès traitement adapté."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Pédiatre, gastroentérologue pédiatre."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 6,
+      "fichier_html_cible": "LOT_191_Phase_B_V0_DX.6.html",
+      "titre": "Gingivostomatite herpétique aiguë (primo-infection HSV-1)",
+      "cim": "B00.2",
+      "urgence": "semi-urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Primo-infection symptomatique par le virus Herpes simplex type 1 touchant la muqueuse buccale et les gencives."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Pic entre 6 mois et 5 ans."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Réplication virale épithéliale provoquant vésicules puis ulcérations très douloureuses et gingivorragies."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Signes de déshydratation (oligurie, pli cutané, léthargie), atteinte oculaire (kératite herpétique -> urgence ophtalmo !), lésions diffuses sur eczéma (syndrome de Kaposi-Juliusberg !)."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Fièvre 39–40 °C, irritabilité majeure, refus complet d'alimentation et de boisson, hypersalivation fétide."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Gencives rouges tuméfiées saignant au contact, aphtes/ulcérations diffuses sur langue/palais/lèvres, adénopathies cervicales sensibles."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Gingivite hémorragique + ulcérations buccales + fièvre."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Diagnostic clinique (PCR HSV uniquement si atypique ou immunodéprimé)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Ionogramme si déshydratation."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Antalgie puissante (paracétamol + ibuprofène), hydratation fractionnée fraîche (glaces, lait froid), aciclovir PO si début < 72 h ou forme sévère (réduit la durée des lésions)."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Hospitalisation pour perfusion IV si refus hydrique > 12–24 h."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Déshydratation aiguë, surinfection, auto-inoculation oculaire/digitale (panaris herpétique)."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Nombre de couches mouillées."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Guérison spontanée en 10–14 jours."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Pédiatre."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 7,
+      "fichier_html_cible": "LOT_191_Phase_B_V0_DX.7.html",
+      "titre": "Érosion cornéenne ou corps étranger oculaire du nourrisson",
+      "cim": "S05.0",
+      "urgence": "urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Abrasion épithéliale de la cornée (souvent auto-infligée par les ongles du nourrisson) ou présence d'un corps étranger sous-palpébral."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Cause classique et méconnue de pleurs aigus inexpliqués chez le nourrisson."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "La cornée possède l'innervation sensitive la plus dense de l'organisme -> douleur aiguë intense."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Plaie pénétrante, hypopion, asymétrie pupillaire, leucocorie."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Pleurs soudains aigus chez un bébé sans fièvre, parfois œil fermé ou larmoyant."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Blépharospasme, larmoiement, éversion des paupières, test à la fluorescéine + lumière bleue (capture verte linéaire ou punctiforme)."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Prise de fluorescéine cornéenne."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Test à la fluorescéine (indispensable devant tout nourrisson pleurant sans cause évidente !)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Avis ophtalmologique si corps étranger incrusté ou doute."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Retrait doux d'un éventuel cil/corps étranger, pommade ophtalmique antibiotique/cicatrisante (acide fusidique ou tobramycine + vitamine A), antalgie orale, couper les ongles du bébé."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Contrôle à 24–48 h (cicatrisation très rapide de l'épithélium cornéen)."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Surinfection cornéenne (exceptionnelle)."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Disparition de la douleur en 24 h."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Guérison complète en 24–48 h."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Pédiatre, ophtalmologue."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 8,
+      "fichier_html_cible": "LOT_191_Phase_B_V0_DX.8.html",
+      "titre": "Syndrome du cheveu étrangleur (tourniquet d'orteil, doigt ou verge)",
+      "cim": "T14.1",
+      "urgence": "urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Strangulation aiguë d'un appendice (orteil, doigt, pénis, clitoris) par un cheveu maternel (effluvium du post-partum !) ou un fil textile."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Fréquent entre 2 semaines et 6 mois (coïncide avec la chute de cheveux du post-partum chez la mère !)."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Compression veino-lymphatique -> œdème distal qui enfouit le cheveu dans un sillon cutané -> ischémie artérielle puis nécrose."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Ischémie froide, nécrose distale, cheveu profondément enfoui sous l'œdème."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Pleurs inconsolables brutaux, apyrexie, bébé par ailleurs sain."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Inspection systématique NU complet (orteils, doigts, organes génitaux) : orteil rouge/violacé, œdématié, avec sillon circonférentiel net."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Visualisation du sillon de constriction avec cheveu/fil."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Diagnostic purement clinique à l'inspection minutieuse sous loupe/bon éclairage."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Aucune."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Section et ablation IMMÉDIATE du cheveu (pince fine + lame/ciseau fin, ou crème dépilatoire si peau intacte et cheveu visible ; si cheveu enfoui non extractible -> incision longitudinale dorsale sous anesthésie locale/bloc au bloc opératoire !)."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Vérification de la recoloration distale et prévention (retourner les chaussettes/pyjamas au lavage)."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Amputation spontanée/nécrose d'orteil ou lésion urétrale pénienne si méconnu."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Recoloration et disparition de l'œdème en quelques heures."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Guérison complète sans séquelle si libéré précocement."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Urgences pédiatriques, chirurgien pédiatre si enfoui."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 9,
+      "fichier_html_cible": "LOT_191_Phase_B_V0_DX.9.html",
+      "titre": "Syndrome de sevrage néonatal (NAS) ou exposition médicamenteuse maternelle",
+      "cim": "P96.1",
+      "urgence": "urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Syndrome d'hyperexcitabilité neurovégétative et motrice survenant chez le nouveau-né après l'arrêt brutal à la naissance d'une exposition maternelle chronique à des substances psychoactives."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Survient chez 50–80 % des nouveau-nés de mères sous opioïdes (méthadone, buprénorphine, héroïne) ; forme plus modérée possible sous ISRS."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Hyperactivité noradrénergique du locus cœruleus à la levée de l'inhibition opioïde."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Convulsions néonatales, perte de poids sévère, score de Finnegan >= 8 répété."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Traitement maternel (méthadone, buprénorphine, opiacés, benzodiazépines, ISRS), début à H24–H72 (parfois J5–J7 pour méthadone !)."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Score de Finnegan : cri aigu incessant, trémulations, hypertonie, myoclonies, éternuements, bâillements, succion excessive, selles liquides, fièvre."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Score de sevrage élevé avec contexte d'exposition maternelle."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Score de Finnegan (ou Eat, Sleep, Console) toutes les 3–4 h + glycémie + dépistage toxique urinaire/méconial."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Exclure sepsis ou hypoglycémie/hypocalcémie."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Soins non pharmacologiques en 1re ligne (chambre calme/sombre, peau à peau, emmaillotement, allaitement maternel encouragé si mère sous substitution stable sans drogue illicite !) ; si sévère : morphine orale titrée (ou buprénorphine) avec sevrage progressif."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Accompagnement médico-social du couple mère-enfant."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Convulsions, déshydratation."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Score de Finnegan régulier."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Guérison complète en 1–4 semaines."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Néonatologue, pédiatre, addictologue, assistant social."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 10,
+      "fichier_html_cible": "LOT_191_Phase_B_V0_DX.10.html",
+      "titre": "Glaucome congénital (buphtalmie, larmoiement, photophobie)",
+      "cim": "Q15.0",
+      "urgence": "urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Hypertonie oculaire congénitale par malformation de l'angle irido-cornéen (trabéculodysgénésie) distendant le globe oculaire immature."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Rare : ~1/10 000–1/20 000 naissances (souvent bilatéral dans 70 %)."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Défaut de drainage de l'humeur aqueuse -> pression intraoculaire élevée -> distension scléro-cornéenne et atrophie du nerf optique."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Opacification cornéenne, asymétrie de diamètre cornéen."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Photophobie intense (bébé cache ses yeux, pleure au soleil), larmoiement chronique sans pus (souvent pris à tort pour une sténose lacrymale !)."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Triade classique : épiphora + photophobie + blépharospasme ; cornée agrandie (> 11–12 mm), œdème cornéen bleuté/trouble."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Hypertonie oculaire + mégalocornée/anomalie angulaire."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Examen ophtalmologique sous anesthésie générale en urgence (pression intraoculaire, diamètre cornéen, gonioscopie, nerf optique)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Aucune."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Chirurgie oculaire rapide (goniotomie ou trabéculotomie) + collyres hypotonisants en attente."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Suivi ophtalmologique et rééducation de l'amblyopie à vie."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Cécité irréversible si diagnostic retardé."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Pression intraoculaire et réfraction."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Vision préservée si chirurgie précoce."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Ophtalmologue pédiatre, pédiatre."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 11,
+      "fichier_html_cible": "LOT_191_Phase_B_V0_DX.11.html",
+      "titre": "Invagination intestinale aiguë (IIA) non compliquée ou débutante",
+      "cim": "K56.1",
+      "urgence": "immediate",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Télescopage d'un segment d'intestin proximal (iléon) dans le segment distal (côlon) chez le nourrisson (pic 5–12 mois)."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "1–4/1000 nourrissons ; 80 % avant 2 ans (souvent post-infection virale adénovirus/rotavirus)."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Hyperplasie des plaques de Peyer iléales servant de tête d'invagination -> ischémie veineuse puis artérielle de l'anse invaginée."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Léthargie marquée, vomissements bilieux, rectorragies, défense abdominale."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Accès brutaux de hurlements et pâleur durant 1–2 min toutes les 15–20 min, refus alimentaire, vomissements, alternance avec apathie/somnolence."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Boudin d'invagination palpable en FID/HCD (souvent difficile), fosse iliaque droite vide (signe de Dance), rectorragies tardives en gelée de groseille."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Image échographique en cocarde."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Échographie abdominale en urgence (image en cocarde / cible en coupe transversale, pseudo-rein en longitudinale)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Aucune."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Réhydratation IV + réduction radiologique par lavement pneumatique ou hydrostatique sous contrôle écho/fluoroscopique (succès > 85–90 % !) ; chirurgie si perforation/péritonite ou échec."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Surveillance 24 h (risque de récidive précoce ~5–10 %)."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Nécrose intestinale, perforation, choc."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Reprise alimentaire et transit."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Excellent si réduction précoce."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Urgences pédiatriques, radiologue et chirurgien pédiatres."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 12,
+      "fichier_html_cible": "LOT_191_Phase_B_V0_DX.12.html",
+      "titre": "Hernie inguinale étranglée du nourrisson",
+      "cim": "K40.3",
+      "urgence": "immediate",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Incarcération aiguë d'une anse intestinale (ou de l'ovaire chez la fille !) dans un canal péritonéo-vaginal persistant, compromettant sa vascularisation."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Hernie inguinale chez 1–5 % des nouveau-nés à terme, jusqu'à 15–30 % chez les prématurés ; risque d'étranglement maximal < 6 mois !"
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Persistance du processus vaginal laissant passer l'intestin ou l'ovaire qui s'œdématie au collet étroit."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Érythème/œdème cutané, vomissements bilieux, choc (nécrose anse/testicule/ovaire !)."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Pleurs brutaux intenses, vomissements, masse apparue à l'aine."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Masse inguinale ou inguino-scrotale ferme, tendue, douloureuse, NON réductible, peau parfois érythémateuse."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Masse inguinale douloureuse irréductible."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Diagnostic CLINIQUE immédiat (échographie uniquement si doute diagnostique sans retarder la prise en charge !)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Aucune."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Si pas de signe de nécrose/péritonite : tentative de réduction douce par taxis (après antalgie/sédation légère) puis chirurgie programmée à 24–48 h (après dégonflement de l'œdème). Si irréductible ou signes inflammatoires/occlusion : CHIRURGIE D'URGENCE !."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Cure chirurgicale du canal péritonéo-vaginal."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Nécrose intestinale, infarctus testiculaire/ovarien par compression du cordon spermatique/pédicule."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Vitalité gonadique et transit."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Excellent si réduction/chirurgie rapide."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Chirurgien pédiatre, pédiatre."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 13,
+      "fichier_html_cible": "LOT_191_Phase_B_V0_DX.13.html",
+      "titre": "Méningite bactérienne / sepsis du nourrisson",
+      "cim": "G00.9",
+      "urgence": "immediate",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Infection bactérienne des méninges (SGB, E. coli < 3 mois ; pneumocoque, méningocoque > 3 mois) menaçant la vie et le cerveau."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Urgence infectieuse majeure en pédiatrie malgré les vaccins conjugués."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Envahissement bactérien du LCR -> inflammation intense, œdème cérébral, HTIC et vascularite cérébrale."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Purpura extensif, choc septique, coma, convulsions."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Fièvre >= 38 °C ou hypothermie, irritabilité paradoxale (pleure plus quand on le console/mobilise !), somnolence, refus alimentaire, convulsions."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Fontanelle antérieure bombée (en dehors des pleurs !), hypotonie, teint gris/marbrures, TRC > 3 s, purpura (méningocoque !), raideur de nuque (souvent absente < 12–18 mois)."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Pléiocytose LCR à prédominance PNN, hypoglycorachie, hyperprotéinorachie et germe identifié."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Ponction lombaire (sauf contre-indication : choc instable, HTIC focale, trouble hémostase -> ne jamais retarder les antibiotiques !) + hémocultures + NFS/CRP/PCT + glycémie."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "PCR multiplex LCR."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "ANTIBIOTHÉRAPIE IV IMMÉDIATE (< 1 h) : < 3 mois : céfotaxime + amoxicilline (couvrir Listeria/SGB) +/- gentamicine ; >= 3 mois : ceftriaxone (+ vancomycine selon écologie) + dexaméthasone IV avant/avec la 1re dose (surtout si Hib/pneumocoque) + remplissage si choc. Hémocultures immédiates puis dexaméthasone 10 mg IV/6 h (4 jours) avant/avec ceftriaxone 2 g 2×/j IV + amoxicilline 2 g IV/4 h (si > 50 ans ou immunodéprimé pour Listeria) +/- aciclovir 10 mg/kg IV/8 h si encéphalite suspectée ; ponction lombaire sans retarder les antibiotiques."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Traitement IV 7–21 jours selon germe. Chimioprophylaxie des sujets contacts si méningocoque (ciprofloxacine 500 mg PO dose unique ou rifampicine 600 mg 2×/j × 2 j) et déclaration obligatoire OFSP < 24 h."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Surdité neurosensorielle, hydrocéphalie, épilepsie, paralysie cérébrale, décès."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "USIP, PEA systématiques après guérison (dépister surdité précoce !). Surveillance neurologique (GCS), audition (audiogramme post-méningite à pneumocoque), fonction rénale sous aciclovir et CRP."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Conditionné par la précocité de l'antibiothérapie."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Réanimateur pédiatre, infectiologue, ORL (PEA)."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 14,
+      "fichier_html_cible": "LOT_191_Phase_B_V0_DX.14.html",
+      "titre": "Tachycardie supraventriculaire (TSV) du nourrisson",
+      "cim": "I47.1",
+      "urgence": "immediate",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Arythmie rapide régulière (> 220 bpm chez le nourrisson) par réentrée atrio-ventriculaire (souvent voie accessoire / WPW)."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Arythmie symptomatique la plus fréquente du nourrisson (~1/1000)."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Circuit de réentrée nodale ou accessoire maintenant une fréquence extrême épuisant le ventricule en 24–48 h."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Choc cardiogénique (hypotension, marbrures, léthargie)."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Irritabilité inexpliquée, refus du biberon, pâleur, sueurs lors des tétées, polypnée."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "FC > 220–280 bpm (régulière, fixe, ne variant pas avec les pleurs !), polypnée, hépatomégalie, teint gris/TRC allongé si insuffisance cardiaque."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "ECG typique de TSV."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "ECG 12 dérivations + bande rythme continue (tachycardie régulière à QRS fins > 220 bpm, ondes P absentes ou rétrogrades)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Échocardiographie après réduction (exclure cardiopathie/Ebstein)."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Si INSTABLE (choc) : cardioversion électrique synchronisée immédiate (0,5–1 puis 2 J/kg). Si STABLE : manœuvres vagales (sac de glace sur le visage 10–15 s, réflexe nauséeux ; JAMAIS de pression oculaire !) ; si échec : ADÉNOSINE IV rapide en bolus flash (0,1 puis 0,2 mg/kg sur VVP proche du cœur + flush NaCl) sous enregistrement ECG continu !"
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Traitement préventif par bêtabloquant (propranolol) pendant la 1re année de vie."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Choc cardiogénique, décès si méconnue."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Scope continu puis ECG de contrôle (rechercher préexcitation WPW en rythme sinusal)."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Disparition spontanée de la voie accessoire avant 1 an dans ~70 % des cas."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Cardiologue pédiatre, urgences pédiatriques."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 15,
+      "fichier_html_cible": "LOT_191_Phase_B_V0_DX.15.html",
+      "titre": "Fracture occulte ou traumatisme crânien sur maltraitance chez le nourrisson irritable",
+      "cim": "T74.1",
+      "urgence": "immediate",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Douleur aiguë ou souffrance neurologique révélant une lésion traumatique non accidentelle chez un nourrisson pré-verbal."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Motif fréquent de passage aux urgences avant le diagnostic."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Fracture de membre/côte ou hématome sous-dural post-secouement."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Bleu chez un < 6 mois, refus de bouger un bras/jambe, fontanelle tendue."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Pleurs intenses au change ou à l'habillage, pseudoparalysie d'un membre, absence de traumatisme rapporté."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Douleur localisée à la palpation osseuse, tuméfaction, ecchymose (même minime !), fontanelle bombée."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Lésion traumatique objectivée incompatible avec l'anamnèse."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Radiographies ciblées puis bilan squelettique complet < 2 ans + TDM/IRM cérébrale + fond d'œil + bilan hémostase."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Aucune."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Antalgie, immobilisation, hospitalisation protectrice immédiate, signalement CAN/APEA."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Mesures de protection de l'enfance."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Récidive grave ou fatale si renvoyé à domicile."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Score NIHSS horaire × 24 h, dépistage de la dysphagie avant toute prise orale, normothermie (< 37,5 °C), normoglycémie (4–8 mmol/L) et rééducation précoce."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Conditionné par la mise à l'abri immédiate."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Groupe CAN, pédiatre, APEA."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    }
+  ],
+  "prompt_alpha_a_jour": "# MISSION : CORRECTION ET COMPLÉTION DES 248 SSP SUISSES (3 975 ENTITÉS + 248 CHAPITRES 0)\n\n## § 0. IDENTIFICATION, SIGNATURE & RÈGLES DE CONTINUITÉ — BLOQUANT ABSOLU\n1. **Identification obligatoire** en tête de première réponse :\n   - HEURE DE DÉBUT : AAAA-MM-JJ HH:MM (Europe/Zurich)\n   - MODÈLE : nom exact du modèle (ex. ANTIGRAVITY ORCHESTRATOR NEON)\n   - PLATEFORME : plateforme exacte (ex. ANTIGRAVITY)\n   - Ajouter la même ligne à `1_Claude AI/IDENTIFICATION_AGENTS.md`. Si incertitude, s'arrêter.\n2. **Signature IA fixe en bas à droite de TOUT HTML produit ou modifié** (juste avant `</body>`, en GRAS MAJUSCULE) :\n   `<div id=\"signature-ia\" style=\"position:fixed;right:12px;bottom:10px;z-index:9999;background:#fff;border:2px solid #000;padding:4px 10px;font:700 12px/1.3 Arial,sans-serif;text-transform:uppercase;color:#000\">DÉBUT : AAAA-MM-JJ HH:MM (EUROPE/ZURICH) · MODÈLE : <NOM> · PLATEFORME : <PLATEFORME></div>`\n   - **Seul Vial peut autoriser le retrait de ce bloc.** Un agent qui reprend un fichier signé ajoute sa propre ligne sous la précédente sans jamais effacer l'existante.\n3. **Continuité & transparence** :\n   - **Redémarrage propre à partir de `SSP_248`** : tous les cours précédemment modifiés ont été restaurés à l'état initial (`6941513`). Enchaîner continûment **`SSP_248 → SSP_033`**, puis **`SSP_001 → SSP_032`**.\n   - **Toujours afficher le raisonnement visible** en français dans chaque réponse.\n   - **Veille & relance GitHub** : commiter et pousser sur `origin main` après chaque SSP (ou lot <= 5 SSP) avec l'état à jour dans `SUIVI_PRODUCTION.csv`, `HANDOFF_AFFINAGE.md` et `HANDOFF_IA_COMPLET.md`.\n   - **Suivi graphique temps réel** : maintenir à jour le tableau de bord visuel temps réel des réalisations achevées et en cours.\n\n## § 1. RÈGLES ACTUALISÉES (PRIMENT SUR LE PROMPT ALPHA 19.11.26)\n1. **Nombre de cours par SSP** : **1 cours par entité de la Cartographie Renouveau** (15 à 24 entités par SSP, 3 975 au total) + le Chapitre 0 (`Phase_A`), dans l'ordre exact des `Cours 1 … N` de `SSP_nnn/NOTIONS.md` / `NOTIONS.json`.\n2. **QUALITÉ CLINIQUE MAXIMALE & ZÉRO MÉDIOCRITÉ (BLOQUANT ABSOLU — Consigne Vial 20.11.26)** :\n   - **Interdiction absolue de toute prose patronnée / générique** : aucune phrase-cadre où seul le nom de la pathologie change d'un cours à l'autre, aucun remplissage artificiel pour atteindre le calibre. La médiocrité clinique est dangereuse et entraîne un rejet immédiat.\n   - Chaque cours (`Phase_A` et `DX.1..N`) doit être **rédigé sur mesure** pour son entité exacte, avec : raisonnement physiopathologique et sémiologique réel, seuils numériques précis, diagnostics différentiels discriminants, posologies et contre-indications sourcées (Compendium.ch / AIPS, Tox Info Suisse, OFSP, ASSM, sociétés savantes suisses), vignettes cliniques authentiques et QCM exigeants de niveau Examen Fédéral Suisse.\n3. **INTERDICTION DES ARBRES DÉCISIONNELS (Consigne Vial 20.11.26)** :\n   - **Ne générer AUCUN arbre décisionnel ni algorithme graphique (`.fm-canvas`, SVG décisionnel, etc.)** dans `Phase_A` ou dans les `DX.n` — l'auteur (Vial) les réalisera lui-même.\n4. **Calibre texte pur actualisé (Consigne Vial 20.11.26)** :\n   - **80 à 100 Ko de texte pur UTF-8 par fichier** (`81 920` à `102 400` octets, calibre du Prompt Alpha confirmé par Vial le 20.11.2026 à 21:20, mesuré fenêtres comprises, hors balises HTML, CSS, JS, SVG et images).\n   - HTML hors images (`controle3.py`) : **`40 000` à `100 000` octets** (alerte).\n   - Densité maximale : zéro remplissage, zéro phrase pouvant figurer telle quelle dans un autre cours, zéro phrase de gabarit de `cartographie_DATA.json`.\n5. **Phrases verbales exclusives (BLOQUANT)** :\n   - Chaque phrase (texte, fenêtres, listes, légendes `<figcaption>`, cellules narratives `<td>`) contient un verbe conjugué reconnu. **Zéro phrase nominale.**\n4. **Médicaments cliquables d'emblée & Fenêtres centrées PK/PD à 2 onglets (Consigne Vial 20.11.26)** :\n   - Dès qu'un médicament est évoqué, il devient cliquable (`<a class=\"ouvre med-chip\" href=\"#f-...\">`).\n   - Chaque `<section class=\"fenetre mb\" id=\"f-...\"><div class=\"fen\">` s'ouvre au centre de l'écran et contient **2 onglets** :\n     * **Onglet 1 (`data-tab=\"pk\"`)** : Pharmacocinétique + **Courbe vectorielle SVG $C(t)$** + **4 paramètres cliniciens mis en évidence** (`.pkpd-kpis`).\n     * **Onglet 2 (`data-tab=\"pd\"`)** : Pharmacodynamique & Clinique + **Courbe vectorielle SVG $E(C)$** + posologies/précautions/grossesse suisses (Compendium.ch / AIPS).\n5. **Images** : uniquement à l'intérieur des `<section class=\"fenetre\">`, jamais hors fenêtre (licences selon Prompt Alpha § 4). Ne comptent pas dans le calibre.\n6. **Zéro terminologie de chantier visible** : aucun texte visible (ni `<title>`) ne doit contenir `LOT`, `V0`, `Phase A/B`, `DX.n`, `Appel A/B`, `Partie n`. Seuls les noms de fichiers gardent le format Alpha (`LOT_nnn_Phase_A_V0.html`, `LOT_nnn_Phase_B_V0_DX.i.html`).\n7. **Circuits & Plans** :\n   - `MONOGRAPHIQUE` (189 SSP) : plan maladie en 14 points (Prompt Alpha § 3.1).\n   - `NON_MONOGRAPHIQUE` (52 SSP) : Leçon en 12 à 14 points adaptés (Prompt Alpha § 3.2). **Jamais** de plan maladie ni de titres « Physiopathologie / Approche syndromique / Diagnostic positif » artificiels.\n   - `MIXTE` (7 SSP) : Prompt Alpha § 3.3, chaque fichier déclare `<meta name=\"ssp-circuit\" content=\"...\">`.\n8. **Correctifs Frontend v2 / Architecture `_sources/` (`UNIQUE.html` & `_polices/`)** :\n   - **Arborescence propre par SSP** : à la racine de `SSP_nnn/`, seul **`SSP_nnn_<code>_UNIQUE.html`** (plus le sous-dossier **`_sources/`**) est visible. Tous les fichiers sources (`LOT_nnn_*.html`, `images/`, `NOTIONS.*`, `MANIFESTE.json`, `DECISION*`, `paquet.json`, `_archive_avant_alpha/`) sont rangés dans `SSP_nnn/_sources/` sans rien supprimer.\n   - **Barre haute amovible (`gabarit_unique.html`)** : `#topbar` compacte 1 ligne (~42 px) avec pilule active, fil d'Ariane section, boutons `◀`/`▶`, tiroir overlay amovible `#dd-drawer` (`☰ Diagnostics (N) ▾` + option `📌 Épingler`) contenant `nav#nav` en colonnes égales (`32 px`, teinte unique par cours), et bouton `▴ Masquer barre` + pilule flottante `#btn-show-bar`.\n   - **Zéro dédoublement & navigation `#...` 100 % fonctionnelle (`forme.js`)** : script `forme.js` exécuté sous `DOMContentLoaded` et injecté par `assembler_unique.py`/`inliner.py` après `</head>` et avant `#signature-ia`/`</body>` ; intercepteur global appelant `e.preventDefault()` sur 100 % des `href^=\"#\"` (bloque le rechargement `srcdoc` + `file://`).\n   - **Modales centrées `<div class=\"fen\">` & désaturation (`forme.css` / `optimiser_ssp.py`)** : ouverture via classe `.fm-open` (plus `:target` en repli) avec pile `modalStack` et bouton `Fermer ✕` sticky (sans `history.back()`), auto-enveloppement `<div class=\"fen\">`, tableaux hors modale déplacés vers `<section class=\"fenetre fm-tab-fen\">` déclenchés par cartes `.fm-encart-fen`, citations `<sup class=\"r\"><a>` compactées en `[N]` avec modale aperçu `#fm-src-modal` empilable (`fm-stack-top`), puces médicaments `a.ouvre.med-chip` (`℞ ...`, `white-space: nowrap`, compatible accents français), repli du plan latéral desktop `#fm-plan-toggle`, îlots discontinus (`margin-bottom: 30px`) et padding bas `5.5rem` protégeant la lecture au-dessus de `#signature-ia`.\n   - **HTML unique** : ne jamais l'écrire à la main ; toujours exécuter `optimiser_ssp.py` puis `assembler_unique.py nnn`.\n\n## § 2. ARCHIVAGE & WORKFLOW PAR SSP (P0 → P4)\n- **Zéro suppression** : avant d'écraser ou renommer un fichier source existant, archiver dans `SSP_nnn/_sources/_archive_avant_alpha/`.\n- **P0 (Préparer)** : lire circuit (`catalogue_248.json`), entités (`NOTIONS.md`/`NOTIONS.json`), `memoire_zero_token.py --digest --lot nnn`, écrire `PLAN_ENTITES.md`.\n- **P1 (Décider)** : noter dans `DECISION.md` (Corriger / Réécrire si mécanique, faux plan maladie ou `< 30 Ko` / Créer).\n- **P2 (Produire)** : `LOT_nnn_Phase_A_V0.html` + `LOT_nnn_Phase_B_V0_DX.1..N.html`, 100 % des notions de `NOTIONS.json` expliquées et sourcées (Compendium.ch / AIPS, OFSP, ASSM, CC, LAMal, LAVI, Smarter Medicine), sans aucune phrase gabarit de la cartographie.\n- **P3 (Portes de Contrôle + Optimisation + Assemblage + Audit Chrome)** :\n  1. `controle3.py --script-ok` → **`VERT {}`** (si `paquet.json` présent ; `--script-ok` requis car `_sources/` référence `../../_polices/forme.js`)\n  2. `verif_aips.py` → **`OK`** (si `paquet.json` présent) et `restaurer_fond.py --verifier` → **`exit=0`**\n  3. `python _outils/optimiser_ssp.py nnn` → migration vers `_sources/`, tableaux déplacés en `<div class=\"fen\">`, teintes non bleues `--fm-a`\n  4. `python _outils/verif_mission.py nnn` → **100 % fichiers `PASS`** (`errors: []`)\n  5. `python _outils/assembler_unique.py nnn` → **`(1 + N) / (1 + N) onglets`** à la racine de `SSP_nnn/`\n  6. `python _outils/notions.py verifier nnn` → **`0 NON`** + copier `rapport_notions.csv` dans `SSP_nnn/_sources/`\n  7. `python _outils/audit_unique_browser.py nnn --all-tabs` → **`PASS` sur 100 % des onglets en Chrome headless réel**\n  8. Ajouter ligne dans `SUIVI_PRODUCTION.csv` + `git commit` + `git push origin main`.\n- **P4 (Affinage)** : consigner tout doute clinique/posologique non vérifié dans `1_Claude AI/HANDOFF_AFFINAGE.md` sous `## SSP_nnn`.\n\n## § 3. MISSION 2 — SSP 001 → 032\n- Extraire les cours depuis `SSP_nnn_<code>_UNIQUE.html` (JSON `data` gzip+base64, marqueurs `@@IMG:…@@`, `@@FONT:…@@`) après archivage des anciens `LOT_nnn_*.html` dans `_archive_avant_alpha/`.\n- Le frontend reste identique ; auditer le contenu avec la même sévérité (attention : `SSP_013` G13 = `NON_MONOGRAPHIQUE`, `SSP_014` G14 = `MIXTE`).\n- Produire `1_Claude AI/AUDIT_001-032.md` et corriger tous les ❌.\n\n## § 4. LES 12 BLOCAGES ROUGE (REJET IMMÉDIAT)\n1. Identification absente ou incertaine.\n2. Signature `#signature-ia` absente, modifiée ou supprimée.\n3. Entité de la Cartographie sans cours.\n4. Fichier hors intervalle `80–100 Ko` de texte pur (tout cours ; un cours de 30–50 Ko est à enrichir).\n5. Toute phrase nominale.\n6. Toute notion au verdict `NON`.\n7. Phrase gabarit de `cartographie_DATA.json` recopiée dans un cours.\n8. Plan maladie appliqué à une Leçon `NON_MONOGRAPHIQUE`.\n9. Terme de chantier visible (`LOT`, `V0`, `Phase A/B`, `DX.n`, `Appel`, `Partie n`).\n10. Posologie sans source de la cascade suisse.\n11. Image hors `<section class=\"fenetre\">`.\n12. Fichier supprimé au lieu d'être archivé.\n\n## § 5. ANNEXE CIRCUITS (248 SSP)\n- **NON_MONOGRAPHIQUE (52)** : 013 · 065 · 069 · 176 · 180 · 181 · 182 · 184 · 185 · 186 · 192 · 194 · 195 · 198 · 200 · 203 · 204 · 205 · 206 · 207 · 208 · 209 · 210 · 211 · 212 · 213 · 214 · 215 · 216 · 217 · 218 · 219 · 220 · 221 · 222 · 224 · 225 · 226 · 227 · 232 · 233 · 235 · 236 · 237 · 238 · 239 · 240 · 241 · 242 · 243 · 246 · 247.\n- **MIXTE (7)** : 014 · 165 · 174 · 175 · 190 · 202 · 223.\n- **MONOGRAPHIQUE (189)** : tous les autres SSP."
+}

@@ -1,0 +1,2445 @@
+{
+  "rappel_obligatoire_avant_redaction": {
+    "lecture_imperative": [
+      "1. Lire intégralement PROMPT_Alpha_19.11.26.md ET la mise à jour incluse dans prompt_alpha_a_jour ci-dessous.",
+      "2. Respecter l'intervalle GLOBAL par cours : viser 85–95 Ko de texte médical pur (soit ~95–115 Ko de fichier JSON) sans quota rigide par partie — répartir le texte proportionnellement à l'importance clinique des parties.",
+      "3. Produire graduellement 1 cours complet par requête (Phase A, puis Cours 1, Cours 2...) en français médical académique, phrases verbales exclusives (0 phrase nominale), zéro prose générique ou patronnée.",
+      "4. Utiliser uniquement les guillemets typographiques français « … » dans les valeurs texte JSON (jamais de guillemet droit non échappé).",
+      "5. Zéro arbre décisionnel graphique (.fm-canvas) : ne générer aucun schéma décisionnel."
+    ],
+    "specificites_locales_ssp": [
+      "Circuit NON_MONOGRAPHIQUE : conserver strictement l'architecture en Leçons Suisses Structurées (14 points adaptés), SANS JAMAIS utiliser de titres ou de plan maladie artificiel (interdiction de Physiopathologie / Approche syndromique / Diagnostic positif).",
+      "Couvrir 100 % des notions obligatoires listées dans phase_b[*].plan[*].notions_obligatoires pour Soins de base autour de la conception et pendant la grossesse (O1.7).",
+      "Cascade posologique suisse à 4 paliers obligatoire : 1. AIPS Swissmedic (n° 5 chiffres) -> 2. Compendium.ch -> 3. Sociétés savantes & CHU suisses (HUG, CHUV, Inselspital, USZ, USB, OFSP, ASSM, SSMIG, Tox Info Suisse 145) -> 4. Sociétés savantes européennes."
+    ]
+  },
+  "meta": {
+    "rang_gravite": 25,
+    "ssp": "SSP_180",
+    "code_profiles": "O1.7",
+    "nom_francais": "Soins de base autour de la conception et pendant la grossesse",
+    "circuit": "NON_MONOGRAPHIQUE",
+    "police_obligatoire": "Atkinson Hyperlegible",
+    "calibre_cible": "80–100 Ko texte pur",
+    "arbres_decisionnels_autorises": false,
+    "mode_redaction": "Neon Deep Research",
+    "nb_chapitres_total": 16,
+    "defauts_audit_initial": [
+      "Incomplet (11/16 cours)",
+      "Faux plan maladie (11 f.)",
+      "1898 phrases nominales",
+      "Termes chantier (10 f.)"
+    ]
+  },
+  "sommaire": {
+    "phase_a": {
+      "fichier_html_cible": "LOT_180_Phase_A_V0.html",
+      "titre": "Soins de base autour de la conception et pendant la grossesse — Vue d'ensemble et orientation clinique (O1.7)"
+    },
+    "phase_b": [
+      {
+        "cours_numero": 1,
+        "titre": "Suivi prénatal physiologique du 1er trimestre (datation, sérologies, prévention)",
+        "cim": "Z34.0",
+        "urgence": "chronique"
+      },
+      {
+        "cours_numero": 2,
+        "titre": "Suivi prénatal physiologique des 2e et 3e trimestres",
+        "cim": "Z34.8",
+        "urgence": "chronique"
+      },
+      {
+        "cours_numero": 3,
+        "titre": "Anémie ferriprive gravidique",
+        "cim": "O99.0",
+        "urgence": "chronique"
+      },
+      {
+        "cours_numero": 4,
+        "titre": "Nausées et vomissements simples du 1er trimestre",
+        "cim": "O21.0",
+        "urgence": "chronique"
+      },
+      {
+        "cours_numero": 5,
+        "titre": "Reflux gastro-œsophagien (pyrosis) et constipation gravidiques",
+        "cim": "O26.8",
+        "urgence": "chronique"
+      },
+      {
+        "cours_numero": 6,
+        "titre": "Lombalgies et douleurs de la ceinture pelvienne (symphyse pubienne)",
+        "cim": "O26.8",
+        "urgence": "chronique"
+      },
+      {
+        "cours_numero": 7,
+        "titre": "Prise en charge d'une hypothyroïdie préexistante ou infraclinique en grossesse",
+        "cim": "O99.2",
+        "urgence": "semi-urgent"
+      },
+      {
+        "cours_numero": 8,
+        "titre": "Vaccination et prophylaxie pendant la grossesse (dTpa, grippe, VRS)",
+        "cim": "Z23",
+        "urgence": "chronique"
+      },
+      {
+        "cours_numero": 9,
+        "titre": "Prise en charge d'une infertilité du couple (bilan préconceptionnel)",
+        "cim": "N97.9",
+        "urgence": "chronique"
+      },
+      {
+        "cours_numero": 10,
+        "titre": "Maladie thromboembolique veineuse en prévention chez patiente à haut risque",
+        "cim": "Z86.7",
+        "urgence": "semi-urgent"
+      },
+      {
+        "cours_numero": 11,
+        "titre": "Grossesse extra-utérine (GEU) rompue ou non rompue",
+        "cim": "O00.1",
+        "urgence": "immediate"
+      },
+      {
+        "cours_numero": 12,
+        "titre": "Fausse couche spontanée hémorragique (avortement incomplet)",
+        "cim": "O03.1",
+        "urgence": "urgent"
+      },
+      {
+        "cours_numero": 13,
+        "titre": "Torsion d'annexe (ovaire/trompe) sur grossesse",
+        "cim": "N83.5",
+        "urgence": "immediate"
+      },
+      {
+        "cours_numero": 14,
+        "titre": "Môle hydatiforme (grossesse môlaire complète ou partielle)",
+        "cim": "O01.9",
+        "urgence": "urgent"
+      },
+      {
+        "cours_numero": 15,
+        "titre": "Appendicite aiguë pendant la grossesse",
+        "cim": "K35.8",
+        "urgence": "immediate"
+      }
+    ]
+  },
+  "phase_a": {
+    "titre": "Soins de base autour de la conception et pendant la grossesse — Vue d'ensemble (O1.7)",
+    "plan": [
+      {
+        "point": 1,
+        "titre": "Définition, portée clinique et cadre suisse de la situation",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit NON_MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 2,
+        "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit NON_MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 3,
+        "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit NON_MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 4,
+        "titre": "Démarche d'évaluation structurée et situations différentielles",
+        "description": "Présentation et hiérarchisation des 15 entités de la Cartographie Renouveau."
+      },
+      {
+        "point": 5,
+        "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit NON_MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 6,
+        "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit NON_MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 7,
+        "titre": "Typologie des situations et stratification des priorités",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit NON_MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 8,
+        "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit NON_MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 9,
+        "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit NON_MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 10,
+        "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit NON_MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 11,
+        "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit NON_MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 12,
+        "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit NON_MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 13,
+        "titre": "Points clés essentiels pour la pratique suisse",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit NON_MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 14,
+        "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit NON_MONOGRAPHIQUE, sans arbre décisionnel."
+      }
+    ]
+  },
+  "phase_b": [
+    {
+      "cours_numero": 1,
+      "fichier_html_cible": "LOT_180_Phase_B_V0_DX.1.html",
+      "titre": "Suivi prénatal physiologique du 1er trimestre (datation, sérologies, prévention)",
+      "cim": "Z34.0",
+      "urgence": "chronique",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition, portée clinique et cadre suisse de la situation",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Prise en charge médicale et préventive standardisée d'une grossesse évolutive normale au 1er trimestre (< 14 SA)."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Couvre ~100 % des grossesses suivies en Suisse (remboursé sans franchise dès la 13e SA par LAMal)."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Organogenèse embryonnaire maximale entre S4 et S10 ; vulnérabilité aux tératogènes et carences en folates/iode."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche d'évaluation structurée et situations différentielles",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Métrorragies, douleurs pelviennes unilatérales (GEU !), hyperémèse sévère, HTA."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "DDR, antécédents obstétricaux/médicaux/familiaux, tabac/alcool/médicaments, immunité vaccinale."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Poids/IMC, PA, bandelette urinaire, examen physique général."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Typologie des situations et stratification des priorités",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Grossesse intra-utérine évolutive datée avec précision par la LCC."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Échographie T1 (11–14 SA : LCC, vitalité, gémellarité/chorionicité, CN) + bilan sanguin (groupe ABO-Rh, RAI, NFS, ferritine, VIH, AgHBs, syphilis, IgG rubéole/varicelle, glycémie à jeun si facteurs de risque)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Dépistage Chlamydia chez < 25 ans, sérologie CMV/toxoplasmose selon recommandations locales."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Correction d'une carence ou infection dépistée."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Acide folique 400 µg/j jusqu'à 12 SA, vitamine D 600 UI/j, alimentation saine (éviction alcool, tabac, fromages lait cru/viande crue)."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Fausse couche spontanée précoce (~15 % des grossesses cliniques)."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Consultations mensuelles jusqu'à 32–34 SA."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Grossesse à bas risque."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Gynécologue-obstétricien, sage-femme, médecin de famille."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés essentiels pour la pratique suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 2,
+      "fichier_html_cible": "LOT_180_Phase_B_V0_DX.2.html",
+      "titre": "Suivi prénatal physiologique des 2e et 3e trimestres",
+      "cim": "Z34.8",
+      "urgence": "chronique",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition, portée clinique et cadre suisse de la situation",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Surveillance clinique, biologique et échographique de la croissance fœtale et de la tolérance maternelle de 14 SA à l'accouchement."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "7 consultations prénatales standard remboursées en Suisse."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Croissance fœtale rapide, augmentation de 40–50 % du volume plasmatique maternel (anémie de dilution physiologique)."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche d'évaluation structurée et situations différentielles",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Diminution des mouvements fœtaux, PA >= 140/90, protéinurie, métrorragies, perte de liquide, fièvre."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Mouvements actifs fœtaux (dès 20 SA), contractions, perte de liquide/sang, signes fonctionnels d'HTA."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "PA, prise de poids, bandelette urinaire (protéines/glucose/leucos), hauteur utérine (HU), bruits du cœur fœtal, manœuvres de Léopold au T3."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Typologie des situations et stratification des priorités",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Croissance fœtale harmonieuse et normotension maternelle."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Échographie T2 (20–22 SA), HGPO 75 g (24–28 SA), RAI + anti-D (28 SA si RhD négatif), NFS/ferritine T3, prélèvement vaginal/rectal SGB (35–37 SA)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Échographie T3 (32–34 SA) si indication clinique (HU discordante, diabète, RCIU antérieur)."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Prophylaxie anti-D si événement à risque (saignement, traumatisme, VME)."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Vaccination coqueluche (dTpa) recommandée à chaque grossesse dès le 2e trimestre (idéalement 20–32 SA) et grippe/VRS selon saison ; fer si Hb < 110 g/L."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Prééclampsie, diabète gestationnel, RCIU, MAP."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Contrôles toutes les 4 semaines jusqu'à 32 SA, puis toutes les 2–3 semaines jusqu'à 40 SA."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Accouchement à terme."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Gynécologue-obstétricien, sage-femme."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés essentiels pour la pratique suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 3,
+      "fichier_html_cible": "LOT_180_Phase_B_V0_DX.3.html",
+      "titre": "Anémie ferriprive gravidique",
+      "cim": "O99.0",
+      "urgence": "chronique",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition, portée clinique et cadre suisse de la situation",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Diminution de l'hémoglobine en dessous des seuils gestationnels (T1/T3 < 110 g/L ; T2 < 105 g/L) due à l'épuisement des réserves en fer."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Touche 20–30 % des femmes enceintes en Europe."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Besoins en fer accrus (~1000 mg sur la grossesse pour érythropoïèse maternelle + fœtus + placenta) surajoutés à l'hémodilution."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche d'évaluation structurée et situations différentielles",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Hb < 80 g/L, anémie macrocytaire (carence en B12/folates !), microcytose avec ferritine normale (thalassémie !)."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Asthénie, dyspnée d'effort, vertiges, pica, grossesses rapprochées, régime pauvre en fer."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Pâleur conjonctivale, tachycardie modérée."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Typologie des situations et stratification des priorités",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Hb < seuil gestationnel + ferritine < 30 µg/L."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "NFS + ferritine sérique (< 30 µg/L = carence martiale en grossesse)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Réticulocytes, CRP, vitamine B12/folates si VGM élevé ou normocytaire réfractaire."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Fer oral (80–100 mg fer élément/j un jour sur deux à jeun avec vitamine C) ; fer IV (carboxymaltose ferrique) dès le 2e trimestre si Hb < 90–95 g/L, intolérance orale ou terme proche."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Poursuite de la supplémentation jusqu'à reconstitution des réserves."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Mauvaise tolérance de l'HPP, prématurité, RCIU, fatigue post-partum."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Contrôle Hb + réticulocytes à 3–4 semaines."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Correction rapide sous traitement adapté."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Gynécologue, médecin de famille."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés essentiels pour la pratique suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 4,
+      "fichier_html_cible": "LOT_180_Phase_B_V0_DX.4.html",
+      "titre": "Nausées et vomissements simples du 1er trimestre",
+      "cim": "O21.0",
+      "urgence": "chronique",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition, portée clinique et cadre suisse de la situation",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Nausées et vomissements matinaux ou diurnes du T1 n'entraînant ni déshydratation ni perte pondérale >= 5 %."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Touchent 70–80 % des grossesses."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Élévation rapide de la bêta-hCG et des œstrogènes agissant sur le centre du vomissement (area postrema) + ralentissement de la vidange gastrique."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche d'évaluation structurée et situations différentielles",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Intolérance alimentaire totale, perte de poids > 5 %, cétonurie (hyperémèse gravidique), douleur abdominale/fièvre."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Nausées matinales, hypersensibilité aux odeurs, vomissements occasionnels, maintien des apports hydriques."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Poids stable, absence de déshydratation, apyrexie, abdomen souple."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Typologie des situations et stratification des priorités",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Nausées/vomissements T1 bien tolérés sans signe de gravité."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Évaluation clinique + pesée + bandelette urinaire (absence de cétonurie)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Échographie T1 (vérifier absence de grossesse gémellaire ou molaire si très symptomatique)."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Mesures diététiques (petits repas fractionnés secs au réveil, gingembre, vitamine B6) ; en 1re ligne médicamenteuse : doxylamine + pyridoxine (Cariban) ou méclozine/métoclopramide."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Réassurance sur le caractère physiologique et la résolution spontanée au T2."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Évolution vers hyperémèse gravidique (~1–2 %)."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Poids à chaque consultation."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Excellent ; associé statistiquement à un moindre risque de fausse couche."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Gynécologue, sage-femme, pharmacien."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés essentiels pour la pratique suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 5,
+      "fichier_html_cible": "LOT_180_Phase_B_V0_DX.5.html",
+      "titre": "Reflux gastro-œsophagien (pyrosis) et constipation gravidiques",
+      "cim": "O26.8",
+      "urgence": "chronique",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition, portée clinique et cadre suisse de la situation",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Symptômes digestifs fonctionnels bénins de la grossesse liés au relâchement des muscles lisses et à l'augmentation de la pression intra-abdominale."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Pyrosis : 50–80 % des femmes enceintes ; constipation : 30–40 %."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Progestérone diminue le tonus du sphincter inférieur de l'œsophage et ralentit le péristaltisme colique ; compression mécanique par l'utérus."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche d'évaluation structurée et situations différentielles",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Douleur épigastrique brutale en barre avec HTA/céphalées (prééclampsie/HELLP !), dysphagie, hématémèse, arrêt complet des gaz."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Brûlures rétrosternales ascendantes post-prandiales/décubitus, selles rares/dures."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Abdomen souple, absence de défense ou de barre épigastrique aiguë (exclure prééclampsie/HELLP !)."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Typologie des situations et stratification des priorités",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Pyrosis ou constipation typique sans drapeau rouge."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Diagnostic clinique ; contrôle PA/BU impératif si épigastralgie au T3 !"
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Aucun examen endoscopique sauf hémorragie digestive."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "RGO : surélévation tête de lit, alginates/antiacides (Gaviscon) puis IPP (oméprazole) si réfractaire. Constipation : fibres, hydratation, macrogol/lactulose."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Activité physique adaptée, repas fractionnés."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Hémorroïdes, fissure anale."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Réévaluation clinique programmée à 2–6 semaines avec contrôle de la tolérance thérapeutique et de l'observance."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Régression rapide après l'accouchement."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Gynécologue, médecin de famille, pharmacien."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés essentiels pour la pratique suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 6,
+      "fichier_html_cible": "LOT_180_Phase_B_V0_DX.6.html",
+      "titre": "Lombalgies et douleurs de la ceinture pelvienne (symphyse pubienne)",
+      "cim": "O26.8",
+      "urgence": "chronique",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition, portée clinique et cadre suisse de la situation",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Douleurs musculo-squelettiques lombaires ou sacro-iliaques/pubiennes apparaissant pendant la grossesse."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Touche 50–70 % des femmes enceintes."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Imprégnation en relaxine et progestérone assouplissant la symphyse pubienne + hyperlordose lombaire compensatrice."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche d'évaluation structurée et situations différentielles",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Contractions utérines rythmées (MAP !), douleur lombaire fébrile (pyélonéphrite !), syndrome de la queue de cheval."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Douleur mécanique au retournement dans le lit, à la marche ou montée des escaliers, irradiation fessière sans trajet radiculaire vrai."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Douleur à la palpation de la symphyse pubienne/sacro-iliaques, Lasègue négatif, pas de déficit neurologique."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Typologie des situations et stratification des priorités",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Douleur pelvi-rachidienne mécanique gravidique."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Examen clinique (exclure pyélonéphrite par BU et MAP par contexte)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "IRM lombaire sans gadolinium uniquement si déficit moteur progressif."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Physiothérapie spécialisée, ceinture de soutien pelvien, paracétamol (éviter AINS surtout > 24–28 SA : risque de fermeture prématurée du canal artériel !)."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Natation, ergonomie posturale."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Impaction fonctionnelle majeure en fin de grossesse."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Réévaluation de l'EVA douleur à H1 et J7, surveillance rénale/digestive sous AINS et dépistage des drapeaux rouges neurologiques."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Régression dans les semaines suivant l'accouchement."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Physiothérapeute, sage-femme, gynécologue."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés essentiels pour la pratique suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 7,
+      "fichier_html_cible": "LOT_180_Phase_B_V0_DX.7.html",
+      "titre": "Prise en charge d'une hypothyroïdie préexistante ou infraclinique en grossesse",
+      "cim": "O99.2",
+      "urgence": "semi-urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition, portée clinique et cadre suisse de la situation",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Hypothyroïdie maternelle nécessitant une adaptation immédiate de l'apport en T4 dès le début de la grossesse pour le neurodéveloppement fœtal."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "2–3 % des grossesses ; besoins en lévothyroxine augmentent de 25–50 % au 1er trimestre."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Avant 18–20 SA, le fœtus dépend entièrement des hormones thyroïdiennes maternelles pour la neurogenèse."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche d'évaluation structurée et situations différentielles",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "TSH > 10 mUI/L au T1 (risque de fausse couche et déficit neurocognitif fœtal)."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Thyroïdite d'Hashimoto connue, antécédent de thyroïdectomie, prise de lévothyroxine."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Recherche de goitre, bradycardie, asthénie."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Typologie des situations et stratification des priorités",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "TSH au-dessus des normes spécifiques au trimestre."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "TSH + T4 libre toutes les 4–6 semaines pendant la première moitié de grossesse (cible TSH T1 < 2,5 mUI/L)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Anticorps anti-TPO si hypothyroïdie de novo."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Augmentation immédiate de la lévothyroxine de ~25–30 % (ex. passer de 7 à 9 comprimés/semaine) dès la confirmation de grossesse."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Retour à la dose pré-gravidique dès le post-partum."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Fausse couche, prééclampsie, RCIU, trouble du développement intellectuel fœtal si non traitée."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "TSH toutes les 4 semaines jusqu'à 20 SA puis une fois par trimestre."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Normal si substitution précoce et adaptée."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Endocrinologue, gynécologue, médecin de famille."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés essentiels pour la pratique suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 8,
+      "fichier_html_cible": "LOT_180_Phase_B_V0_DX.8.html",
+      "titre": "Vaccination et prophylaxie pendant la grossesse (dTpa, grippe, VRS)",
+      "cim": "Z23",
+      "urgence": "chronique",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition, portée clinique et cadre suisse de la situation",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Immunisation maternelle visant à protéger la mère (grippe, COVID) et le nouveau-né par transfert transplacentaire d'IgG (coqueluche, VRS)."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Recommandation OFSP/CFV : dTpa systématique à chaque grossesse ; protection > 90 % du nouveau-né contre la coqueluche sévère."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Transfert actif d'IgG maternelles à travers le placenta (récepteur FcRn) maximal au 3e trimestre (20–32 SA)."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche d'évaluation structurée et situations différentielles",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Administration accidentelle d'un vaccin vivant atténué (ROR, varicelle, fièvre jaune) -> avis tératovigilance (mais pas d'indication d'IMG systématique !)."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Terme de grossesse, vaccinations antérieures, allergies."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Vérification de l'absence de contre-indication aiguë (fièvre)."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Typologie des situations et stratification des priorités",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Indication vaccinale selon le calendrier OFSP."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Vérification du carnet de vaccination."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Sérologies préconceptionnelles (rubéole, varicelle) pour vacciner AVANT ou en post-partum."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "dTpa (Boostrix/Repevax) idéalement entre 20 et 32 SA à CHAQUE grossesse ; grippe saisonnière à tout trimestre ; vaccin VRS maternel (Abrysvo) entre 32 et 36 SA (ou nirsévimab néonatal)."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Si mère non immune rubéole/varicelle : vacciner ROR/varicelle en post-partum immédiat (compatible avec l'allaitement !)."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Réactions locales bénignes."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Traçabilité dans le carnet de vaccination."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Protection optimale du nourrisson jusqu'à ses propres vaccins à 2 mois."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Gynécologue, médecin de famille, pédiatre."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés essentiels pour la pratique suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 9,
+      "fichier_html_cible": "LOT_180_Phase_B_V0_DX.9.html",
+      "titre": "Prise en charge d'une infertilité du couple (bilan préconceptionnel)",
+      "cim": "N97.9",
+      "urgence": "chronique",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition, portée clinique et cadre suisse de la situation",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Absence de conception après >= 12 mois de rapports sexuels réguliers sans contraception (ou >= 6 mois si âge maternel >= 35 ans)."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Touche ~10–15 % des couples ; causes : féminines (~35 %), masculines (~35 %), mixtes (~20 %), inexpliquées (~10 %)."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Troubles de l'ovulation (SOPK, insuffisance ovarienne), obstruction tubaire (Chlamydia/endométriose), altération spermatique (OATS)."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche d'évaluation structurée et situations différentielles",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Aménorrhée primaire/secondaire précoce (< 40 ans : insuffisance ovarienne prématurée), azoospermie, masse pelvienne."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Durée d'infertilité, régularité des cycles, antécédent d'IST/endométriose/chirurgie pelvienne, tabac, cryptorchidie/varicocèle chez l'homme."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "IMC, signes d'hyperandrogénie (SOPK), examen gynécologique et examen andrologique si anomalie."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Typologie des situations et stratification des priorités",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Identification du facteur masculin, ovulatoire, tubaire ou utérin."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Bilan simultané du couple : spermogramme (après 2–5 j d'abstinence), bilan hormonal J2–J5 (FSH, LH, œstradiol, AMH, TSH, prolactine), échographie pelvienne (compte des follicules antraux) + perméabilité tubaire (HyCoSy ou hystérosalpingographie)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Cœlioscopie diagnostique si suspicion d'endométriose sévère ou pathologie tubaire."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Acide folique 400 µg/j, arrêt tabac/alcool, optimisation pondérale."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Induction d'ovulation (létrozole/clomifène dans SOPK), insémination intra-utérine (IIU) ou FIV/ICSI selon cause."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Syndrome d'hyperstimulation ovarienne, grossesse multiple, GEU."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Monitorage échographique et hormonal de l'ovulation."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Dépend fortement de l'âge féminin."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Gynécologue spécialisé en médecine de la reproduction, urologue/andrologue."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés essentiels pour la pratique suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 10,
+      "fichier_html_cible": "LOT_180_Phase_B_V0_DX.10.html",
+      "titre": "Maladie thromboembolique veineuse en prévention chez patiente à haut risque",
+      "cim": "Z86.7",
+      "urgence": "semi-urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition, portée clinique et cadre suisse de la situation",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Évaluation et prévention du risque thromboembolique gravidique chez les femmes ayant un antécédent personnel de TVP/EP ou une thrombophilie."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Risque de MTEV multiplié par 4–5 pendant la grossesse et x20–60 en post-partum."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "État prothrombotique physiologique (hausse des facteurs VII, VIII, X, fibrinogène ; baisse de la protéine S libre)."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche d'évaluation structurée et situations différentielles",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Apparition en cours de grossesse d'une douleur unilatérale du mollet ou dyspnée aiguë."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Antécédent personnel/familial de TVP/EP, caractère provoqué ou non, thrombophilie connue (FV Leiden, SAPL), IMC, alitement."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Poids, examen veineux des membres inférieurs."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Typologie des situations et stratification des priorités",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Stratification en risque faible, modéré ou élevé dictant l'HBPM."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Évaluation structurée du score de risque thrombotique (recommandations SSGO/RCOG) dès le début de grossesse."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Bilan de SAPL (anticardiolipine, anti-bêta2GP1, anticoagulant lupique) si fausses couches répétées ou MTEV inexpliquée."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Relais immédiat des AVK (tératogènes entre 6–12 SA !) ou AOD (contre-indiqués !) par HBPM dès le test positif."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "HBPM prophylactique anténatale +/- post-partum (6 semaines) + bas de contention ; fenêtre d'arrêt de 12–24 h avant péridurale !."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "EP fatale, hématome rachidien si péridurale sans respect du délai d'HBPM."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Suivi clinique, adaptation au poids si besoin."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Très faible taux de récidive sous prophylaxie bien conduite."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Angiologue/hématologue, obstétricien, anesthésiste."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés essentiels pour la pratique suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 11,
+      "fichier_html_cible": "LOT_180_Phase_B_V0_DX.11.html",
+      "titre": "Grossesse extra-utérine (GEU) rompue ou non rompue",
+      "cim": "O00.1",
+      "urgence": "immediate",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition, portée clinique et cadre suisse de la situation",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Nidation et développement d'une grossesse en dehors de la cavité utérine (95 % dans la trompe de Fallope, surtout ampullaire)."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "~1–2 % des grossesses ; 1re cause de mortalité maternelle au 1er trimestre."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Altération du transport tubaire (antécédent de salpingite à Chlamydia, chirurgie tubaire, tabagisme, DIU, endométriose)."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche d'évaluation structurée et situations différentielles",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Hypotension, tachycardie, lipothymie, douleur scapulaire (signe de Laffon), hémopéritoine massif à l'échographie."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Retard de règles (5–8 SA), douleurs pelviennes latéralisées, métrorragies brunâtres/sépia peu abondantes, facteurs de risque."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Douleur en fosse iliaque, douleur à la mobilisation utérine et masse latéro-utérine au TV ; si rompue : défense abdominale, douleur scapulaire (hémopéritoine !), choc hypovolémique."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Typologie des situations et stratification des priorités",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Vacuité utérine avec bêta-hCG > 2000 UI/L et/ou masse annexielle extra-utérine."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Échographie endovaginale (vacuité utérine + masse latéro-utérine +/- hémopéritoine) + dosage quantitatif bêta-hCG sérique (seuil de discrimination ~1500–2000 UI/L) + groupe/Rhésus."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Cinétique des bêta-hCG à 48 h (stagnation ou montée < 50 %) uniquement si patiente parfaitement stable et asymptomatique."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Si instable/rompue : réanimation + cœlioscopie d'urgence (salpingectomie ou salpingotomie). Si stable sans hémopéritoine, hCG < 5000 UI/L et pas d'activité cardiaque : méthotrexate IM (1 mg/kg ou 50 mg/m²) après bilan hépatique/rénal/NFS ! Prophylaxie anti-D si Rh négatif."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Suivi hebdomadaire des bêta-hCG jusqu'à négativation (< 5 UI/L) après méthotrexate ou salpingotomie."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Hémopéritoine cataclysmique, choc hémorragique, récidive de GEU (~10–15 %)."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Bêta-hCG à J4 et J7 après MTX (baisse >= 15 % attendue entre J4 et J7), puis hebdomadaire."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Excellent si prise en charge précoce."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Gynécologue-obstétricien, urgences gynécologiques."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés essentiels pour la pratique suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 12,
+      "fichier_html_cible": "LOT_180_Phase_B_V0_DX.12.html",
+      "titre": "Fausse couche spontanée hémorragique (avortement incomplet)",
+      "cim": "O03.1",
+      "urgence": "urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition, portée clinique et cadre suisse de la situation",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Expulsion partielle d'une grossesse arrêtée avant 22 SA s'accompagnant de métrorragies abondantes et/ou de douleurs expulsives."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "15–20 % des grossesses cliniques s'arrêtent au T1 (50–60 % par anomalie chromosomique embryonnaire)."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Décollement du trophoblaste avec rétention partielle empêchant la rétraction utérine hémostatique."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche d'évaluation structurée et situations différentielles",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Hémorragie massive avec choc/malaise, fièvre >= 38 °C / pertes fétides (avortement septique !)."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Grossesse connue < 14 SA, saignements rouges abondants avec caillots, crampes pelviennes rythmées."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Spéculum (saignement actif provenant de l'endocol, débris dans le col), toucher vaginal (col ouvert), constantes (PA/FC)."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Typologie des situations et stratification des priorités",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Métrorragies + col ouvert / rétention échographique."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Échographie endovaginale (rétention ovulaire intra-utérine) + NFS + groupe/Rhésus."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Examen anatomopathologique du produit de curetage (exclure môle hydatiforme)."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Si hémorragique/instable : aspiration endo-utérine en urgence + ocytocine. Si stable : misoprostol ou aspiration programmée. Prophylaxie anti-D si Rh négatif !."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Soutien psychologique, contraception si souhaitée ou feu vert nouvelle grossesse rapide."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Choc hémorragique, endométrite, synéchies utérines post-curetage."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Pertes sanguines, température, contrôle échographique/clinique."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Récupération rapide ; fertilité ultérieure préservée."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Gynécologue, urgences gynécologiques."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés essentiels pour la pratique suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 13,
+      "fichier_html_cible": "LOT_180_Phase_B_V0_DX.13.html",
+      "titre": "Torsion d'annexe (ovaire/trompe) sur grossesse",
+      "cim": "N83.5",
+      "urgence": "immediate",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition, portée clinique et cadre suisse de la situation",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Rotation de l'ovaire et/ou de la trompe autour de son pédicule vasculaire entraînant ischémie puis nécrose annexielle."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Plus fréquente au 1er trimestre (corps jaune volumineux, hyperstimulation ovarienne)."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Obstruction veineuse puis artérielle du pédicule infundibulo-pelvien et utéro-ovarien."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche d'évaluation structurée et situations différentielles",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Douleur incoercible réfractaire, fièvre (nécrose surinfectée), défense généralisée."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Douleur pelvienne unilatérale brutale en coup de poignard, nausées/vomissements, parfois épisodes sub-aigus antérieurs."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Défense localisée en fosse iliaque, masse annexielle exquise au TV, apyrexie initiale."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Typologie des situations et stratification des priorités",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Tableau clinique typique + gros ovaire œdémateux ; confirmation par cœlioscopie."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Échographie pelvienne + Doppler couleur (ovaire augmenté de volume, œdémateux, follicules refoulés en périphérie ; un Doppler normal N'EXCLUT PAS une torsion !)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "IRM pelvienne sans gadolinium si doute diagnostique (appendicite vs torsion)."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Cœlioscopie exploratrice d'urgence : détorsion ovarienne conservatrice (même si aspect violacé !) +/- kystectomie différée ; progestérone si ablation du corps jaune < 10 SA."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Surveillance de la vitalité fœtale."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Nécrose ovarienne, perte de réserve ovarienne, fausse couche."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Douleur, vitalité fœtale."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Récupération fonctionnelle de l'ovaire dans > 85–90 % des cas après détorsion précoce."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Gynécologue-obstétricien, chirurgien."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés essentiels pour la pratique suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 14,
+      "fichier_html_cible": "LOT_180_Phase_B_V0_DX.14.html",
+      "titre": "Môle hydatiforme (grossesse môlaire complète ou partielle)",
+      "cim": "O01.9",
+      "urgence": "urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition, portée clinique et cadre suisse de la situation",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Maladie trophoblastique gestationnelle bénigne caractérisée par une prolifération trophoblastique anormale et une dégénérescence hydropique des villosités choriales."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "~1/1000 grossesses ; risque accru aux âges extrêmes (< 20 ou > 40 ans)."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Môle complète (46,XX d'origine purement paternelle, sans embryon) ; môle partielle (triploïde 69,XXY avec embryon non viable)."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche d'évaluation structurée et situations différentielles",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Prééclampsie < 20 SA, crise thyréotoxique, détresse respiratoire (embolisation trophoblastique), hémorragie."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Métrorragies T1 (parfois vésicules en grappes de raisin), hyperémèse sévère, signes d'hyperthyroïdie, prééclampsie précoce (< 20 SA !)."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Utérus plus gros que ne le veut le terme (« utérus en accordéon »), kystes lutéiniques bilatéraux palpables."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Typologie des situations et stratification des priorités",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Confirmation histologique après aspiration."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Échographie pelvienne (image vésiculaire multikystique en « tempête de neige » sans embryon si complète) + bêta-hCG quantitatif très élevé + TSH + radiographie thoracique."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Examen anatomopathologique systématique de tout produit d'aspiration."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Aspiration endo-utérine sous contrôle échographique (éviter misoprostol seul/curetage agressif) + ocytocine + anti-D si Rh négatif."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Contraception efficace OBLIGATOIRE + dosage hebdomadaire puis mensuel des bêta-hCG pendant 6–12 mois pour dépister une tumeur trophoblastique gestationnelle."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Tumeur trophoblastique gestationnelle / choriocarcinome (~15–20 % après môle complète)."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Courbe de décroissance des bêta-hCG (réseau suisse des maladies trophoblastiques)."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Guérison proche de 100 %, y compris en cas d'évolution néoplasique chimiosensible (méthotrexate)."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Gynécologue, centre de référence des maladies trophoblastiques."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés essentiels pour la pratique suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 15,
+      "fichier_html_cible": "LOT_180_Phase_B_V0_DX.15.html",
+      "titre": "Appendicite aiguë pendant la grossesse",
+      "cim": "K35.8",
+      "urgence": "immediate",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition, portée clinique et cadre suisse de la situation",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Inflammation aiguë de l'appendice iléo-cæcal survenant au cours de la grossesse."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "~1/1000 à 1/1500 grossesses."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Au fur et à mesure de la croissance utérine, l'appendice est refoulé vers le haut et l'extérieur (flanc droit / hypochondre droit au T3)."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche d'évaluation structurée et situations différentielles",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Péritonite (mortalité fœtale multipliée par 4–5 si perforation !), contractions utérines."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Douleur abdominale droite migrante, anorexie, nausées, fébricule."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Douleur provoquée en FID (T1) ou flanc droit / HCD (T2–T3), signe de Blumberg parfois atténué par la paroi distendue."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Typologie des situations et stratification des priorités",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Imagerie (écho ou IRM) montrant un appendice dilaté > 6 mm non compressible."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Échographie abdominale (1re intention) ; si non concluante : IRM abdominale sans gadolinium (gold standard sans irradiation !)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "NFS/CRP (hyperleucocytose physiologique en grossesse jusqu'à 15 G/L -> interpréter avec prudence)."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Appendicectomie urgente (cœlioscopie possible jusqu'à ~28 SA ou laparotomie au T3) + antibiothérapie IV périopératoire (céfuroxime + métronidazole)."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Surveillance des contractions utérines postopératoires (tocolyse uniquement si MAP avérée)."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Perforation appendiculaire, péritonite, fausse couche, accouchement prématuré."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "CTG postopératoire, apyrexie."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Excellent si chirurgie avant perforation."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Chirurgien viscéral, obstétricien."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés essentiels pour la pratique suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    }
+  ],
+  "prompt_alpha_a_jour": "# MISSION : CORRECTION ET COMPLÉTION DES 248 SSP SUISSES (3 975 ENTITÉS + 248 CHAPITRES 0)\n\n## § 0. IDENTIFICATION, SIGNATURE & RÈGLES DE CONTINUITÉ — BLOQUANT ABSOLU\n1. **Identification obligatoire** en tête de première réponse :\n   - HEURE DE DÉBUT : AAAA-MM-JJ HH:MM (Europe/Zurich)\n   - MODÈLE : nom exact du modèle (ex. ANTIGRAVITY ORCHESTRATOR NEON)\n   - PLATEFORME : plateforme exacte (ex. ANTIGRAVITY)\n   - Ajouter la même ligne à `1_Claude AI/IDENTIFICATION_AGENTS.md`. Si incertitude, s'arrêter.\n2. **Signature IA fixe en bas à droite de TOUT HTML produit ou modifié** (juste avant `</body>`, en GRAS MAJUSCULE) :\n   `<div id=\"signature-ia\" style=\"position:fixed;right:12px;bottom:10px;z-index:9999;background:#fff;border:2px solid #000;padding:4px 10px;font:700 12px/1.3 Arial,sans-serif;text-transform:uppercase;color:#000\">DÉBUT : AAAA-MM-JJ HH:MM (EUROPE/ZURICH) · MODÈLE : <NOM> · PLATEFORME : <PLATEFORME></div>`\n   - **Seul Vial peut autoriser le retrait de ce bloc.** Un agent qui reprend un fichier signé ajoute sa propre ligne sous la précédente sans jamais effacer l'existante.\n3. **Continuité & transparence** :\n   - **Redémarrage propre à partir de `SSP_248`** : tous les cours précédemment modifiés ont été restaurés à l'état initial (`6941513`). Enchaîner continûment **`SSP_248 → SSP_033`**, puis **`SSP_001 → SSP_032`**.\n   - **Toujours afficher le raisonnement visible** en français dans chaque réponse.\n   - **Veille & relance GitHub** : commiter et pousser sur `origin main` après chaque SSP (ou lot <= 5 SSP) avec l'état à jour dans `SUIVI_PRODUCTION.csv`, `HANDOFF_AFFINAGE.md` et `HANDOFF_IA_COMPLET.md`.\n   - **Suivi graphique temps réel** : maintenir à jour le tableau de bord visuel temps réel des réalisations achevées et en cours.\n\n## § 1. RÈGLES ACTUALISÉES (PRIMENT SUR LE PROMPT ALPHA 19.11.26)\n1. **Nombre de cours par SSP** : **1 cours par entité de la Cartographie Renouveau** (15 à 24 entités par SSP, 3 975 au total) + le Chapitre 0 (`Phase_A`), dans l'ordre exact des `Cours 1 … N` de `SSP_nnn/NOTIONS.md` / `NOTIONS.json`.\n2. **QUALITÉ CLINIQUE MAXIMALE & ZÉRO MÉDIOCRITÉ (BLOQUANT ABSOLU — Consigne Vial 20.11.26)** :\n   - **Interdiction absolue de toute prose patronnée / générique** : aucune phrase-cadre où seul le nom de la pathologie change d'un cours à l'autre, aucun remplissage artificiel pour atteindre le calibre. La médiocrité clinique est dangereuse et entraîne un rejet immédiat.\n   - Chaque cours (`Phase_A` et `DX.1..N`) doit être **rédigé sur mesure** pour son entité exacte, avec : raisonnement physiopathologique et sémiologique réel, seuils numériques précis, diagnostics différentiels discriminants, posologies et contre-indications sourcées (Compendium.ch / AIPS, Tox Info Suisse, OFSP, ASSM, sociétés savantes suisses), vignettes cliniques authentiques et QCM exigeants de niveau Examen Fédéral Suisse.\n3. **INTERDICTION DES ARBRES DÉCISIONNELS (Consigne Vial 20.11.26)** :\n   - **Ne générer AUCUN arbre décisionnel ni algorithme graphique (`.fm-canvas`, SVG décisionnel, etc.)** dans `Phase_A` ou dans les `DX.n` — l'auteur (Vial) les réalisera lui-même.\n4. **Calibre texte pur actualisé (Consigne Vial 20.11.26)** :\n   - **80 à 100 Ko de texte pur UTF-8 par fichier** (`81 920` à `102 400` octets, calibre du Prompt Alpha confirmé par Vial le 20.11.2026 à 21:20, mesuré fenêtres comprises, hors balises HTML, CSS, JS, SVG et images).\n   - HTML hors images (`controle3.py`) : **`40 000` à `100 000` octets** (alerte).\n   - Densité maximale : zéro remplissage, zéro phrase pouvant figurer telle quelle dans un autre cours, zéro phrase de gabarit de `cartographie_DATA.json`.\n5. **Phrases verbales exclusives (BLOQUANT)** :\n   - Chaque phrase (texte, fenêtres, listes, légendes `<figcaption>`, cellules narratives `<td>`) contient un verbe conjugué reconnu. **Zéro phrase nominale.**\n4. **Médicaments cliquables d'emblée & Fenêtres centrées PK/PD à 2 onglets (Consigne Vial 20.11.26)** :\n   - Dès qu'un médicament est évoqué, il devient cliquable (`<a class=\"ouvre med-chip\" href=\"#f-...\">`).\n   - Chaque `<section class=\"fenetre mb\" id=\"f-...\"><div class=\"fen\">` s'ouvre au centre de l'écran et contient **2 onglets** :\n     * **Onglet 1 (`data-tab=\"pk\"`)** : Pharmacocinétique + **Courbe vectorielle SVG $C(t)$** + **4 paramètres cliniciens mis en évidence** (`.pkpd-kpis`).\n     * **Onglet 2 (`data-tab=\"pd\"`)** : Pharmacodynamique & Clinique + **Courbe vectorielle SVG $E(C)$** + posologies/précautions/grossesse suisses (Compendium.ch / AIPS).\n5. **Images** : uniquement à l'intérieur des `<section class=\"fenetre\">`, jamais hors fenêtre (licences selon Prompt Alpha § 4). Ne comptent pas dans le calibre.\n6. **Zéro terminologie de chantier visible** : aucun texte visible (ni `<title>`) ne doit contenir `LOT`, `V0`, `Phase A/B`, `DX.n`, `Appel A/B`, `Partie n`. Seuls les noms de fichiers gardent le format Alpha (`LOT_nnn_Phase_A_V0.html`, `LOT_nnn_Phase_B_V0_DX.i.html`).\n7. **Circuits & Plans** :\n   - `MONOGRAPHIQUE` (189 SSP) : plan maladie en 14 points (Prompt Alpha § 3.1).\n   - `NON_MONOGRAPHIQUE` (52 SSP) : Leçon en 12 à 14 points adaptés (Prompt Alpha § 3.2). **Jamais** de plan maladie ni de titres « Physiopathologie / Approche syndromique / Diagnostic positif » artificiels.\n   - `MIXTE` (7 SSP) : Prompt Alpha § 3.3, chaque fichier déclare `<meta name=\"ssp-circuit\" content=\"...\">`.\n8. **Correctifs Frontend v2 / Architecture `_sources/` (`UNIQUE.html` & `_polices/`)** :\n   - **Arborescence propre par SSP** : à la racine de `SSP_nnn/`, seul **`SSP_nnn_<code>_UNIQUE.html`** (plus le sous-dossier **`_sources/`**) est visible. Tous les fichiers sources (`LOT_nnn_*.html`, `images/`, `NOTIONS.*`, `MANIFESTE.json`, `DECISION*`, `paquet.json`, `_archive_avant_alpha/`) sont rangés dans `SSP_nnn/_sources/` sans rien supprimer.\n   - **Barre haute amovible (`gabarit_unique.html`)** : `#topbar` compacte 1 ligne (~42 px) avec pilule active, fil d'Ariane section, boutons `◀`/`▶`, tiroir overlay amovible `#dd-drawer` (`☰ Diagnostics (N) ▾` + option `📌 Épingler`) contenant `nav#nav` en colonnes égales (`32 px`, teinte unique par cours), et bouton `▴ Masquer barre` + pilule flottante `#btn-show-bar`.\n   - **Zéro dédoublement & navigation `#...` 100 % fonctionnelle (`forme.js`)** : script `forme.js` exécuté sous `DOMContentLoaded` et injecté par `assembler_unique.py`/`inliner.py` après `</head>` et avant `#signature-ia`/`</body>` ; intercepteur global appelant `e.preventDefault()` sur 100 % des `href^=\"#\"` (bloque le rechargement `srcdoc` + `file://`).\n   - **Modales centrées `<div class=\"fen\">` & désaturation (`forme.css` / `optimiser_ssp.py`)** : ouverture via classe `.fm-open` (plus `:target` en repli) avec pile `modalStack` et bouton `Fermer ✕` sticky (sans `history.back()`), auto-enveloppement `<div class=\"fen\">`, tableaux hors modale déplacés vers `<section class=\"fenetre fm-tab-fen\">` déclenchés par cartes `.fm-encart-fen`, citations `<sup class=\"r\"><a>` compactées en `[N]` avec modale aperçu `#fm-src-modal` empilable (`fm-stack-top`), puces médicaments `a.ouvre.med-chip` (`℞ ...`, `white-space: nowrap`, compatible accents français), repli du plan latéral desktop `#fm-plan-toggle`, îlots discontinus (`margin-bottom: 30px`) et padding bas `5.5rem` protégeant la lecture au-dessus de `#signature-ia`.\n   - **HTML unique** : ne jamais l'écrire à la main ; toujours exécuter `optimiser_ssp.py` puis `assembler_unique.py nnn`.\n\n## § 2. ARCHIVAGE & WORKFLOW PAR SSP (P0 → P4)\n- **Zéro suppression** : avant d'écraser ou renommer un fichier source existant, archiver dans `SSP_nnn/_sources/_archive_avant_alpha/`.\n- **P0 (Préparer)** : lire circuit (`catalogue_248.json`), entités (`NOTIONS.md`/`NOTIONS.json`), `memoire_zero_token.py --digest --lot nnn`, écrire `PLAN_ENTITES.md`.\n- **P1 (Décider)** : noter dans `DECISION.md` (Corriger / Réécrire si mécanique, faux plan maladie ou `< 30 Ko` / Créer).\n- **P2 (Produire)** : `LOT_nnn_Phase_A_V0.html` + `LOT_nnn_Phase_B_V0_DX.1..N.html`, 100 % des notions de `NOTIONS.json` expliquées et sourcées (Compendium.ch / AIPS, OFSP, ASSM, CC, LAMal, LAVI, Smarter Medicine), sans aucune phrase gabarit de la cartographie.\n- **P3 (Portes de Contrôle + Optimisation + Assemblage + Audit Chrome)** :\n  1. `controle3.py --script-ok` → **`VERT {}`** (si `paquet.json` présent ; `--script-ok` requis car `_sources/` référence `../../_polices/forme.js`)\n  2. `verif_aips.py` → **`OK`** (si `paquet.json` présent) et `restaurer_fond.py --verifier` → **`exit=0`**\n  3. `python _outils/optimiser_ssp.py nnn` → migration vers `_sources/`, tableaux déplacés en `<div class=\"fen\">`, teintes non bleues `--fm-a`\n  4. `python _outils/verif_mission.py nnn` → **100 % fichiers `PASS`** (`errors: []`)\n  5. `python _outils/assembler_unique.py nnn` → **`(1 + N) / (1 + N) onglets`** à la racine de `SSP_nnn/`\n  6. `python _outils/notions.py verifier nnn` → **`0 NON`** + copier `rapport_notions.csv` dans `SSP_nnn/_sources/`\n  7. `python _outils/audit_unique_browser.py nnn --all-tabs` → **`PASS` sur 100 % des onglets en Chrome headless réel**\n  8. Ajouter ligne dans `SUIVI_PRODUCTION.csv` + `git commit` + `git push origin main`.\n- **P4 (Affinage)** : consigner tout doute clinique/posologique non vérifié dans `1_Claude AI/HANDOFF_AFFINAGE.md` sous `## SSP_nnn`.\n\n## § 3. MISSION 2 — SSP 001 → 032\n- Extraire les cours depuis `SSP_nnn_<code>_UNIQUE.html` (JSON `data` gzip+base64, marqueurs `@@IMG:…@@`, `@@FONT:…@@`) après archivage des anciens `LOT_nnn_*.html` dans `_archive_avant_alpha/`.\n- Le frontend reste identique ; auditer le contenu avec la même sévérité (attention : `SSP_013` G13 = `NON_MONOGRAPHIQUE`, `SSP_014` G14 = `MIXTE`).\n- Produire `1_Claude AI/AUDIT_001-032.md` et corriger tous les ❌.\n\n## § 4. LES 12 BLOCAGES ROUGE (REJET IMMÉDIAT)\n1. Identification absente ou incertaine.\n2. Signature `#signature-ia` absente, modifiée ou supprimée.\n3. Entité de la Cartographie sans cours.\n4. Fichier hors intervalle `80–100 Ko` de texte pur (tout cours ; un cours de 30–50 Ko est à enrichir).\n5. Toute phrase nominale.\n6. Toute notion au verdict `NON`.\n7. Phrase gabarit de `cartographie_DATA.json` recopiée dans un cours.\n8. Plan maladie appliqué à une Leçon `NON_MONOGRAPHIQUE`.\n9. Terme de chantier visible (`LOT`, `V0`, `Phase A/B`, `DX.n`, `Appel`, `Partie n`).\n10. Posologie sans source de la cascade suisse.\n11. Image hors `<section class=\"fenetre\">`.\n12. Fichier supprimé au lieu d'être archivé.\n\n## § 5. ANNEXE CIRCUITS (248 SSP)\n- **NON_MONOGRAPHIQUE (52)** : 013 · 065 · 069 · 176 · 180 · 181 · 182 · 184 · 185 · 186 · 192 · 194 · 195 · 198 · 200 · 203 · 204 · 205 · 206 · 207 · 208 · 209 · 210 · 211 · 212 · 213 · 214 · 215 · 216 · 217 · 218 · 219 · 220 · 221 · 222 · 224 · 225 · 226 · 227 · 232 · 233 · 235 · 236 · 237 · 238 · 239 · 240 · 241 · 242 · 243 · 246 · 247.\n- **MIXTE (7)** : 014 · 165 · 174 · 175 · 190 · 202 · 223.\n- **MONOGRAPHIQUE (189)** : tous les autres SSP."
+}

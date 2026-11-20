@@ -1,0 +1,2444 @@
+{
+  "rappel_obligatoire_avant_redaction": {
+    "lecture_imperative": [
+      "1. Lire intégralement PROMPT_Alpha_19.11.26.md ET la mise à jour incluse dans prompt_alpha_a_jour ci-dessous.",
+      "2. Respecter l'intervalle GLOBAL par cours : viser 85–95 Ko de texte médical pur (soit ~95–115 Ko de fichier JSON) sans quota rigide par partie — répartir le texte proportionnellement à l'importance clinique des parties.",
+      "3. Produire graduellement 1 cours complet par requête (Phase A, puis Cours 1, Cours 2...) en français médical académique, phrases verbales exclusives (0 phrase nominale), zéro prose générique ou patronnée.",
+      "4. Utiliser uniquement les guillemets typographiques français « … » dans les valeurs texte JSON (jamais de guillemet droit non échappé).",
+      "5. Zéro arbre décisionnel graphique (.fm-canvas) : ne générer aucun schéma décisionnel."
+    ],
+    "specificites_locales_ssp": [
+      "Circuit MONOGRAPHIQUE : respecter le plan maladie en 14 points avec socle généralités (1-3), démarche diagnostique (4-10), prise en charge posologique suisse intégrale (11) et QCM Examen Fédéral (14).",
+      "Couvrir 100 % des notions obligatoires listées dans phase_b[*].plan[*].notions_obligatoires pour Hématémèse (S3.6).",
+      "Cascade posologique suisse à 4 paliers obligatoire : 1. AIPS Swissmedic (n° 5 chiffres) -> 2. Compendium.ch -> 3. Sociétés savantes & CHU suisses (HUG, CHUV, Inselspital, USZ, USB, OFSP, ASSM, SSMIG, Tox Info Suisse 145) -> 4. Sociétés savantes européennes."
+    ]
+  },
+  "meta": {
+    "rang_gravite": 234,
+    "ssp": "SSP_057",
+    "code_profiles": "S3.6",
+    "nom_francais": "Hématémèse",
+    "circuit": "MONOGRAPHIQUE",
+    "police_obligatoire": "Atkinson Hyperlegible",
+    "calibre_cible": "80–100 Ko texte pur",
+    "arbres_decisionnels_autorises": false,
+    "mode_redaction": "Neon Deep Research",
+    "nb_chapitres_total": 16,
+    "defauts_audit_initial": [
+      "Incomplet (11/16 cours)",
+      "44 phrases nominales",
+      "Termes chantier (11 f.)"
+    ]
+  },
+  "sommaire": {
+    "phase_a": {
+      "fichier_html_cible": "LOT_057_Phase_A_V0.html",
+      "titre": "Hématémèse — Vue d'ensemble et orientation clinique (S3.6)"
+    },
+    "phase_b": [
+      {
+        "cours_numero": 1,
+        "titre": "Ulcère gastro-duodénal hémorragique (AINS ou Helicobacter pylori)",
+        "cim": "K25.4",
+        "urgence": "urgent"
+      },
+      {
+        "cours_numero": 2,
+        "titre": "Gastrite ou duodénite érosive hémorragique aiguë",
+        "cim": "K29.0",
+        "urgence": "semi-urgent"
+      },
+      {
+        "cours_numero": 3,
+        "titre": "Œsophagite peptique sévère érosive (Los Angeles C ou D)",
+        "cim": "K21.0",
+        "urgence": "semi-urgent"
+      },
+      {
+        "cours_numero": 4,
+        "titre": "Syndrome de Mallory-Weiss (lacération longitudinale cardiale)",
+        "cim": "K22.6",
+        "urgence": "urgent"
+      },
+      {
+        "cours_numero": 5,
+        "titre": "Gastropathie d'hypertension portale",
+        "cim": "K31.8",
+        "urgence": "semi-urgent"
+      },
+      {
+        "cours_numero": 6,
+        "titre": "Adénocarcinome gastrique ou lymphome gastrique ulcéré",
+        "cim": "C16.9",
+        "urgence": "urgent"
+      },
+      {
+        "cours_numero": 7,
+        "titre": "Angiodysplasies gastro-duodénales ou ectasie vasculaire antrale (GAVE / estomac pastèque)",
+        "cim": "K31.8",
+        "urgence": "semi-urgent"
+      },
+      {
+        "cours_numero": 8,
+        "titre": "Fausse hématémèse par épistaxis postérieure déglutie ou hémoptysie",
+        "cim": "R04.0",
+        "urgence": "semi-urgent"
+      },
+      {
+        "cours_numero": 9,
+        "titre": "Ulcère anastomotique marginal (post-bypass gastrique ou gastrectomie)",
+        "cim": "K28.4",
+        "urgence": "urgent"
+      },
+      {
+        "cours_numero": 10,
+        "titre": "Œsophagite infectieuse ulcérée (Candida, HSV, CMV) ou médicamenteuse",
+        "cim": "B37.8",
+        "urgence": "semi-urgent"
+      },
+      {
+        "cours_numero": 11,
+        "titre": "Rupture de varices œsophagiennes ou cardio-tubérositaires sur hypertension portale",
+        "cim": "I85.0",
+        "urgence": "immediate"
+      },
+      {
+        "cours_numero": 12,
+        "titre": "Ulcère simplex de Dieulafoy avec hémorragie artérielle active",
+        "cim": "K25.0",
+        "urgence": "immediate"
+      },
+      {
+        "cours_numero": 13,
+        "titre": "Fistule aorto-entérique (aorto-duodénale secondaire sur prothèse vasculaire)",
+        "cim": "I77.2",
+        "urgence": "immediate"
+      },
+      {
+        "cours_numero": 14,
+        "titre": "Syndrome de Boerhaave (rupture spontanée transmurale de l'œsophage)",
+        "cim": "K22.3",
+        "urgence": "immediate"
+      },
+      {
+        "cours_numero": 15,
+        "titre": "Hémobilie ou wirsungorragie aiguë",
+        "cim": "K83.8",
+        "urgence": "urgent"
+      }
+    ]
+  },
+  "phase_a": {
+    "titre": "Hématémèse — Vue d'ensemble (S3.6)",
+    "plan": [
+      {
+        "point": 1,
+        "titre": "Définition nosologique et périmètre clinique",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 2,
+        "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 3,
+        "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 4,
+        "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+        "description": "Présentation et hiérarchisation des 15 entités de la Cartographie Renouveau."
+      },
+      {
+        "point": 5,
+        "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 6,
+        "titre": "Examen physique systématique région par région",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 7,
+        "titre": "Approche syndromique et stratification de gravité",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 8,
+        "titre": "Diagnostic positif, scores cliniques et critères validés",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 9,
+        "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 10,
+        "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 11,
+        "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 12,
+        "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 13,
+        "titre": "Points clés indispensables à retenir",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 14,
+        "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      }
+    ]
+  },
+  "phase_b": [
+    {
+      "cours_numero": 1,
+      "fichier_html_cible": "LOT_057_Phase_B_V0_DX.1.html",
+      "titre": "Ulcère gastro-duodénal hémorragique (AINS ou Helicobacter pylori)",
+      "cim": "K25.4",
+      "urgence": "urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Perte de substance de la paroi gastrique ou duodénale dépassant la musculaire muqueuse et érodant un vaisseau sous-muqueux ou une artère profonde (artère gastro-duodénale ou gastrique gauche)."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Incidence ~50/100 000/an ; mortalité de 5 à 10 % principalement chez le sujet âgé polymorbide sous antiagrégants/anticoagulants."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Déséquilibre entre facteurs agressifs (acide chlorhydrique, pepsine, H. pylori, inhibition de la COX-1 par AINS/aspirine réduisant les prostaglandines cytoprotectrices) et barrière muqueuse."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Choc hypovolémique (index de choc FC/PAS > 1), hématémèse abondante de sang rouge, score de Glasgow-Blatchford > 1, âge > 65 ans, coronaropathie."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Vomissement de sang rouge ou noirâtre ('marc de café'), méléna associé, épigastralgies préexistantes (ou indolore sous AINS), prise d'AINS, aspirine, anticoagulants ou ISRS."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Évaluation hémodynamique (FC, PA, orthostatisme, marbrures), sensibilité épigastrique, toucher rectal confirmant un méléna."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Visualisation endoscopique du cratère ulcéreux et stadification du stigmate hémorragique selon Forrest."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Œso-gastro-duodénoscopie (OGD) dans les < 24 h (ou < 12 h si instabilité persistante) après stabilisation hémodynamique et érythromycine IV prokinétique (250 mg 30–60 min avant) ; classification de Forrest (Ia à III)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Angio-CT abdominal puis artériographie avec embolisation radiologique en cas d'échec du traitement endoscopique."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Réanimation cristalloïde, transfusion restrictive (cible Hb 70–80 g/L, ou 80–90 g/L si coronarien), IPP IV forte dose, hémostase endoscopique combinée (injection d'adrénaline diluée + clip mécanique ou thermocoagulation) pour Forrest Ia, Ib et IIa."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "IPP per os pendant 4–8 semaines, éradication documentée de H. pylori (test respiratoire à l'urée C13 de contrôle), arrêt définitif des AINS, reprise précoce de l'aspirine en prévention secondaire cardiovasculaire (dès J1–J3 sous IPP)."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Récidive hémorragique (surtout dans les 72 premières heures), perforation, choc hémorragique, infarctus myocardique de type 2."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Monitoring hémodynamique, hémoglobine sériée, OGD de contrôle à 6–8 semaines obligatoire pour tout ulcère gastrique (biopsies des berges pour exclure un adénocarcinome)."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Sortie précoce possible pour les ulcères Forrest IIc et III (faible risque de récidive < 5 %) avec score de Glasgow-Blatchford bas."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Gastro-entérologue, médecin traitant, cardiologue (gestion des antithrombotiques)."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 2,
+      "fichier_html_cible": "LOT_057_Phase_B_V0_DX.2.html",
+      "titre": "Gastrite ou duodénite érosive hémorragique aiguë",
+      "cim": "K29.0",
+      "urgence": "semi-urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Lésions hémorragiques superficielles multiples de la muqueuse gastrique ou duodénale ne dépassant pas la musculaire muqueuse."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Représente 15 à 20 % des causes d'hématémèse diagnostiquées en OGD."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Toxicité directe sur l'épithélium de surface (alcool, AINS) ou hypoperfusion splanchnique (gastrite de stress en soins intensifs)."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Tachycardie, hypotension, déglobulisation importante, coagulopathie."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Hématémèse souvent modérée ou 'marc de café' après prise récente d'AINS, d'aspirine ou consommation aiguë d'alcool, brûlures épigastriques."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "État hémodynamique généralement stable, sensibilité épigastrique modérée."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Visualisation endoscopique des érosions muqueuses hémorragiques."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "OGD objectivant un piqueté hémorragique diffus et des érosions planes superficielles sans cratère ulcéreux profond."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Biopsies gastriques à la recherche de H. pylori."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "IPP, arrêt immédiat du facteur déclenchant (AINS, alcool), correction d'une éventuelle surdosage en anticoagulants."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Traitement par IPP pendant 2 à 4 semaines, sevrage alcoolique et éducation sur l'automédication par AINS."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Saignement persistant rare sauf sous anticoagulants ou thrombopénie sévère."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Contrôle de la NFS à 24 h."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Excellent pronostic avec cicatrisation muqueuse rapide en quelques jours."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Médecin de premier recours, gastro-entérologue."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 3,
+      "fichier_html_cible": "LOT_057_Phase_B_V0_DX.3.html",
+      "titre": "Œsophagite peptique sévère érosive (Los Angeles C ou D)",
+      "cim": "K21.0",
+      "urgence": "semi-urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Inflammation ulcéro-érosive circonférentielle du bas œsophage secondaire au reflux gastro-œsophagien acide et peptique."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Explique ~10 à 15 % des hémorragies digestives hautes, surtout après 70 ans ou en soins intensifs."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Incompétence du sphincter inférieur de l'œsophage et hernie hiatale exposant la muqueuse malpighienne œsophagienne à l'agression chlorhydro-peptique."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Dysphagie progressive aux solides, perte pondérale, hématémèse abondante."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Pyrosis, régurgitations acides, dysphagie, hématémèse modérée ou marc de café, décubitus prolongé."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Examen abdominal sans particularité, recherche d'anémie."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Visualisation endoscopique des ulcérations œsophagiennes distales confluentes."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "OGD classant l'œsophagite selon Los Angeles (grade C : pertes de substance confluentes sur < 75 % de la circonférence ; grade D : >= 75 %)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "OGD de contrôle à 8 semaines après traitement par IPP pour vérifier la cicatrisation et exclure un endobrachyœsophage (Barrett) sous-jacent."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "IPP à double dose (IV puis per os), hémostase endoscopique rarement nécessaire (sauf ulcère du collet d'une hernie hiatale)."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "IPP au long cours dans les œsophagites sévères C/D, mesures hygiéno-diététiques (surélévation de la tête du lit, arrêt tabac/alcool, perte de poids)."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Sténose peptique de l'œsophage, œsophage de Barrett et adénocarcinome œsophagien."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "OGD de contrôle à 8–12 semaines systématique pour les grades C et D."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Cicatrisation dans > 85 % des cas sous IPP."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Gastro-entérologue, médecin traitant."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 4,
+      "fichier_html_cible": "LOT_057_Phase_B_V0_DX.4.html",
+      "titre": "Syndrome de Mallory-Weiss (lacération longitudinale cardiale)",
+      "cim": "K22.6",
+      "urgence": "urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Déchirure longitudinale superficielle (muqueuse et sous-muqueuse, non transmurale) de la jonction œso-gastrique induite par des efforts de vomissement."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Représente 5 à 10 % des hémorragies digestives hautes ; fréquent après alcoolisation aiguë, gastro-entérite ou hyperémèse gravidique."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Augmentation brutale du gradient de pression transmurale au niveau du cardia lors de haut-le-cœur à glotte fermée, souvent favorisée par une hernie hiatale."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Saignement actif persistant, instabilité hémodynamique, douleur thoracique sévère ou dyspnée (exclure syndrome de Boerhaave)."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Séquence caractéristique : vomissements alimentaires/bilieux répétés ou haut-le-cœur violents suivis secondairement d'une hématémèse de sang rouge vif."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Constantes hémodynamiques à surveiller, absence d'emphysème sous-cutané cervical et de douleur thoracique transfixiante (qui évoqueraient une rupture transmurale de Boerhaave)."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Visualisation endoscopique de la lacération cardiale typique."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "OGD visualisant une ou plusieurs fissurations longitudinales linéaires à cheval sur la ligne Z (jonction œso-gastrique)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "CT thoraco-abdominal si doute sur une perforation œsophagienne (Boerhaave)."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Arrêt spontané du saignement dans 80–90 % des cas : IPP + antiémétiques IV ; si saignement actif ou vaisseau visible en OGD : pose de clips hémostatiques endoscopiques."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "IPP pendant 2 semaines, prise en charge de la cause des vomissements (ex. mésusage d'alcool)."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Récidive hémorragique rare (< 5–10 %). Attention : contre-indication absolue à la sonde de tamponnement de Blakemore."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Surveillance clinique et hémoglobine pendant 24 h."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Cicatrisation complète en 48 à 72 h sans séquelle."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Médecin traitant, addictologue si nécessaire."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 5,
+      "fichier_html_cible": "LOT_057_Phase_B_V0_DX.5.html",
+      "titre": "Gastropathie d'hypertension portale",
+      "cim": "K31.8",
+      "urgence": "semi-urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Congestion vasculaire muqueuse et sous-muqueuse gastrique (prédominant au fundus et au corps) secondaire à l'hypertension portale."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Présente chez 50 à 80 % des patients cirrhotiques ; responsable d'environ 5–10 % des saignements digestifs hauts sur cirrhose."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Dilatation et ectasie des capillaires et veinules muqueuses gastriques sous l'effet de l'hyperpression portale et de la circulation hyperdynamique splanchnique."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Hématémèse massive, encéphalopathie hépatique, décompensation ascitique ou infection du liquide d'ascite."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Cirrhose connue, hématémèse modérée (souvent 'marc de café'), méléna ou anémie ferriprive chronique."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Signes d'insuffisance hépatocellulaire (angiomes stellaires, ictère, érythrose palmaire) et d'hypertension portale (splénomégalie, ascite)."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Aspect endoscopique typique en mosaïque avec suintement diffus chez un patient avec hypertension portale."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "OGD montrant un aspect pavimenteux en 'mosaïque' ou 'peau de serpent' de la muqueuse fundique, avec ponctuations rouges cerises dans les formes sévères."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Élastométrie hépatique, échographie-Doppler porte."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Drogues vasoactives splanchniques (octréotide ou terlipressine) et antibioprophylaxie en phase aiguë chez le cirrhotique, transfusion prudente (cible Hb 70–80 g/L)."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Bêtabloquants non cardiosélectifs au long cours (propranolol ou carvédilol) pour abaisser la pression portale, supplémentation martiale ; TIPS si saignement réfractaire."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Anémie chronique, décompensation de cirrhose."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Hémoglobine, ferritine, suivi hépatologique."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Contrôle satisfaisant sous bêtabloquants non sélectifs."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Hépatologue/gastro-entérologue, médecin traitant."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 6,
+      "fichier_html_cible": "LOT_057_Phase_B_V0_DX.6.html",
+      "titre": "Adénocarcinome gastrique ou lymphome gastrique ulcéré",
+      "cim": "C16.9",
+      "urgence": "urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Néoplasie maligne gastrique (adénocarcinome de type intestinal ou diffus à cellules en bague à chaton selon Lauren, ou lymphome du MALT/DLBCL)."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Incidence ~900 cas/an en Suisse ; facteurs de risque : gastrite chronique atrophique à H. pylori, tabac, alimentation salée/fumée, syndrome héréditaire (CDH1)."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Cascade de Correa : gastrite chronique -> atrophie -> métaplasie intestinale -> dysplasie -> adénocarcinome ulcéro-bourgeonnant néovascularisé et friable."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Dysphagie, perte de poids, anémie ferriprive, vomissements postprandiaux tardifs (sténose antro-pylorique)."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Hématémèse (souvent marc de café), satiété précoce, dysphagie (cardia), épigastralgies atypiques, amaigrissement involontaire, anorexie."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Pâleur, amaigrissement, masse épigastrique palpable, ganglion sus-claviculaire gauche de Troisier, nodule ombilical de Sœur Marie-Josèphe."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Confirmation anatomopathologique sur biopsies endoscopiques."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "OGD avec biopsies multiples (>= 6–8 sur les berges de l'ulcération) + recherche de H. pylori, statut HER2, PD-L1 et MMR/MSI."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Bilan d'extension : CT thoraco-abdomino-pelvien, écho-endoscopie gastrique (staging T et N), laparoscopie exploratrice (recherche de carcinose péritonéale occulte)."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Transfusion, hémostase endoscopique par poudre hémostatique (Hemospray) ou coagulation au plasma argon (les clips sont souvent difficiles sur tissu tumoral rigide), ou radiothérapie hémostatique."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Adénocarcinome localisé : chimiothérapie péri-opératoire (protocole FLOT) + gastrectomie totale ou subtotale avec curage D2. Lymphome MALT : éradication de H. pylori."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Récidive hémorragique tumorale, sténose pylorique, perforation, dénutrition sévère."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Suivi oncologique, nutritionnel et supplémentation parentérale en vitamine B12 après gastrectomie."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Pronostic dépendant du stade TNM au diagnostic."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Oncologue, chirurgien viscéral, gastro-entérologue, nutritionniste."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 7,
+      "fichier_html_cible": "LOT_057_Phase_B_V0_DX.7.html",
+      "titre": "Angiodysplasies gastro-duodénales ou ectasie vasculaire antrale (GAVE / estomac pastèque)",
+      "cim": "K31.8",
+      "urgence": "semi-urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Angiodysplasies : ectasies des vaisseaux muqueux et sous-muqueux. GAVE : bandes longitudinales érythémateuses ectasiques convergeant vers le pylore ('watermelon stomach')."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Fréquent après 65 ans ; associé au rétrécissement aortique calcifié (syndrome de Heyde), à l'insuffisance rénale chronique, à la cirrhose et à la sclérodermie (GAVE)."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Dans le syndrome de Heyde, le cisaillement élevé à travers la valve aortique sténosée clive les multimères de haut poids moléculaire du facteur von Willebrand (vWF acquis de type 2A), favorisant le saignement des angiodysplasies."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Déglobulisation rapide sous anticoagulants, décompensation cardiaque."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Hématémèse modérée récidivante, méléna intermittent ou anémie ferriprive transfusions-dépendante."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Pâleur, souffle systolique éjectionnel aortique irradiant aux carotides (rechercher sténose aortique), signes de sclérodermie ou d'insuffisance rénale."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Identification endoscopique des ectasies vasculaires gastro-duodénales."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "OGD visualisant des taches rouges cerises arborisées planes (angiodysplasies) ou des stries radiaires antrales (GAVE)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Échocardiographie transthoracique si souffle aortique (syndrome de Heyde)."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Coagulation endoscopique au plasma argon (APC) ou ligature élastique (dans le GAVE réfractaire)."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Supplémentation martiale IV, réévaluation de l'indication des antithrombotiques, remplacement valvulaire aortique/TAVI en cas de syndrome de Heyde, analogues de la somatostatine dans les formes diffuses."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Récidives hémorragiques multiples et dépendance transfusionnelle."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Suivi de l'hémoglobine et de la ferritine, séances d'APC itératives si besoin."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Bon contrôle local après 1 à 3 séances d'APC."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Gastro-entérologue, cardiologue, néphrologue."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 8,
+      "fichier_html_cible": "LOT_057_Phase_B_V0_DX.8.html",
+      "titre": "Fausse hématémèse par épistaxis postérieure déglutie ou hémoptysie",
+      "cim": "R04.0",
+      "urgence": "semi-urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Vomissement de sang préalablement dégluti provenant d'une épistaxis postérieure ou d'une hémorragie bucco-pharyngée, ou confusion avec une hémoptysie (sang rejeté lors d'un effort de toux)."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Situation fréquente aux urgences, notamment chez le patient âgé sous anticoagulants."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Le sang dégluti dans l'estomac est très émétisant et prend rapidement un aspect noirâtre au contact de l'acide gastrique, simulant une hémorragie digestive haute."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Inhalation bronchique, détresse respiratoire, instabilité hémodynamique sous anticoagulants."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Écoulement nasal antérieur ou sensation de jet postérieur dans le pharynx, chirurgie ORL/dentaire récente, ou effort de toux avec sang rouge aéré spumeux (hémoptysie)."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Inspection directe de l'oropharynx (abaisse-langue et lampe : jet de sang coulant sur la paroi pharyngée postérieure), rhinoscopie antérieure, auscultation pulmonaire."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Identification du site hémorragique nasal postérieur, pharyngé ou bronchique."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Examen ORL / nasofibroscopie (ou CT thoracique/bronchoscopie si hémoptysie) ; l'OGD montre du sang dégluti sans lésion muqueuse œso-gastro-duodénale."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "NFS, bilan d'hémostase (INR, activité anti-Xa)."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Compression bidigitale, méchage antérieur ou postérieur (sonde à double ballonnet) / cautérisation ORL ; position latérale de sécurité si vomissements sanglants abondants."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Ajustement du traitement antithrombotique et contrôle tensionnel."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Pneumopathie d'inhalation, anémie aiguë."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Surveillance de l'arrêt du saignement pharyngé postérieur et de l'hémoglobine."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Excellent après contrôle local de la source ORL."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Spécialiste ORL, médecin traitant."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 9,
+      "fichier_html_cible": "LOT_057_Phase_B_V0_DX.9.html",
+      "titre": "Ulcère anastomotique marginal (post-bypass gastrique ou gastrectomie)",
+      "cim": "K28.4",
+      "urgence": "urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Ulcération développée sur le versant jéjunal de l'anastomose gastro-jéjunale après bypass gastrique Roux-en-Y ou gastrectomie partielle."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Survient chez 1 à 10 % des patients opérés d'un bypass gastrique."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Muqueuse jéjunale dépourvue de système tampon duodénal exposée à l'acidité de la poche gastrique, aggravée par l'ischémie locale induite par le tabagisme et les AINS."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Hématémèse abondante, défense abdominale (perforation anastomotique), fistule gastro-gastrique."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Antécédent de chirurgie bariatrique, douleur épigastrique postprandiale, dysphagie, hématémèse ou méléna, reprise du tabac ou prise d'AINS."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Sensibilité épigastrique, recherche de signes de choc ou de péritonite (perforation associée)."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Visualisation endoscopique de l'ulcère anastomotique."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "OGD visualisant l'ulcère sur la ligne d'agrafes ou le versant jéjunal de l'anastomose."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "CT abdominal injecté si suspicion de perforation ou de saignement dans l'estomac exclu."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "IPP IV forte dose, sucralfate en suspension, hémostase endoscopique (clips/adrénaline) si stigmate à haut risque. Deux VVP gros calibre, transfusion CGR si Hb < 70 g/L (cible 70–90 g/L), ésoméprazole 80 mg IV bolus puis 8 mg/h IVSE 72 h ; si cirrhose suspectée : terlipressine 2 mg IV/4 h (ou octréotide 50 µg bolus puis 50 µg/h) + ceftriaxone 1 g/j IV × 5 j avant FOGD < 12–24 h."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "IPP ouverts/dispersibles à double dose pendant 3 mois, sevrage tabagique impératif, éviction absolue des AINS, ablation endoscopique de fils/agrafes non résorbables. Ligature élastique ou hémostase endoscopique, éradication H. pylori (amoxicilline 1 g 2×/j + clarithromycine 500 mg 2×/j + métronidazole 500 mg 2×/j + IPP 14 j) ou propranolol/carvédilol 6,25–12,5 mg/j si hypertension portale."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Sténose anastomotique, perforation, fistule gastro-gastrique."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "OGD de contrôle à 8–12 semaines pour confirmer la cicatrisation complète. Hémoglobine toutes les 6–12 h, lactates, diurèse horaire et contrôle endoscopique des varices à 2–4 semaines."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Bonne cicatrisation sous IPP à condition de l'arrêt strict du tabac et des AINS."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Chirurgien bariatrique, gastro-entérologue, tabacologue."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 10,
+      "fichier_html_cible": "LOT_057_Phase_B_V0_DX.10.html",
+      "titre": "Œsophagite infectieuse ulcérée (Candida, HSV, CMV) ou médicamenteuse",
+      "cim": "B37.8",
+      "urgence": "semi-urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Ulcérations de la muqueuse œsophagienne d'origine opportuniste (Candida albicans, HSV, CMV) ou chimique par contact prolongé d'un comprimé caustique (doxycycline, bisphosphonates, AINS, chlorure de potassium)."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Œsophagite infectieuse chez l'immunodéprimé (VIH avec CD4 < 200/mm³, greffé, corticoïdes inhalés/systémiques) ; œsophagite médicamenteuse chez l'adolescent (doxycycline) ou la personne âgée."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Nécrose chimique focale au tiers moyen de l'œsophage (empreinte de la crosse aortique/bronche souche gauche) ou cytopathie virale/fongique."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Aphagie totale, hématémèse abondante, immunodépression sévère non contrôlée."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Odynophagie brutale intense, douleur rétrosternale à la déglutition, hématémèse, prise de comprimé sec au coucher ou immunodépression connue."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Recherche de muguet buccal (présent dans 75 % des œsophagites candidosiques mais absent dans CMV/HSV), évaluation de l'état d'hydratation."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Aspect endoscopique (dépôts blanchâtres adhérents = Candida ; petits ulcères en volcan = HSV ; grands ulcères linéaires profonds = CMV ; ulcère en miroir = médicamenteux) et histologie/PCR."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "OGD avec brossages et biopsies (du fond de l'ulcère pour CMV : inclusions 'en œil de hibou' ; des berges de l'ulcère en volcan pour HSV)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Sérologie VIH si statut inconnu devant une œsophagite candidosique ou virale."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Fluconazole PO/IV (Candida), aciclovir/valaciclovir (HSV), ganciclovir/valganciclovir (CMV) ; IPP, sucralfate et arrêt du médicament causal pour l'œsophagite médicamenteuse."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Éducation thérapeutique : prendre les comprimés avec un grand verre d'eau et rester assis/debout 30 minutes ; restauration immunitaire (ART dans le VIH)."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Dénutrition/déshydratation par odynophagie, sténose œsophagienne, perforation rare (CMV)."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Réévaluation clinique rapide de la reprise alimentaire."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Guérison en 7 à 14 jours sous traitement étiologique."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Gastro-entérologue, infectiologue, médecin traitant."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 11,
+      "fichier_html_cible": "LOT_057_Phase_B_V0_DX.11.html",
+      "titre": "Rupture de varices œsophagiennes ou cardio-tubérositaires sur hypertension portale",
+      "cim": "I85.0",
+      "urgence": "immediate",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Hémorragie digestive haute cataclysmique par rupture de collatérales porto-systémiques sous-muqueuses de l'œsophage distal ou du fundus gastrique (gradient de pression hépatique >= 12 mmHg)."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Représente 70 % des hémorragies digestives hautes chez le cirrhotique ; mortalité à 6 semaines de 15 à 20 % (consensus de Baveno VII)."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Loi de Laplace : la tension pariétale de la varice augmente avec le gradient de pression portale et le rayon de la varice, et diminue avec l'épaisseur de sa paroi (signes rouges)."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Choc réfractaire, encéphalopathie hépatique (risque majeur d'inhalation lors de l'hématémèse), score Child-Pugh C ou MELD >= 19."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Hématémèse massive de sang rouge avec caillots, méléna, lipothymie, cirrhose connue (alcool, MASH, virale) ou thrombose porte."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Choc hémorragique, ictère, ascite, encéphalopathie hépatique, circulation veineuse collatérale abdominale, splénomégalie."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Saignement actif en jet/suintement d'une varice, clou plaquettaire blanc sur varice, ou présence de varices et de sang dans l'estomac sans autre lésion."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "OGD en urgence dans les < 12 h après stabilisation hémodynamique, érythromycine IV et intubation orotrachéale si troubles de la vigilance ou hématémèse massive."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Écho-Doppler hépatique (recherche de thrombose de la veine porte ou de CHC), paracentèse exploratrice si ascite (exclure péritonite bactérienne spontanée)."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "1) Remplissage prudent et transfusion restrictive (cible Hb 70 g/L pour éviter le rebond d'HTP) ; 2) Drogue vasoactive IV immédiate dès la suspicion (octréotide ou terlipressine pendant 2–5 jours) ; 3) Antibioprophylaxie IV systématique (ceftriaxone 1 g/j pendant 5–7 j) ; 4) Ligature élastique des varices œsophagiennes (ou encollage au cyanoacrylate pour varices gastriques)."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "TIPS préemptif précoce (< 72 h) si haut risque (Child C < 14 ou Child B avec saignement actif) ; sinon prophylaxie secondaire combinant bêtabloquants non sélectifs (carvédilol/propranolol) + séances répétées de ligature élastique jusqu'à éradication."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Choc hémorragique réfractaire (indication à un stent œsophagien couvert de Danis ou sonde de Blakemore/Linton en pont vers un TIPS de sauvetage), infection bactérienne, encéphalopathie hépatique, syndrome hépato-rénal."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Soins intensifs/continus, Hb toutes les 6–12 h, ammoniémie/vigilance, fonction rénale."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Pronostic directement lié au score Child-Pugh/MELD et à la pose d'un TIPS préemptif chez les sujets éligibles."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Hépatologue, gastro-entérologue interventionnel, radiologue interventionnel (TIPS), centre de transplantation hépatique."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 12,
+      "fichier_html_cible": "LOT_057_Phase_B_V0_DX.12.html",
+      "titre": "Ulcère simplex de Dieulafoy avec hémorragie artérielle active",
+      "cim": "K25.0",
+      "urgence": "immediate",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Malformation vasculaire congénitale consistant en une artériole sous-muqueuse tortueuse de calibre anormalement large (1–3 mm, ne se ramifiant pas) qui érode une muqueuse par ailleurs saine."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Représente 1 à 2 % des hémorragies digestives hautes aiguës ; siège dans > 70 % des cas dans la petite courbure gastrique haute à moins de 6 cm du cardia."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Pulsatilité de l'artériole sous-muqueuse entraînant une érosion focale minuscule (2–5 mm) de la muqueuse sus-jacente avec saignement artériel massif intermittent."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Choc hypovolémique, récidive hémorragique rapide avec OGD initiale parfois faussement négative si le saignement s'est temporairement arrêté."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Hématémèse brutale, indolore, abondante, accompagnée de méléna chez un patient souvent âgé avec comorbidités cardiovasculaires."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Hypotension, tachycardie, pâleur aiguë, abdomen souple et totalement indolore."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Critères endoscopiques de Dieulafoy (vaisseau protubérant ou jet artériel sur micro-érosion sans cratère ulcéreux)."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "OGD en période hémorragique : vaisseau visible ou saignement en jet issu d'un défect muqueux punctiforme entouré d'une muqueuse gastrique strictement normale."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Angio-CT en phase de saignement actif (> 0,3–0,5 mL/min) et artériographie cœliaque avec embolisation sélective."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Hémostase endoscopique mécanique (pose de clips métalliques ou ligature élastique) +/- injection d'adrénaline ; embolisation radiologique si échec. Deux VVP gros calibre, transfusion CGR si Hb < 70 g/L (cible 70–90 g/L), ésoméprazole 80 mg IV bolus puis 8 mg/h IVSE 72 h ; si cirrhose suspectée : terlipressine 2 mg IV/4 h (ou octréotide 50 µg bolus puis 50 µg/h) + ceftriaxone 1 g/j IV × 5 j avant FOGD < 12–24 h."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Tatouage endoscopique du site pour le repérer en cas de récidive. Ligature élastique ou hémostase endoscopique, éradication H. pylori (amoxicilline 1 g 2×/j + clarithromycine 500 mg 2×/j + métronidazole 500 mg 2×/j + IPP 14 j) ou propranolol/carvédilol 6,25–12,5 mg/j si hypertension portale."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Choc hémorragique, récidive précoce nécessitant une seconde OGD ou embolisation."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Surveillance hospitalière 48–72 h avec contrôle de l'hémoglobine. Hémoglobine toutes les 6–12 h, lactates, diurèse horaire et contrôle endoscopique des varices à 2–4 semaines."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Contrôle primaire > 90 % par hémostase mécanique endoscopique."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Gastro-entérologue, radiologue interventionnel."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 13,
+      "fichier_html_cible": "LOT_057_Phase_B_V0_DX.13.html",
+      "titre": "Fistule aorto-entérique (aorto-duodénale secondaire sur prothèse vasculaire)",
+      "cim": "I77.2",
+      "urgence": "immediate",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Communication anormale entre l'aorte abdominale (le plus souvent une anastomose prothétique aorto-bi-iliaque infectée) et la lumière digestive (3e duodénum dans 80 % des cas)."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Complique 0,5 à 2 % des reconstructions aortiques prothétiques ouvertes ; mortalité de 100 % sans chirurgie et 30–50 % avec chirurgie."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Érosion mécanique et infectieuse de la paroi postérieure du 3e duodénum au contact de l'anastomose aortique proximale."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Antécédent de greffe aortique + hématémèse/méléna (même minime) + fièvre/bactériémie."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Antécédent de chirurgie prothétique de l'aorte abdominale + 'saignement sentinelle' (herald bleed : hématémèse ou méléna modéré spontanément résolutif par caillotage, précédant de quelques heures/jours l'exsanguination fatale) + parfois fièvre."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "État de choc ou stabilité trompeuse après le saignement sentinelle, masse abdominale pulsatile, souffle abdominal."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Signes scannographiques de fistule aorto-duodénale ou visualisation endoscopique/chirurgicale."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Angio-CT abdomino-pelvien en urgence immédiate (bulles de gaz péri-prothétiques ectopiques, perte du plan graisseux aorto-duodénal, pseudo-anévrisme ou extravasation de contraste dans le duodénum)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "OGD longue jusqu'au 3e–4e duodénum (au bloc opératoire) pour exclure une autre cause ou visualiser la prothèse."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Réanimation transfusionnelle massive, antibiothérapie large spectre, endoprothèse aortique couverte (EVAR) en pont d'hémostase immédiate ou chirurgie ouverte urgente (exérèse de la prothèse infectée, pontage extra-anatomique axillo-bifémoral ou reconstruction in situ et suture duodénale)."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Antibiothérapie prolongée (6 semaines à plusieurs mois) ciblée sur les prélèvements péri-prothétiques."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Exsanguination foudroyante, choc septique, lâchage du moignon aortique, ischémie des membres inférieurs."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Soins intensifs, angio-CT de contrôle postopératoire, suivi infectiologique."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Pronostic vital engagé, sauvetage conditionné par la reconnaissance immédiate du saignement sentinelle."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Chirurgien vasculaire, chirurgien viscéral, infectiologue, intensiviste."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 14,
+      "fichier_html_cible": "LOT_057_Phase_B_V0_DX.14.html",
+      "titre": "Syndrome de Boerhaave (rupture spontanée transmurale de l'œsophage)",
+      "cim": "K22.3",
+      "urgence": "immediate",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Perforation transmurale longitudinale de toutes les tuniques de l'œsophage thoracique inférieur (bord postéro-latéral gauche sus-diaphragmatique) par barotraumatisme lors de vomissements."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Urgence thoraco-digestive rare mais la plus létale des perforations du tube digestif (mortalité > 40 % si diagnostic retardé > 24 h)."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Surpression intra-œsophagienne brutale lors d'un vomissement contrarié -> déchirure complète -> irruption de liquide gastrique et de gaz dans le médiastin et la plèvre gauche -> médiastinite nécrosante."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Douleur thoracique aiguë post-vomissement, emphysème sous-cutané, pneumomédiastin, choc septique."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Triade de Mackler : vomissements violents, douleur rétrosternale/épigastrique en coup de poignard irradiant dans le dos, et emphysème sous-cutané ; hématémèse généralement modérée."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Crépitation neigeuse cervicale/sus-claviculaire, tachypnée, diminution du murmure vésiculaire gauche (hydropneumothorax), signe de Hamman (crépitement médiastinal synchrone aux battements cardiaques), sepsis rapide."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Extravasation médiastinale ou pleurale du contraste hydrosoluble et pneumomédiastin au CT."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "CT thoraco-abdominal avec opacification orale hydrosoluble : pneumomédiastin, épanchement pleural gauche, fuite extra-luminale du produit de contraste."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Contre-indication au transit baryté (barytite médiastinale) ; OGD prudente au CO2 au bloc opératoire uniquement."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Mise à jeun stricte, réanimation, IPP IV, antibiothérapie IV large spectre + antifongique, drainage pleural et médiastinal ; suture chirurgicale primaire (< 24 h), prothèse œsophagienne couverte ou thérapie endoluminale par pression négative (Endo-VAC)."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Nutrition entérale par jéjunostomie ou parentérale jusqu'à cicatrisation documentée au transit hydrosoluble."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Médiastinite aiguë nécrosante, empyème pleural, choc septique, fistule œso-pleurale."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Soins intensifs, débit des drains thoraciques, CRP, CT de contrôle avant reprise alimentaire."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Survie ~80–90 % si pris en charge dans les 24 premières heures, chute à < 50 % au-delà."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Chirurgien thoracique/viscéral, gastro-entérologue interventionnel, intensiviste."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 15,
+      "fichier_html_cible": "LOT_057_Phase_B_V0_DX.15.html",
+      "titre": "Hémobilie ou wirsungorragie aiguë",
+      "cim": "K83.8",
+      "urgence": "urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Hémorragie extériorisée dans le 2e duodénum via l'ampoule de Vater d'origine hépatobiliaire (hémobilie) ou pancréatique (wirsungorragie)."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Rare ; l'hémobilie est iatrogène dans > 60 % des cas (post-biopsie hépatique, drainage biliaire percutané, CPRE) ou post-traumatique ; la wirsungorragie complique un pseudo-anévrisme de l'artère splénique sur pancréatite chronique."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Fistulisation artério-biliaire ou érosion d'un pseudo-anévrisme artériel péri-pancréatique dans le canal de Wirsung."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Hématémèse post-biopsie hépatique ou post-traumatisme abdominal, pancréatite chronique calcifiante avec chute d'hémoglobine."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Triade de Quincke (présente au complet dans 30 % des cas) : colique hépatique, ictère obstructif (par caillots biliaires) et hématémèse/méléna ; antécédent récent de geste hépatobiliaire ou de pancréatite."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Ictère, douleur de l'hypochondre droit ou épigastrique, signes d'anémie aiguë ou de choc."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Visualisation d'un saignement papillaire en endoscopie et/ou d'un pseudo-anévrisme artério-biliaire ou artério-pancréatique à l'angio-CT."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Angio-CT abdomino-pelvien multiphasique (temps artériel) identifiant un pseudo-anévrisme de l'artère hépatique ou splénique/gastro-duodénale ; duodénoscopie à vision latérale montrant du sang sortant de la papille."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Artériographie cœlio-mésentérique diagnostique et thérapeutique."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Traitement de référence : artériographie avec embolisation sélective (coils) ou stent couvert de l'artère responsable ; CPRE complémentaire si angiocholite sur caillots biliaires."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Prise en charge de la pathologie causale (pancréatite chronique, tumeur hépatobiliaire)."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Angiocholite aiguë par obstruction de la voie biliaire principale par des caillots, pancréatite aiguë, nécrose hépatique ischémique post-embolisation."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Hémoglobine, bilan hépatique (bilirubine, transaminases), lipasémie."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Taux de succès de la radio-embolisation > 90 %."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Radiologue interventionnel, gastro-entérologue, chirurgien hépatobiliaire."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    }
+  ],
+  "prompt_alpha_a_jour": "# MISSION : CORRECTION ET COMPLÉTION DES 248 SSP SUISSES (3 975 ENTITÉS + 248 CHAPITRES 0)\n\n## § 0. IDENTIFICATION, SIGNATURE & RÈGLES DE CONTINUITÉ — BLOQUANT ABSOLU\n1. **Identification obligatoire** en tête de première réponse :\n   - HEURE DE DÉBUT : AAAA-MM-JJ HH:MM (Europe/Zurich)\n   - MODÈLE : nom exact du modèle (ex. ANTIGRAVITY ORCHESTRATOR NEON)\n   - PLATEFORME : plateforme exacte (ex. ANTIGRAVITY)\n   - Ajouter la même ligne à `1_Claude AI/IDENTIFICATION_AGENTS.md`. Si incertitude, s'arrêter.\n2. **Signature IA fixe en bas à droite de TOUT HTML produit ou modifié** (juste avant `</body>`, en GRAS MAJUSCULE) :\n   `<div id=\"signature-ia\" style=\"position:fixed;right:12px;bottom:10px;z-index:9999;background:#fff;border:2px solid #000;padding:4px 10px;font:700 12px/1.3 Arial,sans-serif;text-transform:uppercase;color:#000\">DÉBUT : AAAA-MM-JJ HH:MM (EUROPE/ZURICH) · MODÈLE : <NOM> · PLATEFORME : <PLATEFORME></div>`\n   - **Seul Vial peut autoriser le retrait de ce bloc.** Un agent qui reprend un fichier signé ajoute sa propre ligne sous la précédente sans jamais effacer l'existante.\n3. **Continuité & transparence** :\n   - **Redémarrage propre à partir de `SSP_248`** : tous les cours précédemment modifiés ont été restaurés à l'état initial (`6941513`). Enchaîner continûment **`SSP_248 → SSP_033`**, puis **`SSP_001 → SSP_032`**.\n   - **Toujours afficher le raisonnement visible** en français dans chaque réponse.\n   - **Veille & relance GitHub** : commiter et pousser sur `origin main` après chaque SSP (ou lot <= 5 SSP) avec l'état à jour dans `SUIVI_PRODUCTION.csv`, `HANDOFF_AFFINAGE.md` et `HANDOFF_IA_COMPLET.md`.\n   - **Suivi graphique temps réel** : maintenir à jour le tableau de bord visuel temps réel des réalisations achevées et en cours.\n\n## § 1. RÈGLES ACTUALISÉES (PRIMENT SUR LE PROMPT ALPHA 19.11.26)\n1. **Nombre de cours par SSP** : **1 cours par entité de la Cartographie Renouveau** (15 à 24 entités par SSP, 3 975 au total) + le Chapitre 0 (`Phase_A`), dans l'ordre exact des `Cours 1 … N` de `SSP_nnn/NOTIONS.md` / `NOTIONS.json`.\n2. **QUALITÉ CLINIQUE MAXIMALE & ZÉRO MÉDIOCRITÉ (BLOQUANT ABSOLU — Consigne Vial 20.11.26)** :\n   - **Interdiction absolue de toute prose patronnée / générique** : aucune phrase-cadre où seul le nom de la pathologie change d'un cours à l'autre, aucun remplissage artificiel pour atteindre le calibre. La médiocrité clinique est dangereuse et entraîne un rejet immédiat.\n   - Chaque cours (`Phase_A` et `DX.1..N`) doit être **rédigé sur mesure** pour son entité exacte, avec : raisonnement physiopathologique et sémiologique réel, seuils numériques précis, diagnostics différentiels discriminants, posologies et contre-indications sourcées (Compendium.ch / AIPS, Tox Info Suisse, OFSP, ASSM, sociétés savantes suisses), vignettes cliniques authentiques et QCM exigeants de niveau Examen Fédéral Suisse.\n3. **INTERDICTION DES ARBRES DÉCISIONNELS (Consigne Vial 20.11.26)** :\n   - **Ne générer AUCUN arbre décisionnel ni algorithme graphique (`.fm-canvas`, SVG décisionnel, etc.)** dans `Phase_A` ou dans les `DX.n` — l'auteur (Vial) les réalisera lui-même.\n4. **Calibre texte pur actualisé (Consigne Vial 20.11.26)** :\n   - **80 à 100 Ko de texte pur UTF-8 par fichier** (`81 920` à `102 400` octets, calibre du Prompt Alpha confirmé par Vial le 20.11.2026 à 21:20, mesuré fenêtres comprises, hors balises HTML, CSS, JS, SVG et images).\n   - HTML hors images (`controle3.py`) : **`40 000` à `100 000` octets** (alerte).\n   - Densité maximale : zéro remplissage, zéro phrase pouvant figurer telle quelle dans un autre cours, zéro phrase de gabarit de `cartographie_DATA.json`.\n5. **Phrases verbales exclusives (BLOQUANT)** :\n   - Chaque phrase (texte, fenêtres, listes, légendes `<figcaption>`, cellules narratives `<td>`) contient un verbe conjugué reconnu. **Zéro phrase nominale.**\n4. **Médicaments cliquables d'emblée & Fenêtres centrées PK/PD à 2 onglets (Consigne Vial 20.11.26)** :\n   - Dès qu'un médicament est évoqué, il devient cliquable (`<a class=\"ouvre med-chip\" href=\"#f-...\">`).\n   - Chaque `<section class=\"fenetre mb\" id=\"f-...\"><div class=\"fen\">` s'ouvre au centre de l'écran et contient **2 onglets** :\n     * **Onglet 1 (`data-tab=\"pk\"`)** : Pharmacocinétique + **Courbe vectorielle SVG $C(t)$** + **4 paramètres cliniciens mis en évidence** (`.pkpd-kpis`).\n     * **Onglet 2 (`data-tab=\"pd\"`)** : Pharmacodynamique & Clinique + **Courbe vectorielle SVG $E(C)$** + posologies/précautions/grossesse suisses (Compendium.ch / AIPS).\n5. **Images** : uniquement à l'intérieur des `<section class=\"fenetre\">`, jamais hors fenêtre (licences selon Prompt Alpha § 4). Ne comptent pas dans le calibre.\n6. **Zéro terminologie de chantier visible** : aucun texte visible (ni `<title>`) ne doit contenir `LOT`, `V0`, `Phase A/B`, `DX.n`, `Appel A/B`, `Partie n`. Seuls les noms de fichiers gardent le format Alpha (`LOT_nnn_Phase_A_V0.html`, `LOT_nnn_Phase_B_V0_DX.i.html`).\n7. **Circuits & Plans** :\n   - `MONOGRAPHIQUE` (189 SSP) : plan maladie en 14 points (Prompt Alpha § 3.1).\n   - `NON_MONOGRAPHIQUE` (52 SSP) : Leçon en 12 à 14 points adaptés (Prompt Alpha § 3.2). **Jamais** de plan maladie ni de titres « Physiopathologie / Approche syndromique / Diagnostic positif » artificiels.\n   - `MIXTE` (7 SSP) : Prompt Alpha § 3.3, chaque fichier déclare `<meta name=\"ssp-circuit\" content=\"...\">`.\n8. **Correctifs Frontend v2 / Architecture `_sources/` (`UNIQUE.html` & `_polices/`)** :\n   - **Arborescence propre par SSP** : à la racine de `SSP_nnn/`, seul **`SSP_nnn_<code>_UNIQUE.html`** (plus le sous-dossier **`_sources/`**) est visible. Tous les fichiers sources (`LOT_nnn_*.html`, `images/`, `NOTIONS.*`, `MANIFESTE.json`, `DECISION*`, `paquet.json`, `_archive_avant_alpha/`) sont rangés dans `SSP_nnn/_sources/` sans rien supprimer.\n   - **Barre haute amovible (`gabarit_unique.html`)** : `#topbar` compacte 1 ligne (~42 px) avec pilule active, fil d'Ariane section, boutons `◀`/`▶`, tiroir overlay amovible `#dd-drawer` (`☰ Diagnostics (N) ▾` + option `📌 Épingler`) contenant `nav#nav` en colonnes égales (`32 px`, teinte unique par cours), et bouton `▴ Masquer barre` + pilule flottante `#btn-show-bar`.\n   - **Zéro dédoublement & navigation `#...` 100 % fonctionnelle (`forme.js`)** : script `forme.js` exécuté sous `DOMContentLoaded` et injecté par `assembler_unique.py`/`inliner.py` après `</head>` et avant `#signature-ia`/`</body>` ; intercepteur global appelant `e.preventDefault()` sur 100 % des `href^=\"#\"` (bloque le rechargement `srcdoc` + `file://`).\n   - **Modales centrées `<div class=\"fen\">` & désaturation (`forme.css` / `optimiser_ssp.py`)** : ouverture via classe `.fm-open` (plus `:target` en repli) avec pile `modalStack` et bouton `Fermer ✕` sticky (sans `history.back()`), auto-enveloppement `<div class=\"fen\">`, tableaux hors modale déplacés vers `<section class=\"fenetre fm-tab-fen\">` déclenchés par cartes `.fm-encart-fen`, citations `<sup class=\"r\"><a>` compactées en `[N]` avec modale aperçu `#fm-src-modal` empilable (`fm-stack-top`), puces médicaments `a.ouvre.med-chip` (`℞ ...`, `white-space: nowrap`, compatible accents français), repli du plan latéral desktop `#fm-plan-toggle`, îlots discontinus (`margin-bottom: 30px`) et padding bas `5.5rem` protégeant la lecture au-dessus de `#signature-ia`.\n   - **HTML unique** : ne jamais l'écrire à la main ; toujours exécuter `optimiser_ssp.py` puis `assembler_unique.py nnn`.\n\n## § 2. ARCHIVAGE & WORKFLOW PAR SSP (P0 → P4)\n- **Zéro suppression** : avant d'écraser ou renommer un fichier source existant, archiver dans `SSP_nnn/_sources/_archive_avant_alpha/`.\n- **P0 (Préparer)** : lire circuit (`catalogue_248.json`), entités (`NOTIONS.md`/`NOTIONS.json`), `memoire_zero_token.py --digest --lot nnn`, écrire `PLAN_ENTITES.md`.\n- **P1 (Décider)** : noter dans `DECISION.md` (Corriger / Réécrire si mécanique, faux plan maladie ou `< 30 Ko` / Créer).\n- **P2 (Produire)** : `LOT_nnn_Phase_A_V0.html` + `LOT_nnn_Phase_B_V0_DX.1..N.html`, 100 % des notions de `NOTIONS.json` expliquées et sourcées (Compendium.ch / AIPS, OFSP, ASSM, CC, LAMal, LAVI, Smarter Medicine), sans aucune phrase gabarit de la cartographie.\n- **P3 (Portes de Contrôle + Optimisation + Assemblage + Audit Chrome)** :\n  1. `controle3.py --script-ok` → **`VERT {}`** (si `paquet.json` présent ; `--script-ok` requis car `_sources/` référence `../../_polices/forme.js`)\n  2. `verif_aips.py` → **`OK`** (si `paquet.json` présent) et `restaurer_fond.py --verifier` → **`exit=0`**\n  3. `python _outils/optimiser_ssp.py nnn` → migration vers `_sources/`, tableaux déplacés en `<div class=\"fen\">`, teintes non bleues `--fm-a`\n  4. `python _outils/verif_mission.py nnn` → **100 % fichiers `PASS`** (`errors: []`)\n  5. `python _outils/assembler_unique.py nnn` → **`(1 + N) / (1 + N) onglets`** à la racine de `SSP_nnn/`\n  6. `python _outils/notions.py verifier nnn` → **`0 NON`** + copier `rapport_notions.csv` dans `SSP_nnn/_sources/`\n  7. `python _outils/audit_unique_browser.py nnn --all-tabs` → **`PASS` sur 100 % des onglets en Chrome headless réel**\n  8. Ajouter ligne dans `SUIVI_PRODUCTION.csv` + `git commit` + `git push origin main`.\n- **P4 (Affinage)** : consigner tout doute clinique/posologique non vérifié dans `1_Claude AI/HANDOFF_AFFINAGE.md` sous `## SSP_nnn`.\n\n## § 3. MISSION 2 — SSP 001 → 032\n- Extraire les cours depuis `SSP_nnn_<code>_UNIQUE.html` (JSON `data` gzip+base64, marqueurs `@@IMG:…@@`, `@@FONT:…@@`) après archivage des anciens `LOT_nnn_*.html` dans `_archive_avant_alpha/`.\n- Le frontend reste identique ; auditer le contenu avec la même sévérité (attention : `SSP_013` G13 = `NON_MONOGRAPHIQUE`, `SSP_014` G14 = `MIXTE`).\n- Produire `1_Claude AI/AUDIT_001-032.md` et corriger tous les ❌.\n\n## § 4. LES 12 BLOCAGES ROUGE (REJET IMMÉDIAT)\n1. Identification absente ou incertaine.\n2. Signature `#signature-ia` absente, modifiée ou supprimée.\n3. Entité de la Cartographie sans cours.\n4. Fichier hors intervalle `80–100 Ko` de texte pur (tout cours ; un cours de 30–50 Ko est à enrichir).\n5. Toute phrase nominale.\n6. Toute notion au verdict `NON`.\n7. Phrase gabarit de `cartographie_DATA.json` recopiée dans un cours.\n8. Plan maladie appliqué à une Leçon `NON_MONOGRAPHIQUE`.\n9. Terme de chantier visible (`LOT`, `V0`, `Phase A/B`, `DX.n`, `Appel`, `Partie n`).\n10. Posologie sans source de la cascade suisse.\n11. Image hors `<section class=\"fenetre\">`.\n12. Fichier supprimé au lieu d'être archivé.\n\n## § 5. ANNEXE CIRCUITS (248 SSP)\n- **NON_MONOGRAPHIQUE (52)** : 013 · 065 · 069 · 176 · 180 · 181 · 182 · 184 · 185 · 186 · 192 · 194 · 195 · 198 · 200 · 203 · 204 · 205 · 206 · 207 · 208 · 209 · 210 · 211 · 212 · 213 · 214 · 215 · 216 · 217 · 218 · 219 · 220 · 221 · 222 · 224 · 225 · 226 · 227 · 232 · 233 · 235 · 236 · 237 · 238 · 239 · 240 · 241 · 242 · 243 · 246 · 247.\n- **MIXTE (7)** : 014 · 165 · 174 · 175 · 190 · 202 · 223.\n- **MONOGRAPHIQUE (189)** : tous les autres SSP."
+}

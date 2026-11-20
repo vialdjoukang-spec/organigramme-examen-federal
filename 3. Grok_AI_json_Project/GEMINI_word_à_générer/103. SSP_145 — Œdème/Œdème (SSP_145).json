@@ -1,0 +1,2754 @@
+{
+  "rappel_obligatoire_avant_redaction": {
+    "lecture_imperative": [
+      "1. Lire intégralement PROMPT_Alpha_19.11.26.md ET la mise à jour incluse dans prompt_alpha_a_jour ci-dessous.",
+      "2. Respecter l'intervalle GLOBAL par cours : viser 85–95 Ko de texte médical pur (soit ~95–115 Ko de fichier JSON) sans quota rigide par partie — répartir le texte proportionnellement à l'importance clinique des parties.",
+      "3. Produire graduellement 1 cours complet par requête (Phase A, puis Cours 1, Cours 2...) en français médical académique, phrases verbales exclusives (0 phrase nominale), zéro prose générique ou patronnée.",
+      "4. Utiliser uniquement les guillemets typographiques français « … » dans les valeurs texte JSON (jamais de guillemet droit non échappé).",
+      "5. Zéro arbre décisionnel graphique (.fm-canvas) : ne générer aucun schéma décisionnel."
+    ],
+    "specificites_locales_ssp": [
+      "Circuit MONOGRAPHIQUE : respecter le plan maladie en 14 points avec socle généralités (1-3), démarche diagnostique (4-10), prise en charge posologique suisse intégrale (11) et QCM Examen Fédéral (14).",
+      "Couvrir 100 % des notions obligatoires listées dans phase_b[*].plan[*].notions_obligatoires pour Œdème (F1.16).",
+      "Cascade posologique suisse à 4 paliers obligatoire : 1. AIPS Swissmedic (n° 5 chiffres) -> 2. Compendium.ch -> 3. Sociétés savantes & CHU suisses (HUG, CHUV, Inselspital, USZ, USB, OFSP, ASSM, SSMIG, Tox Info Suisse 145) -> 4. Sociétés savantes européennes."
+    ]
+  },
+  "meta": {
+    "rang_gravite": 103,
+    "ssp": "SSP_145",
+    "code_profiles": "F1.16",
+    "nom_francais": "Œdème",
+    "circuit": "MONOGRAPHIQUE",
+    "police_obligatoire": "Atkinson Hyperlegible",
+    "calibre_cible": "80–100 Ko texte pur",
+    "arbres_decisionnels_autorises": false,
+    "mode_redaction": "Neon Deep Research",
+    "nb_chapitres_total": 18,
+    "defauts_audit_initial": [
+      "Incomplet (11/18 cours)",
+      "2065 phrases nominales",
+      "Termes chantier (5 f.)"
+    ]
+  },
+  "sommaire": {
+    "phase_a": {
+      "fichier_html_cible": "LOT_145_Phase_A_V0.html",
+      "titre": "Œdème — Vue d'ensemble et orientation clinique (F1.16)"
+    },
+    "phase_b": [
+      {
+        "cours_numero": 1,
+        "titre": "Insuffisance veineuse chronique des membres inférieurs",
+        "cim": "I87.2",
+        "urgence": "chronique"
+      },
+      {
+        "cours_numero": 2,
+        "titre": "Insuffisance cardiaque chronique congestive",
+        "cim": "I50.9",
+        "urgence": "semi-urgent"
+      },
+      {
+        "cours_numero": 3,
+        "titre": "Œdèmes médicamenteux (inhibiteurs calciques, AINS, corticoïdes)",
+        "cim": "R60.0",
+        "urgence": "chronique"
+      },
+      {
+        "cours_numero": 4,
+        "titre": "Cirrhose hépatique décompensée avec ascite et œdèmes",
+        "cim": "K74.6",
+        "urgence": "semi-urgent"
+      },
+      {
+        "cours_numero": 5,
+        "titre": "Syndrome néphrotique",
+        "cim": "N04.9",
+        "urgence": "semi-urgent"
+      },
+      {
+        "cours_numero": 6,
+        "titre": "Maladie rénale chronique avancée (rétention hydrosodée)",
+        "cim": "N18.5",
+        "urgence": "semi-urgent"
+      },
+      {
+        "cours_numero": 7,
+        "titre": "Lymphœdème primaire ou secondaire",
+        "cim": "I89.0",
+        "urgence": "chronique"
+      },
+      {
+        "cours_numero": 8,
+        "titre": "Œdème cyclique idiopathique de la femme",
+        "cim": "R60.1",
+        "urgence": "chronique"
+      },
+      {
+        "cours_numero": 9,
+        "titre": "Hypothyroïdie sévère (myxœdème)",
+        "cim": "E03.9",
+        "urgence": "semi-urgent"
+      },
+      {
+        "cours_numero": 10,
+        "titre": "Entéropathie exsudative (perte protéique digestive)",
+        "cim": "K90.4",
+        "urgence": "semi-urgent"
+      },
+      {
+        "cours_numero": 11,
+        "titre": "Syndrome de fuite capillaire idiopathique (maladie de Clarkson)",
+        "cim": "I78.8",
+        "urgence": "immediate"
+      },
+      {
+        "cours_numero": 12,
+        "titre": "Œdème aigu du poumon (OAP cardiogénique)",
+        "cim": "J81",
+        "urgence": "immediate"
+      },
+      {
+        "cours_numero": 13,
+        "titre": "Angio-œdème laryngé anaphylactique",
+        "cim": "T78.3",
+        "urgence": "immediate"
+      },
+      {
+        "cours_numero": 14,
+        "titre": "Angio-œdème bradykinique héréditaire ou sous IEC",
+        "cim": "D84.1",
+        "urgence": "immediate"
+      },
+      {
+        "cours_numero": 15,
+        "titre": "Thrombose veineuse profonde (TVP) aiguë d'un membre",
+        "cim": "I80.2",
+        "urgence": "urgent"
+      },
+      {
+        "cours_numero": 16,
+        "titre": "Pré-éclampsie sévère",
+        "cim": "O14.1",
+        "urgence": "urgent"
+      },
+      {
+        "cours_numero": 17,
+        "titre": "Syndrome cave supérieur",
+        "cim": "I87.1",
+        "urgence": "urgent"
+      }
+    ]
+  },
+  "phase_a": {
+    "titre": "Œdème — Vue d'ensemble (F1.16)",
+    "plan": [
+      {
+        "point": 1,
+        "titre": "Définition nosologique et périmètre clinique",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 2,
+        "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 3,
+        "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 4,
+        "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+        "description": "Présentation et hiérarchisation des 17 entités de la Cartographie Renouveau."
+      },
+      {
+        "point": 5,
+        "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 6,
+        "titre": "Examen physique systématique région par région",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 7,
+        "titre": "Approche syndromique et stratification de gravité",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 8,
+        "titre": "Diagnostic positif, scores cliniques et critères validés",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 9,
+        "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 10,
+        "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 11,
+        "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 12,
+        "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 13,
+        "titre": "Points clés indispensables à retenir",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 14,
+        "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      }
+    ]
+  },
+  "phase_b": [
+    {
+      "cours_numero": 1,
+      "fichier_html_cible": "LOT_145_Phase_B_V0_DX.1.html",
+      "titre": "Insuffisance veineuse chronique des membres inférieurs",
+      "cim": "I87.2",
+      "urgence": "chronique",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Défaillance chronique du retour veineux des membres inférieurs par incontinence valvulaire ou obstruction post-thrombotique."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Touche 15–25 % des adultes ; facteurs : âge, sexe féminin, station debout prolongée, grossesse, obésité, antécédents de TVP."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Hypertension veineuse ambulatoire -> hyperpression capillaire -> extravasation de liquide et de fibrinogène (dermite ocre)."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Installation brutale unilatérale (TVP !), douleur du mollet, chaleur/érythème extensif (érysipèle)."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Jambes lourdes vespérales aggravées par la chaleur et la station debout, améliorées par le décubitus et la surélévation."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Œdème vespéral mou prenant le godet (souvent bilatéral ou asymétrique), varices, télangiectasies, dermite ocre, atrophie blanche, ulcère malléolaire interne."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Œdème vespéral + signes cutanés veineux (classification CEAP) + reflux veineux au Doppler."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Écho-Doppler veineux des membres inférieurs (recherche de reflux valvulaire profond/superficiel et séquelles post-thrombotiques)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "IPS (index de pression systolique) systématique avant compression élastique pour écarter une AOMI associée."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Pas d'urgence ; exclure une TVP si aggravation aiguë unilatérale."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Compression élastique graduée (classe II si IPS > 0,8), activité physique (marche), surélévation des jambes, veinotoniques (effet symptomatique), traitement endoveineux/chirurgical des varices."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Ulcère veineux chronique, hypodermite sclérodermiforme, thrombose veineuse superficielle/profonde, eczéma variqueux."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Observance et tolérance de la compression élastique, état cutané malléolaire."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Affection chronique bien contrôlée par le port régulier des bas de compression."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Médecin traitant, angiologue, chirurgien vasculaire, infirmier(e) plaies."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 2,
+      "fichier_html_cible": "LOT_145_Phase_B_V0_DX.2.html",
+      "titre": "Insuffisance cardiaque chronique congestive",
+      "cim": "I50.9",
+      "urgence": "semi-urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Incapacité du cœur à assurer un débit adapté ou au prix d'une élévation des pressions de remplissage entraînant une congestion systémique."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Prévalence 1–2 % des adultes, > 10 % après 70 ans ; première cause d'hospitalisation > 65 ans."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Activation du SRAA et du système sympathique -> rétention hydrosodée rénale et augmentation de la pression hydrostatique capillaire."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Orthopnée sévère, crépitants diffus (OAP !), hypotension/marbrures (choc cardiogénique), prise de poids > 2 kg en 3 jours."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Dyspnée d'effort, orthopnée, dyspnée paroxystique nocturne, prise de poids rapide, cardiopathie ischémique ou HTA."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Œdèmes bilatéraux symétriques déclives blancs, mous, indolores prenant le godet ; turgescence jugulaire, reflux hépato-jugulaire, crépitants des bases."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Symptômes/signes congestifs + élévation NT-proBNP + anomalie structurelle/fonctionnelle à l'ETT."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "BNP ou NT-proBNP élevé, échocardiographie transthoracique (FEVG, pressions de remplissage, valvulopathies), ECG, radiographie thoracique."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Ionogramme, créatinine, bilan martial (carence martiale fréquente !), TSH."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Diurétiques de l'anse IV (furosémide/torasémide), oxygénothérapie si hypoxémie, vasodilatateurs si PAS > 110 mmHg."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Quadrithérapie (HFrEF) : IEC/ARNI + bêtabloquant + antagoniste minéralocorticoïde (spironolactone) + iSGLT2 (dapagliflozine/empagliflozine) + diurétique de l'anse titré."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Œdème aigu du poumon, syndrome cardiorénal, troubles du rythme ventriculaire, cachexie cardiaque."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Pesée quotidienne par le patient, ionogramme et créatinine après chaque titration."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Mortalité améliorée par la quadrithérapie moderne ; réhospitalisations fréquentes si mauvaise observance."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Cardiologue, médecin traitant, programme d'insuffisance cardiaque."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 3,
+      "fichier_html_cible": "LOT_145_Phase_B_V0_DX.3.html",
+      "titre": "Œdèmes médicamenteux (inhibiteurs calciques, AINS, corticoïdes)",
+      "cim": "R60.0",
+      "urgence": "chronique",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Œdèmes périphériques induits par une vasodilatation artériolaire sélective (DHP) ou une rétention hydrosodée rénale (AINS, corticoïdes, glitazones)."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Très fréquents chez les patients hypertendus sous inhibiteurs calciques dihydropyridiniques (amlodipine, nifédipine) ou sous AINS."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "DHP : vasodilatation artériolaire précapillaire sans vasodilatation veineuse postcapillaire -> hyperpression hydrostatique capillaire (ne répond PAS aux diurétiques !)."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Insuffisance rénale aiguë sous AINS, dyspnée (décompensation cardiaque vraie), protéinurie."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Chronologie d'apparition après introduction ou augmentation de dose d'amlodipine, prégabaline, AINS ou corticoïdes."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Œdèmes bilatéraux des chevilles/pieds, prenant le godet, sans signe d'insuffisance cardiaque, hépatique ou rénale."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Relation temporelle avec un médicament œdématogène et absence d'atteinte organique."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Revue médicamenteuse ; créatinine, bandelette urinaire, albumine, NT-proBNP si doute clinique."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Test de déchallenge (régression à l'arrêt ou réduction de dose)."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Aucune urgence sauf IRA ou décompensation cardiaque sous AINS."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Arrêt/substitution du médicament (ex. remplacer amlodipine par lercanidipine ou associer un IEC/sartan qui dilate le versant veineux et réduit l'œdème des DHP !)."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Prescription inappropriée de diurétiques en cascade (cascade iatrogène) entraînant hypokaliémie/déshydratation."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Régression des œdèmes dans les 1–3 semaines suivant l'adaptation thérapeutique."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Complètement réversible après adaptation du traitement."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Médecin de premier recours, pharmacien."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 4,
+      "fichier_html_cible": "LOT_145_Phase_B_V0_DX.4.html",
+      "titre": "Cirrhose hépatique décompensée avec ascite et œdèmes",
+      "cim": "K74.6",
+      "urgence": "semi-urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Rétention hydrosodée majeure compliquant l'hypertension portale et l'insuffisance hépatocellulaire."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "50 % des patients cirrhotiques compensés développent une ascite dans les 10 ans."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Hypertension portale -> vasodilatation splanchnique (NO) -> hypovolémie artérielle efficace -> activation SRAA/ADH + hypoalbuminémie."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Fièvre, douleur abdominale, encéphalopathie (péritonite bactérienne spontanée !), hémorragie digestive, oligurie (syndrome hépatorénal)."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Alcoolisme, hépatite virale B/C, stéatohépatite métabolique (MASLD), augmentation du périmètre abdominal."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Ascite (matité déclive des flancs, signe du flot), œdèmes des membres inférieurs, circulation veineuse collatérale, ictère, angiomes stellaires, érythème palmaire."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Cirrhose + ascite à gradient élevé (> 11 g/L) + œdèmes déclives."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Échographie abdominale + ponction d'ascite exploratrice (gradient albumine sérum-ascite > 11 g/L = HTP, PNN < 250/mm3), bilan hépatique, TP/INR, créatinine."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Endoscopie haute (dépistage des varices œsophagiennes)."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Paracentèse évacuatrice si ascite tendue avec perfusion d'albumine (8 g/L d'ascite retiré au-delà de 5 L) ; antibiothérapie si PBS."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Régime hyposodé modéré (4–6 g NaCl/j), spironolactone ± furosémide (ratio 100 mg / 40 mg), sevrage alcoolique, TIPS ou transplantation hépatique si ascite réfractaire."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Péritonite bactérienne spontanée, syndrome hépatorénal, hydrothorax hépatique, hernie ombilicale étranglée."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Poids, natriurèse des 24 h, créatinine et ionogramme (risque d'hyponatrémie/hyperkaliémie)."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "L'apparition d'une ascite réduit la survie à 50 % à 2 ans sans transplantation."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Hépatologue, gastro-entérologue, médecin traitant."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 5,
+      "fichier_html_cible": "LOT_145_Phase_B_V0_DX.5.html",
+      "titre": "Syndrome néphrotique",
+      "cim": "N04.9",
+      "urgence": "semi-urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Syndrome glomérulaire défini par protéinurie > 3,5 g/24 h (ou RAC > 300 mg/mmol) + hypoalbuminémie < 30 g/L + œdèmes (souvent hyperlipidémie)."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Enfant : néphrose lipoïdique (lésions glomérulaires minimes) ; adulte : glomérulonéphrite extramembraneuse, hyalinose segmentaire et focale, diabète, amylose."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Altération de la barrière de filtration glomérulaire -> fuite massive d'albumine -> baisse de pression oncotique et activation du canal ENaC tubulaire rénal."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Douleur lombaire + hématurie macroscopique (thrombose veine rénale !), dyspnée aiguë (embolie pulmonaire !), insuffisance rénale aiguë, péritonite à pneumocoque."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Œdème périorbitaire matinal puis des membres inférieurs, urines mousseuses, prise de poids rapide."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Œdèmes généralisés blancs, mous, indolores, prenant le godet, épanchements séreux (pleural, ascite = anasarque)."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Protéinurie néphrotique (> 3,5 g/j) + hypoalbuminémie (< 30 g/L) + œdèmes."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Bandelette urinaire (protéinurie +++), protéinurie des 24 h (ou rapport P/C), albumine sérique, bilan lipidique, créatinine, échographie rénale et biopsie rénale chez l'adulte."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Bilan étiologique : glycémie/HbA1c, anti-PLA2R (GEM), ANA, complément, sérologies VHB/VHC/VIH, électrophorèse protéines."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Diurétiques de l'anse (± albumine IV si hypovolémie sévère), anticoagulation préventive ou curative si albumine < 20–25 g/L (risque thrombotique majeur !)."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Néphroprotection (IEC/ARA2 + iSGLT2), restriction sodée, statine, traitement spécifique étiologique (corticoïdes dans LGM, immunosuppresseurs dans GEM)."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Thromboses veineuses (veines rénales, TVP/EP), infections sévères (fuite d'IgG), insuffisance rénale aiguë."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Poids, protéinurie, albumine, créatinine."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Variable selon l'histologie (corticosensible dans LGM vs évolution chronique dans HSF/diabète)."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Néphrologue, médecin traitant."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 6,
+      "fichier_html_cible": "LOT_145_Phase_B_V0_DX.6.html",
+      "titre": "Maladie rénale chronique avancée (rétention hydrosodée)",
+      "cim": "N18.5",
+      "urgence": "semi-urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Surcharge hydrosodée liée à la réduction critique du nombre de néphrons fonctionnels dans la maladie rénale chronique stades 4–5."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Touche ~10 % de la population pour tous stades MRC ; stades 4–5 plus rares mais fréquents en médecine interne."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Incapacité des néphrons restants à excréter une charge sodée normale -> expansion volémique et HTA volodépendante."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "OAP anurique, hyperkaliémie menaçante (> 6,5 mmol/L ou signes ECG), acidose métabolique sévère, péricardite urémique."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Diabète, HTA ancienne, polykystose, dyspnée, nycturie, prurit, asthénie."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Œdèmes des membres inférieurs, HTA sévère, pâleur cutanéomuqueuse (anémie), parfois frottement péricardique si urémie terminale."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "DFG < 30 mL/min/1,73 m2 persistant > 3 mois avec surcharge hydrosodée."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Créatinine/DFG (CKD-EPI), ionogramme (K+, HCO3-), calcémie/phosphatémie, NFS, sédiment urinaire, échographie rénale."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "ECG systématique si hyperkaliémie."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Diurétiques de l'anse à forte dose (furosémide adapté au DFG) ; hémodialyse en urgence si OAP réfractaire, hyperkaliémie ou acidose menaçante."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Restriction sodée (< 5–6 g/j), diurétiques de l'anse, contrôle HTA, préparation à la suppléance rénale (dialyse/greffe)."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "OAP flash, hyperkaliémie fatale, encéphalopathie urémique."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Poids, créatinine, kaliémie, bicarbonates."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Progression vers l'insuffisance rénale terminale nécessitant dialyse ou transplantation."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Néphrologue, diététicien(ne) rénal(e), médecin traitant."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 7,
+      "fichier_html_cible": "LOT_145_Phase_B_V0_DX.7.html",
+      "titre": "Lymphœdème primaire ou secondaire",
+      "cim": "I89.0",
+      "urgence": "chronique",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Accumulation de liquide interstitiel riche en protéines par insuffisance de drainage du système lymphatique."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Secondaire le plus fréquent (curage ganglionnaire/radiothérapie pour cancer du sein ou mélanome, filariose) ; primaire plus rare (maladie de Milroy, Meige)."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Obstruction ou hypoplasie lymphatique -> stase protéique -> inflammation chronique et fibrose tissulaire irréversible."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Apparition rapide chez un patient sans antécédent chirurgical -> rechercher une compression ganglionnaire tumorale pelvienne/axillaire !"
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Antécédent de chirurgie/radiothérapie oncologique (sein, pelvis), ou début progressif à l'adolescence (primaire), épisodes d'érysipèle."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Œdème ferme/fibreux ne prenant PAS (ou peu) le godet au stade évolué, atteinte du dos du pied/main (aspect en « coussin »), signe de Stemmer positif (impossibilité de plisser la peau de la base du 2e orteil)."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Œdème chronique ferme avec signe de Stemmer positif et contexte compatible."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Diagnostic clinique (signe de Stemmer) ; lymphoscintigraphie isotopique en cas de doute ; TDM abdomino-pelvien si lymphœdème secondaire inexpliqué."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Écho-Doppler veineux pour exclure une composante veineuse mixte."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Antibiothérapie rapide si dermohypodermite aiguë (érysipèle), très fréquente sur lymphœdème."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Thérapie décongestive complexe (drainage lymphatique manuel + bandages multi-couches puis bas/manchon de compression sur mesure), soins cutanés rigoureux (prévention mycoses/portes d'entrée)."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Érysipèles récidivants, éléphantiasis, rare lymphangiosarcome (syndrome de Stewart-Treves)."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Mesure régulière des périmètres du membre, prévention des plaies et piqûres."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Affection chronique incurable mais stabilisable par la compression et le drainage."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Angiologue, physiothérapeute spécialisé en drainage lymphatique, bandagiste."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 8,
+      "fichier_html_cible": "LOT_145_Phase_B_V0_DX.8.html",
+      "titre": "Œdème cyclique idiopathique de la femme",
+      "cim": "R60.1",
+      "urgence": "chronique",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Rétention hydrosodée fonctionnelle bénigne survenant chez la femme préménopausée, caractérisée par une prise de poids diurne > 1,5 kg."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Femmes entre 20 et 50 ans, souvent associée à une obésité modérée ou un stress psychologique."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Hyperperméabilité capillaire orthostatique idiopathique entraînant une hypovolémie relative en position debout et un hyperaldostéronisme secondaire."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Prise de diurétiques cachée (œdème de rebond aux diurétiques !), protéinurie."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Gonflement des doigts, du visage et des jambes entre le matin et le soir, variation de poids > 1,5 kg dans la journée, oligurie diurne et polyurie nocturne."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Œdèmes modérés vespéraux sans signe d'insuffisance cardiaque, rénale ou hépatique."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Variation pondérale nycthémérale > 1,4 kg chez une femme préménopausée avec bilan organique normal."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Bilan d'exclusion normal (créatinine, albumine, BU, TSH, NT-proBNP) + test de pesée matin/soir sur plusieurs jours."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Aucune imagerie nécessaire."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Aucune urgence."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Rassurer, sevrage progressif de tout diurétique (cause majeure d'aggravation !), modération sodée, contention élastique légère, parfois spironolactone à faible dose en dernière intention."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Dépendance aux diurétiques et hypokaliémie chronique si traitée à tort par furosémide."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Réévaluation clinique programmée à 2–6 semaines avec contrôle de la tolérance thérapeutique et de l'observance."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Bénin, s'améliore souvent après la ménopause."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Médecin traitant."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 9,
+      "fichier_html_cible": "LOT_145_Phase_B_V0_DX.9.html",
+      "titre": "Hypothyroïdie sévère (myxœdème)",
+      "cim": "E03.9",
+      "urgence": "semi-urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Infiltration cutanée et sous-cutanée par des glycosaminoglycanes hydrophiles secondaires à une carence profonde en hormones thyroïdiennes."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Prévalence de l'hypothyroïdie ~2–4 % (thyroïdite de Hashimoto, post-iode radioactif/chirurgie)."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Accumulation dermique d'acide hyaluronique et de chondroïtine sulfate retenant l'eau (myxœdème)."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Hypothermie, somnolence/coma, bradycardie sévère (coma myxœdémateux !)."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Asthénie, frilosité, prise de poids, constipation, bradypsychie, voix rauque."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Faciès bouffi, œdème périorbitaire et des extrémités ferme ne prenant PAS le godet, peau sèche jaunâtre, bradycardie."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Tableau clinique d'hypothyroïdie + TSH élevée/T4L basse."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "TSH élevée et T4L basse (ou T4L basse avec TSH normale/basse si origine centrale)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Anticorps anti-TPO, bilan lipidique (hypercholestérolémie), CK, natrémie."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Si coma myxœdémateux : lévothyroxine IV + hydrocortisone IV."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Substitution orale par lévothyroxine (début progressif à 25 µg/j chez le sujet âgé ou coronarien, pleine dose d'emblée 1,6 µg/kg/j chez le sujet jeune sain)."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Épanchement péricardique, coma myxœdémateux, coronaropathie démasquée lors d'une substitution trop rapide."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Contrôle TSH à 6–8 semaines après chaque modification de dose."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Régression complète du myxœdème en quelques semaines/mois sous lévothyroxine."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Médecin traitant, endocrinologue."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 10,
+      "fichier_html_cible": "LOT_145_Phase_B_V0_DX.10.html",
+      "titre": "Entéropathie exsudative (perte protéique digestive)",
+      "cim": "K90.4",
+      "urgence": "semi-urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Fuite anormale de protéines plasmatiques à travers la muqueuse digestive entraînant une hypoalbuminémie et des œdèmes."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Rare ; causes : lymphangiectasie intestinale (maladie de Waldmann), péricardite constrictive, maladie de Crohn, maladie de Ménétrier, lymphome digestif."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Obstruction lymphatique intestinale ou ulcération muqueuse perdant albumine, immunoglobulines et lymphocytes."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Dénutrition sévère, thromboses, infections opportunistes par lymphopénie et hypogammaglobulinémie."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Œdèmes généralisés, diarrhée chronique, stéatorrhée, amaigrissement."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Anasarque (œdèmes mous prenant le godet, ascite, épanchement pleural), dénutrition."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Hypoalbuminémie sans fuite rénale ni défaut de synthèse hépatique + clairance fécale élevée de l'alpha-1 antitrypsine."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Clairance fécale de l'alpha-1 antitrypsine augmentée (test diagnostique clé !), albumine basse, absence de protéinurie, bilan hépatique normal."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Endoscopie digestive avec biopsies, IRM/TDM abdominale, échocardiographie (écarter une péricardite constrictive !)."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Support nutritionnel, diurétiques prudents, traitement d'une éventuelle complication infectieuse/thrombotique."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Traitement étiologique (régime pauvre en triglycérides à chaîne longue + TCM dans les lymphangiectasies, décortication péricardique, immunosuppresseurs si MICI/lupus)."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Malnutrition grave, thromboses, lymphopénie CD4."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Albumine sérique, poids, statut nutritionnel."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Dépend de la réversibilité de la cause sous-jacente."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Gastro-entérologue, nutritionniste, interniste."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 11,
+      "fichier_html_cible": "LOT_145_Phase_B_V0_DX.11.html",
+      "titre": "Syndrome de fuite capillaire idiopathique (maladie de Clarkson)",
+      "cim": "I78.8",
+      "urgence": "immediate",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Crises aiguës récurrentes d'hyperperméabilité capillaire systémique massive entraînant un choc hypovolémique et une anasarque."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Très rare (< 500 cas décrits), adulte d'âge moyen, souvent associé à une gammapathie monoclonale IgG."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Rupture transitoire des jonctions endothéliales (médiée par VEGF/angiopoïétine-2) -> fuite d'eau, électrolytes et albumine vers l'interstitium."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Choc réfractaire, rhabdomyolyse sur syndrome des loges, œdème pulmonaire lors de la phase de récupération (recirculation brutale des liquides !)."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Prodromes pseudo-grippaux puis prise de poids brutale, soif, malaise/choc en quelques heures."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Anasarque massive d'installation rapide, hypotension sévère, tachycardie, risque de syndrome des loges des 4 membres."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Triade choc + hémoconcentration + hypoalbuminémie aiguë réversible."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Triade biologique : hémoconcentration majeure (Hb/Ht très élevés), hypoalbuminémie sévère, hypotension ; électrophorèse (pic monoclonal IgG dans 80 %)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Exclusion d'un choc septique, anaphylactique ou angio-œdème."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Réanimation prudente (cristalloïdes titrés pour éviter l'OAP de reperfusion), vasopresseurs, surveillance des loges musculaires (fasciotomies si besoin)."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Prophylaxie mensuelle par immunoglobulines polyvalentes IV (IgIV) très efficace pour prévenir les rechutes."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Syndrome des loges, OAP de phase de recrutement, décès (20–30 % par crise sans IgIV)."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Hématocrite, pression veineuse, pressions des loges en réanimation."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Survie nettement améliorée grâce aux IgIV mensuelles."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Réanimation, interniste/immunologue."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 12,
+      "fichier_html_cible": "LOT_145_Phase_B_V0_DX.12.html",
+      "titre": "Œdème aigu du poumon (OAP cardiogénique)",
+      "cim": "J81",
+      "urgence": "immediate",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Inondation brutale de l'interstitium puis des alvéoles pulmonaires par élévation aiguë de la pression capillaire pulmonaire (> 25 mmHg)."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Urgence cardiovasculaire fréquente ; déclenchée par SCA, poussée hypertensive, trouble du rythme (FA rapide), rupture de cordage, écart de régime."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Insuffisance ventriculaire gauche aiguë -> élévation POG et pression capillaire pulmonaire dépassant la pression oncotique."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Hypotension / choc cardiogénique, épuisement respiratoire, bradycardie, troubles de conscience."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Dyspnée brutale nocturne, orthopnée majeure (« soif d'air »), angoisse, douleur thoracique si SCA."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Tachypnée, tirage, sueurs froides, cyanose, grésillement laryngé, expectoration mousseuse rosée, crépitants bilatéraux ascendants « en marée montante »."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Détresse respiratoire aiguë + crépitants bilatéraux + lignes B / aspect radiologique + élévation NT-proBNP."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Ne pas retarder le traitement ! ECG 12 dérivations, gazométrie artérielle, radiographie thoracique (syndrome alvéolo-interstitiel bilatéral en ailes de papillon), échographie pulmonaire (lignes B diffuses), troponine, BNP/NT-proBNP."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Échocardiographie au lit du patient."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Position assise jambes pendantes, oxygénothérapie + VNI (CPAP ou BiPAP) précoce, dérivés nitrés IV (si PAS > 100–110 mmHg), furosémide IV (40–80 mg), traitement de la cause (angioplastie si STEMI)."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Optimisation du traitement de l'insuffisance cardiaque, éducation hygiéno-diététique."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Intubation/ventilation mécanique, choc cardiogénique, arrêt hypoxique."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "SpO2, FR, PA, diurèse horaire et gazométrie sous VNI."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Amélioration spectaculaire en 1–2 h sous VNI + nitrés + diurétiques."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "SMUR, urgences, USIC, cardiologue."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 13,
+      "fichier_html_cible": "LOT_145_Phase_B_V0_DX.13.html",
+      "titre": "Angio-œdème laryngé anaphylactique",
+      "cim": "T78.3",
+      "urgence": "immediate",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Œdème aigu profond du derme et des sous-muqueuses (lèvres, langue, luette, larynx) médié par l'histamine lors d'une réaction anaphylactique."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Allergies alimentaires (arachide, fruits à coque, crustacés), piqûres d'hyménoptères, médicaments (bêta-lactamines, AINS)."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Dégranulation mastocytaire IgE-dépendante libérant histamine, tryptase et leucotriènes -> vasodilatation et extravasation rapide."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Stridor, tirage, impossibilité de parler ou d'avaler (asphyxie imminente !), choc anaphylactique."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Exposition allergénique récente (< 1–2 h), prurit palmo-plantaire ou du cuir chevelu, urticaire associée, dyspnée/dysphonie."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Œdème labial/lingual/palpébral rapide, urticaire prurigineuse, stridor inspiratoire, dysphonie, bronchospasme, hypotension."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Installation rapide (< minutes-heures) d'un œdème muqueux/laryngé ± urticaire/choc après exposition allergénique."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Diagnostic clinique immédiat : AUCUN examen ne doit retarder l'adrénaline ! Dosage de la tryptase sérique à H1–H2 (et basale à 24 h) a posteriori."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Bilan allergologique complet à distance (4–6 semaines)."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "ADRÉNALINE IM immédiate (0,5 mg face antéro-latérale de cuisse, renouvelable à 5 min ; 0,01 mg/kg chez l'enfant), O2 haut débit, remplissage NaCl 0,9 % si hypotension, antihistaminique H1 + corticoïde en adjuvant (ne remplacent JAMAIS l'adrénaline !), intubation/cricothyroïdotomie si asphyxie."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Prescription de 2 stylos auto-injecteurs d'adrénaline (EpiPen), carte d'allergie, éviction et désensibilisation (hyménoptères)."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Asphyxie fatale, arrêt cardiaque hypoxique, réaction biphasique dans les 6–12 h."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Surveillance hospitalière de 6–12 h (risque de réaction biphasique)."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Résolution rapide si adrénaline IM administrée sans délai."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "SMUR, urgences, allergologue."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 14,
+      "fichier_html_cible": "LOT_145_Phase_B_V0_DX.14.html",
+      "titre": "Angio-œdème bradykinique héréditaire ou sous IEC",
+      "cim": "D84.1",
+      "urgence": "immediate",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Œdème profond blanc, non prurigineux et sans urticaire, médié par l'accumulation de bradykinine (déficit en C1-inhibiteur ou prise d'IEC/gliptine)."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Forme sous IEC : 0,1–0,7 % des patients traités (peut survenir après des années de traitement !) ; forme héréditaire (AOH) : 1/50 000."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Défaut de dégradation de la bradykinine (IEC inhibant l'ECA) ou surproduction (déficit en C1-INH) -> hyperperméabilité vasculaire."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Dysphonie, stridor, œdème lingual massif menaçant les voies aériennes."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Prise d'IEC (énalapril, lisinopril, périndopril...), antécédents familiaux (AOH), crises abdominales douloureuses antérieures, absence de prurit/urticaire."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Œdème asymétrique blanc, ferme, non prurigineux du visage, des lèvres, de la langue ou du larynx (stridor) sans aucune urticaire."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Angio-œdème blanc sans urticaire/prurit résistant aux corticoïdes/antihistaminiques sous IEC ou avec déficit en C1-INH."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "En aigu : clinique ! Bilan à distance pour AOH : dosage C4 (abaissé), C1-inhibiteur antigénique et fonctionnel."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Nasofibroscopie douce si doute sur une atteinte laryngée."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Sécurisation des voies aériennes (intubation vigile précoce si œdème laryngé), concentré de C1-inhibiteur IV (Berinert) ou icatibant SC (antagoniste B2 de la bradykinine) ; arrêt définitif de l'IEC !."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Contre-indication à vie aux IEC (et prudence avec sacubitril/valsartan) ; prophylaxie de fond si AOH sévère (lanadélumab, bérotralstat)."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Asphyxie mortelle (résistance totale à l'adrénaline/corticoïdes)."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Surveillance respiratoire stricte en soins continus jusqu'à régression complète."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Guérison en 24–72 h ; aucune récidive après arrêt définitif de l'IEC (attention : récidives possibles dans les premiers mois post-arrêt)."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Urgences, réanimation, immunologue/allergologue."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 15,
+      "fichier_html_cible": "LOT_145_Phase_B_V0_DX.15.html",
+      "titre": "Thrombose veineuse profonde (TVP) aiguë d'un membre",
+      "cim": "I80.2",
+      "urgence": "urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Occlusion aiguë d'une veine profonde (membre inférieur ou supérieur) par un thrombus fibrino-cruorique."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Incidence ~1–2/1000/an ; facteurs (triade de Virchow) : immobilisation, chirurgie, cancer, grossesse/œstroprogestatifs, thrombophilie."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Stase veineuse + lésion endothéliale + hypercoagulabilité -> thrombus extensif risquant de migrer vers l'artère pulmonaire."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Dyspnée, douleur thoracique, tachycardie, syncope (embolie pulmonaire !) ; membre cyanosé très tendu avec abolition des pouls (phlegmatia coerulea dolens)."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Douleur unilatérale du mollet/cuisse, alitement récent, vol long-courrier, chirurgie, cancer actif, contraception œstroprogestative."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Œdème unilatéral du membre, chaleur locale, dilatation veineuse superficielle, douleur à la palpation du mollet (signe de Homans peu spécifique)."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Incompressibilité d'un tronc veineux profond à l'échographie."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Score de Wells : si probabilité faible/modérée -> D-dimères (si négatifs, TVP exclue) ; si probabilité forte ou D-dimères positifs -> écho-Doppler veineux complet avec test de compression."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Bilan de cancer occulte ciblé (examen clinique, NFS, Rx thorax, âge-dépendant) si TVP non provoquée > 50 ans."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Anticoagulation thérapeutique immédiate (AOD : rivaroxaban ou apixaban d'emblée, ou HBPM/fondaparinux) ; thrombectomie/thrombolyse si phlegmatia coerulea dolens."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Anticoagulation ≥ 3 mois (provoquée) ou au long cours (non provoquée/récidivante/cancer actif), bas de compression classe II pour prévenir le syndrome post-thrombotique."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Embolie pulmonaire fatale, syndrome post-thrombotique, phlegmatia coerulea dolens (gangrène veineuse)."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Recherche de saignement sous anticoagulants, fonction rénale."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Très favorable sous anticoagulation bien conduite."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Angiologue, médecin traitant, hématologue si thrombophilie."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 16,
+      "fichier_html_cible": "LOT_145_Phase_B_V0_DX.16.html",
+      "titre": "Pré-éclampsie sévère",
+      "cim": "O14.1",
+      "urgence": "urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Pathologie gravidique survenant après 20 semaines d'aménorrhée associant HTA (≥ 140/90 mmHg) et protéinurie (≥ 0,3 g/24 h) ou atteinte d'organe maternel."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Complique 2–5 % des grossesses ; facteurs : primiparité, grossesse multiple, HTA chronique, obésité, antécédent de pré-éclampsie."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Défaut de remodelage des artères spiralées placentaires -> ischémie placentaire -> libération de facteurs anti-angiogéniques (sFlt-1) -> dysfonction endothéliale généralisée."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Céphalées/phosphènes, douleur épigastrique en barre (hématome sous-capsulaire du foie / HELLP), oligurie, convulsions (éclampsie !)."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Grossesse ≥ 20 SA, prise de poids brutale, céphalées en casque, phosphènes/scotomes, acouphènes, barre épigastrique."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "HTA sévère (≥ 160/110 mmHg), œdèmes généralisés rapides (visage, mains, jambes), réflexes ostéotendineux vifs/polycinétiques (signe d'imminence d'éclampsie)."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Grossesse ≥ 20 SA + HTA + protéinurie ou atteinte d'organe (thrombopénie, cytolyse, IRA, signes neurologiques)."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "PA répétée, rapport protéinurie/créatininurie (> 30 mg/mmol), NFS (plaquettes < 100 G/L), transaminases, créatinine, LDH, haptoglobine (HELLP), échographie fœtale + RCF."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Ratio sFlt-1/PlGF pour l'aide au pronostic/diagnostic."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Hospitalisation en maternité niveau III, sulfate de magnésium IV (prévention/traitement des convulsions d'éclampsie), antihypertenseurs IV (labétalol, nicardipine), corticoïdes pour maturation pulmonaire fœtale (< 34 SA), extraction fœtale (seul traitement curatif !)."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Surveillance tensionnelle post-partum (risque de pré-éclampsie post-partum !), aspirine 100–150 mg/j dès 12 SA lors des grossesses ultérieures."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Éclampsie, syndrome HELLP, hématome rétroplacentaire, CIVD, OAP, mort fœtale in utero."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Monitoring continu maternel (PA, diurèse, ROT) et fœtal (RCF)."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Guérison dans les jours/semaines suivant la délivrance ; risque cardiovasculaire accru à long terme."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Gynécologue-obstétricien, anesthésiste, néonatologue."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 17,
+      "fichier_html_cible": "LOT_145_Phase_B_V0_DX.17.html",
+      "titre": "Syndrome cave supérieur",
+      "cim": "I87.1",
+      "urgence": "urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Obstruction extrinsèque ou intrinsèque de la veine cave supérieure bloquant le retour veineux de la tête, du cou et des membres supérieurs."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Causes malignes > 85 % (cancer bronchique à petites cellules ou épidermoïde, lymphome médiastinal) ; bénignes (thrombose sur cathéter/pacemaker, fibrose médiastinale)."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Compression tumorale ou thrombose endoluminale -> hyperpression veineuse cervico-céphalique et développement de collatérales thoraciques."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Stridor/œdème laryngé, troubles de conscience/convulsions (œdème cérébral), instabilité hémodynamique."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Gonflement du visage et du cou le matin, céphalées, sensation de tête pleine aggravée en décubitus ou penché en avant, tabagisme."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Œdème en pèlerine (visage, cou, creux sus-claviculaires, bras), turgescence jugulaire non pulsatile, circulation veineuse collatérale thoracique, cyanose faciale."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Œdème en pèlerine + collatéralité thoracique + obstruction VCS au TDM."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "TDM thoracique injectée (visualise le siège de l'obstruction, thrombose associée et masse médiastinale) + biopsie diagnostique (avant corticoïdes si suspicion de lymphome !)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Échographie veineuse des membres supérieurs si cathéter central."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Position semi-assise, oxygénothérapie ; pose de stent endovasculaire cave supérieur en urgence si détresse respiratoire ou neurologique ; anticoagulation si thrombose associée."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Traitement étiologique oncologique (chimiothérapie urgente si CBPC ou lymphome, radiothérapie) ou retrait de cathéter."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Œdème laryngé asphyxiant, œdème cérébral, thrombose extensive."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Vigilance, dyspnée et périmètre cervical."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Régression rapide après pose de stent ou chimiothérapie dans les tumeurs chimiosensibles."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Oncologue, pneumologue, radiologue interventionnel."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    }
+  ],
+  "prompt_alpha_a_jour": "# MISSION : CORRECTION ET COMPLÉTION DES 248 SSP SUISSES (3 975 ENTITÉS + 248 CHAPITRES 0)\n\n## § 0. IDENTIFICATION, SIGNATURE & RÈGLES DE CONTINUITÉ — BLOQUANT ABSOLU\n1. **Identification obligatoire** en tête de première réponse :\n   - HEURE DE DÉBUT : AAAA-MM-JJ HH:MM (Europe/Zurich)\n   - MODÈLE : nom exact du modèle (ex. ANTIGRAVITY ORCHESTRATOR NEON)\n   - PLATEFORME : plateforme exacte (ex. ANTIGRAVITY)\n   - Ajouter la même ligne à `1_Claude AI/IDENTIFICATION_AGENTS.md`. Si incertitude, s'arrêter.\n2. **Signature IA fixe en bas à droite de TOUT HTML produit ou modifié** (juste avant `</body>`, en GRAS MAJUSCULE) :\n   `<div id=\"signature-ia\" style=\"position:fixed;right:12px;bottom:10px;z-index:9999;background:#fff;border:2px solid #000;padding:4px 10px;font:700 12px/1.3 Arial,sans-serif;text-transform:uppercase;color:#000\">DÉBUT : AAAA-MM-JJ HH:MM (EUROPE/ZURICH) · MODÈLE : <NOM> · PLATEFORME : <PLATEFORME></div>`\n   - **Seul Vial peut autoriser le retrait de ce bloc.** Un agent qui reprend un fichier signé ajoute sa propre ligne sous la précédente sans jamais effacer l'existante.\n3. **Continuité & transparence** :\n   - **Redémarrage propre à partir de `SSP_248`** : tous les cours précédemment modifiés ont été restaurés à l'état initial (`6941513`). Enchaîner continûment **`SSP_248 → SSP_033`**, puis **`SSP_001 → SSP_032`**.\n   - **Toujours afficher le raisonnement visible** en français dans chaque réponse.\n   - **Veille & relance GitHub** : commiter et pousser sur `origin main` après chaque SSP (ou lot <= 5 SSP) avec l'état à jour dans `SUIVI_PRODUCTION.csv`, `HANDOFF_AFFINAGE.md` et `HANDOFF_IA_COMPLET.md`.\n   - **Suivi graphique temps réel** : maintenir à jour le tableau de bord visuel temps réel des réalisations achevées et en cours.\n\n## § 1. RÈGLES ACTUALISÉES (PRIMENT SUR LE PROMPT ALPHA 19.11.26)\n1. **Nombre de cours par SSP** : **1 cours par entité de la Cartographie Renouveau** (15 à 24 entités par SSP, 3 975 au total) + le Chapitre 0 (`Phase_A`), dans l'ordre exact des `Cours 1 … N` de `SSP_nnn/NOTIONS.md` / `NOTIONS.json`.\n2. **QUALITÉ CLINIQUE MAXIMALE & ZÉRO MÉDIOCRITÉ (BLOQUANT ABSOLU — Consigne Vial 20.11.26)** :\n   - **Interdiction absolue de toute prose patronnée / générique** : aucune phrase-cadre où seul le nom de la pathologie change d'un cours à l'autre, aucun remplissage artificiel pour atteindre le calibre. La médiocrité clinique est dangereuse et entraîne un rejet immédiat.\n   - Chaque cours (`Phase_A` et `DX.1..N`) doit être **rédigé sur mesure** pour son entité exacte, avec : raisonnement physiopathologique et sémiologique réel, seuils numériques précis, diagnostics différentiels discriminants, posologies et contre-indications sourcées (Compendium.ch / AIPS, Tox Info Suisse, OFSP, ASSM, sociétés savantes suisses), vignettes cliniques authentiques et QCM exigeants de niveau Examen Fédéral Suisse.\n3. **INTERDICTION DES ARBRES DÉCISIONNELS (Consigne Vial 20.11.26)** :\n   - **Ne générer AUCUN arbre décisionnel ni algorithme graphique (`.fm-canvas`, SVG décisionnel, etc.)** dans `Phase_A` ou dans les `DX.n` — l'auteur (Vial) les réalisera lui-même.\n4. **Calibre texte pur actualisé (Consigne Vial 20.11.26)** :\n   - **80 à 100 Ko de texte pur UTF-8 par fichier** (`81 920` à `102 400` octets, calibre du Prompt Alpha confirmé par Vial le 20.11.2026 à 21:20, mesuré fenêtres comprises, hors balises HTML, CSS, JS, SVG et images).\n   - HTML hors images (`controle3.py`) : **`40 000` à `100 000` octets** (alerte).\n   - Densité maximale : zéro remplissage, zéro phrase pouvant figurer telle quelle dans un autre cours, zéro phrase de gabarit de `cartographie_DATA.json`.\n5. **Phrases verbales exclusives (BLOQUANT)** :\n   - Chaque phrase (texte, fenêtres, listes, légendes `<figcaption>`, cellules narratives `<td>`) contient un verbe conjugué reconnu. **Zéro phrase nominale.**\n4. **Médicaments cliquables d'emblée & Fenêtres centrées PK/PD à 2 onglets (Consigne Vial 20.11.26)** :\n   - Dès qu'un médicament est évoqué, il devient cliquable (`<a class=\"ouvre med-chip\" href=\"#f-...\">`).\n   - Chaque `<section class=\"fenetre mb\" id=\"f-...\"><div class=\"fen\">` s'ouvre au centre de l'écran et contient **2 onglets** :\n     * **Onglet 1 (`data-tab=\"pk\"`)** : Pharmacocinétique + **Courbe vectorielle SVG $C(t)$** + **4 paramètres cliniciens mis en évidence** (`.pkpd-kpis`).\n     * **Onglet 2 (`data-tab=\"pd\"`)** : Pharmacodynamique & Clinique + **Courbe vectorielle SVG $E(C)$** + posologies/précautions/grossesse suisses (Compendium.ch / AIPS).\n5. **Images** : uniquement à l'intérieur des `<section class=\"fenetre\">`, jamais hors fenêtre (licences selon Prompt Alpha § 4). Ne comptent pas dans le calibre.\n6. **Zéro terminologie de chantier visible** : aucun texte visible (ni `<title>`) ne doit contenir `LOT`, `V0`, `Phase A/B`, `DX.n`, `Appel A/B`, `Partie n`. Seuls les noms de fichiers gardent le format Alpha (`LOT_nnn_Phase_A_V0.html`, `LOT_nnn_Phase_B_V0_DX.i.html`).\n7. **Circuits & Plans** :\n   - `MONOGRAPHIQUE` (189 SSP) : plan maladie en 14 points (Prompt Alpha § 3.1).\n   - `NON_MONOGRAPHIQUE` (52 SSP) : Leçon en 12 à 14 points adaptés (Prompt Alpha § 3.2). **Jamais** de plan maladie ni de titres « Physiopathologie / Approche syndromique / Diagnostic positif » artificiels.\n   - `MIXTE` (7 SSP) : Prompt Alpha § 3.3, chaque fichier déclare `<meta name=\"ssp-circuit\" content=\"...\">`.\n8. **Correctifs Frontend v2 / Architecture `_sources/` (`UNIQUE.html` & `_polices/`)** :\n   - **Arborescence propre par SSP** : à la racine de `SSP_nnn/`, seul **`SSP_nnn_<code>_UNIQUE.html`** (plus le sous-dossier **`_sources/`**) est visible. Tous les fichiers sources (`LOT_nnn_*.html`, `images/`, `NOTIONS.*`, `MANIFESTE.json`, `DECISION*`, `paquet.json`, `_archive_avant_alpha/`) sont rangés dans `SSP_nnn/_sources/` sans rien supprimer.\n   - **Barre haute amovible (`gabarit_unique.html`)** : `#topbar` compacte 1 ligne (~42 px) avec pilule active, fil d'Ariane section, boutons `◀`/`▶`, tiroir overlay amovible `#dd-drawer` (`☰ Diagnostics (N) ▾` + option `📌 Épingler`) contenant `nav#nav` en colonnes égales (`32 px`, teinte unique par cours), et bouton `▴ Masquer barre` + pilule flottante `#btn-show-bar`.\n   - **Zéro dédoublement & navigation `#...` 100 % fonctionnelle (`forme.js`)** : script `forme.js` exécuté sous `DOMContentLoaded` et injecté par `assembler_unique.py`/`inliner.py` après `</head>` et avant `#signature-ia`/`</body>` ; intercepteur global appelant `e.preventDefault()` sur 100 % des `href^=\"#\"` (bloque le rechargement `srcdoc` + `file://`).\n   - **Modales centrées `<div class=\"fen\">` & désaturation (`forme.css` / `optimiser_ssp.py`)** : ouverture via classe `.fm-open` (plus `:target` en repli) avec pile `modalStack` et bouton `Fermer ✕` sticky (sans `history.back()`), auto-enveloppement `<div class=\"fen\">`, tableaux hors modale déplacés vers `<section class=\"fenetre fm-tab-fen\">` déclenchés par cartes `.fm-encart-fen`, citations `<sup class=\"r\"><a>` compactées en `[N]` avec modale aperçu `#fm-src-modal` empilable (`fm-stack-top`), puces médicaments `a.ouvre.med-chip` (`℞ ...`, `white-space: nowrap`, compatible accents français), repli du plan latéral desktop `#fm-plan-toggle`, îlots discontinus (`margin-bottom: 30px`) et padding bas `5.5rem` protégeant la lecture au-dessus de `#signature-ia`.\n   - **HTML unique** : ne jamais l'écrire à la main ; toujours exécuter `optimiser_ssp.py` puis `assembler_unique.py nnn`.\n\n## § 2. ARCHIVAGE & WORKFLOW PAR SSP (P0 → P4)\n- **Zéro suppression** : avant d'écraser ou renommer un fichier source existant, archiver dans `SSP_nnn/_sources/_archive_avant_alpha/`.\n- **P0 (Préparer)** : lire circuit (`catalogue_248.json`), entités (`NOTIONS.md`/`NOTIONS.json`), `memoire_zero_token.py --digest --lot nnn`, écrire `PLAN_ENTITES.md`.\n- **P1 (Décider)** : noter dans `DECISION.md` (Corriger / Réécrire si mécanique, faux plan maladie ou `< 30 Ko` / Créer).\n- **P2 (Produire)** : `LOT_nnn_Phase_A_V0.html` + `LOT_nnn_Phase_B_V0_DX.1..N.html`, 100 % des notions de `NOTIONS.json` expliquées et sourcées (Compendium.ch / AIPS, OFSP, ASSM, CC, LAMal, LAVI, Smarter Medicine), sans aucune phrase gabarit de la cartographie.\n- **P3 (Portes de Contrôle + Optimisation + Assemblage + Audit Chrome)** :\n  1. `controle3.py --script-ok` → **`VERT {}`** (si `paquet.json` présent ; `--script-ok` requis car `_sources/` référence `../../_polices/forme.js`)\n  2. `verif_aips.py` → **`OK`** (si `paquet.json` présent) et `restaurer_fond.py --verifier` → **`exit=0`**\n  3. `python _outils/optimiser_ssp.py nnn` → migration vers `_sources/`, tableaux déplacés en `<div class=\"fen\">`, teintes non bleues `--fm-a`\n  4. `python _outils/verif_mission.py nnn` → **100 % fichiers `PASS`** (`errors: []`)\n  5. `python _outils/assembler_unique.py nnn` → **`(1 + N) / (1 + N) onglets`** à la racine de `SSP_nnn/`\n  6. `python _outils/notions.py verifier nnn` → **`0 NON`** + copier `rapport_notions.csv` dans `SSP_nnn/_sources/`\n  7. `python _outils/audit_unique_browser.py nnn --all-tabs` → **`PASS` sur 100 % des onglets en Chrome headless réel**\n  8. Ajouter ligne dans `SUIVI_PRODUCTION.csv` + `git commit` + `git push origin main`.\n- **P4 (Affinage)** : consigner tout doute clinique/posologique non vérifié dans `1_Claude AI/HANDOFF_AFFINAGE.md` sous `## SSP_nnn`.\n\n## § 3. MISSION 2 — SSP 001 → 032\n- Extraire les cours depuis `SSP_nnn_<code>_UNIQUE.html` (JSON `data` gzip+base64, marqueurs `@@IMG:…@@`, `@@FONT:…@@`) après archivage des anciens `LOT_nnn_*.html` dans `_archive_avant_alpha/`.\n- Le frontend reste identique ; auditer le contenu avec la même sévérité (attention : `SSP_013` G13 = `NON_MONOGRAPHIQUE`, `SSP_014` G14 = `MIXTE`).\n- Produire `1_Claude AI/AUDIT_001-032.md` et corriger tous les ❌.\n\n## § 4. LES 12 BLOCAGES ROUGE (REJET IMMÉDIAT)\n1. Identification absente ou incertaine.\n2. Signature `#signature-ia` absente, modifiée ou supprimée.\n3. Entité de la Cartographie sans cours.\n4. Fichier hors intervalle `80–100 Ko` de texte pur (tout cours ; un cours de 30–50 Ko est à enrichir).\n5. Toute phrase nominale.\n6. Toute notion au verdict `NON`.\n7. Phrase gabarit de `cartographie_DATA.json` recopiée dans un cours.\n8. Plan maladie appliqué à une Leçon `NON_MONOGRAPHIQUE`.\n9. Terme de chantier visible (`LOT`, `V0`, `Phase A/B`, `DX.n`, `Appel`, `Partie n`).\n10. Posologie sans source de la cascade suisse.\n11. Image hors `<section class=\"fenetre\">`.\n12. Fichier supprimé au lieu d'être archivé.\n\n## § 5. ANNEXE CIRCUITS (248 SSP)\n- **NON_MONOGRAPHIQUE (52)** : 013 · 065 · 069 · 176 · 180 · 181 · 182 · 184 · 185 · 186 · 192 · 194 · 195 · 198 · 200 · 203 · 204 · 205 · 206 · 207 · 208 · 209 · 210 · 211 · 212 · 213 · 214 · 215 · 216 · 217 · 218 · 219 · 220 · 221 · 222 · 224 · 225 · 226 · 227 · 232 · 233 · 235 · 236 · 237 · 238 · 239 · 240 · 241 · 242 · 243 · 246 · 247.\n- **MIXTE (7)** : 014 · 165 · 174 · 175 · 190 · 202 · 223.\n- **MONOGRAPHIQUE (189)** : tous les autres SSP."
+}

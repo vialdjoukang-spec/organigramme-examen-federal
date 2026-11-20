@@ -1,0 +1,3064 @@
+{
+  "rappel_obligatoire_avant_redaction": {
+    "lecture_imperative": [
+      "1. Lire intégralement PROMPT_Alpha_19.11.26.md ET la mise à jour incluse dans prompt_alpha_a_jour ci-dessous.",
+      "2. Respecter l'intervalle GLOBAL par cours : viser 85–95 Ko de texte médical pur (soit ~95–115 Ko de fichier JSON) sans quota rigide par partie — répartir le texte proportionnellement à l'importance clinique des parties.",
+      "3. Produire graduellement 1 cours complet par requête (Phase A, puis Cours 1, Cours 2...) en français médical académique, phrases verbales exclusives (0 phrase nominale), zéro prose générique ou patronnée.",
+      "4. Utiliser uniquement les guillemets typographiques français « … » dans les valeurs texte JSON (jamais de guillemet droit non échappé).",
+      "5. Zéro arbre décisionnel graphique (.fm-canvas) : ne générer aucun schéma décisionnel."
+    ],
+    "specificites_locales_ssp": [
+      "Circuit MONOGRAPHIQUE : respecter le plan maladie en 14 points avec socle généralités (1-3), démarche diagnostique (4-10), prise en charge posologique suisse intégrale (11) et QCM Examen Fédéral (14).",
+      "Couvrir 100 % des notions obligatoires listées dans phase_b[*].plan[*].notions_obligatoires pour Hypothermie (G8).",
+      "Cascade posologique suisse à 4 paliers obligatoire : 1. AIPS Swissmedic (n° 5 chiffres) -> 2. Compendium.ch -> 3. Sociétés savantes & CHU suisses (HUG, CHUV, Inselspital, USZ, USB, OFSP, ASSM, SSMIG, Tox Info Suisse 145) -> 4. Sociétés savantes européennes."
+    ]
+  },
+  "meta": {
+    "rang_gravite": 85,
+    "ssp": "SSP_008",
+    "code_profiles": "G8",
+    "nom_francais": "Hypothermie",
+    "circuit": "MONOGRAPHIQUE",
+    "police_obligatoire": "Atkinson Hyperlegible",
+    "calibre_cible": "80–100 Ko texte pur",
+    "arbres_decisionnels_autorises": false,
+    "mode_redaction": "Neon Deep Research",
+    "nb_chapitres_total": 20,
+    "defauts_audit_initial": [
+      "Incomplet (11/20 cours)",
+      "245 phrases nominales",
+      "Termes chantier (11 f.)"
+    ]
+  },
+  "sommaire": {
+    "phase_a": {
+      "fichier_html_cible": "LOT_008_Phase_A_V0.html",
+      "titre": "Hypothermie — Vue d'ensemble et orientation clinique (G8)"
+    },
+    "phase_b": [
+      {
+        "cours_numero": 1,
+        "titre": "Hypothermie accidentelle légère de stade I (exposition environnementale)",
+        "cim": "T68",
+        "urgence": "urgent"
+      },
+      {
+        "cours_numero": 2,
+        "titre": "Hypothermie péri-opératoire (anesthésie générale / bloc neuraxial)",
+        "cim": "T88.5",
+        "urgence": "urgent"
+      },
+      {
+        "cours_numero": 3,
+        "titre": "Hypothermie du sujet âgé par dénutrition et précarité thermique",
+        "cim": "R68.0",
+        "urgence": "urgent"
+      },
+      {
+        "cours_numero": 4,
+        "titre": "Intoxication alcoolique aiguë avec exposition au froid",
+        "cim": "F10.0",
+        "urgence": "urgent"
+      },
+      {
+        "cours_numero": 5,
+        "titre": "Hypothyroïdie décompensée modérée",
+        "cim": "E03.9",
+        "urgence": "semi-urgent"
+      },
+      {
+        "cours_numero": 6,
+        "titre": "Hypoglycémie iatrogène du patient diabétique",
+        "cim": "E16.2",
+        "urgence": "urgent"
+      },
+      {
+        "cours_numero": 7,
+        "titre": "Hypothermie néonatale par perte thermique précoce",
+        "cim": "P80.9",
+        "urgence": "urgent"
+      },
+      {
+        "cours_numero": 8,
+        "titre": "Hypothermie sur intoxication aux sédatifs / benzodiazépines",
+        "cim": "T42.4",
+        "urgence": "urgent"
+      },
+      {
+        "cours_numero": 9,
+        "titre": "Insuffisance hypophysaire (panhypopituitarisme)",
+        "cim": "E23.0",
+        "urgence": "semi-urgent"
+      },
+      {
+        "cours_numero": 10,
+        "titre": "Érythrodermie généralisée (psoriasis / eczéma) avec perte thermique",
+        "cim": "L53.9",
+        "urgence": "semi-urgent"
+      },
+      {
+        "cours_numero": 11,
+        "titre": "Lésion médullaire haute (poïkilothermie sur tétraplégie)",
+        "cim": "G95.9",
+        "urgence": "semi-urgent"
+      },
+      {
+        "cours_numero": 12,
+        "titre": "Encéphalopathie de Gayet-Wernicke (carence en thiamine)",
+        "cim": "E51.2",
+        "urgence": "urgent"
+      },
+      {
+        "cours_numero": 13,
+        "titre": "Hypothermie accidentelle sévère stades III-IV (risque d'ECMO / ECLS)",
+        "cim": "T68",
+        "urgence": "immediate"
+      },
+      {
+        "cours_numero": 14,
+        "titre": "Noyade en eau froide avec hypothermie",
+        "cim": "T75.1",
+        "urgence": "immediate"
+      },
+      {
+        "cours_numero": 15,
+        "titre": "Coma myxœdémateux",
+        "cim": "E03.5",
+        "urgence": "immediate"
+      },
+      {
+        "cours_numero": 16,
+        "titre": "Sepsis grave hypothermique (choc septique à présentation froide)",
+        "cim": "A41.9",
+        "urgence": "immediate"
+      },
+      {
+        "cours_numero": 17,
+        "titre": "Syndrome d'afterdrop et collapsus de réchauffement",
+        "cim": "T68",
+        "urgence": "immediate"
+      },
+      {
+        "cours_numero": 18,
+        "titre": "Gelures profondes des extrémités (frostbite grade 3-4)",
+        "cim": "T33.9",
+        "urgence": "urgent"
+      },
+      {
+        "cours_numero": 19,
+        "titre": "Intoxication aiguë aux opioïdes avec hypothermie et dépression respiratoire",
+        "cim": "T40.2",
+        "urgence": "immediate"
+      }
+    ]
+  },
+  "phase_a": {
+    "titre": "Hypothermie — Vue d'ensemble (G8)",
+    "plan": [
+      {
+        "point": 1,
+        "titre": "Définition nosologique et périmètre clinique",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 2,
+        "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 3,
+        "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 4,
+        "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+        "description": "Présentation et hiérarchisation des 19 entités de la Cartographie Renouveau."
+      },
+      {
+        "point": 5,
+        "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 6,
+        "titre": "Examen physique systématique région par région",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 7,
+        "titre": "Approche syndromique et stratification de gravité",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 8,
+        "titre": "Diagnostic positif, scores cliniques et critères validés",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 9,
+        "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 10,
+        "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 11,
+        "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 12,
+        "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 13,
+        "titre": "Points clés indispensables à retenir",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 14,
+        "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      }
+    ]
+  },
+  "phase_b": [
+    {
+      "cours_numero": 1,
+      "fichier_html_cible": "LOT_008_Phase_B_V0_DX.1.html",
+      "titre": "Hypothermie accidentelle légère de stade I (exposition environnementale)",
+      "cim": "T68",
+      "urgence": "urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Diminution involontaire de la température centrale entre 32,0 et 35,0 °C avec conservation de la conscience et présence de frissons (Swiss Staging System stade I)."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Fréquente en Suisse en milieu alpin, sports d'hiver, randonnée sous la pluie/vent ou chutes à domicile."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Pertes thermiques par conduction, convection (vent), radiation et évaporation (vêtements mouillés) dépassant la thermogenèse ; stimulation hypothalamique du frissonnement."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Drapeaux rouges : disparition des frissons (passage au stade II < 32 °C !), somnolence/confusion, bradycardie, traumatisme associé."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Exposition au froid/vent/humidité, durée d'exposition, fatigue, épuisement des réserves glycogéniques."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Température centrale (tympanique basse ou rectale/œsophagienne) 32-35 °C, patient conscient mais parfois apathique ou dysarthrique, frissons intenses, tachycardie, tachypnée."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Température centrale 32-35 °C + patient conscient + frissons présents (stade I suisse)."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Thermomètre hypothermique (capable de lire < 35 °C !), glycémie capillaire, examen traumatologique complet."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "ECG (trémulations de frissons sur la ligne de base, parfois allongement PR/QT) si facteur de risque cardiaque."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Isoler du froid/vent, retirer vêtements mouillés (en découpant si besoin), sécher, couverture isolante/couverture de survie, réchauffement actif externe (packs chauffants tronc), boissons chaudes sucrées si déglutition sûre."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Éducation à la prévention en montagne (équipement multicouche, hydratation, alimentation)."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Progression vers stade II-III si exposition poursuivie, gelures superficielles associées."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Surveillance de la température centrale jusqu'à > 36 °C et de l'état de conscience."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Excellent pronostic sans séquelle au stade I."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Secours en montagne (REGA 1414 / OCVS), médecin de famille, urgences si lésions associées."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 2,
+      "fichier_html_cible": "LOT_008_Phase_B_V0_DX.2.html",
+      "titre": "Hypothermie péri-opératoire (anesthésie générale / bloc neuraxial)",
+      "cim": "T88.5",
+      "urgence": "urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Baisse de la température centrale en dessous de 36,0 °C (hypothermie péri-opératoire définie dès < 36 °C) induite par l'anesthésie et l'exposition chirurgicale."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Touche 20-70 % des patients opérés en l'absence de réchauffement actif ; plus fréquente chez le sujet âgé, chirurgie abdominale ouverte et interventions > 60 min."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Les anesthésiques inhibent la vasoconstriction thermorégulatrice et abaissent le seuil du frisson, causant une redistribution de la chaleur du noyau central vers la périphérie."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Drapeaux rouges : angor/ischémie myocardique post-opératoire, trouble du rythme, saignement chirurgical accru (dysfonction plaquettaire hypothermique)."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Contexte post-opératoire immédiat en salle de réveil (SSPI), sensation de froid intense, frissons post-anesthésiques."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Température < 36 °C (voire < 35 °C), vasoconstriction périphérique, frissons augmentant la consommation d'O2 (VO2 +300 %)."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Température centrale < 36,0 °C en péri-opératoire."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Monitorage continu de la température centrale (œsophagienne, vésicale ou tympanique fiable) ; bilan de coagulation/Hb si saignement."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "ECG/troponine si douleur thoracique en salle de réveil chez le coronarien."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Réchauffement actif par couverture à air pulsé (Bair Hugger), solutés IV réchauffés ; péthidine/clonidine à faible dose si frissons mal tolérés chez le coronarien."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Prévention systématique : pré-réchauffement avant induction, solutés et gaz réchauffés, maintien salle > 21 °C."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Infections du site opératoire (triplées), coagulopathie, événements cardiaques post-opératoires, métabolisme ralenti des curares/anesthésiques."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Contrôle thermique jusqu'à normothermie >= 36,0 °C avant sortie de salle de réveil."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Récupération rapide en SSPI sans séquelle."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Anesthésiste, équipe de salle de réveil (SSPI)."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 3,
+      "fichier_html_cible": "LOT_008_Phase_B_V0_DX.3.html",
+      "titre": "Hypothermie du sujet âgé par dénutrition et précarité thermique",
+      "cim": "R68.0",
+      "urgence": "urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Hypothermie survenant à température ambiante modérée (appartement mal chauffé, séjour prolongé au sol après chute) chez un sujet fragile à thermogenèse altérée."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Fréquente chez les > 75 ans vivant seuls, souvent révélée en hiver après une chute à domicile."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Sarcopénie (faible masse musculaire pour frissonner), diminution du métabolisme basal, altération de la perception du froid et vasoconstriction réflexe déficiente."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Drapeaux rouges : rhabdomyolyse sévère avec hyperkaliémie/IRA, pneumonie d'aspiration, sepsis occulte sous-jacent (absence de fièvre !)."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Chute avec impossibilité de se relever (temps passé au sol !), logement froid, isolement social, dénutrition, polymédication (neuroleptiques, bêtabloquants, alcool)."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Température < 35 °C, bradycardie, confusion ou somnolence, escarres d'appui ou signes de rhabdomyolyse (masses musculaires tendues/douloureuses)."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Température centrale < 35 °C chez un sujet âgé fragile hors contexte d'immersion/montagne."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Température centrale, CK (rhabdomyolyse !), créatinine, ionogramme (K+, Na+), glycémie, CRP/hémocultures (sepsis masqué), ECG."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "TSH (hypothyroïdie favorisante fréquente), radiographies si traumatisme de chute (col fémoral)."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Réchauffement progressif externe actif, réhydratation IV par cristalloïdes tiédis (prévention IRA sur rhabdomyolyse), recherche et traitement systématique d'une infection ou fracture."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Évaluation gériatrique globale, adaptation du domicile (téléalarme), soins à domicile (CMS/Spitex), renutrition."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Insuffisance rénale aiguë sur rhabdomyolyse, pneumonie, décompensation cardiaque, perte d'autonomie."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Monitorage température, diurèse, CK, kaliémie, ECG."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Mortalité hospitalière non négligeable (15-25 %) liée aux comorbidités et au temps passé au sol."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Urgences, gériatrie, médecin de famille, CMS/Spitex, assistance sociale."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 4,
+      "fichier_html_cible": "LOT_008_Phase_B_V0_DX.4.html",
+      "titre": "Intoxication alcoolique aiguë avec exposition au froid",
+      "cim": "F10.0",
+      "urgence": "urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Hypothermie secondaire à une intoxication éthylique aiguë en environnement frais ou froid."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Facteur favorisant majeur d'hypothermie accidentelle urbaine chez l'adulte jeune et d'âge moyen."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Vasodilatation cutanée périphérique (accélérant les pertes caloriques tout en donnant une illusion subjective de chaleur), dépression du SNC, inhibition de la néoglucogenèse (hypoglycémie)."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Drapeaux rouges : coma profond, traumatisme crânien occulte, hypoglycémie sévère, inhalation gastrique."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Consommation d'alcool importante, découverte à l'extérieur ou dans un endroit non chauffé."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Haleine éthylique, troubles de vigilance/ataxie (attention : ne pas tout attribuer à l'alcool !), température < 35 °C, hypotension."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Température < 35 °C + alcoolémie positive après exclusion d'un traumatisme crânien ou d'une autre intoxication."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Glycémie capillaire/veineuse IMMÉDIATE, température centrale, alcoolémie, gazométrie/lactates, ionogramme ; CT cérébral si déficit focal, traumatisme ou absence d'amélioration."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Screening toxicologique urinaire si suspicion de poly-intoxication."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Réchauffement actif externe, perfusion de glucose +/- THIAMINE (vitamine B1) 100-500 mg IV avant/avec le glucose (prévention Gayet-Wernicke !), protection des voies aériennes."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Dépistage d'un trouble de l'usage de l'alcool et orientation addictologique."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Hypoglycémie fatale, pneumonie d'inhalation, hématome sous-dural méconnu, arythmie hypothermique."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Surveillance neurologique horaire (score GCS), température et glycémie."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Généralement favorable si prise en charge avant stade III-IV ou traumatisme."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Urgences, médecin de famille, réseau addictologique."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 5,
+      "fichier_html_cible": "LOT_008_Phase_B_V0_DX.5.html",
+      "titre": "Hypothyroïdie décompensée modérée",
+      "cim": "E03.9",
+      "urgence": "semi-urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Déficit sévère mais non comateux en hormones thyroïdiennes entraînant une hypothermie par effondrement du métabolisme basal."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Survient surtout en hiver chez des patients âgés atteints d'hypothyroïdie non diagnostiquée ou ayant interrompu leur lévothyroxine."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Baisse de la thermogenèse obligatoire (ATPase Na+/K+, découplage mitochondrial) et diminution de la réponse adrénergique."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Drapeaux rouges : altération de conscience/somnolence profonde, hypoventilation/hypercapnie, hyponatrémie sévère, infection déclenchante (coma myxœdémateux)."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Frilosité extrême, asthénie majeure, prise de poids, constipation, voix rauque, oubli ou arrêt du traitement thyroïdien."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Température 34-35,5 °C, bradycardie sinusale, peau sèche infiltrée (myxœdème), réflexes lents à la décontraction."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Hypothermie + TSH élevée + T4L basse chez un patient conscient sans défaillance respiratoire."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "TSH élevée, T4L basse, ionogramme (hyponatrémie), glycémie, ECG (bradycardie, bas voltage), bilan infectieux."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Cortisolémie matinale (exclure une insuffisance surrénalienne associée avant substitution)."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Réchauffement PASSIF progressif uniquement (le réchauffement actif rapide risque une vasodilatation et un collapsus !) + début lévothyroxine prudente (25-50 µg/j)."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Titration progressive de la lévothyroxine sur plusieurs semaines jusqu'à normalisation de la TSH."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Progression vers le coma myxœdémateux si infection ou sédatif surajouté."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Température, natrémie, ECG et tolérance coronarienne lors de l'introduction de lévothyroxine."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Amélioration clinique nette en 1-2 semaines."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Médecin de famille, endocrinologue."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 6,
+      "fichier_html_cible": "LOT_008_Phase_B_V0_DX.6.html",
+      "titre": "Hypoglycémie iatrogène du patient diabétique",
+      "cim": "E16.2",
+      "urgence": "urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Glycémie plasmatique < 3,0-3,9 mmol/L induite par l'insuline ou les sulfonylurées/glinides, perturbant la thermorégulation centrale."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Très fréquente chez les diabétiques traités par insuline ou sulfonylurées (glibenclamide, gliclazide), surtout si insuffisance rénale ou jeûne."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "La neuroglycopénie hypothalamique inhibe la thermogenèse et déclenche une sudation adrénergique profuse (évaporation -> refroidissement cutané et central)."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Drapeaux rouges : coma hypoglycémique, convulsions, déficit neurologique focal, surdosage en sulfonylurée ou insuline lente (récidive prolongée)."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Traitement par insuline ou sulfonylurée, repas sauté, effort physique, erreur de dose ; sueurs froides, tremblements, confusion."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Température 34-35,5 °C, peau froide et moite, tachycardie, agitation, déficit focal mimant un AVC ou coma."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Triade de Whipple : symptômes compatibles + glycémie basse (< 3,0 mmol/L) + correction des symptômes après apport de glucose."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Glycémie capillaire IMMÉDIATE devant toute hypothermie ou trouble neurologique ! Contrôle créatinine/DFG."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Bilan infectieux si facteur déclenchant fébrile masqué."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Si conscient : 15-20 g de glucose oral (3-4 morceaux de sucre / jus). Si inconscient : GLUCOSE 40 % ou 20 % IV (10-20 g IV) ou GLUCAGON 1 mg IM/SC + réchauffement."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Révision des doses d'insuline/sulfonylurée (remplacer sulfonylurées chez le sujet âgé !) et éducation du patient."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Récidive prolongée (jusqu'à 24-48 h sous sulfonylurée -> perfusion de G5 %/G10 % continue), lésions cérébrales anoxo-glycémiques, arythmies."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Glycémies capillaires répétées pendant 24 h si sulfonylurée ou insuline basale."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Récupération immédiate après resucrage si traité à temps."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "144/urgences, médecin traitant, diabétologue."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 7,
+      "fichier_html_cible": "LOT_008_Phase_B_V0_DX.7.html",
+      "titre": "Hypothermie néonatale par perte thermique précoce",
+      "cim": "P80.9",
+      "urgence": "urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Température centrale < 36,5 °C chez le nouveau-né (OMS : stress froid 36,0-36,4 °C, hypothermie modérée 32,0-35,9 °C, sévère < 32,0 °C)."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Fréquente à la naissance (surtout prématurés et faible poids de naissance) si séchage et réchauffement inadéquats."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Rapport surface corporelle/masse élevé, peau fine, peu de graisse sous-cutanée et incapacité à frissonner (thermogenèse uniquement par graisse brune -> consommation rapide de glucose et d'O2)."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Drapeaux rouges : température < 32 °C, apnées, bradycardie, hypoglycémie, suspicion de sepsis néonatal précoce."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Accouchement hors maternité, réanimation néonatale prolongée, prématurité, ou infection néonatale (sepsis néonatal -> hypothermie plutôt que fièvre !)."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Extrémités froides, léthargie, faible cri, refus de téter, polypnée, marbrures, sclérème néonatal dans les formes graves."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Température < 36,5 °C chez le nouveau-né."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Température rectale/axillaire continue, glycémie capillaire urgente, gazométrie ; bilan infectieux (hémoculture, CRP, PL) si hypothermie inexpliquée."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Radiographie thoracique si détresse respiratoire."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Séchage immédiat, bonnet, peau-à-peau (méthode kangourou) si stable, ou table radiante / incubateur fermé humidifié avec réchauffement progressif ; corriger l'hypoglycémie."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Prévention systématique en salle de naissance (sac polyéthylène chez le grand prématuré < 28 SA)."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Acidose métabolique, hypoglycémie, hypertension pulmonaire persistante, hémorragie intraventriculaire."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Monitorage thermique et glycémique continu en néonatologie."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Excellent si prise en charge précoce et absence de sepsis."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Pédiatre, néonatologie, sage-femme."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 8,
+      "fichier_html_cible": "LOT_008_Phase_B_V0_DX.8.html",
+      "titre": "Hypothermie sur intoxication aux sédatifs / benzodiazépines",
+      "cim": "T42.4",
+      "urgence": "urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Hypothermie secondaire à une dépression du SNC induite par des agents sédatifs, hypnotiques ou psychotropes."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Cause fréquente d'hypothermie aux urgences en milieu urbain lors d'intoxications volontaires ou de poly-intoxications."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Inhibition centrale du centre thermorégulateur hypothalamique, suppression du frisson et immobilisation prolongée sur sol froid."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Drapeaux rouges : dépression respiratoire (SpO2 basse, hypercapnie), abolition des réflexes de protection des voies aériennes, rhabdomyolyse, arrêt cardiaque."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Découverte d'un patient somnolent ou comateux avec boîtes de médicaments vides ou contexte psychiatrique."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Coma calme hypotonique, myosis ou pupilles intermédiaires, bradypnée, température < 35 °C, hypotension."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Coma calme hypothermique dans un contexte d'ingestion de sédatifs."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Gazométrie, glycémie, ionogramme, CK, ECG (QTc, QRS élargis si tricycliques associés), paracétamolémie systématique (co-ingestion fréquente !)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Screening toxicologique urinaire (indicatif)."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "ABCDE (intubation si GCS <= 8 ou hypoventilation), réchauffement actif externe, remplissage tiédi ; flumazénil contre-indiqué si co-ingestion de tricycliques ou épilepsie (risque de convulsions !)."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Évaluation psychiatrique systématique après réveil et sevrage."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Pneumonie d'inhalation, rhabdomyolyse de compression, arythmie."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Monitorage cardiorespiratoire continu jusqu'à élimination des toxiques et normothermie."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Favorable sous traitement de soutien."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Urgences, soins continus/intensifs, Tox Info Suisse (145), psychiatre."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 9,
+      "fichier_html_cible": "LOT_008_Phase_B_V0_DX.9.html",
+      "titre": "Insuffisance hypophysaire (panhypopituitarisme)",
+      "cim": "E23.0",
+      "urgence": "semi-urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Déficit partiel ou complet des sécrétions antéhypophysaires (ACTH, TSH, LH/FSH, GH) secondaire à une lésion hypothalamo-hypophysaire (adénome, chirurgie, apoplexie, Sheehan)."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Maladie rare (~45/100 000) souvent diagnostiquée tardivement devant une asthénie, une hyponatrémie ou une hypothermie."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "L'association d'un déficit corticotrope (baisse cortisol) et thyréotrope (baisse T4L sans élévation de TSH !) compromet gravement la thermogenèse et la réponse au stress."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Drapeaux rouges : céphalées brutales en coup de tonnerre + ophtalmoplégie/baisse visuelle (apoplexie pituitaire), choc + hyponatrémie + hypoglycémie."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Asthénie chronique, frilosité, pâleur, dépilation axillo-pubienne, aménorrhée/baisse libido, céphalées ou troubles visuels (hémianopsie bitemporale)."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Peau fine pâle (absence de mélanodermie contrairement à Addison !), hypotension, bradycardie, température basse."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Déficits hormonaux multiples centraux + lésion à l'IRM hypophysaire."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "TSH normale ou basse avec T4L basse (piège : ne pas se fier à une TSH seule !), cortisol matinal bas avec ACTH basse/inappropriée, IGF-1, LH/FSH/œstradiol ou testostérone, IRM hypophysaire."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Ionogramme (hyponatrémie euvolémique), champ visuel (Goldmann/automatisé)."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "En cas de décompensation : hydrocortisone 100 mg IV immédiate puis 200 mg/24 h + NaCl 0,9 % + réchauffement doux."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "RÈGLE D'OR : toujours instaurer la substitution par HYDROCORTISONE AVANT la lévothyroxine (sinon risque de déclencher une crise surrénalienne aiguë !)."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Décompensation surrénalienne aiguë, coma hypothermique, cécité sur apoplexie."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Suivi sur la T4L (et NON la TSH !) pour ajuster la lévothyroxine."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Bonne qualité de vie sous substitution hormonale adaptée et éducation thérapeutique."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Endocrinologue, neurochirurgien, ophtalmologue, médecin de famille."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 10,
+      "fichier_html_cible": "LOT_008_Phase_B_V0_DX.10.html",
+      "titre": "Érythrodermie généralisée (psoriasis / eczéma) avec perte thermique",
+      "cim": "L53.9",
+      "urgence": "semi-urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Érythème inflammatoire desquamatif touchant >= 90 % de la surface cutanée (psoriasis, eczéma, toxidermie médicamenteuse, syndrome de Sézary)."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Complication dermatologique rare mais grave nécessitant une hospitalisation."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "La vasodilatation cutanée généralisée et la rupture de la barrière épidermique entraînent une déperdition thermique majeure par radiation/évaporation et une fuite hydro-protéique."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Drapeaux rouges : insuffisance cardiaque à haut débit, choc hypovolémique, surinfection bactérienne (sepsis à S. aureus), décollement bulleux."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Antécédent de psoriasis, dermatite atopique ou introduction d'un nouveau médicament (DRESS), suivi d'une rougeur généralisée et de frissons permanents."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Érythème chaud et desquamation > 90 % de la surface corporelle, adénopathies réactionnelles, température centrale basse malgré sensation de peau chaude."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Érythème >= 90 % de la surface corporelle + hypothermie/pertes hydro-électrolytiques."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "FSC, CRP, ionogramme, albumine, créatinine, hémocultures (si sepsis), biopsie cutanée si étiologie incertaine."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Frottis sanguin / cytométrie en flux (cellules de Sézary) si érythrodermie chronique inexpliquée."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Hospitalisation en chambre chauffée, réhydratation IV, émollients intensifs + dermocorticoïdes, traitement de la cause (arrêt médicament, méthotrexate/biothérapie si psoriasis)."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Traitement de fond dermatologique et surveillance nutritionnelle (hypermétabolisme catabolique)."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Choc hypovolémique, insuffisance cardiaque à haut débit, sepsis cutané, hypoalbuminémie sévère."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Température centrale, bilan hydrique, poids, ionogramme quotidiens."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Dépend de l'étiologie (rapide si eczéma/psoriasis traité, réservé si Sézary)."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Dermatologue, médecine interne, médecin de famille."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 11,
+      "fichier_html_cible": "LOT_008_Phase_B_V0_DX.11.html",
+      "titre": "Lésion médullaire haute (poïkilothermie sur tétraplégie)",
+      "cim": "G95.9",
+      "urgence": "semi-urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Incapacité de maintenir l'homéothermie (poïkilothermie) secondaire à une lésion médullaire cervicale ou thoracique haute (>= T6)."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Complication bien connue chez les patients tétraplégiques ou paraplégiques hauts en phase aiguë et chronique."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Interruption des voies descendantes sympathiques hypothalamo-médullaires et des motoneurones : absence de vasoconstriction au froid, absence de frissons sous-lésionnels."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Drapeaux rouges : hyperréflexie autonome paradoxale lors de manipulations, bradycardie sévère < 40/min, infection urinaire/pulmonaire hypothermique."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Patient tétraplégique/paraplégique haut exposé à un environnement frais (bloc opératoire, extérieur, bain) développant somnolence ou bradycardie."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Température centrale basse, bradycardie (tonus vagal non contrebalancé), hypotension."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Hypothermie chez un patient porteur d'une lésion médullaire haute sans autre cause aiguë."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Température centrale fiable, bilan infectieux (ECBU, Rx thorax) car l'infection peut se manifester par une hypothermie."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "ECG, ionogramme."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Contrôle de la température ambiante, couvertures chauffantes actives (attention aux brûlures sur zones anesthésiées !), solutés tiédis."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Éducation du patient et des soignants au maintien d'un environnement thermique neutre."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Brûlures thermiques iatrogènes (absence de sensibilité douloureuse), bradycardie symptomatique."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Monitorage thermique régulier en cas de maladie intercurrente ou d'intervention."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Réversible dès contrôle de l'environnement thermique."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Centre de paraplégiques (Nottwil / Balgrist / SUVA Sion), médecin traitant."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 12,
+      "fichier_html_cible": "LOT_008_Phase_B_V0_DX.12.html",
+      "titre": "Encéphalopathie de Gayet-Wernicke (carence en thiamine)",
+      "cim": "E51.2",
+      "urgence": "urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Encéphalopathie carentielle aiguë par déficit en vitamine B1 (thiamine) touchant les corps mamillaires, le thalamus et l'hypothalamus."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Classique chez le sujet alcoolo-dépendant dénutri, mais aussi après chirurgie bariatrique, hyperémèse gravidique ou jeûne prolongé."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "La thiamine est cofacteur de la pyruvate déshydrogénase et de l'alpha-cétoglutarate déshydrogénase ; sa carence provoque une nécrose neuronale focale, notamment dans l'hypothalamus postérieur (centre thermorégulateur)."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Drapeaux rouges : aggravation brutale après perfusion de sérum glucosé sans thiamine, coma, syndrome de Korsakoff irréversible."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Dénutrition, alcoolisme chronique ou vomissements prolongés ; installation subaiguë de confusion, troubles de l'équilibre et diplopie."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Triade classique (complète dans < 20 % des cas !) : encéphalopathie/confusion, ataxie cérébelleuse, ophtalmoplégie (nystagmus, paralysie du VI) + hypothermie."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Critères de Caine (>= 2 parmi : carence nutritionnelle, signes oculomoteurs, dysfonction cérébelleuse, altération mentale) + réponse à la thiamine."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Diagnostic CLINIQUE (ne JAMAIS attendre un dosage de thiamine pour traiter !) ; IRM cérébrale (hypersignaux T2/FLAIR des corps mamillaires, thalamus médian, substance grise périaqueducale)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Glycémie, ionogramme (hypomagnésémie fréquente diminuant l'efficacité de la thiamine !), bilan hépatique."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "THIAMINE IV HAUTE DOSE IMMÉDIATE : 500 mg IV 3x/j pendant 2-3 jours puis 250 mg/j IV/IM avant ou avec tout apport glucidique + correction du magnésium."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Supplémentation orale prolongée en vitamine B1, renutrition, prise en charge addictologique."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Évolution vers une psychose de Korsakoff irréversible (amnésie antérograde, confabulations), décès."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Régression de l'ophtalmoplégie (rapide en 24-48 h), de l'ataxie et de l'hypothermie."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Réversibilité partielle à complète si thiamine IV administrée précocement."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Urgences, neurologie, médecine interne, médecin traitant."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 13,
+      "fichier_html_cible": "LOT_008_Phase_B_V0_DX.13.html",
+      "titre": "Hypothermie accidentelle sévère stades III-IV (risque d'ECMO / ECLS)",
+      "cim": "T68",
+      "urgence": "immediate",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Hypothermie profonde avec perte de conscience et absence de frissons (stade III : 24-28 °C, signes vitaux présents ; stade IV : < 24 °C, arrêt cardiorespiratoire apparent)."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Accidents d'avalanche, chute en crevasse, immersion prolongée en lac/rivière froide en Suisse."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Métabolisme cérébral réduit de ~6 % par °C (neuroprotection hypothermique !), bradycardie extrême, onde J d'Osborn, fibrillation ventriculaire spontanée < 28 °C (cœur irritable aux mobilisations)."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Drapeaux rouges : manipulation brutale déclenchant une fibrillation ventriculaire, arrêt cardiaque hypothermique."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Exposition prolongée au froid extrême ou ensevelissement sous avalanche (rechercher poche d'air et perméabilité des voies aériennes !)."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Température œsophagienne/centrale < 28 °C (ou < 24 °C), inconscience, pupilles souvent en mydriase aréactive (ne signifie PAS mort cérébrale !), pouls très lent/imperceptible (palper >= 60 secondes !)."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Température centrale < 28 °C + inconscience (stade III) ou arrêt circulatoire (stade IV)."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Température œsophagienne (gold standard), ECG (onde J d'Osborn, bradycardie, FV/asystolie), gazométrie, kaliémie (K+ > 12 mmol/L [> 8 en avalanche] = critère de décès irréversible/asphyxie)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Échocardiographie rapide (activité cardiaque résiduelle), bilan traumatologique complet (body-CT après stabilisation)."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Manipulation DOUCE horizontale, RCP continue si arrêt (même prolongée !), limiter les chocs électriques à 3 tentatives si T < 30 °C et pas d'adrénaline tant que T < 30 °C (ERC 2021), transport direct vers un centre ECMO/ECLS (CHUV/HUG/Inselspital/USZ) pour réchauffement extracorporel."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Rééducation neurologique et prise en charge d'éventuelles gelures associées après réanimation."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Œdème pulmonaire de reperfusion, CIVD, rhabdomyolyse, syndrome post-arrêt cardiaque."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Soins intensifs sous ECMO veino-artérielle jusqu'à normothermie >= 35-36 °C et récupération hémodynamique."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Survie sans séquelle neurologique possible même après plusieurs heures d'arrêt hypothermique grâce à la neuroprotection du froid."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "REGA 1414 / 144, centre universitaire ECMO, soins intensifs."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 14,
+      "fichier_html_cible": "LOT_008_Phase_B_V0_DX.14.html",
+      "titre": "Noyade en eau froide avec hypothermie",
+      "cim": "T75.1",
+      "urgence": "immediate",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Défaillance respiratoire par submersion/immersion en eau froide (< 15-20 °C) s'accompagnant d'une hypothermie rapide par conduction."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Lacs et rivières suisses (Léman, Aar, Rhône) ; particulièrement grave chez l'enfant et le baigneur imprudent."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Choc thermique initial (gasp réflexe -> inhalation d'eau), hypoxie cérébrale rapide, lavage du surfactant pulmonaire et refroidissement central rapide."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Drapeaux rouges : arrêt cardiorespiratoire, hypoxémie sévère, durée de submersion prolongée (mais chez l'enfant en eau glacée, réanimation prolongée indiquée)."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Durée de submersion (facteur pronostique majeur : < 10 min vs > 25 min), température de l'eau, contexte (traumatisme cervical plongeon ?)."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Détresse respiratoire, mousse aux lèvres, cyanose, hypothermie, arrêt cardiorespiratoire ; immobilisation cervicale si notion de plongeon."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Submersion documentée + détresse respiratoire/hypoxie +/- hypothermie."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Gazométrie artérielle, température centrale, radiographie thoracique (œdème lésionnel/SDRA), ionogramme, ECG."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "CT cervical/cérébral si mécanisme traumatique suspecté."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Retrait prudent de l'eau (horizontal), 5 insufflations initiales puis RCP 30:2 si arrêt, O2 FiO2 100 %, VNI ou intubation avec PEEP si SDRA, réchauffement adapté (ECLS si T < 28-30 °C)."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Pas d'antibiothérapie prophylactique systématique (sauf eau très souillée) ni de corticoïdes."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "SDRA secondaire (jusqu'à 12-24 h après noyade -> surveillance obligatoire !), encéphalopathie anoxo-ischémique, pneumonie."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Surveillance hospitalière >= 24 h même si patient initialement asymptomatique après quasi-noyade."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Dépend avant tout de la durée d'anoxie ; eau glacée chez l'enfant offre une protection partielle."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "144/REGA, urgences, soins intensifs."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 15,
+      "fichier_html_cible": "LOT_008_Phase_B_V0_DX.15.html",
+      "titre": "Coma myxœdémateux",
+      "cim": "E03.5",
+      "urgence": "immediate",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Décompensation ultime d'une hypothyroïdie ancienne, déclenchée par un stress (infection, froid, sédatif, chirurgie), associant hypothermie et troubles de conscience."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Survient surtout en hiver chez la femme âgée (> 65 ans) ayant une hypothyroïdie méconnue ou non traitée."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Effondrement du métabolisme cellulaire -> hypothermie, dépression des centres respiratoires (hypercapnie), diminution de la contractilité myocardique et SIADH-like (hyponatrémie)."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Drapeaux rouges : hypercapnie sévère, choc réfractaire, hyponatrémie < 120 mmol/L, hypoglycémie."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Installation progressive de somnolence puis coma dans un contexte d'hypothyroïdie connue, d'infection ou de prise de sédatifs en hiver."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Hypothermie sévère (< 34 °C), coma ou stupeur, bradycardie, hypotension, bradypnée, myxœdème généralisé, cicatrice de thyroïdectomie parfois présente."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Coma + hypothermie + hypoventilation/hyponatrémie + confirmation TSH élevée / T4L basse."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Ne JAMAIS attendre les résultats hormonaux pour traiter ! Prélever TSH (très élevée, sauf forme centrale), T4L (effondrée), cortisolémie, gazométrie (acidose respiratoire), ionogramme, glycémie, hémocultures, ECG."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Échocardiographie (épanchement péricardique fréquent), Rx thorax (foyer infectieux)."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "SOINS INTENSIFS : 1) Lévothyroxine IV (dose de charge 200-400 µg IV puis 50-100 µg/j IV) ; 2) HYDROCORTISONE 100 mg IV toutes les 8 h SYSTÉMATIQUE (couvrir une insuffisance surrénalienne associée) ; 3) Réchauffement PASSIF (couvertures) ; 4) Ventilation mécanique si hypercapnie + antibiothérapie empirique."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Relais oral de la lévothyroxine dès amélioration et sevrage ventilatoire."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Arrêt respiratoire, choc cardiogénique, tamponnade péricardique, sepsis."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Soins intensifs : monitorage respiratoire, cardiaque, natrémie, T4L."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Mortalité élevée (20-40 %) malgré traitement optimal."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Soins intensifs, endocrinologue."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 16,
+      "fichier_html_cible": "LOT_008_Phase_B_V0_DX.16.html",
+      "titre": "Sepsis grave hypothermique (choc septique à présentation froide)",
+      "cim": "A41.9",
+      "urgence": "immediate",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Sepsis sévère ou choc septique s'accompagnant d'une hypothermie (< 36,0 °C) par défaillance de la réponse thermorégulatrice fébrile."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Représente ~10-15 % des chocs septiques ; associé à une mortalité significativement plus élevée (~40-50 %) que le sepsis fébrile en raison du retard diagnostique."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Réponse inflammatoire sidérée ou prédominance de médiateurs cryogènes (TNF-alpha à forte dose, IL-10) chez l'hôte âgé ou immunodéprimé."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Drapeaux rouges : hyperlactatémie, oligurie, choc nécessitant noradrénaline, thrombopénie."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Patient âgé, cirrhotique ou dénutri présentant confusion brutale, hypotension et hypothermie sans exposition au froid."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Température < 36 °C (souvent 33-35 °C), marbrures, hypotension, polypnée, confusion ; rechercher foyer pulmonaire, urinaire ou abdominal."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Hypothermie + dysfonction d'organe (SOFA >= 2) + foyer infectieux ou hémocultures positives."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Lactates, 2 paires d'hémocultures + ECBU/Rx thorax, gazométrie, créatinine, CRP/PCT (peuvent être élevées malgré l'hypothermie)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Scanner abdominal/thoracique dès stabilisation si foyer occulte."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Antibiothérapie IV large spectre immédiate (< 1 h) + remplissage cristalloïdes tiédis 30 mL/kg + noradrénaline + réchauffement externe doux."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Contrôle de la source infectieuse."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Défaillance multiviscérale, CIVD, décès."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Soins intensifs : PAM, lactates, diurèse, température."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Pronostic sévère, amélioré uniquement par la reconnaissance immédiate du sepsis malgré l'absence de fièvre."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Urgences, soins intensifs, infectiologie."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 17,
+      "fichier_html_cible": "LOT_008_Phase_B_V0_DX.17.html",
+      "titre": "Syndrome d'afterdrop et collapsus de réchauffement",
+      "cim": "T68",
+      "urgence": "immediate",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Aggravation paradoxale de l'hypothermie centrale (afterdrop) et/ou collapsus hémodynamique survenant au début du réchauffement d'une hypothermie modérée à sévère."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Complication iatrogène ou de sauvetage classique lors du relèvement vertical ou du réchauffement des extrémités avant le tronc."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "La vasodilatation périphérique (ou mobilisation musculaire) renvoie du sang froid, acide et hyperkaliémique des membres vers le noyau central, refroidissant le cœur et causant une hypovolémie relative brutale."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Drapeaux rouges : fibrillation ventriculaire, asystolie, collapsus brutal pendant le transport ou le déshabillage."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Patient extrait d'eau froide ou de neige qui fait un arrêt cardiaque ou un collapsus quelques minutes après le sauvetage (« circum-rescue collapse »)."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Chute brutale de la PA et de la température centrale, apparition de troubles du rythme ventriculaire (FV) lors de la mobilisation."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Baisse supplémentaire de T centrale ou collapsus contemporain du début du réchauffement/mobilisation."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Monitorage ECG continu et température œsophagienne pendant toute la phase de réchauffement, gazométrie, kaliémie."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Aucune imagerie nécessaire en phase aiguë."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "PRÉVENTION : extraction HORIZONTALE, ne pas masser/frotter les membres, réchauffer le TRONC en priorité (aisselles, thorax, aine) et NON les extrémités ; si collapsus : remplissage cristalloïdes tiédis + vasopresseurs / ECMO."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Formation des secouristes aux protocoles de sauvetage horizontal."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Fibrillation ventriculaire réfractaire, arrêt cardiaque."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Monitorage continu jusqu'à normothermie stable."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Évitable par une technique de sauvetage et de réchauffement adaptée."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "REGA/SMUR, urgences, soins intensifs."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 18,
+      "fichier_html_cible": "LOT_008_Phase_B_V0_DX.18.html",
+      "titre": "Gelures profondes des extrémités (frostbite grade 3-4)",
+      "cim": "T33.9",
+      "urgence": "urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Lésions tissulaires localisées par cristallisation intracellulaire et microthrombose vasculaire lors d'une exposition au gel (< 0 °C)."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Alpinistes, skieurs, sans-abri en hiver en Suisse ; fréquemment associées à une hypothermie systémique."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Formation de cristaux de glace + vasoconstriction -> ischémie puis lésion de reperfusion (prostaglandines, thromboxane A2) lors du dégel, aggravée de façon catastrophique par un cycle dégel-regel."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Drapeaux rouges : atteinte proximale aux phalanges distales (grade 3-4, risque d'amputation), hypothermie centrale associée (traiter l'hypothermie d'abord !)."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Exposition au gel, engourdissement puis anesthésie des doigts, orteils, nez ou oreilles."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Tissus blancs/cireux, durs (« gelés ») au départ ; après dégel, grade 1-2 (érythème, phlyctènes claires) vs grade 3-4 (phlyctènes hémorragiques, cyanose/nécrose profonde)."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Lésion de congélation localisée avec phlyctènes hémorragiques ou nécrose (grade 3-4)."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Évaluation clinique après décongélation ; scintigraphie osseuse au 99mTc ou angio-IRM à J2-J3 pour délimiter la viabilité tissulaire."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Température centrale et bilan biologique de l'hypothermie associée."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "1) Traiter l'hypothermie centrale d'abord ; 2) NE JAMAIS décongeler sur le terrain s'il existe un risque de regel ; 3) À l'hôpital : bain d'eau tiède 37-39 °C pendant 30 min (avec antiseptique) + antalgie morphinique + ibuprofène (anti-thromboxane) ; 4) Grade 3-4 précoce (< 24 h) : iloprost IV +/- thrombolyse (rtPA) en centre spécialisé (HUG/Chamonix)."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Soins locaux stériles, prévention du tétanos, chirurgie d'amputation DIFFÉRÉE (attendre démarcation complète 1-3 mois : « frozen in January, amputate in July »)."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Amputations digitales/des orteils, surinfection, douleurs neuropathiques chroniques, sensibilité au froid à vie."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Suivi chirurgical/vasculaire de la démarcation nécrotique sur plusieurs semaines."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Sauvetage tissulaire nettement amélioré par l'iloprost/thrombolyse précoce (< 24 h)."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Centre spécialisé gelures (HUG Genève / médecine de montagne), chirurgie plastique."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 19,
+      "fichier_html_cible": "LOT_008_Phase_B_V0_DX.19.html",
+      "titre": "Intoxication aiguë aux opioïdes avec hypothermie et dépression respiratoire",
+      "cim": "T40.2",
+      "urgence": "immediate",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Overdose aiguë aux opioïdes (héroïne, fentanyl, morphine, oxycodone, méthadone) provoquant dépression respiratoire centrale et hypothermie."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Urgence toxique majeure ; risque accru lors d'association avec benzodiazépines ou alcool."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Agonisme des récepteurs mu centraux -> inhibition du centre respiratoire bulbaire, dépression du centre thermorégulateur hypothalamique et immobilisation au froid."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Drapeaux rouges : apnée, cyanose, arrêt cardiaque hypoxique, œdème pulmonaire aigu non cardiogénique post-naloxone."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Contexte d'usage de stupéfiants ou erreur de dosage antalgique/patch de fentanyl (attention : la chaleur accélère l'absorption transdermique !)."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Triade : coma, bradypnée (FR < 10-12/min), myosis punctiforme bilatéral + température < 35 °C ; rechercher traces d'injection ou patch de fentanyl collé."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Triade opioïde + hypothermie + réponse rapide à la naloxone."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Gazométrie (acidose respiratoire), glycémie capillaire, température centrale, CK (rhabdomyolyse si séjour au sol), ECG."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Dépistage toxicologique urinaire (fentanyl souvent non détecté par tests standards)."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "1) Oxygénation et ventilation au ballon-masque immédiatement ; 2) NALOXONE IV/IM/IN titrée par petits bolus (0,04-0,4 mg IV) pour restaurer la ventilation sans déclencher de sevrage brutal ; 3) Retirer tout patch de fentanyl ; 4) Réchauffement actif externe."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Surveillance >= 4-6 h après naloxone (demi-vie de la naloxone [30-60 min] plus courte que méthadone/oxycodone -> risque de re-morphinisation !) ; programme de réduction des risques."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Arrêt cardiaque anoxique, pneumonie d'inhalation, rhabdomyolyse, récidive de dépression respiratoire."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Monitorage continu de la FR, SpO2, capnographie et vigilance pendant >= 6-12 h (24 h si méthadone)."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Survie excellente si ventilation et naloxone administrées avant arrêt anoxique."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "144/SMUR, urgences, addictologie, remise de naloxone à emporter."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    }
+  ],
+  "prompt_alpha_a_jour": "# MISSION : CORRECTION ET COMPLÉTION DES 248 SSP SUISSES (3 975 ENTITÉS + 248 CHAPITRES 0)\n\n## § 0. IDENTIFICATION, SIGNATURE & RÈGLES DE CONTINUITÉ — BLOQUANT ABSOLU\n1. **Identification obligatoire** en tête de première réponse :\n   - HEURE DE DÉBUT : AAAA-MM-JJ HH:MM (Europe/Zurich)\n   - MODÈLE : nom exact du modèle (ex. ANTIGRAVITY ORCHESTRATOR NEON)\n   - PLATEFORME : plateforme exacte (ex. ANTIGRAVITY)\n   - Ajouter la même ligne à `1_Claude AI/IDENTIFICATION_AGENTS.md`. Si incertitude, s'arrêter.\n2. **Signature IA fixe en bas à droite de TOUT HTML produit ou modifié** (juste avant `</body>`, en GRAS MAJUSCULE) :\n   `<div id=\"signature-ia\" style=\"position:fixed;right:12px;bottom:10px;z-index:9999;background:#fff;border:2px solid #000;padding:4px 10px;font:700 12px/1.3 Arial,sans-serif;text-transform:uppercase;color:#000\">DÉBUT : AAAA-MM-JJ HH:MM (EUROPE/ZURICH) · MODÈLE : <NOM> · PLATEFORME : <PLATEFORME></div>`\n   - **Seul Vial peut autoriser le retrait de ce bloc.** Un agent qui reprend un fichier signé ajoute sa propre ligne sous la précédente sans jamais effacer l'existante.\n3. **Continuité & transparence** :\n   - **Redémarrage propre à partir de `SSP_248`** : tous les cours précédemment modifiés ont été restaurés à l'état initial (`6941513`). Enchaîner continûment **`SSP_248 → SSP_033`**, puis **`SSP_001 → SSP_032`**.\n   - **Toujours afficher le raisonnement visible** en français dans chaque réponse.\n   - **Veille & relance GitHub** : commiter et pousser sur `origin main` après chaque SSP (ou lot <= 5 SSP) avec l'état à jour dans `SUIVI_PRODUCTION.csv`, `HANDOFF_AFFINAGE.md` et `HANDOFF_IA_COMPLET.md`.\n   - **Suivi graphique temps réel** : maintenir à jour le tableau de bord visuel temps réel des réalisations achevées et en cours.\n\n## § 1. RÈGLES ACTUALISÉES (PRIMENT SUR LE PROMPT ALPHA 19.11.26)\n1. **Nombre de cours par SSP** : **1 cours par entité de la Cartographie Renouveau** (15 à 24 entités par SSP, 3 975 au total) + le Chapitre 0 (`Phase_A`), dans l'ordre exact des `Cours 1 … N` de `SSP_nnn/NOTIONS.md` / `NOTIONS.json`.\n2. **QUALITÉ CLINIQUE MAXIMALE & ZÉRO MÉDIOCRITÉ (BLOQUANT ABSOLU — Consigne Vial 20.11.26)** :\n   - **Interdiction absolue de toute prose patronnée / générique** : aucune phrase-cadre où seul le nom de la pathologie change d'un cours à l'autre, aucun remplissage artificiel pour atteindre le calibre. La médiocrité clinique est dangereuse et entraîne un rejet immédiat.\n   - Chaque cours (`Phase_A` et `DX.1..N`) doit être **rédigé sur mesure** pour son entité exacte, avec : raisonnement physiopathologique et sémiologique réel, seuils numériques précis, diagnostics différentiels discriminants, posologies et contre-indications sourcées (Compendium.ch / AIPS, Tox Info Suisse, OFSP, ASSM, sociétés savantes suisses), vignettes cliniques authentiques et QCM exigeants de niveau Examen Fédéral Suisse.\n3. **INTERDICTION DES ARBRES DÉCISIONNELS (Consigne Vial 20.11.26)** :\n   - **Ne générer AUCUN arbre décisionnel ni algorithme graphique (`.fm-canvas`, SVG décisionnel, etc.)** dans `Phase_A` ou dans les `DX.n` — l'auteur (Vial) les réalisera lui-même.\n4. **Calibre texte pur actualisé (Consigne Vial 20.11.26)** :\n   - **80 à 100 Ko de texte pur UTF-8 par fichier** (`81 920` à `102 400` octets, calibre du Prompt Alpha confirmé par Vial le 20.11.2026 à 21:20, mesuré fenêtres comprises, hors balises HTML, CSS, JS, SVG et images).\n   - HTML hors images (`controle3.py`) : **`40 000` à `100 000` octets** (alerte).\n   - Densité maximale : zéro remplissage, zéro phrase pouvant figurer telle quelle dans un autre cours, zéro phrase de gabarit de `cartographie_DATA.json`.\n5. **Phrases verbales exclusives (BLOQUANT)** :\n   - Chaque phrase (texte, fenêtres, listes, légendes `<figcaption>`, cellules narratives `<td>`) contient un verbe conjugué reconnu. **Zéro phrase nominale.**\n4. **Médicaments cliquables d'emblée & Fenêtres centrées PK/PD à 2 onglets (Consigne Vial 20.11.26)** :\n   - Dès qu'un médicament est évoqué, il devient cliquable (`<a class=\"ouvre med-chip\" href=\"#f-...\">`).\n   - Chaque `<section class=\"fenetre mb\" id=\"f-...\"><div class=\"fen\">` s'ouvre au centre de l'écran et contient **2 onglets** :\n     * **Onglet 1 (`data-tab=\"pk\"`)** : Pharmacocinétique + **Courbe vectorielle SVG $C(t)$** + **4 paramètres cliniciens mis en évidence** (`.pkpd-kpis`).\n     * **Onglet 2 (`data-tab=\"pd\"`)** : Pharmacodynamique & Clinique + **Courbe vectorielle SVG $E(C)$** + posologies/précautions/grossesse suisses (Compendium.ch / AIPS).\n5. **Images** : uniquement à l'intérieur des `<section class=\"fenetre\">`, jamais hors fenêtre (licences selon Prompt Alpha § 4). Ne comptent pas dans le calibre.\n6. **Zéro terminologie de chantier visible** : aucun texte visible (ni `<title>`) ne doit contenir `LOT`, `V0`, `Phase A/B`, `DX.n`, `Appel A/B`, `Partie n`. Seuls les noms de fichiers gardent le format Alpha (`LOT_nnn_Phase_A_V0.html`, `LOT_nnn_Phase_B_V0_DX.i.html`).\n7. **Circuits & Plans** :\n   - `MONOGRAPHIQUE` (189 SSP) : plan maladie en 14 points (Prompt Alpha § 3.1).\n   - `NON_MONOGRAPHIQUE` (52 SSP) : Leçon en 12 à 14 points adaptés (Prompt Alpha § 3.2). **Jamais** de plan maladie ni de titres « Physiopathologie / Approche syndromique / Diagnostic positif » artificiels.\n   - `MIXTE` (7 SSP) : Prompt Alpha § 3.3, chaque fichier déclare `<meta name=\"ssp-circuit\" content=\"...\">`.\n8. **Correctifs Frontend v2 / Architecture `_sources/` (`UNIQUE.html` & `_polices/`)** :\n   - **Arborescence propre par SSP** : à la racine de `SSP_nnn/`, seul **`SSP_nnn_<code>_UNIQUE.html`** (plus le sous-dossier **`_sources/`**) est visible. Tous les fichiers sources (`LOT_nnn_*.html`, `images/`, `NOTIONS.*`, `MANIFESTE.json`, `DECISION*`, `paquet.json`, `_archive_avant_alpha/`) sont rangés dans `SSP_nnn/_sources/` sans rien supprimer.\n   - **Barre haute amovible (`gabarit_unique.html`)** : `#topbar` compacte 1 ligne (~42 px) avec pilule active, fil d'Ariane section, boutons `◀`/`▶`, tiroir overlay amovible `#dd-drawer` (`☰ Diagnostics (N) ▾` + option `📌 Épingler`) contenant `nav#nav` en colonnes égales (`32 px`, teinte unique par cours), et bouton `▴ Masquer barre` + pilule flottante `#btn-show-bar`.\n   - **Zéro dédoublement & navigation `#...` 100 % fonctionnelle (`forme.js`)** : script `forme.js` exécuté sous `DOMContentLoaded` et injecté par `assembler_unique.py`/`inliner.py` après `</head>` et avant `#signature-ia`/`</body>` ; intercepteur global appelant `e.preventDefault()` sur 100 % des `href^=\"#\"` (bloque le rechargement `srcdoc` + `file://`).\n   - **Modales centrées `<div class=\"fen\">` & désaturation (`forme.css` / `optimiser_ssp.py`)** : ouverture via classe `.fm-open` (plus `:target` en repli) avec pile `modalStack` et bouton `Fermer ✕` sticky (sans `history.back()`), auto-enveloppement `<div class=\"fen\">`, tableaux hors modale déplacés vers `<section class=\"fenetre fm-tab-fen\">` déclenchés par cartes `.fm-encart-fen`, citations `<sup class=\"r\"><a>` compactées en `[N]` avec modale aperçu `#fm-src-modal` empilable (`fm-stack-top`), puces médicaments `a.ouvre.med-chip` (`℞ ...`, `white-space: nowrap`, compatible accents français), repli du plan latéral desktop `#fm-plan-toggle`, îlots discontinus (`margin-bottom: 30px`) et padding bas `5.5rem` protégeant la lecture au-dessus de `#signature-ia`.\n   - **HTML unique** : ne jamais l'écrire à la main ; toujours exécuter `optimiser_ssp.py` puis `assembler_unique.py nnn`.\n\n## § 2. ARCHIVAGE & WORKFLOW PAR SSP (P0 → P4)\n- **Zéro suppression** : avant d'écraser ou renommer un fichier source existant, archiver dans `SSP_nnn/_sources/_archive_avant_alpha/`.\n- **P0 (Préparer)** : lire circuit (`catalogue_248.json`), entités (`NOTIONS.md`/`NOTIONS.json`), `memoire_zero_token.py --digest --lot nnn`, écrire `PLAN_ENTITES.md`.\n- **P1 (Décider)** : noter dans `DECISION.md` (Corriger / Réécrire si mécanique, faux plan maladie ou `< 30 Ko` / Créer).\n- **P2 (Produire)** : `LOT_nnn_Phase_A_V0.html` + `LOT_nnn_Phase_B_V0_DX.1..N.html`, 100 % des notions de `NOTIONS.json` expliquées et sourcées (Compendium.ch / AIPS, OFSP, ASSM, CC, LAMal, LAVI, Smarter Medicine), sans aucune phrase gabarit de la cartographie.\n- **P3 (Portes de Contrôle + Optimisation + Assemblage + Audit Chrome)** :\n  1. `controle3.py --script-ok` → **`VERT {}`** (si `paquet.json` présent ; `--script-ok` requis car `_sources/` référence `../../_polices/forme.js`)\n  2. `verif_aips.py` → **`OK`** (si `paquet.json` présent) et `restaurer_fond.py --verifier` → **`exit=0`**\n  3. `python _outils/optimiser_ssp.py nnn` → migration vers `_sources/`, tableaux déplacés en `<div class=\"fen\">`, teintes non bleues `--fm-a`\n  4. `python _outils/verif_mission.py nnn` → **100 % fichiers `PASS`** (`errors: []`)\n  5. `python _outils/assembler_unique.py nnn` → **`(1 + N) / (1 + N) onglets`** à la racine de `SSP_nnn/`\n  6. `python _outils/notions.py verifier nnn` → **`0 NON`** + copier `rapport_notions.csv` dans `SSP_nnn/_sources/`\n  7. `python _outils/audit_unique_browser.py nnn --all-tabs` → **`PASS` sur 100 % des onglets en Chrome headless réel**\n  8. Ajouter ligne dans `SUIVI_PRODUCTION.csv` + `git commit` + `git push origin main`.\n- **P4 (Affinage)** : consigner tout doute clinique/posologique non vérifié dans `1_Claude AI/HANDOFF_AFFINAGE.md` sous `## SSP_nnn`.\n\n## § 3. MISSION 2 — SSP 001 → 032\n- Extraire les cours depuis `SSP_nnn_<code>_UNIQUE.html` (JSON `data` gzip+base64, marqueurs `@@IMG:…@@`, `@@FONT:…@@`) après archivage des anciens `LOT_nnn_*.html` dans `_archive_avant_alpha/`.\n- Le frontend reste identique ; auditer le contenu avec la même sévérité (attention : `SSP_013` G13 = `NON_MONOGRAPHIQUE`, `SSP_014` G14 = `MIXTE`).\n- Produire `1_Claude AI/AUDIT_001-032.md` et corriger tous les ❌.\n\n## § 4. LES 12 BLOCAGES ROUGE (REJET IMMÉDIAT)\n1. Identification absente ou incertaine.\n2. Signature `#signature-ia` absente, modifiée ou supprimée.\n3. Entité de la Cartographie sans cours.\n4. Fichier hors intervalle `80–100 Ko` de texte pur (tout cours ; un cours de 30–50 Ko est à enrichir).\n5. Toute phrase nominale.\n6. Toute notion au verdict `NON`.\n7. Phrase gabarit de `cartographie_DATA.json` recopiée dans un cours.\n8. Plan maladie appliqué à une Leçon `NON_MONOGRAPHIQUE`.\n9. Terme de chantier visible (`LOT`, `V0`, `Phase A/B`, `DX.n`, `Appel`, `Partie n`).\n10. Posologie sans source de la cascade suisse.\n11. Image hors `<section class=\"fenetre\">`.\n12. Fichier supprimé au lieu d'être archivé.\n\n## § 5. ANNEXE CIRCUITS (248 SSP)\n- **NON_MONOGRAPHIQUE (52)** : 013 · 065 · 069 · 176 · 180 · 181 · 182 · 184 · 185 · 186 · 192 · 194 · 195 · 198 · 200 · 203 · 204 · 205 · 206 · 207 · 208 · 209 · 210 · 211 · 212 · 213 · 214 · 215 · 216 · 217 · 218 · 219 · 220 · 221 · 222 · 224 · 225 · 226 · 227 · 232 · 233 · 235 · 236 · 237 · 238 · 239 · 240 · 241 · 242 · 243 · 246 · 247.\n- **MIXTE (7)** : 014 · 165 · 174 · 175 · 190 · 202 · 223.\n- **MONOGRAPHIQUE (189)** : tous les autres SSP."
+}

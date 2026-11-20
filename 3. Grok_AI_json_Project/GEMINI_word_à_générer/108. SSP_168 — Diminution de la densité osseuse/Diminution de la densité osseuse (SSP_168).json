@@ -1,0 +1,2754 @@
+{
+  "rappel_obligatoire_avant_redaction": {
+    "lecture_imperative": [
+      "1. Lire intégralement PROMPT_Alpha_19.11.26.md ET la mise à jour incluse dans prompt_alpha_a_jour ci-dessous.",
+      "2. Respecter l'intervalle GLOBAL par cours : viser 85–95 Ko de texte médical pur (soit ~95–115 Ko de fichier JSON) sans quota rigide par partie — répartir le texte proportionnellement à l'importance clinique des parties.",
+      "3. Produire graduellement 1 cours complet par requête (Phase A, puis Cours 1, Cours 2...) en français médical académique, phrases verbales exclusives (0 phrase nominale), zéro prose générique ou patronnée.",
+      "4. Utiliser uniquement les guillemets typographiques français « … » dans les valeurs texte JSON (jamais de guillemet droit non échappé).",
+      "5. Zéro arbre décisionnel graphique (.fm-canvas) : ne générer aucun schéma décisionnel."
+    ],
+    "specificites_locales_ssp": [
+      "Circuit MONOGRAPHIQUE : respecter le plan maladie en 14 points avec socle généralités (1-3), démarche diagnostique (4-10), prise en charge posologique suisse intégrale (11) et QCM Examen Fédéral (14).",
+      "Couvrir 100 % des notions obligatoires listées dans phase_b[*].plan[*].notions_obligatoires pour Diminution de la densité osseuse (F2.20).",
+      "Cascade posologique suisse à 4 paliers obligatoire : 1. AIPS Swissmedic (n° 5 chiffres) -> 2. Compendium.ch -> 3. Sociétés savantes & CHU suisses (HUG, CHUV, Inselspital, USZ, USB, OFSP, ASSM, SSMIG, Tox Info Suisse 145) -> 4. Sociétés savantes européennes."
+    ]
+  },
+  "meta": {
+    "rang_gravite": 108,
+    "ssp": "SSP_168",
+    "code_profiles": "F2.20",
+    "nom_francais": "Diminution de la densité osseuse",
+    "circuit": "MONOGRAPHIQUE",
+    "police_obligatoire": "Atkinson Hyperlegible",
+    "calibre_cible": "80–100 Ko texte pur",
+    "arbres_decisionnels_autorises": false,
+    "mode_redaction": "Neon Deep Research",
+    "nb_chapitres_total": 18,
+    "defauts_audit_initial": [
+      "Incomplet (11/18 cours)",
+      "724 phrases nominales",
+      "Termes chantier (10 f.)"
+    ]
+  },
+  "sommaire": {
+    "phase_a": {
+      "fichier_html_cible": "LOT_168_Phase_A_V0.html",
+      "titre": "Diminution de la densité osseuse — Vue d'ensemble et orientation clinique (F2.20)"
+    },
+    "phase_b": [
+      {
+        "cours_numero": 1,
+        "titre": "Ostéoporose post-ménopausique primitive",
+        "cim": "M81.0",
+        "urgence": "chronique"
+      },
+      {
+        "cours_numero": 2,
+        "titre": "Ostéopénie (T-score entre -1.0 et -2.5)",
+        "cim": "M85.8",
+        "urgence": "chronique"
+      },
+      {
+        "cours_numero": 3,
+        "titre": "Ostéoporose cortisonique (iatrogène)",
+        "cim": "M81.4",
+        "urgence": "chronique"
+      },
+      {
+        "cours_numero": 4,
+        "titre": "Ostéoporose sénile (liée à l'âge > 70 ans)",
+        "cim": "M81.8",
+        "urgence": "chronique"
+      },
+      {
+        "cours_numero": 5,
+        "titre": "Hyperparathyroïdie primaire (ostéoporose corticale)",
+        "cim": "E21.0",
+        "urgence": "semi-urgent"
+      },
+      {
+        "cours_numero": 6,
+        "titre": "Carence sévère en vitamine D et ostéomalacie",
+        "cim": "M83.9",
+        "urgence": "chronique"
+      },
+      {
+        "cours_numero": 7,
+        "titre": "Ostéoporose sur hypogonadisme ou aménorrhée hypothalamique",
+        "cim": "E29.1",
+        "urgence": "chronique"
+      },
+      {
+        "cours_numero": 8,
+        "titre": "Ostéoporose sur hyperthyroïdie chronique",
+        "cim": "E05.9",
+        "urgence": "chronique"
+      },
+      {
+        "cours_numero": 9,
+        "titre": "Ostéoporose sur malabsorption digestive (cœliaque, bariatrique)",
+        "cim": "K90.0",
+        "urgence": "chronique"
+      },
+      {
+        "cours_numero": 10,
+        "titre": "Ostéoporose induite par hormonothérapie oncologique",
+        "cim": "M81.9",
+        "urgence": "chronique"
+      },
+      {
+        "cours_numero": 11,
+        "titre": "Ostéomalacie oncogénique / hypophosphatémique (FGF-23)",
+        "cim": "M83.8",
+        "urgence": "semi-urgent"
+      },
+      {
+        "cours_numero": 12,
+        "titre": "Mastocytose systémique indolente avec atteinte osseuse",
+        "cim": "D47.0",
+        "urgence": "chronique"
+      },
+      {
+        "cours_numero": 13,
+        "titre": "Fracture ostéoporotique du fémur proximal",
+        "cim": "S72.0",
+        "urgence": "urgent"
+      },
+      {
+        "cours_numero": 14,
+        "titre": "Fracture vertébrale ostéoporotique avec déficit neurologique",
+        "cim": "M80.0",
+        "urgence": "immediate"
+      },
+      {
+        "cours_numero": 15,
+        "titre": "Fracture pathologique sur métastase osseuse ou myélome",
+        "cim": "M84.5",
+        "urgence": "urgent"
+      },
+      {
+        "cours_numero": 16,
+        "titre": "Crise hypercalcémique aiguë",
+        "cim": "E83.5",
+        "urgence": "immediate"
+      },
+      {
+        "cours_numero": 17,
+        "titre": "Ostéonécrose de la mâchoire ou fracture fémorale atypique sous anti-résorptifs",
+        "cim": "M87.1",
+        "urgence": "semi-urgent"
+      }
+    ]
+  },
+  "phase_a": {
+    "titre": "Diminution de la densité osseuse — Vue d'ensemble (F2.20)",
+    "plan": [
+      {
+        "point": 1,
+        "titre": "Définition nosologique et périmètre clinique",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 2,
+        "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 3,
+        "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 4,
+        "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+        "description": "Présentation et hiérarchisation des 17 entités de la Cartographie Renouveau."
+      },
+      {
+        "point": 5,
+        "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 6,
+        "titre": "Examen physique systématique région par région",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 7,
+        "titre": "Approche syndromique et stratification de gravité",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 8,
+        "titre": "Diagnostic positif, scores cliniques et critères validés",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 9,
+        "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 10,
+        "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 11,
+        "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 12,
+        "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 13,
+        "titre": "Points clés indispensables à retenir",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 14,
+        "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      }
+    ]
+  },
+  "phase_b": [
+    {
+      "cours_numero": 1,
+      "fichier_html_cible": "LOT_168_Phase_B_V0_DX.1.html",
+      "titre": "Ostéoporose post-ménopausique primitive",
+      "cim": "M81.0",
+      "urgence": "chronique",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Maladie systémique du squelette caractérisée par une diminution de la masse osseuse (T-score <= -2.5 à la DXA) et une altération de la microarchitecture, augmentant la fragilité osseuse."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Risque vie entière de fracture ostéoporotique après 50 ans en Suisse : ~50 % chez la femme, ~20 % chez l'homme."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Carence œstrogénique post-ménopausique -> levée de l'inhibition sur RANKL -> hyperactivité ostéoclastique dépassant la formation ostéoblastique (os trabéculaire surtout)."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Fracture à faible cinétique (chute de sa propre hauteur) du rachis, fémur proximal, humérus ou bassin -> ostéoporose sévère même si T-score > -2.5 !"
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Facteurs de risque : ménopause précoce (< 45 ans), antécédent familial de fracture du col, IMC bas, tabac, alcool, sédentarité, perte de taille > 4 cm."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Mesure de la taille (perte > 4 cm = tassement vertébral suspect), cyphose dorsale."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "T-score <= -2.5 à la DXA ou fracture de fragilité majeure après exclusion d'une cause secondaire."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Ostéodensitométrie (DXA : rachis lombaire + col fémoral + hanche totale, T-score <= -2.5) + score FRAX suisse + bilan biologique de base (FSC, Ca, PO4, créatinine, TSH, 25-OH-vitamine D, électrophorèse protéines)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "VFA (Vertebral Fracture Assessment) ou radiographies du rachis si perte de taille > 4 cm."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Antalgie adaptée si fracture récente."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Mesures générales (calcium alimentaire 1000–1200 mg/j, vitamine D 800 UI/j, protéines, exercice en charge, prévention des chutes) + traitement anti-ostéoporotique selon risque ASO : bisphosphonates (alendronate/zolédronate), dénosumab, ou ostéoformateurs (romosozumab/tériparatide) si risque très élevé."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Fractures vertébrales, hanche, perte d'autonomie, surmortalité."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "DXA tous les 2–3 ans sous traitement ; attention au rebond fracturaire vertébral à l'arrêt du dénosumab (relais bisphosphonate obligatoire !)."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Réduction de 40–70 % du risque fracturaire sous traitement bien suivi."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Médecin de premier recours, rhumatologue/ostéologue (filière fracture FLS)."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 2,
+      "fichier_html_cible": "LOT_168_Phase_B_V0_DX.2.html",
+      "titre": "Ostéopénie (T-score entre -1.0 et -2.5)",
+      "cim": "M85.8",
+      "urgence": "chronique",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Diminution modérée de la densité minérale osseuse (T-score compris entre -1.0 et -2.5 déviations standards) sans atteindre le seuil densitométrique d'ostéoporose."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Touche ~35–45 % des femmes > 50 ans en Suisse."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Déséquilibre modéré du remodelage osseux lié à l'âge et au statut hormonal."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Fracture de fragilité majeure malgré une ostéopénie (la majorité des fractures surviennent en zone d'ostéopénie car la population y est plus nombreuse !)."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Asymptomatique ; évaluer les facteurs de risque cliniques du score FRAX."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Normal."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "T-score le plus bas entre -1.0 et -2.5 sans fracture de fragilité majeure."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "DXA + calcul du risque fracturaire absolu à 10 ans (FRAX Suisse / recommandations ASO)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Score TBS (Trabecular Bone Score) affinant l'évaluation microarchitecturale."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Aucune urgence."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Hygiène osseuse (calcium, vitamine D, activité physique, arrêt tabac) ; traitement médicamenteux (bisphosphonate) uniquement si risque FRAX élevé dépassant le seuil d'intervention suisse selon l'âge."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Progression vers l'ostéoporose si facteurs de risque non corrigés."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Répétition DXA selon T-score initial (tous les 3–5 ans si T-score -1.5 à -2.4)."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Stabilisation possible par mesures hygiéno-diététiques."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Médecin de premier recours."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 3,
+      "fichier_html_cible": "LOT_168_Phase_B_V0_DX.3.html",
+      "titre": "Ostéoporose cortisonique (iatrogène)",
+      "cim": "M81.4",
+      "urgence": "chronique",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Ostéoporose induite par une corticothérapie systémique prolongée (>= 3 mois à >= 5–7.5 mg/j d'équivalent prednisone)."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Fractures chez 30–50 % des patients sous corticoïdes au long cours."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Corticoïdes -> apoptose des ostéoblastes et ostéocytes (effet majeur sur l'os trabéculaire), baisse d'absorption intestinale du calcium et hypercalciurie."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Fractures vertébrales précoces même avec un T-score peu abaissé (entre -1.0 et -2.0)."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Prise orale ou parentérale prolongée de glucocorticoïdes (PR, PPR, MICI, asthme sévère, greffe)."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Signes d'imprégnation cortisonique (faciès lunaire, fragilité cutanée, amyotrophie proximale augmentant les chutes)."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Corticothérapie >= 3 mois + baisse de DMO ou fracture."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "DXA dès l'instauration d'une corticothérapie >= 3 mois + VFA/radiographie rachis si doute."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Calcémie, 25-OH-vitamine D, créatinine."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Pas d'urgence hors fracture."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Dose minimale efficace de corticoïdes + calcium/vitamine D + traitement anti-ostéoporotique PROPHYLACTIQUE d'emblée (bisphosphonate ou tériparatide/dénosumab) si >= 7.5 mg/j pour >= 3 mois ou âge > 50 ans / T-score <= -1.5 (recommandations ASO)."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Tassements vertébraux multiples, ostéonécrose aseptique de la tête fémorale."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "DXA à 1–2 ans."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Réversibilité partielle à l'arrêt des corticoïdes."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Médecin de premier recours, rhumatologue."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 4,
+      "fichier_html_cible": "LOT_168_Phase_B_V0_DX.4.html",
+      "titre": "Ostéoporose sénile (liée à l'âge > 70 ans)",
+      "cim": "M81.8",
+      "urgence": "chronique",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Diminution progressive de la densité osseuse liée au vieillissement chez l'homme et la femme > 70 ans."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Responsable de la majorité des fractures du col fémoral après 75–80 ans."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Baisse de la formation ostéoblastique, carence en vitamine D, hyperparathyroïdie secondaire sénile et perte corticale."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Chutes récidivantes, prise de sédatifs/benzodiazépines, hypotension orthostatique."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Âge > 70–75 ans, chutes à répétition, perte de poids, sédentarité."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Sarcopénie, troubles de l'équilibre (Timed Up and Go), cyphose."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "T-score <= -2.5 ou fracture de fragilité chez le sujet > 70 ans après exclusion d'une cause maligne/secondaire."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "DXA + bilan biologique complet (exclure myélome chez le sujet âgé !)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Évaluation gériatrique du risque de chute."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Prise en charge orthogériatrique rapide en cas de fracture."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Vitamine D 800–1000 UI/j + calcium + apport protéique (1–1.2 g/kg/j) + physiothérapie d'équilibre + zolédronate IV annuel ou dénosumab SC (si DFGe > 30–35 mL/min pour bisphosphonates)."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Fracture du fémur proximal (mortalité à 1 an ~20–25 %)."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Prévention des chutes, fonction rénale avant zolédronate."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Réduction significative des fractures de hanche sous traitement."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Médecin de premier recours, gériatre, ostéologue."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 5,
+      "fichier_html_cible": "LOT_168_Phase_B_V0_DX.5.html",
+      "titre": "Hyperparathyroïdie primaire (ostéoporose corticale)",
+      "cim": "E21.0",
+      "urgence": "semi-urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Hypersécrétion autonome de parathormone (PTH), due à un adénome parathyroïdien unique dans 85 % des cas, provoquant hypercalcémie et résorption osseuse."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Prévalence ~0.5–1 % chez la femme post-ménopausée."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "PTH élevée en continu -> stimulation ostéoclastique (via RANKL) prédominant sur l'os cortical (1/3 distal du radius) -> ostéoporose et hypercalcémie avec hypophosphatémie."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Calcémie corrigée > 2.85–3.0 mmol/L, insuffisance rénale, néphrolithiase."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Souvent asymptomatique (découverte fortuite d'hypercalcémie) ; sinon lithiases rénales, asthénie, douleurs osseuses, troubles cognitifs (« stones, bones, groans, psychiatric overtones »)."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Habituellement normal ; rechercher masse cervicale rarement palpable."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Hypercalcémie + PTH élevée/inappropriée + exclusion de l'hypercalcémie hypocalciurique familiale (rapport clairance Ca/créat > 0.01)."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Calcémie corrigée (ou ionisée) élevée + PTH inappropriément élevée ou normale haute + phosphatémie basse + calciurie/24h + DXA incluant le radius distal (1/3 distal)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Échographie cervicale + scintigraphie parathyroïdienne au MIBI (uniquement pour localiser avant chirurgie !)."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Hydratation IV + cinacalcet/bisphosphonate IV si hypercalcémie sévère."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Parathyroïdectomie chirurgicale (seul traitement curatif, indiquée si âge < 50 ans, calcémie > 0.25 mmol/L au-dessus LSN, T-score <= -2.5, DFGe < 60 ou lithiase)."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Crise hypercalcémique, néphrocalcinose, fractures."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Calcémie et DMO après chirurgie (gain osseux important post-opératoire)."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Guérison dans > 95 % des cas après parathyroïdectomie."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Endocrinologue, chirurgien endocrinien, médecin traitant."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 6,
+      "fichier_html_cible": "LOT_168_Phase_B_V0_DX.6.html",
+      "titre": "Carence sévère en vitamine D et ostéomalacie",
+      "cim": "M83.9",
+      "urgence": "chronique",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Défaut de minéralisation de la matrice osseuse néoformée (tissu ostéoïde) chez l'adulte dû à une carence profonde en vitamine D ou en phosphate."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Fréquente chez les sujets institutionnalisés sans exposition solaire, peau foncée sous latitude suisse, port de vêtements couvrants, malabsorption."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "25-OH-D < 25 nmol/L -> hypocalcémie/hypophosphatémie + hyperparathyroïdie secondaire -> élévation des phosphatases alcalines (PAL) et matrice ostéoïde non minéralisée."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Ne jamais débuter un bisphosphonate ou du dénosumab avant d'avoir corrigé une carence en vitamine D/hypocalcémie (risque d'hypocalcémie sévère !)."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Douleurs osseuses diffuses (bassin, côtes, rachis), faiblesse musculaire proximale (difficulté à se lever d'une chaise/escaliers)."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Démarche dandinante (myopathie proximale), sensibilité osseuse à la pression (sternum, tibias)."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Tableau clinico-biologique (PAL hautes, PTH haute, 25-OH-D basse, hypophosphatémie) ± stries de Looser."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "25-OH-vitamine D effondrée (< 25 nmol/L) + calcémie basse/normale-basse + phosphatémie basse + PAL élevées + PTH élevée."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Radiographies osseuses (pseudo-fractures / stries de Looser-Milkman au bassin ou col fémoral)."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Correction calcique si hypocalcémie symptomatique."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Recharge en cholécalciférol (vitamine D3, ex. 2000–4000 UI/j ou doses hebdomadaires) + calcium 1000 mg/j + exposition solaire modérée."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Fractures, hypocalcémie sévère, chutes sur myopathie."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Normalisation des PAL, PTH, calcémie et 25-OH-D à 3 mois ; contrôle DXA à 1 an (gain spectaculaire)."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Guérison complète et amélioration rapide des douleurs et de la force musculaire."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Médecin de premier recours, ostéologue/endocrinologue."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 7,
+      "fichier_html_cible": "LOT_168_Phase_B_V0_DX.7.html",
+      "titre": "Ostéoporose sur hypogonadisme ou aménorrhée hypothalamique",
+      "cim": "E29.1",
+      "urgence": "chronique",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Perte osseuse accélérée par carence prolongée en stéroïdes sexuels (testostérone chez l'homme, œstradiol chez la femme pré-ménopausée)."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Responsable de ~15–20 % des ostéoporoses masculines ; touche > 50 % des patientes avec anorexie mentale chronique."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Les œstrogènes (y compris issus de l'aromatisation de la testostérone chez l'homme) freinent l'ostéoclastogenèse via OPG/RANKL."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Tumeur hypophysaire (céphalées, hémianopsie bitemporale) dans l'hypogonadisme central."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Homme : baisse de libido, dysfonction érectile, gynécomastie ; femme : aménorrhée prolongée, restriction alimentaire, sport intensif."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Hypotrophie testiculaire, raréfaction pileuse (homme) ; IMC très bas, bradycardie (anorexie)."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "DMO basse (Z-score <= -2.0) + hypogonadisme biologique confirmé."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Testostérone totale matinale (à jeun, 2×) + LH/FSH + prolactine chez l'homme ; œstradiol, FSH/LH, prolactine, TSH chez la femme + DXA (Z-score <= -2.0 chez < 50 ans !)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "IRM hypophysaire si hypogonadisme hypogonadotrope."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Aucune urgence."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Traitement de la cause (reprise pondérale dans l'anorexie = seul traitement vraiment efficace !) ou substitution hormonale (testostérone chez l'homme, œstrogènes transdermiques + progestatif chez la femme si besoin)."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Fractures de fatigue, tassements vertébraux précoces."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "DXA tous les 1–2 ans, suivi endocrinologique/psychiatrique."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Récupération partielle si correction précoce avant la fin de l'acquisition du pic osseux."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Endocrinologue, gynécologue, psychiatre/nutritionniste."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 8,
+      "fichier_html_cible": "LOT_168_Phase_B_V0_DX.8.html",
+      "titre": "Ostéoporose sur hyperthyroïdie chronique",
+      "cim": "E05.9",
+      "urgence": "chronique",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Accélération du remodelage osseux avec prédominance de la résorption induite par un excès d'hormones thyroïdiennes (endogène ou iatrogène)."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Cause fréquente et réversible d'ostéoporose secondaire."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "T3 stimule directement les ostéoclastes et raccourcit le cycle de remodelage osseux -> perte nette de masse osseuse."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Fibrillation auriculaire, crise thyréotoxique."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Amaigrissement, palpitations, thermophobie, tremblements, prise de lévothyroxine à dose suppressive."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Tachycardie, goitre, tremblement fin des extrémités."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Hyperthyroïdie avérée ou subclinique prolongée + DMO basse."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "TSH effondrée + T4L/T3L élevées + DXA."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Anticorps anti-récepteurs de la TSH (TRAK), échographie/scintigraphie thyroïdienne."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Bêtabloquants et antithyroïdiens si thyrotoxicose aiguë."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Restauration de l'euthyroïdie (antithyroïdiens, iode radioactif, chirurgie, ou baisse de la dose de lévothyroxine) + bisphosphonate si ostéoporose sévère persistante."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Fractures, FA."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "TSH, contrôle DXA à 1–2 ans."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Gain spontané de densité osseuse après retour à l'euthyroïdie."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Endocrinologue, médecin de premier recours."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 9,
+      "fichier_html_cible": "LOT_168_Phase_B_V0_DX.9.html",
+      "titre": "Ostéoporose sur malabsorption digestive (cœliaque, bariatrique)",
+      "cim": "K90.0",
+      "urgence": "chronique",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Déminéralisation osseuse par malabsorption du calcium et de la vitamine D (maladie cœliaque, MICI, chirurgie bariatrique type bypass gastrique)."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Maladie cœliaque touche ~1 % de la population suisse ; > 30–50 % ont une DMO basse au diagnostic."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Atrophie villositaire duodéno-jéjunale ou court-circuit duodénal -> malabsorption Ca/vitamine D + inflammation chronique -> hyperparathyroïdie secondaire."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Hypocalcémie sévère post-bariatrique."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Diarrhée, ballonnements, carence en fer/folates, antécédent de bypass gastrique en Y."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Pâleur, amaigrissement parfois absent."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Malabsorption documentée + DMO basse."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Anticorps anti-transglutaminase IgA + IgA totales + biopsies duodénales (si positif) + bilan phosphocalcique/PTH/25-OH-D + DXA."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Fer, B12, albumine."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Aucune urgence."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Régime sans gluten strict à vie (cœliaque) ou supplémentation adaptée (citrate de calcium mieux absorbé si achlorhydrie + vitamine D) ; préférer zolédronate IV au bisphosphonate oral (malabsorption et risque œsophagien !)."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Fractures précoces, ostéomalacie mixte."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Anti-transglutaminase, PTH, 25-OH-D, DXA à 1–2 ans."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Amélioration nette de la DMO sous régime sans gluten."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Gastro-entérologue, nutritionniste, ostéologue."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 10,
+      "fichier_html_cible": "LOT_168_Phase_B_V0_DX.10.html",
+      "titre": "Ostéoporose induite par hormonothérapie oncologique",
+      "cim": "M81.9",
+      "urgence": "chronique",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Perte osseuse rapide induite par la déplétion œstrogénique profonde (inhibiteurs de l'aromatase) ou androgénique (analogues GnRH) en oncologie."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Concerne des milliers de patients suivis en oncologie en Suisse."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Suppression totale de la synthèse périphérique d'œstradiol -> stimulation intense du remodelage ostéoclastique."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Douleur osseuse focale nouvelle -> exclure une métastase osseuse !"
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Traitement par anti-aromatase (cancer du sein RH+) ou blocage androgénique (cancer prostatique métastatique/localement avancé)."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Arthralgies fréquentes sous anti-aromatases."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "DMO basse sous hormonothérapie oncologique."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "DXA initiale avant ou à l'introduction de l'hormonothérapie + bilan phosphocalcique/vitamine D."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Scintigraphie/IRM si suspicion métastatique."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Aucune urgence."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Calcium + vitamine D + bisphosphonate (zolédronate IV / alendronate) ou dénosumab 60 mg SC/6 mois dès T-score < -2.0 (ou < -1.5 avec facteurs de risque selon guidelines)."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Fractures vertébrales/hanche."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "DXA tous les 1–2 ans ; bilan dentaire avant dénosumab/bisphosphonates."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Prévention très efficace des fractures sous traitement protecteur."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Oncologue, ostéologue, médecin de premier recours."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 11,
+      "fichier_html_cible": "LOT_168_Phase_B_V0_DX.11.html",
+      "titre": "Ostéomalacie oncogénique / hypophosphatémique (FGF-23)",
+      "cim": "M83.8",
+      "urgence": "semi-urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Ostéomalacie paranéoplasique due à la sécrétion tumorale de FGF-23 (Fibroblast Growth Factor 23) inhibant la réabsorption tubulaire rénale du phosphate."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Très rare (< 1/million), adulte."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "FGF-23 élevé -> inhibition des cotransporteurs NaPi-IIa proximaux et de la 1-alpha-hydroxylase rénale -> hypophosphatémie sévère + calcitriol bas."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Retard diagnostique fréquent (confondue avec fibromyalgie ou ostéoporose banale)."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Douleurs osseuses diffuses sévères, myopathie proximale invalidante, fractures multiples progressives."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Faiblesse musculaire, déformations tardives."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Hypophosphatémie avec fuite rénale + FGF-23 élevé + tumeur identifiée."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Phosphatémie basse + TMP/DFG abaissé (fuite rénale de phosphate) + FGF-23 sérique élevé + TEP-CT au 68Ga-DOTATATE (localisation de la petite tumeur mésenchymateuse)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Calcémie normale, PAL élevées, 1,25-(OH)2-vitamine D basse."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Supplémentation en phosphate et calcitriol."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Exérèse chirurgicale de la tumeur (curative !) ou burosumab (anticorps anti-FGF-23) si tumeur non résécable."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Impaction fonctionnelle majeure, fractures multiples."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Réévaluation clinique programmée à 2–6 semaines avec contrôle de la tolérance thérapeutique et de l'observance."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Guérison spectaculaire après résection de la tumeur."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Endocrinologue/ostéologue, chirurgien, médecine nucléaire."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 12,
+      "fichier_html_cible": "LOT_168_Phase_B_V0_DX.12.html",
+      "titre": "Mastocytose systémique indolente avec atteinte osseuse",
+      "cim": "D47.0",
+      "urgence": "chronique",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Prolifération clonale de mastocytes (mutation KIT D816V) infiltrant la moelle osseuse et libérant histamine/cytokines provoquant une ostéoporose sévère."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Rare (~1/10 000) ; responsable d'environ 1 % des ostéoporoses masculines idiopathiques."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Médiateurs mastocytaires (histamine, tryptase, IL-6, RANKL) -> stimulation ostéoclastique et remodelage osseux accéléré."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Choc anaphylactique grave (guêpe/abeille) -> prescription d'adrénaline auto-injectable !"
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Fractures vertébrales multiples chez un adulte jeune, flushs, prurit, diarrhée, anaphylaxies sévères aux piqûres d'hyménoptères."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Urticaire pigmentaire (macules brunâtres avec signe de Darier positif au frottement) dans ~50 % des cas."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Critères OMS de mastocytose systémique + ostéoporose."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Tryptase sérique basale (> 20 µg/L) + recherche mutation KIT D816V + biopsie ostéo-médullaire (agrégats de mastocytes CD117+/CD25+)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "DXA + radiographies du rachis."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Adrénaline IM si anaphylaxie."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Bisphosphonates (zolédronate) ou dénosumab + antihistaminiques H1/H2 + stylo d'adrénaline."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Tassements vertébraux en cascade, anaphylaxie fatale."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Réévaluation clinique programmée à 2–6 semaines avec contrôle de la tolérance thérapeutique et de l'observance."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Espérance de vie normale dans la forme indolente."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Hématologue, allergologue, ostéologue."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 13,
+      "fichier_html_cible": "LOT_168_Phase_B_V0_DX.13.html",
+      "titre": "Fracture ostéoporotique du fémur proximal",
+      "cim": "S72.0",
+      "urgence": "urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Fracture du col fémoral ou du massif pertrochantérien survenant après une chute de sa propre hauteur sur os ostéoporotique."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "~15 000 cas/an en Suisse ; mortalité à 1 an ~20–25 %."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Amincissement cortical du col fémoral -> rupture lors d'un impact latéral sur le grand trochanter."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Fracture sous-capitale déplacée (risque de nécrose de la tête fémorale), anticoagulation associée."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Chute mécanique de sa hauteur, douleur inguinale/hanche intense, impotence fonctionnelle totale."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Membre inférieur raccourci, en rotation externe et adduction ; vérifier pouls distaux et sensibilité."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Impotence + déformation typique + fracture radiologique."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Radiographie du bassin de face + hanche de profil (CT si doute sur fracture occulte)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Bilan pré-opératoire, groupe/RAI, ECG."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Antalgie multimodale (bloc ilio-fascial précoce !), thromboprophylaxie, chirurgie < 24–48 h (prothèse totale/intermédiaire si col déplacé Garden III–IV ; ostéosynthèse par clou gamma si pertrochantérienne)."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Prise en charge orthogériatrique, lever précoce à J1, filière fracture (FLS) avec traitement anti-ostéoporotique (zolédronate IV)."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Thrombose/EP, pneumonie, délire post-opératoire, perte d'autonomie."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Hb post-opératoire, cicatrice, rééducation."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "~50 % des patients ne retrouvent pas leur niveau d'autonomie antérieur."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Orthopédiste, gériatre, physiothérapeute, médecin traitant."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 14,
+      "fichier_html_cible": "LOT_168_Phase_B_V0_DX.14.html",
+      "titre": "Fracture vertébrale ostéoporotique avec déficit neurologique",
+      "cim": "M80.0",
+      "urgence": "immediate",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Tassement vertébral aigu (ou fracture-éclatement) sur ostéoporose avec migration d'un fragment osseux dans le canal rachidien comprimant la moelle ou la queue de cheval."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Rare dans l'ostéoporose simple (< 5 % des tassements), plus fréquente si ostéoporose sévère ou lésion tumorale sous-jacente."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Effondrement du mur vertébral postérieur -> compression mécanique et ischémique des structures nerveuses."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Déficit moteur progressif, anesthésie en selle, rétention urinaire."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Douleur rachidienne brutale suivie de faiblesse des membres inférieurs, paresthésies ou rétention/incontinence urinaire."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Syndrome pyramidal (paraparésie, Babinski, niveau sensitif) ou syndrome de la queue de cheval (anesthésie en selle)."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Compression médullaire/radiculaire à l'IRM sur fracture vertébrale."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "IRM rachidienne en urgence absolue + CT rachidien (analyse osseuse et mur postérieur)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Électrophorèse/myélome à exclure systématiquement."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Décompression neurochirurgicale + stabilisation (ostéosynthèse ± cimentoplastie) en urgence."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Traitement anti-ostéoporotique puissant (ostéoformateur tériparatide/romosozumab)."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Paraplégie définitive."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Examen neurologique rapproché post-opératoire."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Récupération neurologique liée à la rapidité de la décompression (< 24 h)."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Neurochirurgien/chirurgien du rachis, rééducation, ostéologue."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 15,
+      "fichier_html_cible": "LOT_168_Phase_B_V0_DX.15.html",
+      "titre": "Fracture pathologique sur métastase osseuse ou myélome",
+      "cim": "M84.5",
+      "urgence": "urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Fracture survenant sur un os fragilisé par une lésion lytique maligne (myélome multiple ou métastase de sein, prostate, poumon, rein, thyroïde)."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Cause majeure de fractures atypiques (diaphyse fémorale, humérus, rachis cervical/thoracique haut)."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Activation ostéoclastique tumorale locale détruisant la corticale osseuse."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Fracture vertébrale au-dessus de T4, atteinte de l'arc postérieur, ostéolyse à l'emporte-pièce."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Douleurs osseuses préalables nocturnes/croissantes avant la fracture, altération de l'état général, antécédent de cancer."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Impaction fonctionnelle, déformation, parfois hypercalcémie."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Fracture sur lésion tumorale lytique prouvée histologiquement/radiologiquement."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Radiographie + CT/IRM du segment fracturé + bilan myélome (électrophorèse, chaînes légères) et bilan d'extension (CT TAP)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Biopsie osseuse per-opératoire systématique si primitif inconnu !"
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Ostéosynthèse préventive ou curative / prothèse + radiothérapie post-opératoire."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Traitement oncologique + acide zolédronique ou dénosumab haute dose (120 mg/mois) pour prévenir les événements osseux."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Compression médullaire, hypercalcémie."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Score de Mirels pour les autres os longs à risque."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Amélioration de la qualité de vie et du contrôle antalgique."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Orthopédiste oncologue, oncologue, radio-oncologue."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 16,
+      "fichier_html_cible": "LOT_168_Phase_B_V0_DX.16.html",
+      "titre": "Crise hypercalcémique aiguë",
+      "cim": "E83.5",
+      "urgence": "immediate",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Élévation aiguë et sévère de la calcémie (souvent > 3.5 mmol/L) sur hyperparathyroïdie décompensée ou néoplasie ostéolytique/PTHrP."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "90 % des hypercalcémies sévères sont dues soit à un cancer (myélome, poumon, sein) soit à une hyperparathyroïdie primaire."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Hypercalcémie -> diabète insipide néphrogénique -> polyurie -> déshydratation -> baisse du DFGe -> cercle vicieux aggravant l'hypercalcémie."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Raccourcissement du QT à l'ECG, bradycardie/BAV, coma, insuffisance rénale aiguë."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Soif intense, polyurie, nausées/vomissements, constipation opiniâtre, confusion/somnolence."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Déshydratation sévère, hypotonie, troubles de la conscience."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Calcémie corrigée > 3.5 mmol/L (ou > 3.0 mmol/L symptomatique)."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Calcémie ionisée/corrigée + ECG immédiat + créatinine/ionogramme + PTH + PTHrP/25-OH-D/électrophorèse."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Phosphatémie."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "1) RÉHYDRATATION IV agressive par NaCl 0.9 % (200–300 mL/h initialement) ; 2) Calcitonine SC/IM (action rapide en 4–6 h mais tachyphylaxie à 48 h) ; 3) Bisphosphonate IV (acide zolédronique 4 mg IV, action à 48–72 h) ou dénosumab si IRC sévère ; furosémide UNIQUEMENT après réhydratation !"
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Traitement de la cause (chirurgie parathyroïdienne ou oncologie)."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Arrêt cardiaque, insuffisance rénale aiguë, pancréatite aiguë."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Ionogramme, calcémie, diurèse, scope ECG aux soins continus/intensifs."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Normalisation rapide en 48–72 h sous traitement combiné."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Urgences, soins intensifs, endocrinologue, oncologue."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 17,
+      "fichier_html_cible": "LOT_168_Phase_B_V0_DX.17.html",
+      "titre": "Ostéonécrose de la mâchoire ou fracture fémorale atypique sous anti-résorptifs",
+      "cim": "M87.1",
+      "urgence": "semi-urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Nécrose osseuse exposée maxillo-mandibulaire (> 8 semaines) ou fracture transversale sous-trochantérienne/diaphysaire fémorale sur inhibition prolongée du remodelage."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Très rare aux doses ostéoporotiques (~0.01–0.1 %), plus fréquente aux doses oncologiques (1–5 %)."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Suppression excessive du remodelage osseux -> accumulation de microfissures corticales (fémur) ou défaut de cicatrisation post-extraction dentaire."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Toute douleur de cuisse/aine sous bisphosphonates/dénosumab > 3 ans impose une radiographie bilatérale des fémurs !"
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Douleur inguinale/de cuisse sourde prodromique depuis des semaines (fracture atypique) ou os exposé douloureux après extraction dentaire."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Os nécrotique exposé intrabuccal avec fistule ; douleur à la mise en charge sur la cuisse."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Critères radiologiques ASBMR (fracture atypique) ou exposition osseuse > 8 sem."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Radiographie fémorale bilatérale (épaississement cortical latéral, trait transversal) ou panoramique/CT dentaire."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Scintigraphie/IRM si radiographie douteuse."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Arrêt du bisphosphonate ; enclouage centro-médullaire prophylactique si fissure corticale symptomatique ; bains de bouche antiseptiques ± antibiotiques si ONM."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Fenêtre thérapeutique (« drug holiday ») discutée après 3–5 ans de bisphosphonates selon risque ; tériparatide parfois utilisé."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Fracture complète bilatérale, surinfection chronique mandibulaire."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Hygiène dentaire stricte et bilan dentaire avant initiation des anti-résorptifs."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Consolidation plus lente dans les fractures atypiques."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Ostéologue, orthopédiste, chirurgien maxillo-facial/dentiste."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    }
+  ],
+  "prompt_alpha_a_jour": "# MISSION : CORRECTION ET COMPLÉTION DES 248 SSP SUISSES (3 975 ENTITÉS + 248 CHAPITRES 0)\n\n## § 0. IDENTIFICATION, SIGNATURE & RÈGLES DE CONTINUITÉ — BLOQUANT ABSOLU\n1. **Identification obligatoire** en tête de première réponse :\n   - HEURE DE DÉBUT : AAAA-MM-JJ HH:MM (Europe/Zurich)\n   - MODÈLE : nom exact du modèle (ex. ANTIGRAVITY ORCHESTRATOR NEON)\n   - PLATEFORME : plateforme exacte (ex. ANTIGRAVITY)\n   - Ajouter la même ligne à `1_Claude AI/IDENTIFICATION_AGENTS.md`. Si incertitude, s'arrêter.\n2. **Signature IA fixe en bas à droite de TOUT HTML produit ou modifié** (juste avant `</body>`, en GRAS MAJUSCULE) :\n   `<div id=\"signature-ia\" style=\"position:fixed;right:12px;bottom:10px;z-index:9999;background:#fff;border:2px solid #000;padding:4px 10px;font:700 12px/1.3 Arial,sans-serif;text-transform:uppercase;color:#000\">DÉBUT : AAAA-MM-JJ HH:MM (EUROPE/ZURICH) · MODÈLE : <NOM> · PLATEFORME : <PLATEFORME></div>`\n   - **Seul Vial peut autoriser le retrait de ce bloc.** Un agent qui reprend un fichier signé ajoute sa propre ligne sous la précédente sans jamais effacer l'existante.\n3. **Continuité & transparence** :\n   - **Redémarrage propre à partir de `SSP_248`** : tous les cours précédemment modifiés ont été restaurés à l'état initial (`6941513`). Enchaîner continûment **`SSP_248 → SSP_033`**, puis **`SSP_001 → SSP_032`**.\n   - **Toujours afficher le raisonnement visible** en français dans chaque réponse.\n   - **Veille & relance GitHub** : commiter et pousser sur `origin main` après chaque SSP (ou lot <= 5 SSP) avec l'état à jour dans `SUIVI_PRODUCTION.csv`, `HANDOFF_AFFINAGE.md` et `HANDOFF_IA_COMPLET.md`.\n   - **Suivi graphique temps réel** : maintenir à jour le tableau de bord visuel temps réel des réalisations achevées et en cours.\n\n## § 1. RÈGLES ACTUALISÉES (PRIMENT SUR LE PROMPT ALPHA 19.11.26)\n1. **Nombre de cours par SSP** : **1 cours par entité de la Cartographie Renouveau** (15 à 24 entités par SSP, 3 975 au total) + le Chapitre 0 (`Phase_A`), dans l'ordre exact des `Cours 1 … N` de `SSP_nnn/NOTIONS.md` / `NOTIONS.json`.\n2. **QUALITÉ CLINIQUE MAXIMALE & ZÉRO MÉDIOCRITÉ (BLOQUANT ABSOLU — Consigne Vial 20.11.26)** :\n   - **Interdiction absolue de toute prose patronnée / générique** : aucune phrase-cadre où seul le nom de la pathologie change d'un cours à l'autre, aucun remplissage artificiel pour atteindre le calibre. La médiocrité clinique est dangereuse et entraîne un rejet immédiat.\n   - Chaque cours (`Phase_A` et `DX.1..N`) doit être **rédigé sur mesure** pour son entité exacte, avec : raisonnement physiopathologique et sémiologique réel, seuils numériques précis, diagnostics différentiels discriminants, posologies et contre-indications sourcées (Compendium.ch / AIPS, Tox Info Suisse, OFSP, ASSM, sociétés savantes suisses), vignettes cliniques authentiques et QCM exigeants de niveau Examen Fédéral Suisse.\n3. **INTERDICTION DES ARBRES DÉCISIONNELS (Consigne Vial 20.11.26)** :\n   - **Ne générer AUCUN arbre décisionnel ni algorithme graphique (`.fm-canvas`, SVG décisionnel, etc.)** dans `Phase_A` ou dans les `DX.n` — l'auteur (Vial) les réalisera lui-même.\n4. **Calibre texte pur actualisé (Consigne Vial 20.11.26)** :\n   - **80 à 100 Ko de texte pur UTF-8 par fichier** (`81 920` à `102 400` octets, calibre du Prompt Alpha confirmé par Vial le 20.11.2026 à 21:20, mesuré fenêtres comprises, hors balises HTML, CSS, JS, SVG et images).\n   - HTML hors images (`controle3.py`) : **`40 000` à `100 000` octets** (alerte).\n   - Densité maximale : zéro remplissage, zéro phrase pouvant figurer telle quelle dans un autre cours, zéro phrase de gabarit de `cartographie_DATA.json`.\n5. **Phrases verbales exclusives (BLOQUANT)** :\n   - Chaque phrase (texte, fenêtres, listes, légendes `<figcaption>`, cellules narratives `<td>`) contient un verbe conjugué reconnu. **Zéro phrase nominale.**\n4. **Médicaments cliquables d'emblée & Fenêtres centrées PK/PD à 2 onglets (Consigne Vial 20.11.26)** :\n   - Dès qu'un médicament est évoqué, il devient cliquable (`<a class=\"ouvre med-chip\" href=\"#f-...\">`).\n   - Chaque `<section class=\"fenetre mb\" id=\"f-...\"><div class=\"fen\">` s'ouvre au centre de l'écran et contient **2 onglets** :\n     * **Onglet 1 (`data-tab=\"pk\"`)** : Pharmacocinétique + **Courbe vectorielle SVG $C(t)$** + **4 paramètres cliniciens mis en évidence** (`.pkpd-kpis`).\n     * **Onglet 2 (`data-tab=\"pd\"`)** : Pharmacodynamique & Clinique + **Courbe vectorielle SVG $E(C)$** + posologies/précautions/grossesse suisses (Compendium.ch / AIPS).\n5. **Images** : uniquement à l'intérieur des `<section class=\"fenetre\">`, jamais hors fenêtre (licences selon Prompt Alpha § 4). Ne comptent pas dans le calibre.\n6. **Zéro terminologie de chantier visible** : aucun texte visible (ni `<title>`) ne doit contenir `LOT`, `V0`, `Phase A/B`, `DX.n`, `Appel A/B`, `Partie n`. Seuls les noms de fichiers gardent le format Alpha (`LOT_nnn_Phase_A_V0.html`, `LOT_nnn_Phase_B_V0_DX.i.html`).\n7. **Circuits & Plans** :\n   - `MONOGRAPHIQUE` (189 SSP) : plan maladie en 14 points (Prompt Alpha § 3.1).\n   - `NON_MONOGRAPHIQUE` (52 SSP) : Leçon en 12 à 14 points adaptés (Prompt Alpha § 3.2). **Jamais** de plan maladie ni de titres « Physiopathologie / Approche syndromique / Diagnostic positif » artificiels.\n   - `MIXTE` (7 SSP) : Prompt Alpha § 3.3, chaque fichier déclare `<meta name=\"ssp-circuit\" content=\"...\">`.\n8. **Correctifs Frontend v2 / Architecture `_sources/` (`UNIQUE.html` & `_polices/`)** :\n   - **Arborescence propre par SSP** : à la racine de `SSP_nnn/`, seul **`SSP_nnn_<code>_UNIQUE.html`** (plus le sous-dossier **`_sources/`**) est visible. Tous les fichiers sources (`LOT_nnn_*.html`, `images/`, `NOTIONS.*`, `MANIFESTE.json`, `DECISION*`, `paquet.json`, `_archive_avant_alpha/`) sont rangés dans `SSP_nnn/_sources/` sans rien supprimer.\n   - **Barre haute amovible (`gabarit_unique.html`)** : `#topbar` compacte 1 ligne (~42 px) avec pilule active, fil d'Ariane section, boutons `◀`/`▶`, tiroir overlay amovible `#dd-drawer` (`☰ Diagnostics (N) ▾` + option `📌 Épingler`) contenant `nav#nav` en colonnes égales (`32 px`, teinte unique par cours), et bouton `▴ Masquer barre` + pilule flottante `#btn-show-bar`.\n   - **Zéro dédoublement & navigation `#...` 100 % fonctionnelle (`forme.js`)** : script `forme.js` exécuté sous `DOMContentLoaded` et injecté par `assembler_unique.py`/`inliner.py` après `</head>` et avant `#signature-ia`/`</body>` ; intercepteur global appelant `e.preventDefault()` sur 100 % des `href^=\"#\"` (bloque le rechargement `srcdoc` + `file://`).\n   - **Modales centrées `<div class=\"fen\">` & désaturation (`forme.css` / `optimiser_ssp.py`)** : ouverture via classe `.fm-open` (plus `:target` en repli) avec pile `modalStack` et bouton `Fermer ✕` sticky (sans `history.back()`), auto-enveloppement `<div class=\"fen\">`, tableaux hors modale déplacés vers `<section class=\"fenetre fm-tab-fen\">` déclenchés par cartes `.fm-encart-fen`, citations `<sup class=\"r\"><a>` compactées en `[N]` avec modale aperçu `#fm-src-modal` empilable (`fm-stack-top`), puces médicaments `a.ouvre.med-chip` (`℞ ...`, `white-space: nowrap`, compatible accents français), repli du plan latéral desktop `#fm-plan-toggle`, îlots discontinus (`margin-bottom: 30px`) et padding bas `5.5rem` protégeant la lecture au-dessus de `#signature-ia`.\n   - **HTML unique** : ne jamais l'écrire à la main ; toujours exécuter `optimiser_ssp.py` puis `assembler_unique.py nnn`.\n\n## § 2. ARCHIVAGE & WORKFLOW PAR SSP (P0 → P4)\n- **Zéro suppression** : avant d'écraser ou renommer un fichier source existant, archiver dans `SSP_nnn/_sources/_archive_avant_alpha/`.\n- **P0 (Préparer)** : lire circuit (`catalogue_248.json`), entités (`NOTIONS.md`/`NOTIONS.json`), `memoire_zero_token.py --digest --lot nnn`, écrire `PLAN_ENTITES.md`.\n- **P1 (Décider)** : noter dans `DECISION.md` (Corriger / Réécrire si mécanique, faux plan maladie ou `< 30 Ko` / Créer).\n- **P2 (Produire)** : `LOT_nnn_Phase_A_V0.html` + `LOT_nnn_Phase_B_V0_DX.1..N.html`, 100 % des notions de `NOTIONS.json` expliquées et sourcées (Compendium.ch / AIPS, OFSP, ASSM, CC, LAMal, LAVI, Smarter Medicine), sans aucune phrase gabarit de la cartographie.\n- **P3 (Portes de Contrôle + Optimisation + Assemblage + Audit Chrome)** :\n  1. `controle3.py --script-ok` → **`VERT {}`** (si `paquet.json` présent ; `--script-ok` requis car `_sources/` référence `../../_polices/forme.js`)\n  2. `verif_aips.py` → **`OK`** (si `paquet.json` présent) et `restaurer_fond.py --verifier` → **`exit=0`**\n  3. `python _outils/optimiser_ssp.py nnn` → migration vers `_sources/`, tableaux déplacés en `<div class=\"fen\">`, teintes non bleues `--fm-a`\n  4. `python _outils/verif_mission.py nnn` → **100 % fichiers `PASS`** (`errors: []`)\n  5. `python _outils/assembler_unique.py nnn` → **`(1 + N) / (1 + N) onglets`** à la racine de `SSP_nnn/`\n  6. `python _outils/notions.py verifier nnn` → **`0 NON`** + copier `rapport_notions.csv` dans `SSP_nnn/_sources/`\n  7. `python _outils/audit_unique_browser.py nnn --all-tabs` → **`PASS` sur 100 % des onglets en Chrome headless réel**\n  8. Ajouter ligne dans `SUIVI_PRODUCTION.csv` + `git commit` + `git push origin main`.\n- **P4 (Affinage)** : consigner tout doute clinique/posologique non vérifié dans `1_Claude AI/HANDOFF_AFFINAGE.md` sous `## SSP_nnn`.\n\n## § 3. MISSION 2 — SSP 001 → 032\n- Extraire les cours depuis `SSP_nnn_<code>_UNIQUE.html` (JSON `data` gzip+base64, marqueurs `@@IMG:…@@`, `@@FONT:…@@`) après archivage des anciens `LOT_nnn_*.html` dans `_archive_avant_alpha/`.\n- Le frontend reste identique ; auditer le contenu avec la même sévérité (attention : `SSP_013` G13 = `NON_MONOGRAPHIQUE`, `SSP_014` G14 = `MIXTE`).\n- Produire `1_Claude AI/AUDIT_001-032.md` et corriger tous les ❌.\n\n## § 4. LES 12 BLOCAGES ROUGE (REJET IMMÉDIAT)\n1. Identification absente ou incertaine.\n2. Signature `#signature-ia` absente, modifiée ou supprimée.\n3. Entité de la Cartographie sans cours.\n4. Fichier hors intervalle `80–100 Ko` de texte pur (tout cours ; un cours de 30–50 Ko est à enrichir).\n5. Toute phrase nominale.\n6. Toute notion au verdict `NON`.\n7. Phrase gabarit de `cartographie_DATA.json` recopiée dans un cours.\n8. Plan maladie appliqué à une Leçon `NON_MONOGRAPHIQUE`.\n9. Terme de chantier visible (`LOT`, `V0`, `Phase A/B`, `DX.n`, `Appel`, `Partie n`).\n10. Posologie sans source de la cascade suisse.\n11. Image hors `<section class=\"fenetre\">`.\n12. Fichier supprimé au lieu d'être archivé.\n\n## § 5. ANNEXE CIRCUITS (248 SSP)\n- **NON_MONOGRAPHIQUE (52)** : 013 · 065 · 069 · 176 · 180 · 181 · 182 · 184 · 185 · 186 · 192 · 194 · 195 · 198 · 200 · 203 · 204 · 205 · 206 · 207 · 208 · 209 · 210 · 211 · 212 · 213 · 214 · 215 · 216 · 217 · 218 · 219 · 220 · 221 · 222 · 224 · 225 · 226 · 227 · 232 · 233 · 235 · 236 · 237 · 238 · 239 · 240 · 241 · 242 · 243 · 246 · 247.\n- **MIXTE (7)** : 014 · 165 · 174 · 175 · 190 · 202 · 223.\n- **MONOGRAPHIQUE (189)** : tous les autres SSP."
+}

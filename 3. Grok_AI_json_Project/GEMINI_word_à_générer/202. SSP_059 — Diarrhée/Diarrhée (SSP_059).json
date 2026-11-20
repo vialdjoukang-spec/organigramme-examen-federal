@@ -1,0 +1,2444 @@
+{
+  "rappel_obligatoire_avant_redaction": {
+    "lecture_imperative": [
+      "1. Lire intégralement PROMPT_Alpha_19.11.26.md ET la mise à jour incluse dans prompt_alpha_a_jour ci-dessous.",
+      "2. Respecter l'intervalle GLOBAL par cours : viser 85–95 Ko de texte médical pur (soit ~95–115 Ko de fichier JSON) sans quota rigide par partie — répartir le texte proportionnellement à l'importance clinique des parties.",
+      "3. Produire graduellement 1 cours complet par requête (Phase A, puis Cours 1, Cours 2...) en français médical académique, phrases verbales exclusives (0 phrase nominale), zéro prose générique ou patronnée.",
+      "4. Utiliser uniquement les guillemets typographiques français « … » dans les valeurs texte JSON (jamais de guillemet droit non échappé).",
+      "5. Zéro arbre décisionnel graphique (.fm-canvas) : ne générer aucun schéma décisionnel."
+    ],
+    "specificites_locales_ssp": [
+      "Circuit MONOGRAPHIQUE : respecter le plan maladie en 14 points avec socle généralités (1-3), démarche diagnostique (4-10), prise en charge posologique suisse intégrale (11) et QCM Examen Fédéral (14).",
+      "Couvrir 100 % des notions obligatoires listées dans phase_b[*].plan[*].notions_obligatoires pour Diarrhée (S3.8).",
+      "Cascade posologique suisse à 4 paliers obligatoire : 1. AIPS Swissmedic (n° 5 chiffres) -> 2. Compendium.ch -> 3. Sociétés savantes & CHU suisses (HUG, CHUV, Inselspital, USZ, USB, OFSP, ASSM, SSMIG, Tox Info Suisse 145) -> 4. Sociétés savantes européennes."
+    ]
+  },
+  "meta": {
+    "rang_gravite": 202,
+    "ssp": "SSP_059",
+    "code_profiles": "S3.8",
+    "nom_francais": "Diarrhée",
+    "circuit": "MONOGRAPHIQUE",
+    "police_obligatoire": "Atkinson Hyperlegible",
+    "calibre_cible": "80–100 Ko texte pur",
+    "arbres_decisionnels_autorises": false,
+    "mode_redaction": "Neon Deep Research",
+    "nb_chapitres_total": 16,
+    "defauts_audit_initial": [
+      "Incomplet (11/16 cours)",
+      "187 phrases nominales",
+      "Termes chantier (11 f.)"
+    ]
+  },
+  "sommaire": {
+    "phase_a": {
+      "fichier_html_cible": "LOT_059_Phase_A_V0.html",
+      "titre": "Diarrhée — Vue d'ensemble et orientation clinique (S3.8)"
+    },
+    "phase_b": [
+      {
+        "cours_numero": 1,
+        "titre": "Gastro-entérite aiguë infectieuse virale (norovirus, rotavirus) ou bactérienne bénigne",
+        "cim": "A09.0",
+        "urgence": "semi-urgent"
+      },
+      {
+        "cours_numero": 2,
+        "titre": "Syndrome de l'intestin irritable à diarrhée prédominante (SII-D)",
+        "cim": "K58.0",
+        "urgence": "chronique"
+      },
+      {
+        "cours_numero": 3,
+        "titre": "Diarrhée médicamenteuse ou toxique (antibiotiques simples, metformine, IPP, colchicine, magnésium)",
+        "cim": "K52.1",
+        "urgence": "chronique"
+      },
+      {
+        "cours_numero": 4,
+        "titre": "Maladie cœliaque (entéropathie auto-immune au gluten)",
+        "cim": "K90.0",
+        "urgence": "chronique"
+      },
+      {
+        "cours_numero": 5,
+        "titre": "Maladie inflammatoire chronique de l'intestin (maladie de Crohn ou rectocolite hémorragique)",
+        "cim": "K50.9",
+        "urgence": "semi-urgent"
+      },
+      {
+        "cours_numero": 6,
+        "titre": "Malabsorption des glucides (intolérance au lactose ou malabsorption du fructose)",
+        "cim": "E73.9",
+        "urgence": "chronique"
+      },
+      {
+        "cours_numero": 7,
+        "titre": "Colite microscopique (colite collagène ou colite lymphocytaire)",
+        "cim": "K52.8",
+        "urgence": "chronique"
+      },
+      {
+        "cours_numero": 8,
+        "titre": "Insuffisance pancréatique exocrine (pancréatite chronique calcifiante, résection, mucoviscidose)",
+        "cim": "K86.8",
+        "urgence": "chronique"
+      },
+      {
+        "cours_numero": 9,
+        "titre": "Parasitose intestinale prolongée (giardiase à Giardia duodenalis ou amibiase)",
+        "cim": "A07.1",
+        "urgence": "semi-urgent"
+      },
+      {
+        "cours_numero": 10,
+        "titre": "Diarrhée chronique endocrinienne (hyperthyroïdie, tumeur neuroendocrine carcinoïde, gastrinome, VIPome)",
+        "cim": "E05.9",
+        "urgence": "semi-urgent"
+      },
+      {
+        "cours_numero": 11,
+        "titre": "Colite pseudo-membraneuse sévère ou fulminante à Clostridioides difficile",
+        "cim": "A04.7",
+        "urgence": "immediate"
+      },
+      {
+        "cours_numero": 12,
+        "titre": "Syndrome hémolytique et urémique (SHU) post-diarrhéique à E. coli producteur de shigatoxine (STEC/EHEC)",
+        "cim": "D59.3",
+        "urgence": "immediate"
+      },
+      {
+        "cours_numero": 13,
+        "titre": "Entérocolite infectieuse invasive sévère avec sepsis ou déshydratation hypovolémique (Salmonella, Campylobacter, Shigella)",
+        "cim": "A02.0",
+        "urgence": "urgent"
+      },
+      {
+        "cours_numero": 14,
+        "titre": "Entérocolite neutropénique (typhlite aiguë) ou colite sévère sous inhibiteurs de points de contrôle immunitaire",
+        "cim": "K52.8",
+        "urgence": "immediate"
+      },
+      {
+        "cours_numero": 15,
+        "titre": "Syndrome cholériforme ou déshydratation aiguë sévère du nourrisson avec choc hypovolémique",
+        "cim": "A00.9",
+        "urgence": "immediate"
+      }
+    ]
+  },
+  "phase_a": {
+    "titre": "Diarrhée — Vue d'ensemble (S3.8)",
+    "plan": [
+      {
+        "point": 1,
+        "titre": "Définition nosologique et périmètre clinique",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 2,
+        "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 3,
+        "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 4,
+        "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+        "description": "Présentation et hiérarchisation des 15 entités de la Cartographie Renouveau."
+      },
+      {
+        "point": 5,
+        "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 6,
+        "titre": "Examen physique systématique région par région",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 7,
+        "titre": "Approche syndromique et stratification de gravité",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 8,
+        "titre": "Diagnostic positif, scores cliniques et critères validés",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 9,
+        "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 10,
+        "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 11,
+        "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 12,
+        "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 13,
+        "titre": "Points clés indispensables à retenir",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 14,
+        "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      }
+    ]
+  },
+  "phase_b": [
+    {
+      "cours_numero": 1,
+      "fichier_html_cible": "LOT_059_Phase_B_V0_DX.1.html",
+      "titre": "Gastro-entérite aiguë infectieuse virale (norovirus, rotavirus) ou bactérienne bénigne",
+      "cim": "A09.0",
+      "urgence": "semi-urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Diarrhée aiguë (>= 3 selles molles ou liquides/24 h depuis < 14 jours) d'origine infectieuse entérique, le plus souvent virale (norovirus chez l'adulte, rotavirus/adénovirus chez l'enfant) ou toxinique alimentaire."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Incidence de ~0,5 à 1 épisode/personne/an en Suisse ; épidémies hivernales de norovirus en collectivité."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Mécanisme sécrétoire et osmotique non invasif par entérotoxine ou destruction transitoire de la bordure en brosse des entérocytes matures villositaires."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Durée > 5–7 jours, fièvre > 38,5 °C persistante, syndrome dysentérique (glaires/sang), déshydratation sévère, terrain fragile (âge > 75 ans, nourrisson < 6 mois, immunodéprimé), retour de voyage tropical."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Début brutal, selles aqueuses abondantes non sanglantes, nausées/vomissements initiaux, crampes abdominales diffuses, contage dans l'entourage ou repas suspect."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Évaluation de l'état d'hydratation (poids chez l'enfant, pli cutané, sécheresse muqueuse, tachycardie, hypotension orthostatique), abdomen souple sans défense."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Diagnostic clinique devant une diarrhée aiguë aqueuse spontanément résolutive en 3 à 5 jours."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Aucun examen complémentaire ni coproculture dans la forme aiguë simple sans signe d'alarme."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "PCR multiplex entérique / coprocultures uniquement si syndrome dysentérique, sepsis, immunodépression, diarrhée > 7 jours ou enquête d'épidémie alimentaire."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Réhydratation orale (soluté de réhydratation orale OMS chez l'enfant et le sujet âgé, bouillons salés + boissons sucrées chez l'adulte), réalimentation précoce ; antisécrétoire (racécadotril) ou ralentisseur (lopéramide, contre-indiqué si diarrhée sanglante/fébrile ou enfant < 2 ans). Pas d'antibiotiques."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Mesures d'hygiène des mains (eau + savon, le norovirus étant résistant à certains gels hydroalcooliques), vaccination contre le rotavirus chez le nourrisson."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Déshydratation extracellulaire avec insuffisance rénale aiguë fonctionnelle, hypokaliémie, syndrome de l'intestin irritable post-infectieux (~10 %)."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Poids quotidien et diurèse chez le nourrisson et la personne âgée, reconsultation si intolérance alimentaire totale ou sang dans les selles."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Guérison complète en 2 à 7 jours."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Médecin de premier recours, pédiatre, pharmacien."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 2,
+      "fichier_html_cible": "LOT_059_Phase_B_V0_DX.2.html",
+      "titre": "Syndrome de l'intestin irritable à diarrhée prédominante (SII-D)",
+      "cim": "K58.0",
+      "urgence": "chronique",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Trouble fonctionnel intestinal (Rome IV) associant douleurs abdominales récurrentes liées à la défécation et > 25 % de selles liquides/molles (Bristol 6–7) avec < 25 % de selles dures."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Touche ~3 à 4 % de la population générale ; débute dans ~10–15 % des cas au décours d'une gastro-entérite aiguë infectieuse (SII post-infectieux)."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Accélération motrice gastro-colique postprandiale, hypersensibilité viscérale, micro-inflammation muqueuse et parfois malabsorption associée des acides biliaires."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Diarrhée nocturne (signe majeur d'organicité), rectorragies, amaigrissement, fièvre, début après 50 ans, anémie, élévation de la CRP ou de la calprotectine fécale."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Selles impérieuses matinales ou postprandiales (souvent 3–5 en matinée puis accalmie), absence absolue de diarrhée nocturne, soulagement des crampes après la selle, aggravation par le stress et certains aliments (FODMAPs)."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Examen physique strictement normal, poids stable."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Critères de Rome IV + absence de signes d'alarme + normalité de la sérologie cœliaque et de la calprotectine fécale."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Bilan biologique non invasif obligatoire : NFS, CRP, TSH, IgA anti-transglutaminase + IgA totales (maladie cœliaque) et calprotectine fécale (< 50 µg/g exclut une MICI avec VPN > 98 %)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Coloscopie avec biopsies étagées en cas de doute sur une colite microscopique (surtout si femme > 50 ans)."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Lopéramide à la demande ou en prévention situationnelle, antispasmodiques."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Régime pauvre en FODMAPs encadré, fibres solubles (psyllium), amitriptyline à faible dose le soir (10–25 mg : effet anticholinergique ralentisseur et antinociceptif viscéral), rifaximine ou chélateurs des acides biliaires (colestyramine) si diarrhée biliaire."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Anxiété anticipatoire d'incontinence, restriction sociale."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Suivi clinique ambulatoire."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Pathologie bénigne sans évolution vers une MICI ni un cancer."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Médecin traitant, gastro-entérologue, diététicien."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 3,
+      "fichier_html_cible": "LOT_059_Phase_B_V0_DX.3.html",
+      "titre": "Diarrhée médicamenteuse ou toxique (antibiotiques simples, metformine, IPP, colchicine, magnésium)",
+      "cim": "K52.1",
+      "urgence": "chronique",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Diarrhée secondaire à l'effet pharmacologique direct (motilinomimétique, osmotique, sécrétoire ou dysbiotique) d'un médicament ou d'un toxique alimentaire."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Impliquée dans plus de 250 médicaments courants ; cause la plus fréquente de diarrhée chez le sujet polymédiqué."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Amoxicilline-clavulanate/érythromycine (effet prokinétique motiline + dysbiose), metformine (inhibition de la réabsorption iléale des sels biliaires et effet incrétine), magnésium/sorbitol (effet osmotique), colchicine/AINS/MMF (toxicité entérocytaire), IPP/ISRS/lansoprazole (colite microscopique)."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Fièvre élevée, hyperleucocytose ou glaires après antibiothérapie (exclure une infection à Clostridioides difficile), déshydratation et insuffisance rénale (risque d'acidose lactique sous metformine ou de surdosage toxique sous colchicine)."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Chronologie d'introduction médicamenteuse (parfois ancienne pour la metformine ou l'olmésartan), consommation de chewing-gums sans sucre (sorbitol/xylitol) ou d'alcool."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Abdomen souple, évaluation de l'hydratation."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Régression complète de la diarrhée à l'arrêt ou à la réduction posologique de l'agent imputé."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Épreuve d'éviction / substitution médicamenteuse ; recherche de toxine de C. difficile si antibiothérapie dans les 8 semaines précédentes."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Trou osmotique fécal (> 100 mOsm/kg dans les diarrhées osmotiques au magnésium ou laxatifs) et dosage de magnésium/phosphore fécal si suspicion de prise cachée de laxatifs."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Suspension immédiate de la colchicine en cas de diarrhée (premier signe de surdosage toxique !) et de la metformine en cas de diarrhée aiguë déshydratante."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Passage à une forme à libération prolongée ou réduction de dose de metformine, remplacement d'un IPP (surtout lansoprazole), probiotiques (Saccharomyces boulardii / Lactobacillus rhamnosus GG) en prévention de la diarrhée post-antibiotique."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Insuffisance rénale aiguë, acidose lactique à la metformine, toxicité médullaire/multiviscérale de la colchicine."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Suivi clinique et créatininémie à 48–72 h chez le sujet fragile."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Résolution rapide dès l'arrêt du facteur iatrogène."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Médecin traitant, pharmacien."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 4,
+      "fichier_html_cible": "LOT_059_Phase_B_V0_DX.4.html",
+      "titre": "Maladie cœliaque (entéropathie auto-immune au gluten)",
+      "cim": "K90.0",
+      "urgence": "chronique",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Entéropathie inflammatoire chronique auto-immune déclenchée par l'ingestion de prolamines du gluten (blé/épeautre = gliadine, seigle = sécaline, orge = hordéine) chez des sujets génétiquement prédisposés (HLA-DQ2 ou DQ8)."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Prévalence ~1 % de la population européenne ; fortement sous-diagnostiquée à l'âge adulte (formes paucisymptomatiques)."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Désamidation de la gliadine par la transglutaminase tissulaire (tTG2) -> présentation par HLA-DQ2 (90–95 %) ou DQ8 (5–10 %) aux lymphocytes T CD4+ de la lamina propria -> réaction Th1 et lymphocytes intra-épithéliaux (LIE) cytotoxiques -> atrophie villositaire et hyperplasie des cryptes."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Résistance au régime sans gluten strict, perte de poids sévère, fièvre, sueurs nocturnes (suspicion de sprue réfractaire de type II ou de lymphome T associé à une entéropathie - EATL)."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Diarrhée chronique ou stéatorrhée, ballonnements, fatigue, aphtose buccale récidivante, perte de poids, ou terrain auto-immun associé (diabète de type 1, thyroïdite de Hashimoto, dermatite herpétiforme)."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Pâleur (anémie), glossite, perte pondérale, vésicules prurigineuses symétriques des coudes/genoux/fesses (dermatite herpétiforme de Duhring-Brocq)."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Sérologie IgA anti-tTG positive + atrophie villositaire duodénale (Marsh 3) régressant sous régime sans gluten (chez l'enfant : diagnostic sans biopsie possible selon ESPGHAN si IgA anti-tTG > 10x la norme + IgA anti-endomysium positifs sur 2e prélèvement)."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "1) Sérologie sous régime contenant du gluten : IgA anti-transglutaminase tissulaire (anti-tTG2) + dosage pondéral des IgA totales (si déficit en IgA : doser les IgG anti-tTG ou anti-peptides de gliadine désamidés). 2) OGD avec biopsies duodénales multiples (>= 4 dans D2 + 1–2 dans le bulbe) classées selon Marsh (LIE > 25–30 %, hyperplasie des cryptes, atrophie villositaire Marsh 3)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Bilan carentiel complet (ferritine, folates, vitamine B12, 25-OH vitamine D, calcium, albumine, TP, transaminases) et ostéodensitométrie (DEXA). Typage HLA-DQ2/DQ8 (excellente valeur prédictive négative > 99 % en cas de doute diagnostique)."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Correction des carences nutritionnelles (fer IV si malabsorption sévère, vitamine D, calcium, folates)."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Régime sans gluten (éviction stricte à vie du blé, épeautre, kamut, seigle, orge ; avoine pure certifiée autorisée), consultation diététique spécialisée, vaccination antipneumococcique (hyposplénisme fonctionnel fréquent)."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Ostéoporose fracturaire, infertilité, hyposplénisme (sepsis à germes encapsulés), jéjuno-iléite ulcérée et lymphome T intestinal (EATL)."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Suivi clinique, nutritionnel et décroissance jusqu'à négativation des IgA anti-tTG à 6 et 12 mois puis annuellement (marqueur d'observance au régime)."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Excellent pronostic et disparition du surrisque de lymphome sous régime sans gluten strict bien suivi."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Gastro-entérologue, diététicien spécialisé, association suisse de la maladie cœliaque, médecin traitant."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 5,
+      "fichier_html_cible": "LOT_059_Phase_B_V0_DX.5.html",
+      "titre": "Maladie inflammatoire chronique de l'intestin (maladie de Crohn ou rectocolite hémorragique)",
+      "cim": "K50.9",
+      "urgence": "semi-urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Affections inflammatoires chroniques idiopathiques du tube digestif évoluant par poussées : RCH (atteinte muqueuse continue débutant au rectum et s'étendant plus ou moins sur le côlon) vs maladie de Crohn (atteinte transmurale discontinue segmentaire de la bouche à l'anus, avec prédilection iléo-cæcale)."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Prévalence en Suisse ~1/300 habitants ; pic d'incidence chez le jeune adulte (15–35 ans) ; le tabac aggrave le Crohn mais protège de la RCH."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Réponse immunitaire innée et adaptative inappropriée (Th1/Th17 dans le Crohn, Th2 atypique dans la RCH) vis-à-vis du microbiote commensal chez un hôte génétiquement susceptible (ex. mutation NOD2/CARD15 dans le Crohn)."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Fièvre, perte de poids > 10 %, anémie sévère, masse abdominale (abcès), syndrome subocclusif, >= 6 selles sanglantes/j (colite aiguë grave)."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Diarrhée prolongée > 4 semaines (souvent nocturne), rectorragies/glaires (constantes dans la RCH), douleurs en fosse iliaque droite et perte de poids (Crohn), lésions ano-périnéales (Crohn), manifestations extra-intestinales (arthrite périphérique, spondylarthrite, érythème noueux, pyoderma gangrenosum, uvéite, cholangite sclérosante primitive)."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Sensibilité ou empâtement en fosse iliaque droite (Crohn), examen proctologique (fissures atypiques, fistules, abcès dans le Crohn), état nutritionnel."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Faisceau d'arguments cliniques, biologiques, endoscopiques, radiologiques et histologiques (il n'existe pas de critère unique pathognomonique)."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Calprotectine fécale (très élevée > 250 µg/g) + iléo-coloscopie totale avec biopsies étagées de chaque segment colique et de l'iléon terminal (granulome épithélioïde et gigantocellulaire sans nécrose caséeuse dans ~30 % des Crohn ; abcès cryptiques et distorsion glandulaire continue dans la RCH)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Entéro-IRM ou échographie intestinale (bilan d'extension grêlique et des complications transmurales du Crohn), coprocultures + C. difficile pour exclure une surinfection."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Traitement d'induction de la poussée : dérivés 5-ASA topiques/oraux (RCH légère à modérée), corticoïdes systémiques ou budésonide à libération iléo-colique (jamais en traitement d'entretien !)."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Traitement d'entretien visant la cicatrisation muqueuse ('treat-to-target') : 5-ASA (dans la RCH uniquement), immunomodulateurs (azathioprine/méthotrexate) ou biothérapies/petites molécules (anti-TNF alpha infliximab/adalimumab, anti-intégrine védolizumab, anti-IL12/23 ou IL-23 ustékinumab/risankizumab, inhibiteurs JAK) + arrêt impératif du tabac dans le Crohn."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Crohn : sténose, fistule entéro-entérique/cutanée/vésicale, abcès intra-abdominal. RCH : colite aiguë grave, mégacôlon toxique, dysplasie et cancer colorectal (coloscopie de dépistage dès 8 ans d'évolution)."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Calprotectine fécale tous les 3–6 mois, CRP, NFS, ferritine, réévaluation endoscopique ou échographique à 6–12 mois."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Maladie chronique contrôlable ; les biothérapies précoces réduisent nettement le recours à la chirurgie."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Gastro-entérologue, chirurgien viscéral, rhumatologue, dermatologue, infirmière spécialisée MICI."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 6,
+      "fichier_html_cible": "LOT_059_Phase_B_V0_DX.6.html",
+      "titre": "Malabsorption des glucides (intolérance au lactose ou malabsorption du fructose)",
+      "cim": "E73.9",
+      "urgence": "chronique",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Défaut d'hydrolyse du lactose par déficit génétique primaire (hypolactasie de l'adulte) ou secondaire (post-entérite/cœliaque) en lactase de la bordure en brosse entérocytaire."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "L'hypolactasie primaire touche ~15 à 20 % des Suisses autochtones et 70 à 90 % des populations d'origine méditerranéenne, africaine ou asiatique."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Le lactose non digéré dans le grêle exerce un appel d'eau intraluminal (diarrhée osmotique, trou osmotique fécal > 100 mOsm/kg) puis est fermenté par les bactéries coliques en acides gras à chaîne courte (pH fécal acide < 5,5) et en gaz (H2, CH4, CO2)."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Perte de poids, anémie, stéatorrhée ou diarrhée nocturne (exclure une maladie cœliaque responsable d'une intolérance secondaire au lactose)."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Diarrhée aqueuse, borborygmes, ballonnements et flatulences survenant 30 min à 2 h après l'ingestion de lait ou de produits laitiers non fermentés ; disparition totale des symptômes au jeûne."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Abdomen parfois tympanique en période postprandiale, état général et poids strictement normaux."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Reproduction des symptômes lors du test respiratoire au lactose avec pic d'H2 expiré ou résolution franche sous éviction ciblée."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Test d'éviction diagnostique du lactose pendant 2 semaines (suivi d'une réintroduction) ou test respiratoire à l'hydrogène expiré après charge orale de 25–50 g de lactose (élévation d'H2 > 20 ppm)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Test génétique du polymorphisme C/T-13910 du gène LCT ; sérologie cœliaque si suspicion de forme secondaire."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Réduction de la charge en lactose liquide."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Adapation alimentaire sans exclusion totale (les fromages à pâte dure affinés ne contiennent plus de lactose et les yaourts sont bien tolérés grâce à la bêta-galactosidase bactérienne ; maintien des apports calciques), produits délactosés ou comprimés d'enzyme lactase exogène."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Ostéopénie/ostéoporose par éviction laitière excessive non compensée en calcium."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Évaluation clinique des apports calciques quotidiens (1000 mg/j)."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Condition physiologique bénigne."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Médecin traitant, diététicien."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 7,
+      "fichier_html_cible": "LOT_059_Phase_B_V0_DX.7.html",
+      "titre": "Colite microscopique (colite collagène ou colite lymphocytaire)",
+      "cim": "K52.8",
+      "urgence": "chronique",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Maladie inflammatoire chronique du côlon définie par une diarrhée aqueuse chronique, un aspect endoscopique normal ou quasi normal et des lésions histologiques spécifiques (bande collagène sous-épithéliale épaissie > 10 µm dans la colite collagène, ou lymphocytose intra-épithéliale > 20/100 cellules épithéliales dans la colite lymphocytaire)."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Incidence en forte hausse (~10–20/100 000/an), touche principalement la femme > 60 ans ; facteurs favorisants : tabagisme, maladies auto-immunes (cœliaque, thyroïdite) et médicaments (IPP surtout lansoprazole, ISRS type sertraline, AINS)."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Altération de l'absorption colique du chlorure de sodium et sécrétion active d'anions induites par l'inflammation de la lamina propria et la barrière sous-épithéliale."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Rectorragies ou masse (exclure une autre pathologie)."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Début souvent brutal (simulant une gastro-entérite qui ne guérit pas), 4 à 10 selles liquides/j strictement non sanglantes, impériosités, réveils nocturnes fréquents et incontinence fécale secondaire."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Examen abdominal normal, parfois perte de poids modérée ou déshydratation."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Confirmation histologique de colite collagène ou lymphocytaire sur biopsies coliques."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Coloscopie totale avec biopsies étagées systématiques en muqueuse saine (côlon droit, transverse et gauche dans des flacons séparés) : seule l'histologie permet le diagnostic."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Sérologie cœliaque systématique (association fréquente dans 5 à 10 % des cas)."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Arrêt des médicaments inducteurs (IPP, AINS, ISRS) + lopéramide ou colestyramine dans les formes légères."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Traitement de référence de 1re intention : budésonide oral à libération iléo-colique (9 mg/j pendant 6–8 semaines : rémission > 80 %) ; budésonide à faible dose (3–6 mg/j) ou biothérapie en cas de rechute à l'arrêt."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Hypokaliémie, insuffisance rénale fonctionnelle, incontinence fécale invalidante (aucun surrisque de cancer colorectal)."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Suivi clinique du nombre de selles liquides par jour (critères de Hjortswang)."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Excellente réponse au budésonide, mais rechute dans ~50 % des cas à l'arrêt du traitement."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Gastro-entérologue, médecin traitant."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 8,
+      "fichier_html_cible": "LOT_059_Phase_B_V0_DX.8.html",
+      "titre": "Insuffisance pancréatique exocrine (pancréatite chronique calcifiante, résection, mucoviscidose)",
+      "cim": "K86.8",
+      "urgence": "chronique",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Déficit de sécrétion des enzymes pancréatiques acinaires (lipase, protéases, amylase) et de bicarbonates dans le duodénum, entraînant une maldigestion luminale dès que > 90 % de la fonction exocrine est détruite."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Principales causes chez l'adulte : pancréatite chronique (alcool, tabac, auto-immune, génétique), cancer du pancréas, duodéno-pancréatectomie céphalique, diabète ancien."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "L'absence de lipase pancréatique et l'inactivation acide des enzymes résiduelles (défaut de bicarbonates canalaires) empêchent l'hydrolyse des triglycérides alimentaires en acides gras absorbables."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Ictère indolore, diabète d'apparition récente après 50 ans avec perte de poids (exclure un adénocarcinome pancréatique)."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Selles volumineuses, pâles/mastic, grasses, luisantes, malodorantes, flottantes et collant à la cuvette (stéatorrhée), amaigrissement malgré un appétit conservé, antécédents de poussées de pancréatite ou d'intoxication alcoolo-tabagique."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Amaigrissement, sarcopénie, signes de carence en vitamines liposolubles (ecchymoses par déficit en vitamine K, ostéomalacie par déficit en vitamine D)."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Élastase fécale abaissée + imagerie morphologique pancréatique concordante."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Dosage de l'élastase-1 fécale sur échantillon de selle moulée (< 200 µg/g = insuffisance exocrine ; < 100 µg/g = insuffisance sévère ; attention aux faux positifs par dilution si selle très liquide)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "CT abdominal ou IRM pancréatique (calcifications parenchymateuses, dilatation irrégulière du canal de Wirsung, exclusion tumorale), HbA1c (diabète pancréatoprive de type 3c), bilan des vitamines A, D, E, TP."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Instauration immédiate d'extraits pancréatiques gastro-protégés (pancréatine / Créon) pris pendant chaque repas (50 000 UI de lipase par repas principal, 25 000 UI par collation)."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Enzymothérapie substitutive à vie adaptée à la richesse lipidique des repas (ne pas prescrire de régime sans graisse qui aggrave la dénutrition !), ajout d'un IPP si persistance de la stéatorrhée (protège la lipase de l'acidité), sevrage alcoolo-tabagique, supplémentation vitaminique A, D, E, K."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Dénutrition protéino-énergétique sévère, fractures ostéoporotiques, diabète de type 3c instable."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Poids, disparition de la stéatorrhée, vitamines liposolubles, HbA1c et ostéodensitométrie."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Correction rapide de la stéatorrhée et reprise pondérale sous posologie enzymatique suffisante."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Gastro-entérologue, nutritionniste, diabétologue, addictologue."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 9,
+      "fichier_html_cible": "LOT_059_Phase_B_V0_DX.9.html",
+      "titre": "Parasitose intestinale prolongée (giardiase à Giardia duodenalis ou amibiase)",
+      "cim": "A07.1",
+      "urgence": "semi-urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Protozoose de l'intestin grêle proximal due au flagellé Giardia duodenalis (Giardia lamblia/intestinalis), ou protozoose colique invasive due à Entamoeba histolytica."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Cosmopolite, fréquente chez les voyageurs, randonneurs buvant de l'eau de surface, enfants en crèche et sujets présentant un déficit humoral en IgA ou un DICV."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Les trophozoïtes de Giardia tapissent la bordure en brosse duodéno-jéjunale sans l'envahir -> raccourcissement des microvillosités, déficit secondaire en disaccharidases (lactase) et malabsorption."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Syndrome dysentérique fébrile ou douleur de l'hypochondre droit au retour de zone tropicale (suspicion d'amibiase colique ou d'abcès amibien hépatique)."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Diarrhée subaiguë ou chronique (> 14 jours) faite de selles pâteuses/graisseuses malodorantes, ballonnements épigastriques majeurs, éructations soufrées, nausées, perte de poids, absence de fièvre (dans la giardiase)."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Abdomen météorisé, amaigrissement modéré, apyrexie."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Détection moléculaire (PCR), antigénique ou microscopique de Giardia duodenalis ou d'Entamoeba histolytica (distinguée d'E. dispar non pathogène par PCR)."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "PCR multiplex parasitaire sur selles (ou recherche d'antigène fécal de Giardia / examen parasitologique des selles à 3 reprises sur plusieurs jours)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Biopsies duodénales en OGD (visualisation des trophozoïtes en 'cerf-volant' à la surface des villosités) et dosage pondéral des immunoglobulines (dépistage déficit en IgA / DICV)."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Giardiase : métronidazole (500 mg 3x/j pendant 5–7 j) ou tinidazole en dose unique (ou albendazole). Amibiase : métronidazole tissulaire suivi obligatoirement d'un amœbicide de contact intraluminal (paromomycine) pour éradiquer les kystes."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Éviction temporaire du lactose pendant 2–4 semaines (intolérance secondaire post-giardiase fréquente), traitement de l'eau de boisson en voyage."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Malabsorption chronique avec cassure staturo-pondérale chez l'enfant, abcès amibien du foie."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Contrôle clinique ; examen de selles de contrôle uniquement si persistance des symptômes."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Guérison dans > 90 % des cas."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Médecin traitant, spécialiste en médecine tropicale/infectiologue."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 10,
+      "fichier_html_cible": "LOT_059_Phase_B_V0_DX.10.html",
+      "titre": "Diarrhée chronique endocrinienne (hyperthyroïdie, tumeur neuroendocrine carcinoïde, gastrinome, VIPome)",
+      "cim": "E05.9",
+      "urgence": "semi-urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Diarrhée chronique secondaire à une hypersécrétion hormonale systémique accélérant le transit intestinal (hormones thyroïdiennes, sérotonine, calcitonine) ou stimulant la sécrétion hydro-électrolytique entérocytaire (VIP, gastrine)."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "L'hyperthyroïdie (Basedow, nodule toxique) est fréquente ; les tumeurs neuroendocrines (TNE) digestives ou pancréatiques sont rares (~2–5/100 000/an)."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Diarrhée motrice : temps de transit très court (test au rouge carmin < 8 h), cède au jeûne. Diarrhée sécrétoire (VIPome / syndrome de Verner-Morrison) : activation de l'adénylate cyclase entérocytaire -> choléra pancréatique (> 3 L/j) ne cédant pas au jeûne avec trou osmotique fécal < 50 mOsm/kg."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Déshydratation sévère avec hypokaliémie majeure et acidose métabolique (VIPome), crise aiguë thyrotoxique."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Hyperthyroïdie : thermophobie, tachycardie, tremblements, amaigrissement avec polyphagie. Syndrome carcinoïde : diarrhée + flushs vasomoteurs cervico-faciaux. Zollinger-Ellison (gastrinome) : diarrhée + ulcères duodénaux multiples sévères."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Goitre, exophtalmie (Basedow), hépatomégalie métastatique ou souffle d'insuffisance tricuspide (cœur carcinoïde droit)."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Confirmation biologique de l'hypersécrétion hormonale et localisation tumorale/endocrinienne."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "TSH en 1re intention ; si suspicion de TNE : acide 5-hydroxy-indolacétique (5-HIAA) urinaire des 24 h + chromogranine A (attention aux faux positifs sous IPP), gastrinémie, VIP ou calcitonine + imagerie (CT/IRM et PET-CT au 68Ga-DOTATATE)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Échocardiographie transthoracique dans le syndrome carcinoïde."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Réhydratation et correction potassique ; antithyroïdiens de synthèse + bêtabloquants (hyperthyroïdie) ; analogues de la somatostatine (octréotide/lanréotide) dans les TNE et IPP haute dose dans le gastrinome."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Traitement radical (chirurgie thyroïdienne ou iode 131 ; résection chirurgicale ou radiothérapie interne vectorisée PRRT au 177Lu-DOTATATE pour les TNE)."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Cardiopathie carcinoïde, choc hypovolémique (VIPome), cardiothyroïdie."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Suivi endocrinologique et oncologique spécifique."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Guérison de la diarrhée après contrôle de l'endocrinopathie."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Endocrinologue, gastro-entérologue, oncologue, médecin nucléaire."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 11,
+      "fichier_html_cible": "LOT_059_Phase_B_V0_DX.11.html",
+      "titre": "Colite pseudo-membraneuse sévère ou fulminante à Clostridioides difficile",
+      "cim": "A04.7",
+      "urgence": "immediate",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Colite aiguë toxinique induite par la prolifération de Clostridioides difficile (bacille Gram positif sporulé anaérobie) produisant les toxines A (entérotoxine) et B (cytotoxine) après rupture de la barrière du microbiote."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Première cause de diarrhée infectieuse nosocomiale ; facteurs de risque : antibiothérapie (céphalosporines, clindamycine, fluoroquinolones, amoxicilline-clavulanate), âge > 65 ans, hospitalisation, IPP."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Les toxines A et B inactivent les protéines Rho-GTPases du cytosquelette entérocytaire -> apoptose, nécrose épithéliale et exsudat fibrino-leucocytaire formant des pseudo-membranes jaunâtres."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Critères de sévérité : leucocytose >= 15 G/L (parfois réaction leucémoïde > 30–40 G/L) ou créatininémie > 133 µmol/L (+50 %). Critères de forme fulminante : hypotension/choc, iléus ou mégacôlon toxique."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Diarrhée liquide verdâtre fétide (parfois remplacée par un iléus paralytique trompeur dans les formes fulminantes !), douleurs abdominales, fièvre, prise d'antibiotiques dans les 2 mois précédents."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Fièvre, distension et défense abdominale, signes de déshydratation ou de choc septique."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Selle diarrhéique + détection de C. difficile toxinogène et/ou aspect endoscopique de colite pseudo-membraneuse."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Algorithme diagnostique en 2 étapes sur selle liquide : dépistage très sensible (GDH ou PCR gène de toxine) suivi d'un test EIA de détection des toxines A/B libres + CT abdomino-pelvien dans les formes sévères (épaississement pancolique majeur en 'accordéon')."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Rectosigmoïdoscopie souple prudente à faible insufflation montrant les pseudo-membranes (uniquement si tests fécaux négatifs et suspicion clinique forte ou iléus)."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "1) Isolement contact (lavage des mains à l'eau et au savon car spores résistantes à l'alcool !), arrêt de l'antibiotique causal et contre-indication absolue au lopéramide ; 2) Forme non sévère ou sévère : fidaxomicine PO (200 mg 2x/j 10 j) ou vancomycine PO (125 mg 4x/j 10 j) ; 3) Forme fulminante : vancomycine PO/SNG forte dose (500 mg 4x/j) + lavements de vancomycine (si iléus) + métronidazole IV (500 mg 3x/j) et avis chirurgical précoce (colectomie subtotale ou iléostomie en boucle)."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Prévention des récidives (20–25 % des cas) : fidaxomicine, anticorps monoclonal anti-toxine B (bezlotoxumab) ou transplantation de microbiote fécal (TMF : efficacité > 85–90 % dès la 2e récidive)."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Mégacôlon toxique, perforation colique, choc septique, décès (mortalité > 30 % dans les formes fulminantes)."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Leucocytes, créatinine, lactates, diamètre colique et fréquence des selles (ne pas recontrôler le test de selles après guérison clinique)."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Guérison dans > 85 % des épisodes initiaux mais vigilance sur les récidives dans les 8 semaines."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Infectiologue, gastro-entérologue (centre de transplantation fécale), chirurgien viscéral, hygiène hospitalière."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 12,
+      "fichier_html_cible": "LOT_059_Phase_B_V0_DX.12.html",
+      "titre": "Syndrome hémolytique et urémique (SHU) post-diarrhéique à E. coli producteur de shigatoxine (STEC/EHEC)",
+      "cim": "D59.3",
+      "urgence": "immediate",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Microangiopathie thrombotique (MAT) déclenchée par les shigatoxines (Stx1/Stx2) d'Escherichia coli entérohémorragique (ex. O157:H7, O104:H4)."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Première cause d'insuffisance rénale aiguë chez le jeune enfant (< 5 ans) ; transmission par viande bovine hachée insuffisamment cuite, lait cru ou végétaux contaminés."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Les shigatoxines traversent la muqueuse colique et se lient au récepteur Gb3 de l'endothélium capillaire glomérulaire -> apoptose endothéliale, agrégation plaquettaire (thrombopénie de consommation), hémolyse mécanique sur microthrombi de fibrine (schizocytes) et ischémie rénale/cérébrale."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Oligo-anurie, somnolence/convulsions (atteinte neurologique centrale = 1re cause de décès), colite hémorragique nécrosante."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Diarrhée aqueuse devenant rapidement glairo-sanglante (souvent peu fébrile) avec crampes abdominales intenses, suivie 5 à 10 jours plus tard d'une pâleur brutale, d'oligo-anurie et d'asthénie/léthargie."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Pâleur cutanéo-muqueuse intense, subictère, purpura/pétéchies, œdèmes, hypertension artérielle, parfois convulsions ou confusion."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Triade biologique de MAT (anémie hémolytique mécanique + thrombopénie + IRA) associée à l'identification d'un STEC."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "NFS + frottis sanguin (anémie régénérative, schizocytes > 1–2 %, thrombopénie), haptoglobine effondrée, LDH élevées, Coombs direct négatif, créatininémie/urée + PCR shigatoxines (stx1/stx2) sur selles ou écouvillon rectal."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Déclaration obligatoire à l'OFSP / médecin cantonal."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Hospitalisation en néphrologie/soins intensifs : expansion volémique précoce par NaCl 0,9 % (néphroprotection), dialyse si IRA anurique/hyperkaliémie, transfusions de culots érythrocytaires (éviter les transfusions plaquettaires sauf hémorragie vitale). Contre-indication absolue aux ralentisseurs du transit (lopéramide) et aux antibiotiques bactéricides (qui augmentent la libération de shigatoxine)."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Suivi néphrologique au long cours (dépistage de protéinurie, HTA et maladie rénale chronique séquellaire)."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Insuffisance rénale terminale (~5 %), AVC/état de mal épileptique, perforation colique, pancréatite/diabète."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Diurèse horaire, poids, PA, ionogramme, NFS, LDH, examen neurologique."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Récupération rénale dans > 70 % des cas en phase aiguë, mais séquelles rénales tardives chez ~20–30 % des patients à long terme."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Néphrologue pédiatre/adulte, intensiviste, autorités sanitaires (médecin cantonal)."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 13,
+      "fichier_html_cible": "LOT_059_Phase_B_V0_DX.13.html",
+      "titre": "Entérocolite infectieuse invasive sévère avec sepsis ou déshydratation hypovolémique (Salmonella, Campylobacter, Shigella)",
+      "cim": "A02.0",
+      "urgence": "urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Infection bactérienne entéro-invasive (Campylobacter jejuni, Salmonella enterica non typhique ou Typhi, Shigella, Yersinia enterocolitica) compliquée de sepsis ou de déshydratation aiguë sévère."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Campylobacter jejuni (volaille insuffisamment cuite) et Salmonella (œufs, viandes) sont les deux premières causes de diarrhée bactérienne déclarée en Suisse."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Invasion et destruction des colonocytes et entérocytes iléaux -> ulcérations muqueuses, réaction inflammatoire aiguë à polynucléaires neutrophiles et risque de translocation bactériémique."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Hypotension artérielle, oligurie, marbrures, confusion, sujet âgé, drépanocytaire, porteur de prothèse vasculaire/valvulaire ou immunodéprimé."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Fièvre élevée (39–40 °C), frissons, douleurs abdominales intenses (parfois pseudo-appendiculaires dans Campylobacter et Yersinia), diarrhée glairo-sanglante, oligurie, vertiges orthostatiques."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Tachycardie, hypotension, marbrures, pli cutané persistant, sécheresse de la langue, sensibilité abdominale diffuse."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Identification du pathogène par PCR/coproculture ou hémoculture."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "PCR multiplex entérique et coproculture avec antibiogramme + 2 paires d'hémocultures + ionogramme, urée, créatinine, lactates, CRP."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "CT abdominal si défense localisée (iléite terminale + adénolymphite mésentérique pseudo-appendiculaire)."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Réhydratation IV par cristalloïdes (Ringer-Lactate / NaCl 0,9 %) et supplémentation potassique ; antibiothérapie ciblée : azithromycine en 1re intention pour Campylobacter/Shigella/diarrhée du voyageur sévère, ou ceftriaxone/ciprofloxacine pour salmonellose invasive ou terrain à risque (contre-indication au lopéramide)."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Reprise alimentaire progressive, prévention des toxi-infections alimentaires."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Choc septique, greffe bactérienne sur anévrisme aortique (Salmonella), arthrite réactionnelle (HLA-B27), syndrome de Guillain-Barré post-Campylobacter jejuni."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Constantes vitales, diurèse, fonction rénale et kaliémie."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Évolution favorable sous réhydratation IV et antibiothérapie appropriée."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Médecin traitant, infectiologue."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 14,
+      "fichier_html_cible": "LOT_059_Phase_B_V0_DX.14.html",
+      "titre": "Entérocolite neutropénique (typhlite aiguë) ou colite sévère sous inhibiteurs de points de contrôle immunitaire",
+      "cim": "K52.8",
+      "urgence": "immediate",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Typhlite : nécrose inflammatoire transmurale du cæcum et du côlon ascendant chez le patient neutropénique profond. Colite immuno-médiée : entérocolite auto-immune induite par les inhibiteurs de checkpoints (ipilimumab, nivolumab, pembrolizumab)."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Typhlite : complique les chimiothérapies cytotoxiques (leucémies aiguës, taxanes, 5-FU/irinotécan). Colite immuno-induite : survient chez 10–30 % des patients sous anti-CTLA4 ou combothérapie."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Typhlite : mucite cytotoxique + neutropénie profonde (< 0,5 G/L) -> invasion polymicrobienne et fongique de la paroi cæcale sans barrière neutrophilique. Immunothérapie : levée du frein des lymphocytes T régulateurs."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "PNN < 0,5 G/L, grade CTCAE >= 3 (>= 7 selles/j au-dessus de la base), défense péritonéale, choc septique."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Diarrhée liquide ou sanglante, fièvre (neutropénie fébrile), douleur en fosse iliaque droite (typhlite) ou crampes diffuses chez un patient en cours de traitement oncologique."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Fièvre ou hypothermie, tachycardie, défense en fosse iliaque droite (typhlite)."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Tableau clinico-scannographique en contexte de neutropénie (typhlite) ou aspect endoscopique/histologique sous immunothérapie après exclusion infectieuse."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "NFS, CRP, lactates, hémocultures, coprocultures + C. difficile + CMV, et CT abdomino-pelvien injecté en urgence (épaississement pariétal cæcal > 4 mm et infiltration péricolique dans la typhlite ; contre-indication à l'endoscopie dans la typhlite par risque de perforation, mais rectosigmoïdoscopie avec biopsies recommandée dans la colite sous immunothérapie)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Calprotectine fécale pour le suivi de la colite immuno-médiée."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Typhlite : mise à jeun, réanimation, antibiothérapie IV large spectre couvrant Pseudomonas et anaérobies (pipéracilline-tazobactam ou méropénème +/- antifongique), facteurs de croissance G-CSF ; chirurgie uniquement si perforation ou nécrose. Colite grade 3–4 sous immunothérapie : arrêt de l'immunothérapie + méthylprednisolone IV (1–2 mg/kg/j) et infliximab ou védolizumab précoce si cortico-résistance à 48–72 h. Si irinotécan : atropine SC (syndrome cholinergique précoce < 24 h) ou lopéramide haute dose (diarrhée tardive)."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Discussion en tumorboard pour la reprise éventuelle ou l'arrêt définitif du traitement oncologique."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Perforation cæcale ou colique, choc septique foudroyant."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Soins continus/intensifs, examen abdominal pluriquotidien, NFS, CRP, calprotectine."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Mortalité de la typhlite réduite à < 20 % par l'antibiothérapie empirique immédiate ; rémission > 90 % des colites immuno-induites sous corticoïdes/infliximab."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Oncologue médical, gastro-entérologue, infectiologue, chirurgien viscéral."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 15,
+      "fichier_html_cible": "LOT_059_Phase_B_V0_DX.15.html",
+      "titre": "Syndrome cholériforme ou déshydratation aiguë sévère du nourrisson avec choc hypovolémique",
+      "cim": "A00.9",
+      "urgence": "immediate",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Déshydratation extracellulaire (et parfois intracellulaire) aiguë sévère secondaire à des pertes digestives hydro-électrolytiques massives (rotavirus sévère chez le nourrisson, ETEC ou Vibrio cholerae au retour de zone d'endémie)."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Principale cause de mortalité infantile mondiale ; en Suisse, concerne surtout les nourrissons < 6 mois lors des épidémies de rotavirus ou les voyageurs."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Le nourrisson possède un compartiment extracellulaire proportionnellement élevé et un renouvellement hydrique rapide ; la toxine cholérique ou thermolabile d'ETEC active de façon irréversible l'adénylate cyclase -> sécrétion massive de chlore, sodium, potassium et bicarbonates."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Choc hypovolémique, troubles de la conscience, perte de poids >= 10 %, dysnatrémie sévère (< 130 ou > 150 mmol/L)."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Diarrhées profuses incessantes (> 10–15/j), vomissements empêchant toute prise de SRO, léthargie, absence de couches mouillées depuis > 8–12 h."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Perte de poids >= 10 %, temps de recoloration cutanée > 3 s, extrémités froides et marbrées, tachycardie majeure, fontanelle antérieure déprimée, yeux creux, pli cutané persistant, polypnée d'acidose (Kussmaul), hypotonie/léthargie."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Déficit pondéral >= 10 % et signes cliniques de choc hypovolémique sur diarrhée aiguë."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Pesée immédiate (référence pour quantifier le déficit hydrique), glycémie capillaire, gazométrie veineuse et ionogramme sanguin (acidose métabolique hyperchlorémique à trou anionique normal par perte digestive de bicarbonates, hypokaliémie, insuffisance rénale fonctionnelle)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Coproculture sur milieu sélectif TCBS si suspicion de choléra."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Voie veineuse périphérique ou intra-osseuse immédiate : remplissage par bolus de 20 mL/kg de cristalloïde isotonique équilibré (Ringer-Lactate ou NaCl 0,9 %), répété jusqu'à restauration hémodynamique, puis réhydratation IV prudente sur 24–48 h (attention à la vitesse de correction en cas d'hypernatrémie pour éviter l'œdème cérébral !). Relais par SRO dès que possible."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Réalimentation précoce, supplémentation en zinc (recommandation OMS chez l'enfant), vaccination contre le rotavirus."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Choc hypovolémique irréversible, thrombose des veines rénales ou des sinus veineux cérébraux, convulsions par œdème cérébral osmotique."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Poids toutes les 6–12 h, bilan entrées/sorties, natrémie/kaliémie/glycémie toutes les 4–6 h, état neurologique."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Récupération rapide et sans séquelle si la réanimation volémique et électrolytique est précoce et bien conduite."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Urgentiste pédiatrique/adulte, pédiatre."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    }
+  ],
+  "prompt_alpha_a_jour": "# MISSION : CORRECTION ET COMPLÉTION DES 248 SSP SUISSES (3 975 ENTITÉS + 248 CHAPITRES 0)\n\n## § 0. IDENTIFICATION, SIGNATURE & RÈGLES DE CONTINUITÉ — BLOQUANT ABSOLU\n1. **Identification obligatoire** en tête de première réponse :\n   - HEURE DE DÉBUT : AAAA-MM-JJ HH:MM (Europe/Zurich)\n   - MODÈLE : nom exact du modèle (ex. ANTIGRAVITY ORCHESTRATOR NEON)\n   - PLATEFORME : plateforme exacte (ex. ANTIGRAVITY)\n   - Ajouter la même ligne à `1_Claude AI/IDENTIFICATION_AGENTS.md`. Si incertitude, s'arrêter.\n2. **Signature IA fixe en bas à droite de TOUT HTML produit ou modifié** (juste avant `</body>`, en GRAS MAJUSCULE) :\n   `<div id=\"signature-ia\" style=\"position:fixed;right:12px;bottom:10px;z-index:9999;background:#fff;border:2px solid #000;padding:4px 10px;font:700 12px/1.3 Arial,sans-serif;text-transform:uppercase;color:#000\">DÉBUT : AAAA-MM-JJ HH:MM (EUROPE/ZURICH) · MODÈLE : <NOM> · PLATEFORME : <PLATEFORME></div>`\n   - **Seul Vial peut autoriser le retrait de ce bloc.** Un agent qui reprend un fichier signé ajoute sa propre ligne sous la précédente sans jamais effacer l'existante.\n3. **Continuité & transparence** :\n   - **Redémarrage propre à partir de `SSP_248`** : tous les cours précédemment modifiés ont été restaurés à l'état initial (`6941513`). Enchaîner continûment **`SSP_248 → SSP_033`**, puis **`SSP_001 → SSP_032`**.\n   - **Toujours afficher le raisonnement visible** en français dans chaque réponse.\n   - **Veille & relance GitHub** : commiter et pousser sur `origin main` après chaque SSP (ou lot <= 5 SSP) avec l'état à jour dans `SUIVI_PRODUCTION.csv`, `HANDOFF_AFFINAGE.md` et `HANDOFF_IA_COMPLET.md`.\n   - **Suivi graphique temps réel** : maintenir à jour le tableau de bord visuel temps réel des réalisations achevées et en cours.\n\n## § 1. RÈGLES ACTUALISÉES (PRIMENT SUR LE PROMPT ALPHA 19.11.26)\n1. **Nombre de cours par SSP** : **1 cours par entité de la Cartographie Renouveau** (15 à 24 entités par SSP, 3 975 au total) + le Chapitre 0 (`Phase_A`), dans l'ordre exact des `Cours 1 … N` de `SSP_nnn/NOTIONS.md` / `NOTIONS.json`.\n2. **QUALITÉ CLINIQUE MAXIMALE & ZÉRO MÉDIOCRITÉ (BLOQUANT ABSOLU — Consigne Vial 20.11.26)** :\n   - **Interdiction absolue de toute prose patronnée / générique** : aucune phrase-cadre où seul le nom de la pathologie change d'un cours à l'autre, aucun remplissage artificiel pour atteindre le calibre. La médiocrité clinique est dangereuse et entraîne un rejet immédiat.\n   - Chaque cours (`Phase_A` et `DX.1..N`) doit être **rédigé sur mesure** pour son entité exacte, avec : raisonnement physiopathologique et sémiologique réel, seuils numériques précis, diagnostics différentiels discriminants, posologies et contre-indications sourcées (Compendium.ch / AIPS, Tox Info Suisse, OFSP, ASSM, sociétés savantes suisses), vignettes cliniques authentiques et QCM exigeants de niveau Examen Fédéral Suisse.\n3. **INTERDICTION DES ARBRES DÉCISIONNELS (Consigne Vial 20.11.26)** :\n   - **Ne générer AUCUN arbre décisionnel ni algorithme graphique (`.fm-canvas`, SVG décisionnel, etc.)** dans `Phase_A` ou dans les `DX.n` — l'auteur (Vial) les réalisera lui-même.\n4. **Calibre texte pur actualisé (Consigne Vial 20.11.26)** :\n   - **80 à 100 Ko de texte pur UTF-8 par fichier** (`81 920` à `102 400` octets, calibre du Prompt Alpha confirmé par Vial le 20.11.2026 à 21:20, mesuré fenêtres comprises, hors balises HTML, CSS, JS, SVG et images).\n   - HTML hors images (`controle3.py`) : **`40 000` à `100 000` octets** (alerte).\n   - Densité maximale : zéro remplissage, zéro phrase pouvant figurer telle quelle dans un autre cours, zéro phrase de gabarit de `cartographie_DATA.json`.\n5. **Phrases verbales exclusives (BLOQUANT)** :\n   - Chaque phrase (texte, fenêtres, listes, légendes `<figcaption>`, cellules narratives `<td>`) contient un verbe conjugué reconnu. **Zéro phrase nominale.**\n4. **Médicaments cliquables d'emblée & Fenêtres centrées PK/PD à 2 onglets (Consigne Vial 20.11.26)** :\n   - Dès qu'un médicament est évoqué, il devient cliquable (`<a class=\"ouvre med-chip\" href=\"#f-...\">`).\n   - Chaque `<section class=\"fenetre mb\" id=\"f-...\"><div class=\"fen\">` s'ouvre au centre de l'écran et contient **2 onglets** :\n     * **Onglet 1 (`data-tab=\"pk\"`)** : Pharmacocinétique + **Courbe vectorielle SVG $C(t)$** + **4 paramètres cliniciens mis en évidence** (`.pkpd-kpis`).\n     * **Onglet 2 (`data-tab=\"pd\"`)** : Pharmacodynamique & Clinique + **Courbe vectorielle SVG $E(C)$** + posologies/précautions/grossesse suisses (Compendium.ch / AIPS).\n5. **Images** : uniquement à l'intérieur des `<section class=\"fenetre\">`, jamais hors fenêtre (licences selon Prompt Alpha § 4). Ne comptent pas dans le calibre.\n6. **Zéro terminologie de chantier visible** : aucun texte visible (ni `<title>`) ne doit contenir `LOT`, `V0`, `Phase A/B`, `DX.n`, `Appel A/B`, `Partie n`. Seuls les noms de fichiers gardent le format Alpha (`LOT_nnn_Phase_A_V0.html`, `LOT_nnn_Phase_B_V0_DX.i.html`).\n7. **Circuits & Plans** :\n   - `MONOGRAPHIQUE` (189 SSP) : plan maladie en 14 points (Prompt Alpha § 3.1).\n   - `NON_MONOGRAPHIQUE` (52 SSP) : Leçon en 12 à 14 points adaptés (Prompt Alpha § 3.2). **Jamais** de plan maladie ni de titres « Physiopathologie / Approche syndromique / Diagnostic positif » artificiels.\n   - `MIXTE` (7 SSP) : Prompt Alpha § 3.3, chaque fichier déclare `<meta name=\"ssp-circuit\" content=\"...\">`.\n8. **Correctifs Frontend v2 / Architecture `_sources/` (`UNIQUE.html` & `_polices/`)** :\n   - **Arborescence propre par SSP** : à la racine de `SSP_nnn/`, seul **`SSP_nnn_<code>_UNIQUE.html`** (plus le sous-dossier **`_sources/`**) est visible. Tous les fichiers sources (`LOT_nnn_*.html`, `images/`, `NOTIONS.*`, `MANIFESTE.json`, `DECISION*`, `paquet.json`, `_archive_avant_alpha/`) sont rangés dans `SSP_nnn/_sources/` sans rien supprimer.\n   - **Barre haute amovible (`gabarit_unique.html`)** : `#topbar` compacte 1 ligne (~42 px) avec pilule active, fil d'Ariane section, boutons `◀`/`▶`, tiroir overlay amovible `#dd-drawer` (`☰ Diagnostics (N) ▾` + option `📌 Épingler`) contenant `nav#nav` en colonnes égales (`32 px`, teinte unique par cours), et bouton `▴ Masquer barre` + pilule flottante `#btn-show-bar`.\n   - **Zéro dédoublement & navigation `#...` 100 % fonctionnelle (`forme.js`)** : script `forme.js` exécuté sous `DOMContentLoaded` et injecté par `assembler_unique.py`/`inliner.py` après `</head>` et avant `#signature-ia`/`</body>` ; intercepteur global appelant `e.preventDefault()` sur 100 % des `href^=\"#\"` (bloque le rechargement `srcdoc` + `file://`).\n   - **Modales centrées `<div class=\"fen\">` & désaturation (`forme.css` / `optimiser_ssp.py`)** : ouverture via classe `.fm-open` (plus `:target` en repli) avec pile `modalStack` et bouton `Fermer ✕` sticky (sans `history.back()`), auto-enveloppement `<div class=\"fen\">`, tableaux hors modale déplacés vers `<section class=\"fenetre fm-tab-fen\">` déclenchés par cartes `.fm-encart-fen`, citations `<sup class=\"r\"><a>` compactées en `[N]` avec modale aperçu `#fm-src-modal` empilable (`fm-stack-top`), puces médicaments `a.ouvre.med-chip` (`℞ ...`, `white-space: nowrap`, compatible accents français), repli du plan latéral desktop `#fm-plan-toggle`, îlots discontinus (`margin-bottom: 30px`) et padding bas `5.5rem` protégeant la lecture au-dessus de `#signature-ia`.\n   - **HTML unique** : ne jamais l'écrire à la main ; toujours exécuter `optimiser_ssp.py` puis `assembler_unique.py nnn`.\n\n## § 2. ARCHIVAGE & WORKFLOW PAR SSP (P0 → P4)\n- **Zéro suppression** : avant d'écraser ou renommer un fichier source existant, archiver dans `SSP_nnn/_sources/_archive_avant_alpha/`.\n- **P0 (Préparer)** : lire circuit (`catalogue_248.json`), entités (`NOTIONS.md`/`NOTIONS.json`), `memoire_zero_token.py --digest --lot nnn`, écrire `PLAN_ENTITES.md`.\n- **P1 (Décider)** : noter dans `DECISION.md` (Corriger / Réécrire si mécanique, faux plan maladie ou `< 30 Ko` / Créer).\n- **P2 (Produire)** : `LOT_nnn_Phase_A_V0.html` + `LOT_nnn_Phase_B_V0_DX.1..N.html`, 100 % des notions de `NOTIONS.json` expliquées et sourcées (Compendium.ch / AIPS, OFSP, ASSM, CC, LAMal, LAVI, Smarter Medicine), sans aucune phrase gabarit de la cartographie.\n- **P3 (Portes de Contrôle + Optimisation + Assemblage + Audit Chrome)** :\n  1. `controle3.py --script-ok` → **`VERT {}`** (si `paquet.json` présent ; `--script-ok` requis car `_sources/` référence `../../_polices/forme.js`)\n  2. `verif_aips.py` → **`OK`** (si `paquet.json` présent) et `restaurer_fond.py --verifier` → **`exit=0`**\n  3. `python _outils/optimiser_ssp.py nnn` → migration vers `_sources/`, tableaux déplacés en `<div class=\"fen\">`, teintes non bleues `--fm-a`\n  4. `python _outils/verif_mission.py nnn` → **100 % fichiers `PASS`** (`errors: []`)\n  5. `python _outils/assembler_unique.py nnn` → **`(1 + N) / (1 + N) onglets`** à la racine de `SSP_nnn/`\n  6. `python _outils/notions.py verifier nnn` → **`0 NON`** + copier `rapport_notions.csv` dans `SSP_nnn/_sources/`\n  7. `python _outils/audit_unique_browser.py nnn --all-tabs` → **`PASS` sur 100 % des onglets en Chrome headless réel**\n  8. Ajouter ligne dans `SUIVI_PRODUCTION.csv` + `git commit` + `git push origin main`.\n- **P4 (Affinage)** : consigner tout doute clinique/posologique non vérifié dans `1_Claude AI/HANDOFF_AFFINAGE.md` sous `## SSP_nnn`.\n\n## § 3. MISSION 2 — SSP 001 → 032\n- Extraire les cours depuis `SSP_nnn_<code>_UNIQUE.html` (JSON `data` gzip+base64, marqueurs `@@IMG:…@@`, `@@FONT:…@@`) après archivage des anciens `LOT_nnn_*.html` dans `_archive_avant_alpha/`.\n- Le frontend reste identique ; auditer le contenu avec la même sévérité (attention : `SSP_013` G13 = `NON_MONOGRAPHIQUE`, `SSP_014` G14 = `MIXTE`).\n- Produire `1_Claude AI/AUDIT_001-032.md` et corriger tous les ❌.\n\n## § 4. LES 12 BLOCAGES ROUGE (REJET IMMÉDIAT)\n1. Identification absente ou incertaine.\n2. Signature `#signature-ia` absente, modifiée ou supprimée.\n3. Entité de la Cartographie sans cours.\n4. Fichier hors intervalle `80–100 Ko` de texte pur (tout cours ; un cours de 30–50 Ko est à enrichir).\n5. Toute phrase nominale.\n6. Toute notion au verdict `NON`.\n7. Phrase gabarit de `cartographie_DATA.json` recopiée dans un cours.\n8. Plan maladie appliqué à une Leçon `NON_MONOGRAPHIQUE`.\n9. Terme de chantier visible (`LOT`, `V0`, `Phase A/B`, `DX.n`, `Appel`, `Partie n`).\n10. Posologie sans source de la cascade suisse.\n11. Image hors `<section class=\"fenetre\">`.\n12. Fichier supprimé au lieu d'être archivé.\n\n## § 5. ANNEXE CIRCUITS (248 SSP)\n- **NON_MONOGRAPHIQUE (52)** : 013 · 065 · 069 · 176 · 180 · 181 · 182 · 184 · 185 · 186 · 192 · 194 · 195 · 198 · 200 · 203 · 204 · 205 · 206 · 207 · 208 · 209 · 210 · 211 · 212 · 213 · 214 · 215 · 216 · 217 · 218 · 219 · 220 · 221 · 222 · 224 · 225 · 226 · 227 · 232 · 233 · 235 · 236 · 237 · 238 · 239 · 240 · 241 · 242 · 243 · 246 · 247.\n- **MIXTE (7)** : 014 · 165 · 174 · 175 · 190 · 202 · 223.\n- **MONOGRAPHIQUE (189)** : tous les autres SSP."
+}

@@ -1,0 +1,2444 @@
+{
+  "rappel_obligatoire_avant_redaction": {
+    "lecture_imperative": [
+      "1. Lire intégralement PROMPT_Alpha_19.11.26.md ET la mise à jour incluse dans prompt_alpha_a_jour ci-dessous.",
+      "2. Respecter l'intervalle GLOBAL par cours : viser 85–95 Ko de texte médical pur (soit ~95–115 Ko de fichier JSON) sans quota rigide par partie — répartir le texte proportionnellement à l'importance clinique des parties.",
+      "3. Produire graduellement 1 cours complet par requête (Phase A, puis Cours 1, Cours 2...) en français médical académique, phrases verbales exclusives (0 phrase nominale), zéro prose générique ou patronnée.",
+      "4. Utiliser uniquement les guillemets typographiques français « … » dans les valeurs texte JSON (jamais de guillemet droit non échappé).",
+      "5. Zéro arbre décisionnel graphique (.fm-canvas) : ne générer aucun schéma décisionnel."
+    ],
+    "specificites_locales_ssp": [
+      "Circuit MONOGRAPHIQUE : respecter le plan maladie en 14 points avec socle généralités (1-3), démarche diagnostique (4-10), prise en charge posologique suisse intégrale (11) et QCM Examen Fédéral (14).",
+      "Couvrir 100 % des notions obligatoires listées dans phase_b[*].plan[*].notions_obligatoires pour Rétention urinaire (S4.15).",
+      "Cascade posologique suisse à 4 paliers obligatoire : 1. AIPS Swissmedic (n° 5 chiffres) -> 2. Compendium.ch -> 3. Sociétés savantes & CHU suisses (HUG, CHUV, Inselspital, USZ, USB, OFSP, ASSM, SSMIG, Tox Info Suisse 145) -> 4. Sociétés savantes européennes."
+    ]
+  },
+  "meta": {
+    "rang_gravite": 200,
+    "ssp": "SSP_076",
+    "code_profiles": "S4.15",
+    "nom_francais": "Rétention urinaire",
+    "circuit": "MONOGRAPHIQUE",
+    "police_obligatoire": "Atkinson Hyperlegible",
+    "calibre_cible": "80–100 Ko texte pur",
+    "arbres_decisionnels_autorises": false,
+    "mode_redaction": "Neon Deep Research",
+    "nb_chapitres_total": 16,
+    "defauts_audit_initial": [
+      "Incomplet (11/16 cours)",
+      "187 phrases nominales",
+      "Termes chantier (11 f.)"
+    ]
+  },
+  "sommaire": {
+    "phase_a": {
+      "fichier_html_cible": "LOT_076_Phase_A_V0.html",
+      "titre": "Rétention urinaire — Vue d'ensemble et orientation clinique (S4.15)"
+    },
+    "phase_b": [
+      {
+        "cours_numero": 1,
+        "titre": "Hypertrophie bénigne de la prostate (HBP) décompensée",
+        "cim": "N40",
+        "urgence": "urgent"
+      },
+      {
+        "cours_numero": 2,
+        "titre": "Rétention urinaire iatrogène médicamenteuse",
+        "cim": "R33",
+        "urgence": "urgent"
+      },
+      {
+        "cours_numero": 3,
+        "titre": "Sténose de l'urètre",
+        "cim": "N35.9",
+        "urgence": "semi-urgent"
+      },
+      {
+        "cours_numero": 4,
+        "titre": "Cancer de la prostate localement avancé obstructif",
+        "cim": "C61",
+        "urgence": "semi-urgent"
+      },
+      {
+        "cours_numero": 5,
+        "titre": "Rétention urinaire post-opératoire ou du post-partum",
+        "cim": "R33",
+        "urgence": "urgent"
+      },
+      {
+        "cours_numero": 6,
+        "titre": "Fécalome rectal massif avec compression urétrale",
+        "cim": "K56.4",
+        "urgence": "urgent"
+      },
+      {
+        "cours_numero": 7,
+        "titre": "Hypoactivité détrusorienne chronique (cystopathie diabétique ou sénile)",
+        "cim": "N31.2",
+        "urgence": "chronique"
+      },
+      {
+        "cours_numero": 8,
+        "titre": "Prolapsus génital sévère ou incarcération d'un utérus rétrofléchi gravide",
+        "cim": "N81.4",
+        "urgence": "semi-urgent"
+      },
+      {
+        "cours_numero": 9,
+        "titre": "Maladie du col vésical (dyssynergie ou sclérose primitive du col)",
+        "cim": "N32.0",
+        "urgence": "chronique"
+      },
+      {
+        "cours_numero": 10,
+        "titre": "Syndrome de Fowler (défaut de relaxation du sphincter strié urétral chez la femme jeune)",
+        "cim": "N31.9",
+        "urgence": "chronique"
+      },
+      {
+        "cours_numero": 11,
+        "titre": "Rétention aiguë d'urine sur caillotage vésical (« tamponnade vésicale »)",
+        "cim": "R31",
+        "urgence": "immediate"
+      },
+      {
+        "cours_numero": 12,
+        "titre": "Myélite aiguë transverse ou méningo-radiculite sacrée (syndrome d'Elsberg)",
+        "cim": "G37.3",
+        "urgence": "immediate"
+      },
+      {
+        "cours_numero": 13,
+        "titre": "Paraphimosis aigu compliqué de rétention urinaire",
+        "cim": "N47.2",
+        "urgence": "urgent"
+      },
+      {
+        "cours_numero": 14,
+        "titre": "Prostatite aiguë abcédée en rétention aiguë d'urine",
+        "cim": "N41.2",
+        "urgence": "immediate"
+      },
+      {
+        "cours_numero": 15,
+        "titre": "Lithiase ou corps étranger enclavé dans l'urètre",
+        "cim": "N21.1",
+        "urgence": "urgent"
+      }
+    ]
+  },
+  "phase_a": {
+    "titre": "Rétention urinaire — Vue d'ensemble (S4.15)",
+    "plan": [
+      {
+        "point": 1,
+        "titre": "Définition nosologique et périmètre clinique",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 2,
+        "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 3,
+        "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 4,
+        "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+        "description": "Présentation et hiérarchisation des 15 entités de la Cartographie Renouveau."
+      },
+      {
+        "point": 5,
+        "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 6,
+        "titre": "Examen physique systématique région par région",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 7,
+        "titre": "Approche syndromique et stratification de gravité",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 8,
+        "titre": "Diagnostic positif, scores cliniques et critères validés",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 9,
+        "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 10,
+        "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 11,
+        "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 12,
+        "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 13,
+        "titre": "Points clés indispensables à retenir",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 14,
+        "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit MONOGRAPHIQUE, sans arbre décisionnel."
+      }
+    ]
+  },
+  "phase_b": [
+    {
+      "cours_numero": 1,
+      "fichier_html_cible": "LOT_076_Phase_B_V0_DX.1.html",
+      "titre": "Hypertrophie bénigne de la prostate (HBP) décompensée",
+      "cim": "N40",
+      "urgence": "urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Hyperplasie adéno-myo-fibromateuse bénigne de la zone de transition prostatique comprimant l'urètre prostatique."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Prévalence histologique > 50 % à 60 ans et > 80 % à 80 ans ; risque cumulé de rétention aiguë ~10 % à 5 ans en cas de SBAU modérés/sévères."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Composante statique (volume glandulaire sous dépendance de la DHT via la 5-alpha-réductase) et dynamique (tonus adrénergique alpha-1 du stroma et du col)."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Insuffisance rénale obstructive, hématurie macroscopique caillotante, infection urinaire fébrile associée."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Antécédents de symptômes du bas appareil urinaire (jet faible, attente, pollakiurie nocturne) suivis d'une impossibilité brutale et douloureuse d'uriner."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Globe vésical hypogastrique convexe, mat et douloureux ; au TR : prostate augmentée de volume (> 30 g), lisse, souple, régulière, indolore, sillon médian effacé."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Rétention urinaire + prostate augmentée de volume et souple au TR en l'absence d'infection aiguë."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Bladder-scan / échographie réno-vésicale + créatininémie + ECBU sur les urines drainées."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Dosage du PSA à distance de l'épisode aigu et du sondage (fausse élévation en aigu) ; débitmétrie et score IPSS."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Sondage vésical évacuateur (ou cathéter sus-pubien) + introduction immédiate d'un alpha-bloquant (tamsulosine 0.4 mg/j) avant tentative de sevrage de sonde à 48–72 h."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Bithérapie (alpha-bloquant + inhibiteur de la 5-alpha-réductase type finastéride/dutastéride si prostate > 40 mL) ou chirurgie (RTUP, énucléation HoLEP) si échec de sevrage."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Échec de reprise mictionnelle (~40 %), lithiase vésicale, diverticules vésicaux, insuffisance rénale."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Surveillance du syndrome de levée d'obstacle et contrôle du résidu post-mictionnel après retrait de sonde."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Excellent pronostic fonctionnel après traitement médical ou désobstruction endoscopique."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Médecin de famille, urologue."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 2,
+      "fichier_html_cible": "LOT_076_Phase_B_V0_DX.2.html",
+      "titre": "Rétention urinaire iatrogène médicamenteuse",
+      "cim": "R33",
+      "urgence": "urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Incapacité vésicale à se vider induite par des substances inhibant la contraction détrusorienne ou augmentant le tonus sphinctérien."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Impliquée dans 10 à 20 % des épisodes de rétention aiguë d'urine, particulièrement chez le sujet âgé ou en post-opératoire."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Blocage des récepteurs muscariniques M3 du détrusor (anticholinergiques, tricycliques, antihistaminiques H1) ou hypertonie du sphincter interne (opioïdes, pseudoéphédrine)."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Confusion aiguë (syndrome anticholinergique central associé), globe vésical méconnu chez un patient sous morphiniques."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Impossibilité d'uriner survenant après l'introduction d'un sirop antitussif/décongestionnant, d'un antidépresseur, d'un neuroleptique ou d'opiacés."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Globe vésical palpable ou échographique ; examen prostatique et neurologique visant à démasquer une pathologie sous-jacente."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Rétention aiguë + exposition temporelle à un médicament rétentionniste."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Anamnèse pharmacologique exhaustive + Bladder-scan + ionogramme/créatinine."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Épreuve de sevrage de sonde après élimination (5 demi-vies) du médicament causal."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Drainage vésical par sondage + arrêt immédiat ou substitution de la molécule incriminée + alpha-bloquant adjuvant chez l'homme."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Révision de l'ordonnance (liste de Beers / STOPP), information du patient sur les médicaments en vente libre contre-indiqués (rhume)."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Récidive en cas de réexposition ou d'obstacle prostatique sous-jacent non traité."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Contrôle du résidu post-mictionnel après ablation de la sonde."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Reprise mictionnelle spontanée dans la majorité des cas dès l'élimination du médicament."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Médecin traitant, pharmacien clinicien, urologue."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 3,
+      "fichier_html_cible": "LOT_076_Phase_B_V0_DX.3.html",
+      "titre": "Sténose de l'urètre",
+      "cim": "N35.9",
+      "urgence": "semi-urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Rétrécissement fibreux cicatriciel de la lumière de l'urètre antérieur (spongiofibrose)."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Prévalence ~0.6 % des hommes ; étiologies : iatrogène (sondage, RTUP ~45 %), idiopathique (~30 %), traumatique (~15 %), infectieuse/lichen scléreux."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Fibrose du corps spongieux réduisant le calibre urétral (< 16 Fr) et augmentant la résistance à l'écoulement."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Forçage lors du sondage créant une fausse route urétrale et une urétrorragie."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Diminution progressive de la force du jet sur des mois/années, jet en arrosoir, gouttes retardataires, antécédent de sondage ou de traumatisme périnéal."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Globe vésical, échec du passage d'une sonde vésicale standard (butée dans l'urètre pénien ou bulbaire) ; recherche de lichen scléreux au méat."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Visualisation directe et radiologique du segment urétral sténosé."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Débitmétrie (courbe aplatie en plateau « en boîte ») + urétrocystographie rétrograde et mictionnelle (UCRM) + urétrocystoscopie souple."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Échographie réno-vésicale pour évaluer le retentissement vésical (paroi épaissie, résidu) et rénal."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "En cas de rétention aiguë et d'échec d'un sondage doux : ne pas forcer -> pose d'un cathéter sus-pubien."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Urétrotomie interne endoscopique (sténose bulbaire courte < 1.5 cm, 1er épisode) ou urétroplastie avec greffon de muqueuse buccale (gold standard curatif)."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Récidive fréquente (> 50 %) après urétrotomie interne ou dilatations répétées ; infections urinaires."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Débitmétrie et mesure du RPM à 3, 6 et 12 mois post-opératoires."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Succès > 85–90 % à long terme après urétroplastie par muqueuse buccale."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Urologue reconstructeur."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 4,
+      "fichier_html_cible": "LOT_076_Phase_B_V0_DX.4.html",
+      "titre": "Cancer de la prostate localement avancé obstructif",
+      "cim": "C61",
+      "urgence": "semi-urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Adénocarcinome prostatique infiltrant l'urètre prostatique, le col vésical ou le trigone."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Cancer le plus fréquent chez l'homme en Suisse (~6500 nouveaux cas/an) ; la rétention révèle une forme localement avancée (T3–T4)."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Prolifération glandulaire maligne androgéno-dépendante obstruant la filière cervico-urétrale et parfois les méats urétéraux."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Compression médullaire métastatique (déficit moteur des MI), insuffisance rénale aiguë par envahissement trigonal bilatéral."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Dysurie d'aggravation rapide, rétention d'urine, hématurie macroscopique, douleurs osseuses inflammatoires (rachis, bassin), altération de l'état général."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Toucher rectal : prostate dure (« pierreuse »), nodulaire, asymétrique, fixée avec perte des sillons latéraux ; globe vésical."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Confirmation histologique d'adénocarcinome prostatique sur biopsies."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "PSA sérique (souvent très élevé) + IRM prostatique multiparamétrique + biopsies prostatiques (score ISUP/Gleason) + bilan d'extension (CT TAP + scintigraphie osseuse ou PSMA-PET)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Échographie rénale et créatininémie en urgence pour exclure une urétéro-hydronéphrose."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Drainage vésical par sonde + début rapide d'une déprivation androgénique (antagoniste de la GnRH type dégarélix si risque d'effet flare-up compressif)."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Hormonothérapie + hormonothérapie de nouvelle génération (abiratérone, apalutamide, enzalutamide) +/- radiothérapie locale + RTUP désobstructive (« forage prostatique ») si sevrage de sonde impossible."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Obstruction urétérale bilatérale nécessitant des néphrostomies ou sondes JJ, fractures pathologiques."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Cinétique du PSA, testostéronémie de castration, fonction rénale et ostéodensitométrie."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Survie prolongée même au stade avancé grâce aux hormonothérapies de nouvelle génération."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Urologue, oncologue médical, radio-oncologue (tumorboard)."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 5,
+      "fichier_html_cible": "LOT_076_Phase_B_V0_DX.5.html",
+      "titre": "Rétention urinaire post-opératoire ou du post-partum",
+      "cim": "R33",
+      "urgence": "urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Absence de miction spontanée avec volume vésical > 500–600 mL dans les suites immédiates d'une anesthésie ou d'un accouchement."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Survient après 5–30 % des interventions chirurgicales (surtout proctologiques, orthopédiques, hernies) et ~1–5 % des accouchements par voie basse."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Blocage temporaire du réflexe mictionnel sacré S2–S4 (rachianesthésie/péridurale), morphiniques, remplissage vasculaire excessif et œdème périnéal/péri-urétral."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Claquage détrusorien par surdistension aiguë prolongée (> 800–1000 mL) laissant une hypocontractilité vésicale durable."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Impossibilité d'uriner malgré l'envie (ou absence de sensation de besoin sous anesthésie locorégionale), douleur ou pesanteur sus-pubienne."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Voussure hypogastrique mate ; en post-partum : utérus dévié et ascensionné au-dessus de l'ombilic par le globe vésical (risque d'atonie utérine)."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Absence de miction + volume vésical > 500 mL au Bladder-scan."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Bladder-scan systématique en salle de réveil ou en salle d'accouchement si absence de miction à 4–6 h."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Aucun autre examen complémentaire nécessaire en l'absence de complication."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Sondage évacuateur aller-retour (ou sonde à demeure 24 h si volume > 800 mL), mobilisation précoce, antalgie épargnant les morphiniques."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Surveillance des résidus post-mictionnels jusqu'à retour d'un RPM < 150 mL sur 2 mictions consécutives."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Infection urinaire nosocomiale liée au sondage, atonie vésicale prolongée."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Protocole infirmier de surveillance par Bladder-scan toutes les 4 h jusqu'à reprise mictionnelle efficace."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Résolution complète en 24–72 h dans > 95 % des cas."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Anesthésiste, chirurgien, obstétricien/sage-femme."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 6,
+      "fichier_html_cible": "LOT_076_Phase_B_V0_DX.6.html",
+      "titre": "Fécalome rectal massif avec compression urétrale",
+      "cim": "K56.4",
+      "urgence": "urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Accumulation d'une masse fécale déshydratée et indurée dans l'ampoule rectale comprimant extrinsèquement le col vésical et l'urètre postérieur."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Très fréquent en gériatrie, soins palliatifs et neurologie ; responsable de jusqu'à 10 % des rétentions urinaires du sujet très âgé."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Compression mécanique extrinsèque de l'urètre contre la symphyse pubienne et inhibition réflexe recto-vésicale du détrusor."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Ulcération stercorale avec perforation rectale, occlusion intestinale, état confusionnel hyperactif."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Constipation opiniâtre ou fausses diarrhées de regorgement, agitation/confusion aiguë, impossibilité d'uriner ou fuites urinaires goutte-à-goutte."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Globe vésical + toucher rectal mettant immédiatement en évidence une masse fécale dure comblant l'ampoule rectale."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Rétention urinaire associée à un fécalome rectal au toucher rectal."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Toucher rectal + Bladder-scan."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Radiographie ou CT abdominal uniquement si suspicion de fécalome haut situé ou d'occlusion colique."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Sondage vésical si globe important + extraction digitale prudente après lavement émollient/huileux + macrogol à forte dose."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Prévention de la récidive par laxatifs osmotiques quotidiens (macrogol), hydratation, mobilisation et révision des médicaments constipants (opiacés, calciques)."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Récidive fréquente si les facteurs favorisants persistent."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Calendrier des selles et contrôle du résidu post-mictionnel après évacuation rectale."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Reprise mictionnelle rapide dès la libération de l'ampoule rectale."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Médecin de famille, gériatre, équipe soignante."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 7,
+      "fichier_html_cible": "LOT_076_Phase_B_V0_DX.7.html",
+      "titre": "Hypoactivité détrusorienne chronique (cystopathie diabétique ou sénile)",
+      "cim": "N31.2",
+      "urgence": "chronique",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Contraction détrusorienne de force et/ou de durée réduite, aboutissant à une vidange vésicale prolongée ou à l'échec de vidange complète dans un délai normal."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Présente chez 20–40 % des hommes et femmes âgés explorés pour troubles mictionnels et chez ~50 % des diabétiques anciens mal équilibrés."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Neuropathie autonome vésicale (perte de la sensibilité de remplissage puis dénervation parasympathique) et fibrose myogène détrusorienne."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Décompensation en rétention complète ou pyélonéphrite emphysémateuse chez le diabétique."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Espacement des mictions (2–3/j), perte de la sensation de besoin, mictions lentes nécessitant une poussée abdominale (manœuvre de Credé/Valsalva), infections urinaires."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Grand globe vésical mou et indolore, sensibilité vibratoire/thermo-algique diminuée aux pieds (neuropathie diabétique)."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Hypocontractilité détrusorienne prouvée en cystomanométrie per-mictionnelle."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Bilan urodynamique (étude pression-débit montrant une faible pression détrusorienne pour un faible débit) + échographie du RPM."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Urétrocystoscopie pour exclure un obstacle anatomique sous-vésical associé."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Drainage vésical initial si résidu massif ou infection."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Mictions programmées en double temps ; auto-sondages propres intermittents (4–6x/j) qui constituent le traitement de référence ; neuromodulation sacrée dans certains cas."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Infections urinaires récidivantes, lithiase vésicale de stase."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Surveillance annuelle du résidu, de l'ECBU et de l'échographie rénale."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Irréversible dans les formes neuropathiques avancées, mais parfaitement gérée par les auto-sondages."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Urologue, infirmière stomathérapeute/continencethérapeute, diabétologue."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 8,
+      "fichier_html_cible": "LOT_076_Phase_B_V0_DX.8.html",
+      "titre": "Prolapsus génital sévère ou incarcération d'un utérus rétrofléchi gravide",
+      "cim": "N81.4",
+      "urgence": "semi-urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Obstruction urétrale mécanique chez la femme par plicature de l'urètre sur une cystocèle/hystérocèle de haut grade (stade III–IV) ou par un utérus gravide rétrofléchi enclavé dans le pelvis."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Principale cause anatomique de rétention aiguë chez la femme ; l'incarcération utérine survient à 12–16 SA (~1/3000 grossesses)."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Angulation de la jonction urétro-vésicale (effet kinking) ou compression du col vésical contre la symphyse pubienne par le col utérin antériorisé."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Hydronéphrose bilatérale sur prolapsus négligé ; souffrance fœtale ou rupture vésicale en cas d'incarcération utérine non réduite."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Femme présentant une boule vaginale extériorisée devant la réintégrer au doigt pour pouvoir uriner, ou femme enceinte au début du 2e trimestre en rétention aiguë."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Examen gynécologique : prolapsus extériorisé de stade III–IV ou, chez la femme enceinte, col très antérieur derrière la symphyse et fond utérin comblant le cul-de-sac de Douglas."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Rétention urinaire résolutive après réduction manuelle ou par pessaire du prolapsus / de l'utérus."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Examen pelvien + échographie réno-vésicale (et obstétricale si grossesse)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Bilan urodynamique avec réduction du prolapsus par pessaire (pour rechercher une incontinence d'effort masquée)."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Sondage vésical + réduction manuelle douce (sous sédation en position génu-pectorale si utérus gravide incarcéré) et maintien par pessaire."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Pessaire au long cours ou cure chirurgicale du prolapsus (promontofixation ou voie vaginale)."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Récidive de la rétention en cas d'expulsion du pessaire."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Contrôle du résidu post-mictionnel après pose de pessaire ou chirurgie."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Excellent après correction anatomique."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Gynécologue-obstétricien, urogynécologue."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 9,
+      "fichier_html_cible": "LOT_076_Phase_B_V0_DX.9.html",
+      "titre": "Maladie du col vésical (dyssynergie ou sclérose primitive du col)",
+      "cim": "N32.0",
+      "urgence": "chronique",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Obstruction fonctionnelle ou fibromusculaire du col vésical empêchant son ouverture en entonnoir lors de la contraction détrusorienne."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Touche l'homme jeune ou d'âge moyen (20–50 ans) ; représente ~40 % des obstructions sous-vésicales de l'homme < 50 ans."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Hypertonie sympathique alpha-adrénergique des fibres lisses cervicales ou hyperplasie fibreuse annulaire du col."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Retentissement sur le haut appareil urinaire ou vessie de lutte diverticulaire."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Dysurie ancienne depuis l'adolescence/jeune âge adulte, jet faible, attente pré-mictionnelle, épisodes de rétention, prostate petite au TR."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Prostate de petit volume (< 25 g) et souple au toucher rectal ; résidu post-mictionnel augmenté."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Preuve vidéo-urodynamique d'une obstruction localisée au col vésical avec urètre perméable."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Bilan vidéo-urodynamique (haute pression détrusorienne + faible débit + absence d'ouverture du col à la scopie per-mictionnelle) + urétrocystoscopie."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Débitmétrie urinaire et échographie réno-vésicale."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Sondage si rétention aiguë."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Alpha-bloquant (tamsulosine, alfuzosine) en 1re intention ; incision cervico-prostatique endoscopique (unilatérale pour préserver l'éjaculation antérograde) si échec."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Éjaculation rétrograde (~15–30 % après incision du col)."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Débitmétrie et mesure du RPM post-traitement."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Très bons résultats fonctionnels après alpha-bloquant ou incision cervicale."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Urologue."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 10,
+      "fichier_html_cible": "LOT_076_Phase_B_V0_DX.10.html",
+      "titre": "Syndrome de Fowler (défaut de relaxation du sphincter strié urétral chez la femme jeune)",
+      "cim": "N31.9",
+      "urgence": "chronique",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Rétention urinaire chronique ou aiguë chez la femme jeune due à une hyperactivité électromyographique primaire du sphincter strié urétral."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Rare, touche électivement les femmes de 15 à 35 ans ; associée à un SOPK dans ~40 % des cas, souvent déclenchée après une chirurgie ou la prise d'opiacés."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Décharges répétitives complexes et décélérantes du sphincter strié urétral inhibant par voie réflexe afférente les contractions du détrusor."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Exclure impérativement une sclérose en plaques (plaque démyélinisante médullaire/tronc cérébral) par IRM."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Femme jeune présentant une rétention urinaire complète avec grands volumes (> 1 L) souvent peu douloureuse, difficulté à retirer les sondes d'auto-sondage (« spasme sphinctérien »)."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Examen neurologique et gynécologique strictement normaux ; globe vésical volumineux."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Rétention chez une femme jeune sans cause neurologique/anatomique + hypertonie sphinctérienne urodynamique/EMG."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "IRM cérébro-médullaire normale + bilan urodynamique avec profilométrie urétrale (pression de clôture très élevée) et EMG à l'aiguille du sphincter urétral."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Échographie du sphincter urétral (hypertrophie du rhabdosphincter)."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Auto-sondages propres intermittents pour assurer la vidange vésicale."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Neuromodulation des racines sacrées (S3), seul traitement permettant de restaurer des mictions spontanées dans > 70 % des cas."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Infections urinaires sur auto-sondages, difficultés psychologiques."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Suivi neuro-urologique spécialisé et contrôle du stimulateur sacré."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Bon pronostic fonctionnel sous neuromodulation sacrée."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Centre universitaire de neuro-urologie."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 11,
+      "fichier_html_cible": "LOT_076_Phase_B_V0_DX.11.html",
+      "titre": "Rétention aiguë d'urine sur caillotage vésical (« tamponnade vésicale »)",
+      "cim": "R31",
+      "urgence": "immediate",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Accumulation intravésicale de caillots sanguins obstruant le col vésical et empêchant toute évacuation urinaire."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Urgence urologique fréquente, secondaire à une tumeur urothéliale de vessie, une HBP très vascularisée, une cystite radique ou une chute d'escarre post-RTUP."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Saignement urothélial ou prostatique abondant dépassant l'activité fibrinolytique naturelle de l'urokinase urinaire -> formation de caillots organisés."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Choc hémorragique (surtout sous anticoagulants), rupture vésicale sur lavage forcé à vessie obstruée, cathéter sus-pubien contre-indiqué (risque de dissémination si tumeur vésicale)."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Hématurie macroscopique rouge vif avec émission de caillots suivie d'une douleur hypogastrique atroce et d'une anurie mécanique brutale."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Globe vésical extrêmement tendu et douloureux ; pâleur ou tachycardie si spoliation sanguine importante."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Globe vésical douloureux dans les suites d'une hématurie macroscopique avec issue de sang et de caillots au sondage."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Bladder-scan (masse hétérogène échogène intravésicale) + FSC (hémoglobine), hémostase (INR/anti-Xa), groupe sanguin/RAI, créatinine."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Uro-CT et cystoscopie diagnostique après décaillotage complet."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Pose d'une sonde vésicale rigide à gros calibre (Ch 20–24, 3 voies) + décaillotage manuel énergique à la seringue de Guyon au sérum physiologique + irrigation vésicale continue."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Si échec du décaillotage au lit : décaillotage endoscopique et hémostase électrique au bloc opératoire sous anesthésie + bilan oncologique."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Anémie aiguë nécessitant transfusion, sepsis urinaire, perforation vésicale."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Surveillance horaire de la perméabilité de l'irrigation (bilan entrées/sorties du lavage) et de la couleur des effluents."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Urgence résolue par le décaillotage et l'irrigation ; pronostic lié à l'étiologie tumorale ou bénigne."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Urologue de garde, médecin urgentiste."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 12,
+      "fichier_html_cible": "LOT_076_Phase_B_V0_DX.12.html",
+      "titre": "Myélite aiguë transverse ou méningo-radiculite sacrée (syndrome d'Elsberg)",
+      "cim": "G37.3",
+      "urgence": "immediate",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Atteinte inflammatoire ou infectieuse aiguë de la moelle épinière ou des racines sacrées S2–S4 provoquant une aréflexie détrusorienne aiguë."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Incidence de la myélite aiguë ~1–5 / million/an ; le syndrome d'Elsberg complique 1–5 % des primo-infections herpétiques génitales sévères."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Démyélinisation inflammatoire (SEP, NMOSD, MOGAD) ou radiculite virale directe (HSV-2, VZV) bloquant l'arc réflexe parasympathique sacré."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Extension ascendante de la myélite (détresse respiratoire si atteinte cervicale), méningo-encéphalite."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Impossibilité brutale d'uriner chez un adulte jeune, associée à des paresthésies périnéales ou des membres inférieurs, une constipation aiguë, parfois une éruption herpétique génitale."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Globe vésical, hypoesthésie en selle ou niveau sensitif tronculaire, syndrome pyramidal des MI (myélite) ou abolition du réflexe bulbocaverneux (Elsberg)."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Hypersignal T2 médullaire ou prise de contraste des racines sacrées à l'IRM + inflammation du LCR."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "IRM médullaire complète (cervico-dorso-lombo-sacrée) avec gadolinium en urgence + ponction lombaire (pléiocytose, PCR HSV/VZV, bandes oligoclonales)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Dosage sérique des anticorps anti-AQP4 et anti-MOG."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Sondage vésical + aciclovir IV (si origine herpétique/VZV) ou bolus de méthylprednisolone IV 1 g/j pendant 3–5 jours (si myélite inflammatoire)."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Apprentissage des auto-sondages intermittents jusqu'à récupération de la contractilité vésicale."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Séquelles vésico-sphinctériennes et motrices permanentes."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Suivi neurologique et urodynamique à 1 et 3 mois."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Le syndrome d'Elsberg récupère habituellement en 2–6 semaines ; pronostic plus réservé pour les myélites étendues."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Neurologue, infectiologue, neuro-urologue."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 13,
+      "fichier_html_cible": "LOT_076_Phase_B_V0_DX.13.html",
+      "titre": "Paraphimosis aigu compliqué de rétention urinaire",
+      "cim": "N47.2",
+      "urgence": "urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Impossibilité de recalotter un prépuce rétracté en arrière de la couronne du gland, créant un anneau de striction œdémateux et ischémiant."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Urgence urologique fréquente chez l'enfant et chez l'homme âgé (souvent oubli de recalotter après un sondage vésical ou des soins d'hygiène)."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Striction veineuse et lymphatique par l'anneau préputial -> œdème croissant du gland et du prépuce distal -> compression urétrale puis ischémie artérielle du gland."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Coloration violacée/noire et perte de sensibilité du gland (nécrose ischémique du gland)."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Douleur pénienne vive, tuméfaction impressionnante de l'extrémité de la verge, dysurie ou rétention aiguë d'urine."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Gland congestif et augmenté de volume, bourrelet préputial œdématié translucide en collerette, anneau fibreux constrictif serré en arrière de la couronne."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Anneau préputial bloqué en arrière du sillon balano-préputial avec œdème distal."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Diagnostic exclusivement clinique + Bladder-scan si rétention urinaire associée."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Aucun examen d'imagerie ne doit retarder la réduction."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Analgesie/bloc pénien + compression manuelle ferme du gland (ou glace/sucre osmotique) pendant 5–10 min puis réduction manuelle en repoussant le gland à travers l'anneau."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Si échec de réduction manuelle : incision dorsale de l'anneau de striction en urgence ; circoncision programmée à distance pour prévenir la récidive."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Nécrose du gland, fistule urétrale, récidive si pas de posthectomie secondaire."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Contrôle de la recoloration du gland et d'une miction spontanée avant la sortie."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Excellent si réduit rapidement."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Médecin urgentiste, urologue."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 14,
+      "fichier_html_cible": "LOT_076_Phase_B_V0_DX.14.html",
+      "titre": "Prostatite aiguë abcédée en rétention aiguë d'urine",
+      "cim": "N41.2",
+      "urgence": "immediate",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Collection purulente nékrotique au sein de la glande prostatique obstruant l'urètre prostatique dans un contexte septique."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Complique 2 à 5 % des prostatites aiguës, surtout chez les patients diabétiques, immunodéprimés ou sondés."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Nécrose suppurée focale du parenchyme prostatique par entérobactéries (E. coli, Klebsiella) ou S. aureus (dissémination hématogène)."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Choc septique, rupture spontanée de l'abcès dans l'urètre, le rectum ou l'espace péri-vésical."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Fièvre persistante en pics malgré 48–72 h d'antibiothérapie, douleur périnéale et rectale intense, rétention aiguë d'urine."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Globe vésical ; toucher rectal très prudent montrant une zone fluctuante exquise au sein d'une prostate chaude et tendue."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Image hypodense/liquidienne intraprostatique rehaussée en périphérie au CT ou à l'IRM."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "CT pelvien injecté ou IRM prostatique / échographie endorectale + hémocultures + ECBU."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Bilan d'extension septique si bactériémie à S. aureus (échocardiographie)."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Dérivation urinaire par cathéter sus-pubien (cystostomie) + antibiothérapie IV parentérale + drainage de l'abcès (ponction transrectale/transpérinéale écho-guidée ou mise à plat transurétrale). Si cystite simple féminine : fosfomycine-trométamol 3 g PO dose unique (ou nitrofurantoïne 100 mg 2×/j × 5 j) ; si pyélonéphrite ou prostatite fébrile : ceftriaxone 2 g/j IV (ou ciprofloxacine 500 mg 2×/j PO si non grave et sensibilité attendue), paracétamol 1 g PO/6 h et levée d'obstacle urgente si rétention."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Antibiothérapie prolongée (4 semaines) adaptée à la culture du pus et des urines. Adaptation selon l'ECBU à 48 h pour une durée totale de 7 jours (pyélonéphrite) ou 14 jours (prostatite) et hydratation > 1,5–2 L/j."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Fistule prostato-rectale, sepsis réfractaire."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Courbe thermique, CRP, imagerie de contrôle si évolution lente, reprise mictionnelle avant retrait de la cystostomie. Apyrexie attendue à 48–72 h (si persistance : échographie/TDM pour écarter un abcès ou obstacle pyélique)."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Bon pronostic après drainage chirurgical et antibiothérapie ciblée."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Urologue, infectiologue."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 15,
+      "fichier_html_cible": "LOT_076_Phase_B_V0_DX.15.html",
+      "titre": "Lithiase ou corps étranger enclavé dans l'urètre",
+      "cim": "N21.1",
+      "urgence": "urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition nosologique et périmètre clinique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Migration d'un calcul vésical/rénal ou introduction d'un corps étranger se bloquant dans un rétrécissement physiologique de l'urètre (urètre prostatique, bulbaire ou fossette naviculaire)."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, biostatistiques suisses et facteurs de risque",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Représente < 2 % des calculs urinaires ; plus fréquent chez l'homme en raison de la longueur urétrale."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Physiopathologie, bases anatomo-fonctionnelles et mécanismes moléculaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Enclavement mécanique obstruant brutalement la lumière urétrale et déclenchant un spasme urétral."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche diagnostique et diagnostics différentiels prioritaires",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Lésion muqueuse perforante si tentative de manipulation ou de sondage à l'aveugle."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Anamnèse ciblée et drapeaux rouges vitaux",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Interruption soudaine et douloureuse du jet au milieu de la miction, douleur pénienne vive irradiant au méat, gouttes de sang, impossibilité de reprendre la miction."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Examen physique systématique région par région",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Globe vésical ; palpation parfois directe d'une induration pierreuse le long de l'urètre pénien ou périnéal."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Approche syndromique et stratification de gravité",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Diagnostic positif, scores cliniques et critères validés",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Visualisation radiologique ou endoscopique du calcul/corps étranger dans la lumière urétrale."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Examens complémentaires, hiérarchisation et interprétation en 5 colonnes",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Échographie pénienne/vésicale ou radiographie du bassin/CT low-dose centré sur le pelvis et le périnée."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Urétrocystoscopie diagnostique et thérapeutique."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite décisionnelle étape par étape (séquence clinique sans schéma)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge thérapeutique suisse (cascade 4 paliers AIPS/Compendium) et fiches PK/PD 2 onglets",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Ne pas sonder à l'aveugle -> cathéter sus-pubien si besoin immédiat, puis refoulement endoscopique du calcul dans la vessie (« push-back ») suivi de lithotritie endocorporelle."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Bilan métabolique lithiasique et traitement d'une HBP ou d'une sténose urétrale ayant favorisé la stase."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Sténose urétrale cicatricielle post-extraction."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Débitmétrie urinaire à 3 mois pour dépister une sténose secondaire."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Guérison immédiate après extraction endoscopique."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Urologue."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, suivi longitudinal et réseau interprofessionnel suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés indispensables à retenir",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges classiques et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    }
+  ],
+  "prompt_alpha_a_jour": "# MISSION : CORRECTION ET COMPLÉTION DES 248 SSP SUISSES (3 975 ENTITÉS + 248 CHAPITRES 0)\n\n## § 0. IDENTIFICATION, SIGNATURE & RÈGLES DE CONTINUITÉ — BLOQUANT ABSOLU\n1. **Identification obligatoire** en tête de première réponse :\n   - HEURE DE DÉBUT : AAAA-MM-JJ HH:MM (Europe/Zurich)\n   - MODÈLE : nom exact du modèle (ex. ANTIGRAVITY ORCHESTRATOR NEON)\n   - PLATEFORME : plateforme exacte (ex. ANTIGRAVITY)\n   - Ajouter la même ligne à `1_Claude AI/IDENTIFICATION_AGENTS.md`. Si incertitude, s'arrêter.\n2. **Signature IA fixe en bas à droite de TOUT HTML produit ou modifié** (juste avant `</body>`, en GRAS MAJUSCULE) :\n   `<div id=\"signature-ia\" style=\"position:fixed;right:12px;bottom:10px;z-index:9999;background:#fff;border:2px solid #000;padding:4px 10px;font:700 12px/1.3 Arial,sans-serif;text-transform:uppercase;color:#000\">DÉBUT : AAAA-MM-JJ HH:MM (EUROPE/ZURICH) · MODÈLE : <NOM> · PLATEFORME : <PLATEFORME></div>`\n   - **Seul Vial peut autoriser le retrait de ce bloc.** Un agent qui reprend un fichier signé ajoute sa propre ligne sous la précédente sans jamais effacer l'existante.\n3. **Continuité & transparence** :\n   - **Redémarrage propre à partir de `SSP_248`** : tous les cours précédemment modifiés ont été restaurés à l'état initial (`6941513`). Enchaîner continûment **`SSP_248 → SSP_033`**, puis **`SSP_001 → SSP_032`**.\n   - **Toujours afficher le raisonnement visible** en français dans chaque réponse.\n   - **Veille & relance GitHub** : commiter et pousser sur `origin main` après chaque SSP (ou lot <= 5 SSP) avec l'état à jour dans `SUIVI_PRODUCTION.csv`, `HANDOFF_AFFINAGE.md` et `HANDOFF_IA_COMPLET.md`.\n   - **Suivi graphique temps réel** : maintenir à jour le tableau de bord visuel temps réel des réalisations achevées et en cours.\n\n## § 1. RÈGLES ACTUALISÉES (PRIMENT SUR LE PROMPT ALPHA 19.11.26)\n1. **Nombre de cours par SSP** : **1 cours par entité de la Cartographie Renouveau** (15 à 24 entités par SSP, 3 975 au total) + le Chapitre 0 (`Phase_A`), dans l'ordre exact des `Cours 1 … N` de `SSP_nnn/NOTIONS.md` / `NOTIONS.json`.\n2. **QUALITÉ CLINIQUE MAXIMALE & ZÉRO MÉDIOCRITÉ (BLOQUANT ABSOLU — Consigne Vial 20.11.26)** :\n   - **Interdiction absolue de toute prose patronnée / générique** : aucune phrase-cadre où seul le nom de la pathologie change d'un cours à l'autre, aucun remplissage artificiel pour atteindre le calibre. La médiocrité clinique est dangereuse et entraîne un rejet immédiat.\n   - Chaque cours (`Phase_A` et `DX.1..N`) doit être **rédigé sur mesure** pour son entité exacte, avec : raisonnement physiopathologique et sémiologique réel, seuils numériques précis, diagnostics différentiels discriminants, posologies et contre-indications sourcées (Compendium.ch / AIPS, Tox Info Suisse, OFSP, ASSM, sociétés savantes suisses), vignettes cliniques authentiques et QCM exigeants de niveau Examen Fédéral Suisse.\n3. **INTERDICTION DES ARBRES DÉCISIONNELS (Consigne Vial 20.11.26)** :\n   - **Ne générer AUCUN arbre décisionnel ni algorithme graphique (`.fm-canvas`, SVG décisionnel, etc.)** dans `Phase_A` ou dans les `DX.n` — l'auteur (Vial) les réalisera lui-même.\n4. **Calibre texte pur actualisé (Consigne Vial 20.11.26)** :\n   - **80 à 100 Ko de texte pur UTF-8 par fichier** (`81 920` à `102 400` octets, calibre du Prompt Alpha confirmé par Vial le 20.11.2026 à 21:20, mesuré fenêtres comprises, hors balises HTML, CSS, JS, SVG et images).\n   - HTML hors images (`controle3.py`) : **`40 000` à `100 000` octets** (alerte).\n   - Densité maximale : zéro remplissage, zéro phrase pouvant figurer telle quelle dans un autre cours, zéro phrase de gabarit de `cartographie_DATA.json`.\n5. **Phrases verbales exclusives (BLOQUANT)** :\n   - Chaque phrase (texte, fenêtres, listes, légendes `<figcaption>`, cellules narratives `<td>`) contient un verbe conjugué reconnu. **Zéro phrase nominale.**\n4. **Médicaments cliquables d'emblée & Fenêtres centrées PK/PD à 2 onglets (Consigne Vial 20.11.26)** :\n   - Dès qu'un médicament est évoqué, il devient cliquable (`<a class=\"ouvre med-chip\" href=\"#f-...\">`).\n   - Chaque `<section class=\"fenetre mb\" id=\"f-...\"><div class=\"fen\">` s'ouvre au centre de l'écran et contient **2 onglets** :\n     * **Onglet 1 (`data-tab=\"pk\"`)** : Pharmacocinétique + **Courbe vectorielle SVG $C(t)$** + **4 paramètres cliniciens mis en évidence** (`.pkpd-kpis`).\n     * **Onglet 2 (`data-tab=\"pd\"`)** : Pharmacodynamique & Clinique + **Courbe vectorielle SVG $E(C)$** + posologies/précautions/grossesse suisses (Compendium.ch / AIPS).\n5. **Images** : uniquement à l'intérieur des `<section class=\"fenetre\">`, jamais hors fenêtre (licences selon Prompt Alpha § 4). Ne comptent pas dans le calibre.\n6. **Zéro terminologie de chantier visible** : aucun texte visible (ni `<title>`) ne doit contenir `LOT`, `V0`, `Phase A/B`, `DX.n`, `Appel A/B`, `Partie n`. Seuls les noms de fichiers gardent le format Alpha (`LOT_nnn_Phase_A_V0.html`, `LOT_nnn_Phase_B_V0_DX.i.html`).\n7. **Circuits & Plans** :\n   - `MONOGRAPHIQUE` (189 SSP) : plan maladie en 14 points (Prompt Alpha § 3.1).\n   - `NON_MONOGRAPHIQUE` (52 SSP) : Leçon en 12 à 14 points adaptés (Prompt Alpha § 3.2). **Jamais** de plan maladie ni de titres « Physiopathologie / Approche syndromique / Diagnostic positif » artificiels.\n   - `MIXTE` (7 SSP) : Prompt Alpha § 3.3, chaque fichier déclare `<meta name=\"ssp-circuit\" content=\"...\">`.\n8. **Correctifs Frontend v2 / Architecture `_sources/` (`UNIQUE.html` & `_polices/`)** :\n   - **Arborescence propre par SSP** : à la racine de `SSP_nnn/`, seul **`SSP_nnn_<code>_UNIQUE.html`** (plus le sous-dossier **`_sources/`**) est visible. Tous les fichiers sources (`LOT_nnn_*.html`, `images/`, `NOTIONS.*`, `MANIFESTE.json`, `DECISION*`, `paquet.json`, `_archive_avant_alpha/`) sont rangés dans `SSP_nnn/_sources/` sans rien supprimer.\n   - **Barre haute amovible (`gabarit_unique.html`)** : `#topbar` compacte 1 ligne (~42 px) avec pilule active, fil d'Ariane section, boutons `◀`/`▶`, tiroir overlay amovible `#dd-drawer` (`☰ Diagnostics (N) ▾` + option `📌 Épingler`) contenant `nav#nav` en colonnes égales (`32 px`, teinte unique par cours), et bouton `▴ Masquer barre` + pilule flottante `#btn-show-bar`.\n   - **Zéro dédoublement & navigation `#...` 100 % fonctionnelle (`forme.js`)** : script `forme.js` exécuté sous `DOMContentLoaded` et injecté par `assembler_unique.py`/`inliner.py` après `</head>` et avant `#signature-ia`/`</body>` ; intercepteur global appelant `e.preventDefault()` sur 100 % des `href^=\"#\"` (bloque le rechargement `srcdoc` + `file://`).\n   - **Modales centrées `<div class=\"fen\">` & désaturation (`forme.css` / `optimiser_ssp.py`)** : ouverture via classe `.fm-open` (plus `:target` en repli) avec pile `modalStack` et bouton `Fermer ✕` sticky (sans `history.back()`), auto-enveloppement `<div class=\"fen\">`, tableaux hors modale déplacés vers `<section class=\"fenetre fm-tab-fen\">` déclenchés par cartes `.fm-encart-fen`, citations `<sup class=\"r\"><a>` compactées en `[N]` avec modale aperçu `#fm-src-modal` empilable (`fm-stack-top`), puces médicaments `a.ouvre.med-chip` (`℞ ...`, `white-space: nowrap`, compatible accents français), repli du plan latéral desktop `#fm-plan-toggle`, îlots discontinus (`margin-bottom: 30px`) et padding bas `5.5rem` protégeant la lecture au-dessus de `#signature-ia`.\n   - **HTML unique** : ne jamais l'écrire à la main ; toujours exécuter `optimiser_ssp.py` puis `assembler_unique.py nnn`.\n\n## § 2. ARCHIVAGE & WORKFLOW PAR SSP (P0 → P4)\n- **Zéro suppression** : avant d'écraser ou renommer un fichier source existant, archiver dans `SSP_nnn/_sources/_archive_avant_alpha/`.\n- **P0 (Préparer)** : lire circuit (`catalogue_248.json`), entités (`NOTIONS.md`/`NOTIONS.json`), `memoire_zero_token.py --digest --lot nnn`, écrire `PLAN_ENTITES.md`.\n- **P1 (Décider)** : noter dans `DECISION.md` (Corriger / Réécrire si mécanique, faux plan maladie ou `< 30 Ko` / Créer).\n- **P2 (Produire)** : `LOT_nnn_Phase_A_V0.html` + `LOT_nnn_Phase_B_V0_DX.1..N.html`, 100 % des notions de `NOTIONS.json` expliquées et sourcées (Compendium.ch / AIPS, OFSP, ASSM, CC, LAMal, LAVI, Smarter Medicine), sans aucune phrase gabarit de la cartographie.\n- **P3 (Portes de Contrôle + Optimisation + Assemblage + Audit Chrome)** :\n  1. `controle3.py --script-ok` → **`VERT {}`** (si `paquet.json` présent ; `--script-ok` requis car `_sources/` référence `../../_polices/forme.js`)\n  2. `verif_aips.py` → **`OK`** (si `paquet.json` présent) et `restaurer_fond.py --verifier` → **`exit=0`**\n  3. `python _outils/optimiser_ssp.py nnn` → migration vers `_sources/`, tableaux déplacés en `<div class=\"fen\">`, teintes non bleues `--fm-a`\n  4. `python _outils/verif_mission.py nnn` → **100 % fichiers `PASS`** (`errors: []`)\n  5. `python _outils/assembler_unique.py nnn` → **`(1 + N) / (1 + N) onglets`** à la racine de `SSP_nnn/`\n  6. `python _outils/notions.py verifier nnn` → **`0 NON`** + copier `rapport_notions.csv` dans `SSP_nnn/_sources/`\n  7. `python _outils/audit_unique_browser.py nnn --all-tabs` → **`PASS` sur 100 % des onglets en Chrome headless réel**\n  8. Ajouter ligne dans `SUIVI_PRODUCTION.csv` + `git commit` + `git push origin main`.\n- **P4 (Affinage)** : consigner tout doute clinique/posologique non vérifié dans `1_Claude AI/HANDOFF_AFFINAGE.md` sous `## SSP_nnn`.\n\n## § 3. MISSION 2 — SSP 001 → 032\n- Extraire les cours depuis `SSP_nnn_<code>_UNIQUE.html` (JSON `data` gzip+base64, marqueurs `@@IMG:…@@`, `@@FONT:…@@`) après archivage des anciens `LOT_nnn_*.html` dans `_archive_avant_alpha/`.\n- Le frontend reste identique ; auditer le contenu avec la même sévérité (attention : `SSP_013` G13 = `NON_MONOGRAPHIQUE`, `SSP_014` G14 = `MIXTE`).\n- Produire `1_Claude AI/AUDIT_001-032.md` et corriger tous les ❌.\n\n## § 4. LES 12 BLOCAGES ROUGE (REJET IMMÉDIAT)\n1. Identification absente ou incertaine.\n2. Signature `#signature-ia` absente, modifiée ou supprimée.\n3. Entité de la Cartographie sans cours.\n4. Fichier hors intervalle `80–100 Ko` de texte pur (tout cours ; un cours de 30–50 Ko est à enrichir).\n5. Toute phrase nominale.\n6. Toute notion au verdict `NON`.\n7. Phrase gabarit de `cartographie_DATA.json` recopiée dans un cours.\n8. Plan maladie appliqué à une Leçon `NON_MONOGRAPHIQUE`.\n9. Terme de chantier visible (`LOT`, `V0`, `Phase A/B`, `DX.n`, `Appel`, `Partie n`).\n10. Posologie sans source de la cascade suisse.\n11. Image hors `<section class=\"fenetre\">`.\n12. Fichier supprimé au lieu d'être archivé.\n\n## § 5. ANNEXE CIRCUITS (248 SSP)\n- **NON_MONOGRAPHIQUE (52)** : 013 · 065 · 069 · 176 · 180 · 181 · 182 · 184 · 185 · 186 · 192 · 194 · 195 · 198 · 200 · 203 · 204 · 205 · 206 · 207 · 208 · 209 · 210 · 211 · 212 · 213 · 214 · 215 · 216 · 217 · 218 · 219 · 220 · 221 · 222 · 224 · 225 · 226 · 227 · 232 · 233 · 235 · 236 · 237 · 238 · 239 · 240 · 241 · 242 · 243 · 246 · 247.\n- **MIXTE (7)** : 014 · 165 · 174 · 175 · 190 · 202 · 223.\n- **MONOGRAPHIQUE (189)** : tous les autres SSP."
+}

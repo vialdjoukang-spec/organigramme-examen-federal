@@ -1,0 +1,2910 @@
+{
+  "rappel_obligatoire_avant_redaction": {
+    "lecture_imperative": [
+      "1. Lire intégralement PROMPT_Alpha_19.11.26.md ET la mise à jour incluse dans prompt_alpha_a_jour ci-dessous.",
+      "2. Respecter l'intervalle GLOBAL par cours : viser 85–95 Ko de texte médical pur (soit ~95–115 Ko de fichier JSON) sans quota rigide par partie — répartir le texte proportionnellement à l'importance clinique des parties.",
+      "3. Produire graduellement 1 cours complet par requête (Phase A, puis Cours 1, Cours 2...) en français médical académique, phrases verbales exclusives (0 phrase nominale), zéro prose générique ou patronnée.",
+      "4. Utiliser uniquement les guillemets typographiques français « … » dans les valeurs texte JSON (jamais de guillemet droit non échappé).",
+      "5. Zéro arbre décisionnel graphique (.fm-canvas) : ne générer aucun schéma décisionnel."
+    ],
+    "specificites_locales_ssp": [
+      "Circuit NON_MONOGRAPHIQUE : conserver strictement l'architecture en Leçons Suisses Structurées (14 points adaptés), SANS JAMAIS utiliser de titres ou de plan maladie artificiel (interdiction de Physiopathologie / Approche syndromique / Diagnostic positif).",
+      "Couvrir 100 % des notions obligatoires listées dans phase_b[*].plan[*].notions_obligatoires pour Consultations de suivi du nourrisson, de l’enfant et de l’adolescent en bonne santé (O2.12).",
+      "Cascade posologique suisse à 4 paliers obligatoire : 1. AIPS Swissmedic (n° 5 chiffres) -> 2. Compendium.ch -> 3. Sociétés savantes & CHU suisses (HUG, CHUV, Inselspital, USZ, USB, OFSP, ASSM, SSMIG, Tox Info Suisse 145) -> 4. Sociétés savantes européennes."
+    ]
+  },
+  "meta": {
+    "rang_gravite": 16,
+    "ssp": "SSP_194",
+    "code_profiles": "O2.12",
+    "nom_francais": "Consultations de suivi du nourrisson, de l’enfant et de l’adolescent en bonne santé",
+    "circuit": "NON_MONOGRAPHIQUE",
+    "police_obligatoire": "Atkinson Hyperlegible",
+    "calibre_cible": "80–100 Ko texte pur",
+    "arbres_decisionnels_autorises": false,
+    "mode_redaction": "Neon Deep Research",
+    "nb_chapitres_total": 19,
+    "defauts_audit_initial": [
+      "Incomplet (11/19 cours)",
+      "Faux plan maladie (11 f.)",
+      "2007 phrases nominales",
+      "Termes chantier (10 f.)"
+    ]
+  },
+  "sommaire": {
+    "phase_a": {
+      "fichier_html_cible": "LOT_194_Phase_A_V0.html",
+      "titre": "Consultations de suivi du nourrisson, de l’enfant et de l’adolescent en bonne santé — Vue d'ensemble et orientation clinique (O2.12)"
+    },
+    "phase_b": [
+      {
+        "cours_numero": 1,
+        "titre": "Développement psychomoteur et staturo-pondéral normal (bilan de santé)",
+        "cim": "Z00.1",
+        "urgence": "chronique"
+      },
+      {
+        "cours_numero": 2,
+        "titre": "Trouble de la réfraction ou amblyopie dépistée",
+        "cim": "H53.0",
+        "urgence": "semi-urgent"
+      },
+      {
+        "cours_numero": 3,
+        "titre": "Carie de la petite enfance et défaut d'hygiène bucco-dentaire",
+        "cim": "K02.9",
+        "urgence": "chronique"
+      },
+      {
+        "cours_numero": 4,
+        "titre": "Surpoids et obésité pédiatrique",
+        "cim": "E66.9",
+        "urgence": "chronique"
+      },
+      {
+        "cours_numero": 5,
+        "titre": "Retard de langage ou trouble des apprentissages",
+        "cim": "F80.9",
+        "urgence": "chronique"
+      },
+      {
+        "cours_numero": 6,
+        "titre": "Déficit en fer avec ou sans anémie ferriprive",
+        "cim": "D50.9",
+        "urgence": "chronique"
+      },
+      {
+        "cours_numero": 7,
+        "titre": "Scoliose idiopathique de l'adolescent",
+        "cim": "M41.1",
+        "urgence": "chronique"
+      },
+      {
+        "cours_numero": 8,
+        "titre": "Cryptorchidie (testicule non descendu)",
+        "cim": "Q53.9",
+        "urgence": "semi-urgent"
+      },
+      {
+        "cours_numero": 9,
+        "titre": "Trouble du spectre de l'autisme (TSA) dépisté précocement",
+        "cim": "F84.0",
+        "urgence": "semi-urgent"
+      },
+      {
+        "cours_numero": 10,
+        "titre": "Dysplasie développementale de la hanche (DDH)",
+        "cim": "Q65.8",
+        "urgence": "semi-urgent"
+      },
+      {
+        "cours_numero": 11,
+        "titre": "Hypertension artérielle pédiatrique (dépistée lors du bilan)",
+        "cim": "I10",
+        "urgence": "semi-urgent"
+      },
+      {
+        "cours_numero": 12,
+        "titre": "Souffle cardiaque organique (communication interauriculaire / CIV)",
+        "cim": "Q21.1",
+        "urgence": "semi-urgent"
+      },
+      {
+        "cours_numero": 13,
+        "titre": "Suspicion de maltraitance infantile / syndrome du bébé secoué",
+        "cim": "T74.1",
+        "urgence": "immediate"
+      },
+      {
+        "cours_numero": 14,
+        "titre": "Cardiopathie congénitale ducto-dépendante non dépistée",
+        "cim": "Q20.3",
+        "urgence": "immediate"
+      },
+      {
+        "cours_numero": 15,
+        "titre": "Idéation suicidaire aiguë ou dépression sévère de l'adolescent",
+        "cim": "R45.8",
+        "urgence": "urgent"
+      },
+      {
+        "cours_numero": 16,
+        "titre": "Leucocorie (reflet pupillaire blanc : rétinoblastome)",
+        "cim": "H44.5",
+        "urgence": "urgent"
+      },
+      {
+        "cours_numero": 17,
+        "titre": "Anorexie mentale de l'adolescent avec dénutrition sévère",
+        "cim": "F50.0",
+        "urgence": "urgent"
+      },
+      {
+        "cours_numero": 18,
+        "titre": "Retard staturo-pondéral sévère (« failure to thrive »)",
+        "cim": "R62.8",
+        "urgence": "semi-urgent"
+      }
+    ]
+  },
+  "phase_a": {
+    "titre": "Consultations de suivi du nourrisson, de l’enfant et de l’adolescent en bonne santé — Vue d'ensemble (O2.12)",
+    "plan": [
+      {
+        "point": 1,
+        "titre": "Définition, portée clinique et cadre suisse de la situation",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit NON_MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 2,
+        "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit NON_MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 3,
+        "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit NON_MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 4,
+        "titre": "Démarche d'évaluation structurée et situations différentielles",
+        "description": "Présentation et hiérarchisation des 18 entités de la Cartographie Renouveau."
+      },
+      {
+        "point": 5,
+        "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit NON_MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 6,
+        "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit NON_MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 7,
+        "titre": "Typologie des situations et stratification des priorités",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit NON_MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 8,
+        "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit NON_MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 9,
+        "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit NON_MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 10,
+        "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit NON_MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 11,
+        "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit NON_MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 12,
+        "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit NON_MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 13,
+        "titre": "Points clés essentiels pour la pratique suisse",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit NON_MONOGRAPHIQUE, sans arbre décisionnel."
+      },
+      {
+        "point": 14,
+        "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+        "description": "Rédaction approfondie (80–100 Ko texte pur) selon le circuit NON_MONOGRAPHIQUE, sans arbre décisionnel."
+      }
+    ]
+  },
+  "phase_b": [
+    {
+      "cours_numero": 1,
+      "fichier_html_cible": "LOT_194_Phase_B_V0_DX.1.html",
+      "titre": "Développement psychomoteur et staturo-pondéral normal (bilan de santé)",
+      "cim": "Z00.1",
+      "urgence": "chronique",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition, portée clinique et cadre suisse de la situation",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Évaluation médicale périodique programmée d'un enfant ou adolescent asymptomatique pour promouvoir la santé et dépister précocement les troubles."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Calendrier suisse (pédiatrie suisse) : 1, 2, 4, 6, 9, 12, 18, 24 mois, 4, 6, 10, 12–15 ans."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Suivi des courbes de croissance OMS/suisses (poids, taille, PC, IMC) et des étapes neurodéveloppementales."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche d'évaluation structurée et situations différentielles",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Cassure de courbe staturo-pondérale, régression des acquisitions, suspicion de maltraitance, souffle pathologique."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Alimentation, sommeil, élimination, acquisitions motrices/langagières, intégration sociale/scolaire, environnement familial."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Mesures anthropométriques reportées sur courbes, examen somatique complet (cœur, hanches, organes génitaux, vision, audition, rachis)."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Typologie des situations et stratification des priorités",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Croissance harmonieuse le long des percentiles et étapes développementales conformes à l'âge."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Examen clinique structuré sans examens paracliniques systématiques chez l'enfant sain (hors dépistages ciblés)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Dépistage visuel (stéréotest, acuité dès 3–4 ans) et auditif."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Non applicable."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Vaccinations selon le plan suisse OFSP, prophylaxie vitamine D (0–3 ans), conseils de sécurité (siège auto, mort subite, écrans)."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Aucune."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Prochaine visite préventive planifiée selon l'âge."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Développement optimal."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Pédiatre / médecin de famille, infirmière petite enfance."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés essentiels pour la pratique suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 2,
+      "fichier_html_cible": "LOT_194_Phase_B_V0_DX.2.html",
+      "titre": "Trouble de la réfraction ou amblyopie dépistée",
+      "cim": "H53.0",
+      "urgence": "semi-urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition, portée clinique et cadre suisse de la situation",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Baisse unilatérale ou bilatérale de l'acuité visuelle sans lésion organique apparente, liée à un strabisme ou une anisométropie."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Touche 2–5 % des enfants ; cause la plus fréquente de déficit visuel monoculaire évitable."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Suppression corticale de l'image floue ou déviée durant la période critique du développement visuel (< 7–8 ans)."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche d'évaluation structurée et situations différentielles",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Leucocorie (reflet blanc !), strabisme aigu d'apparition brutale (tumeur/HTIC !), nystagmus."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Antécédents familiaux de strabisme ou port de lunettes précoce, plissement des yeux, céphalées scolaires."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Test de Bruckner (reflet rouge symétrique), test de Hirschberg (reflets cornéens centrés), cover-test, stéréotest de Lang, acuité visuelle monoculaire."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Typologie des situations et stratification des priorités",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Asymétrie d'acuité visuelle ≥ 2 lignes ou strabisme/anisométropie confirmés sous cycloplégie."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Bilan ophtalmologique pédiatrique avec skiascopie sous cycloplégie."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Autoréfractomètre pédiatrique (dépistage)."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Adressage rapide si leucocorie ou strabisme aigu."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Correction optique totale + occlusion du bon œil (patch) avant 6–7 ans."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Perte visuelle monoculaire permanente si traitée trop tardivement."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Contrôles ophtalmologiques trimestriels durant le traitement par occlusion."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Excellente récupération si dépistage et traitement avant 5–6 ans."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Pédiatre, ophtalmologue pédiatre, orthoptiste."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés essentiels pour la pratique suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 3,
+      "fichier_html_cible": "LOT_194_Phase_B_V0_DX.3.html",
+      "titre": "Carie de la petite enfance et défaut d'hygiène bucco-dentaire",
+      "cim": "K02.9",
+      "urgence": "chronique",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition, portée clinique et cadre suisse de la situation",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Déminéralisation bactérienne des dents temporaires ou permanentes favorisée par les sucres fermentescibles."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Très fréquente ; touche jusqu'à 15–20 % des jeunes enfants en cas de facteurs de risque sociaux."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Streptococcus mutans métabolise les sucres -> acides organiques -> déminéralisation de l'émail."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche d'évaluation structurée et situations différentielles",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Cellulite faciale d'origine dentaire, abcès, fièvre, refus alimentaire."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Biberon d'eau sucrée/jus/lait au coucher, grignotage, absence de brossage fluoré."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Taches blanches crayeuses puis cavitations brunes sur les incisives supérieures (syndrome du biberon)."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Typologie des situations et stratification des priorités",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Lésions carieuses visibles à l'examen clinique."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Inspection buccale à chaque visite préventive et orientation vers le médecin-dentiste dès 2 ans."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Radiographies dentaires chez le dentiste."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Antibiothérapie et drainage si abcès/cellulite."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Soins dentaires, arrêt du biberon nocturne, brossage par les parents avec dentifrice fluoré (500–1000 ppm selon âge)."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Cellulite cervico-faciale, perte prématurée des dents lactéales, troubles orthodontiques."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Contrôle dentaire annuel (médecine dentaire scolaire en Suisse)."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Prévention quasi totale si hygiène instaurée précocement."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Pédiatre, médecin-dentiste."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés essentiels pour la pratique suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 4,
+      "fichier_html_cible": "LOT_194_Phase_B_V0_DX.4.html",
+      "titre": "Surpoids et obésité pédiatrique",
+      "cim": "E66.9",
+      "urgence": "chronique",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition, portée clinique et cadre suisse de la situation",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Excès de masse grasse corporelle évalué par l'indice de masse corporelle (IMC) rapporté aux courbes de référence pédiatriques."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Touche ~15–20 % des enfants et adolescents en Suisse (surpoids + obésité)."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Déséquilibre énergétique chronique multifactoriel (génétique, sédentarité, écrans, boissons sucrées) ; rebond d'adiposité précoce (< 5–6 ans) = marqueur de risque."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche d'évaluation structurée et situations différentielles",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Obésité + retard statural (Cushing, hypothyroïdie !), céphalées/troubles visuels (HTIC idiopathique), boiterie (épiphysiolyse fémorale !)."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Habitudes alimentaires, boissons sucrées, temps d'écran, activité physique, antécédents familiaux, harcèlement scolaire."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "IMC > P90/P97, mesure de la tension artérielle (brassard adapté !), acanthosis nigricans (insulinorésistance), vergetures, morphotype."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Typologie des situations et stratification des priorités",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "IMC > P97 (obésité) ou > P90 (surpoids) sur courbes suisses."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Clinique d'abord ; bilan métabolique si obésité ou facteurs de risque : glycémie à jeun/HbA1c, bilan lipidique, ALAT (stéatose)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "TSH/cortisol uniquement si cassure de la courbe de taille associée."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Si épiphysiolyse ou HTIC : prise en charge urgente."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Approche familiale multidisciplinaire non culpabilisante : activité physique ≥ 60 min/j, réduction écrans et boissons sucrées, pas de régime restrictif strict en croissance."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Diabète type 2, HTA, dyslipidémie, stéatose hépatique (MASLD), SAOS, épiphysiolyse de hanche."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Suivi régulier de l'IMC, TA et vécu psychosocial."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Stabilisation de l'IMC pendant la croissance staturale permet une normalisation progressive."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Pédiatre, programme thérapeutique multiprofessionnel (ex. Contrepoids/AKJ)."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés essentiels pour la pratique suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 5,
+      "fichier_html_cible": "LOT_194_Phase_B_V0_DX.5.html",
+      "titre": "Retard de langage ou trouble des apprentissages",
+      "cim": "F80.9",
+      "urgence": "chronique",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition, portée clinique et cadre suisse de la situation",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Acquisition significativement décalée ou atypique du langage oral (réceptif/expressif) ou des compétences scolaires."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Touche 5–10 % des enfants d'âge préscolaire et scolaire."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Trouble neurodéveloppemental affectant le traitement phonologique ou syntaxique, parfois secondaire à un déficit sensoriel."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche d'évaluation structurée et situations différentielles",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Absence de pointage/contact visuel à 18 mois (TSA !), régression du langage (épilepsie Landau-Kleffner !), perte auditive."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Absence de babillage à 12 mois, < 50 mots ou pas d'association de 2 mots à 24 mois, langage inintelligible à 3–4 ans, otites à répétition."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Évaluation de la compréhension, interaction sociale, examen ORL (otoscopie : otite séromuqueuse !)."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Typologie des situations et stratification des priorités",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Retard objectivé par bilan logopédique après exclusion d'une surdité et d'un TSA."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Audiométrie / examen ORL systématique en 1re intention, puis bilan logopédique."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Bilan neuropsychologique si troubles scolaires associés."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Non applicable."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Traitement d'une otite séromuqueuse si présente, rééducation logopédique précoce, aménagements scolaires."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Échec scolaire, isolement social."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Évolution sous logopédie à 6 mois."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Amélioration nette avec prise en charge précoce."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Pédiatre, ORL, logopédiste, psychologie scolaire."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés essentiels pour la pratique suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 6,
+      "fichier_html_cible": "LOT_194_Phase_B_V0_DX.6.html",
+      "titre": "Déficit en fer avec ou sans anémie ferriprive",
+      "cim": "D50.9",
+      "urgence": "chronique",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition, portée clinique et cadre suisse de la situation",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Déplétion des réserves martiales pouvant entraîner une anémie microcytaire hypochrome et altérer le développement cognitif."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Carence nutritionnelle la plus fréquente chez l'enfant et l'adolescente menstruée."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Introduction précoce du lait de vache entier (pauvre en fer + microsaignements digestifs), croissance rapide, pertes menstruelles."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche d'évaluation structurée et situations différentielles",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Anémie sévère (Hb < 70 g/L) mal tolérée, hémorragie digestive active, splénomégalie/adénopathies (hémopathie !)."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Consommation > 500 mL/j de lait de vache, alimentation végétarienne non supplémentée, règles abondantes, fatigue, pica."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Pâleur conjonctivale et palmaire, irritabilité, tachycardie, souffle systolique fonctionnel si anémie sévère."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Typologie des situations et stratification des priorités",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Ferritine basse (< 15–30 µg/L) avec ou sans anémie microcytaire hypochrome."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "NFS (Hb basse, VGM bas, TCMH basse) + ferritine sérique basse (attention : faussement normale si CRP élevée !)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "CRP associée, réticulocytes, bilan cœliaque si carence réfractaire au fer oral."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Transfusion uniquement si anémie sévère décompensée."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Fer oral (sulfate ou polymaltose ferrique 3–6 mg/kg/j de fer-élément en 1–2 prises) pendant 3 mois + correction diététique."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Retard neurocognitif si carence prolongée du nourrisson."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Contrôle Hb/réticulocytes à 4 semaines et ferritine à 3 mois."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Correction rapide sous traitement oral bien suivi."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Pédiatre, diététicienne si besoin."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés essentiels pour la pratique suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 7,
+      "fichier_html_cible": "LOT_194_Phase_B_V0_DX.7.html",
+      "titre": "Scoliose idiopathique de l'adolescent",
+      "cim": "M41.1",
+      "urgence": "chronique",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition, portée clinique et cadre suisse de la situation",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Déformation tridimensionnelle du rachis avec courbure frontale (angle de Cobb ≥ 10°) et rotation vertébrale."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Prévalence 2–3 % chez les adolescents (courbures > 10°), nette prédominance féminine pour les formes évolutives."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Aggravation rapide pendant le pic de croissance pubertaire (stade Tanner 2–3)."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche d'évaluation structurée et situations différentielles",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Douleur rachidienne nocturne, raideur, scoliose thoracique gauche, signes neurologiques -> IRM pour exclure tumeur/syringomyélie !"
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Asymétrie des épaules ou de la taille remarquée par les parents, antécédents familiaux."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Test d'Adams (flexion antérieure du tronc, genoux tendus) : mise en évidence d'une gibbosité thoracique ou lombaire mesurée au scoliomètre (≥ 5–7°)."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Typologie des situations et stratification des priorités",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Angle de Cobb ≥ 10° avec rotation vertébrale sans cause secondaire."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Radiographie du rachis entier debout (face et profil) avec mesure de l'angle de Cobb et signe de Risser (maturité osseuse)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "IRM médullaire uniquement si drapeaux rouges ou scoliose atypique/précoce."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Non applicable."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "< 20° : surveillance clinique/Rx ; 20–40° en croissance : corset orthopédique + physiothérapie ; > 45–50° : discussion chirurgicale (arthrodèse)."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Syndrome restrictif respiratoire si courbure thoracique sévère (> 70–80°), douleurs chroniques."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Contrôle clinique et radiologique tous les 4–6 mois pendant la puberté."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Stabilisation à la fin de la croissance osseuse (Risser 4–5) si angle < 30°."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Pédiatre, orthopédiste pédiatre, physiothérapeute."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés essentiels pour la pratique suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 8,
+      "fichier_html_cible": "LOT_194_Phase_B_V0_DX.8.html",
+      "titre": "Cryptorchidie (testicule non descendu)",
+      "cim": "Q53.9",
+      "urgence": "semi-urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition, portée clinique et cadre suisse de la situation",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Absence permanente d'un ou des deux testicules au fond du scrotum (arrêt sur le trajet de migration ou ectopie)."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "2–5 % des nouveau-nés à terme, baisse à ~1 % à 3–6 mois par descente spontanée."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "La température intra-abdominale/inguinale altère la spermatogenèse et augmente le risque de tumeur germinale."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche d'évaluation structurée et situations différentielles",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Cryptorchidie bilatérale non palpable + hypospadias -> urgence endocrinienne (trouble de la différenciation sexuelle / HCS) !"
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Bourse vide constatée à la naissance ou au bain, parfois testicule palpable dans le bain chaud (testicule oscillant)."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Palpation bimanuelle en ambiance chaude : testicule non abaissable sans tension jusqu'au fond de la bourse (vs testicule oscillant qui reste en place après abaissement)."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Typologie des situations et stratification des priorités",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Testicule absent du scrotum et non abaissable de façon stable à l'âge de 6 mois."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Examen clinique répété ; l'échographie inguinale est peu utile si testicule palpable (laparoscopie diagnostique si non palpable)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Bilan endocrinien/caryotype si forme bilatérale non palpable."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Urgence si torsion sur testicule cryptorchide (masse inguinale douloureuse) ou suspicion de HCS."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Orchidopexie chirurgicale entre 6 et 12 mois (au plus tard 18 mois) pour préserver la fertilité et faciliter l'autopalpation."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Hypofertilité, risque accru de cancer testiculaire (séminome), torsion, hernie inguinale."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Suivi post-opératoire puis éducation à l'autopalpation à la puberté."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Bon pronostic si opéré avant 12–18 mois."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Pédiatre, chirurgien pédiatre."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés essentiels pour la pratique suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 9,
+      "fichier_html_cible": "LOT_194_Phase_B_V0_DX.9.html",
+      "titre": "Trouble du spectre de l'autisme (TSA) dépisté précocement",
+      "cim": "F84.0",
+      "urgence": "semi-urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition, portée clinique et cadre suisse de la situation",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Trouble neurodéveloppemental associant déficits persistants de la communication/interaction sociale et comportements restreints et répétitifs."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Prévalence ~1–1,5 % des enfants ; sex-ratio 3–4 garçons pour 1 fille."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Origine multifactorielle à forte héritabilité génétique affectant la connectivité synaptique précoce."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche d'évaluation structurée et situations différentielles",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Régression rapide du langage ou des acquis sociaux -> exclure épilepsie ou syndrome de Rett."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Absence de pointage vers 14 mois, pas d'attention conjointe, pas de jeu de faire-semblant à 18–24 mois, intérêts restreints, stéréotypies."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Questionnaire de dépistage M-CHAT-R/F à 18 et 24 mois, observation de l'interaction et du contact oculaire."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Typologie des situations et stratification des priorités",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Critères DSM-5 confirmés par une équipe spécialisée pédopsychiatrique."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Évaluation spécialisée multidisciplinaire (ADI-R, ADOS-2) + bilan auditif systématique."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Bilan génétique (CGH-array, X fragile) en seconde intention."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Non applicable."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Intervention comportementale et développementale précoce intensive (ex. modèle de Denver / ESDM), logopédie, guidance parentale."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Isolement, comorbidités anxieuses, troubles du sommeil ou alimentaires."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Réévaluation développementale et scolaire régulière."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "L'intervention précoce avant 3 ans améliore significativement le pronostic fonctionnel."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Pédiatre, pédopsychiatre, centre cantonal TSA."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés essentiels pour la pratique suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 10,
+      "fichier_html_cible": "LOT_194_Phase_B_V0_DX.10.html",
+      "titre": "Dysplasie développementale de la hanche (DDH)",
+      "cim": "Q65.8",
+      "urgence": "semi-urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition, portée clinique et cadre suisse de la situation",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Anomalie de développement du cotyle et/ou instabilité de la tête fémorale pouvant évoluer vers une subluxation ou luxation."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Incidence ~1–2 % ; facteurs de risque majeurs : présentation par le siège, antécédent familial au 1er degré, sexe féminin, oligoamnios."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Contraintes mécaniques intra-utérines et hyperlaxité hormonale empêchant le modelage normal du cotyle."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche d'évaluation structurée et situations différentielles",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Signes de luxation (Ortolani/Barlow positif) -> échographie et prise en charge orthopédique immédiate !"
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Accouchement en siège, antécédent familial de luxation congénitale de hanche, emmaillotage serré des jambes (à proscrire !)."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Manœuvres d'Ortolani (ressaut de réduction) et de Barlow (ressaut de luxation) en période néonatale, limitation de l'abduction de hanche, asymétrie des plis."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Typologie des situations et stratification des priorités",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Classification de Graf (type IIb/IIc/III/IV) à l'échographie."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Échographie des hanches selon la méthode de Graf (entre 4 et 6 semaines de vie, ou plus tôt si examen clinique anormal)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Radiographie du bassin uniquement après 4–6 mois (ossification des noyaux fémoraux)."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Harnais de Pavlik ou culotte d'abduction dès confirmation (Graf ≥ IIc ou instabilité)."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Suivi échographique de recentrage ; réduction fermée/plâtre pelvi-pédieux si échec ou diagnostic tardif."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Boiterie à la marche, coxarthrose précoce, nécrose avasculaire iatrogène si abduction forcée."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Contrôle échographique toutes les 2–4 semaines sous harnais."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Guérison > 95 % sans séquelle si traitement débuté avant 6 semaines."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Pédiatre, orthopédiste pédiatre."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés essentiels pour la pratique suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 11,
+      "fichier_html_cible": "LOT_194_Phase_B_V0_DX.11.html",
+      "titre": "Hypertension artérielle pédiatrique (dépistée lors du bilan)",
+      "cim": "I10",
+      "urgence": "semi-urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition, portée clinique et cadre suisse de la situation",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Pression artérielle systolique et/ou diastolique ≥ 95e percentile pour l'âge, le sexe et la taille à 3 reprises distinctes."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Prévalence 2–4 % ; HTA secondaire prédominante chez l'enfant jeune, HTA essentielle croissante chez l'adolescent obèse."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Néphropathies parenchymateuses/vasculaires (70–80 % des causes secondaires), coarctation de l'aorte, endocrinopathies."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche d'évaluation structurée et situations différentielles",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "TA très élevée (> P99 + 5 mmHg), troubles visuels, convulsions, insuffisance cardiaque -> urgence hypertensive !"
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Prématurité/cathétérisme ombilical, infections urinaires fébriles, céphalées, épistaxis, obésité."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "TA aux 4 membres avec brassard adapté (pouls fémoraux absents ou diminués + gradient bras-jambes > 20 mmHg = coarctation !), souffle abdominal."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Typologie des situations et stratification des priorités",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "PA ≥ P95 à 3 consultations ou à la MAPA."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Confirmation par 3 mesures + MAPA 24 h ; bilan de base : créatinine, ionogramme, bandelette/sédiment urinaire, échographie rénale + Doppler, échocardiographie."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Rénine/aldostérone, catécholamines urinaires si orientation secondaire."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Urgence hypertensive : nicardipine ou labétalol IV en soins intensifs (baisse progressive !). Si urgence hypertensive avec atteinte d'organe cible : labétalol 20 mg IV puis 0,5–2 mg/min IVSE ou nicardipine 5 mg/h IVSE (baisse de la PAM <= 20–25 % en 1re heure) ; si simple poussée sans souffrance : repos 30 min puis ajustement oral sans nifédipine sublinguale."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Traitement étiologique si secondaire, mesures hygiéno-diététiques, IEC/ARA2 ou inhibiteur calcique si persistante. Bithérapie initiale en comprimé unique (ESC/SHL) : amlodipine 5–10 mg/j + périndopril 5–10 mg/j (ou valsartan 80–160 mg/j) PO le matin ; réduction sodée < 5 g NaCl/j."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Hypertrophie ventriculaire gauche, encéphalopathie hypertensive, néphropathie."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Suivi TA, créatinine, fond d'œil et échocardiographie. Automedure tensionnelle (AMT) sur 7 jours (cible < 135/85 mmHg, cabinet < 130/80 mmHg), créatinine/K+ à J14 et fond d'œil si HTA sévère."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Excellent si cause curable (coarctation) ou contrôle tensionnel obtenu."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Pédiatre, néphrologue/cardiologue pédiatre."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés essentiels pour la pratique suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 12,
+      "fichier_html_cible": "LOT_194_Phase_B_V0_DX.12.html",
+      "titre": "Souffle cardiaque organique (communication interauriculaire / CIV)",
+      "cim": "Q21.1",
+      "urgence": "semi-urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition, portée clinique et cadre suisse de la situation",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Souffle cardiaque lié à une cardiopathie congénitale shunt gauche-droite (CIA, CIV) ou sténose valvulaire."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Cardiopathies congénitales ~8/1000 naissances ; alors que 50 % des enfants ont un souffle innocent au cours de la croissance."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Turbulence de flux à travers un défaut septal ou une valve sténosée ; dans la CIA : dédoublement fixe et constant du B2."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche d'évaluation structurée et situations différentielles",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Cyanose, absence de pouls fémoraux, insuffisance cardiaque, souffle diastolique -> urgence cardiologique !"
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Dyspnée aux tétées, sueurs, cassure pondérale, infections respiratoires récidivantes (shunt important)."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Souffle holosystolique > 3/6 ou diastolique, frémissement, dédoublement fixe du B2 (CIA), hépatomégalie, pouls fémoraux."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Typologie des situations et stratification des priorités",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Visualisation de la malformation à l'échocardiographie."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Échocardiographie transthoracique Doppler (examen clé de confirmation)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "ECG, SpO2 pré- et post-ductale, radiographie thoracique."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Diurétiques/IEC si signes d'insuffisance cardiaque sur CIV large."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Fermeture percutanée (ombrelle) ou chirurgicale si shunt significatif (Qp/Qs > 1,5) ou dilatation cavitaire."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Hypertension artérielle pulmonaire (syndrome d'Eisenmenger tardif), endocardite."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Suivi cardiologique périodique."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Normalisation de l'espérance de vie après fermeture dans l'enfance."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Pédiatre, cardiologue pédiatre."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés essentiels pour la pratique suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 13,
+      "fichier_html_cible": "LOT_194_Phase_B_V0_DX.13.html",
+      "titre": "Suspicion de maltraitance infantile / syndrome du bébé secoué",
+      "cim": "T74.1",
+      "urgence": "immediate",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition, portée clinique et cadre suisse de la situation",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Sévices physiques, négligence grave ou traumatisme crânien non accidentel (secouement) chez un enfant."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Pic de mortalité chez le nourrisson < 1 an ; souvent révélé lors d'une consultation pour motif banal ou malaise."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Cisaillement des veines ponts sous-durales et forces de décélération rétinienne lors du secouement."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche d'évaluation structurée et situations différentielles",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Hématome sous-dural + hémorragies rétiniennes + fractures métaphysaires/costales -> syndrome du bébé secoué !"
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Récit parental incohérent, changeant, incompatible avec le stade moteur de l'enfant (« tombé du canapé à 2 mois »), retard de consultation."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Ecchymoses chez un bébé < 4–6 mois (« those who don't cruise rarely bruise »), traces de doigts, brûlures délimitées, fontanelle bombée, léthargie."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Typologie des situations et stratification des priorités",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Faisceau d'arguments clinico-radiologiques discordants avec le mécanisme allégué."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Hospitalisation immédiate de protection ; scanner/IRM cérébrale, fond d'œil (< 24–48 h), bilan squelettique complet (radiographies corps entier), bilan d'hémostase (exclure coagulopathie)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "ASAT/ALAT et lipase (recherche de traumatisme viscéral occulte)."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Mise en sécurité immédiate par hospitalisation, soins neurochirurgicaux si HTIC, signalement au groupe de protection de l'enfance (CAN-Team) et autorité de protection (APEA)."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Suivi neuropédiatrique et placement sécurisé si nécessaire."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Décès, séquelles neurologiques graves, récidive mortelle si renvoi à domicile."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Surveillance neurologique et juridique."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Dépend de la précocité du repérage et de la mise à l'abri."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "CAN-Team hospitalier, APEA, pédiatre."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés essentiels pour la pratique suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 14,
+      "fichier_html_cible": "LOT_194_Phase_B_V0_DX.14.html",
+      "titre": "Cardiopathie congénitale ducto-dépendante non dépistée",
+      "cim": "Q20.3",
+      "urgence": "immediate",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition, portée clinique et cadre suisse de la situation",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Malformation cardiaque sévère dont la perfusion systémique ou pulmonaire dépend de la perméabilité du canal artériel."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Coarctation critique, hypoplasie du cœur gauche, transposition des gros vaisseaux, atrésie pulmonaire."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "La fermeture physiologique du canal artériel entre J2 et J14 entraîne un collapsus systémique ou une hypoxémie létale."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche d'évaluation structurée et situations différentielles",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Acidose lactique sévère, oligurie, bradycardie -> arrêt cardiaque imminent !"
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Sortie récente de maternité, polypnée, refus des tétées, teint gris ou bleu."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Choc cardiogénique, hépatomégalie, abolition des pouls fémoraux, cyanose ne répondant pas à l'O2 (test d'hyperoxie négatif)."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Typologie des situations et stratification des priorités",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Collapsus ou cyanose réfractaire néonatale + échocardiographie confirmant la cardiopathie."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Échocardiographie en urgence + gazométrie + SpO2 aux 4 membres."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Radiographie thoracique, ECG."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Perfusion IV immédiate de prostaglandine E1 (alprostadil) pour rouvrir le canal artériel, ventilation et transfert en réanimation cardiaque."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Chirurgie cardiaque correctrice ou palliative."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Défaillance multiviscérale, décès."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Monitoring invasif en soins intensifs (attention aux apnées sous PGE1)."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Dépend du type de cardiopathie et de la rapidité de mise sous PGE1."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Cardiologie et chirurgie cardiaque pédiatriques."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés essentiels pour la pratique suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 15,
+      "fichier_html_cible": "LOT_194_Phase_B_V0_DX.15.html",
+      "titre": "Idéation suicidaire aiguë ou dépression sévère de l'adolescent",
+      "cim": "R45.8",
+      "urgence": "urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition, portée clinique et cadre suisse de la situation",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Pensées suicidaires actives, planification ou tentative récente chez un adolescent lors d'un bilan de santé."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "2e cause de mortalité chez les 15–24 ans en Suisse ; souvent associée à dépression, harcèlement ou troubles anxieux."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Vulnérabilité neurodéveloppementale de l'adolescence, impulsivité et facteurs psychosociaux."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche d'évaluation structurée et situations différentielles",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Scénario précis, accès à des moyens létaux, isolement total, désespoir majeur -> risque de passage à l'acte imminent !"
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Entretien seul (HEADSSS : Home, Education, Activities, Drugs, Sexuality, Suicide/Safety) : perte d'intérêt, troubles du sommeil, automutilations, idées noires, scénario."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Ralentissement psychomoteur ou agitation, traces de scarifications aux avant-bras/cuisses, perte de poids."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Typologie des situations et stratification des priorités",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Présence d'idées suicidaires actives avec intentionnalité ou planification."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Évaluation psychiatrique d'urgence du risque suicidaire (RUD : Risque, Urgence, Dangerosité)."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Bilan somatique (TSH, toxiques) si présentation atypique."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Ne pas laisser l'adolescent seul, lever la confidentialité pour impliquer les parents/responsables légaux avec bienveillance, hospitalisation pédopsychiatrique si risque élevé."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Psychothérapie, suivi pédopsychiatrique, traitement antidépresseur (fluoxétine) si dépression sévère."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Passage à l'acte suicidaire, décrochage scolaire."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Réévaluation rapprochée et plan de crise écrit (numéros d'urgence 147 / 144)."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Favorable avec prise en charge précoce et soutien familial."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Pédopsychiatre, urgences psychiatriques, pédiatre."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés essentiels pour la pratique suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 16,
+      "fichier_html_cible": "LOT_194_Phase_B_V0_DX.16.html",
+      "titre": "Leucocorie (reflet pupillaire blanc : rétinoblastome)",
+      "cim": "H44.5",
+      "urgence": "urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition, portée clinique et cadre suisse de la situation",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Reflet blanchâtre anormal de la pupille remplaçant le reflet rouge physiologique de la rétine."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Signe cardinal du rétinoblastome (tumeur maligne intraoculaire la plus fréquente de l'enfant) ou de cataracte congénitale."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Mutation du gène suppresseur de tumeur RB1 (sporadique 60 %, héréditaire 40 % souvent bilatérale)."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche d'évaluation structurée et situations différentielles",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Toute leucocorie est un rétinoblastome jusqu'à preuve du contraire -> avis ophtalmologique en < 48–72 h !"
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Reflet blanc remarqué par les parents sur les photographies, strabisme récent, antécédent familial de rétinoblastome."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Test du reflet rouge (Bruckner) : asymétrie ou reflet blanc/terne ; strabisme associé."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Typologie des situations et stratification des priorités",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Identification de la masse rétinienne ou cataracte par l'ophtalmologue."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Fond d'œil dilaté sous anesthésie générale si besoin + échographie oculaire + IRM orbitaire/cérébrale."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Test génétique RB1 (exclure forme germinale)."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Orientation urgente vers un centre spécialisé d'oncologie ophtalmologique pédiatrique (ex. Hôpital ophtalmique Jules-Gonin à Lausanne)."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Chimiothérapie intra-artérielle/systémique, thérapies focales ou énucléation selon stade."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Perte de vision, extension extra-oculaire ou métastatique, secondes tumeurs si RB1 germinal."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Suivi ophtalmologique et oncologique prolongé."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Survie > 95 % en Suisse si diagnostic précoce."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Ophtalmologue pédiatre, oncologue pédiatre."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés essentiels pour la pratique suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 17,
+      "fichier_html_cible": "LOT_194_Phase_B_V0_DX.17.html",
+      "titre": "Anorexie mentale de l'adolescent avec dénutrition sévère",
+      "cim": "F50.0",
+      "urgence": "urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition, portée clinique et cadre suisse de la situation",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Trouble des conduites alimentaires caractérisé par une restriction énergétique conduisant à un poids significativement bas et une peur intense de grossir."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Pic d'incidence chez l'adolescente (14–18 ans, ~1 %), mais touche aussi les garçons."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "Adaptation métabolique à la dénutrition (hypothyroïdie fonctionnelle à T3 basse, bradycardie vagale, ostéopénie)."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche d'évaluation structurée et situations différentielles",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "FC < 40/min, hypotension, syncope, hypokaliémie < 3,0 mmol/L, hypothermie < 35,5 °C -> hospitalisation immédiate !"
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Restriction alimentaire, hyperactivité physique, aménorrhée secondaire, déni de la maigreur, dysmorphophobie."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "IMC < P3, bradycardie sinusale, hypotension orthostatique, extrémités froides/acrocyanose, lanugo, hypertrophie parotidienne (si vomissements)."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Typologie des situations et stratification des priorités",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Critères DSM-5 + évaluation de la gravité somatique."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "ECG (bradycardie, QTc long !), ionogramme (K+, Na+, phosphore, magnésium), glycémie, NFS, bilan hépatique, TSH."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Ostéodensitométrie si aménorrhée > 6–12 mois."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Hospitalisation si critères somatiques ; renutrition PROGRESSIVE sous surveillance du phosphore pour éviter le syndrome de renutrition appropriée (refeeding syndrome) !."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Thérapie familiale (FBT / Maudsley), suivi nutritionnel et pédopsychiatrique."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Troubles du rythme cardiaque, syndrome de renutrition, ostéoporose irréversible."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Poids, constantes, ECG et ionogramme/phosphore quotidiens au début."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Guérison chez ~50–70 % des adolescents pris en charge précocement."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Unité médecine de l'adolescent, pédopsychiatre, diététicienne."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés essentiels pour la pratique suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    },
+    {
+      "cours_numero": 18,
+      "fichier_html_cible": "LOT_194_Phase_B_V0_DX.18.html",
+      "titre": "Retard staturo-pondéral sévère (« failure to thrive »)",
+      "cim": "R62.8",
+      "urgence": "semi-urgent",
+      "nb_notions": 15,
+      "plan": [
+        {
+          "point": 1,
+          "titre": "Définition, portée clinique et cadre suisse de la situation",
+          "notions_obligatoires": [
+            {
+              "rubrique": "1 Définition",
+              "notion": "Croissance pondérale ou staturale insuffisante par rapport aux courbes de référence (chute ≥ 2 couloirs principaux)."
+            }
+          ]
+        },
+        {
+          "point": 2,
+          "titre": "Épidémiologie, données suisses (OFS/OFSP) et enjeux de santé publique",
+          "notions_obligatoires": [
+            {
+              "rubrique": "2 Épidémiologie",
+              "notion": "Motif fréquent en pédiatrie ; étiologie non organique/nutritionnelle dans > 80 % des cas en ambulatoire."
+            }
+          ]
+        },
+        {
+          "point": 3,
+          "titre": "Bases scientifiques, éthiques, juridiques et réglementaires suisses",
+          "notions_obligatoires": [
+            {
+              "rubrique": "3 Bases / physiopathologie",
+              "notion": "La courbe pondérale fléchit d'abord (carence énergétique/malabsorption), puis la taille, puis le PC en dernier."
+            }
+          ]
+        },
+        {
+          "point": 4,
+          "titre": "Démarche d'évaluation structurée et situations différentielles",
+          "notions_obligatoires": [
+            {
+              "rubrique": "4-5 Drapeaux rouges",
+              "notion": "Cassure concomitante du PC, déshydratation, suspicion de négligence grave, diarrhée sanglante."
+            }
+          ]
+        },
+        {
+          "point": 5,
+          "titre": "Entretien clinique ciblé, communication et drapeaux rouges",
+          "notions_obligatoires": [
+            {
+              "rubrique": "5 Anamnèse",
+              "notion": "Journal alimentaire détaillé, vomissements, diarrhées chroniques, infections récurrentes, contexte psychosocial."
+            }
+          ]
+        },
+        {
+          "point": 6,
+          "titre": "Évaluation clinique, fonctionnelle et contextuelle adaptée",
+          "notions_obligatoires": [
+            {
+              "rubrique": "6 Examen physique",
+              "notion": "Mesures exactes poids/taille/PC, fonte du panicule adipeux, distension abdominale (maladie cœliaque !), hippocratisme digital (mucoviscidose)."
+            }
+          ]
+        },
+        {
+          "point": 7,
+          "titre": "Typologie des situations et stratification des priorités",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 8,
+          "titre": "Critères d'évaluation, outils validés et seuils décisionnels",
+          "notions_obligatoires": [
+            {
+              "rubrique": "8 Diagnostic positif",
+              "notion": "Infléchissement objectivé sur la courbe de croissance et identification de la cause nutritionnelle ou organique."
+            }
+          ]
+        },
+        {
+          "point": 9,
+          "titre": "Bilans, outils d'investigation et examens pertinents (critères EAE)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "9 Gold standard",
+              "notion": "Bilan ciblé : NFS, ferritine, CRP, TSH, IgA totales + anti-transglutaminase IgA (cœliaque), bandelette/culture urinaire."
+            },
+            {
+              "rubrique": "9 Alternatives",
+              "notion": "Test de la sueur si toux chronique/stéatorrhée, bilan d'allergie aux protéines de lait de vache."
+            }
+          ]
+        },
+        {
+          "point": 10,
+          "titre": "Conduite opérationnelle étape par étape (sans arbre graphique)",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 11,
+          "titre": "Prise en charge globale, mesures thérapeutiques et cadre légal suisse (LAMal/CC/LAGH/LT)",
+          "notions_obligatoires": [
+            {
+              "rubrique": "11 PEC aiguë",
+              "notion": "Hospitalisation si dénutrition sévère, déshydratation ou suspicion de négligence."
+            },
+            {
+              "rubrique": "11 PEC chronique",
+              "notion": "Enrichissement calorique, éviction du gluten si cœliaque, soutien psychosocial et suivi pondéral rapproché."
+            },
+            {
+              "rubrique": "11 Hospitalisation / complications",
+              "notion": "Retard psychomoteur, immunodépression."
+            },
+            {
+              "rubrique": "11 Surveillance",
+              "notion": "Contrôle du poids toutes les 2–4 semaines."
+            },
+            {
+              "rubrique": "11 Pronostic / sortie",
+              "notion": "Rattrapage pondéral complet si cause corrigée."
+            },
+            {
+              "rubrique": "11-12 Suivi / réseau",
+              "notion": "Pédiatre, gastro-pédiatre, diététicienne, services sociaux si besoin."
+            }
+          ]
+        },
+        {
+          "point": 12,
+          "titre": "Prévention, coordination interprofessionnelle et suivi ambulatoire",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 13,
+          "titre": "Points clés essentiels pour la pratique suisse",
+          "notions_obligatoires": []
+        },
+        {
+          "point": 14,
+          "titre": "Pièges fréquents et vignettes QCM niveau Examen Fédéral Suisse",
+          "notions_obligatoires": []
+        }
+      ]
+    }
+  ],
+  "prompt_alpha_a_jour": "# MISSION : CORRECTION ET COMPLÉTION DES 248 SSP SUISSES (3 975 ENTITÉS + 248 CHAPITRES 0)\n\n## § 0. IDENTIFICATION, SIGNATURE & RÈGLES DE CONTINUITÉ — BLOQUANT ABSOLU\n1. **Identification obligatoire** en tête de première réponse :\n   - HEURE DE DÉBUT : AAAA-MM-JJ HH:MM (Europe/Zurich)\n   - MODÈLE : nom exact du modèle (ex. ANTIGRAVITY ORCHESTRATOR NEON)\n   - PLATEFORME : plateforme exacte (ex. ANTIGRAVITY)\n   - Ajouter la même ligne à `1_Claude AI/IDENTIFICATION_AGENTS.md`. Si incertitude, s'arrêter.\n2. **Signature IA fixe en bas à droite de TOUT HTML produit ou modifié** (juste avant `</body>`, en GRAS MAJUSCULE) :\n   `<div id=\"signature-ia\" style=\"position:fixed;right:12px;bottom:10px;z-index:9999;background:#fff;border:2px solid #000;padding:4px 10px;font:700 12px/1.3 Arial,sans-serif;text-transform:uppercase;color:#000\">DÉBUT : AAAA-MM-JJ HH:MM (EUROPE/ZURICH) · MODÈLE : <NOM> · PLATEFORME : <PLATEFORME></div>`\n   - **Seul Vial peut autoriser le retrait de ce bloc.** Un agent qui reprend un fichier signé ajoute sa propre ligne sous la précédente sans jamais effacer l'existante.\n3. **Continuité & transparence** :\n   - **Redémarrage propre à partir de `SSP_248`** : tous les cours précédemment modifiés ont été restaurés à l'état initial (`6941513`). Enchaîner continûment **`SSP_248 → SSP_033`**, puis **`SSP_001 → SSP_032`**.\n   - **Toujours afficher le raisonnement visible** en français dans chaque réponse.\n   - **Veille & relance GitHub** : commiter et pousser sur `origin main` après chaque SSP (ou lot <= 5 SSP) avec l'état à jour dans `SUIVI_PRODUCTION.csv`, `HANDOFF_AFFINAGE.md` et `HANDOFF_IA_COMPLET.md`.\n   - **Suivi graphique temps réel** : maintenir à jour le tableau de bord visuel temps réel des réalisations achevées et en cours.\n\n## § 1. RÈGLES ACTUALISÉES (PRIMENT SUR LE PROMPT ALPHA 19.11.26)\n1. **Nombre de cours par SSP** : **1 cours par entité de la Cartographie Renouveau** (15 à 24 entités par SSP, 3 975 au total) + le Chapitre 0 (`Phase_A`), dans l'ordre exact des `Cours 1 … N` de `SSP_nnn/NOTIONS.md` / `NOTIONS.json`.\n2. **QUALITÉ CLINIQUE MAXIMALE & ZÉRO MÉDIOCRITÉ (BLOQUANT ABSOLU — Consigne Vial 20.11.26)** :\n   - **Interdiction absolue de toute prose patronnée / générique** : aucune phrase-cadre où seul le nom de la pathologie change d'un cours à l'autre, aucun remplissage artificiel pour atteindre le calibre. La médiocrité clinique est dangereuse et entraîne un rejet immédiat.\n   - Chaque cours (`Phase_A` et `DX.1..N`) doit être **rédigé sur mesure** pour son entité exacte, avec : raisonnement physiopathologique et sémiologique réel, seuils numériques précis, diagnostics différentiels discriminants, posologies et contre-indications sourcées (Compendium.ch / AIPS, Tox Info Suisse, OFSP, ASSM, sociétés savantes suisses), vignettes cliniques authentiques et QCM exigeants de niveau Examen Fédéral Suisse.\n3. **INTERDICTION DES ARBRES DÉCISIONNELS (Consigne Vial 20.11.26)** :\n   - **Ne générer AUCUN arbre décisionnel ni algorithme graphique (`.fm-canvas`, SVG décisionnel, etc.)** dans `Phase_A` ou dans les `DX.n` — l'auteur (Vial) les réalisera lui-même.\n4. **Calibre texte pur actualisé (Consigne Vial 20.11.26)** :\n   - **80 à 100 Ko de texte pur UTF-8 par fichier** (`81 920` à `102 400` octets, calibre du Prompt Alpha confirmé par Vial le 20.11.2026 à 21:20, mesuré fenêtres comprises, hors balises HTML, CSS, JS, SVG et images).\n   - HTML hors images (`controle3.py`) : **`40 000` à `100 000` octets** (alerte).\n   - Densité maximale : zéro remplissage, zéro phrase pouvant figurer telle quelle dans un autre cours, zéro phrase de gabarit de `cartographie_DATA.json`.\n5. **Phrases verbales exclusives (BLOQUANT)** :\n   - Chaque phrase (texte, fenêtres, listes, légendes `<figcaption>`, cellules narratives `<td>`) contient un verbe conjugué reconnu. **Zéro phrase nominale.**\n4. **Médicaments cliquables d'emblée & Fenêtres centrées PK/PD à 2 onglets (Consigne Vial 20.11.26)** :\n   - Dès qu'un médicament est évoqué, il devient cliquable (`<a class=\"ouvre med-chip\" href=\"#f-...\">`).\n   - Chaque `<section class=\"fenetre mb\" id=\"f-...\"><div class=\"fen\">` s'ouvre au centre de l'écran et contient **2 onglets** :\n     * **Onglet 1 (`data-tab=\"pk\"`)** : Pharmacocinétique + **Courbe vectorielle SVG $C(t)$** + **4 paramètres cliniciens mis en évidence** (`.pkpd-kpis`).\n     * **Onglet 2 (`data-tab=\"pd\"`)** : Pharmacodynamique & Clinique + **Courbe vectorielle SVG $E(C)$** + posologies/précautions/grossesse suisses (Compendium.ch / AIPS).\n5. **Images** : uniquement à l'intérieur des `<section class=\"fenetre\">`, jamais hors fenêtre (licences selon Prompt Alpha § 4). Ne comptent pas dans le calibre.\n6. **Zéro terminologie de chantier visible** : aucun texte visible (ni `<title>`) ne doit contenir `LOT`, `V0`, `Phase A/B`, `DX.n`, `Appel A/B`, `Partie n`. Seuls les noms de fichiers gardent le format Alpha (`LOT_nnn_Phase_A_V0.html`, `LOT_nnn_Phase_B_V0_DX.i.html`).\n7. **Circuits & Plans** :\n   - `MONOGRAPHIQUE` (189 SSP) : plan maladie en 14 points (Prompt Alpha § 3.1).\n   - `NON_MONOGRAPHIQUE` (52 SSP) : Leçon en 12 à 14 points adaptés (Prompt Alpha § 3.2). **Jamais** de plan maladie ni de titres « Physiopathologie / Approche syndromique / Diagnostic positif » artificiels.\n   - `MIXTE` (7 SSP) : Prompt Alpha § 3.3, chaque fichier déclare `<meta name=\"ssp-circuit\" content=\"...\">`.\n8. **Correctifs Frontend v2 / Architecture `_sources/` (`UNIQUE.html` & `_polices/`)** :\n   - **Arborescence propre par SSP** : à la racine de `SSP_nnn/`, seul **`SSP_nnn_<code>_UNIQUE.html`** (plus le sous-dossier **`_sources/`**) est visible. Tous les fichiers sources (`LOT_nnn_*.html`, `images/`, `NOTIONS.*`, `MANIFESTE.json`, `DECISION*`, `paquet.json`, `_archive_avant_alpha/`) sont rangés dans `SSP_nnn/_sources/` sans rien supprimer.\n   - **Barre haute amovible (`gabarit_unique.html`)** : `#topbar` compacte 1 ligne (~42 px) avec pilule active, fil d'Ariane section, boutons `◀`/`▶`, tiroir overlay amovible `#dd-drawer` (`☰ Diagnostics (N) ▾` + option `📌 Épingler`) contenant `nav#nav` en colonnes égales (`32 px`, teinte unique par cours), et bouton `▴ Masquer barre` + pilule flottante `#btn-show-bar`.\n   - **Zéro dédoublement & navigation `#...` 100 % fonctionnelle (`forme.js`)** : script `forme.js` exécuté sous `DOMContentLoaded` et injecté par `assembler_unique.py`/`inliner.py` après `</head>` et avant `#signature-ia`/`</body>` ; intercepteur global appelant `e.preventDefault()` sur 100 % des `href^=\"#\"` (bloque le rechargement `srcdoc` + `file://`).\n   - **Modales centrées `<div class=\"fen\">` & désaturation (`forme.css` / `optimiser_ssp.py`)** : ouverture via classe `.fm-open` (plus `:target` en repli) avec pile `modalStack` et bouton `Fermer ✕` sticky (sans `history.back()`), auto-enveloppement `<div class=\"fen\">`, tableaux hors modale déplacés vers `<section class=\"fenetre fm-tab-fen\">` déclenchés par cartes `.fm-encart-fen`, citations `<sup class=\"r\"><a>` compactées en `[N]` avec modale aperçu `#fm-src-modal` empilable (`fm-stack-top`), puces médicaments `a.ouvre.med-chip` (`℞ ...`, `white-space: nowrap`, compatible accents français), repli du plan latéral desktop `#fm-plan-toggle`, îlots discontinus (`margin-bottom: 30px`) et padding bas `5.5rem` protégeant la lecture au-dessus de `#signature-ia`.\n   - **HTML unique** : ne jamais l'écrire à la main ; toujours exécuter `optimiser_ssp.py` puis `assembler_unique.py nnn`.\n\n## § 2. ARCHIVAGE & WORKFLOW PAR SSP (P0 → P4)\n- **Zéro suppression** : avant d'écraser ou renommer un fichier source existant, archiver dans `SSP_nnn/_sources/_archive_avant_alpha/`.\n- **P0 (Préparer)** : lire circuit (`catalogue_248.json`), entités (`NOTIONS.md`/`NOTIONS.json`), `memoire_zero_token.py --digest --lot nnn`, écrire `PLAN_ENTITES.md`.\n- **P1 (Décider)** : noter dans `DECISION.md` (Corriger / Réécrire si mécanique, faux plan maladie ou `< 30 Ko` / Créer).\n- **P2 (Produire)** : `LOT_nnn_Phase_A_V0.html` + `LOT_nnn_Phase_B_V0_DX.1..N.html`, 100 % des notions de `NOTIONS.json` expliquées et sourcées (Compendium.ch / AIPS, OFSP, ASSM, CC, LAMal, LAVI, Smarter Medicine), sans aucune phrase gabarit de la cartographie.\n- **P3 (Portes de Contrôle + Optimisation + Assemblage + Audit Chrome)** :\n  1. `controle3.py --script-ok` → **`VERT {}`** (si `paquet.json` présent ; `--script-ok` requis car `_sources/` référence `../../_polices/forme.js`)\n  2. `verif_aips.py` → **`OK`** (si `paquet.json` présent) et `restaurer_fond.py --verifier` → **`exit=0`**\n  3. `python _outils/optimiser_ssp.py nnn` → migration vers `_sources/`, tableaux déplacés en `<div class=\"fen\">`, teintes non bleues `--fm-a`\n  4. `python _outils/verif_mission.py nnn` → **100 % fichiers `PASS`** (`errors: []`)\n  5. `python _outils/assembler_unique.py nnn` → **`(1 + N) / (1 + N) onglets`** à la racine de `SSP_nnn/`\n  6. `python _outils/notions.py verifier nnn` → **`0 NON`** + copier `rapport_notions.csv` dans `SSP_nnn/_sources/`\n  7. `python _outils/audit_unique_browser.py nnn --all-tabs` → **`PASS` sur 100 % des onglets en Chrome headless réel**\n  8. Ajouter ligne dans `SUIVI_PRODUCTION.csv` + `git commit` + `git push origin main`.\n- **P4 (Affinage)** : consigner tout doute clinique/posologique non vérifié dans `1_Claude AI/HANDOFF_AFFINAGE.md` sous `## SSP_nnn`.\n\n## § 3. MISSION 2 — SSP 001 → 032\n- Extraire les cours depuis `SSP_nnn_<code>_UNIQUE.html` (JSON `data` gzip+base64, marqueurs `@@IMG:…@@`, `@@FONT:…@@`) après archivage des anciens `LOT_nnn_*.html` dans `_archive_avant_alpha/`.\n- Le frontend reste identique ; auditer le contenu avec la même sévérité (attention : `SSP_013` G13 = `NON_MONOGRAPHIQUE`, `SSP_014` G14 = `MIXTE`).\n- Produire `1_Claude AI/AUDIT_001-032.md` et corriger tous les ❌.\n\n## § 4. LES 12 BLOCAGES ROUGE (REJET IMMÉDIAT)\n1. Identification absente ou incertaine.\n2. Signature `#signature-ia` absente, modifiée ou supprimée.\n3. Entité de la Cartographie sans cours.\n4. Fichier hors intervalle `80–100 Ko` de texte pur (tout cours ; un cours de 30–50 Ko est à enrichir).\n5. Toute phrase nominale.\n6. Toute notion au verdict `NON`.\n7. Phrase gabarit de `cartographie_DATA.json` recopiée dans un cours.\n8. Plan maladie appliqué à une Leçon `NON_MONOGRAPHIQUE`.\n9. Terme de chantier visible (`LOT`, `V0`, `Phase A/B`, `DX.n`, `Appel`, `Partie n`).\n10. Posologie sans source de la cascade suisse.\n11. Image hors `<section class=\"fenetre\">`.\n12. Fichier supprimé au lieu d'être archivé.\n\n## § 5. ANNEXE CIRCUITS (248 SSP)\n- **NON_MONOGRAPHIQUE (52)** : 013 · 065 · 069 · 176 · 180 · 181 · 182 · 184 · 185 · 186 · 192 · 194 · 195 · 198 · 200 · 203 · 204 · 205 · 206 · 207 · 208 · 209 · 210 · 211 · 212 · 213 · 214 · 215 · 216 · 217 · 218 · 219 · 220 · 221 · 222 · 224 · 225 · 226 · 227 · 232 · 233 · 235 · 236 · 237 · 238 · 239 · 240 · 241 · 242 · 243 · 246 · 247.\n- **MIXTE (7)** : 014 · 165 · 174 · 175 · 190 · 202 · 223.\n- **MONOGRAPHIQUE (189)** : tous les autres SSP."
+}
