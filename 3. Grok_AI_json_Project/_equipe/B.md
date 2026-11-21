@@ -74,3 +74,4 @@
 | 2026-11-21 04:54 | SSP_200 | DX.13.json | 104.75 Ko (107260 o) | PASS | station au sol, réchauffement prudent |
 | 2026-11-21 04:54 | SSP_200 | DX.14.json | 112.68 Ko (115388 o) | PASS | errance, APEA, conduite |
 | 2026-11-21 04:54 | SSP_200 | DX.15.json | 116.83 Ko (119634 o) | PASS | globe et fécalome, macrogol sans mg lu |
+| 2026-11-21 04:54 | SSP_200 | NOTIONS.json | 15 cours | PASS | couverture vérifiée |
