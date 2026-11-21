@@ -59,3 +59,4 @@
 - 03:41 Europe/Zurich — SSP_198 — DX.5.json — 97.50 Ko — PASS (non-adhésion, semainier, pas d'arrêt brutal de bêtabloquant, corticoïde ou antiépileptique)
 - 03:42 Europe/Zurich — SSP_198 — DX.6.json — 100.50 Ko — PASS (hyponatrémie médicamenteuse, NaCl 3 % seulement si sévère, plafond +6 à +8 mmol/L par 24 h)
 - 03:44 Europe/Zurich — SSP_198 — DX.7.json — 106.45 Ko — PASS (fragilité de Fried, évaluation gériatrique, pré-fragilité partiellement réversible)
+- 03:45 Europe/Zurich — SSP_198 — DX.6.json — 101.06 Ko — PASS (ajout ciblé : bolus NaCl 3 % 150 mL en 20 min, répétable 2 à 3 fois, natrémie de contrôle, recommandations européennes 2014)
