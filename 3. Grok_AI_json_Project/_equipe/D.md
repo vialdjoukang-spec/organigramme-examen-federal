@@ -12,3 +12,4 @@
 2026-11-21 03:10 (Europe/Zurich) | SSP_248 | DX.9.json | 100.66 Ko (103 073 octets) | PASS
 2026-11-21 03:16 (Europe/Zurich) | SSP_248 | DX.10.json | 101.11 Ko (103 539 octets) | PASS
 2026-11-21 03:23 (Europe/Zurich) | SSP_248 | DX.11.json | 100.25 Ko (102 656 octets) | PASS
+2026-11-21 03:28 (Europe/Zurich) | SSP_248 | DX.12.json | 100.19 Ko (102 590 octets) | PASS
