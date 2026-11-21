@@ -45,3 +45,4 @@
 | 2026-11-21 04:46 | SSP_195 | DX.6.json | 102.06 Ko (104511 o) | PASS | négligence active, alerte |
 | 2026-11-21 04:46 | SSP_195 | DX.7.json | 107.06 Ko (109632 o) | PASS | institution, médecin cantonal |
 | 2026-11-21 04:46 | SSP_195 | DX.8.json | 108.61 Ko (111219 o) | PASS | Diogène, protection si danger |
+| 2026-11-21 04:46 | SSP_195 | DX.9.json | 113.73 Ko (116462 o) | PASS | atteinte sexuelle, UMV, pas d'examen isolé |
