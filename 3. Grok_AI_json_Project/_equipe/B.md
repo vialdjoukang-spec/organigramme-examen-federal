@@ -52,3 +52,4 @@
 | 2026-11-21 04:46 | SSP_195 | DX.13.json | 115.03 Ko (117794 o) | PASS | hypernatrémie, baisse max 8 à 10 mmol/L/24 h |
 | 2026-11-21 04:46 | SSP_195 | DX.14.json | 114.53 Ko (117282 o) | PASS | surdosage par un tiers, naloxone sans mg lu |
 | 2026-11-21 04:46 | SSP_195 | DX.15.json | 114.72 Ko (117475 o) | PASS | fracture dissimulée, énoxaparine 49456 |
+| 2026-11-21 04:46 | SSP_195 | NOTIONS.json | 15 cours | PASS | couverture vérifiée |
