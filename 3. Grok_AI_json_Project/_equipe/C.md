@@ -71,5 +71,21 @@
 - 03:55 Europe/Zurich — SSP_198 — DX.11, DX.13, DX.15 — doses antidotes ciblées — PASS (Praxbind 5 g ; Ondexxya 400/800 mg ; Beriplex 25/35/50 UI/kg ; Fab 1–2 amp. 40 mg ; cyproheptadine et formule Fab non trouvées)
 - 03:57 Europe/Zurich — SSP_198 — formule exacte « non trouvé, sources consultées » sur Fab, PPSB anti-Xa et cyproheptadine — PASS
 - 03:59 Europe/Zurich — SSP_198 — Fab HUG 0,31 mg/kg par nmol/L ; cyproheptadine HUG 12 mg puis 2 mg/2 h ; PPSB anti-Xa HUG 25–50 UI/kg et SFAR 50 UI/kg — PASS
+- 04:01 Europe/Zurich — SSP_203 — Phase_A.json — 118.61 Ko — PASS
+- 04:02 Europe/Zurich — SSP_203 — DX.1.json — 100.41 Ko — PASS
+- 04:03 Europe/Zurich — SSP_203 — DX.2.json — 101.06 Ko — PASS
+- 04:05 Europe/Zurich — SSP_203 — DX.3.json — 102.49 Ko — PASS
+- 04:06 Europe/Zurich — SSP_203 — DX.4.json — 99.73 Ko — PASS
+- 04:07 Europe/Zurich — SSP_203 — DX.5.json — 100.14 Ko — PASS
+- 04:12 Europe/Zurich — SSP_203 — DX.6.json — 92.20 Ko — PASS (consultations de voyage distinctes, pas de dose de paludisme inventée)
+- 04:13 Europe/Zurich — SSP_203 — DX.7.json — 93.80 Ko — PASS (rattrapage en trois visites, toute dose compte, pas de dose hors plan)
+- 04:14 Europe/Zurich — SSP_203 — DX.8.json — 92.33 Ko — PASS (anti-HBs ≥ 100 UI/L, AES 24–48 h, pas de dose d'immunoglobuline inventée)
+- 04:15 Europe/Zurich — SSP_203 — DX.9.json — 94.31 Ko — PASS (hésitation, InfoVac, refus éclairé, pas de dose)
+- 04:16 Europe/Zurich — SSP_203 — DX.10.json — 91.73 Ko — PASS (rage J0 J3 J7 J14, lavage 15 min, ROR < 72 h, tétanos si < 3 doses ; pas d'UI d'immunoglobulines inventées)
+- 04:17 Europe/Zurich — SSP_203 — DX.11.json — 95.71 Ko — PASS (adrénaline 0,01 mg/kg, max 0,5 mg, 0,15 mg < 30 kg, 0,3 mg si 30–50 kg ; pas de volume de NaCl inventé)
+- 04:18 Europe/Zurich — SSP_203 — DX.12.json — 92.67 Ko — PASS (vagal : allonger, pas d'adrénaline, pas de bilan sanguin systématique)
+- 04:19 Europe/Zurich — SSP_203 — DX.13.json — 96.42 Ko — PASS (Guillain-Barré, intubation si CV < 15–20 mL/kg, IgIV ou plasmaphérèse sans dose inventée)
+- 04:20 Europe/Zurich — SSP_203 — DX.14.json — 96.82 Ko — PASS (colchicine ESC 2015 : 0,5 mg/j si < 70 kg, 0,5 mg x 2 si ≥ 70 kg ; ibuprofène 600 mg/8 h si péricardite)
+- 04:21 Europe/Zurich — SSP_203 — DX.15.json — 94.78 Ko — PASS (midazolam buccal 0,5 mg/kg, nasal 0,2 mg/kg max 10 mg, diazépam rectal 0,5 mg/kg ou 5/10 mg, HUG SAUP 2023)
 - 04:28 Europe/Zurich — SSP_215 — Phase_A.json — 98.93 Ko — PASS (vue d'ensemble des 15 situations, seuils du plan, pas de dose hors texte)
 - 04:29 Europe/Zurich — SSP_215 — DX.1.json — 90.70 Ko — PASS (insatisfaction normale, SCOFF si doute, pas de régime ni de dose)
