@@ -60,3 +60,4 @@
 | 2026-11-21 04:41 | SSP_194 | NOTIONS.json | 18 cours | PASS | notions du plan, couverture vérifiée |
 | 2026-11-21 04:54 | SSP_200 | Phase_A.json | 98.65 Ko (101014 o) | PASS | dépendance progressive, vaccins dès 65 ans, plan 2026 |
 | 2026-11-21 04:54 | SSP_200 | DX.1.json | 108.74 Ko (111354 o) | PASS | démence, Katz, Lawton, directives |
+| 2026-11-21 04:54 | SSP_200 | DX.2.json | 101.21 Ko (103635 o) | PASS | post-chute, TUG, relever du sol |
