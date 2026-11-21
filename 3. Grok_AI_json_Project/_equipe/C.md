@@ -45,3 +45,4 @@
 - 03:26 Europe/Zurich — SSP_206 — DX.10.json — 107.74 Ko — PASS (SOPK, critères de Rotterdam, protection de l'endomètre, tumeur si virilisation rapide)
 - 03:27 Europe/Zurich — SSP_206 — DX.11.json — 100.21 Ko — PASS (prophylaxie post-exposition VIH, première dose sans attendre les sérologies, 28 jours, inutile si U=U vérifié)
 - 03:28 Europe/Zurich — SSP_206 — DX.12.json — 98.47 Ko — PASS (grossesse extra-utérine, pas de retour à la maison, méthotrexate seulement si critères du protocole)
+- 03:30 Europe/Zurich — SSP_206 — DX.11.json — 104.86 Ko — PASS (précision : abstention de PEP seulement si exposition sexuelle et charge virale indétectable documentée et durable, recommandation suisse)
