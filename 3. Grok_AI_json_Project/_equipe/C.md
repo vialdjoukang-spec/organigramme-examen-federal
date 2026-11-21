@@ -86,3 +86,4 @@
 - 04:18 Europe/Zurich — SSP_203 — DX.12.json — 92.67 Ko — PASS (vagal : allonger, pas d'adrénaline, pas de bilan sanguin systématique)
 - 04:19 Europe/Zurich — SSP_203 — DX.13.json — 96.42 Ko — PASS (Guillain-Barré, intubation si CV < 15–20 mL/kg, IgIV ou plasmaphérèse sans dose inventée)
 - 04:20 Europe/Zurich — SSP_203 — DX.14.json — 96.82 Ko — PASS (colchicine ESC 2015 : 0,5 mg/j si < 70 kg, 0,5 mg x 2 si ≥ 70 kg ; ibuprofène 600 mg/8 h si péricardite)
+- 04:21 Europe/Zurich — SSP_203 — DX.15.json — 94.78 Ko — PASS (midazolam buccal 0,5 mg/kg, nasal 0,2 mg/kg max 10 mg, diazépam rectal 0,5 mg/kg ou 5/10 mg, HUG SAUP 2023)
