@@ -54,3 +54,4 @@
 - 04:01 Europe/Zurich — SSP_203 — Phase_A.json — 118.61 Ko — PASS
 - 04:02 Europe/Zurich — SSP_203 — DX.1.json — 100.41 Ko — PASS
 - 04:03 Europe/Zurich — SSP_203 — DX.2.json — 101.06 Ko — PASS
+- 04:05 Europe/Zurich — SSP_203 — DX.3.json — 102.49 Ko — PASS
