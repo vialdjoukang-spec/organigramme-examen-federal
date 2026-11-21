@@ -19,3 +19,4 @@
 | 2026-11-21 03:45 | SSP_038 | DX.3.json | 104.01 Ko (106506 o) | PASS | doses AIPS 68316 et 63125 |
 | 2026-11-21 03:53 | SSP_038 | DX.4.json | 103.15 Ko (105628 o) | PASS | adrénaline 56551 0,5 mg, auto-injecteur 53836 |
 | 2026-11-21 03:58 | SSP_038 | DX.5.json | 112.0 Ko (114685 o) | PASS | Co-Amoxi-Mepha 53995, 55730, suspension 53982 |
+| 2026-11-21 04:01 | SSP_038 | DX.6.json | 103.48 Ko (105966 o) | PASS | dacryocystite, 53995, doses urinaires barrées |
