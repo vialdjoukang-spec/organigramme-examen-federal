@@ -45,3 +45,4 @@
 | 2026-11-21 04:40 | SSP_194 | DX.4.json | 96.58 Ko (98903 o) | PASS | surpoids, IMC, pas de régime restrictif |
 | 2026-11-21 04:40 | SSP_194 | DX.5.json | 101.48 Ko (103911 o) | PASS | langage, audition avant logopédie |
 | 2026-11-21 04:40 | SSP_194 | DX.6.json | 101.99 Ko (104436 o) | PASS | fer du plan, fiche produit avant ordonnance |
+| 2026-11-21 04:40 | SSP_194 | DX.7.json | 96.88 Ko (99202 o) | PASS | scoliose, Adams, Cobb |
