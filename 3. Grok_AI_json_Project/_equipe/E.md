@@ -31,6 +31,7 @@
 | 2026-11-21 04:25 | SSP_156 | DX.5.json | 93.14 Ko | PASS |
 | 2026-11-21 04:33 | SSP_156 | DX.6.json | 91.49 Ko | PASS |
 | 2026-11-21 04:38 | SSP_156 | DX.7.json | 91.16 Ko | PASS |
+| 2026-11-21 04:54 | SSP_156 | DX.7.json | 90.90 Ko | PASS | dose enfant Flagyl 15 mg/kg/j |
 | 2026-11-21 04:43 | SSP_156 | DX.8.json | 90.29 Ko | PASS |
 | 2026-11-21 04:49 | SSP_156 | DX.9.json | 90.19 Ko | PASS |
 | 2026-11-21 04:54 | SSP_156 | DX.10.json | 90.13 Ko | PASS |
