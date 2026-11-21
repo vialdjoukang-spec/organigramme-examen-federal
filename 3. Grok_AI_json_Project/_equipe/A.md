@@ -49,3 +49,4 @@
 | 2026-11-21 04:34 | SSP_013 | DX.11.json | 95742 o (93.50 Ko) | PASS | électrocution, OIBT 30 mA article non lu |
 | 2026-11-21 04:35 | SSP_013 | DX.12.json | 92613 o (90.44 Ko) | PASS | homicide projectile, 171 = suicides OFS |
 | 2026-11-21 04:36 | SSP_013 | DX.13.json | 93613 o (91.42 Ko) | PASS | hypothermie, 28 °C, Wischnewsky, décompte non vérifié |
+| 2026-11-21 04:38 | SSP_013 | DX.14.json | 99000 o (96.68 Ko) | PASS | iatrogénie, art. 117 CP, matériel laissé |
