@@ -47,3 +47,4 @@
 | 2026-11-21 04:50 | SSP_204 | DX.8.json | 114.66 Ko (117409 o) | PASS | écrans, règle du coucher |
 | 2026-11-21 04:50 | SSP_204 | DX.9.json | 115.66 Ko (118434 o) | PASS | précarité, subside, générique |
 | 2026-11-21 04:50 | SSP_204 | DX.10.json | 116.24 Ko (119027 o) | PASS | B12 végan, microgramme non lu |
+| 2026-11-21 04:50 | SSP_204 | DX.11.json | 102.41 Ko (104871 o) | PASS | sevrage, thiamine avant glucose, mg non lu |
