@@ -44,3 +44,4 @@
 | 2026-11-21 04:50 | SSP_204 | DX.5.json | 116.45 Ko (119241 o) | PASS | insomnie, TCC-I, benzodiazépine limitée |
 | 2026-11-21 04:50 | SSP_204 | DX.6.json | 115.99 Ko (118770 o) | PASS | soleil, ABCDE, pas de solarium |
 | 2026-11-21 04:50 | SSP_204 | DX.7.json | 106.26 Ko (108813 o) | PASS | burn-out, idées suicidaires d'abord |
+| 2026-11-21 04:50 | SSP_204 | DX.8.json | 114.66 Ko (117409 o) | PASS | écrans, règle du coucher |
