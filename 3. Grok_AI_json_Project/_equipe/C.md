@@ -87,3 +87,4 @@
 - 04:19 Europe/Zurich — SSP_203 — DX.13.json — 96.42 Ko — PASS (Guillain-Barré, intubation si CV < 15–20 mL/kg, IgIV ou plasmaphérèse sans dose inventée)
 - 04:20 Europe/Zurich — SSP_203 — DX.14.json — 96.82 Ko — PASS (colchicine ESC 2015 : 0,5 mg/j si < 70 kg, 0,5 mg x 2 si ≥ 70 kg ; ibuprofène 600 mg/8 h si péricardite)
 - 04:21 Europe/Zurich — SSP_203 — DX.15.json — 94.78 Ko — PASS (midazolam buccal 0,5 mg/kg, nasal 0,2 mg/kg max 10 mg, diazépam rectal 0,5 mg/kg ou 5/10 mg, HUG SAUP 2023)
+- 04:47 Europe/Zurich — SSP_211 — Phase_A.json — 91.41 Ko — PASS (BIGORIO 2003 morphine 5 mg/4 h, réserve 10 % ; Buscopan max 100 mg, râles hors-AMM ; naloxone OrPha 56952, dose adulte 0,4–2 mg, titration petite signalée)
