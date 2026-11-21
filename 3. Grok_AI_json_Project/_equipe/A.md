@@ -31,3 +31,4 @@
 | 2026-11-21 04:00 | SSP_036 | DX.13.json | 106466 o (103.97 Ko) | PASS |
 | 2026-11-21 04:05 | SSP_036 | DX.14.json | 113276 o (110.62 Ko) | PASS |
 | 2026-11-21 04:08 | SSP_036 | DX.15.json | 113688 o (111.02 Ko) | PASS | 16/16 |
+| 2026-11-21 04:51 | SSP_226 | Phase_A.json | 94928 o (92.70 Ko) | PASS | ESS 2022 37 %, chaleur 542/474, doses non recopiées |
