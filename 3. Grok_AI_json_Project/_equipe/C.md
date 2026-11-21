@@ -32,3 +32,4 @@
 - 02:56 Europe/Zurich — SSP_037 — DX.14.json — 102.22 Ko — PASS (hématome cervical compressif)
 - 02:56 Europe/Zurich — SSP_037 — DX.15.json — 102.05 Ko — PASS (goitre compressif)
 - 02:56 Europe/Zurich — SSP_037 — verif_source_json.py 37 — 16/16 PASS, notions 0
+- 03:34 Europe/Zurich — SSP_198 — Phase_A.json — 97.57 Ko — PASS (patient polymorbide et polymédiqué, liste unique, déprescription d'une ou deux molécules à la fois)
