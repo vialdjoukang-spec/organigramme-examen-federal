@@ -34,3 +34,4 @@
 - 02:56 Europe/Zurich — SSP_037 — verif_source_json.py 37 — 16/16 PASS, notions 0
 - 03:05 Europe/Zurich — SSP_206 — Phase_A.json — 97.67 Ko — PASS (promotion de la santé sexuelle et de la fertilité, vue d'ensemble NON_MONOGRAPHIQUE ; NOTIONS.json créé, 16 entités)
 - 03:20 Europe/Zurich — SSP_206 — DX.1.json — 98.03 Ko — PASS (conseil contraceptif, choix partagé, lévonorgestrel, méthodes de longue durée)
+- 03:25 Europe/Zurich — SSP_206 — DX.2.json — 97.71 Ko — PASS (Chlamydia et gonocoque, doxycycline 100 mg 2×/j 7 jours, ceftriaxone 1 g)
