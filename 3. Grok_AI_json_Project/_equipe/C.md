@@ -15,3 +15,4 @@
 - 02:30 Europe/Zurich — SSP_035 — DX.14.json — 93.78 Ko — PASS (complétion ciblée des notions)
 - 02:30 Europe/Zurich — SSP_035 — DX.15.json — 102.15 Ko — PASS (complétion ciblée des notions)
 - 02:30 Europe/Zurich — SSP_035 — verif_source_json.py 35 — 16/16 PASS, notions 0
+- 02:45 Europe/Zurich — SSP_037 — Phase_A.json — 98.99 Ko — PASS (orientation du gonflement du visage, des lèvres ou du cou ; NOTIONS.json créé, 15 entités)
