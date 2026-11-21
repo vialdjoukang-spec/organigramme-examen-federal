@@ -58,3 +58,20 @@
 | 2026-11-21 04:41 | SSP_194 | DX.17.json | 109.83 Ko (112466 o) | PASS | anorexie, pas de dose inventée |
 | 2026-11-21 04:41 | SSP_194 | DX.18.json | 108.46 Ko (111060 o) | PASS | cassure de courbe |
 | 2026-11-21 04:41 | SSP_194 | NOTIONS.json | 18 cours | PASS | notions du plan, couverture vérifiée |
+| 2026-11-21 04:46 | SSP_195 | Phase_A.json | 100.97 Ko (103393 o) | PASS | tri des formes, entretien seul, APEA, vaccins 65 ans |
+| 2026-11-21 04:46 | SSP_195 | DX.1.json | 95.29 Ko (97575 o) | PASS | négligence passive, répit, CMS |
+| 2026-11-21 04:46 | SSP_195 | DX.2.json | 101.47 Ko (103901 o) | PASS | maltraitance psychologique, entretien seul |
+| 2026-11-21 04:46 | SSP_195 | DX.3.json | 109.4 Ko (112029 o) | PASS | abus financier, curatelle |
+| 2026-11-21 04:46 | SSP_195 | DX.4.json | 114.25 Ko (116993 o) | PASS | coups et contention, distincts de Bateman |
+| 2026-11-21 04:46 | SSP_195 | DX.5.json | 115.18 Ko (117946 o) | PASS | sédation ou privation, conciliation |
+| 2026-11-21 04:46 | SSP_195 | DX.6.json | 102.06 Ko (104511 o) | PASS | négligence active, alerte |
+| 2026-11-21 04:46 | SSP_195 | DX.7.json | 107.06 Ko (109632 o) | PASS | institution, médecin cantonal |
+| 2026-11-21 04:46 | SSP_195 | DX.8.json | 108.61 Ko (111219 o) | PASS | Diogène, protection si danger |
+| 2026-11-21 04:46 | SSP_195 | DX.9.json | 113.73 Ko (116462 o) | PASS | atteinte sexuelle, UMV, pas d'examen isolé |
+| 2026-11-21 04:46 | SSP_195 | DX.10.json | 114.81 Ko (117562 o) | PASS | Bateman, paracétamol 56318, max 4 g |
+| 2026-11-21 04:46 | SSP_195 | DX.11.json | 114.04 Ko (116781 o) | PASS | choc sur escarre, pip-tazo 58151, noradrénaline non chiffrée |
+| 2026-11-21 04:46 | SSP_195 | DX.12.json | 114.59 Ko (117344 o) | PASS | hématome sous-dural, réversion sans unité inventée |
+| 2026-11-21 04:46 | SSP_195 | DX.13.json | 115.03 Ko (117794 o) | PASS | hypernatrémie, baisse max 8 à 10 mmol/L/24 h |
+| 2026-11-21 04:46 | SSP_195 | DX.14.json | 114.53 Ko (117282 o) | PASS | surdosage par un tiers, naloxone sans mg lu |
+| 2026-11-21 04:46 | SSP_195 | DX.15.json | 114.72 Ko (117475 o) | PASS | fracture dissimulée, énoxaparine 49456 |
+| 2026-11-21 04:46 | SSP_195 | NOTIONS.json | 15 cours | PASS | couverture vérifiée |
