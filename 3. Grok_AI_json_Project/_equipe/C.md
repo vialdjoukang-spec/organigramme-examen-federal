@@ -89,3 +89,4 @@
 - 04:21 Europe/Zurich — SSP_203 — DX.15.json — 94.78 Ko — PASS (midazolam buccal 0,5 mg/kg, nasal 0,2 mg/kg max 10 mg, diazépam rectal 0,5 mg/kg ou 5/10 mg, HUG SAUP 2023)
 - 04:28 Europe/Zurich — SSP_215 — Phase_A.json — 98.93 Ko — PASS (vue d'ensemble des 15 situations, seuils du plan, pas de dose hors texte)
 - 04:29 Europe/Zurich — SSP_215 — DX.1.json — 90.70 Ko — PASS (insatisfaction normale, SCOFF si doute, pas de régime ni de dose)
+- 04:31 Europe/Zurich — SSP_215 — DX.2.json — 92.32 Ko — PASS (acné vulgaire par paliers, isotrétinoïne seulement si sévère, pas de mg inventé)
