@@ -35,3 +35,4 @@
 - 03:34 Europe/Zurich — SSP_198 — Phase_A.json — 97.57 Ko — PASS (patient polymorbide et polymédiqué, liste unique, déprescription d'une ou deux molécules à la fois)
 - 03:34 Europe/Zurich — SSP_198 — DX.1.json — 99.46 Ko — PASS (polymédication ≥ 5, STOPP/START, triple whammy, déprescription une ou deux molécules à la fois)
 - 03:35 Europe/Zurich — SSP_198 — DX.2.json — 100.48 Ko — PASS (hypotension orthostatique iatrogène, chute ≥ 20/10 mmHg, réduction des médicaments en cause)
+- 03:36 Europe/Zurich — SSP_198 — DX.3.json — 99.30 Ko — PASS (IRC méconnue, toujours calculer le DFG, sick days, cristalloïde 500 mL seulement si hypovolémie)
