@@ -39,3 +39,4 @@
 - 03:18 Europe/Zurich — SSP_206 — DX.4.json — 97.63 Ko — PASS (infertilité du couple, bilan des deux à 12 mois ou 6 mois après 35 ans)
 - 03:21 Europe/Zurich — SSP_206 — DX.5.json — 94.95 Ko — PASS (dysfonction érectile, marqueur cardiovasculaire, jamais d'IPDE5 avec un nitré)
 - 03:22 Europe/Zurich — SSP_206 — DX.6.json — 113.12 Ko — PASS (dépistage VIH et prophylaxie pré-exposition, TDF/FTC, pas de PrEP si primo-infection)
+- 03:22 Europe/Zurich — SSP_206 — DX.7.json — 98.41 Ko — PASS (syphilis, benzathine-pénicilline 2,4 MUI si stade précoce, RPR à 3, 6 et 12 mois)
