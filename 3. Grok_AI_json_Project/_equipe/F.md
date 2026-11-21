@@ -68,3 +68,5 @@
 - 2026-11-21 04:11 Europe/Zurich | SSP_207 | DX.15.json | 100.77 Ko | PASS
 
 - 2026-11-21 04:14 Europe/Zurich | SSP_221 | Phase_A.json | 96.03 Ko (98330 o) | PASS
+
+- 2026-11-21 04:17 Europe/Zurich | SSP_221 | DX.1.json | 99.86 Ko (102253 o) | PASS
