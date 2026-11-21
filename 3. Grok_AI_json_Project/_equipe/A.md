@@ -52,3 +52,4 @@
 | 2026-11-21 04:38 | SSP_013 | DX.14.json | 99000 o (96.68 Ko) | PASS | iatrogénie, art. 117 CP, matériel laissé |
 | 2026-11-21 04:38 | SSP_013 | DX.15.json | 96001 o (93.75 Ko) | PASS | thorax pénétrant, eFAST, 1:1:1, digitale |
 | 2026-11-21 04:39 | SSP_013 | DX.16.json | 95629 o (93.39 Ko) | PASS | pendaison manquée, angio-CT, pas de litres |
+| 2026-11-21 04:40 | SSP_013 | DX.17.json | 93231 o (91.05 Ko) | PASS | embolie gazeuse, Durant, 100 % O2, minutes non trouvées |
