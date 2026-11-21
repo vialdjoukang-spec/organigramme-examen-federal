@@ -92,3 +92,4 @@
 - 04:55 Europe/Zurich — SSP_211 — DX.1.json — 91.10 Ko — PASS (douleur, morphine reconnue, fentanyl non dosé)
 - 04:55 Europe/Zurich — SSP_211 — DX.2.json — 100.76 Ko — PASS (BIGORIO 2003 morphine 5 mg/4 h, hors-AMM dyspnée)
 - 04:55 Europe/Zurich — SSP_211 — DX.3.json — 100.28 Ko — PASS (Buscopan 20–40 mg, max 100 mg, râles hors-AMM)
+- 04:55 Europe/Zurich — SSP_211 — DX.4.json — 99.75 Ko — PASS (BIGORIO 2005 midazolam, HUG lorazépam et halopéridol)
