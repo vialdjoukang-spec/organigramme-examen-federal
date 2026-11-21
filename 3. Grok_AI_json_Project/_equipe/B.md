@@ -71,3 +71,4 @@
 | 2026-11-21 04:54 | SSP_200 | DX.10.json | 109.5 Ko (112130 o) | PASS | SLA, riluzole sans mg lu |
 | 2026-11-21 04:54 | SSP_200 | DX.11.json | 116.46 Ko (119250 o) | PASS | syndrome de glissement, diagnostic d'exclusion |
 | 2026-11-21 04:54 | SSP_200 | DX.12.json | 115.72 Ko (118500 o) | PASS | crise de l'aidant, lit de répit |
+| 2026-11-21 04:54 | SSP_200 | DX.13.json | 104.75 Ko (107260 o) | PASS | station au sol, réchauffement prudent |
