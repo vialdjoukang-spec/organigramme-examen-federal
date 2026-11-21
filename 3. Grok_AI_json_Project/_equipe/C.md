@@ -15,3 +15,5 @@
 - 02:30 Europe/Zurich — SSP_035 — DX.14.json — 93.78 Ko — PASS (complétion ciblée des notions)
 - 02:30 Europe/Zurich — SSP_035 — DX.15.json — 102.15 Ko — PASS (complétion ciblée des notions)
 - 02:30 Europe/Zurich — SSP_035 — verif_source_json.py 35 — 16/16 PASS, notions 0
+
+- 03:05 Europe/Zurich — SSP_206 — Phase_A.json — 97.67 Ko — PASS (promotion de la santé sexuelle et de la fertilité, vue d'ensemble NON_MONOGRAPHIQUE ; NOTIONS.json créé, 16 entités)
