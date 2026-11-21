@@ -29,3 +29,7 @@
 | 2026-11-21 04:16 | SSP_038 | DX.14.json | 113.42 Ko (116144 o) | PASS | adrénaline 56551 0,5 mg, stylo 53836 |
 | 2026-11-21 04:20 | SSP_038 | DX.9.json | 100.07 Ko (102467 o) | PASS | paracétamol retiré, biopsie seule |
 | 2026-11-21 04:20 | SSP_038 | DX.10.json | 114.96 Ko (117714 o) | PASS | prednisone 0,6 mg/kg, rituximab 1 g J1 J15, hors indication |
+| 2026-11-21 04:28 | SSP_038 | DX.11.json | 113.17 Ko (115882 o) | PASS | ceftriaxone 2 g/12 h + métronidazole 500 mg/8 h, NHS Borders |
+| 2026-11-21 04:28 | SSP_038 | DX.12.json | 100.1 Ko (102498 o) | PASS | canthotomie, acétazolamide 500 mg, mannitol dose non lue |
+| 2026-11-21 04:28 | SSP_038 | DX.13.json | 112.72 Ko (115426 o) | PASS | pénicilline 56271 + clindamycine 38978 |
+| 2026-11-21 04:28 | SSP_038 | DX.15.json | 109.84 Ko (112473 o) | PASS | valaciclovir 53116, aciclovir IV 44772 |
