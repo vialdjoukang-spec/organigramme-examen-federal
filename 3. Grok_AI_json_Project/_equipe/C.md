@@ -71,3 +71,4 @@
 - 03:55 Europe/Zurich — SSP_198 — DX.11, DX.13, DX.15 — doses antidotes ciblées — PASS (Praxbind 5 g ; Ondexxya 400/800 mg ; Beriplex 25/35/50 UI/kg ; Fab 1–2 amp. 40 mg ; cyproheptadine et formule Fab non trouvées)
 - 03:57 Europe/Zurich — SSP_198 — formule exacte « non trouvé, sources consultées » sur Fab, PPSB anti-Xa et cyproheptadine — PASS
 - 03:59 Europe/Zurich — SSP_198 — Fab HUG 0,31 mg/kg par nmol/L ; cyproheptadine HUG 12 mg puis 2 mg/2 h ; PPSB anti-Xa HUG 25–50 UI/kg et SFAR 50 UI/kg — PASS
+- 04:28 Europe/Zurich — SSP_215 — Phase_A.json — 98.93 Ko — PASS (vue d'ensemble des 15 situations, seuils du plan, pas de dose hors texte)
