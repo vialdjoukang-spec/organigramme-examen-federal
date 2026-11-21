@@ -98,3 +98,4 @@
 - 04:55 Europe/Zurich — SSP_211 — DX.7.json — 99.72 Ko — PASS (pas de nutrition artificielle par défaut)
 - 04:55 Europe/Zurich — SSP_211 — DX.8.json — 99.55 Ko — PASS (NaCl 0,9 %, Diflucan 49503 sans schéma de muguet)
 - 04:55 Europe/Zurich — SSP_211 — DX.9.json — 100.33 Ko — PASS (présence et aumônerie)
+- 04:55 Europe/Zurich — SSP_211 — DX.10.json — 101.62 Ko — PASS (constat et accompagnement)
