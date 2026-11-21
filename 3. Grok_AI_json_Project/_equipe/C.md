@@ -103,3 +103,4 @@
 - 04:55 Europe/Zurich — SSP_211 — DX.12.json — 101.20 Ko — PASS (NICE NG234 dexaméthasone 16 mg, Fortecortin 48670)
 - 04:55 Europe/Zurich — SSP_211 — DX.13.json — 100.33 Ko — PASS (ESTRO 10–16 mg de dexaméthasone)
 - 04:55 Europe/Zurich — SSP_211 — DX.14.json — 100.43 Ko — PASS (Zometa 56257, 4 mg, créatinine 400)
+- 04:55 Europe/Zurich — SSP_211 — DX.15.json — 100.79 Ko — PASS (Naloxon OrPha 56952, titration petite)
