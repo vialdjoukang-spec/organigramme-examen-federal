@@ -31,3 +31,30 @@
 | 2026-11-21 04:00 | SSP_036 | DX.13.json | 106466 o (103.97 Ko) | PASS |
 | 2026-11-21 04:05 | SSP_036 | DX.14.json | 113276 o (110.62 Ko) | PASS |
 | 2026-11-21 04:08 | SSP_036 | DX.15.json | 113688 o (111.02 Ko) | PASS | 16/16 |
+| 2026-11-21 04:05 | SSP_013 | Phase_A.json | 106509 o (104.01 Ko) | PASS | après fusion #759 |
+| 2026-11-21 04:07 | SSP_013 | DX.1.json | 107066 o (104.56 Ko) | PASS | pendaison |
+| 2026-11-21 04:11 | SSP_013 | DX.1.json | 108196 o (105.66 Ko) | PASS | OFS 2023 : 338/995, CPP 253 |
+| 2026-11-21 04:13 | SSP_013 | DX.2.json | 92387 o (90.22 Ko) | PASS | chute, CPP 253, taux non vérifié |
+| 2026-11-21 04:15 | SSP_013 | DX.3.json | 93011 o (90.83 Ko) | PASS | route, OFROU 236/250 |
+| 2026-11-21 04:17 | SSP_013 | DX.3.json | 95304 o (93.07 Ko) | PASS | seuils RS 741.13, OCR 2a, OOCCR art. 34 |
+| 2026-11-21 04:19 | SSP_013 | DX.4.json | 96031 o (93.78 Ko) | PASS | intoxication, 114/995, pas d'antidote inventé |
+| 2026-11-21 04:21 | SSP_013 | DX.5.json | 94941 o (92.72 Ko) | PASS | naloxone 56952 si vivant, rien si mort |
+| 2026-11-21 04:23 | SSP_013 | DX.5.json | 92429 o (90.26 Ko) | PASS | Nyxoid 66930, MonAM 188 en 2024 |
+| 2026-11-21 04:24 | SSP_013 | DX.6.json | 97200 o (94.92 Ko) | PASS | noyade, nombre annuel non vérifié |
+| 2026-11-21 04:26 | SSP_013 | DX.6.json | 95569 o (93.33 Ko) | PASS | SSS/BPA 43 noyades en 2025 |
+| 2026-11-21 04:27 | SSP_013 | DX.7.json | 94963 o (92.74 Ko) | PASS | arme à feu, OFS 171 dont 162 hommes |
+| 2026-11-21 04:30 | SSP_013 | DX.8.json | 93746 o (91.55 Ko) | PASS | arme blanche, nombre non vérifié |
+| 2026-11-21 04:31 | SSP_013 | DX.9.json | 92366 o (90.20 Ko) | PASS | CO, nombre non vérifié, pas de caisson chiffré |
+| 2026-11-21 04:33 | SSP_013 | DX.10.json | 94571 o (92.35 Ko) | PASS | feu, Cyanokit 60539 si vivant |
+| 2026-11-21 04:34 | SSP_013 | DX.11.json | 95742 o (93.50 Ko) | PASS | électrocution, OIBT 30 mA article non lu |
+| 2026-11-21 04:35 | SSP_013 | DX.12.json | 92613 o (90.44 Ko) | PASS | homicide projectile, 171 = suicides OFS |
+| 2026-11-21 04:36 | SSP_013 | DX.13.json | 93613 o (91.42 Ko) | PASS | hypothermie, 28 °C, Wischnewsky, décompte non vérifié |
+| 2026-11-21 04:38 | SSP_013 | DX.14.json | 99000 o (96.68 Ko) | PASS | iatrogénie, art. 117 CP, matériel laissé |
+| 2026-11-21 04:38 | SSP_013 | DX.15.json | 96001 o (93.75 Ko) | PASS | thorax pénétrant, eFAST, 1:1:1, digitale |
+| 2026-11-21 04:39 | SSP_013 | DX.16.json | 95629 o (93.39 Ko) | PASS | pendaison manquée, angio-CT, pas de litres |
+| 2026-11-21 04:40 | SSP_013 | DX.17.json | 93231 o (91.05 Ko) | PASS | embolie gazeuse, Durant, 100 % O2, minutes non trouvées |
+| 2026-11-21 04:41 | SSP_013 | DX.18.json | 101226 o (98.85 Ko) | PASS | café-coronaire, Heimlich, Magill, bol laissé |
+| 2026-11-21 04:42 | SSP_013 | DX.19.json | 94742 o (92.52 Ko) | PASS | mort suspecte, CPP 253, crémation bloquée |
+| 2026-11-21 04:43 | SSP_013 | DX.20.json | 96764 o (94.50 Ko) | PASS | bébé secoué, APEA, 15-30 % du cours |
+| 2026-11-21 04:44 | SSP_013 | DX.21.json | 100146 o (97.80 Ko) | PASS | cyanure, Cyanokit 60539 si vivant, lactates distincts |
+| 2026-11-21 04:46 | SSP_013 | DX.22.json | 97577 o (95.29 Ko) | PASS | détention, asphyxie positionnelle, saisine, pas de technique |
