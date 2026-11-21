@@ -41,3 +41,4 @@
 | 2026-11-21 04:50 | SSP_204 | DX.2.json | 99.76 Ko (102158 o) | PASS | tabac, substitution, milligramme non lu |
 | 2026-11-21 04:50 | SSP_204 | DX.3.json | 99.43 Ko (101812 o) | PASS | méditerranéen, sel sous 5 g |
 | 2026-11-21 04:50 | SSP_204 | DX.4.json | 113.79 Ko (116517 o) | PASS | AUDIT-C, intervention brève |
+| 2026-11-21 04:50 | SSP_204 | DX.5.json | 116.45 Ko (119241 o) | PASS | insomnie, TCC-I, benzodiazépine limitée |
