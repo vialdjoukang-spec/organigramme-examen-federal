@@ -43,3 +43,4 @@
 | 2026-11-21 04:46 | SSP_195 | DX.4.json | 114.25 Ko (116993 o) | PASS | coups et contention, distincts de Bateman |
 | 2026-11-21 04:46 | SSP_195 | DX.5.json | 115.18 Ko (117946 o) | PASS | sédation ou privation, conciliation |
 | 2026-11-21 04:46 | SSP_195 | DX.6.json | 102.06 Ko (104511 o) | PASS | négligence active, alerte |
+| 2026-11-21 04:46 | SSP_195 | DX.7.json | 107.06 Ko (109632 o) | PASS | institution, médecin cantonal |
