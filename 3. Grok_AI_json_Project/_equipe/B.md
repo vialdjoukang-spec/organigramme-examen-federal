@@ -38,3 +38,4 @@
 | 2026-11-21 04:40 | SSP_038 | DX.13.json | 114.94 Ko (117701 o) | PASS | empirique pip-tazo 4,5 g 4×/j puis pénicilline si strepto A |
 | 2026-11-21 04:46 | SSP_195 | Phase_A.json | 100.97 Ko (103393 o) | PASS | tri des formes, entretien seul, APEA, vaccins 65 ans |
 | 2026-11-21 04:46 | SSP_195 | DX.1.json | 95.29 Ko (97575 o) | PASS | négligence passive, répit, CMS |
+| 2026-11-21 04:46 | SSP_195 | DX.2.json | 101.47 Ko (103901 o) | PASS | maltraitance psychologique, entretien seul |
