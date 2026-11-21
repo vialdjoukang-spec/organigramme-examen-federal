@@ -94,3 +94,4 @@
 - 04:55 Europe/Zurich — SSP_211 — DX.3.json — 100.28 Ko — PASS (Buscopan 20–40 mg, max 100 mg, râles hors-AMM)
 - 04:55 Europe/Zurich — SSP_211 — DX.4.json — 99.75 Ko — PASS (BIGORIO 2005 midazolam, HUG lorazépam et halopéridol)
 - 04:55 Europe/Zurich — SSP_211 — DX.5.json — 100.01 Ko — PASS (voies des nausées, pas de dose de métoclopramide non lue)
+- 04:55 Europe/Zurich — SSP_211 — DX.6.json — 100.35 Ko — PASS (laxatif dès J1, sans milligramme inventé)
