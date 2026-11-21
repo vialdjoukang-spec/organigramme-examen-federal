@@ -99,3 +99,4 @@
 - 04:40 Europe/Zurich — SSP_215 — DX.8.json — 109.31 Ko — PASS (bilan anabolisants, pas de dose de testostérone de sevrage : non trouvé)
 - 04:40 Europe/Zurich — SSP_215 — DX.9.json — 104.68 Ko — PASS (régression pubertaire, pas de tamoxifène : non trouvé)
 - 04:40 Europe/Zurich — SSP_215 — DX.10.json — 110.21 Ko — PASS (pas d'arrêt brutal ; freination 1 mg du plan, AIPS dexaméthasone non rouverte ; décroissance chiffrée non trouvée)
+- 04:40 Europe/Zurich — SSP_215 — DX.11.json — 107.89 Ko — PASS (mêmes seuils HUG phosphate/thiamine, renutrition 10–15 kcal/kg/j, scope si K < 2,5 ou QTc > 500)
