@@ -34,3 +34,4 @@
 | 2026-11-21 04:05 | SSP_013 | Phase_A.json | 106509 o (104.01 Ko) | PASS | après fusion #759 |
 | 2026-11-21 04:07 | SSP_013 | DX.1.json | 107066 o (104.56 Ko) | PASS | pendaison |
 | 2026-11-21 04:11 | SSP_013 | DX.1.json | 108196 o (105.66 Ko) | PASS | OFS 2023 : 338/995, CPP 253 |
+| 2026-11-21 04:13 | SSP_013 | DX.2.json | 92387 o (90.22 Ko) | PASS | chute, CPP 253, taux non vérifié |
