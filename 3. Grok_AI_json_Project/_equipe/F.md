@@ -35,3 +35,34 @@
 - 2026-11-21 03:44 Europe/Zurich | SSP_133 | DX.16.json | 108.84 Ko (111449 o) | PASS
 
 - 2026-11-21 03:46 Europe/Zurich | SSP_133 | DX.17.json | 100.35 Ko (102763 o) | PASS
+
+- 2026-11-21 03:54 Europe/Zurich | SSP_207 | Phase_A.json | 97.46 Ko (99798 o) | PASS
+
+- 2026-11-21 03:55 Europe/Zurich | SSP_207 | DX.1.json | 109.29 Ko (111908 o) | PASS
+
+- 2026-11-21 03:57 Europe/Zurich | SSP_207 | DX.2.json | 99.42 Ko (101811 o) | PASS
+
+- 2026-11-21 03:58 Europe/Zurich | SSP_207 | DX.3.json | 98.28 Ko (100643 o) | PASS
+
+- 2026-11-21 03:59 Europe/Zurich | SSP_207 | DX.4.json | 108.53 Ko (111135 o) | PASS
+
+- 2026-11-21 04:01 Europe/Zurich | SSP_207 | DX.5.json | 105.05 Ko (107573 o) | PASS
+
+- 2026-11-21 04:02 Europe/Zurich | SSP_207 | DX.6.json | 106.64 Ko (109204 o) | PASS
+
+- 2026-11-21 04:04 Europe/Zurich | SSP_207 | DX.7.json | 101.01 Ko (103433 o) | PASS
+
+- 2026-11-21 04:05 Europe/Zurich | SSP_207 | DX.8.json | 94.59 Ko (96856 o) | PASS
+
+- 2026-11-21 04:06 Europe/Zurich | SSP_207 | DX.9.json | 101.76 Ko (104206 o) | PASS
+
+- 2026-11-21 04:08 Europe/Zurich | SSP_207 | DX.6.json | 111.69 Ko (114373 o) | PASS | doses Diovan 55743 et Sortis 54085
+- 2026-11-21 04:08 Europe/Zurich | SSP_207 | DX.9.json | 104.47 Ko (106982 o) | PASS | doses Aclasta 57363 et Prolia 60210
+
+- 2026-11-21 04:10 Europe/Zurich | SSP_207 | DX.10.json | 98.24 Ko (100594 o) | PASS
+- 2026-11-21 04:10 Europe/Zurich | SSP_207 | DX.11.json | 100.89 Ko (103307 o) | PASS
+- 2026-11-21 04:10 Europe/Zurich | SSP_207 | DX.12.json | 100.90 Ko (103317 o) | PASS
+
+- 2026-11-21 04:11 Europe/Zurich | SSP_207 | DX.13.json | 100.74 Ko | PASS
+- 2026-11-21 04:11 Europe/Zurich | SSP_207 | DX.14.json | 101.02 Ko | PASS
+- 2026-11-21 04:11 Europe/Zurich | SSP_207 | DX.15.json | 100.77 Ko | PASS
