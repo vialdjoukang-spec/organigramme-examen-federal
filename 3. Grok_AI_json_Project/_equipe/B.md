@@ -42,3 +42,4 @@
 | 2026-11-21 04:40 | SSP_194 | DX.1.json | 114.91 Ko (117664 o) | PASS | croissance normale et doses du plan 2026 |
 | 2026-11-21 04:40 | SSP_194 | DX.2.json | 101.7 Ko (104145 o) | PASS | amblyopie, Bruckner, adressage |
 | 2026-11-21 04:40 | SSP_194 | DX.3.json | 108.39 Ko (110995 o) | PASS | carie, dentifrice fluoré du plan |
+| 2026-11-21 04:40 | SSP_194 | DX.4.json | 96.58 Ko (98903 o) | PASS | surpoids, IMC, pas de régime restrictif |
