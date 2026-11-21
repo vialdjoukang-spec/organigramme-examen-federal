@@ -41,3 +41,4 @@
 | 2026-11-21 04:46 | SSP_195 | DX.2.json | 101.47 Ko (103901 o) | PASS | maltraitance psychologique, entretien seul |
 | 2026-11-21 04:46 | SSP_195 | DX.3.json | 109.4 Ko (112029 o) | PASS | abus financier, curatelle |
 | 2026-11-21 04:46 | SSP_195 | DX.4.json | 114.25 Ko (116993 o) | PASS | coups et contention, distincts de Bateman |
+| 2026-11-21 04:46 | SSP_195 | DX.5.json | 115.18 Ko (117946 o) | PASS | sédation ou privation, conciliation |
