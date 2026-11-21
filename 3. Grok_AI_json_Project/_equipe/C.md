@@ -43,3 +43,4 @@
 - 03:23 Europe/Zurich — SSP_206 — DX.8.json — 101.93 Ko — PASS (ménopause, œstradiol transdermique, progestérone si utérus intact ; le protocole d'AVC n'est pas le traitement des bouffées)
 - 03:25 Europe/Zurich — SSP_206 — DX.9.json — 97.45 Ko — PASS (endométriose, imagerie experte avant cœlioscopie diagnostique, blocage ovarien continu)
 - 03:26 Europe/Zurich — SSP_206 — DX.10.json — 107.74 Ko — PASS (SOPK, critères de Rotterdam, protection de l'endomètre, tumeur si virilisation rapide)
+- 03:27 Europe/Zurich — SSP_206 — DX.11.json — 100.21 Ko — PASS (prophylaxie post-exposition VIH, première dose sans attendre les sérologies, 28 jours, inutile si U=U vérifié)
