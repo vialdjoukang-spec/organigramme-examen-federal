@@ -50,3 +50,4 @@
 | 2026-11-21 04:35 | SSP_013 | DX.12.json | 92613 o (90.44 Ko) | PASS | homicide projectile, 171 = suicides OFS |
 | 2026-11-21 04:36 | SSP_013 | DX.13.json | 93613 o (91.42 Ko) | PASS | hypothermie, 28 °C, Wischnewsky, décompte non vérifié |
 | 2026-11-21 04:38 | SSP_013 | DX.14.json | 99000 o (96.68 Ko) | PASS | iatrogénie, art. 117 CP, matériel laissé |
+| 2026-11-21 04:38 | SSP_013 | DX.15.json | 96001 o (93.75 Ko) | PASS | thorax pénétrant, eFAST, 1:1:1, digitale |
