@@ -33,3 +33,4 @@
 | 2026-11-21 04:08 | SSP_036 | DX.15.json | 113688 o (111.02 Ko) | PASS | 16/16 |
 | 2026-11-21 04:51 | SSP_226 | Phase_A.json | 94928 o (92.70 Ko) | PASS | ESS 2022 37 %, chaleur 542/474, doses non recopiées |
 | 2026-11-21 04:54 | SSP_226 | DX.1.json | 93625 o (91.43 Ko) | PASS | observance, part évitable non vérifiée, pas de dose |
+| 2026-11-21 04:55 | SSP_226 | DX.2.json | 99576 o (97.24 Ko) | PASS | dépression comorbide, dose AIPS non trouvée, multiple non vérifié |
