@@ -46,3 +46,4 @@
 | 2026-11-21 04:40 | SSP_194 | DX.5.json | 101.48 Ko (103911 o) | PASS | langage, audition avant logopédie |
 | 2026-11-21 04:40 | SSP_194 | DX.6.json | 101.99 Ko (104436 o) | PASS | fer du plan, fiche produit avant ordonnance |
 | 2026-11-21 04:40 | SSP_194 | DX.7.json | 96.88 Ko (99202 o) | PASS | scoliose, Adams, Cobb |
+| 2026-11-21 04:40 | SSP_194 | DX.8.json | 97.76 Ko (100107 o) | PASS | cryptorchidie, chirurgie avant 18 mois |
