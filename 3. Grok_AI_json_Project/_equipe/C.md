@@ -34,3 +34,4 @@
 - 02:56 Europe/Zurich — SSP_037 — verif_source_json.py 37 — 16/16 PASS, notions 0
 - 03:34 Europe/Zurich — SSP_198 — Phase_A.json — 97.57 Ko — PASS (patient polymorbide et polymédiqué, liste unique, déprescription d'une ou deux molécules à la fois)
 - 03:34 Europe/Zurich — SSP_198 — DX.1.json — 99.46 Ko — PASS (polymédication ≥ 5, STOPP/START, triple whammy, déprescription une ou deux molécules à la fois)
+- 03:35 Europe/Zurich — SSP_198 — DX.2.json — 100.48 Ko — PASS (hypotension orthostatique iatrogène, chute ≥ 20/10 mmHg, réduction des médicaments en cause)
