@@ -79,3 +79,4 @@
 - 04:07 Europe/Zurich — SSP_203 — DX.5.json — 100.14 Ko — PASS
 - 04:12 Europe/Zurich — SSP_203 — DX.6.json — 92.20 Ko — PASS (consultations de voyage distinctes, pas de dose de paludisme inventée)
 - 04:13 Europe/Zurich — SSP_203 — DX.7.json — 93.80 Ko — PASS (rattrapage en trois visites, toute dose compte, pas de dose hors plan)
+- 04:14 Europe/Zurich — SSP_203 — DX.8.json — 92.33 Ko — PASS (anti-HBs ≥ 100 UI/L, AES 24–48 h, pas de dose d'immunoglobuline inventée)
