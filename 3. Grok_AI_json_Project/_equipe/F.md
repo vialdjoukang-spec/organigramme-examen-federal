@@ -55,3 +55,6 @@
 - 2026-11-21 04:05 Europe/Zurich | SSP_207 | DX.8.json | 94.59 Ko (96856 o) | PASS
 
 - 2026-11-21 04:06 Europe/Zurich | SSP_207 | DX.9.json | 101.76 Ko (104206 o) | PASS
+
+- 2026-11-21 04:08 Europe/Zurich | SSP_207 | DX.6.json | 111.69 Ko (114373 o) | PASS | doses Diovan 55743 et Sortis 54085
+- 2026-11-21 04:08 Europe/Zurich | SSP_207 | DX.9.json | 104.47 Ko (106982 o) | PASS | doses Aclasta 57363 et Prolia 60210
