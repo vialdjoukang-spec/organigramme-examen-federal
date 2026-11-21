@@ -3,3 +3,4 @@
 | Heure (Europe/Zurich) | SSP | Fichier | Taille | Verdict |
 |---|---|---|---|---|
 | 2026-11-21 02:10 | SSP_034 | DX.5.json | 104.27 Ko (106776 o) | PASS |
+| 2026-11-21 02:25 | SSP_034 | DX.6.json | 91.32 Ko (93513 o) | PASS |
