@@ -9,8 +9,8 @@
 ## 0. Comprendre TOTALEMENT le projet depuis le début
 - **Objectif global** : produire et auditer l'intégralité des **248 SSP suisses (PROFILES 2023)** pour l'Examen Fédéral de Médecine en Suisse, soit **3 975 entités cliniques (`DX.1..N`) + 248 Chapitres 0 (`Phase A`)**.
 - **Évolution du cahier des charges (historique complet)** :
-  1. **Prompt Alpha (`19.11.2026`)** : calibre initial `80–100 Ko` de texte pur par cours, cascade posologique suisse à 4 paliers (AIPS Swissmedic → Compendium.ch → Sociétés savantes & CHU suisses → Sociétés européennes), phrases verbales exclusives, 100 % des notions de la *Cartographie Renouveau*.
-  2. **Phase intermédiaire (`20.11.2026`)** : essai à `30–50 Ko` abandonné car jugé trop pauvre/médiocre, puis retour à `80–100 Ko` et suppression définitive des arbres décisionnels (`.fm-canvas`, réalisés par Vial lui-même).
+  1. **Prompt Alpha (`19.11.2026`)** : calibre unique désormais `90–120 Ko` de texte médical pur, sans balise, par cours, cascade posologique suisse à 4 paliers (AIPS Swissmedic → Compendium.ch → Sociétés savantes & CHU suisses → Sociétés européennes), phrases verbales exclusives, 100 % des notions de la *Cartographie Renouveau*.
+  2. **Phase intermédiaire (`20.11.2026`)** : essai à `30–50 Ko` abandonné car jugé trop pauvre/médiocre, puis adoption du calibre unique `90–120 Ko` et suppression définitive des arbres décisionnels (`.fm-canvas`, réalisés par Vial lui-même).
   3. **Architecture finale `.json` (`21.11.2026`)** : rédaction **100 % en `.json` pur sans balise HTML** dans `SSP_nnn/source_json/` avec un calibre **`90–120 Ko` de texte médical pur sans balise** par cours, puis compilation déterministe finale vers HTML L1 + `UNIQUE.html` (police **Atkinson Hyperlegible**, modales `.fen` + 2 onglets PK/PD SVG, infobulles `Why`, signature `#signature-ia`).
 - **État actuel & classement par gravité** :
   - Les **248 LOTS** ont été audités et classés du plus catastrophique (`1.`) au moins catastrophique (`248.`) dans `GEMINI_word_à_générer/00_CLASSEMENT_GRAVITE_248_LOTS.json`.
