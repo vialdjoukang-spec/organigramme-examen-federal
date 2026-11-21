@@ -36,3 +36,25 @@
 | 2026-11-21 04:40 | SSP_038 | DX.11.json | 110.35 Ko (113000 o) | PASS | adulte : amox-clav IV 1,2 g 3×/j, guide CHUV 2022 |
 | 2026-11-21 04:40 | SSP_038 | DX.12.json | 101.2 Ko (103628 o) | PASS | mannitol 1–2 g/kg, AIPS 36796 |
 | 2026-11-21 04:40 | SSP_038 | DX.13.json | 114.94 Ko (117701 o) | PASS | empirique pip-tazo 4,5 g 4×/j puis pénicilline si strepto A |
+| 2026-11-21 04:50 | SSP_194 | Phase_A.json | 100.06 Ko (102463 o) | PASS | circuit non monographique, carnet SSP 2025 |
+| 2026-11-21 05:05 | SSP_194 | DX.1.json | 100.03 Ko (102431 o) | PASS | croissance normale, vitamine D 400 puis 600 UI, OFSP 2012 |
+| 2026-11-21 04:40 | SSP_194 | Phase_A.json | 112.92 Ko (115630 o) | PASS | calendrier OFSP/CFV 2026, schéma 2+1 |
+| 2026-11-21 04:40 | SSP_194 | DX.1.json | 114.91 Ko (117664 o) | PASS | croissance normale et doses du plan 2026 |
+| 2026-11-21 04:40 | SSP_194 | DX.2.json | 101.7 Ko (104145 o) | PASS | amblyopie, Bruckner, adressage |
+| 2026-11-21 04:40 | SSP_194 | DX.3.json | 108.39 Ko (110995 o) | PASS | carie, dentifrice fluoré du plan |
+| 2026-11-21 04:40 | SSP_194 | DX.4.json | 96.58 Ko (98903 o) | PASS | surpoids, IMC, pas de régime restrictif |
+| 2026-11-21 04:40 | SSP_194 | DX.5.json | 101.48 Ko (103911 o) | PASS | langage, audition avant logopédie |
+| 2026-11-21 04:40 | SSP_194 | DX.6.json | 101.99 Ko (104436 o) | PASS | fer du plan, fiche produit avant ordonnance |
+| 2026-11-21 04:40 | SSP_194 | DX.7.json | 96.88 Ko (99202 o) | PASS | scoliose, Adams, Cobb |
+| 2026-11-21 04:40 | SSP_194 | DX.8.json | 97.76 Ko (100107 o) | PASS | cryptorchidie, chirurgie avant 18 mois |
+| 2026-11-21 04:40 | SSP_194 | DX.9.json | 109.25 Ko (111867 o) | PASS | TSA, pas d'attente |
+| 2026-11-21 04:40 | SSP_194 | DX.10.json | 102.59 Ko (105055 o) | PASS | hanche, échographie du carnet |
+| 2026-11-21 04:40 | SSP_194 | DX.11.json | 116.73 Ko (119536 o) | PASS | tension, brassard adapté |
+| 2026-11-21 04:40 | SSP_194 | DX.12.json | 110.54 Ko (113195 o) | PASS | souffle, échocardiographie |
+| 2026-11-21 04:40 | SSP_194 | DX.13.json | 112.5 Ko (115197 o) | PASS | maltraitance, mise à l'abri |
+| 2026-11-21 04:40 | SSP_194 | DX.14.json | 109.4 Ko (112022 o) | PASS | canal artériel, alprostadil sans mg inventé |
+| 2026-11-21 04:40 | SSP_194 | DX.15.json | 114.17 Ko (116910 o) | PASS | idées suicidaires, 147 et 144 |
+| 2026-11-21 04:41 | SSP_194 | DX.16.json | 104.92 Ko (107437 o) | PASS | leucocorie, rétinoblastome |
+| 2026-11-21 04:41 | SSP_194 | DX.17.json | 109.83 Ko (112466 o) | PASS | anorexie, pas de dose inventée |
+| 2026-11-21 04:41 | SSP_194 | DX.18.json | 108.46 Ko (111060 o) | PASS | cassure de courbe |
+| 2026-11-21 04:41 | SSP_194 | NOTIONS.json | 18 cours | PASS | notions du plan, couverture vérifiée |
