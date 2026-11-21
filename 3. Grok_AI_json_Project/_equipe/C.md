@@ -85,3 +85,4 @@
 - 04:17 Europe/Zurich — SSP_203 — DX.11.json — 95.71 Ko — PASS (adrénaline 0,01 mg/kg, max 0,5 mg, 0,15 mg < 30 kg, 0,3 mg si 30–50 kg ; pas de volume de NaCl inventé)
 - 04:18 Europe/Zurich — SSP_203 — DX.12.json — 92.67 Ko — PASS (vagal : allonger, pas d'adrénaline, pas de bilan sanguin systématique)
 - 04:19 Europe/Zurich — SSP_203 — DX.13.json — 96.42 Ko — PASS (Guillain-Barré, intubation si CV < 15–20 mL/kg, IgIV ou plasmaphérèse sans dose inventée)
+- 04:20 Europe/Zurich — SSP_203 — DX.14.json — 96.82 Ko — PASS (colchicine ESC 2015 : 0,5 mg/j si < 70 kg, 0,5 mg x 2 si ≥ 70 kg ; ibuprofène 600 mg/8 h si péricardite)
