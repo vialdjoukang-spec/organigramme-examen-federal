@@ -78,3 +78,5 @@
 - 2026-11-21 04:31 Europe/Zurich | SSP_221 | DX.4.json | 101.24 Ko (103670 o) | PASS
 
 - 2026-11-21 04:36 Europe/Zurich | SSP_221 | DX.5.json | 101.69 Ko (104131 o) | PASS
+
+- 2026-11-21 04:39 Europe/Zurich | SSP_221 | DX.5.json | 107.25 Ko (109827 o) | PASS | doses Lamictal 52853 et Orfiril long 54268
