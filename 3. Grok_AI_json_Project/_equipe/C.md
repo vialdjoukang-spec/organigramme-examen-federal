@@ -37,3 +37,4 @@
 - 03:25 Europe/Zurich — SSP_206 — DX.2.json — 97.71 Ko — PASS (Chlamydia et gonocoque, doxycycline 100 mg 2×/j 7 jours, ceftriaxone 1 g)
 - 03:15 Europe/Zurich — SSP_206 — DX.3.json — 107.35 Ko — PASS (conseil préconceptionnel, acide folique 0,4 mg, tératogènes arrêtés avant la contraception)
 - 03:18 Europe/Zurich — SSP_206 — DX.4.json — 97.63 Ko — PASS (infertilité du couple, bilan des deux à 12 mois ou 6 mois après 35 ans)
+- 03:21 Europe/Zurich — SSP_206 — DX.5.json — 94.95 Ko — PASS (dysfonction érectile, marqueur cardiovasculaire, jamais d'IPDE5 avec un nitré)
