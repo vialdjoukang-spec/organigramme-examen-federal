@@ -94,3 +94,4 @@
 - 04:35 Europe/Zurich — SSP_215 — DX.3.json — 96.34 Ko — PASS (Wegovy 68798 : 0,25 puis 0,5, 1, 1,7, 2,4 mg/sem., 7,2 mg seulement si IMC ≥ 30 après 4 sem. à 2,4 ; Mounjaro 69696 : 2,5 mg puis +2,5 mg/4 sem., max 15 mg ; chirurgie dès IMC 35)
 - 04:36 Europe/Zurich — SSP_215 — DX.4.json — 96.92 Ko — PASS (fluoxétine Fluctine Swissmedic 46347, mars 2023, 60 mg/j dans la boulimie, pas avant 18 ans, dose plus faible si foie, rein, petit poids ou polymédication ; K < 3,0 = ECG)
 - 04:40 Europe/Zurich — SSP_215 — DX.5.json — 101.58 Ko — PASS (HUG 06.11.2024 Benerva 300 mg IV 3 j avant calories, plafond AIPS 25636 à 200 mg IV signalé ; phosphate 0,3 ou 0,6 mmol/kg ; Kaliumphosphat 45880 ; CHUV 2018 cible 35 kcal/kg, départ à la moitié ; RMS 2015 haut risque 5 kcal/kg)
+- 04:40 Europe/Zurich — SSP_215 — DX.6.json — 101.75 Ko — PASS (pas de chirurgie ; dose d'ISRS anti-obsessionnelle non trouvée, Fluctine 46347 ne liste pas la dysmorphophobie)
