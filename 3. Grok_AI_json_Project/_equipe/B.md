@@ -25,3 +25,4 @@
 | 2026-11-21 04:08 | SSP_038 | DX.6.json | 106.21 Ko (108762 o) | PASS | doses urinaires retirées du texte |
 | 2026-11-21 04:08 | SSP_038 | DX.8.json | 109.04 Ko (111653 o) | PASS | doses d'érysipèle, de zona et d'urticaire retirées |
 | 2026-11-21 04:12 | SSP_038 | DX.9.json | 103.35 Ko (105834 o) | PASS | biopsie, paracétamol 56318, pas d'antibiotique |
+| 2026-11-21 04:11 | SSP_038 | DX.10.json | 110.0 Ko (112642 o) | PASS | IgG4, biopsie, aucun milligramme inventé |
