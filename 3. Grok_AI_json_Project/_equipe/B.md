@@ -58,3 +58,20 @@
 | 2026-11-21 04:41 | SSP_194 | DX.17.json | 109.83 Ko (112466 o) | PASS | anorexie, pas de dose inventée |
 | 2026-11-21 04:41 | SSP_194 | DX.18.json | 108.46 Ko (111060 o) | PASS | cassure de courbe |
 | 2026-11-21 04:41 | SSP_194 | NOTIONS.json | 18 cours | PASS | notions du plan, couverture vérifiée |
+| 2026-11-21 04:54 | SSP_200 | Phase_A.json | 98.65 Ko (101014 o) | PASS | dépendance progressive, vaccins dès 65 ans, plan 2026 |
+| 2026-11-21 04:54 | SSP_200 | DX.1.json | 108.74 Ko (111354 o) | PASS | démence, Katz, Lawton, directives |
+| 2026-11-21 04:54 | SSP_200 | DX.2.json | 101.21 Ko (103635 o) | PASS | post-chute, TUG, relever du sol |
+| 2026-11-21 04:54 | SSP_200 | DX.3.json | 109.62 Ko (112246 o) | PASS | insuffisance cardiaque, poids, diurétique sans mg lu |
+| 2026-11-21 04:54 | SSP_200 | DX.4.json | 107.38 Ko (109960 o) | PASS | BPCO, prednisone 40 mg dans la bande 29349, O2 88-92 |
+| 2026-11-21 04:54 | SSP_200 | DX.5.json | 106.25 Ko (108800 o) | PASS | Parkinson, ne jamais couper la lévodopa |
+| 2026-11-21 04:54 | SSP_200 | DX.6.json | 106.81 Ko (109374 o) | PASS | dépression du sujet âgé, mg d'antidépresseur non lu |
+| 2026-11-21 04:54 | SSP_200 | DX.7.json | 108.99 Ko (111608 o) | PASS | séquelles d'AVC, récidive d'abord |
+| 2026-11-21 04:54 | SSP_200 | DX.8.json | 108.39 Ko (110990 o) | PASS | arthrite, septique ou cou instable, pas de dose inventée |
+| 2026-11-21 04:54 | SSP_200 | DX.9.json | 99.95 Ko (102347 o) | PASS | hypothyroïdie, microgrammes non lus sur la fiche |
+| 2026-11-21 04:54 | SSP_200 | DX.10.json | 109.5 Ko (112130 o) | PASS | SLA, riluzole sans mg lu |
+| 2026-11-21 04:54 | SSP_200 | DX.11.json | 116.46 Ko (119250 o) | PASS | syndrome de glissement, diagnostic d'exclusion |
+| 2026-11-21 04:54 | SSP_200 | DX.12.json | 115.72 Ko (118500 o) | PASS | crise de l'aidant, lit de répit |
+| 2026-11-21 04:54 | SSP_200 | DX.13.json | 104.75 Ko (107260 o) | PASS | station au sol, réchauffement prudent |
+| 2026-11-21 04:54 | SSP_200 | DX.14.json | 112.68 Ko (115388 o) | PASS | errance, APEA, conduite |
+| 2026-11-21 04:54 | SSP_200 | DX.15.json | 116.83 Ko (119634 o) | PASS | globe et fécalome, macrogol sans mg lu |
+| 2026-11-21 04:54 | SSP_200 | NOTIONS.json | 15 cours | PASS | couverture vérifiée |
