@@ -46,3 +46,8 @@
 - 03:27 Europe/Zurich — SSP_206 — DX.11.json — 100.21 Ko — PASS (prophylaxie post-exposition VIH, première dose sans attendre les sérologies, 28 jours, inutile si U=U vérifié)
 - 03:28 Europe/Zurich — SSP_206 — DX.12.json — 98.47 Ko — PASS (grossesse extra-utérine, pas de retour à la maison, méthotrexate seulement si critères du protocole)
 - 03:30 Europe/Zurich — SSP_206 — DX.11.json — 104.86 Ko — PASS (précision : abstention de PEP seulement si exposition sexuelle et charge virale indétectable documentée et durable, recommandation suisse)
+- 03:32 Europe/Zurich — SSP_206 — DX.13.json — 109.45 Ko — PASS (salpingite, ceftriaxone 1 g, doxycycline et métronidazole 14 jours, test de grossesse obligatoire)
+- 03:32 Europe/Zurich — SSP_206 — DX.14.json — 100.38 Ko — PASS (torsion : détorsion au bloc sans attendre l'échographie si la clinique est typique)
+- 03:32 Europe/Zurich — SSP_206 — DX.15.json — 109.42 Ko — PASS (contraception d'urgence, cuivre 5 jours, ulipristal 30 mg, lévonorgestrel 1,5 mg)
+- 03:32 Europe/Zurich — SSP_206 — DX.16.json — 114.74 Ko — PASS (thrombose sous œstroprogestatif, arrêt de l'œstrogène, relais non œstrogénique)
+- 03:32 Europe/Zurich — SSP_206 — verif_source_json.py 206 — 17/17 PASS, notions 0
