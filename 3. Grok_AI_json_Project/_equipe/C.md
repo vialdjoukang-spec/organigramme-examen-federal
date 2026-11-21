@@ -57,3 +57,4 @@
 - 03:36 Europe/Zurich — SSP_198 — DX.3.json — 99.30 Ko — PASS (IRC méconnue, toujours calculer le DFG, sick days, cristalloïde 500 mL seulement si hypovolémie)
 - 03:39 Europe/Zurich — SSP_198 — DX.4.json — 100.60 Ko — PASS (charge anticholinergique, score ACB ≥ 3, bladder-scan puis sondage si globe)
 - 03:41 Europe/Zurich — SSP_198 — DX.5.json — 97.50 Ko — PASS (non-adhésion, semainier, pas d'arrêt brutal de bêtabloquant, corticoïde ou antiépileptique)
+- 03:42 Europe/Zurich — SSP_198 — DX.6.json — 100.50 Ko — PASS (hyponatrémie médicamenteuse, NaCl 3 % seulement si sévère, plafond +6 à +8 mmol/L par 24 h)
