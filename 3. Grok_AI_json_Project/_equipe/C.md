@@ -104,3 +104,4 @@
 - 04:40 Europe/Zurich — SSP_215 — DX.13.json — 110.18 Ko — PASS (prednisone fulminans non trouvée AIPS/HUG ; Greywal 2017 0,5–1 mg/kg cité à part ; arrêt isotrétinoïne)
 - 04:40 Europe/Zurich — SSP_215 — DX.14.json — 107.58 Ko — PASS (filière coronaire, doses d'antiagrégant non trouvées)
 - 04:40 Europe/Zurich — SSP_215 — DX.15.json — 110.59 Ko — PASS (Pantozol 52710/55551 : 40 mg IV ulcère, pas le protocole hémorragie ; bolus DGVS 2025 80 mg ; antibiothérapie du Boerhaave non trouvée)
+- 04:45 Europe/Zurich — SSP_215 — DX.6, DX.7, DX.8, DX.9, DX.10, DX.12, DX.14, DX.15 — doses ciblées ajoutées, 16/16 PASS (ESC 2023 SCA ; SWAB Boerhaave ; HUG/CHUV agitation ; NICE CG31 et Phillips 2002 hors-AMM ; ESE/ES 2024 décroissance ; JCEM 2019 clomifène/hCG hors-AMM ; SIAMS tamoxifène hors-AMM ; Litfulo 69695 et Olumiant européen)
