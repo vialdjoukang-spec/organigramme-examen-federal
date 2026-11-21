@@ -52,3 +52,4 @@
 | 2026-11-21 04:50 | SSP_204 | DX.13.json | 117.91 Ko (120739 o) | PASS | stimulants, benzodiazépine d'abord, pas de bêtabloquant pur |
 | 2026-11-21 04:50 | SSP_204 | DX.14.json | 117.0 Ko (119810 o) | PASS | infarctus, ECG 10 min, coronarographie 90 à 120 min |
 | 2026-11-21 04:50 | SSP_204 | DX.15.json | 117.49 Ko (120310 o) | PASS | nourrisson B12, microgramme non lu |
+| 2026-11-21 04:50 | SSP_204 | NOTIONS.json | 15 cours | PASS | couverture vérifiée |
