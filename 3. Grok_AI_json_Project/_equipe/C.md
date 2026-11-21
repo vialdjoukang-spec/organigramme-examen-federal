@@ -99,3 +99,4 @@
 - 04:55 Europe/Zurich — SSP_211 — DX.8.json — 99.55 Ko — PASS (NaCl 0,9 %, Diflucan 49503 sans schéma de muguet)
 - 04:55 Europe/Zurich — SSP_211 — DX.9.json — 100.33 Ko — PASS (présence et aumônerie)
 - 04:55 Europe/Zurich — SSP_211 — DX.10.json — 101.62 Ko — PASS (constat et accompagnement)
+- 04:55 Europe/Zurich — SSP_211 — DX.11.json — 101.05 Ko — PASS (midazolam BIGORIO 2005 et HUG, Dormicum 45163 hors indication)
