@@ -39,3 +39,4 @@
 | 2026-11-21 04:17 | SSP_013 | DX.3.json | 95304 o (93.07 Ko) | PASS | seuils RS 741.13, OCR 2a, OOCCR art. 34 |
 | 2026-11-21 04:19 | SSP_013 | DX.4.json | 96031 o (93.78 Ko) | PASS | intoxication, 114/995, pas d'antidote inventé |
 | 2026-11-21 04:21 | SSP_013 | DX.5.json | 94941 o (92.72 Ko) | PASS | naloxone 56952 si vivant, rien si mort |
+| 2026-11-21 04:23 | SSP_013 | DX.5.json | 92429 o (90.26 Ko) | PASS | Nyxoid 66930, MonAM 188 en 2024 |
