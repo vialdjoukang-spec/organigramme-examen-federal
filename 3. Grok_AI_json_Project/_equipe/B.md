@@ -39,3 +39,4 @@
 | 2026-11-21 04:50 | SSP_204 | Phase_A.json | 103.36 Ko (105842 o) | PASS | orientation, plan vaccinal adulte 2026 |
 | 2026-11-21 04:50 | SSP_204 | DX.1.json | 95.68 Ko (97980 o) | PASS | sédentarité, 150 min, pas de paracétamol |
 | 2026-11-21 04:50 | SSP_204 | DX.2.json | 99.76 Ko (102158 o) | PASS | tabac, substitution, milligramme non lu |
+| 2026-11-21 04:50 | SSP_204 | DX.3.json | 99.43 Ko (101812 o) | PASS | méditerranéen, sel sous 5 g |
