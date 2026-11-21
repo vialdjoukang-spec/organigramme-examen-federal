@@ -48,3 +48,4 @@
 | 2026-11-21 04:50 | SSP_204 | DX.9.json | 115.66 Ko (118434 o) | PASS | précarité, subside, générique |
 | 2026-11-21 04:50 | SSP_204 | DX.10.json | 116.24 Ko (119027 o) | PASS | B12 végan, microgramme non lu |
 | 2026-11-21 04:50 | SSP_204 | DX.11.json | 102.41 Ko (104871 o) | PASS | sevrage, thiamine avant glucose, mg non lu |
+| 2026-11-21 04:50 | SSP_204 | DX.12.json | 116.31 Ko (119099 o) | PASS | vapotage, corticoïde sans mg lu |
