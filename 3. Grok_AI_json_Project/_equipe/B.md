@@ -37,3 +37,4 @@
 | 2026-11-21 04:40 | SSP_038 | DX.12.json | 101.2 Ko (103628 o) | PASS | mannitol 1–2 g/kg, AIPS 36796 |
 | 2026-11-21 04:40 | SSP_038 | DX.13.json | 114.94 Ko (117701 o) | PASS | empirique pip-tazo 4,5 g 4×/j puis pénicilline si strepto A |
 | 2026-11-21 04:50 | SSP_204 | Phase_A.json | 103.36 Ko (105842 o) | PASS | orientation, plan vaccinal adulte 2026 |
+| 2026-11-21 04:50 | SSP_204 | DX.1.json | 95.68 Ko (97980 o) | PASS | sédentarité, 150 min, pas de paracétamol |
