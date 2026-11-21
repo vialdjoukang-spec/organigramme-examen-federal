@@ -56,3 +56,4 @@
 | 2026-11-21 04:40 | SSP_194 | DX.15.json | 114.17 Ko (116910 o) | PASS | idées suicidaires, 147 et 144 |
 | 2026-11-21 04:41 | SSP_194 | DX.16.json | 104.92 Ko (107437 o) | PASS | leucocorie, rétinoblastome |
 | 2026-11-21 04:41 | SSP_194 | DX.17.json | 109.83 Ko (112466 o) | PASS | anorexie, pas de dose inventée |
+| 2026-11-21 04:41 | SSP_194 | DX.18.json | 108.46 Ko (111060 o) | PASS | cassure de courbe |
