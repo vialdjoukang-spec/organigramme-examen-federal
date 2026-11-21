@@ -8,6 +8,16 @@ Rules:
   E  (complet|partiel) normal+patho files exist, are JPEG, long side <= 1024
   E  licence in whitelist (CC0, Public domain/PD, CC BY x.y, CC BY-SA x.y); author + source_url present
   E  complet => modality, plane (and sequence when given) identical normal vs patho; modality matches cliché
+  E  complet => image normale présente
+  E  complet => les deux clichés sont d'un adulte (champ adulte = oui) et chaque oui a une adulte_preuve
+       (légende ou signe de maturité : physes soudées, dentition définitive, sutures ou morphologie adultes).
+  E  complet => age_ans des deux côtés, écart d'au plus 15 ans ; anonymisation_verifiee = oui des deux côtés
+  E  complet => anatomie normale d'au moins 3 couches (contour ≥ 8 points, description) et indices diagnostic/région/signe
+  E  complet et région bassin, sein ou organes génitaux => sexe M/F écrit et identique des deux côtés
+  E  dans ces régions, sexes établis et discordants => erreur
+  E  complet => contour rectangulaire de ≤ 5 points interdit
+  E  polygone trop régulier (variance des rayons et des angles quasi nulle) interdit
+  E  lésion non ponctuelle : au moins 8 sommets distincts
   E  complet => >= 1 arrow role=principale
   E  every arrow: tip/from in [0,1], label, role in whitelist, evidence, confidence in haute|moyenne|basse
   E  every arrow: contour = polygone fermé (dernier point = premier, ≥ 3 sommets distincts, chaque point dans [0,1])
@@ -16,7 +26,7 @@ Rules:
   E  introuvable => queries non-empty
   W  partiel without pair_match explanation; pixel identical normal/patho; caption_source missing
 """
-import json, os, re, sys, glob
+import json, math, os, re, sys, glob
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 WL = re.compile(r"^(cc0( 1\.0)?|public domain|pd(-[\w-]+)?|cc[ -]by(-sa)?[ -]\d\.\d( [a-z]{2,})?|cc[ -]by(-sa)?)$", re.I)
 ROLES = {"principale", "associee", "secondaire", "complication"}
@@ -67,6 +77,152 @@ def _pt(v):
         return None
     return (float(v[0]), float(v[1]))
 
+SEX_REG = re.compile(
+    r"\b(seins?|mammaire|mammographie|breast|utérus|uterus|utérin\w*|uterin\w*|ovaires?|"
+    r"prostate|testicules?|pénis|penis|vagin\w*|vulve|scrotum|endomètre|endometre|"
+    r"génitaux|genitaux|cervix|grossesse|placenta)\b|bassin(?!\s+versant)",
+    re.I)
+
+def sexe_requis(m, dx):
+    """Vial, 14.11.2026 10:48 : le sexe concordant n'est exigé que là où il change l'anatomie."""
+    if (dx or {}).get("region") == "Pelvis":
+        return True
+    blob = " ".join([
+        (dx or {}).get("dx") or "", (dx or {}).get("cliche") or "",
+        m.get("dx") or "", m.get("cliche") or "",
+        (m.get("normal") or {}).get("region") or "",
+        (m.get("patho") or {}).get("region") or "",
+    ])
+    return bool(SEX_REG.search(blob))
+
+def age_ans(side):
+    v = side.get("age_ans")
+    if isinstance(v, bool) or not isinstance(v, (int, float)):
+        return None
+    if not 0 < v < 120:
+        return None
+    return float(v)
+
+
+def ages_proches(n, p):
+    a, b = age_ans(n), age_ans(p)
+    return a is not None and b is not None and abs(a - b) <= 15
+
+
+def adulte_code(v):
+    """oui, non, '' si absent ou « À vérifier », None si illisible."""
+    s = norm(v)
+    if s in ("oui", "adulte", "adult", "yes"):
+        return "oui"
+    if s in ("non", "enfant", "child", "no"):
+        return "non"
+    if not s or s in ("à vérifier", "a vérifier", "a verifier"):
+        return ""
+    return None
+
+def sex_code(v):
+    """M, F, '' si absent ou « À vérifier », None si la valeur n'est pas reconnue."""
+    s = norm(v)
+    if s in ("m", "h", "homme", "masculin", "male", "man"):
+        return "M"
+    if s in ("f", "femme", "feminin", "féminin", "female", "woman"):
+        return "F"
+    if not s or s in ("à vérifier", "a vérifier", "a verifier"):
+        return ""
+    return None
+
+def coarse_rectangle(contour):
+    """Rectangle (4 coins, angles droits) stocké en 5 points ou moins, fermeture comprise."""
+    if not isinstance(contour, list) or not (4 <= len(contour) <= 5):
+        return False
+    pts = []
+    for p in contour:
+        q = _pt(p)
+        if q is None:
+            return False
+        pts.append(q)
+    if math.hypot(pts[0][0] - pts[-1][0], pts[0][1] - pts[-1][1]) <= 0.015:
+        verts = pts[:-1]
+    else:
+        verts = pts[:]
+    uniq = []
+    for x, y in verts:
+        if not any(abs(x - a) < 1e-4 and abs(y - b) < 1e-4 for a, b in uniq):
+            uniq.append((x, y))
+    if len(uniq) != 4:
+        return False
+    cx = sum(p[0] for p in uniq) / 4
+    cy = sum(p[1] for p in uniq) / 4
+    uniq.sort(key=lambda p: math.atan2(p[1] - cy, p[0] - cx))
+    for i in range(4):
+        ax = uniq[i][0] - uniq[i - 1][0]
+        ay = uniq[i][1] - uniq[i - 1][1]
+        bx = uniq[(i + 1) % 4][0] - uniq[i][0]
+        by = uniq[(i + 1) % 4][1] - uniq[i][1]
+        na, nb = math.hypot(ax, ay), math.hypot(bx, by)
+        if na < 1e-6 or nb < 1e-6:
+            return False
+        if abs((ax * bx + ay * by) / (na * nb)) > 0.25:
+            return False
+    return True
+
+def _angles(verts):
+    ang = []
+    n = len(verts)
+    for i in range(n):
+        ax, ay = verts[i][0] - verts[i - 1][0], verts[i][1] - verts[i - 1][1]
+        bx, by = verts[(i + 1) % n][0] - verts[i][0], verts[(i + 1) % n][1] - verts[i][1]
+        na, nb = math.hypot(ax, ay), math.hypot(bx, by)
+        if na < 1e-8 or nb < 1e-8:
+            continue
+        cos = max(-1.0, min(1.0, (ax * bx + ay * by) / (na * nb)))
+        ang.append(math.acos(cos))
+    return ang
+
+def too_regular(contour):
+    """Variance des rayons et des angles quasi nulle : polygone régulier, pas une silhouette."""
+    if not isinstance(contour, list) or len(contour) < 4:
+        return False
+    pts = []
+    for p in contour:
+        q = _pt(p)
+        if q is None:
+            return False
+        pts.append(q)
+    if math.hypot(pts[0][0] - pts[-1][0], pts[0][1] - pts[-1][1]) <= 0.015:
+        verts = pts[:-1]
+    else:
+        verts = pts
+    uniq = []
+    for x, y in verts:
+        if not any(abs(x - a) < 1e-3 and abs(y - b) < 1e-3 for a, b in uniq):
+            uniq.append((x, y))
+    if len(uniq) < 6:
+        return False
+    cx = sum(p[0] for p in uniq) / len(uniq)
+    cy = sum(p[1] for p in uniq) / len(uniq)
+    radii = [math.hypot(x - cx, y - cy) for x, y in uniq]
+    mean = sum(radii) / len(radii)
+    if mean < 1e-6:
+        return False
+    var_r = sum((r - mean) ** 2 for r in radii) / len(radii)
+    cv = math.sqrt(var_r) / mean
+    ang = _angles(uniq)
+    if len(ang) < 6:
+        return False
+    mean_a = sum(ang) / len(ang)
+    var_a = sum((a - mean_a) ** 2 for a in ang) / len(ang)
+    return cv < 0.045 and math.sqrt(var_a) < 0.12
+
+def ponctuelle(contour):
+    """Petite lésion : le cadre du contour tient dans 4 % de l'image."""
+    pts = [_pt(p) for p in contour if _pt(p)]
+    if len(pts) < 3:
+        return True
+    xs = [p[0] for p in pts]
+    ys = [p[1] for p in pts]
+    return max(max(xs) - min(xs), max(ys) - min(ys)) < 0.04
+
 def contour_ok(contour, errs, tag):
     """Polygone fermé, ≥ 3 sommets distincts, chaque point dans l'image (0–1)."""
     if not isinstance(contour, list) or len(contour) < 4:
@@ -103,7 +259,10 @@ def check(m, dx, errs, warns):
         if not side:
             if st == "partiel":
                 warns.append(f"{tag}: absent (partiel)"); continue
-            errs.append(f"{tag}: bloc absent"); continue
+            errs.append(f"{tag}: bloc absent")
+            if st == "complet" and tag == "normal":
+                errs.append("complet sans image normale")
+            continue
         img_check(side.get("file"), errs, tag)
         lic = (side.get("license") or "").strip()
         if not WL.match(lic):
@@ -124,12 +283,55 @@ def check(m, dx, errs, warns):
         fa, fb = os.path.join(ROOT, n.get("file", "")), os.path.join(ROOT, p.get("file", ""))
         if os.path.isfile(fa) and os.path.isfile(fb) and open(fa, "rb").read() == open(fb, "rb").read():
             errs.append("normal et patho identiques (même fichier)")
+    sn, sp = sex_code(n.get("sex")), sex_code(p.get("sex"))
+    requis = sexe_requis(m, dx)
+    if sn is None or sp is None:
+        errs.append("sexe illisible (attendu : M, F ou « À vérifier »)")
+    elif requis and sn and sp and sn != sp:
+        errs.append(f"sexe discordant : normal {sn} ≠ patho {sp}")
+    elif requis and st == "complet" and (not sn or not sp or sn != sp):
+        errs.append("complet : sexe requis (bassin, sein ou organes génitaux) non concordant")
+    elif (not requis) and sn and sp and sn != sp:
+        warns.append(f"sexe différent hors région sexuelle : normal {sn} ≠ patho {sp}")
+    an, ap = adulte_code(n.get("adulte")), adulte_code(p.get("adulte"))
+    if an is None or ap is None:
+        errs.append("adulte illisible (attendu : oui, non ou « À vérifier »)")
+    elif st == "complet" and (an != "oui" or ap != "oui"):
+        errs.append("complet : les deux clichés doivent être ceux d'un adulte")
+    elif st == "complet":
+        for tag, side in (("normal", n), ("patho", p)):
+            preuve = (side.get("adulte_preuve") or "").strip()
+            if not preuve or norm(preuve) in ("à vérifier", "a vérifier", "a verifier"):
+                errs.append(f"complet : {tag} adulte sans adulte_preuve")
+        if norm(n.get("anonymisation_verifiee")) not in ("oui", "yes"):
+            errs.append("complet : anonymisation non vérifiée (normale)")
+        if norm(p.get("anonymisation_verifiee")) not in ("oui", "yes"):
+            errs.append("complet : anonymisation non vérifiée (pathologique)")
+        if not ages_proches(n, p):
+            errs.append("complet : âges non comparables (écart > 15 ans ou âge manquant)")
+        anat = n.get("anatomie")
+        if not isinstance(anat, list) or len(anat) < 3:
+            errs.append("complet : anatomie par couches absente (3 structures au moins)")
+        else:
+            for i, stc in enumerate(anat, 1):
+                if not isinstance(stc, dict) or not str(stc.get("nom") or "").strip() or not str(stc.get("description") or "").strip():
+                    errs.append(f"complet : structure {i} sans nom ou sans description")
+                    break
+                contour = stc.get("contour")
+                if not isinstance(contour, list) or len(contour) < 8:
+                    errs.append(f"complet : structure {i} sans contour d'au moins 8 points")
+                    break
+        ix = p.get("indices") if isinstance(p.get("indices"), dict) else {}
+        for key, label in (("diagnostic", "diagnostic"), ("region", "région"), ("signe", "signe")):
+            if not str(ix.get(key) or "").strip():
+                errs.append(f"complet : accompagnement sans {label}")
     if p and not p.get("caption_source"):
         warns.append("patho: caption_source absent")
     arrows = (p or {}).get("arrows") or []
     if st == "complet" and not any(a.get("role") == "principale" for a in arrows):
         errs.append("complet sans flèche role=principale")
     av = " ".join(m.get("a_verifier") or []).lower()
+    colors = []
     for i, a in enumerate(arrows, 1):
         t = f"flèche {i}"
         if not inunit(a.get("tip")): errs.append(f"{t}: tip hors [0,1] ou absent")
@@ -153,8 +355,31 @@ def check(m, dx, errs, warns):
         elif st == "complet" and norm(dsrc) in ("à vérifier", "a vérifier", "visuel"):
             errs.append(f"{t}: définition non sourcée (complet)")
         contour_ok(a.get("contour"), errs, t)
+        if st == "complet" and coarse_rectangle(a.get("contour")):
+            errs.append(f"{t}: contour rectangulaire (≤ 5 points)")
+        ctn = a.get("contour")
+        if isinstance(ctn, list) and ctn and not ponctuelle(ctn):
+            verts = ctn[:-1] if len(ctn) > 1 else ctn
+            uniq = {(round(p[0], 3), round(p[1], 3)) for p in verts if _pt(p)}
+            if len(uniq) < 8:
+                errs.append(f"{t}: lésion non ponctuelle avec moins de 8 sommets")
+        if too_regular(ctn):
+            errs.append(f"{t}: polygone trop régulier (rayons et angles quasi constants)")
         if c == "basse" and (a.get("label") or "").strip().lower() not in av:
             errs.append(f"{t}: confiance basse mais «{a.get('label')}» absent de a_verifier")
+        col = str(a.get("couleur") or "").strip().upper()
+        if col:
+            colors.append(col)
+    if len(colors) != len(set(colors)):
+        errs.append("couleurs de lésion en double sur la même image")
+    anat_cols = set()
+    for side in (n, p):
+        for stc in (side or {}).get("anatomie") or []:
+            if isinstance(stc, dict) and stc.get("couleur"):
+                anat_cols.add(str(stc["couleur"]).strip().upper())
+    for col in colors:
+        if col in anat_cols:
+            errs.append(f"couleur de lésion {col} identique à une structure anatomique")
     if st == "partiel" and not (m.get("pair_match") or m.get("a_verifier")):
         warns.append("partiel sans explication (pair_match/a_verifier)")
 
