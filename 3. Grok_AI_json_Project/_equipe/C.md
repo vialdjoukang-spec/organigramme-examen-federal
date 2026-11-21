@@ -51,3 +51,23 @@
 - 03:32 Europe/Zurich — SSP_206 — DX.15.json — 109.42 Ko — PASS (contraception d'urgence, cuivre 5 jours, ulipristal 30 mg, lévonorgestrel 1,5 mg)
 - 03:32 Europe/Zurich — SSP_206 — DX.16.json — 114.74 Ko — PASS (thrombose sous œstroprogestatif, arrêt de l'œstrogène, relais non œstrogénique)
 - 03:32 Europe/Zurich — SSP_206 — verif_source_json.py 206 — 17/17 PASS, notions 0
+- 03:34 Europe/Zurich — SSP_198 — Phase_A.json — 97.57 Ko — PASS (patient polymorbide et polymédiqué, liste unique, déprescription d'une ou deux molécules à la fois)
+- 03:34 Europe/Zurich — SSP_198 — DX.1.json — 99.46 Ko — PASS (polymédication ≥ 5, STOPP/START, triple whammy, déprescription une ou deux molécules à la fois)
+- 03:35 Europe/Zurich — SSP_198 — DX.2.json — 100.48 Ko — PASS (hypotension orthostatique iatrogène, chute ≥ 20/10 mmHg, réduction des médicaments en cause)
+- 03:36 Europe/Zurich — SSP_198 — DX.3.json — 99.30 Ko — PASS (IRC méconnue, toujours calculer le DFG, sick days, cristalloïde 500 mL seulement si hypovolémie)
+- 03:39 Europe/Zurich — SSP_198 — DX.4.json — 100.60 Ko — PASS (charge anticholinergique, score ACB ≥ 3, bladder-scan puis sondage si globe)
+- 03:41 Europe/Zurich — SSP_198 — DX.5.json — 97.50 Ko — PASS (non-adhésion, semainier, pas d'arrêt brutal de bêtabloquant, corticoïde ou antiépileptique)
+- 03:42 Europe/Zurich — SSP_198 — DX.6.json — 100.50 Ko — PASS (hyponatrémie médicamenteuse, NaCl 3 % seulement si sévère, plafond +6 à +8 mmol/L par 24 h)
+- 03:44 Europe/Zurich — SSP_198 — DX.7.json — 106.45 Ko — PASS (fragilité de Fried, évaluation gériatrique, pré-fragilité partiellement réversible)
+- 03:45 Europe/Zurich — SSP_198 — DX.6.json — 101.06 Ko — PASS (ajout ciblé : bolus NaCl 3 % 150 mL en 20 min, répétable 2 à 3 fois, natrémie de contrôle, recommandations européennes 2014)
+- 03:46 Europe/Zurich — SSP_198 — DX.8.json — 102.72 Ko — PASS
+- 03:47 Europe/Zurich — SSP_198 — DX.9.json — 105.31 Ko — PASS
+- 03:47 Europe/Zurich — SSP_198 — DX.10.json — 100.95 Ko — PASS
+- 03:48 Europe/Zurich — SSP_198 — DX.11.json — 105.87 Ko — PASS
+- 03:49 Europe/Zurich — SSP_198 — DX.12.json — 101.18 Ko — PASS
+- 03:49 Europe/Zurich — SSP_198 — DX.13.json — 100.02 Ko — PASS
+- 03:49 Europe/Zurich — SSP_198 — DX.14.json — 118.10 Ko — PASS
+- 03:50 Europe/Zurich — SSP_198 — DX.15.json — 103.45 Ko — PASS
+- 03:55 Europe/Zurich — SSP_198 — DX.11, DX.13, DX.15 — doses antidotes ciblées — PASS (Praxbind 5 g ; Ondexxya 400/800 mg ; Beriplex 25/35/50 UI/kg ; Fab 1–2 amp. 40 mg ; cyproheptadine et formule Fab non trouvées)
+- 03:57 Europe/Zurich — SSP_198 — formule exacte « non trouvé, sources consultées » sur Fab, PPSB anti-Xa et cyproheptadine — PASS
+- 03:59 Europe/Zurich — SSP_198 — Fab HUG 0,31 mg/kg par nmol/L ; cyproheptadine HUG 12 mg puis 2 mg/2 h ; PPSB anti-Xa HUG 25–50 UI/kg et SFAR 50 UI/kg — PASS
