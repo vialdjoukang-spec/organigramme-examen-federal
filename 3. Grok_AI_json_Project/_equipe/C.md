@@ -52,3 +52,4 @@
 - 03:32 Europe/Zurich — SSP_206 — DX.16.json — 114.74 Ko — PASS (thrombose sous œstroprogestatif, arrêt de l'œstrogène, relais non œstrogénique)
 - 03:32 Europe/Zurich — SSP_206 — verif_source_json.py 206 — 17/17 PASS, notions 0
 - 04:01 Europe/Zurich — SSP_203 — Phase_A.json — 118.61 Ko — PASS
+- 04:02 Europe/Zurich — SSP_203 — DX.1.json — 100.41 Ko — PASS
