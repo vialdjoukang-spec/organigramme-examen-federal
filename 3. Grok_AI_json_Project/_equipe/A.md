@@ -45,3 +45,4 @@
 | 2026-11-21 04:27 | SSP_013 | DX.7.json | 94963 o (92.74 Ko) | PASS | arme à feu, OFS 171 dont 162 hommes |
 | 2026-11-21 04:30 | SSP_013 | DX.8.json | 93746 o (91.55 Ko) | PASS | arme blanche, nombre non vérifié |
 | 2026-11-21 04:31 | SSP_013 | DX.9.json | 92366 o (90.20 Ko) | PASS | CO, nombre non vérifié, pas de caisson chiffré |
+| 2026-11-21 04:33 | SSP_013 | DX.10.json | 94571 o (92.35 Ko) | PASS | feu, Cyanokit 60539 si vivant |
