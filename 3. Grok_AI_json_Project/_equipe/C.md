@@ -91,3 +91,4 @@
 - 04:29 Europe/Zurich — SSP_215 — DX.1.json — 90.70 Ko — PASS (insatisfaction normale, SCOFF si doute, pas de régime ni de dose)
 - 04:31 Europe/Zurich — SSP_215 — DX.2.json — 92.32 Ko — PASS (acné vulgaire par paliers, isotrétinoïne seulement si sévère, pas de mg inventé)
 - 04:33 Europe/Zurich — SSP_215 — DX.2.json — 96.83 Ko — PASS (doses AIPS : Differin 0,1 % 1×/j Swissmedic 54731 ; Airol 0,05 % 38008 ; Benzac 5 % 45185 ; Tetralysal 408 mg 1×/j max 12 sem. 56853 ; Curakne 0,5 puis 0,5–1 mg/kg, cumul 120 mg/kg, PPP, 56885 ; doxycycline acné HUG 50–100 mg 1–2×/j 6–12 sem. ; prednisone fulminans non trouvé AIPS/HUG, Greywal 2017 cité à part)
+- 04:35 Europe/Zurich — SSP_215 — DX.3.json — 96.34 Ko — PASS (Wegovy 68798 : 0,25 puis 0,5, 1, 1,7, 2,4 mg/sem., 7,2 mg seulement si IMC ≥ 30 après 4 sem. à 2,4 ; Mounjaro 69696 : 2,5 mg puis +2,5 mg/4 sem., max 15 mg ; chirurgie dès IMC 35)
