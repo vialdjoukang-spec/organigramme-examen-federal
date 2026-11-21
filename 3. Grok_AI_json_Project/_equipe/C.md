@@ -91,3 +91,4 @@
 - 04:49 Europe/Zurich — SSP_211 — Phase_A.json — 93.58 Ko — PASS (Zometa 56257, 4 mg/15 min, pas d'ajustement si créatinine < 400 ; NICE NG234 dexaméthasone 16 mg ; Fortecortin 48670 ; BIGORIO 2005 et HUG midazolam ; Dormicum comprimés 45163 hors indication hémorragie)
 - 04:55 Europe/Zurich — SSP_211 — DX.1.json — 91.10 Ko — PASS (douleur, morphine reconnue, fentanyl non dosé)
 - 04:55 Europe/Zurich — SSP_211 — DX.2.json — 100.76 Ko — PASS (BIGORIO 2003 morphine 5 mg/4 h, hors-AMM dyspnée)
+- 04:55 Europe/Zurich — SSP_211 — DX.3.json — 100.28 Ko — PASS (Buscopan 20–40 mg, max 100 mg, râles hors-AMM)
