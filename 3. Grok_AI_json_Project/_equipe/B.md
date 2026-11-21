@@ -62,3 +62,4 @@
 | 2026-11-21 04:54 | SSP_200 | DX.1.json | 108.74 Ko (111354 o) | PASS | démence, Katz, Lawton, directives |
 | 2026-11-21 04:54 | SSP_200 | DX.2.json | 101.21 Ko (103635 o) | PASS | post-chute, TUG, relever du sol |
 | 2026-11-21 04:54 | SSP_200 | DX.3.json | 109.62 Ko (112246 o) | PASS | insuffisance cardiaque, poids, diurétique sans mg lu |
+| 2026-11-21 04:54 | SSP_200 | DX.4.json | 107.38 Ko (109960 o) | PASS | BPCO, prednisone 40 mg dans la bande 29349, O2 88-92 |
