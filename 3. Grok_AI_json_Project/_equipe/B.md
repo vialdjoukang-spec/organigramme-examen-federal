@@ -41,3 +41,4 @@
 | 2026-11-21 04:40 | SSP_194 | Phase_A.json | 112.92 Ko (115630 o) | PASS | calendrier OFSP/CFV 2026, schéma 2+1 |
 | 2026-11-21 04:40 | SSP_194 | DX.1.json | 114.91 Ko (117664 o) | PASS | croissance normale et doses du plan 2026 |
 | 2026-11-21 04:40 | SSP_194 | DX.2.json | 101.7 Ko (104145 o) | PASS | amblyopie, Bruckner, adressage |
+| 2026-11-21 04:40 | SSP_194 | DX.3.json | 108.39 Ko (110995 o) | PASS | carie, dentifrice fluoré du plan |
