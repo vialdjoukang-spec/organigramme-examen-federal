@@ -46,3 +46,4 @@
 | 2026-11-21 04:30 | SSP_013 | DX.8.json | 93746 o (91.55 Ko) | PASS | arme blanche, nombre non vérifié |
 | 2026-11-21 04:31 | SSP_013 | DX.9.json | 92366 o (90.20 Ko) | PASS | CO, nombre non vérifié, pas de caisson chiffré |
 | 2026-11-21 04:33 | SSP_013 | DX.10.json | 94571 o (92.35 Ko) | PASS | feu, Cyanokit 60539 si vivant |
+| 2026-11-21 04:34 | SSP_013 | DX.11.json | 95742 o (93.50 Ko) | PASS | électrocution, OIBT 30 mA article non lu |
