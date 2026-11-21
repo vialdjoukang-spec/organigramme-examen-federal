@@ -47,3 +47,4 @@
 | 2026-11-21 04:46 | SSP_195 | DX.8.json | 108.61 Ko (111219 o) | PASS | Diogène, protection si danger |
 | 2026-11-21 04:46 | SSP_195 | DX.9.json | 113.73 Ko (116462 o) | PASS | atteinte sexuelle, UMV, pas d'examen isolé |
 | 2026-11-21 04:46 | SSP_195 | DX.10.json | 114.81 Ko (117562 o) | PASS | Bateman, paracétamol 56318, max 4 g |
+| 2026-11-21 04:46 | SSP_195 | DX.11.json | 114.04 Ko (116781 o) | PASS | choc sur escarre, pip-tazo 58151, noradrénaline non chiffrée |
