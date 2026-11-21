@@ -95,3 +95,4 @@
 - 04:36 Europe/Zurich — SSP_215 — DX.4.json — 96.92 Ko — PASS (fluoxétine Fluctine Swissmedic 46347, mars 2023, 60 mg/j dans la boulimie, pas avant 18 ans, dose plus faible si foie, rein, petit poids ou polymédication ; K < 3,0 = ECG)
 - 04:40 Europe/Zurich — SSP_215 — DX.5.json — 101.58 Ko — PASS (HUG 06.11.2024 Benerva 300 mg IV 3 j avant calories, plafond AIPS 25636 à 200 mg IV signalé ; phosphate 0,3 ou 0,6 mmol/kg ; Kaliumphosphat 45880 ; CHUV 2018 cible 35 kcal/kg, départ à la moitié ; RMS 2015 haut risque 5 kcal/kg)
 - 04:40 Europe/Zurich — SSP_215 — DX.6.json — 101.75 Ko — PASS (pas de chirurgie ; dose d'ISRS anti-obsessionnelle non trouvée, Fluctine 46347 ne liste pas la dysmorphophobie)
+- 04:40 Europe/Zurich — SSP_215 — DX.7.json — 105.71 Ko — PASS (Regaine 5 % Swissmedic 62446, 1 g 2×/j homme, max 2 g ; Finacapil 58867 et Propecia 54322, 1 mg/j homme ; anti-JAK non trouvé)
