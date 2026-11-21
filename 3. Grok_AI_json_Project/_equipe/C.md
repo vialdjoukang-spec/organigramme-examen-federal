@@ -17,3 +17,4 @@
 - 02:30 Europe/Zurich — SSP_035 — verif_source_json.py 35 — 16/16 PASS, notions 0
 - 02:45 Europe/Zurich — SSP_037 — Phase_A.json — 98.99 Ko — PASS (orientation du gonflement du visage, des lèvres ou du cou ; NOTIONS.json créé, 15 entités)
 - 02:50 Europe/Zurich — SSP_037 — DX.1.json — 96.88 Ko — PASS (adénopathie cervicale réactionnelle)
+- 02:55 Europe/Zurich — SSP_037 — DX.2.json — 97.86 Ko — PASS (abcès dentaire, drainage le jour même)
