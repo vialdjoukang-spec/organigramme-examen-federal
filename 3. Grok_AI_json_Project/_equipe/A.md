@@ -57,3 +57,4 @@
 | 2026-11-21 04:42 | SSP_013 | DX.19.json | 94742 o (92.52 Ko) | PASS | mort suspecte, CPP 253, crémation bloquée |
 | 2026-11-21 04:43 | SSP_013 | DX.20.json | 96764 o (94.50 Ko) | PASS | bébé secoué, APEA, 15-30 % du cours |
 | 2026-11-21 04:44 | SSP_013 | DX.21.json | 100146 o (97.80 Ko) | PASS | cyanure, Cyanokit 60539 si vivant, lactates distincts |
+| 2026-11-21 04:46 | SSP_013 | DX.22.json | 97577 o (95.29 Ko) | PASS | détention, asphyxie positionnelle, saisine, pas de technique |
