@@ -48,3 +48,4 @@
 | 2026-11-21 04:40 | SSP_194 | DX.7.json | 96.88 Ko (99202 o) | PASS | scoliose, Adams, Cobb |
 | 2026-11-21 04:40 | SSP_194 | DX.8.json | 97.76 Ko (100107 o) | PASS | cryptorchidie, chirurgie avant 18 mois |
 | 2026-11-21 04:40 | SSP_194 | DX.9.json | 109.25 Ko (111867 o) | PASS | TSA, pas d'attente |
+| 2026-11-21 04:40 | SSP_194 | DX.10.json | 102.59 Ko (105055 o) | PASS | hanche, échographie du carnet |
