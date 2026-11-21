@@ -37,3 +37,4 @@
 | 2026-11-21 04:40 | SSP_038 | DX.12.json | 101.2 Ko (103628 o) | PASS | mannitol 1–2 g/kg, AIPS 36796 |
 | 2026-11-21 04:40 | SSP_038 | DX.13.json | 114.94 Ko (117701 o) | PASS | empirique pip-tazo 4,5 g 4×/j puis pénicilline si strepto A |
 | 2026-11-21 04:46 | SSP_195 | Phase_A.json | 100.97 Ko (103393 o) | PASS | tri des formes, entretien seul, APEA, vaccins 65 ans |
+| 2026-11-21 04:46 | SSP_195 | DX.1.json | 95.29 Ko (97575 o) | PASS | négligence passive, répit, CMS |
