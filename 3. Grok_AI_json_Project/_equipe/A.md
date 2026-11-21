@@ -55,3 +55,4 @@
 | 2026-11-21 04:40 | SSP_013 | DX.17.json | 93231 o (91.05 Ko) | PASS | embolie gazeuse, Durant, 100 % O2, minutes non trouvées |
 | 2026-11-21 04:41 | SSP_013 | DX.18.json | 101226 o (98.85 Ko) | PASS | café-coronaire, Heimlich, Magill, bol laissé |
 | 2026-11-21 04:42 | SSP_013 | DX.19.json | 94742 o (92.52 Ko) | PASS | mort suspecte, CPP 253, crémation bloquée |
+| 2026-11-21 04:43 | SSP_013 | DX.20.json | 96764 o (94.50 Ko) | PASS | bébé secoué, APEA, 15-30 % du cours |
