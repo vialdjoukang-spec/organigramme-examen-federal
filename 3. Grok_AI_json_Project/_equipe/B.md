@@ -64,3 +64,4 @@
 | 2026-11-21 04:54 | SSP_200 | DX.3.json | 109.62 Ko (112246 o) | PASS | insuffisance cardiaque, poids, diurétique sans mg lu |
 | 2026-11-21 04:54 | SSP_200 | DX.4.json | 107.38 Ko (109960 o) | PASS | BPCO, prednisone 40 mg dans la bande 29349, O2 88-92 |
 | 2026-11-21 04:54 | SSP_200 | DX.5.json | 106.25 Ko (108800 o) | PASS | Parkinson, ne jamais couper la lévodopa |
+| 2026-11-21 04:54 | SSP_200 | DX.6.json | 106.81 Ko (109374 o) | PASS | dépression du sujet âgé, mg d'antidépresseur non lu |
