@@ -65,3 +65,4 @@
 - 03:47 Europe/Zurich — SSP_198 — DX.10.json — 100.95 Ko — PASS
 - 03:48 Europe/Zurich — SSP_198 — DX.11.json — 105.87 Ko — PASS
 - 03:49 Europe/Zurich — SSP_198 — DX.12.json — 101.18 Ko — PASS
+- 03:49 Europe/Zurich — SSP_198 — DX.13.json — 100.02 Ko — PASS
