@@ -55,3 +55,4 @@
 | 2026-11-21 04:40 | SSP_194 | DX.14.json | 109.4 Ko (112022 o) | PASS | canal artériel, alprostadil sans mg inventé |
 | 2026-11-21 04:40 | SSP_194 | DX.15.json | 114.17 Ko (116910 o) | PASS | idées suicidaires, 147 et 144 |
 | 2026-11-21 04:41 | SSP_194 | DX.16.json | 104.92 Ko (107437 o) | PASS | leucocorie, rétinoblastome |
+| 2026-11-21 04:41 | SSP_194 | DX.17.json | 109.83 Ko (112466 o) | PASS | anorexie, pas de dose inventée |
