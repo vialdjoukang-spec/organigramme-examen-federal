@@ -58,3 +58,4 @@
 | 2026-11-21 04:41 | SSP_194 | DX.17.json | 109.83 Ko (112466 o) | PASS | anorexie, pas de dose inventée |
 | 2026-11-21 04:41 | SSP_194 | DX.18.json | 108.46 Ko (111060 o) | PASS | cassure de courbe |
 | 2026-11-21 04:41 | SSP_194 | NOTIONS.json | 18 cours | PASS | notions du plan, couverture vérifiée |
+| 2026-11-21 04:54 | SSP_200 | Phase_A.json | 98.65 Ko (101014 o) | PASS | dépendance progressive, vaccins dès 65 ans, plan 2026 |
