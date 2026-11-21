@@ -62,3 +62,4 @@
 - 03:45 Europe/Zurich — SSP_198 — DX.6.json — 101.06 Ko — PASS (ajout ciblé : bolus NaCl 3 % 150 mL en 20 min, répétable 2 à 3 fois, natrémie de contrôle, recommandations européennes 2014)
 - 03:46 Europe/Zurich — SSP_198 — DX.8.json — 102.72 Ko — PASS
 - 03:47 Europe/Zurich — SSP_198 — DX.9.json — 105.31 Ko — PASS
+- 03:47 Europe/Zurich — SSP_198 — DX.10.json — 100.95 Ko — PASS
