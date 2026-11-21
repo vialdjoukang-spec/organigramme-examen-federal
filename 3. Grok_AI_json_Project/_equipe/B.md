@@ -66,3 +66,4 @@
 | 2026-11-21 04:54 | SSP_200 | DX.5.json | 106.25 Ko (108800 o) | PASS | Parkinson, ne jamais couper la lévodopa |
 | 2026-11-21 04:54 | SSP_200 | DX.6.json | 106.81 Ko (109374 o) | PASS | dépression du sujet âgé, mg d'antidépresseur non lu |
 | 2026-11-21 04:54 | SSP_200 | DX.7.json | 108.99 Ko (111608 o) | PASS | séquelles d'AVC, récidive d'abord |
+| 2026-11-21 04:54 | SSP_200 | DX.8.json | 108.39 Ko (110990 o) | PASS | arthrite, septique ou cou instable, pas de dose inventée |
