@@ -42,3 +42,4 @@
 - 03:22 Europe/Zurich — SSP_206 — DX.7.json — 98.41 Ko — PASS (syphilis, benzathine-pénicilline 2,4 MUI si stade précoce, RPR à 3, 6 et 12 mois)
 - 03:23 Europe/Zurich — SSP_206 — DX.8.json — 101.93 Ko — PASS (ménopause, œstradiol transdermique, progestérone si utérus intact ; le protocole d'AVC n'est pas le traitement des bouffées)
 - 03:25 Europe/Zurich — SSP_206 — DX.9.json — 97.45 Ko — PASS (endométriose, imagerie experte avant cœlioscopie diagnostique, blocage ovarien continu)
+- 03:26 Europe/Zurich — SSP_206 — DX.10.json — 107.74 Ko — PASS (SOPK, critères de Rotterdam, protection de l'endomètre, tumeur si virilisation rapide)
