@@ -27,3 +27,5 @@
 | 2026-11-21 04:12 | SSP_038 | DX.9.json | 103.35 Ko (105834 o) | PASS | biopsie, paracétamol 56318, pas d'antibiotique |
 | 2026-11-21 04:11 | SSP_038 | DX.10.json | 110.0 Ko (112642 o) | PASS | IgG4, biopsie, aucun milligramme inventé |
 | 2026-11-21 04:16 | SSP_038 | DX.14.json | 113.42 Ko (116144 o) | PASS | adrénaline 56551 0,5 mg, stylo 53836 |
+| 2026-11-21 04:20 | SSP_038 | DX.9.json | 100.07 Ko (102467 o) | PASS | paracétamol retiré, biopsie seule |
+| 2026-11-21 04:20 | SSP_038 | DX.10.json | 114.96 Ko (117714 o) | PASS | prednisone 0,6 mg/kg, rituximab 1 g J1 J15, hors indication |
