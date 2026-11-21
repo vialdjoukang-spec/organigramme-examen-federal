@@ -50,3 +50,4 @@
 | 2026-11-21 04:50 | SSP_204 | DX.11.json | 102.41 Ko (104871 o) | PASS | sevrage, thiamine avant glucose, mg non lu |
 | 2026-11-21 04:50 | SSP_204 | DX.12.json | 116.31 Ko (119099 o) | PASS | vapotage, corticoïde sans mg lu |
 | 2026-11-21 04:50 | SSP_204 | DX.13.json | 117.91 Ko (120739 o) | PASS | stimulants, benzodiazépine d'abord, pas de bêtabloquant pur |
+| 2026-11-21 04:50 | SSP_204 | DX.14.json | 117.0 Ko (119810 o) | PASS | infarctus, ECG 10 min, coronarographie 90 à 120 min |
