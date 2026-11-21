@@ -102,3 +102,4 @@
 - 04:40 Europe/Zurich — SSP_215 — DX.11.json — 107.89 Ko — PASS (mêmes seuils HUG phosphate/thiamine, renutrition 10–15 kcal/kg/j, scope si K < 2,5 ou QTc > 500)
 - 04:40 Europe/Zurich — SSP_215 — DX.12.json — 105.22 Ko — PASS (hémostase et psychiatrie, pas de sédatif chiffré : non trouvé)
 - 04:40 Europe/Zurich — SSP_215 — DX.13.json — 110.18 Ko — PASS (prednisone fulminans non trouvée AIPS/HUG ; Greywal 2017 0,5–1 mg/kg cité à part ; arrêt isotrétinoïne)
+- 04:40 Europe/Zurich — SSP_215 — DX.14.json — 107.58 Ko — PASS (filière coronaire, doses d'antiagrégant non trouvées)
