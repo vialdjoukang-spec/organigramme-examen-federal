@@ -57,3 +57,4 @@
 | 2026-11-21 04:41 | SSP_194 | DX.16.json | 104.92 Ko (107437 o) | PASS | leucocorie, rétinoblastome |
 | 2026-11-21 04:41 | SSP_194 | DX.17.json | 109.83 Ko (112466 o) | PASS | anorexie, pas de dose inventée |
 | 2026-11-21 04:41 | SSP_194 | DX.18.json | 108.46 Ko (111060 o) | PASS | cassure de courbe |
+| 2026-11-21 04:41 | SSP_194 | NOTIONS.json | 18 cours | PASS | notions du plan, couverture vérifiée |
