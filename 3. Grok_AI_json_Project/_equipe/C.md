@@ -40,3 +40,4 @@
 - 03:21 Europe/Zurich — SSP_206 — DX.5.json — 94.95 Ko — PASS (dysfonction érectile, marqueur cardiovasculaire, jamais d'IPDE5 avec un nitré)
 - 03:22 Europe/Zurich — SSP_206 — DX.6.json — 113.12 Ko — PASS (dépistage VIH et prophylaxie pré-exposition, TDF/FTC, pas de PrEP si primo-infection)
 - 03:22 Europe/Zurich — SSP_206 — DX.7.json — 98.41 Ko — PASS (syphilis, benzathine-pénicilline 2,4 MUI si stade précoce, RPR à 3, 6 et 12 mois)
+- 03:23 Europe/Zurich — SSP_206 — DX.8.json — 101.93 Ko — PASS (ménopause, œstradiol transdermique, progestérone si utérus intact ; le protocole d'AVC n'est pas le traitement des bouffées)
