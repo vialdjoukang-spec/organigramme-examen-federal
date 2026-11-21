@@ -100,3 +100,4 @@
 - 04:40 Europe/Zurich — SSP_215 — DX.9.json — 104.68 Ko — PASS (régression pubertaire, pas de tamoxifène : non trouvé)
 - 04:40 Europe/Zurich — SSP_215 — DX.10.json — 110.21 Ko — PASS (pas d'arrêt brutal ; freination 1 mg du plan, AIPS dexaméthasone non rouverte ; décroissance chiffrée non trouvée)
 - 04:40 Europe/Zurich — SSP_215 — DX.11.json — 107.89 Ko — PASS (mêmes seuils HUG phosphate/thiamine, renutrition 10–15 kcal/kg/j, scope si K < 2,5 ou QTc > 500)
+- 04:40 Europe/Zurich — SSP_215 — DX.12.json — 105.22 Ko — PASS (hémostase et psychiatrie, pas de sédatif chiffré : non trouvé)
