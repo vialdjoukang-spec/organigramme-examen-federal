@@ -49,3 +49,4 @@
 | 2026-11-21 04:50 | SSP_204 | DX.10.json | 116.24 Ko (119027 o) | PASS | B12 végan, microgramme non lu |
 | 2026-11-21 04:50 | SSP_204 | DX.11.json | 102.41 Ko (104871 o) | PASS | sevrage, thiamine avant glucose, mg non lu |
 | 2026-11-21 04:50 | SSP_204 | DX.12.json | 116.31 Ko (119099 o) | PASS | vapotage, corticoïde sans mg lu |
+| 2026-11-21 04:50 | SSP_204 | DX.13.json | 117.91 Ko (120739 o) | PASS | stimulants, benzodiazépine d'abord, pas de bêtabloquant pur |
