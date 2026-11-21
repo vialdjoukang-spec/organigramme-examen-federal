@@ -33,3 +33,6 @@
 | 2026-11-21 04:28 | SSP_038 | DX.12.json | 100.1 Ko (102498 o) | PASS | canthotomie, acétazolamide 500 mg, mannitol dose non lue |
 | 2026-11-21 04:28 | SSP_038 | DX.13.json | 112.72 Ko (115426 o) | PASS | pénicilline 56271 + clindamycine 38978 |
 | 2026-11-21 04:28 | SSP_038 | DX.15.json | 109.84 Ko (112473 o) | PASS | valaciclovir 53116, aciclovir IV 44772 |
+| 2026-11-21 04:40 | SSP_038 | DX.11.json | 110.95 Ko (113616 o) | PASS | adulte : amox-clav IV 1,2 g 3×/j, guide CHUV 2022 |
+| 2026-11-21 04:40 | SSP_038 | DX.12.json | 101.2 Ko (103628 o) | PASS | mannitol 1–2 g/kg, AIPS 36796 |
+| 2026-11-21 04:40 | SSP_038 | DX.13.json | 114.94 Ko (117701 o) | PASS | empirique pip-tazo 4,5 g 4×/j puis pénicilline si strepto A |
