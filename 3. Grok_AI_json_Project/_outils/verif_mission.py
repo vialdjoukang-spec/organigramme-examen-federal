@@ -2,7 +2,7 @@
 """VERIF_MISSION.PY — Contrôle déterministe (0 token) spécifique au cahier des charges 248 SSP.
 
 Vérifie sur un SSP entier (ex: `python _outils/verif_mission.py 248`) ou sur des fichiers HTML donnés :
-  1. Calibre texte pur UTF-8 entre 60,0 Ko (61 440 o) et 90,0 Ko (92 160 o), images/balises/CSS/JS exclus.
+  1. Calibre texte médical pur UTF-8, sans balise, entre 90,0 Ko (92 160 o) et 120,0 Ko (122 880 o).
   2. Présence exacte du bloc <div id="signature-ia"...> juste avant </body>.
   3. Zéro terme de chantier visible dans <title> et le corps visible (LOT, V0, Phase A/B, DX.n, Appel A/B, Partie n).
   4. Zéro image (<img>, <svg>, <picture>, <figure>) en dehors d'une <section class="fenetre">.
@@ -29,8 +29,8 @@ BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CARTO_PATH = os.path.join(BASE, "_outils", "cartographie_DATA.json")
 CAT_PATH = os.path.join(BASE, "_outils", "catalogue_248.json")
 
-MIN_PURE = 81_920  # 80.0 Ko — calibre du Prompt Alpha, confirmé par Vial le 2026-11-20 21:20 (30-50 Ko abandonné : cours pauvres)
-MAX_PURE = 102_400  # 100.0 Ko
+MIN_PURE = 92_160  # 90.0 Ko — calibre unique (décision Vial 2026-11-21 01:45). L'essai à 30-50 Ko a été abandonné.
+MAX_PURE = 122_880  # 120.0 Ko
 
 # Signature : validation de FORMAT (toute signature DÉBUT · MODÈLE · PLATEFORME, une ou plusieurs lignes successives)
 SIG_LIGNE = r"DÉBUT\s*:\s*\d{4}-\d{2}-\d{2}\s+\d{2}:\d{2}\s*\([^)]+\)\s*·\s*MODÈLE\s*:\s*[^·<\r\n]+?\s*·\s*PLATEFORME\s*:\s*[^·<\r\n]+?"
@@ -266,9 +266,7 @@ def check_file(path: str, boiler: set[str], seen_lot: dict[str, str], cat: dict[
     pt_bytes = len(pt.encode("utf-8"))
     no_img = html_no_images_bytes(raw)
     if not (MIN_PURE <= pt_bytes <= MAX_PURE):
-        errors.append(f"CALIBRE_TEXTE_PUR: {pt_bytes} o ({pt_bytes/1024:.1f} Ko) hors [80.0–100.0 Ko]")
-    if not (40_000 <= no_img <= 100_000):
-        warnings.append(f"HTML_HORS_IMG: {no_img} o hors [40 000–100 000]")
+        errors.append(f"CALIBRE_TEXTE_PUR: {pt_bytes} o ({pt_bytes/1024:.1f} Ko) hors [90.0–120.0 Ko]")
 
     # 2. Signature (format DÉBUT · MODÈLE · PLATEFORME, 1..n lignes) juste avant </body>
     body_idx = raw.rfind("</body>")
