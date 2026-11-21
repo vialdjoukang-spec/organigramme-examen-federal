@@ -29,3 +29,6 @@
 2026-11-21 04:38 (Europe/Zurich) | SSP_039 | DX.5.json | 104.31 Ko (106 812 octets) | PASS
 2026-11-21 04:43 (Europe/Zurich) | SSP_039 | DX.6.json | 90.0 Ko (92 163 octets) | PASS
 2026-11-21 04:49 (Europe/Zurich) | SSP_039 | DX.7.json | 90.01 Ko (92 167 octets) | PASS
+2026-11-21 04:52 (Europe/Zurich) | SSP_039 | DX.4.json | 105.21 Ko (107 735 octets) | PASS
+2026-11-21 04:52 (Europe/Zurich) | SSP_039 | DX.6.json | 99.59 Ko (101 976 octets) | PASS
+2026-11-21 04:52 (Europe/Zurich) | SSP_039 | DX.7.json | 101.08 Ko (103 503 octets) | PASS
