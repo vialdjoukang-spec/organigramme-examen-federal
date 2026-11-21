@@ -32,3 +32,4 @@
 | 2026-11-21 04:05 | SSP_036 | DX.14.json | 113276 o (110.62 Ko) | PASS |
 | 2026-11-21 04:08 | SSP_036 | DX.15.json | 113688 o (111.02 Ko) | PASS | 16/16 |
 | 2026-11-21 04:05 | SSP_013 | Phase_A.json | 106509 o (104.01 Ko) | PASS | après fusion #759 |
+| 2026-11-21 04:07 | SSP_013 | DX.1.json | 107066 o (104.56 Ko) | PASS | pendaison |
