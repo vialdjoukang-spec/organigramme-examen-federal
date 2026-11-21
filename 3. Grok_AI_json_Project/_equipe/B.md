@@ -38,3 +38,4 @@
 | 2026-11-21 04:40 | SSP_038 | DX.13.json | 114.94 Ko (117701 o) | PASS | empirique pip-tazo 4,5 g 4×/j puis pénicilline si strepto A |
 | 2026-11-21 04:50 | SSP_194 | Phase_A.json | 100.06 Ko (102463 o) | PASS | circuit non monographique, carnet SSP 2025 |
 | 2026-11-21 05:05 | SSP_194 | DX.1.json | 100.03 Ko (102431 o) | PASS | croissance normale, vitamine D 400 puis 600 UI, OFSP 2012 |
+| 2026-11-21 04:40 | SSP_194 | Phase_A.json | 112.92 Ko (115630 o) | PASS | calendrier OFSP/CFV 2026, schéma 2+1 |
