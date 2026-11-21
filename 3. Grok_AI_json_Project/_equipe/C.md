@@ -82,3 +82,4 @@
 - 04:14 Europe/Zurich — SSP_203 — DX.8.json — 92.33 Ko — PASS (anti-HBs ≥ 100 UI/L, AES 24–48 h, pas de dose d'immunoglobuline inventée)
 - 04:15 Europe/Zurich — SSP_203 — DX.9.json — 94.31 Ko — PASS (hésitation, InfoVac, refus éclairé, pas de dose)
 - 04:16 Europe/Zurich — SSP_203 — DX.10.json — 91.73 Ko — PASS (rage J0 J3 J7 J14, lavage 15 min, ROR < 72 h, tétanos si < 3 doses ; pas d'UI d'immunoglobulines inventées)
+- 04:17 Europe/Zurich — SSP_203 — DX.11.json — 95.71 Ko — PASS (adrénaline 0,01 mg/kg, max 0,5 mg, 0,15 mg < 30 kg, 0,3 mg si 30–50 kg ; pas de volume de NaCl inventé)
