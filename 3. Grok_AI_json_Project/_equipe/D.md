@@ -16,5 +16,5 @@
 2026-11-21 03:34 (Europe/Zurich) | SSP_248 | DX.13.json | 100.14 Ko (102 539 octets) | PASS
 2026-11-21 03:40 (Europe/Zurich) | SSP_248 | DX.14.json | 95.09 Ko (97 374 octets) | PASS
 2026-11-21 03:45 (Europe/Zurich) | SSP_248 | DX.15.json | 93.59 Ko (95 833 octets) | PASS
-2026-11-21 03:50 (Europe/Zurich) | SSP_248 | DX.16.json | 90.06 Ko (92 223 octets) | PASS
-2026-11-21 03:55 (Europe/Zurich) | SSP_248 | DX.17.json | 90.68 Ko (92 859 octets) | PASS
+2026-11-21 03:50 (Europe/Zurich) | SSP_248 | DX.16.json | 91.93 Ko (94 135 octets) | PASS
+2026-11-21 03:55 (Europe/Zurich) | SSP_248 | DX.17.json | 93.12 Ko (95 360 octets) | PASS
