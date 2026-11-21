@@ -74,3 +74,5 @@
 - 2026-11-21 04:20 Europe/Zurich | SSP_221 | DX.2.json | 93.11 Ko (95342 o) | PASS
 
 - 2026-11-21 04:22 Europe/Zurich | SSP_221 | DX.3.json | 96.46 Ko (98779 o) | PASS
+
+- 2026-11-21 04:31 Europe/Zurich | SSP_221 | DX.4.json | 101.24 Ko (103670 o) | PASS
