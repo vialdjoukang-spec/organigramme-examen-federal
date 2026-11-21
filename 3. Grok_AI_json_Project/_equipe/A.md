@@ -42,3 +42,4 @@
 | 2026-11-21 04:23 | SSP_013 | DX.5.json | 92429 o (90.26 Ko) | PASS | Nyxoid 66930, MonAM 188 en 2024 |
 | 2026-11-21 04:24 | SSP_013 | DX.6.json | 97200 o (94.92 Ko) | PASS | noyade, nombre annuel non vérifié |
 | 2026-11-21 04:26 | SSP_013 | DX.6.json | 95569 o (93.33 Ko) | PASS | SSS/BPA 43 noyades en 2025 |
+| 2026-11-21 04:27 | SSP_013 | DX.7.json | 94963 o (92.74 Ko) | PASS | arme à feu, OFS 171 dont 162 hommes |
