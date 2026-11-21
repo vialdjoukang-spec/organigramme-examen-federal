@@ -23,3 +23,4 @@
 | 2026-11-21 03:42 | SSP_036 | DX.8.json | 113715 o (111.05 Ko) | PASS |
 | 2026-11-21 03:45 | SSP_036 | DX.7.json | 117684 o (114.93 Ko) | PASS | schéma EUGOGO 2021 ajouté |
 | 2026-11-21 03:46 | SSP_036 | DX.8.json | 120627 o (117.80 Ko) | PASS | douleur intercurrente enseignée |
+| 2026-11-21 03:50 | SSP_036 | DX.9.json | 109806 o (107.23 Ko) | PASS |
