@@ -51,3 +51,4 @@
 | 2026-11-21 04:40 | SSP_194 | DX.10.json | 102.59 Ko (105055 o) | PASS | hanche, échographie du carnet |
 | 2026-11-21 04:40 | SSP_194 | DX.11.json | 116.73 Ko (119536 o) | PASS | tension, brassard adapté |
 | 2026-11-21 04:40 | SSP_194 | DX.12.json | 110.54 Ko (113195 o) | PASS | souffle, échocardiographie |
+| 2026-11-21 04:40 | SSP_194 | DX.13.json | 112.5 Ko (115197 o) | PASS | maltraitance, mise à l'abri |
