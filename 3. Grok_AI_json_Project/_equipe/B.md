@@ -39,3 +39,4 @@
 | 2026-11-21 04:46 | SSP_195 | Phase_A.json | 100.97 Ko (103393 o) | PASS | tri des formes, entretien seul, APEA, vaccins 65 ans |
 | 2026-11-21 04:46 | SSP_195 | DX.1.json | 95.29 Ko (97575 o) | PASS | négligence passive, répit, CMS |
 | 2026-11-21 04:46 | SSP_195 | DX.2.json | 101.47 Ko (103901 o) | PASS | maltraitance psychologique, entretien seul |
+| 2026-11-21 04:46 | SSP_195 | DX.3.json | 109.4 Ko (112029 o) | PASS | abus financier, curatelle |
