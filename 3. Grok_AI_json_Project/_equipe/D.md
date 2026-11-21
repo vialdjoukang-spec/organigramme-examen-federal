@@ -5,4 +5,5 @@
 2026-11-21 02:23 (Europe/Zurich) | SSP_248 | DX.2.json | 90.0 Ko (92 163 octets) | PASS
 2026-11-21 02:31 (Europe/Zurich) | SSP_248 | DX.3.json | 103.37 Ko (105 852 octets) | PASS
 2026-11-21 02:37 (Europe/Zurich) | SSP_248 | DX.4.json | 102.13 Ko (104 585 octets) | PASS
-2026-11-21 02:46 (Europe/Zurich) | SSP_248 | DX.5.json | 100.99 Ko (103 413 octets) | PASS
+2026-11-21 02:44 (Europe/Zurich) | SSP_248 | DX.5.json | 100.99 Ko (103 413 octets) | PASS
+2026-11-21 02:50 (Europe/Zurich) | SSP_248 | DX.6.json | 100.31 Ko (102 715 octets) | PASS
