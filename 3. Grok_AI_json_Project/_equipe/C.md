@@ -98,3 +98,4 @@
 - 04:40 Europe/Zurich — SSP_215 — DX.7.json — 105.71 Ko — PASS (Regaine 5 % Swissmedic 62446, 1 g 2×/j homme, max 2 g ; Finacapil 58867 et Propecia 54322, 1 mg/j homme ; anti-JAK non trouvé)
 - 04:40 Europe/Zurich — SSP_215 — DX.8.json — 109.31 Ko — PASS (bilan anabolisants, pas de dose de testostérone de sevrage : non trouvé)
 - 04:40 Europe/Zurich — SSP_215 — DX.9.json — 104.68 Ko — PASS (régression pubertaire, pas de tamoxifène : non trouvé)
+- 04:40 Europe/Zurich — SSP_215 — DX.10.json — 110.21 Ko — PASS (pas d'arrêt brutal ; freination 1 mg du plan, AIPS dexaméthasone non rouverte ; décroissance chiffrée non trouvée)
