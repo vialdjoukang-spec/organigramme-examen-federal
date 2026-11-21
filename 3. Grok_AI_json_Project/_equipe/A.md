@@ -37,3 +37,4 @@
 | 2026-11-21 04:13 | SSP_013 | DX.2.json | 92387 o (90.22 Ko) | PASS | chute, CPP 253, taux non vérifié |
 | 2026-11-21 04:15 | SSP_013 | DX.3.json | 93011 o (90.83 Ko) | PASS | route, OFROU 236/250 |
 | 2026-11-21 04:17 | SSP_013 | DX.3.json | 95304 o (93.07 Ko) | PASS | seuils RS 741.13, OCR 2a, OOCCR art. 34 |
+| 2026-11-21 04:19 | SSP_013 | DX.4.json | 96031 o (93.78 Ko) | PASS | intoxication, 114/995, pas d'antidote inventé |
