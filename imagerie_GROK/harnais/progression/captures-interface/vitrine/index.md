@@ -1,0 +1,27 @@
+# Vitrine IMG-134 — pneumothorax, relue le 14.11.2026
+
+- `01-vue-initiale.png` — Bureau. Âges 30 et 23 ans, Source, diagnostic, zoom visible, aucune ligne.
+- `02-anatomie-paroi.png` — Étape 1, paroi cyan des deux côtés.
+- `03-anatomie-poumons.png` — Étape 2, poumons vert et turquoise, même couleur à gauche et à droite. À droite, le poumon droit s'arrête sur la ligne pleurale.
+- `04-anatomie-coeur.png` — Étape 3, silhouette cardiaque magenta, même ovale des deux côtés, posée sur l'opacité cardiaque.
+- `05-anatomie-diaphragme.png` — Étape 4, coupoles orange sur les bases.
+- `06-survol-poumon-droit-gauche.png` — Survol à gauche : les deux poumons droits s'allument, carte bleu ciel, texte foncé.
+- `07-survol-poumon-gauche-droite.png` — Survol à droite : l'homologue gauche s'allume aussi.
+- `08-survol-coeur.png` — Survol du cœur, remplissage magenta des deux côtés, description lisible.
+- `09-survol-paroi.png` — Survol de la paroi : le trait cyan s'épaissit des deux côtés, sans teinter tout le cliché. La description est au-dessus de chaque image.
+- `10-survol-diaphragme-droite.png` — Survol du diaphragme : trait orange épais des deux côtés, description entière au-dessus de chaque image.
+- `11-defi-indice-1-diagnostic.png` — Mode défi, indice 1 : Pneumothorax, flèches cachées.
+- `12-defi-indice-2-region.png` — Indice 2 : champ pulmonaire droit.
+- `13-defi-indice-3-signe.png` — Indice 3 : ligne pleurale, sans vaisseau au-delà.
+- `14-revelation.png` — Flèche rouge révélée, numéro blanc sur pastille sombre. Une seule lésion.
+- `15-bulle-lesion.png` — Bande rouge étroite le long de la ligne pleurale, pas tout l'hémithorax. Définition entière jusqu'à « Confiance : haute ». Âge et sexe restent visibles.
+- `16-autres-lesions.png` — « Lésion révélée. » Aucune autre lésion n'est visible sur ce cliché.
+- `17-zoom-plus.png` — Zoom + sur la pathologique seule. Le trait pointillé suit l'image.
+- `18-zoom-lie.png` — Zoom lié : les deux côtés grandissent ensemble, le contour reste sur la lésion.
+- `19-survol-source.png` — Bulle Source bleu ciel : auteur, CC0, URL et légende entiers.
+- `20-mobile-initiale.png` — Mobile. Les deux clichés tiennent à l'écran, avec l'âge, le sexe et « Diagnostic : Pneumothorax ».
+- `21-mobile-anatomie.png` — Mobile, les quatre couches, mêmes couleurs des deux côtés.
+- `22-mobile-survol.png` — Mobile, poumon droit allumé, et la description est écrite au-dessus de chaque cliché.
+- `23-mobile-bulle.png` — Mobile, bande rouge et définition entière, plus la bulle du poumon droit.
+- `24-mobile-source.png` — Mobile, bulle Source entière, sans déborder.
+- `25-legende-couleurs.png` — Légende ouverte. Chaque pastille reprend la couleur du contour (#00E5FF, #7CFF4F, #4DFFDF, #FF4DFF, #FF9F1C, lésion pointillée #FF1744). Tous les aspects sont « À vérifier ».
