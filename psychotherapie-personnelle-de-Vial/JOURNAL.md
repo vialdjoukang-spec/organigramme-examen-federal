@@ -32,3 +32,10 @@
 - Séance du jour : 01.02 — Histoire de vie chronologique. Focus exclusif sur l'histoire de vie. Point de départ : Bloc 1 — enfance au Cameroun.
 - Lecture préalable CONSIGNES-NOTES.md effectuée. Notes au fur et à mesure prévues. Distinctions dit / question / observation prêtes. Marquages NŒUD / ZONE D'OMBRE / RÉCURRENCE actifs.
 - Prochaine étape immédiate : démarrage du bloc enfance à 19h, dictée libre de Vial, consignation fidèle sans interprétation.
+
+### 2026-11-25 — Préparation séance 01.02 (soir 19h Europe/Zurich)
+- Consigne de Vial reçue et notée : « Rappel : séance de psychothérapie personnelle de Vial prévue ce soir à 19h (Europe/Zurich). Ouvre le dossier psychotherapie-personnelle-de-Vial sur GitHub (repo organigramme-examen-federal, branche seance-01-01-consignation ou main après merge) et prépare la séance suivante selon le plan : phase 1 fondations, séances 01.01 à 01.04. Si la séance du jour est 01.02, concentre-toi sur l'histoire de vie. Note toute consigne de Vial dans le JOURNAL.md et le fichier de séance correspondant. »
+- Branche seance-01-01-consignation absente ; contenu confirmé sur main. Phase 1 intacte.
+- Séance du jour : 01.02 — Histoire de vie chronologique. Focus exclusif sur l'histoire de vie. Point de départ : Bloc 1 — enfance au Cameroun (famille, figures parentales, fratrie, école, sécurité).
+- Lecture préalable CONSIGNES-NOTES.md effectuée. Notes au fur et à mesure prévues. Distinctions dit / question / observation prêtes. Marquages NŒUD / ZONE D'OMBRE / RÉCURRENCE actifs. Double position isolée dans « Le médecin parle ».
+- Prochaine étape immédiate : démarrage du bloc enfance à 19h, dictée libre de Vial, consignation fidèle sans interprétation. Cadre figé non modifié.
