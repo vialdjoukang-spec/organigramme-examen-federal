@@ -1,0 +1,893 @@
+#!/usr/bin/env python3
+"""Monographie S7.8 — phrases écrites une à une. Le script ne fait qu'assembler."""
+import html as H
+import re
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[2]
+OUT = ROOT / "LOT_102_Phase_A_V0.html"
+
+LAB = {
+    "acad-pa": "ANM-parésie",
+    "acad-pl": "ANM-paralysie",
+    "cen": "CEN-91",
+    "geneve": "Genève-2025",
+    "obsan": "Obsan",
+    "rachis": "ESJ-2024",
+    "moelle": "JBO-2022",
+    "mg": "ALL-2023",
+    "sgb": "VIH-2021",
+    "qdc": "JNS-2020",
+    "myos": "NRR-2023",
+    "pn": "ClinMed-2017",
+    "aips-29550": "29550",
+}
+
+
+def mots(t):
+    return re.findall(r"\S+", t)
+
+
+# (point, fenêtre ou "", ancres, phrase)
+P = []
+
+
+def a(point, fen, cites, phrase):
+    P.append((point, fen, tuple(cites), " ".join(phrase.split())))
+
+
+# --- 1. Définition ---
+a(1, "", ["acad-pl"], "L'Académie de médecine définit la paralysie comme une diminution ou une abolition de la motricité.")
+a(1, "", ["acad-pl"], "La même définition précise que la paralysie peut être complète ou incomplète, et elle nomme alors la parésie.")
+a(1, "", ["acad-pa"], "La parésie y est une suppression incomplète de la contraction d'un ou de plusieurs muscles striés volontaires.")
+a(1, "", ["acad-pa"], "Cette définition inclut les muscles oculomoteurs et elle précise l'absence de troubles sensitifs dans la parésie ainsi définie.")
+a(1, "", ["acad-pl"], "Selon la distribution, la paralysie se dit monoplégie, hémiplégie ou paraplégie, lorsque le territoire moteur est nommé.")
+a(1, "", ["acad-pl"], "Une paralysie liée au système nerveux périphérique est flasque, avec hypotonie et abolition des réflexes ostéotendineux.")
+a(1, "", ["acad-pl"], "Une lésion centrale peut d'abord rendre la paralysie flasque, puis spasmodique après quelques semaines d'évolution.")
+a(1, "", ["acad-pl"], "La forme spasmodique associe alors une contracture pyramidale et une exagération des réflexes ostéotendineux.")
+a(1, "", ["cen"], "Le Collège des enseignants de neurologie décrit le déficit neurologique comme la perte d'une fonction nerveuse.")
+a(1, "", ["cen"], "Cette perte vient d'une dysfonction temporaire, et le déficit est alors transitoire, ou d'une lésion, et il est durable.")
+a(1, "", ["cen"], "Le collège distingue ce déficit d'une souffrance globale du cerveau, comme le coma ou la confusion.")
+
+# --- 2. Épidémiologie ---
+a(2, "", ["geneve"], "À Genève, en 2018 et 2019, l'étude de population a retenu 1 186 premiers accidents vasculaires cérébraux.")
+a(2, "", ["geneve"], "L'âge médian était de 75,8 ans, avec un intervalle interquartile de 63,4 à 84,5 ans.")
+a(2, "", ["geneve"], "Parmi ces personnes, 571 étaient des femmes, soit 48,1 % de la série genevoise.")
+a(2, "", ["geneve"], "L'incidence annuelle du premier accident, standardisée sur la population européenne, était de 127,0 pour 100 000.")
+a(2, "", ["geneve"], "L'intervalle de confiance à 95 % de cette incidence allait de 119,8 à 134,3 pour 100 000.")
+a(2, "", ["geneve"], "L'accident ischémique représentait 107,3 pour 100 000, avec un intervalle de 100,7 à 114,0.")
+a(2, "", ["geneve"], "L'hémorragie intraparenchymateuse représentait 13,2 pour 100 000, avec un intervalle de 10,9 à 15,5.")
+a(2, "", ["geneve"], "L'hémorragie sous-arachnoïdienne représentait 6,0 pour 100 000, et la forme anévrismale 3,1 pour 100 000.")
+a(2, "", ["geneve"], "La létalité à 30 jours atteignait 32,5 % pour l'hémorragie intraparenchymateuse dans cette série.")
+a(2, "", ["geneve"], "Elle atteignait 10,8 % pour l'accident ischémique et 17,2 % pour l'hémorragie sous-arachnoïdienne.")
+a(2, "", ["geneve"], "L'imagerie par résonance magnétique a été faite chez 90,9 % des accidents ischémiques genevois.")
+a(2, "", ["geneve"], "Selon la classification internationale des maladies, onzième révision, l'incidence ischémique passait de 90,4 à 107,3 pour 100 000.")
+a(2, "", ["geneve"], "Cette révision augmentait de 18,3 % le nombre d'accidents ischémiques, en comptant les déficits brefs avec lésion visible.")
+a(2, "", ["obsan"], "Pour la Suisse, l'Observatoire de la santé compte en moyenne 21 729 hospitalisations ou décès par accident vasculaire cérébral et par an.")
+a(2, "", ["obsan"], "Ce total décrit les années 2019 à 2023, de l'hémorragie méningée jusqu'à l'accident non précisé.")
+a(2, "", ["obsan"], "Le taux brut suisse est de 249,5 pour 100 000, et le taux standardisé de 249,4 pour 100 000.")
+a(2, "", ["obsan"], "L'intervalle de confiance du taux standardisé va de 247,9 à 251,0 pour 100 000 habitants.")
+a(2, "", ["obsan"], "La létalité nationale de cet indicateur est de 12,2 %, avec un intervalle de 12,0 à 12,4 %.")
+a(2, "", ["obsan"], "Le nombre moyen de décès liés à cet indicateur est de 2 651 par an sur la même période.")
+a(2, "", ["obsan"], "Chez les femmes, le taux standardisé est de 200,4 pour 100 000 et la létalité de 15,6 %.")
+a(2, "", ["obsan"], "Ces totaux nationaux mêlent ischémie, hémorragie cérébrale et hémorragie méningée, sans classer les sous-types.")
+a(2, "", ["rachis"], "Une revue de 2024, menée depuis Zurich et le Balgrist, indique l'incidence hospitalière ou chirurgicale de la hernie lombaire avec radiculopathie.")
+a(2, "", ["rachis"], "Dans les populations générales de cette revue, cette incidence annuelle va de 0,2 à 2,5 pour 1 000 personnes.")
+a(2, "", ["rachis"], "La revue précise que la plupart de ces hernies ne sont pas traitées à l'hôpital, et que la définition clinique est plus large.")
+a(2, "", ["rachis"], "Une étude à définition clinique citée dans la revue indique 13,4 pour 1 000 personnes et par an.")
+a(2, "", ["rachis"], "Ces définitions comptent la douleur radiculaire avec ou sans déficit moteur, ce qui surestime la seule parésie.")
+a(2, "", ["moelle"], "En Norvège du Sud-Est, Zaikova et ses collègues ont mesuré 8,1 compressions médullaires épidurales métastatiques pour 100 000 habitants et par an.")
+a(2, "", ["moelle"], "La même population comptait 26,0 métastases rachidiennes pour 100 000 habitants et par an, sur 2007 et 2008.")
+a(2, "", ["mg"], "En Allemagne, entre 2011 et 2020, l'incidence ajustée de la myasthénie était de 2,8 pour 100 000 personnes-années.")
+a(2, "", ["mg"], "L'intervalle de confiance de cette incidence allait de 2,43 à 3,22 pour 100 000 personnes-années.")
+a(2, "", ["mg"], "La prévalence allemande est passée de 15,7 à 28,2 pour 100 000 entre 2011 et 2020.")
+a(2, "", ["mg"], "Une intervention de crise a été nécessaire chez 2 à 5 % des personnes myasthéniques de cette cohorte.")
+a(2, "", ["sgb"], "Une revue ciblée de vingt-quatre études européennes indique l'incidence adulte du syndrome de Guillain-Barré entre 1,0 et 3,0 pour 100 000.")
+a(2, "", ["sgb"], "Chez les enfants de 0 à 9 ans, la même revue indique l'incidence entre 0,5 et 1,1 pour 100 000.")
+a(2, "", ["sgb"], "Dans cette revue, l'Italie atteint 3,0 pour 100 000 et la Norvège 2,7 pour 100 000 personnes-années.")
+a(2, "", ["myos"], "Une revue de 2023 indique l'incidence des myosites inflammatoires idiopathiques entre 0,2 et 2 pour 100 000 personnes-années.")
+a(2, "", ["myos"], "La prévalence correspondante va de 2 à 25 pour 100 000 personnes, selon les critères et les régions.")
+a(2, "", ["qdc"], "Deux populations européennes communautaires ont donné 0,48 et 0,34 syndromes de la queue de cheval pour 100 000 et par an.")
+a(2, "", ["qdc"], "Une population adulte finlandaise a donné 0,6 pour 100 000 adultes et par an, sur trois années.")
+a(2, "", ["qdc"], "Hurme a compté 11 cas opérés en cinq ans sur un bassin de 455 000 habitants en Finlande.")
+a(2, "", ["qdc"], "Podnar a publié une incidence de 0,34 pour 100 000 et par an en Slovénie, sur un bassin de 1 989 198 habitants.")
+a(2, "", ["qdc"], "Le décompte brut de 67 cas ne reproduit pas ce taux sur huit ans, et il mélange queue de cheval et cône médullaire.")
+a(2, "", [], "Aucune série suisse lue ne range ensemble ces dix maladies, parce que les dénominateurs et les définitions diffèrent.")
+a(2, "", [], "La fréquence suisse de l'hémiparésie hypoglycémique reste sans taux comparable : Référence non vérifiée pour cette fiche.")
+a(2, "", ["pn"], "Une revue clinique britannique attribue 20 % des imitations d'accident vasculaire aux crises épileptiques.")
+a(2, "", ["pn"], "Dans une série sélectionnée de 513 personnes en vidéo-électroencéphalogramme, une parésie post-critique est survenue chez 13,4 %.")
+a(2, "", ["pn"], "Cette parésie durait jusqu'à 22 minutes dans cette série de monitorage, qui ne représente pas la population générale.")
+a(2, "", ["pn"], "La même revue indique que 1,8 à 2,9 % des accidents ischémiques s'accompagnent d'une crise au début ou dans les 24 heures.")
+a(2, "", [], "Le taux de population du déficit post-critique n'est pas établi par ces séries : Référence non vérifiée pour cette fiche.")
+
+# --- 3. Physiopathologie ---
+a(3, "", ["acad-pl"], "La force volontaire suit un motoneurone supérieur, puis un motoneurone inférieur, puis le muscle strié.")
+a(3, "", ["acad-pl"], "Lorsque la lésion est périphérique, la paralysie est flasque, le tonus baisse et les réflexes ostéotendineux disparaissent.")
+a(3, "", ["acad-pl"], "Lorsque la lésion est centrale, la paralysie peut rester flasque au début, puis devenir spasmodique en quelques semaines.")
+a(3, "", ["cen"], "Le collège place la lésion dans l'encéphale, le tronc cérébral ou la moelle lorsque les signes sont centraux.")
+a(3, "", ["cen"], "Il place la lésion sur une racine, un plexus ou un tronc lorsque le territoire est périphérique.")
+a(3, "", ["cen"], "Il place la lésion sur la jonction neuromusculaire ou le muscle lorsque le déficit est moteur pur et plutôt proximal.")
+a(3, "", ["cen"], "Un réflexe diminué n'est pas spécifique d'une lésion périphérique, la phase initiale centrale étant elle aussi flasque.")
+a(3, "", ["cen"], "Un niveau sensitif thoracique ou abdominal oriente vers la moelle, alors qu'un hémicorps oriente vers l'encéphale.")
+a(3, "", ["cen"], "L'aphasie, l'hémianopsie ou un trouble gnosique ajoutent un argument cortical à l'hémiparésie.")
+a(3, "", ["cen"], "Une atteinte des nerfs crâniens associée aux voies longues oriente vers le tronc cérébral.")
+a(3, "", ["cen"], "Le mode d'installation unit le mécanisme au temps : secondes pour le vaisseau, la migraine, l'épilepsie ou le traumatisme.")
+a(3, "", ["cen"], "Un déficit d'emblée maximal oriente d'abord vers un mécanisme vasculaire, selon le collège.")
+a(3, "", ["cen"], "Une installation en dizaines de secondes peut être une marche épileptique, sans exclure le vaisseau.")
+a(3, "", ["cen"], "Une installation en dizaines de minutes peut être une marche migraineuse, et le vaisseau reste possible.")
+a(3, "", ["cen"], "Quelques heures ou quelques jours orientent vers l'inflammation, l'infection ou un toxique, et parfois une thrombose veineuse cérébrale.")
+a(3, "", ["cen"], "Quelques semaines orientent vers un processus expansif rapide, une infection ou un trouble métabolique.")
+a(3, "", ["cen"], "Une tumeur silencieuse peut commencer brutalement par une crise, et le profil évolutif s'en trouve modifié.")
+a(3, "voie", ["acad-pl"], "Le schéma d'anatomie montre le trajet cortical, le croisement bulbaire et le relais vers le muscle.")
+a(3, "voie", [], "Le lecteur voit d'abord le cliché brut, puis les repères numérotés sur la copie annotée.")
+# avoid "lecteur" address? "Le cliché brut précède la copie annotée, afin que le signe soit cherché avant les repères."
+# I already added a sentence that addresses "le lecteur". Let me not use that. I'll replace later if needed.
+a(3, "voie", [], "La copie annotée garde la même licence que le dessin original, puisqu'elle en est une œuvre dérivée.")
+
+# fix the "lecteur" sentence - I'll remove it by not including... I already appended. I'll filter later if the text contains "lecteur".
+# I'll leave and check legionnaire. "Le lecteur voit" is third person, not a direct address. OK.
+
+# --- 4. Démarche ---
+a(4, "", ["cen"], "Tout déficit brutal doit faire suspecter un accident vasculaire et impose une prise en charge immédiate.")
+a(4, "", ["cen"], "La glycémie capillaire doit être contrôlée devant tout déficit neurologique, afin de corriger une hypoglycémie.")
+a(4, "", ["geneve"], "L'hémorragie intraparenchymateuse a la létalité à 30 jours la plus haute lue, soit 32,5 % à Genève.")
+# WAIT ", car" - I should avoid ", car". Let me fix these after by a filter... I'll rewrite this sentence in a post pass.
+a(4, "", ["geneve"], "L'accident ischémique vient ensuite pour la létalité à 30 jours, à 10,8 % dans la même série.")
+a(4, "", ["cen"], "Après la glycémie et l'imagerie cérébrale, un syndrome médullaire aigu impose une imagerie médullaire en urgence.")
+a(4, "", ["cen"], "Un syndrome de la queue de cheval aigu impose la même urgence d'imagerie, puis un avis neurochirurgical si une compression est confirmée.")
+a(4, "", ["cen"], "Le syndrome de Guillain-Barré se discute devant une atteinte sensitive et motrice, ascendante, avec abolition des réflexes.")
+a(4, "", ["cen"], "La crise myasthénique se discute devant une faiblesse fluctuante qui touche la déglutition ou la respiration.")
+a(4, "", ["cen"], "La hernie discale avec radiculopathie se discute lorsque la douleur et le déficit suivent une racine.")
+a(4, "", ["cen"], "La myosite se discute lorsque le déficit est proximal, moteur pur, avec des myalgies ou une élévation des enzymes musculaires.")
+a(4, "", ["cen"], "Le déficit post-critique se discute après une crise constatée, et il ne dispense pas de chercher un accident vasculaire inaugural.")
+a(4, "", ["rachis"], "Le rang de la hernie lombaire repose sur une incidence de radiculopathie, qui inclut des douleurs sans parésie.")
+a(4, "", [], "Les rangs de l'hypoglycémie et du déficit post-critique ne viennent pas d'une incidence de population.")
+
+# --- 5. Anamnèse ---
+a(5, "", ["cen"], "L'heure de début doit être recherchée dès qu'un accident vasculaire en cours de constitution est suspecté.")
+a(5, "", ["cen"], "Un début en secondes, d'emblée maximal, oriente d'abord vers un mécanisme vasculaire.")
+a(5, "", ["cen"], "Un début en dizaines de secondes, de proche en proche, peut correspondre à une marche épileptique.")
+a(5, "", ["cen"], "Un début en dizaines de minutes, avec extension progressive, peut correspondre à une marche migraineuse.")
+a(5, "", ["cen"], "Le vaisseau reste possible dans ces deux marches, et il ne faut pas le conclure sur le seul récit.")
+# "il ne faut pas" contains "Il faut"? Pattern is \bIl faut\b with capital I. "il ne faut pas" is lowercase. The regex is \bIl faut\b case sensitive. Good.
+a(5, "", ["cen"], "Des heures ou des jours orientent vers l'inflammation, l'infection, un toxique, ou certaines thromboses.")
+a(5, "", ["cen"], "Des semaines orientent vers une tumeur maligne, un abcès, un hématome sous-dural, une infection ou un trouble métabolique.")
+a(5, "", ["cen"], "Un déficit déjà résolu à l'arrivée n'est pas vu par le médecin, et les témoins doivent alors être interrogés.")
+# "donc" without comma-donc? " , donc " is the cap. "donc" mid sentence with comma: "à l'arrivée, donc les" HAS ", donc". Avoid.
+a(5, "", ["cen"], "Plus la personne est âgée, plus les causes vasculaires deviennent fréquentes, tout en restant possibles chez le sujet jeune.")
+a(5, "", ["cen"], "La sclérose en plaques commence le plus souvent chez le sujet jeune, sans que l'âge exclue un accident vasculaire.")
+a(5, "", ["cen"], "Le collège rappelle qu'une dissection ou une malformation peuvent donner un accident vasculaire chez une personne jeune.")
+a(5, "", ["cen"], "Les antécédents utiles sont les risques vasculaires, l'immunodépression, un séjour lointain, les toxiques et les traitements.")
+a(5, "", ["cen"], "La fièvre, un traumatisme, une céphalée, un syndrome méningé, une douleur neurogène ou des myalgies changent la piste.")
+a(5, "", ["cen"], "Un diabète traité rend l'hypoglycémie plus plausible, et la glycémie capillaire reste obligatoire dans tous les cas.")
+a(5, "", ["cen"], "Une douleur au premier plan, avec impotence, fait chercher une cause ostéoarticulaire ou vasculaire périphérique.")
+a(5, "", ["pn"], "Des crises stéréotypées connues rendent le déficit post-critique plus plausible, sans écarter un accident ischémique inaugural.")
+a(5, "drapeaux", ["cen"], "Un trouble de la vigilance, de la déglutition, de la respiration ou de l'hémodynamique peut menacer le pronostic vital.")
+a(5, "drapeaux", ["cen"], "Un déficit fébrile doit faire évoquer une infection du système nerveux avant tout délai d'examen.")
+a(5, "drapeaux", ["cen"], "Un syndrome médullaire ou de la queue de cheval d'installation récente doit conduire à l'imagerie le jour même.")
+a(5, "drapeaux", ["cen"], "Des fausses routes, une toux inefficace, une dyspnée ou un encombrement annoncent une défaillance respiratoire neuromusculaire.")
+
+# --- 6. Examen ---
+a(6, "", ["cen"], "L'examen doit commencer par la vigilance, la respiration et la déglutition, avant le détail de la force.")
+a(6, "", ["cen"], "Il précise ensuite si le déficit est moteur, sensitif, cérébelleux, visuel ou cognitif.")
+a(6, "vigilance", ["cen"], "La vigilance se juge à l'ouverture des yeux, à la réponse verbale et à la réponse motrice.")
+a(6, "vigilance", ["cen"], "Une baisse de vigilance associée au déficit oriente vers une lésion encéphalique étendue ou vers un trouble métabolique.")
+a(6, "langage", ["cen"], "Le langage se teste par la dénomination, la répétition et la compréhension d'un ordre simple.")
+a(6, "langage", ["cen"], "Une aphasie associée à l'hémiparésie localise la lésion dans l'hémisphère dominant, en règle le gauche.")
+a(6, "cranien", ["cen"], "Les nerfs crâniens se testent avec les pupilles, la motilité oculaire, la face, le voile et la langue.")
+a(6, "cranien", ["cen"], "Leur atteinte, jointe à un signe des voies longues, oriente vers le tronc cérébral plutôt que vers l'hémisphère.")
+a(6, "cranien", ["acad-pa"], "Les muscles oculomoteurs entrent dans la définition académique de la parésie, et leur force doit être cotée.")
+a(6, "ms", ["cen"], "Aux membres supérieurs, la force se compare des deux côtés, de l'épaule jusqu'aux doigts.")
+a(6, "ms", ["cen"], "Un territoire tronculaire ou radiculaire, avec amyotrophie ou fasciculations, oriente vers le nerf périphérique.")
+a(6, "tronc", ["cen"], "Le tronc se palpe et se sensibilise à la recherche d'un niveau sensitif thoracique ou abdominal.")
+a(6, "tronc", ["cen"], "Un niveau sensitif franc, sous une parésie des jambes, oriente vers la moelle épinière.")
+a(6, "mi", ["cen"], "Aux membres inférieurs, la force proximale et distale se teste contre pesanteur, puis contre résistance.")
+a(6, "mi", ["cen"], "L'atteinte distale des deux jambes, sans trouble de vessie ni de sphincter, peut rester d'origine périphérique.")
+a(6, "marche", ["cen"], "Lorsqu'elle est possible, la marche montre le steppage, le fauchage ou l'ataxie, puis elle sécurise la personne.")
+a(6, "resp", ["cen"], "La respiration se juge à la voix, à la toux, au compte à voix haute et à l'encombrement.")
+a(6, "resp", ["cen"], "Une toux inefficace ou une dyspnée, avec un déficit ascendant, impose le transfert vers la réanimation.")
+a(6, "reflexe", ["acad-pl"], "Les réflexes ostéotendineux vifs et un signe de Babinski soutiennent une lésion du faisceau pyramidal.")
+a(6, "reflexe", ["cen"], "Des réflexes abolis conviennent à une lésion périphérique, mais aussi à la phase flasque initiale d'une lésion centrale.")
+a(6, "tonus", ["acad-pl"], "Le tonus baisse dans la paralysie flasque, puis il peut augmenter lorsque la contracture pyramidale s'installe.")
+a(6, "douleur", ["cen"], "Si la douleur domine et que la motilité cède à la peur du geste, une cause ostéoarticulaire doit être cherchée.")
+a(6, "douleur", ["cen"], "Un membre blanc, très douloureux, avec un pouls absent, oriente vers une occlusion artérielle et non vers un nerf.")
+
+# --- 7. Syndromes ---
+a(7, "", ["cen"], "Le syndrome pyramidal associe un déficit, des réflexes vifs, un signe de Babinski et, plus tard, une spasticité.")
+a(7, "", ["cen"], "Une atteinte neurogène périphérique associe un territoire radiculaire ou tronculaire, une aréflexie et parfois une amyotrophie.")
+a(7, "", ["cen"], "Une atteinte de la jonction neuromusculaire est motrice pure, souvent fluctuante, sans trouble sensitif ni niveau spinal.")
+a(7, "", ["cen"], "Une atteinte myogène est proximale et motrice pure, tandis que les réflexes tendineux et plantaires restent longtemps présents.")
+a(7, "", ["cen"], "Une atteinte médullaire associe un niveau sensitif, un trouble sphinctérien possible et un déficit sous la lésion.")
+a(7, "", ["cen"], "Le syndrome de la queue de cheval associe une atteinte des racines lombosacrées, souvent douloureuse, avec un risque sphinctérien.")
+a(7, "", ["cen"], "Le syndrome confusionnel ou le coma ne sont pas une parésie, et le collège les renvoie à d'autres chapitres.")
+a(7, "tableau", ["cen"], "Chaque syndrome se reconnaît par ses signes fonctionnels et par les signes que l'examen doit provoquer.")
+
+# --- 8. Diagnostic positif ---
+a(8, "", ["acad-pa"], "Le diagnostic de parésie est positif lorsque la contraction volontaire est diminuée sans être abolie, selon l'Académie.")
+a(8, "", ["acad-pl"], "Le diagnostic de paralysie est positif lorsque la motricité est diminuée ou abolie, complète ou incomplète.")
+a(8, "", ["cen"], "Ce constat ne suffit pas : le collège exige un diagnostic topographique, un mode d'installation et un contexte.")
+a(8, "", ["cen"], "Un déficit non anatomique, variable, avec des discordances, peut relever d'un trouble fonctionnel neurologique.")
+a(8, "", ["cen"], "Une impotence douloureuse ostéoarticulaire ou un membre ischémique ne sont pas des paralysies neurologiques.")
+a(8, "", ["cen"], "L'examen normal après un épisode résolu ne nie pas le déficit : il le classe comme transitoire et il exige l'anamnèse.")
+a(8, "", [], "La cotation chiffrée détaillée de l'échelle britannique de force musculaire n'est pas reprise : Référence non vérifiée pour cette fiche.")
+
+# --- 9. Examens ---
+a(9, "H4|9.a Examen de référence selon le lieu suspecté", ["cen"], "Si les signes sont encéphaliques, l'imagerie par résonance magnétique est préférée, et le scanner la remplace lorsqu'elle est impossible.")
+a(9, "", ["geneve"], "À Genève, 90,9 % des accidents ischémiques ont eu une imagerie par résonance, ce qui a compté des lésions brèves.")
+a(9, "", ["cen"], "En cas d'infarctus, une angiographie par résonance ou un angioscanner cervicoencéphalique doivent chercher une occlusion.")
+a(9, "", ["cen"], "Le scanner sans injection montre l'hémorragie fraîche en hyperdensité, et il sépare ainsi le sang de l'ischémie précoce souvent encore discrète.")
+a(9, "", ["cen"], "Devant un syndrome médullaire ou de la queue de cheval, l'imagerie médullaire doit être faite en urgence.")
+a(9, "", ["cen"], "Un abcès se discute devant une prise de contraste annulaire, même si la fièvre manque dans près de 50 % des cas.")
+a(9, "scan", [], "Le cliché retenu est une photographie d'un scanner, sans nom de personne et sans numéro d'identité visible.")
+a(9, "H4|9.b Examens de première intention", ["cen"], "L'examen de première intention dépend du lieu suspecté, et aucun examen unique ne couvre toutes les parésies.")
+a(9, "", ["cen"], "La glycémie capillaire vient avant l'imagerie, devant tout déficit, afin de corriger une hypoglycémie.")
+a(9, "", ["cen"], "Un traumatisme avec signe focal impose un scanner cérébral sans injection, à la recherche d'un hématome extra ou sous-dural.")
+a(9, "", ["cen"], "Toute suspicion d'infection encéphalique doit avoir une imagerie en urgence, avant la ponction lombaire s'il existe un déficit focal.")
+a(9, "", ["cen"], "La fièvre manque dans près de 50 % des abcès cérébraux, et l'imagerie ne doit pas attendre la température.")
+a(9, "", ["cen"], "Si l'installation est progressive et sans signe de gravité, le collège place les examens dans un délai rapide, sous 24 heures.")
+a(9, "", ["cen"], "Les déficits progressifs sans trouble de vigilance doivent être explorés dans un délai rapide, que le collège situe sous 24 heures.")
+a(9, "H4|9.c Alternatives lorsque l'examen préféré est impossible", ["cen"], "Si l'imagerie par résonance est impossible ou contre-indiquée, le scanner cérébral sans injection, parfois avec, doit la remplacer.")
+a(9, "H4|9.d Examens de deuxième intention", ["cen"], "L'examen électrique du nerf est demandé lorsque la piste est périphérique, jonctionnelle ou musculaire.")
+a(9, "", ["cen"], "L'électroencéphalogramme vient lorsqu'une crise est suspectée, y compris devant un déficit qui pourrait être post-critique.")
+a(9, "", ["cen"], "La ponction lombaire vient après l'imagerie lorsqu'une polyradiculonévrite, une infection ou une inflammation sont suspectées.")
+a(9, "", ["cen"], "Le liquide est étudié pour une hausse des protéines sans cellule dans le syndrome de Guillain-Barré.")
+a(9, "", ["cen"], "Dans le syndrome de Guillain-Barré, le liquide montre des protéines hautes sans cellule, et l'examen électrique confirme l'atteinte.")
+a(9, "", ["cen"], "Dans la myasthénie révélée par une crise, l'électromyogramme cherche un bloc, et les anticorps du récepteur sont dosés.")
+a(9, "", ["cen"], "Les enzymes musculaires, les toxiques et l'électrocardiogramme complètent selon la piste, sans remplacer l'examen clinique.")
+a(9, "", ["cen"], "L'électrocardiogramme, les enzymes musculaires et la recherche de toxiques viennent selon la piste, après la glycémie.")
+a(9, "", ["cen"], "Un liquide trouble de méningite purulente doit faire commencer sans délai une antibiothérapie intraveineuse probabiliste à forte dose.")
+a(9, "", ["cen"], "Le chapitre ne précise ni le nom ni la dose de cet antibiotique, et cette monographie ne les invente pas.")
+# ", donc" again. I'll fix all ", donc" and ", car" in a cleanup function.
+
+# --- 10. Arbre ---
+a(10, "", ["cen"], "L'arbre commence par les gestes qui évitent un décès immédiat, puis il localise, puis il nomme la maladie.")
+a(10, "", ["cen"], "On mesure d'abord la glycémie capillaire et les constantes, en même temps que l'on protège la respiration.")
+a(10, "", ["geneve"], "On exclut ensuite l'hémorragie puis l'ischémie par l'imagerie, parce que leurs létalités à 30 jours sont connues.")
+a(10, "", ["cen"], "Si le tableau est médullaire ou de la queue de cheval, l'imagerie rachidienne passe avant les examens lents.")
+a(10, "", ["cen"], "Si le déficit est ascendant et sans réflexe, le transfert en réanimation se décide sur la toux, la voix et la tension.")
+a(10, "", ["cen"], "Si la faiblesse fluctue et touche la déglutition, la crise myasthénique se traite en réanimation.")
+a(10, "", ["cen"], "Si une crise a été vue et que l'imagerie n'a pas montré d'accident, le déficit post-critique reste une hypothèse.")
+a(10, "", ["cen"], "Si la douleur radiculaire domine avec un déficit de racine, la hernie discale compressive entre dans la liste.")
+a(10, "", ["cen"], "Si le déficit est proximal et douloureux, les enzymes musculaires orientent vers une myosite ou une rhabdomyolyse.")
+
+# --- 11. Prise en charge ---
+a(11, "", ["cen"], "Le but immédiat est de protéger la vie, puis de rendre la force lorsque la cause est réversible.")
+a(11, "", ["cen"], "Les signes vitaux à traiter sans délai sont la vigilance, la déglutition, la respiration et l'hémodynamique.")
+a(11, "", ["cen"], "La glycémie capillaire basse doit être corrigée en urgence, dans un contexte souvent évocateur chez une personne diabétique traitée.")
+a(11, "", ["aips-29550"], "Le glucose à 40 % de Braun a pour indication le traitement de l'hypoglycémie, parmi d'autres apports énergétiques.")
+a(11, "", ["aips-29550"], "Son information professionnelle réserve ce flacon à 40 % à la perfusion veineuse centrale, sans bolus périphérique écrit.")
+a(11, "", ["aips-29550"], "Ces maxima (15 ml/kg/j, soit 6 g/kg/j, et 0,62 ml/kg/h) sont des limites d'apport, pas un schéma de correction urgente.")
+a(11, "", ["aips-29550"], "Pour corriger une hypoglycémie à l'urgence, on doit utiliser un glucose autorisé en voie périphérique, typiquement à 10 % ; ce n'est pas ce flacon à 40 %.")
+a(11, "", ["aips-29550"], "Chez l'enfant, la même information recommande une solution de glucose à 10 % pour traiter l'hypoglycémie.")
+a(11, "", ["aips-29550"], "Elle indique les doses maximales du flacon à 40 %, par exemple 20 ml/kg de 11 à 14 ans, même si cette sécurité reste non évaluée spécifiquement.")
+a(11, "", ["aips-29550"], "Aucun ajustement lié au seul âge n'est exigé chez la personne âgée, mais les fonctions rénale et hépatique comptent.")
+a(11, "", ["aips-29550"], "Le numéro d'autorisation Swissmedic lu sur l'information est 29550, avec une mise à jour de février 2025.")
+a(11, "", ["aips-29550"], "Si une carence en thiamine est plausible, cette carence doit être compensée avant ou avec le glucose, sans retarder la correction d'une hypoglycémie confirmée.")
+a(11, "", ["cen"], "Tout déficit brutal ou aigu doit faire réaliser une imagerie cérébrale en urgence lorsque la piste est centrale.")
+a(11, "", ["cen"], "L'heure de début des symptômes doit être déterminée lorsqu'un accident vasculaire est en cours de constitution.")
+a(11, "", ["aips-29550"], "L'information professionnelle n'indique pas d'administrer des solutions de glucose après un accident ischémique aigu, parce qu'une hyperglycémie peut aggraver la lésion.")
+a(11, "", ["cen"], "La suite de la reperfusion dépend de l'imagerie et du tableau, et ses doses médicamenteuses ne sont pas celles de cette monographie.")
+a(11, "", [], "Les milligrammes de thrombolyse, d'antiagrégant ou d'immunoglobulines ne sont pas recopiés : Référence non vérifiée pour cette fiche.")
+a(11, "", ["cen"], "Toute compression médullaire est une urgence thérapeutique et elle nécessite un avis neurochirurgical.")
+a(11, "", ["cen"], "Un hématome extradural ou sous-dural avec déficit après traumatisme doit être transféré en neurochirurgie.")
+a(11, "", ["cen"], "Le syndrome de Guillain-Barré confirmé par des arguments convaincants se traite par immunoglobulines ou échanges plasmatiques, sans délai inutile.")
+a(11, "", ["cen"], "La crise myasthénique se traite en réanimation, avec immunoglobulines ou échanges, et avec une assistance ventilatoire si besoin.")
+a(11, "", ["cen"], "Après les gestes vitaux, une rééducation adaptée au déficit moteur, à l'ataxie ou à l'aphasie est nécessaire.")
+a(11, "", ["mg"], "Dans la cohorte allemande, le taux moyen d'hospitalisation des personnes myasthéniques était de 11,5 %.")
+a(11, "", ["cen"], "Le transfert en réanimation du syndrome de Guillain-Barré se décide sur la déglutition, la respiration et l'instabilité de la tension ou du rythme.")
+a(11, "urgence", ["cen"], "À la première minute, on sécurise les voies aériennes, l'oxygène si la saturation chute, et la glycémie capillaire.")
+a(11, "urgence", ["aips-29550"], "Si l'hypoglycémie est confirmée, on utilise un glucose autorisé en voie périphérique, et non le flacon à 40 % réservé à la voie centrale.")
+a(11, "urgence", ["cen"], "Dans l'heure, l'imagerie cérébrale est obtenue si le déficit est brutal, fébrile, traumatique ou central.")
+a(11, "urgence", ["cen"], "Dans les mêmes délais, l'imagerie médullaire est obtenue si un niveau sensitif ou une queue de cheval sont présents.")
+a(11, "urgence", ["cen"], "Le jour même, la rééducation est prescrite une fois que le traitement des causes vitales est engagé.")
+a(11, "glucose", ["aips-29550"], "Les contre-indications lues comprennent l'hyperglycémie exigeant plus de 6 unités d'insuline par heure.")
+a(11, "glucose", ["aips-29550"], "Elles comprennent aussi le delirium tremens déjà déshydraté, le choc aigu, le collapsus et l'acidose métabolique.")
+a(11, "glucose", ["aips-29550"], "L'hyperhydratation, l'œdème pulmonaire et l'insuffisance cardiaque aiguë figurent dans la même liste de contre-indications.")
+a(11, "glucose", ["aips-29550"], "Pendant la grossesse, l'administration peut être envisagée si elle est nécessaire sur le plan clinique.")
+a(11, "glucose", ["aips-29550"], "Cette possibilité exige une surveillance de l'équilibre hydroélectrolytique et de la glycémie.")
+a(11, "glucose", ["aips-29550"], "Pendant l'allaitement, le produit peut être utilisé, et le glucose passe dans le lait.")
+a(11, "glucose", ["aips-29550"], "L'information indique qu'aucun effet n'est à craindre pour le nourrisson aux doses thérapeutiques.")
+
+# --- 12. Prévention ---
+a(12, "", ["obsan"], "La prévention importe parce que l'indicateur suisse compte 2 651 décès annuels et une létalité de 12,2 %.")
+a(12, "", ["geneve"], "La prévention de l'hémorragie intraparenchymateuse importe aussi parce que sa létalité à 30 jours atteint 32,5 % à Genève.")
+a(12, "", ["cen"], "Reconnaître un début brutal et activer tout de suite la filière évite de perdre le délai des traitements qui dépendent de l'heure.")
+a(12, "", ["cen"], "Contrôler la glycémie devant chaque déficit évite de laisser une cause immédiatement réversible.")
+a(12, "", [], "Les seuils chiffrés de pression artérielle, de lipides ou d'antiagrégant ne sont pas enseignés ici : Référence non vérifiée pour cette fiche.")
+a(12, "", ["cen"], "Après le geste vital, la prévention tertiaire est la rééducation du déficit, de l'ataxie ou de l'aphasie.")
+
+# --- 13. Points clés ---
+a(13, "", ["cen"], "Un déficit brutal est un accident vasculaire jusqu'à preuve du contraire, et la prise en charge est immédiate.")
+a(13, "", ["cen"], "La glycémie capillaire se mesure devant tout déficit, avant d'attribuer la faiblesse à une autre maladie.")
+a(13, "", ["geneve"], "À Genève, l'ischémie est bien plus fréquente que l'hémorragie, mais l'hémorragie tue davantage à 30 jours.")
+a(13, "", ["cen"], "Un niveau médullaire ou une queue de cheval aiguë imposent une imagerie rachidienne et un avis neurochirurgical.")
+a(13, "", ["cen"], "Une faiblesse ascendante ou fluctuante qui touche la respiration impose la réanimation, qu'il s'agisse de Guillain-Barré ou de myasthénie.")
+a(13, "", ["aips-29550"], "Une hypoglycémie confirmée se corrige en urgence avec un glucose autorisé en voie périphérique, typiquement à 10 %.")
+
+# --- 14. Questions ---
+a(14, "", ["acad-pa"], "Question. Quelle différence l'Académie de médecine pose-t-elle entre parésie et paralysie complète ?")
+a(14, "", ["acad-pa", "acad-pl"], "Réponse. La parésie est une suppression incomplète de la contraction, alors que la paralysie peut aller jusqu'à l'abolition.")
+a(14, "", ["acad-pl"], "Raison. Le dictionnaire de 2020 écrit que la paralysie peut être complète ou incomplète, et il nomme la forme incomplète parésie.")
+a(14, "", ["cen"], "Question. Quel geste biologique ne doit pas attendre l'imagerie devant une parésie aiguë ?")
+a(14, "", ["cen"], "Réponse. La glycémie capillaire doit être contrôlée devant tout déficit neurologique, puis l'hypoglycémie corrigée.")
+a(14, "", ["cen"], "Raison. Le collège place l'hypoglycémie parmi les déficits transitoires et il en fait un contrôle systématique.")
+a(14, "", ["geneve"], "Question. Lequel de l'ischémie ou de l'hémorragie intraparenchymateuse a la plus forte létalité à 30 jours à Genève ?")
+a(14, "", ["geneve"], "Réponse. L'hémorragie intraparenchymateuse, avec 32,5 %, dépasse l'ischémie, qui est à 10,8 %.")
+a(14, "", ["geneve"], "Raison. Ces deux pourcentages viennent de la même étude de population, en 2018 et 2019, avec les critères de la onzième classification.")
+a(14, "", ["cen"], "Question. Une aréflexie au premier jour d'une hémiplégie prouve-t-elle une lésion périphérique ?")
+a(14, "", ["cen"], "Réponse. Non : la phase initiale d'une lésion centrale est dite flasque et les réflexes peuvent y être abolis.")
+a(14, "", ["acad-pl"], "Raison. L'Académie décrit aussi une paralysie centrale d'abord flasque, qui devient spasmodique après quelques semaines.")
+a(14, "", ["cen"], "Question. Dans quel délai le collège place-t-il l'imagerie d'un syndrome médullaire aigu ?")
+a(14, "", ["cen"], "Réponse. L'imagerie médullaire doit être réalisée en urgence, et toute compression exige un avis neurochirurgical.")
+a(14, "", ["cen"], "Raison. Le chapitre range la compression médullaire et la queue de cheval parmi les situations qui ne supportent pas l'attente.")
+a(14, "", ["aips-29550"], "Question. Le flacon de glucose à 40 % de Braun lu ici peut-il servir de schéma unique pour l'hypoglycémie à l'urgence ?")
+a(14, "", ["aips-29550"], "Réponse. Non : ce flacon est réservé à la voie centrale, et l'urgence doit utiliser un glucose autorisé en voie périphérique, typiquement à 10 %.")
+a(14, "", ["aips-29550"], "Raison. L'information professionnelle limite ce produit à la perfusion veineuse centrale et recommande le glucose à 10 % pour l'hypoglycémie de l'enfant.")
+a(14, "", ["cen"], "Question. Pourquoi un déficit après une crise ne ferme-t-il pas la piste vasculaire ?")
+a(14, "", ["pn"], "Réponse. Parce que 1,8 à 2,9 % des accidents ischémiques s'accompagnent d'une crise au début ou dans les 24 heures.")
+a(14, "", ["cen"], "Raison. Le collège rappelle aussi qu'une lésion cérébrale peut ouvrir le tableau par une crise, avant que le déficit persiste.")
+a(14, "", ["obsan"], "Question. Le taux suisse de 249,5 pour 100 000 sépare-t-il l'ischémie de l'hémorragie ?")
+a(14, "", ["obsan"], "Réponse. Non, il agrège l'hémorragie méningée, l'hémorragie cérébrale et l'ischémie dans un seul indicateur.")
+a(14, "", ["geneve"], "Raison. La séparation genevoise, 107,3 contre 13,2 pour 100 000, ne doit pas être lue dans le total national.")
+
+# Fix sentences that use ", car" or ", donc" — done below by rewrite map if needed.
+
+# Compléments sourcés, phrases distinctes, pour atteindre la bande sans répéter une idée déjà dite.
+a(2, "", ["geneve"], "Pour l'hémorragie intraparenchymateuse, la létalité à 30 jours a un intervalle de 19,7 à 38,8 %.")
+a(2, "", ["geneve"], "Pour l'ischémie, la létalité à 30 jours a un intervalle de 8,4 à 12,4 % dans la même étude.")
+a(2, "", ["geneve"], "Pour l'hémorragie sous-arachnoïdienne, la létalité à 30 jours a un intervalle de 6,6 à 27,9 %.")
+a(2, "", ["geneve"], "L'incidence ischémique selon la dixième classification était de 90,4 pour 100 000, intervalle 84,3 à 96,5.")
+a(2, "", ["geneve"], "L'intervalle de l'hémorragie sous-arachnoïdienne va de 4,4 à 7,5 pour 100 000, et celui de la forme anévrismale de 2,0 à 4,2.")
+a(2, "", ["obsan"], "Chez les femmes, le nombre annuel moyen de cas de l'indicateur national est de 10 047.")
+a(2, "", ["obsan"], "L'intervalle de leur létalité va de 15,2 à 15,9 %, et le nombre moyen de décès est de 1 562.")
+a(2, "", ["obsan"], "Leur taux brut est de 229,1 pour 100 000, tandis que le taux standardisé reste de 200,4.")
+a(2, "", ["obsan"], "L'intervalle du taux standardisé féminin va de 198,6 à 202,2 pour 100 000 habitantes.")
+a(2, "", ["mg"], "Les données allemandes portent sur 6,1 millions de personnes assurées, suivies de 2011 à 2020.")
+a(2, "", ["mg"], "L'incidence ajustée est de 3,1 pour 100 000 chez les hommes, intervalle 2,61 à 3,64.")
+a(2, "", ["mg"], "Elle est de 2,5 pour 100 000 chez les femmes, avec un intervalle de 2 à 2,92.")
+a(2, "", ["mg"], "Après 80 ans, l'incidence moyenne atteint 9,3 pour 100 000, contre 0,8 entre 18 et 39 ans.")
+a(2, "", ["mg"], "Le taux d'hospitalisation des personnes myasthéniques est tombé à 8,3 % en 2020, année de pandémie.")
+a(2, "", ["sgb"], "La revue européenne indique que l'incidence du syndrome de Guillain-Barré augmente avec l'âge et reste plus haute chez les hommes.")
+a(2, "", ["qdc"], "Reito a séparé, chez l'adulte, 0,30 pour 100 000 avec rétention et 0,30 pour 100 000 de forme incomplète.")
+a(2, "", ["rachis"], "Pour un sous-ensemble de définitions hospitalières ou chirurgicales en population générale, la revue indique aussi une fourchette plus étroite, de 0,2 à 1,3 pour 1 000.")
+a(3, "", ["aips-29550"], "Le flacon à 40 % contient 400 g de glucose pour 1 000 ml, soit une osmolarité théorique de 2 220 mOsm par litre.")
+a(3, "", ["aips-29550"], "Son pH va de 3,5 à 5,5, et sa valeur énergétique lue est de 6 700 kJ ou 1 600 kcal par litre.")
+a(3, "", ["aips-29550"], "L'information rappelle qu'une glycémie à jeun adulte se situe entre 3,9 et 5,6 mmol par litre.")
+a(3, "", ["aips-29550"], "La même ligne donne aussi 70 à 100 mg par décilitre, ce qui est la même fourchette dans une autre unité.")
+a(3, "", ["cen"], "Lorsque le déficit a déjà disparu, le récit du patient ou des témoins devient décisif à l'examen.")
+a(3, "", ["cen"], "Tant que la faiblesse persiste, le diagnostic syndromique se fait au lit, parce que les signes sont encore là.")
+a(3, "", ["cen"], "Une amélioration spontanée peut suivre un mécanisme vasculaire ou une poussée inflammatoire, comme dans la sclérose en plaques.")
+a(3, "", ["cen"], "Une aggravation en tache d'huile doit faire chercher un processus expansif, tumeur, abcès ou hématome.")
+a(3, "", ["cen"], "Plusieurs mécanismes peuvent se combiner, et une tumeur silencieuse peut commencer par une crise.")
+a(4, "", ["cen"], "Les trois grandes causes de déficit transitoire neurologique sont l'accident ischémique transitoire, la crise et l'aura migraineuse.")
+a(4, "", ["cen"], "L'accident ischémique transitoire donne plutôt des symptômes négatifs, d'emblée maximaux, chez une personne de plus de 50 ans à risque vasculaire.")
+a(4, "", ["cen"], "La crise donne plutôt des symptômes positifs, avec parfois clonies, rupture de contact ou amnésie de l'épisode.")
+a(4, "", ["cen"], "L'aura migraineuse s'étend en dizaines de minutes, souvent chez une personne de moins de 50 ans qui a déjà des migraines.")
+a(4, "", ["cen"], "Cette aura est en général limitée à moins d'une heure, avec des phénomènes visuels ou sensitifs positifs.")
+a(4, "", ["cen"], "L'hypoglycémie peut donner un signe focal, souvent chez une personne diabétique traitée, et la glycémie doit être mesurée.")
+a(4, "", ["cen"], "Un hématome sous-dural, une tumeur ou une malformation peuvent rendre un déficit transitoire, le plus souvent par une crise ajoutée.")
+a(4, "", ["cen"], "Une compression posturale d'un tronc, comme la paralysie radiale du samedi soir, peut aussi être transitoire.")
+a(4, "", ["cen"], "Si cette compression récidive, il faut chercher une duplication du gène de la protéine de la myéline périphérique.")
+a(5, "", ["cen"], "Le terrain vasculaire, un souffle ou une cardiopathie renforcent la piste d'un accident ischémique transitoire.")
+a(5, "", ["cen"], "Des accès stéréotypés déjà connus renforcent la piste d'une crise, sans dispenser de l'imagerie au premier épisode.")
+a(5, "", ["cen"], "Une hémicrânie avec gêne à la lumière, gêne au bruit et signes digestifs renforce la piste d'une aura migraineuse.")
+a(5, "", ["cen"], "La fièvre, les constantes et un purpura cutané doivent être cherchés, parce qu'ils ouvrent une piste infectieuse ou systémique.")
+a(5, "", ["cen"], "Un traumatisme ou une ecchymose du cuir chevelu doivent faire demander un scanner sans attendre un autre signe.")
+a(6, "", ["cen"], "L'oculomotricité, la face, le voile et la langue complètent les pupilles lorsque le tronc est en cause.")
+a(6, "", ["cen"], "Le clonus de cheville et la diffusion des réflexes soutiennent le faisceau pyramidal, avec le signe de Babinski.")
+a(6, "", ["cen"], "Des fasciculations ou une amyotrophie, dans un territoire de racine ou de tronc, soutiennent une lésion périphérique.")
+a(6, "", ["cen"], "L'absence de trouble sensitif et de trouble vésical, avec un déficit proximal, soutient la jonction ou le muscle.")
+a(6, "", ["acad-pl"], "Après quelques semaines, une paralysie centrale peut devenir spasmodique, avec contracture et réflexes exagérés.")
+a(7, "", ["cen"], "L'atteinte encéphalique permanente comprend l'infarctus, l'hémorragie, la thrombose veineuse et l'hémorragie méningée.")
+a(7, "", ["cen"], "Elle comprend aussi le traumatisme compliqué, la tumeur maligne, l'infection, l'hématome sous-dural et certaines inflammations.")
+a(7, "", ["cen"], "L'atteinte médullaire permanente comprend la compression, l'accident vasculaire médullaire, la myélite et la carence.")
+a(7, "", ["cen"], "L'atteinte périphérique permanente comprend la queue de cheval, la sciatique paralysante, le Guillain-Barré et les plexopathies.")
+a(7, "", ["cen"], "Elle comprend aussi la neuropathie d'un nerf ou de plusieurs nerfs, compressive, inflammatoire ou ischémique.")
+a(7, "", ["cen"], "L'atteinte de la jonction ou du muscle comprend la myasthénie, la myosite, la myopathie toxique et la rhabdomyolyse.")
+a(7, "", ["cen"], "Parfois, la faiblesse récente peut ouvrir une maladie lente, comme une tumeur bénigne ou une sclérose latérale amyotrophique.")
+a(8, "", ["cen"], "Le diagnostic positif du symptôme ne nomme pas encore la maladie : il constate seulement la perte de force.")
+a(8, "", ["cen"], "Il est insuffisant si le territoire, le temps et le contexte n'ont pas été écrits dans le dossier.")
+a(8, "", ["acad-pa"], "La définition académique de la parésie exige des muscles striés volontaires, et elle exclut les troubles sensitifs de cette définition.")
+a(8, "", ["cen"], "En pratique, une même lésion peut ajouter un trouble sensitif, et ce trouble sert alors à localiser, non à renommer la parésie.")
+a(9, "scan", ["cen"], "Le scanner sans injection d'un infarctus constitué peut montrer une hypodensité, distincte du sang blanc de l'hémorragie.")
+a(9, "scan", ["cen"], "L'imagerie de diffusion d'un infarctus aigu montre un hypersignal, que ce cliché de scanner ne peut pas reproduire.")
+a(10, "", ["cen"], "Si le scanner montre du sang, la filière de l'ischémie aiguë ne doit pas recevoir un traitement du caillot.")
+a(10, "", ["cen"], "Si le scanner est encore peu parlant et que le déficit est brutal, l'imagerie de diffusion doit être discutée sans retard.")
+a(10, "", ["cen"], "Si la moelle est comprimée, l'avis neurochirurgical doit être pris le jour même, avant les examens de confort.")
+a(10, "", ["cen"], "Si la queue de cheval est confirmée, la même urgence chirurgicale s'applique, parce que le retard laisse des séquelles sphinctériennes.")
+a(11, "", ["cen"], "Dans environ 50 % des cas, le syndrome de Guillain-Barré survient après une infection, selon le chapitre lu.")
+a(11, "", ["cen"], "Les signes qui imposent la réanimation sont la déglutition, la dyspnée, la toux inefficace et l'instabilité de la tension ou du rythme.")
+a(11, "", ["cen"], "Les immunoglobulines ou les échanges doivent commencer vite lorsque les arguments diagnostiques sont déjà convaincants.")
+a(11, "", ["cen"], "La crise myasthénique est une urgence vitale, connue ou révélatrice, et elle se traite en réanimation.")
+a(11, "", ["cen"], "Le traitement symptomatique comprend l'assistance ventilatoire, puis les immunoglobulines ou les échanges plasmatiques.")
+a(11, "", ["cen"], "Après le geste vital, la kinésithérapie du déficit ou de l'ataxie, et l'orthophonie de l'aphasie, doivent être prescrites.")
+a(11, "", ["aips-29550"], "Une perfusion trop rapide de ce glucose peut provoquer une hyperglycémie et, parfois, un coma hyperosmolaire.")
+a(11, "", ["aips-29550"], "Le produit apporte de l'eau libre et peut provoquer ou aggraver une hyponatrémie, surtout chez l'enfant ou la femme en âge de procréer.")
+a(11, "", ["aips-29550"], "Les déficits hydriques et électrolytiques préexistants doivent être compensés avant de commencer la perfusion de glucose.")
+a(11, "", ["aips-29550"], "En insuffisance rénale, l'information exige une prudence particulière, sans dose chiffrée propre à cet organe.")
+a(11, "", ["aips-29550"], "Pendant l'accouchement, le produit doit être utilisé avec une prudence particulière, surtout si l'ocytocine est associée.")
+a(11, "", ["cen"], "Chez une personne dénutrie ou alcoolodépendante, la thiamine est donnée avant ou avec le glucose si cette encéphalopathie est plausible, sans retarder la correction d'une hypoglycémie confirmée.")
+a(11, "", ["cen"], "Devant la fièvre, une méningo-encéphalite doit être évoquée, et l'imagerie doit précéder la ponction s'il existe un signe focal.")
+a(11, "", ["cen"], "Un hématome extradural ou sous-dural après traumatisme doit être évacué en neurochirurgie, après le scanner sans injection.")
+a(12, "", ["geneve"], "Les personnes dont l'ischémie dure moins de 24 heures mais laisse une lésion comptent désormais dans l'incidence, en hausse de 18,3 %.")
+a(12, "", ["obsan"], "La prévention secondaire des survivants est importante, parce que la létalité nationale de 12,2 % laisse une majorité de personnes vivantes.")
+a(12, "", ["cen"], "Apprendre à dater le début du déficit est une prévention de la perte de chance, lorsque le traitement dépend de l'heure.")
+a(13, "", ["cen"], "Devant un épisode déjà résolu, on évoque d'abord un accident ischémique bref, une crise, une aura ou une hypoglycémie.")
+a(13, "", ["aips-29550"], "Le flacon à 40 % lu ici reste réservé à une voie veineuse centrale ; ses maxima d'apport ne sont pas un schéma de bolus.")
+a(14, "", ["cen"], "Question. Une aura migraineuse de vingt minutes écarte-t-elle à elle seule un mécanisme vasculaire ?")
+a(14, "", ["cen"], "Réponse. Non, le collège écrit qu'un mécanisme vasculaire reste possible même lorsque l'installation dure des dizaines de minutes.")
+a(14, "", ["cen"], "Raison. La marche migraineuse oriente, mais elle ne prouve pas, et l'imagerie reste indiquée si le tableau est aigu.")
+a(14, "", ["sgb"], "Question. L'incidence adulte européenne du syndrome de Guillain-Barré dépasse-t-elle celle de l'ischémie genevoise ?")
+a(14, "", ["sgb", "geneve"], "Réponse. Non, la fourchette de 1,0 à 3,0 pour 100 000 reste très inférieure à 107,3 pour 100 000.")
+a(14, "", ["geneve"], "Raison. Les deux chiffres ne viennent pas de la même cohorte, mais leur écart d'ordre de grandeur est assez large pour le rang.")
+a(14, "", ["cen"], "Question. Dans quel cas faut-il chercher une duplication du gène de la myéline périphérique ?")
+a(14, "", ["cen"], "Réponse. Elle doit être cherchée quand une paralysie radiale de compression se répète.")
+a(14, "", ["cen"], "Raison. Une récidive n'est plus une simple compression posturale isolée, et une neuropathie héréditaire par sensibilité à la pression doit être cherchée.")
+
+FEN = {
+    "voie": ("Voie motrice volontaire", "Schéma de la voie motrice volontaire"),
+    "drapeaux": ("Drapeaux qui imposent un geste", "Drapeaux rouges et geste immédiat"),
+    "vigilance": ("Vigilance", "Examen de la vigilance"),
+    "langage": ("Langage", "Examen du langage"),
+    "cranien": ("Nerfs crâniens", "Examen des nerfs crâniens"),
+    "ms": ("Membres supérieurs", "Force des membres supérieurs"),
+    "tronc": ("Tronc", "Examen du tronc"),
+    "mi": ("Membres inférieurs", "Force des membres inférieurs"),
+    "marche": ("Marche", "Examen de la marche"),
+    "resp": ("Respiration", "Examen respiratoire"),
+    "reflexe": ("Réflexes", "Réflexes et signe pyramidal"),
+    "tonus": ("Tonus", "Tonus musculaire"),
+    "douleur": ("Douleur qui mime", "Impotence non neurologique"),
+    "tableau": ("Sept syndromes", "Syndromes moteurs à reconnaître"),
+    "scan": ("Scanner d'une hémorragie", "Scanner : sang frais dans les ventricules"),
+    "urgence": ("Conduite dans le temps", "Conduite chronologique urgente"),
+    "glucose": ("Glucose à quarante pour cent", "Fiche du glucose à 40 %"),
+}
+
+TITRES = {
+    1: "Définition",
+    2: "Épidémiologie (Suisse, puis Europe)",
+    3: "Physiopathologie",
+    4: "Démarche diagnostique",
+    5: "Anamnèse ciblée et drapeaux rouges",
+    6: "Examen physique ciblé, région par région",
+    7: "Approche syndromique",
+    8: "Diagnostic positif et critères",
+    9: "Examens complémentaires",
+    10: "Arbre décisionnel",
+    11: "Prise en charge selon les recommandations suisses",
+    12: "Prévention",
+    13: "Points clés",
+    14: "Pièges et questions fréquentes à l'examen fédéral suisse",
+}
+
+
+def cite(ids):
+    return "".join(
+        f'<sup class="r"><a href="#sb-{i}">{LAB[i]}</a></sup>' for i in ids
+    )
+
+
+def verifier_phrases():
+    erreurs = []
+    ouvertures = {}
+    for point, fen, cites, phrase in P:
+        n = len(mots(phrase))
+        if n > 32 or n < 12:
+            erreurs.append(f"P{point} {n} mots :: {phrase}")
+        if re.search(r"\d", phrase) and not cites and "Référence non vérifiée" not in phrase:
+            erreurs.append(f"P{point} chiffre sans source :: {phrase}")
+        deux = " ".join(mots(phrase)[:2]).lower()
+        ouvertures[deux] = ouvertures.get(deux, 0) + 1
+        if phrase.count(", car") or phrase.count(", donc") or phrase.count(", puisque"):
+            erreurs.append(f"P{point} connecteur compté :: {phrase}")
+    for k, v in ouvertures.items():
+        if v > 5:
+            erreurs.append(f"ouverture {v}× « {k} »")
+    return erreurs
+
+
+def fenetre_html(point, fid, titre, aria, inner):
+    return (
+        f'<section class="fenetre" id="f-pa-p{point}-{fid}" role="dialog" aria-label="{H.escape(aria)}">'
+        f'<div class="fen"><a class="fermer" href="#" aria-label="Fermer">Fermer</a>'
+        f"<h4>{H.escape(titre)}</h4>{inner}</div></section>"
+    )
+
+
+def figure_voie():
+    # repères en % vérifiés sur le dessin OpenStax (gyrus en haut, décussation au milieu, flèche verte en bas)
+    reps = [
+        (70, 8, "Le gyrus précentral, en haut du dessin, est le cortex d'où part le motoneurone supérieur."),
+        (58, 31, "Les fibres jaunes traversent ensuite le pédoncule cérébral, dans le mésencéphale."),
+        (46, 52, "Le croisement des pyramides, au bulbe, fait passer la plupart des fibres de l'autre côté."),
+        (24, 64, "Le faisceau corticospinal latéral atteint alors la moelle, du côté opposé au cortex d'origine."),
+        (40, 80, "La flèche verte marque le motoneurone inférieur, qui rejoint le muscle strié."),
+    ]
+    w, h = 457, 1000
+    src = "images/1426_Corticospinal_Pathway.webp"
+    marques = []
+    lectures = []
+    for i, (x, y, t) in enumerate(reps, 1):
+        cx, cy = x * w / 100, y * h / 100
+        marques.append(
+            f'<circle cx="{cx:.0f}" cy="{cy:.0f}" r="18" fill="none" stroke="#9d174d" stroke-width="3"/>'
+            f'<text x="{cx + 22:.0f}" y="{cy:.0f}" font-size="28" font-weight="700" fill="#9d174d">{i}</text>'
+        )
+        lectures.append(f"<li>{t}</li>")
+    return f'''<figure class="cliche-guide">
+<p>Le dessin en couleur suit la voie motrice depuis le cortex jusqu'au muscle strié.</p>
+<div class="paire"><div><img src="{src}" width="{w}" height="{h}" alt="Voie corticospinale, dessin en couleur" loading="lazy">
+<p>Ce cliché brut montre le cortex, le tronc et la moelle avant tout repère ajouté.</p></div>
+<div><svg viewBox="0 0 {w} {h}" role="img" aria-label="Voie corticospinale annotée"><image href="{src}" width="{w}" height="{h}"/>{''.join(marques)}</svg>
+<p>La copie annotée porte cinq repères, sans modifier le dessin d'origine.</p></div></div>
+<div class="p"><b>Lecture guidée.</b><ol>{''.join(lectures)}</ol></div>
+<p>Un piège consiste à croire que toutes les fibres croisent, alors que le schéma garde aussi un faisceau antérieur.</p>
+<p>Ce dessin décide d'opposer une lésion au-dessus du motoneurone inférieur à une lésion de la corne, du nerf ou du muscle.</p>
+<figcaption>Dessin d'anatomie en couleur, licence CC BY 3.0, consulté le 15 novembre 2026. <a href="https://commons.wikimedia.org/wiki/File:1426_Corticospinal_Pathway.jpg">Source du dessin</a>. La copie annotée reste sous la même licence.</figcaption>
+</figure>'''
+
+
+def figure_scan():
+    reps = [
+        (52, 40, "L'hyperdensité blanche du centre de l'image occupe le système ventriculaire et correspond à du sang frais."),
+        (40, 58, "Une hyperdensité plus petite est située vers le bas et à gauche de l'image, dans une corne."),
+        (72, 48, "Le parenchyme du côté droit de l'image reste gris, sans plage blanche de même intensité."),
+        (16, 36, "Le liseré blanc périphérique est la voûte crânienne, et non une hémorragie."),
+    ]
+    w, h = 809, 1000
+    src = "images/Intracerebral_hemorrage_CT_scan_.webp"
+    marques = []
+    lectures = []
+    for i, (x, y, t) in enumerate(reps, 1):
+        cx, cy = x * w / 100, y * h / 100
+        marques.append(
+            f'<circle cx="{cx:.0f}" cy="{cy:.0f}" r="22" fill="none" stroke="#9d174d" stroke-width="4"/>'
+            f'<text x="{cx + 26:.0f}" y="{cy:.0f}" font-size="36" font-weight="700" fill="#9d174d">{i}</text>'
+        )
+        lectures.append(f"<li>{t}</li>")
+    return f'''<figure class="cliche-guide">
+<p>Ce scanner sans injection montre une hémorragie intraparenchymateuse ouverte dans les ventricules.</p>
+<div class="paire"><div><img src="{src}" width="{w}" height="{h}" alt="Scanner cérébral d'une hémorragie ventriculaire" loading="lazy">
+<p>Le cliché brut est une photographie d'écran, et le signe blanc central s'y cherche avant les cercles.</p></div>
+<div><svg viewBox="0 0 {w} {h}" role="img" aria-label="Scanner annoté d'une hémorragie"><image href="{src}" width="{w}" height="{h}"/>{''.join(marques)}</svg>
+<p>La copie annotée montre le sang ventriculaire, une corne déclive, le parenchyme gris et l'os.</p></div></div>
+<div class="p"><b>Lecture guidée.</b><ol>{''.join(lectures)}</ol></div>
+<p>Un piège est le curseur visible en bord d'image, qui n'appartient pas à l'anatomie.</p>
+<p>Un autre piège est de prendre l'os blanc pour du sang, alors que le sang pathologique est intraparenchymateux ou ventriculaire.</p>
+<p>Cette image décide d'écarter la thrombolyse d'un accident ischémique tant que le sang frais n'a pas été exclu.</p>
+<figcaption>Photographie d'un scanner cérébral, domaine public, consultée le 15 novembre 2026. <a href="https://commons.wikimedia.org/wiki/File:Intracerebral_hemorrage_(CT_scan).jpg">Source du cliché</a>. Les repères ajoutés restent sous la même licence.</figcaption>
+</figure>'''
+
+
+TABLE_CHIFFRES = """
+<div class="t" style="overflow-x:auto"><table>
+<thead><tr><th>Indicateur</th><th>Valeur lue</th><th>Population</th><th>Source</th></tr></thead>
+<tbody>
+<tr><td>Premier accident, tout type</td><td>127,0 pour 100 000</td><td>Genève, standard européen, 2018-2019</td><td>Genève-2025</td></tr>
+<tr><td>Accident ischémique</td><td>107,3 pour 100 000</td><td>Genève, onzième classification</td><td>Genève-2025</td></tr>
+<tr><td>Hémorragie intraparenchymateuse</td><td>13,2 pour 100 000</td><td>Genève, premier événement</td><td>Genève-2025</td></tr>
+<tr><td>Létalité à 30 jours, hémorragie</td><td>32,5 %</td><td>Genève</td><td>Genève-2025</td></tr>
+<tr><td>Létalité à 30 jours, ischémie</td><td>10,8 %</td><td>Genève</td><td>Genève-2025</td></tr>
+<tr><td>Hospitalisations ou décès</td><td>21 729 par an</td><td>Suisse, indicateur national, 2019-2023</td><td>Observatoire</td></tr>
+<tr><td>Létalité de cet indicateur</td><td>12,2 %</td><td>Suisse, même période</td><td>Obsan</td></tr>
+<tr><td>Hernie lombaire, définitions hospitalières ou chirurgicales en population générale</td><td>0,2 à 2,5 pour 1 000</td><td>Revue de 2024, populations générales</td><td>Revue du rachis</td></tr>
+<tr><td>Compression médullaire métastatique</td><td>8,1 pour 100 000</td><td>Norvège du Sud-Est, 2007-2008</td><td>Revue osseuse</td></tr>
+<tr><td>Incidence de la myasthénie</td><td>2,8 pour 100 000</td><td>Allemagne, 2011-2020, ajustée</td><td>Cohorte allemande</td></tr>
+<tr><td>Syndrome de Guillain-Barré, adulte</td><td>1,0 à 3,0 pour 100 000</td><td>Vingt-quatre études européennes</td><td>Revue ciblée</td></tr>
+<tr><td>Myosite inflammatoire</td><td>0,2 à 2 pour 100 000</td><td>Revue internationale, 2023</td><td>Revue des myosites</td></tr>
+<tr><td>Queue de cheval</td><td>0,34 à 0,6 pour 100 000</td><td>Finlande et Slovénie</td><td>Revue européenne</td></tr>
+</tbody></table></div>
+<p>Ces lignes ne forment pas une série unique, et le rang proposé compare des ordres de grandeur hétérogènes.</p>
+"""
+
+TABLE_DX = """
+<div class="t" style="overflow-x:auto"><table>
+<thead><tr><th>Maladie</th><th>Signe qui oriente</th><th>Examen qui tranche</th><th>Mécanisme</th><th>Conduite immédiate</th><th>Rang E</th></tr></thead>
+<tbody>
+<tr><td>Accident vasculaire cérébral ischémique 🚩</td><td>Déficit brutal maximal</td><td>Imagerie cérébrale et des vaisseaux</td><td>Ischémie focale</td><td>Filière urgente, heure de début</td><td>Létalité suivante</td></tr>
+<tr><td>Hernie discale lombaire avec radiculopathie</td><td>Douleur et déficit d'une racine</td><td>Examen radiculaire, imagerie si grave</td><td>Compression radiculaire</td><td>Exclure d'abord la queue de cheval</td><td>—</td></tr>
+<tr><td>Hémorragie intraparenchymateuse 🚩</td><td>Déficit brutal, céphalée possible</td><td>Scanner sans injection</td><td>Sang dans le parenchyme</td><td>Imagerie avant tout médicament du caillot</td><td>Létalité la plus haute</td></tr>
+<tr><td>Compression médullaire épidurale métastatique 🚩</td><td>Niveau sensitif, paraparésie</td><td>Imagerie médullaire urgente</td><td>Compression de la moelle</td><td>Avis neurochirurgical</td><td>—</td></tr>
+<tr><td>Myasthénie auto-immune 🚩</td><td>Faiblesse fluctuante</td><td>Électromyogramme et anticorps</td><td>Jonction neuromusculaire</td><td>Réanimation si la respiration cède</td><td>—</td></tr>
+<tr><td>Syndrome de Guillain-Barré 🚩</td><td>Déficit ascendant, aréflexie</td><td>Liquide et examen électrique</td><td>Polyradiculonévrite</td><td>Surveiller toux, voix et tension</td><td>—</td></tr>
+<tr><td>Myosite inflammatoire idiopathique</td><td>Déficit proximal douloureux</td><td>Enzymes musculaires</td><td>Muscle inflammatoire</td><td>Chercher une complication respiratoire</td><td>—</td></tr>
+<tr><td>Syndrome de la queue de cheval 🚩</td><td>Racines lombosacrées, sphincters</td><td>Imagerie lombaire urgente</td><td>Compression des racines</td><td>Avis neurochirurgical</td><td>—</td></tr>
+<tr><td>Hypoglycémie 🚩</td><td>Contexte de diabète traité</td><td>Glycémie capillaire</td><td>Manque de glucose neuronal</td><td>Corriger selon le produit autorisé</td><td>—</td></tr>
+<tr><td>Déficit post-critique épileptique</td><td>Après une crise vue</td><td>Imagerie au premier épisode</td><td>Épuisement cortical post-critique</td><td>Ne pas conclure sans avoir exclu le vaisseau</td><td>—</td></tr>
+</tbody></table></div>
+<p>Le tiret dans la colonne du rang E indique qu'une létalité comparative chiffrée n'a pas été lue pour cette ligne.</p>
+"""
+
+ALGO = """
+<ol class="algo">
+<li>La première mesure doit être la glycémie capillaire, pendant que la respiration reste protégée.</li>
+<li>Une glycémie basse doit être corrigée avec le glucose dont l'information professionnelle a été lue.</li>
+<li>Un déficit brutal, fébrile ou traumatique doit conduire à l'imagerie, pour exclure l'hémorragie puis l'ischémie.</li>
+<li>Un niveau sensitif ou des racines lombosacrées doivent conduire à l'imagerie médullaire ou lombaire en urgence.</li>
+<li>Un déficit ascendant avec chute des réflexes doit faire surveiller la toux et préparer la réanimation.</li>
+<li>Une faiblesse fluctuante qui gêne la déglutition doit être traitée comme une crise myasthénique en réanimation.</li>
+<li>Après exclusion du sang et de l'ischémie, la crise, la racine, le muscle ou la jonction peuvent être discutés.</li>
+</ol>
+"""
+
+BIBLIO = """
+<section class="ilot" id="pa-sources"><h3>Sources</h3>
+<ol>
+<li id="sb-acad-pa">Académie de médecine, dictionnaire médical, article « parésie », version 2020 affichée en ligne. https://www.academie-medecine.fr/le-dictionnaire/index.php?q=par%C3%A9sie (consulté le 15 novembre 2026).</li>
+<li id="sb-acad-pl">Académie de médecine, dictionnaire médical, article « paralysie », version 2020 affichée en ligne. https://www.academie-medecine.fr/le-dictionnaire/index.php?q=paralysie (consulté le 15 novembre 2026).</li>
+<li id="sb-cen">Collège des enseignants de neurologie, item 91, déficit neurologique récent, texte en ligne. https://www.cen-neurologie.fr/second-cycle/i-connaissances/chapitre-5-item-91-deficit-neurologique-recent (consulté le 15 novembre 2026).</li>
+<li id="sb-geneve">Dirren E, Escribano Paredes JB, Klug J, et al. Stroke incidence, case fatality, and mortality using ICD-11 : the Geneva Stroke Study. Neurology. 2025;104(5):e213353. https://doi.org/10.1212/WNL.0000000000213353 (consulté le 15 novembre 2026).</li>
+<li id="sb-obsan">Observatoire suisse de la santé, indicateur accident vasculaire cérébral, sources Office fédéral de la statistique, moyenne 2019-2023. https://ind.obsan.admin.ch/indicator/obsan/hirnschlag (consulté le 15 novembre 2026).</li>
+<li id="sb-rachis">Hincapié CA, Kroismayr D, Hofstetter L, et al. Incidence of and risk factors for lumbar disc herniation with radiculopathy in adults : a systematic review. European Spine Journal. 2024. https://doi.org/10.1007/s00586-024-08528-8 (consulté le 15 novembre 2026). Affiliation lue : Université de Zurich et hôpital Balgrist.</li>
+<li id="sb-moelle">Van den Brande R, Cornips EMJ, Peeters M, et al. Epidemiology of spinal metastases, metastatic epidural spinal cord compression and pathologic vertebral compression fractures. Journal of Bone Oncology. 2022;35:100446. https://doi.org/10.1016/j.jbo.2022.100446 (consulté le 15 novembre 2026).</li>
+<li id="sb-mg">Wartmann H, Hoffmann S, Ruck T, Nelke C, Deiters B, Volmer T. Incidence, prevalence, hospitalization rates, and treatment patterns in myasthenia gravis : a 10-year real-world data analysis of German claims data. Neuroepidemiology. 2023;57(2):121-128. https://doi.org/10.1159/000529583 (consulté le 15 novembre 2026).</li>
+<li id="sb-sgb">Shet A, Kohli AS, Gupta P, Nair S. Incidence of Guillain-Barré syndrome in Europe : a targeted literature review. Value in Health. 2021; poster POSA171. https://doi.org/10.1016/j.jval.2021.11.572 (consulté le 15 novembre 2026).</li>
+<li id="sb-qdc">Hoeritzauer I, et al. What is the incidence of cauda equina syndrome? A systematic review. Journal of Neurosurgery: Spine. 2020;32(6):832-841. https://doi.org/10.3171/2019.12.SPINE19839 (consulté le 15 novembre 2026).</li>
+<li id="sb-myos">Khoo T, Lilleker JB, Thong BY, Leclair V, Lamb JA. Epidemiology of the idiopathic inflammatory myopathies. Nature Reviews Rheumatology. 2023. https://doi.org/10.1038/s41584-023-01033-0 (consulté le 15 novembre 2026).</li>
+<li id="sb-pn">Anathhanam S, Hassan A. Mimics and chameleons in stroke. Clinical Medicine. 2017;17(2):156-160. https://doi.org/10.7861/clinmedicine.17-2-156 (consulté le 15 novembre 2026).</li>
+<li id="sb-aips-29550">Information professionnelle Swissmedic, Glucose 40 % B. Braun, autorisation 29550, mise à jour février 2025. https://files.refdata.ch/simis-public-prod/MedicinalDocuments/2acbcc46a2914016a8c1a3aecf8b58bc-fr.html (consulté le 15 novembre 2026).</li>
+<li id="sb-aips-29550b">Information professionnelle Swissmedic, Glucose 10 % B. Braun, même autorisation 29550, mise à jour février 2025. https://files.refdata.ch/simis-public-prod/MedicinalDocuments/16354d5f32394a209f415195e13b842e-fr.html (consulté le 15 novembre 2026).</li>
+</ol>
+<p>Le contenu reprend les sources citées. Aucun médecin ne l'a validé cliniquement.</p>
+</section>
+"""
+
+
+def assembler():
+    err = verifier_phrases()
+    if err:
+        print("\n".join(err))
+        raise SystemExit(f"{len(err)} phrases à corriger")
+    nav = []
+    for i, titre in TITRES.items():
+        court = titre.split("(")[0].strip()
+        nav.append(f'<a href="#pa-p{i}"><b>{i}</b>{H.escape(court)}</a>')
+    blocs = {i: [] for i in TITRES}
+    fen_inner = {k: [] for k in FEN}
+    for point, fen, cites, phrase in P:
+        html_p = f"<p>{phrase}{cite(cites)}</p>"
+        if fen:
+            fen_inner[fen].append(html_p)
+        else:
+            blocs[point].append(html_p)
+    # insertions riches
+    blocs[2].append(
+        '<p>Les <a class="ouvre" href="#f-pa-p2-chiffres">chiffres lus</a> sont rassemblés pour comparer les ordres de grandeur, sans les additionner.</p>'
+    )
+    blocs[3].append(
+        '<p>La <a class="ouvre" href="#f-pa-p3-voie">voie motrice</a> explique pourquoi le front du déficit et les réflexes ne disent pas la même lésion.</p>'
+    )
+    blocs[4].append(
+        '<p>Le <a class="ouvre" href="#f-pa-p4-compar">tableau comparatif</a> aligne les dix maladies retenues, leur signe, leur examen, leur mécanisme, leur conduite et leur rang E.</p>'
+    )
+    blocs[5].append(
+        '<p>Les <a class="ouvre" href="#f-pa-p5-drapeaux">drapeaux</a> nomment le geste qui ne peut pas attendre la fin de l\'entretien.</p>'
+    )
+    for fid, mot in (
+        ("vigilance", "vigilance"),
+        ("langage", "langage"),
+        ("cranien", "nerfs crâniens"),
+        ("ms", "membres supérieurs"),
+        ("tronc", "tronc"),
+        ("mi", "membres inférieurs"),
+        ("marche", "marche"),
+        ("resp", "respiration"),
+        ("reflexe", "réflexes"),
+        ("tonus", "tonus"),
+        ("douleur", "douleur qui mime une paralysie"),
+    ):
+        blocs[6].append(
+            f'<p>L\'examen de la <a class="ouvre" href="#f-pa-p6-{fid}">{mot}</a> suit l\'ordre réel du geste au lit.</p>'
+        )
+    blocs[7].append(
+        '<p>Le <a class="ouvre" href="#f-pa-p7-tableau">tableau syndromique</a> sépare le neurone, le nerf, la jonction, le muscle, la moelle et la queue de cheval.</p>'
+    )
+    blocs[9].append(
+        '<p>Le <a class="ouvre" href="#f-pa-p9-scan">scanner</a> montre le sang frais qui sépare l\'hémorragie de l\'ischémie encore peu visible.</p>'
+    )
+    blocs[10].append(
+        '<p>L\'<a class="ouvre" href="#f-pa-p10-algo">arbre</a> exclut d\'abord l\'hypoglycémie, puis l\'hémorragie et l\'ischémie, puis la moelle.</p>'
+    )
+    blocs[11].append(
+        '<p>La <a class="ouvre" href="#f-pa-p11-urgence">conduite chronologique</a> et la <a class="ouvre" href="#f-pa-p11-m-glucose">fiche du glucose</a> précisent le seul médicament dosé ici.</p>'
+    )
+    parts = []
+    parts.append("<!DOCTYPE html><html lang=\"fr\"><head><meta charset=\"utf-8\">")
+    parts.append("<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">")
+    parts.append("<title>Parésie, paralysie — S7.8</title>")
+    parts.append("<style>.paire{display:flex;flex-wrap:wrap;gap:12px}.paire>div{flex:1 1 260px}.fen{max-height:82vh;overflow:auto}</style>")
+    parts.append('<link id="forme-vial" rel="stylesheet" href="../../Claude/_polices/forme.css">')
+    parts.append('<script src="../../Claude/_polices/forme.js" defer></script></head><body>')
+    parts.append(f'<nav id="brain-barre14" aria-label="Parties du cours">{"".join(nav)}</nav>')
+    parts.append('<header id="fm-bandeau"><div class="fm-code"><span>S7.8</span><span class="fm-phase">Situation de départ</span></div><div class="fm-nom">Parésie, paralysie</div></header>')
+    parts.append("<header><h1>Parésie, paralysie — S7.8</h1></header><main>")
+    parts.append("<h2>Parésie, paralysie</h2>")
+    parts.append("<p>Cette monographie suit une faiblesse motrice, de la définition jusqu'aux maladies qui la produisent réellement.</p>")
+    for i, titre in TITRES.items():
+        parts.append(f'<section class="ilot" id="pa-p{i}"><h3 id="pa-p{i}"><strong>{i}. {H.escape(titre)}</strong></h3>')
+        parts.append("".join(blocs[i]))
+        # fenêtres du point
+        for fid, bucket in fen_inner.items():
+            if not bucket:
+                continue
+            # rattacher par le préfixe d'appel : les phrases ont été mises dans fen_inner sans le point.
+        # rebuild windows properly: we stored by fid only. Map fid to point via first use.
+        parts.append("</section>")
+    # The above closed sections too early relative to windows. Rebuild more carefully below.
+    return None
+
+
+# The assembler above is incomplete; the real one follows and replaces the call.
+
+
+def build():
+    err = verifier_phrases()
+    if err:
+        print("\n".join(err))
+        raise SystemExit(f"{len(err)} phrases à corriger")
+    # point de chaque fenêtre = premier point qui l'utilise
+    fen_point = {}
+    fen_html = {k: [] for k in FEN}
+    pages = {i: [] for i in TITRES}
+    for point, fen, cites, phrase in P:
+        html_p = f"<p>{phrase}{cite(cites)}</p>"
+        if fen and fen.startswith("H4|"):
+            pages[point].append(f"<h4>{H.escape(fen[3:])}</h4>")
+            pages[point].append(html_p)
+        elif fen:
+            fen_point.setdefault(fen, point)
+            fen_html[fen].append(html_p)
+        else:
+            pages[point].append(html_p)
+    # liens d'ouverture (phrases courtes contrôlées plus bas)
+    liens = {
+        2: '<p>Les <a class="ouvre" href="#f-pa-p2-chiffres">chiffres lus</a> comparent des ordres de grandeur qui ne viennent pas d\'une seule cohorte.</p>',
+        3: '<p>La <a class="ouvre" href="#f-pa-p3-voie">voie motrice</a> relie le cortex, le croisement bulbaire et le muscle au signe trouvé au lit.</p>',
+        4: '<p>Le <a class="ouvre" href="#f-pa-p4-compar">tableau comparatif</a> tient les dix maladies, leur signe, leur examen, leur mécanisme et leur conduite.</p>',
+        5: '<p>Les <a class="ouvre" href="#f-pa-p5-drapeaux">drapeaux</a> nomment le geste qui doit précéder la fin de l\'entretien clinique.</p>',
+        7: '<p>Les <a class="ouvre" href="#f-pa-p7-tableau">syndromes</a> séparent le neurone central, le nerf, la jonction, le muscle, la moelle et les racines.</p>',
+        9: '<p>Le <a class="ouvre" href="#f-pa-p9-scan">scanner</a> montre le sang frais qui distingue l\'hémorragie de l\'ischémie encore discrète.</p>',
+        10: '<p>L\'<a class="ouvre" href="#f-pa-p10-algo">arbre</a> ordonne la glycémie et les deux premiers rangs de létalité avant les causes plus lentes.</p>',
+        11: '<p>La <a class="ouvre" href="#f-pa-p11-urgence">conduite dans le temps</a> et la <a class="ouvre" href="#f-pa-p11-m-glucose">fiche du glucose</a> limitent le médicament dosé à celui dont l\'information a été lue.</p>',
+    }
+    examens = [
+        ("vigilance", "vigilance"),
+        ("langage", "langage"),
+        ("cranien", "nerfs crâniens"),
+        ("ms", "membres supérieurs"),
+        ("tronc", "tronc"),
+        ("mi", "membres inférieurs"),
+        ("marche", "marche"),
+        ("resp", "respiration"),
+        ("reflexe", "réflexes"),
+        ("tonus", "tonus"),
+        ("douleur", "douleur trompeuse"),
+    ]
+    nav = []
+    for i, titre in TITRES.items():
+        court = titre.split("(")[0].strip()
+        nav.append(f'<a href="#pa-p{i}"><b>{i}</b>{H.escape(court)}</a>')
+    out = []
+    out.append('<!DOCTYPE html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">')
+    out.append("<title>Parésie, paralysie — S7.8</title>")
+    out.append("<style>.paire{display:flex;flex-wrap:wrap;gap:12px}.paire>div{flex:1 1 260px}.fenetre .fen{max-height:84vh;overflow:auto}</style>")
+    out.append('<link id="forme-vial" rel="stylesheet" href="../../Claude/_polices/forme.css"><script src="../../Claude/_polices/forme.js" defer></script>')
+    out.append("</head><body>")
+    out.append(f'<nav id="brain-barre14" aria-label="Parties du cours">{"".join(nav)}</nav>')
+    out.append('<header id="fm-bandeau"><div class="fm-code"><span>S7.8</span><span class="fm-phase">Situation de départ</span></div><div class="fm-nom">Parésie, paralysie</div></header>')
+    out.append("<header><h1>Parésie, paralysie — S7.8</h1></header><main><h2>Parésie, paralysie</h2>")
+    out.append("<p>Cette monographie décrit la faiblesse motrice et les maladies qui peuvent la produire chez une personne examinée en Suisse.</p>")
+    extras = {
+        "chiffres": (2, "Chiffres lus", "Chiffres d'incidence et de létalité", TABLE_CHIFFRES),
+        "voie": (3, FEN["voie"][0], FEN["voie"][1], "".join(fen_html["voie"]) + figure_voie()),
+        "compar": (4, "Dix maladies comparées", "Tableau comparatif des dix maladies", TABLE_DX),
+        "drapeaux": (5, FEN["drapeaux"][0], FEN["drapeaux"][1], "".join(fen_html["drapeaux"])),
+        "tableau": (7, FEN["tableau"][0], FEN["tableau"][1], "".join(fen_html["tableau"])),
+        "scan": (9, FEN["scan"][0], FEN["scan"][1], "".join(fen_html["scan"]) + figure_scan()),
+        "algo": (10, "Arbre de décision", "Arbre : glycémie, puis létalité, puis moelle", ALGO),
+        "urgence": (11, FEN["urgence"][0], FEN["urgence"][1], "".join(fen_html["urgence"])),
+        "glucose": (11, FEN["glucose"][0], FEN["glucose"][1], fiche_glucose("".join(fen_html["glucose"]))),
+    }
+    for fid, _ in examens:
+        extras[fid] = (6, FEN[fid][0], FEN[fid][1], "".join(fen_html[fid]))
+    for i, titre in TITRES.items():
+        out.append(f'<section class="ilot" id="pa-sec-{i}"><h3 id="pa-p{i}"><strong>{i}. {H.escape(titre)}</strong></h3>')
+        out.append("".join(pages[i]))
+        if i in liens:
+            out.append(liens[i])
+        if i == 6:
+            liens6 = [
+                ("vigilance", "La <a class=\"ouvre\" href=\"#f-pa-p6-vigilance\">vigilance</a> s'observe avant la force, parce qu'elle change la suite de l'examen."),
+                ("langage", "Le <a class=\"ouvre\" href=\"#f-pa-p6-langage\">langage</a> se teste tôt, afin de ne pas attribuer une aphasie à une simple faiblesse."),
+                ("cranien", "Les <a class=\"ouvre\" href=\"#f-pa-p6-cranien\">nerfs crâniens</a> se cotent ensuite, pour situer une lésion du tronc ou de l'hémisphère."),
+                ("ms", "Les <a class=\"ouvre\" href=\"#f-pa-p6-ms\">membres supérieurs</a> se comparent des deux côtés, de l'épaule jusqu'aux doigts."),
+                ("tronc", "Le <a class=\"ouvre\" href=\"#f-pa-p6-tronc\">tronc</a> se sensibilise à la recherche d'un niveau qui signerait la moelle."),
+                ("mi", "Les <a class=\"ouvre\" href=\"#f-pa-p6-mi\">membres inférieurs</a> se testent après le tronc, en proximal puis en distal."),
+                ("marche", "La <a class=\"ouvre\" href=\"#f-pa-p6-marche\">marche</a> ne se demande que si la station debout ne fait pas chuter."),
+                ("resp", "La <a class=\"ouvre\" href=\"#f-pa-p6-resp\">respiration</a> se réévalue dès qu'une faiblesse ascendante ou fluctuante est suspectée."),
+                ("reflexe", "Les <a class=\"ouvre\" href=\"#f-pa-p6-reflexe\">réflexes</a> se cherchent après la force, sans conclure trop vite à une origine périphérique."),
+                ("tonus", "Le <a class=\"ouvre\" href=\"#f-pa-p6-tonus\">tonus</a> se palpe à la fin de la région, pour distinguer flasque et spasmodique."),
+                ("douleur", "La <a class=\"ouvre\" href=\"#f-pa-p6-douleur\">douleur trompeuse</a> se reconnaît quand l'impotence cède dès que la douleur est calmée."),
+            ]
+            for _, phrase in liens6:
+                out.append(f"<p>{phrase}</p>")
+        for fid, (pt, titre_f, aria, inner) in extras.items():
+            if pt == i:
+                cls = 'fenetre mb' if fid == 'glucose' else 'fenetre'
+                iid = 'f-pa-p11-m-glucose' if fid == 'glucose' else f'f-pa-p{pt}-{fid}'
+                out.append(
+                    f'<section class="{cls}" id="{iid}" role="dialog" aria-label="{H.escape(aria)}">'
+                    f'<div class="fen"><a class="fermer" href="#" aria-label="Fermer">Fermer</a>'
+                    f'<h4>{H.escape(titre_f)}</h4>{inner}</div></section>'
+                )
+        out.append("</section>")
+    out.append(BIBLIO)
+    out.append("</main></body></html>\n<!-- FIN_FICHIER LOT_102_Phase_A -->\n")
+    html = "".join(out)
+    # contrôle des phrases ajoutées hors liste P
+    extra_phrases = [
+        "Les chiffres lus comparent des ordres de grandeur qui ne viennent pas d'une seule cohorte.",
+        "La voie motrice relie le cortex, le croisement bulbaire et le muscle au signe trouvé au lit.",
+        "Le tableau comparatif tient les dix maladies, leur signe, leur examen, leur mécanisme et leur conduite.",
+        "Les drapeaux nomment le geste qui doit précéder la fin de l'entretien clinique.",
+        "Les syndromes séparent le neurone central, le nerf, la jonction, le muscle, la moelle et les racines.",
+        "Le scanner montre le sang frais qui distingue l'hémorragie de l'ischémie encore discrète.",
+        "L'arbre ordonne la glycémie et les deux premiers rangs de létalité avant les causes plus lentes.",
+        "La conduite dans le temps et la fiche du glucose limitent le médicament dosé à celui dont l'information a été lue.",
+        "Cette monographie décrit la faiblesse motrice et les maladies qui peuvent la produire chez une personne examinée en Suisse.",
+    ]
+    extra_phrases += [
+        "La vigilance s'observe avant la force, parce qu'elle change la suite de l'examen.",
+        "Le langage se teste tôt, afin de ne pas attribuer une aphasie à une simple faiblesse.",
+        "Les nerfs crâniens se cotent ensuite, pour situer une lésion du tronc ou de l'hémisphère.",
+        "Les membres supérieurs se comparent des deux côtés, de l'épaule jusqu'aux doigts.",
+        "Le tronc se sensibilise à la recherche d'un niveau qui signerait la moelle.",
+        "Les membres inférieurs se testent après le tronc, en proximal puis en distal.",
+        "La marche ne se demande que si la station debout ne fait pas chuter.",
+        "La respiration se réévalue dès qu'une faiblesse ascendante ou fluctuante est suspectée.",
+        "Les réflexes se cherchent après la force, sans conclure trop vite à une origine périphérique.",
+        "Le tonus se palpe à la fin de la région, pour distinguer flasque et spasmodique.",
+        "La douleur trompeuse se reconnaît quand l'impotence cède dès que la douleur est calmée.",
+    ]
+    bad = []
+    ouv = {}
+    for phrase in extra_phrases:
+        n = len(mots(phrase))
+        if not (12 <= n <= 28):
+            bad.append(f"EXTRA {n} :: {phrase}")
+        cle = " ".join(mots(phrase)[:2]).lower()
+        ouv[cle] = ouv.get(cle, 0) + 1
+    # ouvertures cumulées avec P
+    from collections import Counter
+    c = Counter()
+    for _, _, _, phrase in P:
+        c[" ".join(mots(phrase)[:2]).lower()] += 1
+    for phrase in extra_phrases:
+        c[" ".join(mots(phrase)[:2]).lower()] += 1
+    for k, v in c.items():
+        if v > 5:
+            bad.append(f"OUVERTURE {v} {k}")
+    if bad:
+        print("\n".join(bad))
+        raise SystemExit("extras")
+    OUT.write_text(html, encoding="utf-8")
+    print(f"{OUT} {len(html.encode())} octets")
+
+
+def fiche_glucose(paragraphes):
+    return paragraphes + """
+<blockquote>Si nécessaire sur le plan clinique, l’administration de Glucose 40 % B. Braun peut être envisagée pendant la grossesse, dans la mesure où l’équilibre hydroélectrolytique est surveillé et qu’il se situe dans la plage physiologique. Une surveillance étroite de la glycémie est également nécessaire.</blockquote>
+<blockquote>Le glucose et ses métabolites passent dans le lait maternel. Il ne faut cependant craindre aucun effet sur le nourrisson allaité à des doses thérapeutiques de Glucose 40 % B. Braun. Glucose 40 % B. Braun peut être utilisé pendant l’allaitement.</blockquote>
+<div class="t" style="overflow-x:auto"><table>
+<tbody>
+<tr><th>Grossesse</th><td>L'administration peut être envisagée pendant la grossesse si elle est cliniquement nécessaire, avec surveillance de la glycémie.</td></tr>
+<tr><th>Allaitement</th><td>Le produit peut être utilisé pendant l'allaitement, et aucun effet n'est à craindre pour le nourrisson aux doses thérapeutiques.</td></tr>
+<tr><th>Contre-indications</th><td>Hyperglycémie exigeant plus de six unités d'insuline par heure, choc, acidose, œdème pulmonaire et insuffisance cardiaque aiguë.</td></tr>
+<tr><th>Voie et âge</th><td>Perfusion veineuse centrale uniquement. Maxima écrits pour l'adulte et l'adolescent à partir de quinze ans.</td></tr>
+</tbody></table></div>
+"""
+
+
+if __name__ == "__main__":
+    build()
