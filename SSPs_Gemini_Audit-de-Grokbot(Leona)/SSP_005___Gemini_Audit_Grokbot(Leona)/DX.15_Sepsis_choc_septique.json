@@ -1,0 +1,74 @@
+{
+  "ssp": "SSP_005",
+  "fichier_source": "3. Grok_AI_json_Project/GEMINI_word_à_générer/75. SSP_005 — Sensation de maladie/Sensation de maladie (SSP_005).json",
+  "branche_source": "grok/ssp246-dx7-negligence-conflit-familial",
+  "commit_source": "b3139878c1a1305abd28227cafae1da6b934a913",
+  "auditeur": "Grokbot(Leona) – Audit Gemini SSP_005",
+  "date": "2026-11-28",
+  "perimetre": "exactitude_medicale_uniquement",
+  "skills_appliquees": [
+    "skills/ssp-audit-medical",
+    "skills/ssp-posologie-suisse",
+    "docs/skills/ssp-aips-verbatim",
+    "skills/ssp-verite",
+    "skills/ssp-prevalences-automates",
+    ".claude/agents/auditeur-medical.md"
+  ],
+  "original_modifie": false,
+  "chapitre": "DX.15",
+  "titre_chapitre": "Sepsis et choc septique",
+  "nb_notions_verifiees": 15,
+  "corrections": [
+    {
+      "json_pointer": "/phase_b/14/plan/10/notions_obligatoires/0/notion",
+      "extrait_original": "antibiothérapie IV large spectre immédiate",
+      "probleme": "Dose absente alors que le traitement fait partie de la situation (règle de mission : erreur critique). Aucune molécule ni dose.",
+      "correction": "Selon le foyer ; exemple de large spectre sans foyer identifié : pipéracilline-tazobactam 4 g/0,5 g IV toutes les 8 h (3–4×/j selon gravité), adaptée à la fonction rénale, à réévaluer avec les cultures.",
+      "statut": "a_verifier",
+      "cascade_palier": 1,
+      "aips_numero": "60142",
+      "source": {
+        "titre": "Information professionnelle AIPS Swissmedic Piperacillin-Tazobactam Labatec® i.v. (n° 60142), export Refdata AipsDownload du 2026-10-08",
+        "url": "https://files.refdata.ch/simis-public-prod/MedicinalDocuments/768168e43887463a9bb72dc54f2c42af-fr.html",
+        "date": "2026-03-01",
+        "rubrique": "Posologie/Mode d'emploi : « La posologie usuelle est de 2 g - 0,25 g à 4 g - 0,5 g … 3 fois par jour. La dose journalière totale … peut varier entre 2 g - 0,25 g et 4 g - 0,5 g … 3–4 fois par jour »"
+      },
+      "lu_le": "2026-11-28",
+      "gravite": "critique"
+    },
+    {
+      "json_pointer": "/phase_b/14/plan/10/notions_obligatoires/0/notion",
+      "extrait_original": "noradrénaline si PAM < 65 mmHg",
+      "probleme": "Dose absente alors que le traitement fait partie de la situation (règle de mission : erreur critique). Noradrénaline citée sans débit.",
+      "correction": "Noradrénaline IV continue à la pompe : débit initial 8–12 µg/min (70 kg), titration selon PAM (> 65 mmHg), entretien moyen 2–4 µg/min.",
+      "statut": "incorrect",
+      "cascade_palier": 1,
+      "aips_numero": "70326",
+      "source": {
+        "titre": "Information professionnelle AIPS Swissmedic Noradrenalin Nardia 0.016 mg/ml, 0.032mg/ml, 0.064 mg/ml (n° 70326), export Refdata AipsDownload du 2026-10-08",
+        "url": "https://files.refdata.ch/simis-public-prod/MedicinalDocuments/44b9b675891f4444a2e0b00b7f0742d3-fr.html",
+        "date": "2026-05-01",
+        "rubrique": "Posologie/Mode d'emploi : « Adultes : La vitesse initiale de la perfusion à un poids de 70 kg doit être comprise entre 8 et 12 µg/minute » ; « La dose d'entretien moyenne est de 2 à 4 µg/minute » (police Symbol « m g » normalisée en « µg » selon ssp-aips-verbatim)"
+      },
+      "lu_le": "2026-11-28",
+      "gravite": "critique"
+    },
+    {
+      "json_pointer": "/phase_b/14/plan/5/notions_obligatoires/0/notion",
+      "extrait_original": "Hypotension (PAS < 90 ou PAM < 65 mmHg)",
+      "probleme": "Le seuil tensionnel du qSOFA, cité dans la même phrase, est PAS ≤ 100 mmHg, pas < 90 mmHg (FR ≥ 22/min et altération de la conscience exactes).",
+      "correction": "qSOFA : FR ≥ 22/min, altération de la conscience, PAS ≤ 100 mmHg ; PAM < 65 mmHg sous vasopresseurs = critère du choc septique.",
+      "statut": "incorrect",
+      "cascade_palier": 3,
+      "aips_numero": null,
+      "source": {
+        "titre": "Singer M et al. The Third International Consensus Definitions for Sepsis and Septic Shock (Sepsis-3), ESICM/SCCM, JAMA 2016;315:801-810",
+        "url": "https://doi.org/10.1001/jama.2016.0287",
+        "date": "2016-02-23",
+        "rubrique": "Box 3 : « qSOFA criteria: Respiratory rate ≥22/min, Altered mentation, Systolic blood pressure ≤100 mm Hg »"
+      },
+      "lu_le": "2026-11-28",
+      "gravite": "mineure"
+    }
+  ]
+}
