@@ -1,0 +1,57 @@
+{
+  "ssp": "SSP_001",
+  "chapitre": "DX.20",
+  "titre_chapitre": "Sevrage alcoolique sévère (delirium tremens)",
+  "fichier_source": "3. Grok_AI_json_Project/GEMINI_word_à_générer/72. SSP_001 — Transpiration anormale/Transpiration anormale (SSP_001).json",
+  "branche_source": "grok/ssp246-dx7-negligence-conflit-familial",
+  "commit_source": "b3139878c1a1305abd28227cafae1da6b934a913",
+  "auditeur": "Grokbot(Leona) – Audit Gemini SSP_001",
+  "date": "2026-11-28",
+  "perimetre": "exactitude_medicale_uniquement",
+  "skills_appliquees": [
+    "skills/ssp-audit-medical/SKILL.md",
+    "skills/ssp-posologie-suisse/SKILL.md",
+    "docs/skills/ssp-aips-verbatim/SKILL.md",
+    "skills/ssp-verite/SKILL.md",
+    "skills/ssp-prevalences-automates/SKILL.md",
+    ".claude/agents/auditeur-medical.md"
+  ],
+  "original_modifie": false,
+  "nb_notions_verifiees": 15,
+  "corrections": [
+    {
+      "json_pointer": "/phase_b/19/plan/10/notions_obligatoires/0/notion",
+      "extrait_original": "Benzodiazépines IV/PO titrées sur CIWA-Ar (diazépam ou lorazépam/oxazépam si insuffisance hépatique)",
+      "probleme": "Doses absentes dans le delirium tremens (règle : erreur critique).",
+      "correction": "diazépam 0,1 à 0,2 mg/kg IV en dose initiale, à répéter toutes les 8 heures jusqu'à disparition des symptômes aigus puis relais oral (AIPS Valium) ; oxazépam 15 à 30 mg 3 à 4×/j PO (AIPS Seresta) ; lorazépam 0,05 mg/kg ou 2 à 4 mg IV (AIPS Lorazepam Xilmac)",
+      "statut": "incorrect",
+      "cascade_palier": 1,
+      "aips_numero": "28840",
+      "source": {
+        "titre": "AIPS Valium® (Swissmedic 28840) — information professionnelle Swissmedic (Juin 2023) ; extrait officiel relu dans data/ck/doses_ch.json (lecture Galien 2026-10-17) ; AIPS Seresta® (32497) : 15 à 30 mg 3 à 4×/j PO ; AIPS Lorazepam Xilmac® (50490)",
+        "url": "https://swissmedicinfo-pro.ch/showText.aspx?authNr=28840&lang=FR&supportMultipleResults=1&textType=FI",
+        "date": "2023-06-01",
+        "rubrique": "Posologie/Mode d’emploi (information mise à jour : Juin 2023)"
+      },
+      "lu_le": "2026-11-28",
+      "gravite": "critique"
+    },
+    {
+      "json_pointer": "/phase_b/19/plan/10/notions_obligatoires/0/notion",
+      "extrait_original": "300–500 mg IV",
+      "probleme": "Dose supérieure à l'AIPS suisse Benerva (« jusqu'à 200 mg/j » IM ou IV lente) ; les doses plus élevées relèvent de recommandations hors AIPS et exigent la validation de Vial.",
+      "correction": "jusqu'à 200 mg/j IM ou IV lente selon l'AIPS Benerva ; toute dose supérieure (hors AIPS) reste « À vérifier » jusqu'à validation médicale",
+      "statut": "a_verifier",
+      "cascade_palier": 1,
+      "aips_numero": "10989",
+      "source": {
+        "titre": "AIPS Benerva® (Swissmedic 10989) — information professionnelle Swissmedic (Avril 2019) ; extrait officiel relu dans data/ck/doses_ch.json (lecture Galien 2026-10-17)",
+        "url": "https://swissmedicinfo-pro.ch/showText.aspx?authNr=10989&lang=FR&supportMultipleResults=1&textType=FI",
+        "date": "2019-04-01",
+        "rubrique": "Posologie/Mode d’emploi (information mise à jour : Avril 2019)"
+      },
+      "lu_le": "2026-11-28",
+      "gravite": "majeure"
+    }
+  ]
+}
