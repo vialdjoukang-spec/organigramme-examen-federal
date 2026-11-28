@@ -1,0 +1,57 @@
+{
+  "ssp": "SSP_004",
+  "chapitre": "DX.5",
+  "titre_chapitre": "Hypothyroïdie primaire (thyroïdite de Hashimoto)",
+  "fichier_source": "3. Grok_AI_json_Project/GEMINI_word_à_générer/67. SSP_004 — Fatigue, lassitude/Fatigue, lassitude (SSP_004).json",
+  "branche_source": "grok/ssp246-dx7-negligence-conflit-familial",
+  "commit_source": "b3139878c1a1305abd28227cafae1da6b934a913",
+  "auditeur": "Grokbot(Leona) – Audit Gemini SSP_004",
+  "date": "2026-11-28",
+  "perimetre": "exactitude_medicale_uniquement",
+  "skills_appliquees": [
+    "skills/ssp-audit-medical",
+    "skills/ssp-posologie-suisse",
+    "docs/skills/ssp-aips-verbatim",
+    "skills/ssp-verite",
+    "skills/ssp-prevalences-automates",
+    ".claude/agents/auditeur-medical.md"
+  ],
+  "original_modifie": false,
+  "nb_notions_verifiees": 15,
+  "corrections": [
+    {
+      "json_pointer": "/phase_b/4/plan/10/notions_obligatoires/0/notion",
+      "extrait_original": "hydrocortisone IV",
+      "probleme": "Dose absente alors que le traitement fait partie de la prise en charge de la situation (règle de mission : erreur critique). (coma myxœdémateux)",
+      "correction": "hydrocortisone 100 mg IV en bolus puis 100 mg toutes les 6 à 8 h (schéma de stress de l’AIPS Solu-Cortef ; le DX.21 du même plan retient 100 mg/8 h), avant ou avec la lévothyroxine ; à faire valider par Vial.",
+      "statut": "incorrect",
+      "cascade_palier": 1,
+      "aips_numero": "23533",
+      "source": {
+        "titre": "AIPS Solu-CORTEF® (hydrocortisone), Swissmedic 23533, version octobre 2025 (+ ligne doses_ch.json)",
+        "url": "https://files.refdata.ch/simis-public-prod/MedicinalDocuments/521df69c10204956ac5a90a438143ee8-fr.html",
+        "date": "2025-10",
+        "rubrique": "Posologie/Mode d’emploi"
+      },
+      "lu_le": "2026-11-28",
+      "gravite": "critique"
+    },
+    {
+      "json_pointer": "/phase_b/4/plan/10/notions_obligatoires/0/notion",
+      "extrait_original": "lévothyroxine IV",
+      "probleme": "Dose absente (coma myxœdémateux), et aucune forme IV de lévothyroxine ne figure dans l’AIPS suisse.",
+      "correction": "Non trouvé, sources consultées : index AIPS Refdata du 08.10.2026 (lévothyroxine : formes orales seulement, Euthyrox 54949, Eltroxine-LF 29812, Tirosint 57455), data/ck/doses_ch.json (lévothyroxine PO). Ajouter « forme IV non autorisée en Suisse (importation) ; dose selon protocole hospitalier » et faire valider par Vial.",
+      "statut": "non_trouve",
+      "cascade_palier": 1,
+      "aips_numero": null,
+      "source": {
+        "titre": "Index AIPS Refdata (AipsDownload du 08.10.2026), recherche lévothyroxine",
+        "url": "https://www.swissmedicinfo.ch/",
+        "date": "2026-10-08",
+        "rubrique": "Liste des informations professionnelles (FI) en français"
+      },
+      "lu_le": "2026-11-28",
+      "gravite": "critique"
+    }
+  ]
+}
