@@ -1,0 +1,295 @@
+{
+  "ssp": "SSP_005",
+  "fichier_source": "3. Grok_AI_json_Project/GEMINI_word_à_générer/75. SSP_005 — Sensation de maladie/Sensation de maladie (SSP_005).json",
+  "branche_source": "grok/ssp246-dx7-negligence-conflit-familial",
+  "commit_source": "b3139878c1a1305abd28227cafae1da6b934a913",
+  "auditeur": "Grokbot(Leona) – Audit Gemini SSP_005",
+  "date": "2026-11-28",
+  "perimetre": "exactitude_medicale_uniquement",
+  "skills_appliquees": [
+    "skills/ssp-audit-medical",
+    "skills/ssp-posologie-suisse",
+    "docs/skills/ssp-aips-verbatim",
+    "skills/ssp-verite",
+    "skills/ssp-prevalences-automates",
+    ".claude/agents/auditeur-medical.md"
+  ],
+  "original_modifie": false,
+  "chapitre": "DX.18",
+  "titre_chapitre": "Acidocétose diabétique",
+  "nb_notions_verifiees": 15,
+  "corrections": [
+    {
+      "json_pointer": "/phase_b/17/plan/8/notions_obligatoires/0/notion",
+      "extrait_original": "glycémie (> 13,9 mmol/L sauf sous iSGLT2)",
+      "probleme": "Seuil glycémique obsolète : le consensus international 2024 (ADA/EASD/JBDS/AACE/DTS) retient une glycémie ≥ 11,1 mmol/L ou un diabète connu.",
+      "correction": "Glycémie ≥ 11,1 mmol/L ou diabète connu (quelle que soit la glycémie) ; cétonémie ≥ 3,0 mmol/L ; pH < 7,3 et/ou HCO3- < 18 mmol/L.",
+      "statut": "incorrect",
+      "cascade_palier": 3,
+      "aips_numero": null,
+      "source": {
+        "titre": "Umpierrez GE et al. Hyperglycaemic crises in adults with diabetes: a consensus report (ADA/EASD/JBDS/AACE/DTS). Diabetologia 2024;67:1455-1479 (doi:10.1007/s00125-024-06183-8)",
+        "url": "https://doi.org/10.1007/s00125-024-06183-8",
+        "date": "2024-06",
+        "rubrique": "Diagnostic criteria for DKA : « Glucose ≥11.1 mmol/l or prior history of diabetes ; ketones ≥3.0 mmol/l ; pH <7.3 and/or bicarbonate <18 mmol/l »"
+      },
+      "lu_le": "2026-11-28",
+      "gravite": "majeure"
+    },
+    {
+      "json_pointer": "/phase_b/17/plan/10/notions_obligatoires/0/notion",
+      "extrait_original": "Réhydratation NaCl 0,9 % IV d'abord",
+      "probleme": "Dose absente alors que le traitement fait partie de la situation (règle de mission : erreur critique). Volume et débit de NaCl 0,9 % absents.",
+      "correction": "NaCl 0,9 % : 1 L sur la 1re heure chez l'adulte (prudence chez le sujet âgé, l'insuffisant cardiaque ou rénal), puis débit dégressif selon l'hémodynamique.",
+      "statut": "a_verifier",
+      "cascade_palier": 3,
+      "aips_numero": null,
+      "source": {
+        "titre": "JBDS-IP (Joint British Diabetes Societies) – The management of diabetic ketoacidosis in adults, révision 2023",
+        "url": "https://abcd.care/resource/current/jbds-02-management-diabetic-ketoacidosis-adults",
+        "date": "2023-06",
+        "rubrique": "Fluid replacement, first hour : « 1 L 0.9% sodium chloride over 1 hour »"
+      },
+      "lu_le": "2026-11-28",
+      "gravite": "critique"
+    },
+    {
+      "json_pointer": "/phase_b/17/plan/10/notions_obligatoires/0/notion",
+      "extrait_original": "supplémentation KCl",
+      "probleme": "Dose absente alors que le traitement fait partie de la situation (règle de mission : erreur critique). KCl cité sans dose, concentration ni débit.",
+      "correction": "KCl IV toujours dilué : concentration ≤ 40 mmol/L et débit ≤ 10 mmol/h si K+ > 2,5 mmol/L (≤ 80 mmol/L et ≤ 40 mmol/h si K+ < 2,0 mmol/L, sous monitorage) ; maximum 200 mmol/j si K+ > 2,5 mmol/L.",
+      "statut": "incorrect",
+      "cascade_palier": 1,
+      "aips_numero": "56521",
+      "source": {
+        "titre": "Information professionnelle AIPS Swissmedic KCl 7.45% Sintetica (n° 56521), export Refdata AipsDownload du 2026-10-08",
+        "url": "https://files.refdata.ch/simis-public-prod/MedicinalDocuments/ac7aa37ba1904582a888ed146bb35890-fr.html",
+        "date": "2024-02-01",
+        "rubrique": "Posologie/Mode d'emploi : « Adultes avec K+ sérique > 2,5 mmol/l: 40 mmol/l K+ dans la solution » ; « Vitesse d'injection maximum … Adultes avec K+ sérique > 2,5 mmol/l: 10 mmol/heure » ; « Dose journalière maximale … > 2,5 mmol/l: 200 mmol K+ »"
+      },
+      "lu_le": "2026-11-28",
+      "gravite": "critique"
+    },
+    {
+      "json_pointer": "/phase_b/17/plan/0/notions_obligatoires/0/notion",
+      "extrait_original": "Décompensation métabolique aiguë liée à une carence absolue ou relative en insuline associant hyperglycémie, cétose et acidose métabolique.",
+      "probleme": "Notion non vérifiée contre une source de la cascade lors de cet audit (relue seulement, aucune erreur identifiée à la relecture) ; exigence qualité : statut à vérifier.",
+      "correction": "À vérifier contre HUG/CHUV/Insel/USZ/OFSP/ASSM (palier 2), puis société européenne (palier 3) ; aucune correction proposée.",
+      "statut": "a_verifier",
+      "cascade_palier": 2,
+      "aips_numero": null,
+      "source": {
+        "titre": "non trouvé, sources consultées : aucune lecture ciblée pour cette notion lors de l'audit du 2026-11-28",
+        "url": "https://www.bag.admin.ch/",
+        "date": "2026-11-28",
+        "rubrique": "sans objet"
+      },
+      "lu_le": "2026-11-28",
+      "gravite": "mineure"
+    },
+    {
+      "json_pointer": "/phase_b/17/plan/1/notions_obligatoires/0/notion",
+      "extrait_original": "Fréquente chez le diabétique type 1 (30 % des inaugurations) et possible sous inhibiteurs SGLT2 (acidocétose euglycémique).",
+      "probleme": "Notion non vérifiée contre une source de la cascade lors de cet audit (relue seulement, aucune erreur identifiée à la relecture) ; exigence qualité : statut à vérifier.",
+      "correction": "À vérifier contre HUG/CHUV/Insel/USZ/OFSP/ASSM (palier 2), puis société européenne (palier 3) ; aucune correction proposée.",
+      "statut": "a_verifier",
+      "cascade_palier": 2,
+      "aips_numero": null,
+      "source": {
+        "titre": "non trouvé, sources consultées : aucune lecture ciblée pour cette notion lors de l'audit du 2026-11-28",
+        "url": "https://www.bag.admin.ch/",
+        "date": "2026-11-28",
+        "rubrique": "sans objet"
+      },
+      "lu_le": "2026-11-28",
+      "gravite": "mineure"
+    },
+    {
+      "json_pointer": "/phase_b/17/plan/2/notions_obligatoires/0/notion",
+      "extrait_original": "Déficit en insuline + excès de glucagon -> lipolyse massive -> cétogenèse hépatique (bêta-hydroxybutyrate) -> acidose métabolique à trou anionique augmenté et diurèse osmotique.",
+      "probleme": "Notion non vérifiée contre une source de la cascade lors de cet audit (relue seulement, aucune erreur identifiée à la relecture) ; exigence qualité : statut à vérifier.",
+      "correction": "À vérifier contre HUG/CHUV/Insel/USZ/OFSP/ASSM (palier 2), puis société européenne (palier 3) ; aucune correction proposée.",
+      "statut": "a_verifier",
+      "cascade_palier": 2,
+      "aips_numero": null,
+      "source": {
+        "titre": "non trouvé, sources consultées : aucune lecture ciblée pour cette notion lors de l'audit du 2026-11-28",
+        "url": "https://www.bag.admin.ch/",
+        "date": "2026-11-28",
+        "rubrique": "sans objet"
+      },
+      "lu_le": "2026-11-28",
+      "gravite": "mineure"
+    },
+    {
+      "json_pointer": "/phase_b/17/plan/3/notions_obligatoires/0/notion",
+      "extrait_original": "Drapeaux rouges : pH < 7,0, bicarbonates < 10 mmol/L, kaliémie < 3,3 mmol/L, coma, choc hypovolémique.",
+      "probleme": "Notion non vérifiée contre une source de la cascade lors de cet audit (relue seulement, aucune erreur identifiée à la relecture) ; exigence qualité : statut à vérifier. Contient une dose ou un débit : vérification AIPS requise.",
+      "correction": "À vérifier contre l'AIPS Swissmedic du produit exact (palier 1), puis HUG/CHUV/OFSP ; aucune correction proposée.",
+      "statut": "a_verifier",
+      "cascade_palier": 1,
+      "aips_numero": null,
+      "source": {
+        "titre": "non trouvé, sources consultées : aucune lecture ciblée pour cette notion lors de l'audit du 2026-11-28",
+        "url": "https://www.swissmedicinfo.ch/",
+        "date": "2026-11-28",
+        "rubrique": "sans objet"
+      },
+      "lu_le": "2026-11-28",
+      "gravite": "majeure"
+    },
+    {
+      "json_pointer": "/phase_b/17/plan/4/notions_obligatoires/0/notion",
+      "extrait_original": "Malaise progressif sur 24-48 h, syndrome polyuro-polydipsique, nausées, vomissements, douleurs abdominales ; infection intercurrente ou oubli d'insuline.",
+      "probleme": "Notion non vérifiée contre une source de la cascade lors de cet audit (relue seulement, aucune erreur identifiée à la relecture) ; exigence qualité : statut à vérifier.",
+      "correction": "À vérifier contre HUG/CHUV/Insel/USZ/OFSP/ASSM (palier 2), puis société européenne (palier 3) ; aucune correction proposée.",
+      "statut": "a_verifier",
+      "cascade_palier": 2,
+      "aips_numero": null,
+      "source": {
+        "titre": "non trouvé, sources consultées : aucune lecture ciblée pour cette notion lors de l'audit du 2026-11-28",
+        "url": "https://www.bag.admin.ch/",
+        "date": "2026-11-28",
+        "rubrique": "sans objet"
+      },
+      "lu_le": "2026-11-28",
+      "gravite": "mineure"
+    },
+    {
+      "json_pointer": "/phase_b/17/plan/5/notions_obligatoires/0/notion",
+      "extrait_original": "Déshydratation extracellulaire marquée, respiration ample et rapide de Kussmaul, haleine fruitée (pomme reinette), troubles de conscience.",
+      "probleme": "Notion non vérifiée contre une source de la cascade lors de cet audit (relue seulement, aucune erreur identifiée à la relecture) ; exigence qualité : statut à vérifier.",
+      "correction": "À vérifier contre HUG/CHUV/Insel/USZ/OFSP/ASSM (palier 2), puis société européenne (palier 3) ; aucune correction proposée.",
+      "statut": "a_verifier",
+      "cascade_palier": 2,
+      "aips_numero": null,
+      "source": {
+        "titre": "non trouvé, sources consultées : aucune lecture ciblée pour cette notion lors de l'audit du 2026-11-28",
+        "url": "https://www.bag.admin.ch/",
+        "date": "2026-11-28",
+        "rubrique": "sans objet"
+      },
+      "lu_le": "2026-11-28",
+      "gravite": "mineure"
+    },
+    {
+      "json_pointer": "/phase_b/17/plan/7/notions_obligatoires/0/notion",
+      "extrait_original": "Triade : hyperglycémie (ou euglycémie sous iSGLT2) + cétonémie/cétonurie + acidose métabolique à trou anionique élevé.",
+      "probleme": "Notion non vérifiée contre une source de la cascade lors de cet audit (relue seulement, aucune erreur identifiée à la relecture) ; exigence qualité : statut à vérifier.",
+      "correction": "À vérifier contre HUG/CHUV/Insel/USZ/OFSP/ASSM (palier 2), puis société européenne (palier 3) ; aucune correction proposée.",
+      "statut": "a_verifier",
+      "cascade_palier": 2,
+      "aips_numero": null,
+      "source": {
+        "titre": "non trouvé, sources consultées : aucune lecture ciblée pour cette notion lors de l'audit du 2026-11-28",
+        "url": "https://www.bag.admin.ch/",
+        "date": "2026-11-28",
+        "rubrique": "sans objet"
+      },
+      "lu_le": "2026-11-28",
+      "gravite": "mineure"
+    },
+    {
+      "json_pointer": "/phase_b/17/plan/8/notions_obligatoires/1/notion",
+      "extrait_original": "ECG (signes de dyskaliémie), bilan infectieux (FSC, CRP, hémocultures, ECBU, Rx thorax), amylase/lipase.",
+      "probleme": "Notion non vérifiée contre une source de la cascade lors de cet audit (relue seulement, aucune erreur identifiée à la relecture) ; exigence qualité : statut à vérifier.",
+      "correction": "À vérifier contre HUG/CHUV/Insel/USZ/OFSP/ASSM (palier 2), puis société européenne (palier 3) ; aucune correction proposée.",
+      "statut": "a_verifier",
+      "cascade_palier": 2,
+      "aips_numero": null,
+      "source": {
+        "titre": "non trouvé, sources consultées : aucune lecture ciblée pour cette notion lors de l'audit du 2026-11-28",
+        "url": "https://www.bag.admin.ch/",
+        "date": "2026-11-28",
+        "rubrique": "sans objet"
+      },
+      "lu_le": "2026-11-28",
+      "gravite": "mineure"
+    },
+    {
+      "json_pointer": "/phase_b/17/plan/10/notions_obligatoires/1/notion",
+      "extrait_original": "Transition vers insuline sous-cutanée basal-bolus une fois l'acidose résolue (pH > 7,3, HCO3- > 15) et alimentation reprise ; éducation diabétologique.",
+      "probleme": "Notion non vérifiée contre une source de la cascade lors de cet audit (relue seulement, aucune erreur identifiée à la relecture) ; exigence qualité : statut à vérifier.",
+      "correction": "À vérifier contre HUG/CHUV/Insel/USZ/OFSP/ASSM (palier 2), puis société européenne (palier 3) ; aucune correction proposée.",
+      "statut": "a_verifier",
+      "cascade_palier": 2,
+      "aips_numero": null,
+      "source": {
+        "titre": "non trouvé, sources consultées : aucune lecture ciblée pour cette notion lors de l'audit du 2026-11-28",
+        "url": "https://www.bag.admin.ch/",
+        "date": "2026-11-28",
+        "rubrique": "sans objet"
+      },
+      "lu_le": "2026-11-28",
+      "gravite": "mineure"
+    },
+    {
+      "json_pointer": "/phase_b/17/plan/10/notions_obligatoires/2/notion",
+      "extrait_original": "Hypokaliémie fatale, œdème cérébral (surtout chez l'enfant), œdème pulmonaire de surcharge, thrombose.",
+      "probleme": "Notion non vérifiée contre une source de la cascade lors de cet audit (relue seulement, aucune erreur identifiée à la relecture) ; exigence qualité : statut à vérifier.",
+      "correction": "À vérifier contre HUG/CHUV/Insel/USZ/OFSP/ASSM (palier 2), puis société européenne (palier 3) ; aucune correction proposée.",
+      "statut": "a_verifier",
+      "cascade_palier": 2,
+      "aips_numero": null,
+      "source": {
+        "titre": "non trouvé, sources consultées : aucune lecture ciblée pour cette notion lors de l'audit du 2026-11-28",
+        "url": "https://www.bag.admin.ch/",
+        "date": "2026-11-28",
+        "rubrique": "sans objet"
+      },
+      "lu_le": "2026-11-28",
+      "gravite": "mineure"
+    },
+    {
+      "json_pointer": "/phase_b/17/plan/10/notions_obligatoires/3/notion",
+      "extrait_original": "Glycémie et cétonémie horaires, ionogramme et gazométrie veineuse toutes les 2-4 h en soins continus/intensifs.",
+      "probleme": "Notion non vérifiée contre une source de la cascade lors de cet audit (relue seulement, aucune erreur identifiée à la relecture) ; exigence qualité : statut à vérifier.",
+      "correction": "À vérifier contre HUG/CHUV/Insel/USZ/OFSP/ASSM (palier 2), puis société européenne (palier 3) ; aucune correction proposée.",
+      "statut": "a_verifier",
+      "cascade_palier": 2,
+      "aips_numero": null,
+      "source": {
+        "titre": "non trouvé, sources consultées : aucune lecture ciblée pour cette notion lors de l'audit du 2026-11-28",
+        "url": "https://www.bag.admin.ch/",
+        "date": "2026-11-28",
+        "rubrique": "sans objet"
+      },
+      "lu_le": "2026-11-28",
+      "gravite": "mineure"
+    },
+    {
+      "json_pointer": "/phase_b/17/plan/10/notions_obligatoires/4/notion",
+      "extrait_original": "Mortalité < 1-2 % dans les centres spécialisés grâce aux protocoles standardisés.",
+      "probleme": "Notion non vérifiée contre une source de la cascade lors de cet audit (relue seulement, aucune erreur identifiée à la relecture) ; exigence qualité : statut à vérifier.",
+      "correction": "À vérifier contre HUG/CHUV/Insel/USZ/OFSP/ASSM (palier 2), puis société européenne (palier 3) ; aucune correction proposée.",
+      "statut": "a_verifier",
+      "cascade_palier": 2,
+      "aips_numero": null,
+      "source": {
+        "titre": "non trouvé, sources consultées : aucune lecture ciblée pour cette notion lors de l'audit du 2026-11-28",
+        "url": "https://www.bag.admin.ch/",
+        "date": "2026-11-28",
+        "rubrique": "sans objet"
+      },
+      "lu_le": "2026-11-28",
+      "gravite": "mineure"
+    },
+    {
+      "json_pointer": "/phase_b/17/plan/10/notions_obligatoires/5/notion",
+      "extrait_original": "Soins intensifs/continus, diabétologue, infirmier(ère) spécialisé(e) en diabétologie, médecin traitant.",
+      "probleme": "Notion non vérifiée contre une source de la cascade lors de cet audit (relue seulement, aucune erreur identifiée à la relecture) ; exigence qualité : statut à vérifier.",
+      "correction": "À vérifier contre HUG/CHUV/Insel/USZ/OFSP/ASSM (palier 2), puis société européenne (palier 3) ; aucune correction proposée.",
+      "statut": "a_verifier",
+      "cascade_palier": 2,
+      "aips_numero": null,
+      "source": {
+        "titre": "non trouvé, sources consultées : aucune lecture ciblée pour cette notion lors de l'audit du 2026-11-28",
+        "url": "https://www.bag.admin.ch/",
+        "date": "2026-11-28",
+        "rubrique": "sans objet"
+      },
+      "lu_le": "2026-11-28",
+      "gravite": "mineure"
+    }
+  ]
+}
