@@ -1,0 +1,57 @@
+{
+  "ssp": "SSP_001",
+  "chapitre": "DX.16",
+  "titre_chapitre": "Syndrome coronarien aigu (infarctus du myocarde avec sueurs profuses)",
+  "fichier_source": "3. Grok_AI_json_Project/GEMINI_word_à_générer/72. SSP_001 — Transpiration anormale/Transpiration anormale (SSP_001).json",
+  "branche_source": "grok/ssp246-dx7-negligence-conflit-familial",
+  "commit_source": "b3139878c1a1305abd28227cafae1da6b934a913",
+  "auditeur": "Grokbot(Leona) – Audit Gemini SSP_001",
+  "date": "2026-11-28",
+  "perimetre": "exactitude_medicale_uniquement",
+  "skills_appliquees": [
+    "skills/ssp-audit-medical/SKILL.md",
+    "skills/ssp-posologie-suisse/SKILL.md",
+    "docs/skills/ssp-aips-verbatim/SKILL.md",
+    "skills/ssp-verite/SKILL.md",
+    "skills/ssp-prevalences-automates/SKILL.md",
+    ".claude/agents/auditeur-medical.md"
+  ],
+  "original_modifie": false,
+  "nb_notions_verifiees": 15,
+  "corrections": [
+    {
+      "json_pointer": "/phase_b/15/plan/10/notions_obligatoires/0/notion",
+      "extrait_original": "aspirine 250–500 mg",
+      "probleme": "Dose de charge supérieure à l'AIPS suisse (200-300 mg) et à l'ESC 2023 (150-300 mg PO ou 75-250 mg IV).",
+      "correction": "aspirine 200 à 300 mg PO (forme à résorption rapide, croquée ou écrasée), puis 100 mg/j dès le 2e jour",
+      "statut": "incorrect",
+      "cascade_palier": 1,
+      "aips_numero": "51795",
+      "source": {
+        "titre": "AIPS Aspirine® Cardio 100, Aspirine® Cardio 300 (Swissmedic 51795) — information professionnelle Swissmedic (Mars 2026) ; extrait officiel relu dans data/ck/doses_ch.json (lecture Galien 2026-10-17)",
+        "url": "https://swissmedicinfo-pro.ch/showText.aspx?authNr=51795&lang=FR&supportMultipleResults=1&textType=FI",
+        "date": "2026-03-01",
+        "rubrique": "Posologie/Mode d’emploi (information mise à jour : Mars 2026)"
+      },
+      "lu_le": "2026-11-28",
+      "gravite": "majeure"
+    },
+    {
+      "json_pointer": "/phase_b/15/plan/10/notions_obligatoires/0/notion",
+      "extrait_original": "inhibiteur P2Y12 (prasugrel/ticagrélor), héparine",
+      "probleme": "Doses absentes dans le SCA (règle : erreur critique).",
+      "correction": "prasugrel 60 mg PO puis 10 mg/j, ou ticagrélor 180 mg PO puis 90 mg 2×/j (ESC 2023) ; héparine non fractionnée IV : NSTEMI 60 à 70 UI/kg (max 5000 UI) puis 12 à 15 UI/kg/h (max 1000 UI/h) (AIPS Heparin-Na B. Braun)",
+      "statut": "incorrect",
+      "cascade_palier": 1,
+      "aips_numero": "46613",
+      "source": {
+        "titre": "AIPS Heparin-Na 25 000 U.I./5 mL B. Braun (Swissmedic 46613) — information professionnelle Swissmedic (Juin 2026) ; extrait officiel relu dans data/ck/doses_ch.json (lecture Galien 2026-10-17) ; 2023 ESC Guidelines for the management of acute coronary syndromes (Byrne RA et al., Eur Heart J 2023;44:3720-3826, doi 10.1093/eurheartj/ehad191) pour les inhibiteurs P2Y12",
+        "url": "https://swissmedicinfo-pro.ch/showText.aspx?authNr=46613&lang=FR&supportMultipleResults=1&textType=FI",
+        "date": "2026-06-01",
+        "rubrique": "Posologie/Mode d’emploi (information mise à jour : Juin 2026)"
+      },
+      "lu_le": "2026-11-28",
+      "gravite": "critique"
+    }
+  ]
+}
