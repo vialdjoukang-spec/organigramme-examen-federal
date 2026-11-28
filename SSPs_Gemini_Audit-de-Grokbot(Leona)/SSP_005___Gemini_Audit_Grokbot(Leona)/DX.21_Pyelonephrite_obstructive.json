@@ -1,0 +1,312 @@
+{
+  "ssp": "SSP_005",
+  "fichier_source": "3. Grok_AI_json_Project/GEMINI_word_à_générer/75. SSP_005 — Sensation de maladie/Sensation de maladie (SSP_005).json",
+  "branche_source": "grok/ssp246-dx7-negligence-conflit-familial",
+  "commit_source": "b3139878c1a1305abd28227cafae1da6b934a913",
+  "auditeur": "Grokbot(Leona) – Audit Gemini SSP_005",
+  "date": "2026-11-28",
+  "perimetre": "exactitude_medicale_uniquement",
+  "skills_appliquees": [
+    "skills/ssp-audit-medical",
+    "skills/ssp-posologie-suisse",
+    "docs/skills/ssp-aips-verbatim",
+    "skills/ssp-verite",
+    "skills/ssp-prevalences-automates",
+    ".claude/agents/auditeur-medical.md"
+  ],
+  "original_modifie": false,
+  "chapitre": "DX.21",
+  "titre_chapitre": "Pyélonéphrite aiguë obstructive",
+  "nb_notions_verifiees": 15,
+  "corrections": [
+    {
+      "json_pointer": "/phase_b/20/plan/10/notions_obligatoires/0/notion",
+      "extrait_original": "+/- aminoside si choc",
+      "probleme": "Dose absente alors que le traitement fait partie de la situation (règle de mission : erreur critique). Aminoside cité sans molécule ni dose.",
+      "correction": "Gentamicine IV 3 mg/kg/j (infections sévères), jusqu'à 5 mg/kg/j si pronostic vital menacé, à réduire dès que possible et à adapter à la fonction rénale (SSI pyélonéphrite instable : 5 mg/kg 1×/j jusqu'à l'antibiogramme).",
+      "statut": "incorrect",
+      "cascade_palier": 1,
+      "aips_numero": "70800",
+      "source": {
+        "titre": "Information professionnelle AIPS Swissmedic Gentamicine Nardia (n° 70800), export Refdata AipsDownload du 2026-10-08",
+        "url": "https://files.refdata.ch/simis-public-prod/MedicinalDocuments/69fe6449feac4a3895e13fa4f3c55f23-fr.html",
+        "date": "2024-08-01",
+        "rubrique": "Posologie/Mode d'emploi : « En cas d'infections sévères, la dose est de 3 mg/kg/jour … En cas d'infections menaçant le pronostic vital, on peut administrer jusqu'à 5 mg/kg/jour »"
+      },
+      "lu_le": "2026-11-28",
+      "gravite": "critique"
+    },
+    {
+      "json_pointer": "/phase_b/20/plan/10/notions_obligatoires/0/notion",
+      "extrait_original": "fosfomycine-trométamol 3 g PO dose unique (ou nitrofurantoïne 100 mg 2×/j × 5 j)",
+      "probleme": "Rythme de nitrofurantoïne faux selon la SSI (toutes les 8 h) et hiérarchie inversée (fosfomycine = 2e ligne SSI).",
+      "correction": "Cystite simple : nitrofurantoïne 100 mg PO toutes les 8 h × 5 j ou TMP/SMX 160/800 mg toutes les 12 h × 3 j ; fosfomycine-trométamol 3 g dose unique en 2e ligne.",
+      "statut": "incorrect",
+      "cascade_palier": 2,
+      "aips_numero": null,
+      "source": {
+        "titre": "SSI – Société Suisse d'Infectiologie, guideline « Harnwegsinfekt (HWI) »",
+        "url": "https://ssi.guidelines.ch/guideline/2981/de",
+        "date": "consulté 2026-11-28",
+        "rubrique": "Empirische Therapie – Zystitis / Pyelonephritis : « Erstlinien-Therapie: Nitrofurantoin po 100 mg alle 8h für 5 Tage oder Trimethoprim/Sulfamethoxazol (TMP/SMX) po 160/800 mg alle 12h für 3 Tage ; Zweitlinien-Therapie: Fosfomycin po 3 g (Einmaldosis) » ; « Ciprofloxacin po 500 mg alle 12h für 7 Tage »"
+      },
+      "lu_le": "2026-11-28",
+      "gravite": "majeure"
+    },
+    {
+      "json_pointer": "/phase_b/20/plan/10/notions_obligatoires/1/notion",
+      "extrait_original": "14 jours (prostatite)",
+      "probleme": "La SSI recommande en général 2–3 semaines pour la prostatite aiguë (rarement 4 semaines).",
+      "correction": "Prostatite aiguë : en général 2–3 semaines (rarement 4 si réponse lente).",
+      "statut": "incorrect",
+      "cascade_palier": 2,
+      "aips_numero": null,
+      "source": {
+        "titre": "SSI – guideline « Prostatitis, bakteriell »",
+        "url": "https://ssi.guidelines.ch/guideline/2863/de",
+        "date": "consulté 2026-11-28",
+        "rubrique": "Behandlungsdauer : « Akute Prostatitis: Im Allgemeinen 2-3 Wochen; Anpassung an klinischen Verlauf. Selten 4 Wochen bei verzögertem klinischen Ansprechen »"
+      },
+      "lu_le": "2026-11-28",
+      "gravite": "mineure"
+    },
+    {
+      "json_pointer": "/phase_b/20/plan/10/notions_obligatoires/1/notion",
+      "extrait_original": "durée totale de 7 jours (pyélonéphrite)",
+      "probleme": "7 jours ne sont validés que pour la ciprofloxacine ; pour les autres agents (TMP/SMX, amoxicilline, céfuroxime), la SSI indique 7–14 jours.",
+      "correction": "7 jours si ciprofloxacine ; 7–14 jours pour les autres antibiotiques (TMP/SMX, amoxicilline/co-amoxicilline, céfuroxime).",
+      "statut": "incorrect",
+      "cascade_palier": 2,
+      "aips_numero": null,
+      "source": {
+        "titre": "SSI – guideline « Harnwegsinfekt (HWI) »",
+        "url": "https://ssi.guidelines.ch/guideline/2981/de",
+        "date": "consulté 2026-11-28",
+        "rubrique": "Spezifische Therapie Pyelonephritis : « TMP/SMX po 160/800 mg alle 12h für 7-14 Tage oder Ciprofloxacin po 500 mg alle 12h für 7 Tage oder Amoxicillin … für 7-14 Tage oder Cefuroxim … für 7-14 Tage »"
+      },
+      "lu_le": "2026-11-28",
+      "gravite": "mineure"
+    },
+    {
+      "json_pointer": "/phase_b/20/plan/0/notions_obligatoires/0/notion",
+      "extrait_original": "Infection bactérienne du parenchyme rénal et des cavités pyélocalicielles compliquée d'un obstacle sur la voie excrétrice (lithiase le plus souvent).",
+      "probleme": "Notion non vérifiée contre une source de la cascade lors de cet audit (relue seulement, aucune erreur identifiée à la relecture) ; exigence qualité : statut à vérifier.",
+      "correction": "À vérifier contre HUG/CHUV/Insel/USZ/OFSP/ASSM (palier 2), puis société européenne (palier 3) ; aucune correction proposée.",
+      "statut": "a_verifier",
+      "cascade_palier": 2,
+      "aips_numero": null,
+      "source": {
+        "titre": "non trouvé, sources consultées : aucune lecture ciblée pour cette notion lors de l'audit du 2026-11-28",
+        "url": "https://www.bag.admin.ch/",
+        "date": "2026-11-28",
+        "rubrique": "sans objet"
+      },
+      "lu_le": "2026-11-28",
+      "gravite": "mineure"
+    },
+    {
+      "json_pointer": "/phase_b/20/plan/1/notions_obligatoires/0/notion",
+      "extrait_original": "Urgence fréquente en urologie et aux urgences ; risque majeur d'urosepsis fulminant chez le sujet âgé ou diabétique.",
+      "probleme": "Notion non vérifiée contre une source de la cascade lors de cet audit (relue seulement, aucune erreur identifiée à la relecture) ; exigence qualité : statut à vérifier.",
+      "correction": "À vérifier contre HUG/CHUV/Insel/USZ/OFSP/ASSM (palier 2), puis société européenne (palier 3) ; aucune correction proposée.",
+      "statut": "a_verifier",
+      "cascade_palier": 2,
+      "aips_numero": null,
+      "source": {
+        "titre": "non trouvé, sources consultées : aucune lecture ciblée pour cette notion lors de l'audit du 2026-11-28",
+        "url": "https://www.bag.admin.ch/",
+        "date": "2026-11-28",
+        "rubrique": "sans objet"
+      },
+      "lu_le": "2026-11-28",
+      "gravite": "mineure"
+    },
+    {
+      "json_pointer": "/phase_b/20/plan/2/notions_obligatoires/0/notion",
+      "extrait_original": "Stase urinaire sous haute pression favorisant la translocation bactérienne directe dans la circulation veineuse et lymphatique rénale.",
+      "probleme": "Notion non vérifiée contre une source de la cascade lors de cet audit (relue seulement, aucune erreur identifiée à la relecture) ; exigence qualité : statut à vérifier.",
+      "correction": "À vérifier contre HUG/CHUV/Insel/USZ/OFSP/ASSM (palier 2), puis société européenne (palier 3) ; aucune correction proposée.",
+      "statut": "a_verifier",
+      "cascade_palier": 2,
+      "aips_numero": null,
+      "source": {
+        "titre": "non trouvé, sources consultées : aucune lecture ciblée pour cette notion lors de l'audit du 2026-11-28",
+        "url": "https://www.bag.admin.ch/",
+        "date": "2026-11-28",
+        "rubrique": "sans objet"
+      },
+      "lu_le": "2026-11-28",
+      "gravite": "mineure"
+    },
+    {
+      "json_pointer": "/phase_b/20/plan/3/notions_obligatoires/0/notion",
+      "extrait_original": "Drapeaux rouges : anurie, rein unique, sepsis/choc septique, grossesse (indication absolue de dérivation urgente).",
+      "probleme": "Notion non vérifiée contre une source de la cascade lors de cet audit (relue seulement, aucune erreur identifiée à la relecture) ; exigence qualité : statut à vérifier.",
+      "correction": "À vérifier contre HUG/CHUV/Insel/USZ/OFSP/ASSM (palier 2), puis société européenne (palier 3) ; aucune correction proposée.",
+      "statut": "a_verifier",
+      "cascade_palier": 2,
+      "aips_numero": null,
+      "source": {
+        "titre": "non trouvé, sources consultées : aucune lecture ciblée pour cette notion lors de l'audit du 2026-11-28",
+        "url": "https://www.bag.admin.ch/",
+        "date": "2026-11-28",
+        "rubrique": "sans objet"
+      },
+      "lu_le": "2026-11-28",
+      "gravite": "mineure"
+    },
+    {
+      "json_pointer": "/phase_b/20/plan/4/notions_obligatoires/0/notion",
+      "extrait_original": "Malaise intense, fièvre élevée avec frissons, douleur lombaire intense (colique néphrétique fébrile), nausées/vomissements.",
+      "probleme": "Notion non vérifiée contre une source de la cascade lors de cet audit (relue seulement, aucune erreur identifiée à la relecture) ; exigence qualité : statut à vérifier.",
+      "correction": "À vérifier contre HUG/CHUV/Insel/USZ/OFSP/ASSM (palier 2), puis société européenne (palier 3) ; aucune correction proposée.",
+      "statut": "a_verifier",
+      "cascade_palier": 2,
+      "aips_numero": null,
+      "source": {
+        "titre": "non trouvé, sources consultées : aucune lecture ciblée pour cette notion lors de l'audit du 2026-11-28",
+        "url": "https://www.bag.admin.ch/",
+        "date": "2026-11-28",
+        "rubrique": "sans objet"
+      },
+      "lu_le": "2026-11-28",
+      "gravite": "mineure"
+    },
+    {
+      "json_pointer": "/phase_b/20/plan/5/notions_obligatoires/0/notion",
+      "extrait_original": "Fièvre > 38,5 °C, signe de Giordano très positif, tachycardie, signes précoces d'hypoperfusion.",
+      "probleme": "Notion non vérifiée contre une source de la cascade lors de cet audit (relue seulement, aucune erreur identifiée à la relecture) ; exigence qualité : statut à vérifier.",
+      "correction": "À vérifier contre HUG/CHUV/Insel/USZ/OFSP/ASSM (palier 2), puis société européenne (palier 3) ; aucune correction proposée.",
+      "statut": "a_verifier",
+      "cascade_palier": 2,
+      "aips_numero": null,
+      "source": {
+        "titre": "non trouvé, sources consultées : aucune lecture ciblée pour cette notion lors de l'audit du 2026-11-28",
+        "url": "https://www.bag.admin.ch/",
+        "date": "2026-11-28",
+        "rubrique": "sans objet"
+      },
+      "lu_le": "2026-11-28",
+      "gravite": "mineure"
+    },
+    {
+      "json_pointer": "/phase_b/20/plan/7/notions_obligatoires/0/notion",
+      "extrait_original": "Pyélonéphrite aiguë associée à une dilatation des cavités excrétrices et/ou un obstacle lithiasique ou tumoral.",
+      "probleme": "Notion non vérifiée contre une source de la cascade lors de cet audit (relue seulement, aucune erreur identifiée à la relecture) ; exigence qualité : statut à vérifier.",
+      "correction": "À vérifier contre HUG/CHUV/Insel/USZ/OFSP/ASSM (palier 2), puis société européenne (palier 3) ; aucune correction proposée.",
+      "statut": "a_verifier",
+      "cascade_palier": 2,
+      "aips_numero": null,
+      "source": {
+        "titre": "non trouvé, sources consultées : aucune lecture ciblée pour cette notion lors de l'audit du 2026-11-28",
+        "url": "https://www.bag.admin.ch/",
+        "date": "2026-11-28",
+        "rubrique": "sans objet"
+      },
+      "lu_le": "2026-11-28",
+      "gravite": "mineure"
+    },
+    {
+      "json_pointer": "/phase_b/20/plan/8/notions_obligatoires/0/notion",
+      "extrait_original": "Échographie rénale (dilatation pyélocalicielle) ou scanner abdominal sans injection (lithiase) EN URGENCE + ECBU + hémocultures + créatinine/CRP.",
+      "probleme": "Notion non vérifiée contre une source de la cascade lors de cet audit (relue seulement, aucune erreur identifiée à la relecture) ; exigence qualité : statut à vérifier.",
+      "correction": "À vérifier contre HUG/CHUV/Insel/USZ/OFSP/ASSM (palier 2), puis société européenne (palier 3) ; aucune correction proposée.",
+      "statut": "a_verifier",
+      "cascade_palier": 2,
+      "aips_numero": null,
+      "source": {
+        "titre": "non trouvé, sources consultées : aucune lecture ciblée pour cette notion lors de l'audit du 2026-11-28",
+        "url": "https://www.bag.admin.ch/",
+        "date": "2026-11-28",
+        "rubrique": "sans objet"
+      },
+      "lu_le": "2026-11-28",
+      "gravite": "mineure"
+    },
+    {
+      "json_pointer": "/phase_b/20/plan/8/notions_obligatoires/1/notion",
+      "extrait_original": "Bilan pré-opératoire complet (coagulation, groupe sanguin) en vue d'un geste endoscopique ou percutané.",
+      "probleme": "Notion non vérifiée contre une source de la cascade lors de cet audit (relue seulement, aucune erreur identifiée à la relecture) ; exigence qualité : statut à vérifier.",
+      "correction": "À vérifier contre HUG/CHUV/Insel/USZ/OFSP/ASSM (palier 2), puis société européenne (palier 3) ; aucune correction proposée.",
+      "statut": "a_verifier",
+      "cascade_palier": 2,
+      "aips_numero": null,
+      "source": {
+        "titre": "non trouvé, sources consultées : aucune lecture ciblée pour cette notion lors de l'audit du 2026-11-28",
+        "url": "https://www.bag.admin.ch/",
+        "date": "2026-11-28",
+        "rubrique": "sans objet"
+      },
+      "lu_le": "2026-11-28",
+      "gravite": "mineure"
+    },
+    {
+      "json_pointer": "/phase_b/20/plan/10/notions_obligatoires/2/notion",
+      "extrait_original": "Choc septique, abcès rénal, pyonéphrose avec destruction du parenchyme rénal, insuffisance rénale aiguë.",
+      "probleme": "Notion non vérifiée contre une source de la cascade lors de cet audit (relue seulement, aucune erreur identifiée à la relecture) ; exigence qualité : statut à vérifier.",
+      "correction": "À vérifier contre HUG/CHUV/Insel/USZ/OFSP/ASSM (palier 2), puis société européenne (palier 3) ; aucune correction proposée.",
+      "statut": "a_verifier",
+      "cascade_palier": 2,
+      "aips_numero": null,
+      "source": {
+        "titre": "non trouvé, sources consultées : aucune lecture ciblée pour cette notion lors de l'audit du 2026-11-28",
+        "url": "https://www.bag.admin.ch/",
+        "date": "2026-11-28",
+        "rubrique": "sans objet"
+      },
+      "lu_le": "2026-11-28",
+      "gravite": "mineure"
+    },
+    {
+      "json_pointer": "/phase_b/20/plan/10/notions_obligatoires/3/notion",
+      "extrait_original": "Monitorage de la diurèse post-drainage (attention au syndrome de levée d'obstacle), apyrexie en 48-72 h. Apyrexie attendue à 48–72 h (si persistance : échographie/TDM pour écarter un abcès ou obstacle pyélique).",
+      "probleme": "Notion non vérifiée contre une source de la cascade lors de cet audit (relue seulement, aucune erreur identifiée à la relecture) ; exigence qualité : statut à vérifier.",
+      "correction": "À vérifier contre HUG/CHUV/Insel/USZ/OFSP/ASSM (palier 2), puis société européenne (palier 3) ; aucune correction proposée.",
+      "statut": "a_verifier",
+      "cascade_palier": 2,
+      "aips_numero": null,
+      "source": {
+        "titre": "non trouvé, sources consultées : aucune lecture ciblée pour cette notion lors de l'audit du 2026-11-28",
+        "url": "https://www.bag.admin.ch/",
+        "date": "2026-11-28",
+        "rubrique": "sans objet"
+      },
+      "lu_le": "2026-11-28",
+      "gravite": "mineure"
+    },
+    {
+      "json_pointer": "/phase_b/20/plan/10/notions_obligatoires/4/notion",
+      "extrait_original": "Favorable si le drainage est réalisé sans délai ; mortalité élevée si retard de dérivation.",
+      "probleme": "Notion non vérifiée contre une source de la cascade lors de cet audit (relue seulement, aucune erreur identifiée à la relecture) ; exigence qualité : statut à vérifier.",
+      "correction": "À vérifier contre HUG/CHUV/Insel/USZ/OFSP/ASSM (palier 2), puis société européenne (palier 3) ; aucune correction proposée.",
+      "statut": "a_verifier",
+      "cascade_palier": 2,
+      "aips_numero": null,
+      "source": {
+        "titre": "non trouvé, sources consultées : aucune lecture ciblée pour cette notion lors de l'audit du 2026-11-28",
+        "url": "https://www.bag.admin.ch/",
+        "date": "2026-11-28",
+        "rubrique": "sans objet"
+      },
+      "lu_le": "2026-11-28",
+      "gravite": "mineure"
+    },
+    {
+      "json_pointer": "/phase_b/20/plan/10/notions_obligatoires/5/notion",
+      "extrait_original": "Urologue de garde, urgences, infectiologue, médecin traitant.",
+      "probleme": "Notion non vérifiée contre une source de la cascade lors de cet audit (relue seulement, aucune erreur identifiée à la relecture) ; exigence qualité : statut à vérifier.",
+      "correction": "À vérifier contre HUG/CHUV/Insel/USZ/OFSP/ASSM (palier 2), puis société européenne (palier 3) ; aucune correction proposée.",
+      "statut": "a_verifier",
+      "cascade_palier": 2,
+      "aips_numero": null,
+      "source": {
+        "titre": "non trouvé, sources consultées : aucune lecture ciblée pour cette notion lors de l'audit du 2026-11-28",
+        "url": "https://www.bag.admin.ch/",
+        "date": "2026-11-28",
+        "rubrique": "sans objet"
+      },
+      "lu_le": "2026-11-28",
+      "gravite": "mineure"
+    }
+  ]
+}
